@@ -13,7 +13,13 @@ name: threads-autoreply
 on:
   schedule:
     - cron: "*/10 16-21 * * *" # 16:00-21:59 UTC covers 20:00-23:00 Africa/Cairo year-round
-  workflow_dispatch: {} # lets you run it manually from the Actions tab
+  workflow_dispatch: # lets you (or me) run it manually from the Actions tab
+    inputs:
+      mode:
+        description: "Run mode: live (posts) or dry (smoke test, posts nothing)"
+        type: choice
+        options: [live, dry]
+        default: live
 
 # Never let two runs overlap (they'd both read the same state and double-reply).
 concurrency:
@@ -53,7 +59,7 @@ jobs:
         run: npm ci
 
       - name: Reply to new comments
-        run: npm run live
+        run: npm run ${{ github.event.inputs.mode || 'live' }}
 
       - name: Persist state.json
         if: always() # save progress even if the run errored partway through
