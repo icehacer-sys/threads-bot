@@ -67,7 +67,8 @@ jobs:
         run: npm run ${{ github.event.inputs.mode || 'live' }}
 
       - name: Persist state.json
-        if: always() # save progress even if the run errored partway through
+        # Save progress even if the run errored, but never from a dry smoke test.
+        if: always() && github.event.inputs.mode != 'dry'
         run: |
           if [ -n "$(git status --porcelain state.json)" ]; then
             git config user.name "threads-bot"
