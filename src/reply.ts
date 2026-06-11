@@ -122,6 +122,18 @@ const EMOJI_SEQ = /\p{Extended_Pictographic}(?:️|[\u{1F3FB}-\u{1F3FF}]|‍\p{E
 const ADVICE_PATTERN =
   /\b(you should|i (would |really )?recommend|see (a|your) (doctor|physician|gp|specialist|dentist)|get (it|that|this) (checked|looked at|scanned|seen)|consult|seek medical|go to the (er|a&e|hospital|doctor)|you (might|may|could) have|sounds like you (have|might))\b/i;
 
+// AI-style preambles the model sometimes adds despite the voice rules. Stripped
+// from the start of any reply ("Great question.", "Thanks for sharing", ...).
+const PREAMBLE =
+  /^\s*(?:(?:great|good|nice|excellent|interesting)\s+(?:question|point|catch|eye|observation|guess)|thank(?:s| you)\s+for\s+(?:sharing|asking|that))\b[\s.,!:;—-]*/i;
+
+// Keep teaching/correcting replies tight: at most the first `n` sentences.
+function firstSentences(s: string, n: number): string {
+  const parts = s.match(/[^.!?]+[.!?]+(?:\s|$)/g);
+  if (!parts || parts.length <= n) return s;
+  return parts.slice(0, n).join("").trim();
+}
+
 export function sanitize(d: Decision): Decision {
   // Strip hashtags, links, mentions; collapse whitespace; cap length.
   let text = (d.reply_text || "")
@@ -133,6 +145,13 @@ export function sanitize(d: Decision): Decision {
     .replace(EMOJI_SEQ, (m) => (ALLOWED_EMOJI.has([...m][0]) ? m : "")) // only the allowed emojis
     .replace(/\s+/g, " ")
     .trim();
+
+  // Drop AI-style preambles even when the model ignores the voice rule, and keep
+  // teaching/correcting replies short. Re-capitalize if we trimmed the opener.
+  const stripped = text.replace(PREAMBLE, "").trimStart();
+  if (stripped !== text) text = stripped ? stripped.charAt(0).toUpperCase() + stripped.slice(1) : stripped;
+  if (d.category === "teach" || d.category === "correct") text = firstSentences(text, 2);
+
   if (text.length > 280) text = text.slice(0, 277).trimEnd() + "…";
 
   const looksLikeAdvice = ADVICE_PATTERN.test(text);
