@@ -15,7 +15,7 @@ This is self-contained. It does not touch the Med Notes Lab website. It has its 
 
 ## Two things to know about behavior
 
-- **When it replies and when it stops:** during a focused evening window, **8 PM → midnight Africa/Cairo** (`BOT_ACTIVE_*`, DST-aware), checking every 10 min. Each evening it works your newest post up to `BOT_PER_POST_CAP` (**100**) replies, then the cap stops it; outside that window it does nothing — it is not a 24/7 poller. Enable the schedule once (`gh workflow enable reply.yml`) and it then runs hands-free every evening. Change the hours in the workflow `env` + cron (cloud) or `.env` (local).
+- **When it replies and when it stops:** the window is **open all day** (`BOT_ACTIVE_*` = always on), checking every 10 min, so it replies to your newest post as soon as comments appear, up to `BOT_PER_POST_CAP` (**100**) replies — then the cap stops it. Note: every-10-min all-day on a **private** repo exceeds the 2,000 free Actions min/month (~2 weeks in); make the repo public for unlimited minutes, or lower the cron cadence. To restrict to certain hours instead, set `BOT_ACTIVE_START`/`END` (e.g. `20`/`0` = 8 PM–midnight) plus the cron.
 - **How it learns the answer:** it reads your own on-thread `Answer: <diagnosis>` reply automatically. The spoiler blur is display-only, so the bot still reads the real text — affirmations ("Spot on ✅") are then exact. Wrong-guess *corrections* lean on the answer + the X-ray + general knowledge; for a tricky case you can make them bulletproof by adding `facts` to `data/answers.json`, otherwise you never touch the file.
 
 ## Three ways to run

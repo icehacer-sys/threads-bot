@@ -2,11 +2,11 @@ name: threads-autoreply
 
 # Runs the bot on a schedule in the cloud (no need for your PC to be on).
 #
-# The cron fires every 10 min during the evening only (8 PM -> midnight Cairo,
-# enforced in code via BOT_ACTIVE_*, DST-safe). Each evening it replies to your
-# newest post up to BOT_PER_POST_CAP (100), then the cap stops it; outside the
-# window it does nothing. Enable it once and it runs hands-free every evening.
-# Evening-only stays well within the 2,000 free Actions min/month on a private repo.
+# The cron fires every 10 min, all day. The active window is OPEN (BOT_ACTIVE_*
+# = always on), so it replies to your newest post as soon as comments appear, up
+# to BOT_PER_POST_CAP (100), then the cap stops it. NOTE: every-10-min all-day on
+# a PRIVATE repo exceeds the 2,000 free Actions min/month (~2 weeks); make the repo
+# public for unlimited minutes, or lower the cadence (e.g. */30) to stay free.
 #
 # Required repository secrets (Settings -> Secrets and variables -> Actions):
 #   ANTHROPIC_API_KEY
@@ -14,7 +14,7 @@ name: threads-autoreply
 
 on:
   schedule:
-    - cron: "*/10 17-21 * * *" # evenings only (UTC band covers 8 PM->midnight Cairo year-round)
+    - cron: "*/10 * * * *" # all day, every 10 min (the code gate is open; the 100 cap stops it)
   workflow_dispatch: # lets you (or me) run it manually from the Actions tab
     inputs:
       mode:
@@ -47,8 +47,8 @@ jobs:
       BOT_ANSWER_DELAY_HOURS: "1"
       BOT_ANSWER_SPOILER: "on"
       BOT_ACTIVE_TZ: "Africa/Cairo"
-      BOT_ACTIVE_START: "20"
-      BOT_ACTIVE_END: "0"
+      BOT_ACTIVE_START: "0"
+      BOT_ACTIVE_END: "24"
       BOT_MODEL: "claude-sonnet-4-6"
     steps:
       - uses: actions/checkout@v4
