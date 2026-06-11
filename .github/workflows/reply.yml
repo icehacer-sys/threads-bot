@@ -2,11 +2,12 @@ name: threads-autoreply
 
 # Runs the bot on a schedule in the cloud (no need for your PC to be on).
 #
-# GitHub's scheduled cron throttles */10 badly, so ONE run polls internally every
-# 10 min (sleeping between checks) during the active windows (BOT_ACTIVE_WINDOWS,
-# Cairo), replying to your newest post up to BOT_PER_POST_CAP (200), then stopping.
-# Near the 6h job limit it hands off to a fresh run so coverage spans a window. The
-# */30 cron is a backup restart; for a prompt start when you post, trigger from Actions.
+# A run polls every 10 min and, before it ends, launches the next run -- a perpetual
+# chain that is ALWAYS alive (verified: workflow_dispatch self-launch works with the
+# built-in token). The bot posts only inside the active windows (BOT_ACTIVE_WINDOWS,
+# Cairo) up to BOT_PER_POST_CAP (200), so outside the windows the runs just no-op.
+# Concurrency keeps it a single chain; the */30 cron restarts it only if it ever dies.
+# Start it once (Actions -> Run workflow) and it runs forever; disable the workflow to stop.
 #
 # Required repository secrets (Settings -> Secrets and variables -> Actions):
 #   ANTHROPIC_API_KEY
@@ -75,7 +76,7 @@ jobs:
         env:
           MODE: ${{ github.event.inputs.mode || 'live' }}
           GH_TOKEN: ${{ github.token }}
-          MAXSECS: "1" # seconds per run before handing off; 19800 (~5.5h) in prod, small to test self-launch
+          MAXSECS: "19800" # ~5.5h per run, then it launches the next (under the 6h job limit)
         run: |
           if [ "$MODE" = "dry" ]; then
             npm run dry
