@@ -141,7 +141,7 @@ export function sanitize(d: Decision): Decision {
     .replace(/https?:\/\/\S+/gi, "")
     .replace(/(^|\s)@[\p{L}\p{N}_.]+/gu, "$1")
     .replace(/\s*[—–]\s*/g, ", ") // no em/en dashes; keep it in their voice
-    .replace(/,\s+(but|so|yet)\b/gi, " $1") // casual voice: no comma before but/so/yet
+    .replace(/,\s+(but|so|yet|not|though|although|whereas|while)\b/gi, " $1") // casual voice: no comma before a contrast word
     .replace(EMOJI_SEQ, (m) => (ALLOWED_EMOJI.has([...m][0]) ? m : "")) // only the allowed emojis
     .replace(/\s+/g, " ")
     .trim();
