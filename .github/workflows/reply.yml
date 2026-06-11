@@ -3,10 +3,10 @@ name: threads-autoreply
 # Runs the bot on a schedule in the cloud (no need for your PC to be on).
 #
 # GitHub's scheduled cron throttles */10 badly, so ONE run polls internally every
-# 10 min for up to ~5h (sleeping between checks), replying to your newest post up
-# to BOT_PER_POST_CAP (100), then stopping. The cron below is just a heartbeat to
-# (re)start that loop; for a prompt start right after you post, trigger it from the
-# Actions tab ("Run workflow"). Long runs are free on this public repo.
+# 10 min (sleeping between checks), 8 PM -> 4 AM Cairo, replying to your newest post
+# up to BOT_PER_POST_CAP (200), then stopping. Near the 6h job limit it hands off to
+# a fresh run so coverage spans the whole window. The */30 cron is a backup restart;
+# for a prompt start right after you post, trigger it from the Actions tab.
 #
 # Required repository secrets (Settings -> Secrets and variables -> Actions):
 #   ANTHROPIC_API_KEY
@@ -28,9 +28,10 @@ concurrency:
   group: threads-autoreply
   cancel-in-progress: false
 
-# Needed so the workflow can commit the updated state.json back to the repo.
+# contents: commit state.json back. actions: hand off to a fresh run near the 6h job limit.
 permissions:
   contents: write
+  actions: write
 
 jobs:
   reply:
@@ -47,8 +48,10 @@ jobs:
       BOT_ANSWER_DELAY_HOURS: "1"
       BOT_ANSWER_SPOILER: "on"
       BOT_ACTIVE_TZ: "Africa/Cairo"
-      BOT_ACTIVE_START: "0"
-      BOT_ACTIVE_END: "24"
+      BOT_ACTIVE_START: "20"
+      BOT_ACTIVE_END: "4"
+      BOT_PER_POST_CAP: "200"
+      BOT_DAILY_CAP: "240"
       BOT_MODEL: "claude-sonnet-4-6"
     steps:
       - uses: actions/checkout@v4
@@ -61,24 +64,30 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
-      # One run polls every 10 minutes for hours, instead of relying on GitHub's
-      # cron (which throttles */10 badly). It replies, commits progress, sleeps
-      # 10 min, repeats — until the post hits 100 or ~5h elapses. State is pushed
-      # each cycle so a restart never double-replies. Free on a public repo.
-      - name: Reply every 10 min until the post hits 100
+      # One run polls every 10 minutes for hours instead of relying on GitHub's
+      # cron (which throttles */10 badly). The bash window enforces 8 PM -> 4 AM
+      # Cairo; it replies, commits progress, sleeps 10 min, repeats. Near the 6h
+      # job limit it hands off to a fresh run so coverage spans the whole window.
+      # Stops at the 200 cap or at 4 AM. State is pushed each cycle so a restart
+      # never double-replies. Long runs are free on this public repo.
+      - name: Reply every 10 min, 8 PM -> 4 AM Cairo, until the post hits 200
         env:
           MODE: ${{ github.event.inputs.mode || 'live' }}
+          GH_TOKEN: ${{ github.token }}
         run: |
           if [ "$MODE" = "dry" ]; then
             npm run dry
             exit 0
           fi
+          in_window() { h=$((10#$(TZ='Africa/Cairo' date +%H))); [ "$h" -ge 20 ] || [ "$h" -lt 4 ]; }
           git config user.name "threads-bot"
           git config user.email "github-actions[bot]@users.noreply.github.com"
           rm -f .bot-stop
           start=$(date +%s)
-          for i in $(seq 1 50); do
-            echo "::group::poll $i ($(date -u +%H:%M:%S)Z)"
+          handoff=0
+          for i in $(seq 1 60); do
+            if ! in_window; then echo "Outside 8 PM-4 AM Cairo. Done for tonight."; break; fi
+            echo "::group::poll $i ($(TZ='Africa/Cairo' date +%H:%M) Cairo)"
             npm run live || echo "iteration $i errored, continuing"
             if [ -n "$(git status --porcelain state.json)" ]; then
               git add state.json
@@ -87,7 +96,11 @@ jobs:
               git push || echo "push failed; will retry next loop"
             fi
             echo "::endgroup::"
-            if [ -f .bot-stop ]; then echo "Per-post cap (100) reached. Done."; break; fi
-            if [ $(( $(date +%s) - start )) -ge 18000 ]; then echo "~5h elapsed; stopping (a later run continues)."; break; fi
+            if [ -f .bot-stop ]; then echo "Per-post cap (200) reached. Done."; break; fi
+            if [ $(( $(date +%s) - start )) -ge 19800 ]; then echo "~5.5h elapsed; handing off."; handoff=1; break; fi
             sleep 600
           done
+          if [ "$handoff" = "1" ] && in_window; then
+            echo "Handing off to a fresh run to keep polling until 4 AM."
+            gh workflow run reply.yml -f mode=live || echo "hand-off dispatch failed"
+          fi
