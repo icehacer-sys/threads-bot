@@ -4,7 +4,7 @@
 //   npm run dry    -> read REAL recent comments via Threads API, print what it WOULD post. Posts nothing.
 //   npm run live   -> same as dry, but actually posts (requires BOT_CONFIRM_LIVE=yes).
 
-import { appendFileSync, readFileSync } from "node:fs";
+import { readFileSync } from "node:fs";
 import { fileURLToPath } from "node:url";
 import { dirname, join } from "node:path";
 import { config } from "./config";
@@ -366,14 +366,6 @@ async function runLiveOrDry(mode: Mode, target: string | null): Promise<void> {
     `Summary: ${posting ? "posted" : "would post"} ${replied} repl${replied === 1 ? "y" : "ies"}. ` +
       `Skipped by category: ${skipSummary}.\n`,
   );
-
-  // In CI (live): signal when a post has reached the per-post cap, so the workflow
-  // can stop its own schedule -> "reply up to 100, then stop."
-  if (posting && process.env.GITHUB_OUTPUT) {
-    const capReached = posts.some((p) => state.repliedToPost(p.id) >= config.perPostCap);
-    appendFileSync(process.env.GITHUB_OUTPUT, `cap_reached=${capReached ? "true" : "false"}\n`);
-    if (capReached) console.log(`Per-post cap (${config.perPostCap}) reached — schedule will stop.`);
-  }
 }
 
 async function main(): Promise<void> {
