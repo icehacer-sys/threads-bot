@@ -15,7 +15,7 @@ This is self-contained. It does not touch the Med Notes Lab website. It has its 
 
 ## Two things to know about behavior
 
-- **When it replies:** only between **8–11 PM Africa/Cairo** (`BOT_ACTIVE_TZ` / `BOT_ACTIVE_START` / `BOT_ACTIVE_END`, timezone- and DST-aware). Post your challenge around 8 PM and it flows immediately; post earlier in the day and it waits for the window. To widen or move the hours, change those values in the workflow `env` block (cloud) or `.env` (local) — it's a one-line edit.
+- **When it replies:** from **8 PM until 7 PM the next day, Africa/Cairo** (`BOT_ACTIVE_*`, timezone- and DST-aware) — active ~23h, with only the 7–8 PM hour paused as a daily reset. The cloud schedule runs every 30 min to stay within the free Actions tier on a private repo (make the repo public for unlimited minutes if you want every 10 min). Change the hours/cadence in the workflow `env` block + cron (cloud) or `.env` (local).
 - **How it learns the answer:** it reads your own on-thread `Answer: <diagnosis>` reply automatically. The spoiler blur is display-only, so the bot still reads the real text — affirmations ("Spot on ✅") are then exact. Wrong-guess *corrections* lean on the answer + the X-ray + general knowledge; for a tricky case you can make them bulletproof by adding `facts` to `data/answers.json`, otherwise you never touch the file.
 
 ## Three ways to run

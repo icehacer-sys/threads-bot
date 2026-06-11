@@ -2,9 +2,10 @@ name: threads-autoreply
 
 # Runs the bot on a schedule in the cloud (no need for your PC to be on).
 #
-# The cron fires every 10 min across a generous UTC band; the precise
-# 8-11 PM Cairo window is enforced in code (BOT_ACTIVE_*), which also handles
-# DST. Runs that land outside the window exit immediately (no API cost).
+# The cron fires every 30 min, all day. The active window (8 PM -> 7 PM next day,
+# Cairo) is enforced in code (BOT_ACTIVE_*, DST-safe); runs during the paused hour
+# exit immediately. 30 min keeps this within the 2,000 free Actions min/month on a
+# PRIVATE repo. Want every 10 min? Make the repo public (unlimited Actions minutes).
 #
 # Required repository secrets (Settings -> Secrets and variables -> Actions):
 #   ANTHROPIC_API_KEY
@@ -12,7 +13,7 @@ name: threads-autoreply
 
 on:
   schedule:
-    - cron: "*/10 16-21 * * *" # 16:00-21:59 UTC covers 20:00-23:00 Africa/Cairo year-round
+    - cron: "*/30 * * * *" # every 30 min, all day; code gate limits posting to 20:00->19:00 Cairo
   workflow_dispatch: # lets you (or me) run it manually from the Actions tab
     inputs:
       mode:
@@ -46,7 +47,7 @@ jobs:
       BOT_ANSWER_SPOILER: "on"
       BOT_ACTIVE_TZ: "Africa/Cairo"
       BOT_ACTIVE_START: "20"
-      BOT_ACTIVE_END: "23"
+      BOT_ACTIVE_END: "19"
       BOT_MODEL: "claude-sonnet-4-6"
     steps:
       - uses: actions/checkout@v4
@@ -54,6 +55,7 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: "20"
+          cache: "npm"
 
       - name: Install dependencies
         run: npm ci
