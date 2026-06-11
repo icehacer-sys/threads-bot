@@ -199,8 +199,7 @@ function withinActiveHours(): boolean {
   } catch {
     return true; // unknown timezone -> don't block
   }
-  const { activeStart: a, activeEnd: b } = config;
-  return a <= b ? hour >= a && hour < b : hour >= a || hour < b;
+  return config.activeWindows.some(([a, b]) => (a <= b ? hour >= a && hour < b : hour >= a || hour < b));
 }
 
 async function runLiveOrDry(mode: Mode, target: string | null): Promise<void> {
@@ -212,9 +211,14 @@ async function runLiveOrDry(mode: Mode, target: string | null): Promise<void> {
   }
 
   if (posting && !withinActiveHours()) {
-    console.log(
-      `Outside active hours (${config.activeStart}:00-${config.activeEnd}:00 ${config.activeTz}). Nothing to do.`,
-    );
+    // Marker the polling loop reads to know it's outside all windows.
+    try {
+      writeFileSync(".bot-idle", "outside-window");
+    } catch {
+      /* best effort */
+    }
+    const windows = config.activeWindows.map(([a, b]) => `${a}-${b}`).join(", ");
+    console.log(`Outside active hours (${windows} ${config.activeTz}). Nothing to do.`);
     return;
   }
 

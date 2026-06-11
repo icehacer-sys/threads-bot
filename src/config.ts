@@ -18,6 +18,22 @@ function num(name: string, fallback: number): number {
   return Number.isFinite(n) ? n : fallback;
 }
 
+// Active windows as [startHour, endHour) pairs in activeTz, from BOT_ACTIVE_WINDOWS
+// (e.g. "20-2,4-10"). Each may wrap past midnight (start > end). Falls back to the
+// single BOT_ACTIVE_START/END window when BOT_ACTIVE_WINDOWS is unset.
+function parseActiveWindows(): Array<[number, number]> {
+  const raw = (process.env.BOT_ACTIVE_WINDOWS ?? "").trim();
+  if (raw) {
+    const out: Array<[number, number]> = [];
+    for (const part of raw.split(",")) {
+      const m = part.trim().match(/^(\d{1,2})\s*-\s*(\d{1,2})$/);
+      if (m) out.push([Number(m[1]), Number(m[2])]);
+    }
+    if (out.length) return out;
+  }
+  return [[num("BOT_ACTIVE_START", 0), num("BOT_ACTIVE_END", 24)]];
+}
+
 export const config = {
   // Model (see README for the Claude vs Gemini recommendation)
   model: process.env.BOT_MODEL ?? "claude-sonnet-4-6",
@@ -58,6 +74,8 @@ export const config = {
   activeTz: process.env.BOT_ACTIVE_TZ ?? "",
   activeStart: num("BOT_ACTIVE_START", 0),
   activeEnd: num("BOT_ACTIVE_END", 24),
+  // One or more active windows (overrides start/end). E.g. "20-2,4-10".
+  activeWindows: parseActiveWindows(),
 
   // Threads API
   graphBase: "https://graph.threads.net/v1.0",
