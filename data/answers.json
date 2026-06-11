@@ -1,5 +1,14 @@
 {
-  "DZaiXl2iWzZ": { "answer": "Scimitar Syndrome", "aliases": ["scimitar", "pulmonary venolobar syndrome"] },
+  "DZaiXl2iWzZ": {
+    "answer": "Scimitar Syndrome",
+    "aliases": ["scimitar", "pulmonary venolobar syndrome"],
+    "facts": [
+      "A curving anomalous pulmonary vein descends along the right heart border, resembling a Turkish scimitar sword.",
+      "Congenital anomaly: part or all of the right lung drains into the inferior vena cava instead of the left atrium.",
+      "Observation if mild; symptomatic cases may require surgical correction."
+    ],
+    "breakdown": "Answer: Scimitar Syndrome\n👀 What you see:\nA curving anomalous pulmonary vein descending along the right heart border, resembling a Turkish scimitar sword.\n🫀 Why it matters:\nA rare congenital anomaly where part or all of the right lung drains into the inferior vena cava instead of the left atrium.\n💊 Treatment:\nObservation if mild. Symptomatic cases may require surgical correction.\n📝 Takeaway:\nScimitar-shaped vein on the right = Scimitar syndrome."
+  },
   "DZX4-v_k7lT": { "answer": "Nail-Patella Syndrome", "aliases": ["iliac horns", "Fong disease", "nail patella"] },
   "DZVjFe6DANO": { "answer": "Osteopoikilosis", "aliases": ["spotted bone disease"] },
   "DZStLYBgRAE": {
