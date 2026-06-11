@@ -2,6 +2,7 @@ node_modules/
 .env
 .env.local
 *.log
+.bot-stop
 
 # state.json is intentionally TRACKED: the GitHub Actions runner commits it back
 # each run so the bot remembers which comments it already answered. Do not ignore it.
