@@ -1,0 +1,27 @@
+{
+  "name": "threads-autoreply-bot",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Auto-reply bot for Med Notes Lab Threads (@mdnoteslab). Finds unanswered comments on recent posts and replies in the brand voice. Skips anything that looks like a personal medical question.",
+  "engines": {
+    "node": ">=18.17"
+  },
+  "scripts": {
+    "demo": "tsx src/index.ts --demo",
+    "dry": "tsx src/index.ts --dry-run",
+    "live": "tsx src/index.ts --live",
+    "token:url": "tsx src/get-token.ts --url",
+    "token": "tsx src/get-token.ts",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@anthropic-ai/sdk": "^0.104.1",
+    "dotenv": "^17.4.2"
+  },
+  "devDependencies": {
+    "@types/node": "^25.9.2",
+    "tsx": "^4.22.4",
+    "typescript": "^6.0.3"
+  }
+}

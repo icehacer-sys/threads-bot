@@ -1,0 +1,15 @@
+{
+  "DZaiXl2iWzZ": { "answer": "Scimitar Syndrome", "aliases": ["scimitar", "pulmonary venolobar syndrome"] },
+  "DZX4-v_k7lT": { "answer": "Nail-Patella Syndrome", "aliases": ["iliac horns", "Fong disease", "nail patella"] },
+  "DZVjFe6DANO": { "answer": "Osteopoikilosis", "aliases": ["spotted bone disease"] },
+  "DZStLYBgRAE": {
+    "answer": "Eagle Syndrome",
+    "aliases": ["elongated styloid", "elongated styloid process"],
+    "facts": [
+      "Bilateral elongated styloid processes extend down from the skull base.",
+      "Usually asymptomatic; can cause throat pain, ear pain, swallowing difficulty, or a foreign-body sensation.",
+      "Managed by observation if asymptomatic; surgery only when symptoms are severe."
+    ],
+    "breakdown": "Answer: Eagle Syndrome\n\n👀 What you see:\nBilateral elongated styloid processes extending downward from the skull base.\n\n🦴 Why it matters:\nUsually asymptomatic but can cause throat pain, ear pain, swallowing difficulty, or a foreign body sensation.\n\n💊 Treatment:\nObservation if asymptomatic. Surgery may be needed if symptoms are severe.\n\n📝 Takeaway:\nExtra-long styloid processes = Eagle syndrome."
+  }
+}

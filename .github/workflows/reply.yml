@@ -1,0 +1,68 @@
+name: threads-autoreply
+
+# Runs the bot on a schedule in the cloud (no need for your PC to be on).
+#
+# The cron fires every 10 min across a generous UTC band; the precise
+# 8-11 PM Cairo window is enforced in code (BOT_ACTIVE_*), which also handles
+# DST. Runs that land outside the window exit immediately (no API cost).
+#
+# Required repository secrets (Settings -> Secrets and variables -> Actions):
+#   ANTHROPIC_API_KEY
+#   THREADS_ACCESS_TOKEN
+
+on:
+  schedule:
+    - cron: "*/10 16-21 * * *" # 16:00-21:59 UTC covers 20:00-23:00 Africa/Cairo year-round
+  workflow_dispatch: {} # lets you run it manually from the Actions tab
+
+# Never let two runs overlap (they'd both read the same state and double-reply).
+concurrency:
+  group: threads-autoreply
+  cancel-in-progress: false
+
+# Needed so the workflow can commit the updated state.json back to the repo.
+permissions:
+  contents: write
+
+jobs:
+  reply:
+    runs-on: ubuntu-latest
+    env:
+      ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+      THREADS_ACCESS_TOKEN: ${{ secrets.THREADS_ACCESS_TOKEN }}
+      THREADS_USER_ID: me
+      BOT_CONFIRM_LIVE: "yes"
+      BOT_EDUCATIONAL: "on"
+      BOT_NEWEST_ONLY: "on"
+      BOT_VISION: "on"
+      BOT_ANSWER: "on"
+      BOT_ANSWER_DELAY_HOURS: "1"
+      BOT_ACTIVE_TZ: "Africa/Cairo"
+      BOT_ACTIVE_START: "20"
+      BOT_ACTIVE_END: "23"
+      BOT_MODEL: "claude-sonnet-4-6"
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Reply to new comments
+        run: npm run live
+
+      - name: Persist state.json
+        if: always() # save progress even if the run errored partway through
+        run: |
+          if [ -n "$(git status --porcelain state.json)" ]; then
+            git config user.name "threads-bot"
+            git config user.email "github-actions[bot]@users.noreply.github.com"
+            git add state.json
+            git commit -m "chore: update reply state [skip ci]"
+            git push
+          else
+            echo "No state change to commit."
+          fi

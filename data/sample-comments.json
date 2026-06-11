@@ -1,0 +1,68 @@
+[
+  {
+    "post": "A patient came in because their kneecaps kept dislocating. Then the X-ray loaded. And it looked like the pelvis had grown horns.",
+    "answer": "Nail-Patella Syndrome (also: iliac horns, Fong disease)",
+    "comment": "Satanic Hips Syndrome?"
+  },
+  {
+    "post": "A patient came in because their kneecaps kept dislocating. Then the X-ray loaded. And it looked like the pelvis had grown horns.",
+    "answer": "Nail-Patella Syndrome (also: iliac horns, Fong disease)",
+    "comment": "kneecaps are not located on the hips"
+  },
+  {
+    "post": "A patient came in because their kneecaps kept dislocating. Then the X-ray loaded. And it looked like the pelvis had grown horns.",
+    "answer": "Nail-Patella Syndrome (also: iliac horns, Fong disease)",
+    "comment": "Bone spurs?",
+    "note": "Wrong but earnest guess -> should be a kind 'correct' nudge, not a skip."
+  },
+  {
+    "post": "A patient came in because their kneecaps kept dislocating. Then the X-ray loaded. And it looked like the pelvis had grown horns.",
+    "answer": "Nail-Patella Syndrome (also: iliac horns, Fong disease)",
+    "comment": "This would be a great metal album cover"
+  },
+  {
+    "post": "A patient came in with neck pain. Then the X-ray loaded. And it looked like the skeleton had grown tiny wings.",
+    "answer": "Eagle Syndrome (also: elongated styloid)",
+    "comment": "Skullcicles!"
+  },
+  {
+    "post": "A patient came in with neck pain. Then the X-ray loaded. And it looked like the skeleton had grown tiny wings.",
+    "answer": "Eagle Syndrome (also: elongated styloid)",
+    "comment": "Elongated styloid. Eagle syndrome"
+  },
+  {
+    "post": "A patient came in with neck pain. Then the X-ray loaded. And it looked like the skeleton had grown tiny wings.",
+    "answer": "Eagle Syndrome (also: elongated styloid)",
+    "comment": "I had one removed, it was growing into my carotid 😳",
+    "note": "Personal story -> empathize, no advice."
+  },
+  {
+    "post": "A patient came in with neck pain. Then the X-ray loaded. And it looked like the skeleton had grown tiny wings.",
+    "answer": "Eagle Syndrome (also: elongated styloid)",
+    "comment": "I've had a weird poking pain in my throat for months. Could I have this? Should I ask my doctor for a scan?",
+    "note": "Illustrative personal-medical case: must be skipped."
+  },
+  {
+    "post": "A patient came in with hip pain. Then the X-ray loaded. And it looked like someone had seasoned the skeleton with white pepper.",
+    "answer": "Osteopoikilosis (also: spotted bone disease)",
+    "comment": "Glitter hips don't lie"
+  },
+  {
+    "post": "A patient came in with hip pain. Then the X-ray loaded. And it looked like someone had seasoned the skeleton with white pepper.",
+    "answer": "Osteopoikilosis (also: spotted bone disease)",
+    "comment": "Osteoporosis?",
+    "note": "Wrong guess (the opposite) -> kind 'correct' nudge."
+  },
+  {
+    "post": "A patient came in with hip pain. Then the X-ray loaded. And it looked like someone had seasoned the skeleton with white pepper.",
+    "answer": "Osteopoikilosis (also: spotted bone disease)",
+    "comment": "Osteopoikilosis",
+    "note": "Correct answer -> should affirm with a check-mark line."
+  },
+  {
+    "post": "A patient came in with hip pain. Then the X-ray loaded. And it looked like someone had seasoned the skeleton with white pepper.",
+    "answer": "Osteopoikilosis (also: spotted bone disease)",
+    "comment": "Follow me for free X-ray prints!! link in bio",
+    "note": "Illustrative spam: skip."
+  }
+]
