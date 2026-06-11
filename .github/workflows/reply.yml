@@ -37,6 +37,7 @@ jobs:
       BOT_VISION: "on"
       BOT_ANSWER: "on"
       BOT_ANSWER_DELAY_HOURS: "1"
+      BOT_ANSWER_SPOILER: "on"
       BOT_ACTIVE_TZ: "Africa/Cairo"
       BOT_ACTIVE_START: "20"
       BOT_ACTIVE_END: "23"

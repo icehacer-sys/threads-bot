@@ -77,7 +77,7 @@ About an hour after a post goes up (`BOT_ANSWER_DELAY_HOURS`, default 1), the bo
 
 Use `\n` for line breaks. **You write the breakdown** — the bot does not generate the medical content, so it stays accurate. After it posts, **you tap "Pin" once** in the app (the Threads API has no pin endpoint). Turn the whole feature off with `BOT_ANSWER=off`.
 
-Prefer to hide the answer behind a tap instead? Set `BOT_ANSWER_SPOILER=on`: everything after the first line gets blurred, so put a plain teaser on line 1 (e.g. `Answer below, tap to reveal:`) and the diagnosis underneath.
+Prefer to hide the answer behind a tap instead? Set `BOT_ANSWER_SPOILER=on`: only the `Answer:` label stays visible and the diagnosis + the whole explanation are blurred until tapped. Just start your breakdown with `Answer: <diagnosis>` (the normal format) — no teaser line needed.
 
 Caveat: the spoiler boundary is computed by character position. Check your first real answer post looks right; if the blur starts a character or two off because of an emoji, it's a one-line fix in `answerSpoiler()` (switch to code-point counting).
 

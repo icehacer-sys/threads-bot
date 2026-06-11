@@ -123,13 +123,14 @@ function resolveAnswer(
   return { answer: answerFromConversation(convo, me) ?? undefined };
 }
 
-// Build the answer reply: keep the "Answer: X" first line visible, blur the rest.
+// Build the answer reply: keep ONLY the "Answer:" label visible and blur the
+// diagnosis plus the whole explanation (the spoiler style the account uses).
+// If there is no "Answer:" prefix, blur everything to be safe.
 // NOTE: offset/length are character positions. If the blur boundary lands wrong
 // because of emoji, switch these to code-point counts (use [...str].length).
 function answerSpoiler(breakdown: string): { text: string; spoilers: SpoilerEntity[] } {
-  const nl = breakdown.indexOf("\n");
-  if (nl === -1) return { text: breakdown, spoilers: [] };
-  const offset = nl + 1;
+  const m = breakdown.match(/^\s*answer\s*:\s*/i);
+  const offset = m ? m[0].length : 0;
   const length = breakdown.length - offset;
   return { text: breakdown, spoilers: length > 0 ? [{ entity_type: "SPOILER", offset, length }] : [] };
 }
