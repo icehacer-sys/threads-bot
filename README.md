@@ -13,6 +13,11 @@ This is self-contained. It does not touch the Med Notes Lab website. It has its 
 5. Skip anything risky (personal medical question, complaint, spam, or any uncertainty).
 6. Post the safe replies, up to `BOT_PER_POST_CAP` per post (default 100, counted across runs) and a daily backstop.
 
+## Two things to know about behavior
+
+- **When it replies:** only between **8–11 PM Africa/Cairo** (`BOT_ACTIVE_TZ` / `BOT_ACTIVE_START` / `BOT_ACTIVE_END`, timezone- and DST-aware). Post your challenge around 8 PM and it flows immediately; post earlier in the day and it waits for the window. To widen or move the hours, change those values in the workflow `env` block (cloud) or `.env` (local) — it's a one-line edit.
+- **How it learns the answer:** it reads your own on-thread `Answer: <diagnosis>` reply automatically. The spoiler blur is display-only, so the bot still reads the real text — affirmations ("Spot on ✅") are then exact. Wrong-guess *corrections* lean on the answer + the X-ray + general knowledge; for a tricky case you can make them bulletproof by adding `facts` to `data/answers.json`, otherwise you never touch the file.
+
 ## Three ways to run
 
 | Command | What it does | Needs |
