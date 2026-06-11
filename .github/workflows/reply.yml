@@ -71,10 +71,11 @@ jobs:
       # job limit it hands off to a fresh run so coverage spans the whole window.
       # Stops at the 200 cap or at 4 AM. State is pushed each cycle so a restart
       # never double-replies. Long runs are free on this public repo.
-      - name: Reply every 10 min within the active windows, until the post hits 200
+      - name: Poll every 10 min (perpetual chain); post only inside the active windows
         env:
           MODE: ${{ github.event.inputs.mode || 'live' }}
           GH_TOKEN: ${{ github.token }}
+          MAXSECS: "1" # seconds per run before handing off; 19800 (~5.5h) in prod, small to test self-launch
         run: |
           if [ "$MODE" = "dry" ]; then
             npm run dry
@@ -82,11 +83,8 @@ jobs:
           fi
           git config user.name "threads-bot"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          rm -f .bot-stop .bot-idle
           start=$(date +%s)
-          handoff=0
           for i in $(seq 1 60); do
-            rm -f .bot-idle
             echo "::group::poll $i ($(TZ='Africa/Cairo' date +%H:%M) Cairo)"
             npm run live || echo "iteration $i errored, continuing"
             if [ -n "$(git status --porcelain state.json)" ]; then
@@ -96,12 +94,12 @@ jobs:
               git push || echo "push failed; will retry next loop"
             fi
             echo "::endgroup::"
-            if [ -f .bot-stop ]; then echo "Per-post cap (200) reached. Done."; break; fi
-            if [ -f .bot-idle ]; then echo "Outside the active windows. Done for now."; break; fi
-            if [ $(( $(date +%s) - start )) -ge 19800 ]; then echo "~5.5h elapsed; handing off."; handoff=1; break; fi
+            if [ $(( $(date +%s) - start )) -ge "$MAXSECS" ]; then break; fi
             sleep 600
           done
-          if [ "$handoff" = "1" ]; then
-            echo "Handing off to a fresh run to keep covering the window."
-            gh workflow run reply.yml -f mode=live || echo "hand-off dispatch failed"
-          fi
+          # Perpetual chain: always launch the next run so a loop is ALWAYS alive.
+          # The bot itself posts only inside the active windows, up to the cap, so
+          # outside the windows these runs just no-op. Concurrency keeps it a single
+          # chain; the */30 cron restarts it only if a hand-off ever fails.
+          echo "Launching the next run (keeps the bot live 24/7)."
+          gh workflow run reply.yml -f mode=live || echo "hand-off dispatch failed"
