@@ -276,6 +276,15 @@ async function runLiveOrDry(mode: Mode, target: string | null): Promise<void> {
       conversation.filter((c) => c.username === me && c.replied_to?.id).map((c) => c.replied_to!.id),
     );
 
+    // Short replies we've already posted on this post, so the model can vary its
+    // wording instead of reusing the same shapes. Grows as this run posts more.
+    const recentOwnerReplies = conversation
+      .filter((c) => c.username === me && (c.text ?? "").trim().length > 0 && (c.text ?? "").length <= 280)
+      .sort((a, b) => (a.timestamp ?? "").localeCompare(b.timestamp ?? ""))
+      .map((c) => c.text as string)
+      .slice(-12);
+    const postedThisRun: string[] = [];
+
     // Filter to genuinely-unanswered comments first, THEN apply the per-post cap,
     // so older unanswered comments aren't dropped by a cap full of answered ones.
     const unanswered = replies.filter(
@@ -305,6 +314,7 @@ async function runLiveOrDry(mode: Mode, target: string | null): Promise<void> {
         answer: resolved.answer,
         facts: resolved.facts,
         images: postImages,
+        recentReplies: [...recentOwnerReplies, ...postedThisRun],
       });
       if (!config.educationalReplies && (d.category === "correct" || d.category === "teach")) {
         d = { ...d, decision: "skip", reply_text: "", reason: `${d.reason} | educational replies off` };
@@ -315,6 +325,7 @@ async function runLiveOrDry(mode: Mode, target: string | null): Promise<void> {
         skipCounts[d.category] = (skipCounts[d.category] ?? 0) + 1;
         continue;
       }
+      postedThisRun.push(d.reply_text);
       if (posting) {
         try {
           await postReply(c.id, d.reply_text);

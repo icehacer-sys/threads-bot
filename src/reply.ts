@@ -63,20 +63,29 @@ export interface ClassifyInput {
   facts?: string[];
   /** The post's X-ray image(s), inline, for the model to actually see. */
   images?: InlineImage[];
+  /** Replies already posted on this post, so the model avoids reusing shapes. */
+  recentReplies?: string[];
 }
 
 export async function classifyAndDraft(input: ClassifyInput): Promise<Decision> {
-  const { postText, commentText, answer, facts, images } = input;
+  const { postText, commentText, answer, facts, images, recentReplies } = input;
   const factsBlock =
     facts && facts.length
       ? `VETTED FACTS (owner-reviewed, source of truth):\n- ${facts.join("\n- ")}`
       : "VETTED FACTS: none";
+  const recentBlock =
+    recentReplies && recentReplies.length
+      ? `ALREADY POSTED on this post (do NOT reuse these openings, sentence shapes, or jokes — write something clearly different):\n- ${recentReplies.slice(-15).join("\n- ")}`
+      : "";
   const userText = [
     `POST:\n${postText || "(unknown)"}`,
     `CORRECT ANSWER (private, never reveal): ${answer && answer.trim() ? answer.trim() : "unknown"}`,
     factsBlock,
+    recentBlock,
     `COMMENT:\n${commentText}`,
-  ].join("\n\n");
+  ]
+    .filter(Boolean)
+    .join("\n\n");
 
   // Image blocks first (so the model sees the X-ray), then the text.
   const content: Array<Anthropic.ImageBlockParam | Anthropic.TextBlockParam> = [];
