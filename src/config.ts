@@ -38,6 +38,10 @@ export const config = {
   // Model (see README for the Claude vs Gemini recommendation)
   model: process.env.BOT_MODEL ?? "claude-sonnet-4-6",
 
+  // Let the model web-search a reference it doesn't recognize (it decides when;
+  // most comments won't trigger one). Adds a small per-search cost. Off by default.
+  webSearch: (process.env.BOT_WEB_SEARCH ?? "off").toLowerCase() === "on",
+
   // Reply to posts within this many hours. 0 = no time limit (rely on the per-post cap).
   windowHours: num("BOT_WINDOW_HOURS", 0),
   maxPostsScanned: num("BOT_MAX_POSTS", 5),

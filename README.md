@@ -136,6 +136,7 @@ Two things to know:
 - `BOT_PER_POST_CAP` — hard cap on total replies per post, counted across runs (default 100).
 - `BOT_EDUCATIONAL` — `on` (default): once the answer is known, it corrects wrong guesses and answers questions using the vetted `facts`. `off` leaves those for you.
 - `BOT_VISION` — `on` (default): send the post's X-ray image to the model so it can see the case.
+- `BOT_WEB_SEARCH` — `off` (default). `on` lets the model web-search a reference it doesn't recognize (e.g. a brand-new movie). It decides when, so only the stumped comments trigger a search; adds a small per-search cost.
 - `BOT_ANSWER` / `BOT_ANSWER_DELAY_HOURS` — auto-post the answer breakdown, spoiler-blurred, after N hours (default on, 1h). You pin it manually.
 - `BOT_ACTIVE_TZ` / `BOT_ACTIVE_START` / `BOT_ACTIVE_END` — restrict live posting to local hours (e.g. `Africa/Cairo`, `20`, `23` = 8–11 PM). Timezone-aware and DST-safe. Empty TZ = always on.
 

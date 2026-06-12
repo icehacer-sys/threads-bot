@@ -55,6 +55,7 @@ jobs:
       BOT_PER_POST_CAP: "200"
       BOT_DAILY_CAP: "240"
       BOT_MODEL: "claude-sonnet-4-6"
+      BOT_WEB_SEARCH: "on"
     steps:
       - uses: actions/checkout@v4
 

@@ -94,29 +94,46 @@ export async function classifyAndDraft(input: ClassifyInput): Promise<Decision> 
   }
   content.push({ type: "text", text: userText });
 
+  // The submit_reply tool gives guaranteed-structured output; web_search (optional)
+  // lets the model look up references it does not recognize. With web search off we
+  // FORCE submit_reply for a deterministic single call. With it on we let the model
+  // choose to search first (server-side, auto-run), then submit.
+  const tools: unknown[] = [
+    {
+      name: "submit_reply",
+      description: "Submit your final decision and reply for this one comment. Call this exactly once, last.",
+      input_schema: REPLY_SCHEMA,
+    },
+  ];
+  let toolChoice: unknown = { type: "tool", name: "submit_reply" };
+  if (config.webSearch) {
+    tools.unshift({ type: "web_search_20250305", name: "web_search", max_uses: 3 });
+    toolChoice = { type: "auto" };
+  }
+
   try {
     const res = await getClient().messages.create({
       model: config.model,
       max_tokens: 1024,
-      // System prompt is static -> cache it. (Caching only kicks in once the
-      // prefix passes the model's minimum; see README. The marker is harmless otherwise.)
+      // System prompt is static -> cache it.
       system: [{ type: "text", text: SYSTEM_PROMPT, cache_control: { type: "ephemeral" } }],
       messages: [{ role: "user", content }],
-      // Structured outputs: the response text is guaranteed to match REPLY_SCHEMA.
-      // Cast keeps us compatible across SDK minor versions that may not type output_config yet.
-      output_config: { format: { type: "json_schema", schema: REPLY_SCHEMA } },
+      tools,
+      tool_choice: toolChoice,
     } as unknown as Anthropic.MessageCreateParamsNonStreaming);
 
-    const text = res.content
-      .filter((b): b is Anthropic.TextBlock => b.type === "text")
-      .map((b) => b.text)
-      .join("")
-      .trim();
-
-    const parsed = JSON.parse(text) as Decision;
-    return sanitize(parsed);
+    if (res.content.some((b) => (b as { type: string }).type === "web_search_tool_result")) {
+      console.log(`    (web search used for: "${commentText.slice(0, 40).replace(/\s+/g, " ")}")`);
+    }
+    const submit = res.content.find(
+      (b) => (b as { type: string; name?: string }).type === "tool_use" && (b as { name?: string }).name === "submit_reply",
+    ) as { input?: unknown } | undefined;
+    if (!submit?.input) {
+      return { decision: "skip", category: "other", reply_text: "", reason: "no submit_reply produced" };
+    }
+    return sanitize(submit.input as Decision);
   } catch (err) {
-    // Any failure (API error, malformed JSON) -> stay silent. Never post on uncertainty.
+    // Any failure (API error, bad output) -> stay silent. Never post on uncertainty.
     const msg = err instanceof Error ? err.message : String(err);
     return { decision: "skip", category: "other", reply_text: "", reason: `error: ${msg.slice(0, 140)}` };
   }
