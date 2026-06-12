@@ -127,7 +127,7 @@ export async function getReplies(mediaId: string): Promise<ThreadsReply[]> {
 /** Full flattened conversation under a post (used to see what we've already answered). */
 export async function getConversation(mediaId: string): Promise<ThreadsReply[]> {
   return apiGetAll<ThreadsReply>(`/${mediaId}/conversation`, {
-    fields: "id,text,username,timestamp,has_replies,hide_status,replied_to",
+    fields: "id,text,username,timestamp,has_replies,hide_status,replied_to,media_type,media_url",
     reverse: "false",
     limit: 100,
   });

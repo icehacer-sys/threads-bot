@@ -69,10 +69,12 @@ export interface ClassifyInput {
   commentImages?: InlineImage[];
   /** What the comment's media is: a real image, a frame from a GIF/video, or an unreadable GIF/video. */
   commentMediaKind?: "image" | "video-frame" | "video";
+  /** This comment is a reply under our pinned "Answer:" thread, where the diagnosis is already public. */
+  inAnswerThread?: boolean;
 }
 
 export async function classifyAndDraft(input: ClassifyInput): Promise<Decision> {
-  const { postText, commentText, answer, facts, images, recentReplies, commentImages, commentMediaKind } = input;
+  const { postText, commentText, answer, facts, images, recentReplies, commentImages, commentMediaKind, inAnswerThread } = input;
   const factsBlock =
     facts && facts.length
       ? `VETTED FACTS (owner-reviewed, source of truth):\n- ${facts.join("\n- ")}`
@@ -89,9 +91,16 @@ export async function classifyAndDraft(input: ClassifyInput): Promise<Decision> 
         : commentImages && commentImages.length
           ? "NOTE: the commenter attached the image shown above. React to what is actually in it and tie it to the case."
           : "";
+  const answerLine = inAnswerThread
+    ? `CORRECT ANSWER (already revealed publicly in this answer thread, so you MAY name and discuss it): ${answer && answer.trim() ? answer.trim() : "unknown"}`
+    : `CORRECT ANSWER (private, never reveal): ${answer && answer.trim() ? answer.trim() : "unknown"}`;
+  const threadNote = inAnswerThread
+    ? "NOTE: this comment is a reply under your pinned Answer post, where the diagnosis is already public. Answer follow-up questions about the case directly (prognosis, mechanism, what to read next) and react to reactions. No need to stay coy about the diagnosis here."
+    : "";
   const userText = [
     `POST:\n${postText || "(unknown)"}`,
-    `CORRECT ANSWER (private, never reveal): ${answer && answer.trim() ? answer.trim() : "unknown"}`,
+    answerLine,
+    threadNote,
     factsBlock,
     recentBlock,
     mediaNote,

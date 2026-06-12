@@ -112,6 +112,12 @@ function answerFromConversation(convo: ThreadsReply[], me: string): string | nul
   return m ? m[1].trim() : null;
 }
 
+// The id of our own pinned "Answer:" comment, if posted, so we can also reply to
+// the sub-replies people leave under it (the answer thread).
+function answerCommentId(convo: ThreadsReply[], me: string): string | null {
+  return convo.find((c) => c.username === me && /^\s*answer\s*:/i.test(c.text ?? ""))?.id ?? null;
+}
+
 interface ResolvedAnswer {
   answer?: string;
   facts?: string[];
@@ -331,16 +337,33 @@ async function runLiveOrDry(mode: Mode, target: string | null): Promise<void> {
     // Unanswered = no live reply from us in the thread right now (answeredByMe is
     // built from the current conversation). We trust the LIVE thread, not a local
     // log, so if you delete one of the bot's replies that comment is re-answered.
-    const unanswered = replies.filter(
-      (r) =>
-        r.username !== me &&
-        r.hide_status !== "HIDDEN" &&
-        ((r.text ?? "").trim().length >= config.minCommentLength ||
-          ((r.media_type === "IMAGE" || r.media_type === "VIDEO") && !!r.media_url)) &&
-        !answeredByMe.has(r.id),
-    );
+    const wantsReply = (c: ThreadsReply): boolean =>
+      c.username !== me &&
+      c.hide_status !== "HIDDEN" &&
+      ((c.text ?? "").trim().length >= config.minCommentLength ||
+        ((c.media_type === "IMAGE" || c.media_type === "VIDEO") && !!c.media_url)) &&
+      !answeredByMe.has(c.id);
+
+    const unanswered = replies.filter(wantsReply);
+
+    // Also reply to the sub-replies people leave under our pinned "Answer:" comment.
+    // Those live in the flattened conversation (not the top-level replies edge), tied
+    // to the answer comment via replied_to.id. The answer is public there, so the
+    // model may discuss the diagnosis openly (inAnswerThread below).
+    const ansId = answerCommentId(conversation, me);
+    const answerSubIds = new Set<string>();
+    if (ansId) {
+      for (const c of conversation) {
+        if (c.replied_to?.id === ansId && wantsReply(c)) answerSubIds.add(c.id);
+      }
+    }
+    const answerSubs = conversation.filter((c) => answerSubIds.has(c.id));
+
+    // Merge top-level comments + answer-thread sub-replies, de-duped by id.
+    const seenIds = new Set<string>();
+    const pool = [...unanswered, ...answerSubs].filter((c) => (seenIds.has(c.id) ? false : (seenIds.add(c.id), true)));
     const perPostRemaining = Math.max(0, config.perPostCap - state.repliedToPost(post.id));
-    const candidates = selectCandidates(unanswered).slice(0, perPostRemaining);
+    const candidates = selectCandidates(pool).slice(0, perPostRemaining);
 
     console.log(
       `Post ${clip(post.text ?? post.id, 40)} [answer: ${resolved.answer ?? "unknown"}${postImages.length ? ", image ✓" : ""}] — ${candidates.length} to reply (${state.repliedToPost(post.id)}/${config.perPostCap} done):`,
@@ -370,6 +393,7 @@ async function runLiveOrDry(mode: Mode, target: string | null): Promise<void> {
         recentReplies: [...recentOwnerReplies, ...postedThisRun],
         commentImages,
         commentMediaKind,
+        inAnswerThread: answerSubIds.has(c.id),
       });
       if (!config.educationalReplies && (d.category === "correct" || d.category === "teach")) {
         d = { ...d, decision: "skip", reply_text: "", reason: `${d.reason} | educational replies off` };
