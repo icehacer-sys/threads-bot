@@ -27,6 +27,8 @@ export interface ThreadsReply {
   has_replies?: boolean;
   hide_status?: string;
   replied_to?: { id: string };
+  media_type?: string; // TEXT_POST | IMAGE | VIDEO | CAROUSEL_ALBUM
+  media_url?: string;
 }
 
 interface ListResponse<T> {
@@ -116,7 +118,7 @@ export async function getRecentPosts(): Promise<ThreadsPost[]> {
 /** Top-level replies (comments) on a post — ALL of them, across pages. */
 export async function getReplies(mediaId: string): Promise<ThreadsReply[]> {
   return apiGetAll<ThreadsReply>(`/${mediaId}/replies`, {
-    fields: "id,text,username,timestamp,has_replies,hide_status,replied_to",
+    fields: "id,text,username,timestamp,has_replies,hide_status,replied_to,media_type,media_url",
     reverse: "false",
     limit: 100,
   });

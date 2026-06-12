@@ -158,30 +158,43 @@ function imageUrlsForPost(post: ThreadsPost): string[] {
   return [];
 }
 
-// Download the post's image(s) and base64-encode them. We fetch the bytes
-// ourselves (rather than handing Anthropic the URL) because the Threads CDN
-// blocks Anthropic's URL fetcher via robots.txt. Done once per post.
+// Download one image URL and base64-encode it. We fetch the bytes ourselves
+// (rather than handing Anthropic the URL) because the Threads CDN blocks
+// Anthropic's URL fetcher via robots.txt.
+async function fetchInlineImage(url: string): Promise<InlineImage | null> {
+  try {
+    const res = await fetch(url);
+    if (!res.ok) return null;
+    const ct = (res.headers.get("content-type") ?? "").toLowerCase();
+    const media_type: ImageMediaType = ct.includes("png")
+      ? "image/png"
+      : ct.includes("webp")
+        ? "image/webp"
+        : ct.includes("gif")
+          ? "image/gif"
+          : "image/jpeg";
+    const data = Buffer.from(await res.arrayBuffer()).toString("base64");
+    return { media_type, data };
+  } catch {
+    return null; // an image we can't fetch just means that piece is judged text-only
+  }
+}
+
 async function loadPostImages(post: ThreadsPost): Promise<InlineImage[]> {
   const out: InlineImage[] = [];
   for (const url of imageUrlsForPost(post)) {
-    try {
-      const res = await fetch(url);
-      if (!res.ok) continue;
-      const ct = (res.headers.get("content-type") ?? "").toLowerCase();
-      const media_type: ImageMediaType = ct.includes("png")
-        ? "image/png"
-        : ct.includes("webp")
-          ? "image/webp"
-          : ct.includes("gif")
-            ? "image/gif"
-            : "image/jpeg";
-      const data = Buffer.from(await res.arrayBuffer()).toString("base64");
-      out.push({ media_type, data });
-    } catch {
-      // An image we can't fetch just means that comment is judged text-only.
-    }
+    const img = await fetchInlineImage(url);
+    if (img) out.push(img);
   }
   return out;
+}
+
+// The image a commenter attached to their OWN comment, if any. GIFs come through
+// as VIDEO (which vision can't read), so only IMAGE attachments are fetched.
+async function loadCommentImage(c: ThreadsReply): Promise<InlineImage[]> {
+  if (!config.visionEnabled || c.media_type !== "IMAGE" || !c.media_url) return [];
+  const img = await fetchInlineImage(c.media_url);
+  return img ? [img] : [];
 }
 
 // Live mode only acts when local time in config.activeTz is within [start, end).
@@ -291,7 +304,7 @@ async function runLiveOrDry(mode: Mode, target: string | null): Promise<void> {
       (r) =>
         r.username !== me &&
         r.hide_status !== "HIDDEN" &&
-        (r.text ?? "").trim().length >= config.minCommentLength &&
+        ((r.text ?? "").trim().length >= config.minCommentLength || (r.media_type === "IMAGE" && !!r.media_url)) &&
         !answeredByMe.has(r.id) &&
         !state.hasReplied(r.id),
     );
@@ -308,6 +321,7 @@ async function runLiveOrDry(mode: Mode, target: string | null): Promise<void> {
 
     for (const c of candidates) {
       if (budgetLeft() <= 0) break;
+      const commentImages = await loadCommentImage(c);
       let d = await classifyAndDraft({
         postText: post.text ?? "",
         commentText: c.text ?? "",
@@ -315,6 +329,8 @@ async function runLiveOrDry(mode: Mode, target: string | null): Promise<void> {
         facts: resolved.facts,
         images: postImages,
         recentReplies: [...recentOwnerReplies, ...postedThisRun],
+        commentImages,
+        commentHasVideo: c.media_type === "VIDEO",
       });
       if (!config.educationalReplies && (d.category === "correct" || d.category === "teach")) {
         d = { ...d, decision: "skip", reply_text: "", reason: `${d.reason} | educational replies off` };
