@@ -104,7 +104,12 @@ export async function classifyAndDraft(input: ClassifyInput): Promise<Decision> 
   const content: Array<Anthropic.ImageBlockParam | Anthropic.TextBlockParam> = [];
   if (images && images.length) {
     content.push({ type: "text", text: "THE X-RAY ON THE POST:" });
-    for (const img of images) content.push({ type: "image", source: { type: "base64", media_type: img.media_type, data: img.data } });
+    images.forEach((img, i) => {
+      const block: Anthropic.ImageBlockParam = { type: "image", source: { type: "base64", media_type: img.media_type, data: img.data } };
+      // Cache the X-ray so every comment on the same post reuses it (cheap reads, less rate pressure).
+      if (i === images.length - 1) block.cache_control = { type: "ephemeral", ttl: "1h" };
+      content.push(block);
+    });
   }
   if (commentImages && commentImages.length) {
     content.push({
@@ -136,8 +141,8 @@ export async function classifyAndDraft(input: ClassifyInput): Promise<Decision> 
     const res = await getClient().messages.create({
       model: config.model,
       max_tokens: 1024,
-      // System prompt is static -> cache it.
-      system: [{ type: "text", text: SYSTEM_PROMPT, cache_control: { type: "ephemeral" } }],
+      // System prompt is static -> cache it for 1h (survives the gaps between 10-min cycles).
+      system: [{ type: "text", text: SYSTEM_PROMPT, cache_control: { type: "ephemeral", ttl: "1h" } }],
       messages: [{ role: "user", content }],
       tools,
       tool_choice: toolChoice,
