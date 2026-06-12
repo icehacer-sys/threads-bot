@@ -166,18 +166,28 @@ const ADVICE_PATTERN =
 // AI-style preambles the model sometimes adds despite the voice rules. Stripped
 // from the start of any reply ("Great question.", "Thanks for sharing", ...).
 const PREAMBLE =
-  /^\s*(?:(?:great|good|nice|excellent|interesting)\s+(?:question|point|catch|eye|observation|guess)|thank(?:s| you)\s+for\s+(?:sharing|asking|that))\b[\s.,!:;—-]*/i;
+  /^\s*(?:(?:great|good|nice|excellent|interesting|amazing|solid|fair)\s+(?:question|point|catch|eye|observation|guess|call|thinking|instinct|insight)s?(?:\s+(?:on|to|about|for|with)(?:\s+\w+){1,3})?|thank(?:s| you)\s+for\s+(?:sharing|asking|that))[\s.,!:;—-]*/i;
 
-// Keep teaching/correcting replies tight: at most the first `n` sentences.
-function firstSentences(s: string, n: number): string {
+// Keep teaching/correcting replies tight: the first `n` sentences, under maxChars,
+// always ending on a complete sentence (never a mid-word "…" cut).
+function firstSentences(s: string, n: number, maxChars = 240): string {
   const parts = s.match(/[^.!?]+[.!?]+(?:\s|$)/g);
-  if (!parts || parts.length <= n) return s;
-  return parts.slice(0, n).join("").trim();
+  if (!parts) return s;
+  let out = "";
+  let count = 0;
+  for (const p of parts) {
+    if (count >= n) break;
+    if (out && out.length + p.length > maxChars) break;
+    out += p;
+    count += 1;
+  }
+  return (out || parts[0]).trim();
 }
 
 export function sanitize(d: Decision): Decision {
   // Strip hashtags, links, mentions; collapse whitespace; cap length.
   let text = (d.reply_text || "")
+    .replace(/<\/?[a-zA-Z][^>]*>/g, "") // strip any HTML/citation tags (e.g. web-search <cite>)
     .replace(/#[\p{L}\p{N}_]+/gu, "")
     .replace(/https?:\/\/\S+/gi, "")
     .replace(/(^|\s)@[\p{L}\p{N}_.]+/gu, "$1")
@@ -193,7 +203,8 @@ export function sanitize(d: Decision): Decision {
   if (stripped !== text) text = stripped ? stripped.charAt(0).toUpperCase() + stripped.slice(1) : stripped;
   if (d.category === "teach" || d.category === "correct") text = firstSentences(text, 2);
 
-  if (text.length > 280) text = text.slice(0, 277).trimEnd() + "…";
+  // Backstop length cap: cut at a word boundary (never mid-word, no trailing "…").
+  if (text.length > 280) text = text.slice(0, 280).replace(/\s\S*$/, "").trimEnd();
 
   const looksLikeAdvice = ADVICE_PATTERN.test(text);
   const personal = d.category === "personal_medical";
