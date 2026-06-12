@@ -65,14 +65,14 @@ export interface ClassifyInput {
   images?: InlineImage[];
   /** Replies already posted on this post, so the model avoids reusing shapes. */
   recentReplies?: string[];
-  /** Image(s) the commenter attached to their own comment. */
+  /** Image(s) the commenter attached, or a still frame extracted from their GIF/video. */
   commentImages?: InlineImage[];
-  /** The commenter attached a GIF/video the model cannot actually see. */
-  commentHasVideo?: boolean;
+  /** What the comment's media is: a real image, a frame from a GIF/video, or an unreadable GIF/video. */
+  commentMediaKind?: "image" | "video-frame" | "video";
 }
 
 export async function classifyAndDraft(input: ClassifyInput): Promise<Decision> {
-  const { postText, commentText, answer, facts, images, recentReplies, commentImages, commentHasVideo } = input;
+  const { postText, commentText, answer, facts, images, recentReplies, commentImages, commentMediaKind } = input;
   const factsBlock =
     facts && facts.length
       ? `VETTED FACTS (owner-reviewed, source of truth):\n- ${facts.join("\n- ")}`
@@ -81,11 +81,14 @@ export async function classifyAndDraft(input: ClassifyInput): Promise<Decision> 
     recentReplies && recentReplies.length
       ? `ALREADY POSTED on this post (do NOT reuse these openings, sentence shapes, or jokes — write something clearly different):\n- ${recentReplies.slice(-15).join("\n- ")}`
       : "";
-  const mediaNote = commentHasVideo
-    ? "NOTE: the commenter attached a GIF/video you cannot see. Respond to their words and the playful gesture of sending one."
-    : commentImages && commentImages.length
-      ? "NOTE: the commenter attached the image shown above. Respond to what they actually posted and tie it to the case."
-      : "";
+  const mediaNote =
+    commentMediaKind === "video"
+      ? "NOTE: the commenter sent a GIF/video you cannot see. React to their words and the playful gesture of sending one."
+      : commentMediaKind === "video-frame"
+        ? "NOTE: the commenter sent a GIF/video; ONE still frame from it is shown above (you see a single frame, not the motion). React to what is in the frame and the gesture."
+        : commentImages && commentImages.length
+          ? "NOTE: the commenter attached the image shown above. React to what is actually in it and tie it to the case."
+          : "";
   const userText = [
     `POST:\n${postText || "(unknown)"}`,
     `CORRECT ANSWER (private, never reveal): ${answer && answer.trim() ? answer.trim() : "unknown"}`,
@@ -104,7 +107,10 @@ export async function classifyAndDraft(input: ClassifyInput): Promise<Decision> 
     for (const img of images) content.push({ type: "image", source: { type: "base64", media_type: img.media_type, data: img.data } });
   }
   if (commentImages && commentImages.length) {
-    content.push({ type: "text", text: "THE IMAGE THIS COMMENTER ATTACHED:" });
+    content.push({
+      type: "text",
+      text: commentMediaKind === "video-frame" ? "A STILL FRAME FROM THE GIF/VIDEO THIS COMMENTER SENT:" : "THE IMAGE THIS COMMENTER ATTACHED:",
+    });
     for (const img of commentImages) content.push({ type: "image", source: { type: "base64", media_type: img.media_type, data: img.data } });
   }
   content.push({ type: "text", text: userText });

@@ -5,8 +5,14 @@
 //   npm run live   -> same as dry, but actually posts (requires BOT_CONFIRM_LIVE=yes).
 
 import { readFileSync, writeFileSync } from "node:fs";
+import { writeFile, readFile, unlink } from "node:fs/promises";
+import { execFile } from "node:child_process";
+import { promisify } from "node:util";
+import { tmpdir } from "node:os";
 import { fileURLToPath } from "node:url";
 import { dirname, join } from "node:path";
+
+const execFileAsync = promisify(execFile);
 import { config } from "./config";
 import { classifyAndDraft, type Decision, type InlineImage, type ImageMediaType } from "./reply";
 import {
@@ -189,12 +195,36 @@ async function loadPostImages(post: ThreadsPost): Promise<InlineImage[]> {
   return out;
 }
 
-// The image a commenter attached to their OWN comment, if any. GIFs come through
-// as VIDEO (which vision can't read), so only IMAGE attachments are fetched.
+// The image a commenter attached to their OWN comment, if any (IMAGE only).
 async function loadCommentImage(c: ThreadsReply): Promise<InlineImage[]> {
   if (!config.visionEnabled || c.media_type !== "IMAGE" || !c.media_url) return [];
   const img = await fetchInlineImage(c.media_url);
   return img ? [img] : [];
+}
+
+// A still frame from a commenter's GIF/video (Threads serves GIFs as VIDEO). We grab
+// one representative frame with ffmpeg so vision can at least see it. Returns [] if
+// ffmpeg is unavailable (e.g. a local Windows dry run) or extraction fails.
+async function loadCommentVideoFrame(c: ThreadsReply): Promise<InlineImage[]> {
+  if (!config.visionEnabled || c.media_type !== "VIDEO" || !c.media_url) return [];
+  const id = c.id.replace(/[^a-zA-Z0-9]/g, "");
+  const vid = join(tmpdir(), `c-${id}.mp4`);
+  const frame = join(tmpdir(), `c-${id}.jpg`);
+  try {
+    const res = await fetch(c.media_url);
+    if (!res.ok) return [];
+    await writeFile(vid, Buffer.from(await res.arrayBuffer()));
+    await execFileAsync("ffmpeg", ["-y", "-loglevel", "error", "-i", vid, "-vf", "thumbnail", "-frames:v", "1", frame], {
+      timeout: 25000,
+    });
+    const data = (await readFile(frame)).toString("base64");
+    return data ? [{ media_type: "image/jpeg", data }] : [];
+  } catch {
+    return []; // no ffmpeg / fetch or extraction failed -> fall back to no frame
+  } finally {
+    await unlink(vid).catch(() => {});
+    await unlink(frame).catch(() => {});
+  }
 }
 
 // Live mode only acts when local time in config.activeTz is within [start, end).
@@ -304,7 +334,8 @@ async function runLiveOrDry(mode: Mode, target: string | null): Promise<void> {
       (r) =>
         r.username !== me &&
         r.hide_status !== "HIDDEN" &&
-        ((r.text ?? "").trim().length >= config.minCommentLength || (r.media_type === "IMAGE" && !!r.media_url)) &&
+        ((r.text ?? "").trim().length >= config.minCommentLength ||
+          ((r.media_type === "IMAGE" || r.media_type === "VIDEO") && !!r.media_url)) &&
         !answeredByMe.has(r.id) &&
         !state.hasReplied(r.id),
     );
@@ -321,7 +352,15 @@ async function runLiveOrDry(mode: Mode, target: string | null): Promise<void> {
 
     for (const c of candidates) {
       if (budgetLeft() <= 0) break;
-      const commentImages = await loadCommentImage(c);
+      let commentImages: InlineImage[] = [];
+      let commentMediaKind: "image" | "video-frame" | "video" | undefined;
+      if (c.media_type === "IMAGE") {
+        commentImages = await loadCommentImage(c);
+        if (commentImages.length) commentMediaKind = "image";
+      } else if (c.media_type === "VIDEO") {
+        commentImages = await loadCommentVideoFrame(c);
+        commentMediaKind = commentImages.length ? "video-frame" : "video";
+      }
       let d = await classifyAndDraft({
         postText: post.text ?? "",
         commentText: c.text ?? "",
@@ -330,7 +369,7 @@ async function runLiveOrDry(mode: Mode, target: string | null): Promise<void> {
         images: postImages,
         recentReplies: [...recentOwnerReplies, ...postedThisRun],
         commentImages,
-        commentHasVideo: c.media_type === "VIDEO",
+        commentMediaKind,
       });
       if (!config.educationalReplies && (d.category === "correct" || d.category === "teach")) {
         d = { ...d, decision: "skip", reply_text: "", reason: `${d.reason} | educational replies off` };
