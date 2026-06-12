@@ -43,7 +43,8 @@ jobs:
       THREADS_USER_ID: me
       BOT_CONFIRM_LIVE: "yes"
       BOT_EDUCATIONAL: "on"
-      BOT_NEWEST_ONLY: "on"
+      BOT_NEWEST_ONLY: "off"
+      BOT_WINDOW_HOURS: "24"
       BOT_VISION: "on"
       BOT_ANSWER: "on"
       BOT_ANSWER_DELAY_HOURS: "1"
