@@ -328,16 +328,16 @@ async function runLiveOrDry(mode: Mode, target: string | null): Promise<void> {
       .slice(-12);
     const postedThisRun: string[] = [];
 
-    // Filter to genuinely-unanswered comments first, THEN apply the per-post cap,
-    // so older unanswered comments aren't dropped by a cap full of answered ones.
+    // Unanswered = no live reply from us in the thread right now (answeredByMe is
+    // built from the current conversation). We trust the LIVE thread, not a local
+    // log, so if you delete one of the bot's replies that comment is re-answered.
     const unanswered = replies.filter(
       (r) =>
         r.username !== me &&
         r.hide_status !== "HIDDEN" &&
         ((r.text ?? "").trim().length >= config.minCommentLength ||
           ((r.media_type === "IMAGE" || r.media_type === "VIDEO") && !!r.media_url)) &&
-        !answeredByMe.has(r.id) &&
-        !state.hasReplied(r.id),
+        !answeredByMe.has(r.id),
     );
     const perPostRemaining = Math.max(0, config.perPostCap - state.repliedToPost(post.id));
     const candidates = selectCandidates(unanswered).slice(0, perPostRemaining);
