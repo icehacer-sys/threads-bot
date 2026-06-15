@@ -351,17 +351,49 @@ async function runLiveOrDry(mode: Mode, target: string | null): Promise<void> {
     // to the answer comment via replied_to.id. The answer is public there, so the
     // model may discuss the diagnosis openly (inAnswerThread below).
     const ansId = answerCommentId(conversation, me);
-    const answerSubIds = new Set<string>();
+    const answerSubIds = new Set<string>(); // fresh user subs under the answer -> reply candidates
+    const answerDirectIds = new Set<string>(); // ALL direct subs under the answer (answered or not) -> chain roots
     if (ansId) {
       for (const c of conversation) {
-        if (c.replied_to?.id === ansId && wantsReply(c)) answerSubIds.add(c.id);
+        if (c.replied_to?.id === ansId) {
+          answerDirectIds.add(c.id);
+          if (wantsReply(c)) answerSubIds.add(c.id);
+        }
       }
     }
     const answerSubs = conversation.filter((c) => answerSubIds.has(c.id));
 
-    // Merge top-level comments + answer-thread sub-replies, de-duped by id.
+    // Also reply to a follow-up someone leaves under one of OUR replies, but only ONE
+    // level deep: their comment -> our reply -> their follow-up -> our reply, then stop.
+    // This keeps it a single exchange per account, never a long back-and-forth.
+    // "Originals" are top-level comments + direct answer-thread subs; a follow-up is
+    // eligible only when the reply it answers was itself a reply to an original (so a
+    // reply to one of OUR follow-up replies is NOT eligible — that would be level 2).
+    const byId = new Map(conversation.map((c) => [c.id, c]));
+    const botReplyIds = new Set(conversation.filter((c) => c.username === me).map((c) => c.id));
+    const originalIds = new Set<string>([...replies.map((r) => r.id), ...answerDirectIds]);
+    const followUpContext = new Map<string, { commenter: string; bot: string }>();
+    const inAnswerThreadIds = new Set<string>(answerSubIds);
+    const followUps = conversation.filter((c) => {
+      if (c.username === me || !wantsReply(c)) return false;
+      const parentId = c.replied_to?.id;
+      if (!parentId || !botReplyIds.has(parentId)) return false; // must reply to one of our replies
+      const ourReply = byId.get(parentId);
+      const originalId = ourReply?.replied_to?.id;
+      if (!originalId || !originalIds.has(originalId)) return false; // only one level deep
+      followUpContext.set(c.id, {
+        commenter: (byId.get(originalId)?.text ?? "").slice(0, 240),
+        bot: (ourReply?.text ?? "").slice(0, 240),
+      });
+      if (answerDirectIds.has(originalId)) inAnswerThreadIds.add(c.id);
+      return true;
+    });
+
+    // Merge top-level comments + answer-thread subs + one-level follow-ups, de-duped by id.
     const seenIds = new Set<string>();
-    const pool = [...unanswered, ...answerSubs].filter((c) => (seenIds.has(c.id) ? false : (seenIds.add(c.id), true)));
+    const pool = [...unanswered, ...answerSubs, ...followUps].filter((c) =>
+      seenIds.has(c.id) ? false : (seenIds.add(c.id), true),
+    );
     const perPostRemaining = Math.max(0, config.perPostCap - state.repliedToPost(post.id));
     const candidates = selectCandidates(pool).slice(0, perPostRemaining);
 
@@ -393,7 +425,8 @@ async function runLiveOrDry(mode: Mode, target: string | null): Promise<void> {
         recentReplies: [...recentOwnerReplies, ...postedThisRun],
         commentImages,
         commentMediaKind,
-        inAnswerThread: answerSubIds.has(c.id),
+        inAnswerThread: inAnswerThreadIds.has(c.id),
+        priorExchange: followUpContext.get(c.id),
       });
       if (!config.educationalReplies && (d.category === "correct" || d.category === "teach")) {
         d = { ...d, decision: "skip", reply_text: "", reason: `${d.reason} | educational replies off` };

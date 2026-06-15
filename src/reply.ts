@@ -71,10 +71,12 @@ export interface ClassifyInput {
   commentMediaKind?: "image" | "video-frame" | "video";
   /** This comment is a reply under our pinned "Answer:" thread, where the diagnosis is already public. */
   inAnswerThread?: boolean;
+  /** Set when this comment is a follow-up under one of our own replies: the prior exchange, so we answer in context and only once. */
+  priorExchange?: { commenter: string; bot: string };
 }
 
 export async function classifyAndDraft(input: ClassifyInput): Promise<Decision> {
-  const { postText, commentText, answer, facts, images, recentReplies, commentImages, commentMediaKind, inAnswerThread } = input;
+  const { postText, commentText, answer, facts, images, recentReplies, commentImages, commentMediaKind, inAnswerThread, priorExchange } = input;
   const factsBlock =
     facts && facts.length
       ? `VETTED FACTS (owner-reviewed, source of truth):\n- ${facts.join("\n- ")}`
@@ -97,10 +99,14 @@ export async function classifyAndDraft(input: ClassifyInput): Promise<Decision> 
   const threadNote = inAnswerThread
     ? "NOTE: this comment is a reply under your pinned Answer post, where the diagnosis is already public. Answer follow-up questions about the case directly (prognosis, mechanism, what to read next) and react to reactions. No need to stay coy about the diagnosis here."
     : "";
+  const followUpNote = priorExchange
+    ? `THIS IS A FOLLOW-UP under your own reply. Earlier the commenter said "${priorExchange.commenter}" and you replied "${priorExchange.bot}". The COMMENT below is their reply back to you. Reply ONLY if it is a genuine question or adds something worth answering — answer it directly, in the context of what was already said. If it is just thanks, agreement, or light banter, decision "skip" (do not extend the thread). Either way this is your LAST reply in this thread: give a complete answer, do NOT ask anything back or invite more back-and-forth.`
+    : "";
   const userText = [
     `POST:\n${postText || "(unknown)"}`,
     answerLine,
     threadNote,
+    followUpNote,
     factsBlock,
     recentBlock,
     mediaNote,
