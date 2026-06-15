@@ -81,7 +81,7 @@ export async function classifyAndDraft(input: ClassifyInput): Promise<Decision> 
       : "VETTED FACTS: none";
   const recentBlock =
     recentReplies && recentReplies.length
-      ? `ALREADY POSTED on this post (do NOT reuse these openings, sentence shapes, or jokes — write something clearly different):\n- ${recentReplies.slice(-15).join("\n- ")}`
+      ? `ALREADY POSTED on this post (do NOT reuse these openings, sentence shapes, jokes, or punchlines — write something clearly different):\n- ${recentReplies.slice(-40).join("\n- ")}`
       : "";
   const mediaNote =
     commentMediaKind === "video"
@@ -210,6 +210,8 @@ export function sanitize(d: Decision): Decision {
     .replace(/<\/?[a-zA-Z][^>]*>/g, "") // strip any HTML/citation tags (e.g. web-search <cite>)
     .replace(/#[\p{L}\p{N}_]+/gu, "")
     .replace(/https?:\/\/\S+/gi, "")
+    // bare domains too (no http://), e.g. a promo link like "rare.example.com/x"
+    .replace(/\b[a-z0-9][a-z0-9-]*(?:\.[a-z0-9-]+)*\.(?:com|net|org|io|co|me|app|dev|ai|xyz|info|biz|gg|tv|link|page|site|online|store|shop)\b(?:\/\S*)?/gi, "")
     .replace(/(^|\s)@[\p{L}\p{N}_.]+/gu, "$1")
     .replace(/\s*[—–]\s*/g, ", ") // no em/en dashes; keep it in their voice
     .replace(/,\s+(but|so|yet|not|though|although|whereas|while)\b/gi, " $1") // casual voice: no comma before a contrast word
@@ -221,6 +223,13 @@ export function sanitize(d: Decision): Decision {
   // teaching/correcting replies short. Re-capitalize if we trimmed the opener.
   const stripped = text.replace(PREAMBLE, "").trimStart();
   if (stripped !== text) text = stripped ? stripped.charAt(0).toUpperCase() + stripped.slice(1) : stripped;
+
+  // Drop a dangling leading "But" left when a correction's acknowledgment lead-in
+  // was elided ("But this one is bone." -> "This one is bone."); re-capitalize.
+  // (Leave "And"/"So" — those are intentional voice, e.g. "And then we'll take it higher".)
+  const debut = text.replace(/^but\s+/i, "");
+  if (debut !== text) text = debut.charAt(0).toUpperCase() + debut.slice(1);
+
   if (d.category === "teach" || d.category === "correct") text = firstSentences(text, 2);
 
   // Backstop length cap: cut at a word boundary (never mid-word, no trailing "…").

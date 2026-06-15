@@ -331,7 +331,7 @@ async function runLiveOrDry(mode: Mode, target: string | null): Promise<void> {
       .filter((c) => c.username === me && (c.text ?? "").trim().length > 0 && (c.text ?? "").length <= 280)
       .sort((a, b) => (a.timestamp ?? "").localeCompare(b.timestamp ?? ""))
       .map((c) => c.text as string)
-      .slice(-12);
+      .slice(-40);
     const postedThisRun: string[] = [];
 
     // Unanswered = no live reply from us in the thread right now (answeredByMe is
