@@ -50,9 +50,9 @@ jobs:
       BOT_ANSWER_DELAY_HOURS: "1"
       BOT_ANSWER_SPOILER: "on"
       BOT_ACTIVE_TZ: "Africa/Cairo"
-      BOT_ACTIVE_WINDOWS: "20-8" # 8 PM until 8 AM Cairo (one overnight window)
-      BOT_ACTIVE_START: "20"
-      BOT_ACTIVE_END: "2"
+      BOT_ACTIVE_WINDOWS: "22-10" # 10 PM until 10 AM Cairo (one overnight window)
+      BOT_ACTIVE_START: "22"
+      BOT_ACTIVE_END: "10"
       BOT_PER_POST_CAP: "200"
       BOT_DAILY_CAP: "240"
       BOT_MODEL: "claude-sonnet-4-6"
