@@ -331,7 +331,7 @@ async function runLiveOrDry(mode: Mode, target: string | null): Promise<void> {
       .filter((c) => c.username === me && (c.text ?? "").trim().length > 0 && (c.text ?? "").length <= 280)
       .sort((a, b) => (a.timestamp ?? "").localeCompare(b.timestamp ?? ""))
       .map((c) => c.text as string)
-      .slice(-40);
+      .slice(-config.antiRepeatWindow);
     const postedThisRun: string[] = [];
 
     // Unanswered = no live reply from us in the thread right now (answeredByMe is
@@ -427,7 +427,7 @@ async function runLiveOrDry(mode: Mode, target: string | null): Promise<void> {
         commentImages = await loadCommentVideoFrame(c);
         commentMediaKind = commentImages.length ? "video-frame" : "video";
       }
-      let d = await classifyAndDraft({
+      const baseInput = {
         postText: post.text ?? "",
         commentText: c.text ?? "",
         answer: revealAnswer,
@@ -438,7 +438,14 @@ async function runLiveOrDry(mode: Mode, target: string | null): Promise<void> {
         commentMediaKind,
         inAnswerThread: inAnswerThreadIds.has(c.id),
         priorExchange: followUpContext.get(c.id),
-      });
+      };
+      // Two-tier: the cheap triage model drafts every comment; only accuracy-critical
+      // categories (corrections / teaching) are re-drafted by the pricier quality model.
+      let d = await classifyAndDraft({ ...baseInput, modelOverride: config.triageModel });
+      if (d.decision === "reply" && config.escalateCategories.includes(d.category)) {
+        console.log(`        (escalating ${d.category} to ${config.model})`);
+        d = await classifyAndDraft({ ...baseInput, modelOverride: config.model });
+      }
       if (!config.educationalReplies && (d.category === "correct" || d.category === "teach")) {
         d = { ...d, decision: "skip", reply_text: "", reason: `${d.reason} | educational replies off` };
       }

@@ -35,8 +35,19 @@ function parseActiveWindows(): Array<[number, number]> {
 }
 
 export const config = {
-  // Model (see README for the Claude vs Gemini recommendation)
+  // Two-tier models. The cheap triageModel drafts/classifies EVERY comment; only
+  // accuracy-critical categories (escalateCategories) are re-drafted by the pricier,
+  // higher-quality `model`. Set BOT_TRIAGE_MODEL=<same as model> to disable two-tier.
   model: process.env.BOT_MODEL ?? "claude-sonnet-4-6",
+  triageModel: process.env.BOT_TRIAGE_MODEL ?? "claude-haiku-4-5-20251001",
+  escalateCategories: (process.env.BOT_ESCALATE ?? "correct,teach")
+    .split(",")
+    .map((s) => s.trim())
+    .filter(Boolean),
+
+  // How many of our recent replies to feed back in as the "don't repeat these" list.
+  // Sent uncached on every call, so smaller = cheaper; 15 is plenty for variety.
+  antiRepeatWindow: num("BOT_ANTIREPEAT", 15),
 
   // Let the model web-search a reference it doesn't recognize (it decides when;
   // most comments won't trigger one). Adds a small per-search cost. Off by default.

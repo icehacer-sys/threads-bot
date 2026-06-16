@@ -73,17 +73,19 @@ export interface ClassifyInput {
   inAnswerThread?: boolean;
   /** Set when this comment is a follow-up under one of our own replies: the prior exchange, so we answer in context and only once. */
   priorExchange?: { commenter: string; bot: string };
+  /** Override the model for this one call (two-tier: cheap triage vs quality redraft). */
+  modelOverride?: string;
 }
 
 export async function classifyAndDraft(input: ClassifyInput): Promise<Decision> {
-  const { postText, commentText, answer, facts, images, recentReplies, commentImages, commentMediaKind, inAnswerThread, priorExchange } = input;
+  const { postText, commentText, answer, facts, images, recentReplies, commentImages, commentMediaKind, inAnswerThread, priorExchange, modelOverride } = input;
   const factsBlock =
     facts && facts.length
       ? `VETTED FACTS (owner-reviewed, source of truth):\n- ${facts.join("\n- ")}`
       : "VETTED FACTS: none";
   const recentBlock =
     recentReplies && recentReplies.length
-      ? `ALREADY POSTED on this post (do NOT reuse these openings, sentence shapes, jokes, or punchlines — write something clearly different):\n- ${recentReplies.slice(-40).join("\n- ")}`
+      ? `ALREADY POSTED on this post (do NOT reuse these openings, sentence shapes, jokes, or punchlines — write something clearly different):\n- ${recentReplies.slice(-config.antiRepeatWindow).join("\n- ")}`
       : "";
   const mediaNote =
     commentMediaKind === "video"
@@ -102,12 +104,16 @@ export async function classifyAndDraft(input: ClassifyInput): Promise<Decision> 
   const followUpNote = priorExchange
     ? `THIS IS A FOLLOW-UP under your own reply. Earlier the commenter said "${priorExchange.commenter}" and you replied "${priorExchange.bot}". The COMMENT below is their reply back to you. Reply ONLY if it is a genuine question or adds something worth answering — answer it directly, in the context of what was already said. If it is just thanks, agreement, or light banter, decision "skip" (do not extend the thread). Either way this is your LAST reply in this thread: give a complete answer, do NOT ask anything back or invite more back-and-forth.`
     : "";
-  const userText = [
-    `POST:\n${postText || "(unknown)"}`,
+  // Split the prompt into a STABLE per-post prefix (same for every comment on this
+  // post) and a VARIABLE per-comment tail. The prefix — X-ray image + post text +
+  // vetted facts — is cached for 1h, so every later comment on the same post reads it
+  // cheaply instead of re-sending it at full price. The tail (answer line, notes, the
+  // anti-repeat list, the comment itself) changes per call and stays uncached.
+  const stableText = [`POST:\n${postText || "(unknown)"}`, factsBlock].filter(Boolean).join("\n\n");
+  const varText = [
     answerLine,
     threadNote,
     followUpNote,
-    factsBlock,
     recentBlock,
     mediaNote,
     `COMMENT:\n${commentText || "(no text — just the attached image)"}`,
@@ -115,17 +121,15 @@ export async function classifyAndDraft(input: ClassifyInput): Promise<Decision> 
     .filter(Boolean)
     .join("\n\n");
 
-  // Labelled image blocks (X-ray, then any comment attachment), then the text.
   const content: Array<Anthropic.ImageBlockParam | Anthropic.TextBlockParam> = [];
+  // 1) Post X-ray(s), part of the cached per-post prefix.
   if (images && images.length) {
     content.push({ type: "text", text: "THE X-RAY ON THE POST:" });
-    images.forEach((img, i) => {
-      const block: Anthropic.ImageBlockParam = { type: "image", source: { type: "base64", media_type: img.media_type, data: img.data } };
-      // Cache the X-ray so every comment on the same post reuses it (cheap reads, less rate pressure).
-      if (i === images.length - 1) block.cache_control = { type: "ephemeral", ttl: "1h" };
-      content.push(block);
-    });
+    for (const img of images) content.push({ type: "image", source: { type: "base64", media_type: img.media_type, data: img.data } });
   }
+  // 2) Stable per-post text. The cache breakpoint here caches system + X-ray + this block.
+  content.push({ type: "text", text: stableText, cache_control: { type: "ephemeral", ttl: "1h" } });
+  // 3) The commenter's own media + the variable per-comment text (uncached tail).
   if (commentImages && commentImages.length) {
     content.push({
       type: "text",
@@ -133,7 +137,7 @@ export async function classifyAndDraft(input: ClassifyInput): Promise<Decision> 
     });
     for (const img of commentImages) content.push({ type: "image", source: { type: "base64", media_type: img.media_type, data: img.data } });
   }
-  content.push({ type: "text", text: userText });
+  content.push({ type: "text", text: varText });
 
   // The submit_reply tool gives guaranteed-structured output; web_search (optional)
   // lets the model look up references it does not recognize. With web search off we
@@ -154,7 +158,7 @@ export async function classifyAndDraft(input: ClassifyInput): Promise<Decision> 
 
   try {
     const res = await getClient().messages.create({
-      model: config.model,
+      model: modelOverride ?? config.model,
       max_tokens: 1024,
       // System prompt is static -> cache it for 1h (survives the gaps between 10-min cycles).
       system: [{ type: "text", text: SYSTEM_PROMPT, cache_control: { type: "ephemeral", ttl: "1h" } }],
