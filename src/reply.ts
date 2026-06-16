@@ -185,6 +185,10 @@ export async function classifyAndDraft(input: ClassifyInput): Promise<Decision> 
 const ALLOWED_EMOJI = new Set(["🤣", "✅", "💯", "👏"]);
 const EMOJI_SEQ = /\p{Extended_Pictographic}(?:️|[\u{1F3FB}-\u{1F3FF}]|‍\p{Extended_Pictographic}️?)*/gu;
 
+// Worn-out house one-liners. The model still reaches for these as a lazy dry topper
+// despite the voice rules, so if a WHOLE reply is just one of them, we skip it.
+const RETIRED_LINES = /^(radiologically confirmed|radiology confirms|literally|confirmed)$/i;
+
 // Phrases that read as medical advice. If any slip into a draft, we force a skip.
 const ADVICE_PATTERN =
   /\b(you should|i (would |really )?recommend|see (a|your) (doctor|physician|gp|specialist|dentist)|get (it|that|this) (checked|looked at|scanned|seen)|consult|seek medical|go to the (er|a&e|hospital|doctor)|you (might|may|could) have|sounds like you (have|might))\b/i;
@@ -236,21 +240,26 @@ export function sanitize(d: Decision): Decision {
   const debut = text.replace(/^but\s+/i, "");
   if (debut !== text) text = debut.charAt(0).toUpperCase() + debut.slice(1);
 
-  if (d.category === "teach" || d.category === "correct") text = firstSentences(text, 2);
+  if (d.category === "correct") text = firstSentences(text, 2);
+  else if (d.category === "teach") text = firstSentences(text, 3, 360); // room for multi-part clinical questions
 
   // Backstop length cap: cut at a word boundary (never mid-word, no trailing "…").
-  if (text.length > 280) text = text.slice(0, 280).replace(/\s\S*$/, "").trimEnd();
+  // Teach answers (esp. multi-part questions) get more room; everything else stays tight.
+  const maxLen = d.category === "teach" ? 480 : 280;
+  if (text.length > maxLen) text = text.slice(0, maxLen).replace(/\s\S*$/, "").trimEnd();
 
   const looksLikeAdvice = ADVICE_PATTERN.test(text);
   const personal = d.category === "personal_medical";
+  // Whole reply is just a retired stock topper (ignore punctuation/emoji)?
+  const isRetired = RETIRED_LINES.test(text.replace(/[^\p{L} ]+/gu, "").trim());
 
-  // Force skip: personal-medical category, advice-like wording, or empty draft.
-  if (d.decision === "reply" && (personal || looksLikeAdvice || text.length === 0)) {
+  // Force skip: personal-medical category, advice-like wording, retired stock line, or empty draft.
+  if (d.decision === "reply" && (personal || looksLikeAdvice || isRetired || text.length === 0)) {
     return {
       decision: "skip",
       category: personal || looksLikeAdvice ? "personal_medical" : "other",
       reply_text: "",
-      reason: `${d.reason} | guard:forced-skip`,
+      reason: `${d.reason}${isRetired ? " | retired stock line" : ""} | guard:forced-skip`,
     };
   }
 
