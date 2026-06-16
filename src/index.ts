@@ -363,6 +363,17 @@ async function runLiveOrDry(mode: Mode, target: string | null): Promise<void> {
     }
     const answerSubs = conversation.filter((c) => answerSubIds.has(c.id));
 
+    // Spoiler gate: never reveal the answer until it is actually pinned in the thread.
+    // We may KNOW it (from answers.json) before you post it, but affirming a correct
+    // guess or giving a fact-based correction would spoil the challenge for everyone
+    // still guessing. So the answer is only fed to the model once the "Answer:" comment
+    // is live (ansId set) — before that, every guess is treated as unknown and just gets
+    // banter, no confirmation. In the answer thread the answer is already public, so it
+    // flows normally there.
+    const answerPublic = ansId !== null;
+    const revealAnswer = answerPublic ? resolved.answer : undefined;
+    const revealFacts = answerPublic ? resolved.facts : undefined;
+
     // Also reply to a follow-up someone leaves under one of OUR replies, but only ONE
     // level deep: their comment -> our reply -> their follow-up -> our reply, then stop.
     // This keeps it a single exchange per account, never a long back-and-forth.
@@ -419,8 +430,8 @@ async function runLiveOrDry(mode: Mode, target: string | null): Promise<void> {
       let d = await classifyAndDraft({
         postText: post.text ?? "",
         commentText: c.text ?? "",
-        answer: resolved.answer,
-        facts: resolved.facts,
+        answer: revealAnswer,
+        facts: revealFacts,
         images: postImages,
         recentReplies: [...recentOwnerReplies, ...postedThisRun],
         commentImages,
