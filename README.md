@@ -1,6 +1,6 @@
 # Threads Auto-Reply Bot (@mdnoteslab)
 
-Finds comments on your recent Threads posts that you have not replied to yet, drafts a reply in your voice, and (in live mode) posts it. It **never** auto-answers personal medical questions — those are silently skipped.
+Finds comments on your recent Threads posts that you have not replied to yet — top-level comments, sub-replies under your pinned **Answer:**, and one follow-up if someone replies back to the bot — reads the X-ray (plus any image or GIF a commenter attaches), drafts a reply in your voice, and (in live mode) posts it. It **never** auto-answers personal medical questions — those are silently skipped.
 
 This is self-contained. It does not touch the Med Notes Lab website. It has its own `package.json` and is excluded from the site's TypeScript/ESLint, so it cannot affect your Vercel build.
 
@@ -8,14 +8,14 @@ This is self-contained. It does not touch the Med Notes Lab website. It has its 
 
 1. Pull your newest post (with `BOT_NEWEST_ONLY=on`), or the last `BOT_MAX_POSTS` posts otherwise.
 2. Look up the case answer and any vetted facts for the post (from `data/answers.json`, or your pinned "Answer:" reply if you've already posted it).
-3. List **all** the comments — it follows pagination, so it sees every comment, not just the first ~25 — and figures out which ones you have **not** already answered (it never double-replies or touches your manual replies).
-4. Send each unanswered comment to the model **with the answer, the vetted facts, and the post's X-ray image as context**, so a correct guess gets "Spot on ✅", a wrong guess gets a kind fact-based nudge, and a joke gets a joke back.
-5. Skip anything risky (personal medical question, complaint, spam, or any uncertainty).
-6. Post the safe replies, up to `BOT_PER_POST_CAP` per post (default 100, counted across runs) and a daily backstop.
+3. List **all** the comments — it follows pagination, so it sees every comment, not just the first ~25 — and works out which ones to answer: every top-level comment, every sub-reply under your pinned **Answer:** comment, and **one** follow-up if someone replies back to a bot reply with a question (capped at a single follow-up per chain, so it never gets into a long back-and-forth). It trusts the live thread, so it never double-replies, and if you delete one of its replies that comment is answered again.
+4. Send each comment to the model **with the answer, the vetted facts, and the images as context** — the post's X-ray, plus any image the commenter attached or a still frame pulled from their GIF/video — so a correct guess gets "Spot on ✅", a wrong guess gets a kind fact-based nudge, a question gets a short accurate answer, and a joke (or a meme image) gets one back.
+5. Skip anything risky (personal medical question, complaint, spam, or any uncertainty), and stay humble — it won't lecture an obvious clinician or double down when challenged.
+6. Post the safe replies, up to `BOT_PER_POST_CAP` per post (200 in the shipped cloud config, counted across runs) and a daily backstop (`BOT_DAILY_CAP`, 240).
 
 ## Two things to know about behavior
 
-- **How it runs (perpetual chain):** GitHub's scheduled cron is too flaky to rely on, so the bot **keeps itself alive** — every run launches the next one before it ends, forming a chain that is *always running* (the `workflow_dispatch` self-launch works with the built-in token; verified). Each run polls every 10 min and **posts only inside the active windows** (`BOT_ACTIVE_WINDOWS`, Cairo; e.g. `20-2,4-10` = **8 PM–2 AM and 4 AM–10 AM**), up to `BOT_PER_POST_CAP` (**200**) per post; outside the windows it just no-ops. Progress (`state.json`) is committed every cycle, so a restart never double-replies. Concurrency keeps it a single chain, and the `*/30` cron restarts it only if a hand-off ever fails. **Start it once** (Actions → Run workflow) and it runs forever; **disable the workflow** to stop it.
+- **How it runs (perpetual chain):** GitHub's scheduled cron is too flaky to rely on, so the bot **keeps itself alive** — every run launches the next one before it ends, forming a chain that is *always running* (the `workflow_dispatch` self-launch works with the built-in token; verified). Each run polls every 10 min and **posts only inside the active window** (`BOT_ACTIVE_WINDOWS`, Cairo — currently `22-10` = **10 PM–10 AM**; comma-separated windows like `20-2,4-10` also work and wrap past midnight), up to `BOT_PER_POST_CAP` (**200**) per post; outside the window it just no-ops. Progress (`state.json`) is committed every cycle, so a restart never double-replies. Concurrency keeps it a single chain, and the `*/30` cron restarts it only if a hand-off ever fails. **Start it once** (Actions → Run workflow) and it runs forever; **disable the workflow** to stop it.
 - **How it learns the answer:** it reads your own on-thread `Answer: <diagnosis>` reply automatically. The spoiler blur is display-only, so the bot still reads the real text — affirmations ("Spot on ✅") are then exact. Wrong-guess *corrections* lean on the answer + the X-ray + general knowledge; for a tricky case you can make them bulletproof by adding `facts` to `data/answers.json`, otherwise you never touch the file.
 
 ## Three ways to run
@@ -39,7 +39,7 @@ You will see each sample comment with the draft reply or the skip reason. Tune t
 
 ## Knowing the case answer (so it can say "Spot on ✅")
 
-During the first 5 hours a post is up you usually haven't posted the public answer yet, so the bot can't read it from the thread. You tell it instead — one line per post in `data/answers.json`:
+Early on, before you've posted your public answer reply, the bot can't read it from the thread. You can tell it instead — one line per post in `data/answers.json`:
 
 ```json
 {
@@ -68,7 +68,7 @@ If you've already posted your pinned "Answer: ..." reply, the bot reads it from 
 
 ## Auto-posting the answer
 
-About an hour after a post goes up (`BOT_ANSWER_DELAY_HOURS`, default 1), the bot posts your written answer breakdown as a reply. By default it posts it **in full and visible** (`BOT_ANSWER_SPOILER=off`). Add a `breakdown` to that post's entry in `data/answers.json`:
+**Optional, and off in practice unless you opt in per post.** This only fires for a post that has a `breakdown` in `data/answers.json`. If you post and pin the daily answer yourself (the usual flow), it never triggers and you can ignore this section. When a `breakdown` exists, about an hour after the post goes up (`BOT_ANSWER_DELAY_HOURS`, default 1) the bot posts it as a reply, in full and visible by default (`BOT_ANSWER_SPOILER=off`):
 
 ```json
 {
@@ -104,7 +104,7 @@ Long-lived tokens expire (about 60 days) and need refreshing — note that for l
 
 ## Running it on a schedule (cloud, 24/7)
 
-`npm run live` is one pass. A ready-to-use **GitHub Actions** workflow ships at `.github/workflows/reply.yml` — it runs the bot every 10 minutes but only acts during your active hours (8–11 PM Cairo, set by `BOT_ACTIVE_*`). It runs on GitHub's servers, so your PC does not need to be on.
+`npm run live` is one pass. A ready-to-use **GitHub Actions** workflow ships at `.github/workflows/reply.yml` — it polls every ~10 minutes but only acts during your active window (currently **10 PM–10 AM Cairo**, set by `BOT_ACTIVE_WINDOWS`). The shipped workflow also enables vision and web search and uses caps of 200/post and 240/day. It runs on GitHub's servers, so your PC does not need to be on.
 
 To turn it on:
 
@@ -121,10 +121,10 @@ To turn it on:
 3. Done. Watch runs under the **Actions** tab; each run commits the updated `state.json` back so it never double-replies. You can also trigger one manually with **Run workflow**.
 
 Two things to know:
-- The cron fires more often than 8–11 PM, but runs outside that Cairo window exit immediately (no API cost). Change the hours in the workflow's `env` block (`BOT_ACTIVE_START` / `BOT_ACTIVE_END` / `BOT_ACTIVE_TZ`).
+- Runs that fall outside the active Cairo window no-op immediately (no API cost). Change the hours in the workflow's `env` block (`BOT_ACTIVE_WINDOWS`, e.g. `22-10`, and `BOT_ACTIVE_TZ`).
 - Your Threads token expires (~60 days). When the workflow starts failing with an auth error, regenerate it (`npm run token`) and update the `THREADS_ACCESS_TOKEN` secret.
 
-**Prefer your own PC?** Use **Windows Task Scheduler**: create a task that runs `npm` with arguments `run live`, "Start in" set to the project folder, on a 10-minute repeat trigger between 8 and 11 PM. It only runs while your PC is on and awake — which is why the cloud option above is the better fit for "100% automated."
+**Prefer your own PC?** Use **Windows Task Scheduler**: create a task that runs `npm` with arguments `run live`, "Start in" set to the project folder, on a 10-minute repeat trigger during your active window. It only runs while your PC is on and awake — which is why the cloud option above is the better fit for "100% automated."
 
 ## Tuning (all in `.env`)
 
@@ -136,9 +136,10 @@ Two things to know:
 - `BOT_PER_POST_CAP` — hard cap on total replies per post, counted across runs (default 100).
 - `BOT_EDUCATIONAL` — `on` (default): once the answer is known, it corrects wrong guesses and answers questions using the vetted `facts`. `off` leaves those for you.
 - `BOT_VISION` — `on` (default): send the post's X-ray image to the model so it can see the case.
-- `BOT_WEB_SEARCH` — `off` (default). `on` lets the model web-search a reference it doesn't recognize (e.g. a brand-new movie). It decides when, so only the stumped comments trigger a search; adds a small per-search cost.
-- `BOT_ANSWER` / `BOT_ANSWER_DELAY_HOURS` — auto-post the answer breakdown, spoiler-blurred, after N hours (default on, 1h). You pin it manually.
-- `BOT_ACTIVE_TZ` / `BOT_ACTIVE_START` / `BOT_ACTIVE_END` — restrict live posting to local hours (e.g. `Africa/Cairo`, `20`, `23` = 8–11 PM). Timezone-aware and DST-safe. Empty TZ = always on.
+- `BOT_WEB_SEARCH` — `off` in code by default, but **on** in the shipped cloud workflow. Lets the model web-search a reference it doesn't recognize (e.g. a brand-new movie); it decides when, so only the stumped comments trigger a search; adds a small per-search cost.
+- `BOT_ANSWER` / `BOT_ANSWER_DELAY_HOURS` — auto-post the answer breakdown after N hours (default on, 1h), but **only for posts that have a `breakdown` in `data/answers.json`** — otherwise you post and pin the answer yourself. Either way you pin it manually.
+- `BOT_ACTIVE_WINDOWS` — the active posting window(s) in `BOT_ACTIVE_TZ`, as comma-separated `start-end` hour pairs that may wrap past midnight (currently `22-10` = 10 PM–10 AM Cairo; e.g. `20-2,4-10` for two windows). This is the canonical setting.
+- `BOT_ACTIVE_TZ` / `BOT_ACTIVE_START` / `BOT_ACTIVE_END` — timezone (e.g. `Africa/Cairo`) plus a single-window fallback used only when `BOT_ACTIVE_WINDOWS` is unset. Timezone-aware and DST-safe. Empty TZ = always on.
 
 ## Which model (Claude vs Gemini)
 
@@ -153,7 +154,7 @@ Gemini Flash is cheaper per token, but at this volume the gap is a few dollars a
 ## Honest limitations
 
 - **Selection is newest-first.** The Threads replies endpoint does not reliably expose per-comment like counts, so "highest-engagement first" is not implemented (it falls back to newest). If you want engagement ranking, it needs per-reply insights calls, which may not be available for other people's replies.
-- **Prompt caching** only activates once the system prompt passes the model minimum (~4096 tokens on Opus). The current prompt is smaller, so caching may not engage; cost is tiny either way (short in/out). The `cache_control` marker is in place for when the prompt grows.
+- **Prompt caching is active.** The system prompt (~5K tokens) and the post's X-ray are cached with a 1-hour TTL, so every comment on the same post reuses them and most of the per-comment cost is a cheap cache read.
 - **Endpoint drift.** Meta's Threads API changes. All API calls live in `src/threads.ts`; if a field or path changes, that is the only file to update. Verify against https://developers.facebook.com/docs/threads.
 - **Backfilling old posts is intentionally off.** Widen `BOT_WINDOW_HOURS` to reach older posts, but mass-replying to old comments looks like spam and burns the daily cap fast.
 
@@ -162,6 +163,7 @@ Gemini Flash is cheaper per token, but at this volume the gap is a few dollars a
 - Personal medical questions ("could I have this", "should I get scanned") -> **always skipped**, in two layers: the model classifies them as `personal_medical`, and `sanitize()` in `src/reply.ts` force-skips anything that still reads like advice.
 - Complaints and spam -> skipped (a human handles complaints).
 - Any error or unparseable response -> skipped. The bot defaults to silence, never to a risky reply.
+- It stays humble: replies peer-to-peer to obvious clinicians instead of lecturing, never over-claims anatomy beyond the vetted facts, and concedes in one line or skips rather than arguing when a comment challenges it.
 
 ## Files
 
