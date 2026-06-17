@@ -227,11 +227,14 @@ export function sanitize(d: Decision): Decision {
     // bare domains too (no http://), e.g. a promo link like "rare.example.com/x"
     .replace(/\b[a-z0-9][a-z0-9-]*(?:\.[a-z0-9-]+)*\.(?:com|net|org|io|co|me|app|dev|ai|xyz|info|biz|gg|tv|link|page|site|online|store|shop)\b(?:\/\S*)?/gi, "")
     .replace(/(^|\s)@[\p{L}\p{N}_.]+/gu, "$1")
-    .replace(/\s*[—–]\s*/g, ", ") // no em/en dashes; keep it in their voice
+    .replace(/\s*[—–]\s*/g, ". ") // no em/en dashes; break into two beats (no comma — the voice bans commas)
     .replace(/,\s+(but|so|yet|not|though|although|whereas|while)\b/gi, " $1") // casual voice: no comma before a contrast word
     .replace(EMOJI_SEQ, (m) => (ALLOWED_EMOJI.has([...m][0]) ? m : "")) // only the allowed emojis
     .replace(/\s+/g, " ")
     .trim();
+
+  // Capitalize the first letter of each sentence (e.g. where a dash became a period).
+  text = text.replace(/([.!?])\s+(\p{Ll})/gu, (_m, p: string, c: string) => `${p} ${c.toUpperCase()}`);
 
   // Drop AI-style preambles even when the model ignores the voice rule, and keep
   // teaching/correcting replies short. Re-capitalize if we trimmed the opener.
