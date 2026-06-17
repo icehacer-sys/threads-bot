@@ -75,10 +75,13 @@ export interface ClassifyInput {
   priorExchange?: { commenter: string; bot: string };
   /** Override the model for this one call (two-tier: cheap triage vs quality redraft). */
   modelOverride?: string;
+  /** True once the answer is publicly posted. When false, the model may KNOW the answer
+   *  (to judge guesses) but must never reveal it. Undefined = treat as public (manual/demo). */
+  answerPublic?: boolean;
 }
 
 export async function classifyAndDraft(input: ClassifyInput): Promise<Decision> {
-  const { postText, commentText, answer, facts, images, recentReplies, commentImages, commentMediaKind, inAnswerThread, priorExchange, modelOverride } = input;
+  const { postText, commentText, answer, facts, images, recentReplies, commentImages, commentMediaKind, inAnswerThread, priorExchange, modelOverride, answerPublic } = input;
   const factsBlock =
     facts && facts.length
       ? `VETTED FACTS (owner-reviewed, source of truth):\n- ${facts.join("\n- ")}`
@@ -95,9 +98,30 @@ export async function classifyAndDraft(input: ClassifyInput): Promise<Decision> 
         : commentImages && commentImages.length
           ? "NOTE: the commenter attached the image shown above. React to what is actually in it and tie it to the case."
           : "";
-  const answerLine = inAnswerThread
-    ? `CORRECT ANSWER (already revealed publicly in this answer thread, so you MAY name and discuss it): ${answer && answer.trim() ? answer.trim() : "unknown"}`
-    : `CORRECT ANSWER (private, never reveal): ${answer && answer.trim() ? answer.trim() : "unknown"}`;
+  const answerText = answer && answer.trim() ? answer.trim() : "";
+  const hasAnswer = answerText.length > 0 && answerText.toLowerCase() !== "unknown";
+  // Undefined answerPublic = treat as public (manual runs / demo). The answer thread is
+  // only reachable once the answer is posted, so inAnswerThread also implies public.
+  const isPublic = inAnswerThread || answerPublic !== false;
+  let answerLine: string;
+  let prePublicNote = "";
+  if (isPublic) {
+    answerLine = inAnswerThread
+      ? `CORRECT ANSWER (already revealed publicly in this answer thread, so you MAY name and discuss it): ${hasAnswer ? answerText : "unknown"}`
+      : `CORRECT ANSWER (now public, you MAY name and discuss it): ${hasAnswer ? answerText : "unknown"}`;
+  } else if (hasAnswer) {
+    answerLine = `CORRECT ANSWER (PRIVATE — the reveal is NOT posted yet): ${answerText}`;
+    prePublicNote =
+      "THE ANSWER IS NOT PUBLIC YET. Your reply must not let anyone reading work out the diagnosis. Use the answer above ONLY to judge this one comment. STRICT RULES:\n" +
+      "- NEVER name, spell, abbreviate, OR describe the diagnosis or its findings (no mechanism, no 'benign growths', no 'cartilage', no body-part specifics, no what-it-actually-is).\n" +
+      "- NEVER signal whether the guess is right or wrong by confirming it: no 'correct', 'yes', 'exactly', 'nailed it', 'spot on', 'you got it', 'bingo', and no ✅ or 💯.\n" +
+      '- If the guess is WRONG: reply with ONLY a short light rethink nudge and nothing else (e.g. "not the one, take another look" / "hmm, look again"). Do NOT explain why or hint at the real answer.\n' +
+      '- If the guess is RIGHT: stay coy and non-committal so you do not give it away (e.g. "bold call, you will have to wait for the reveal 👀" / "interesting, sit tight"). Do NOT confirm it.\n' +
+      "- If it is NOT a diagnosis guess: just banter normally.\n" +
+      "Keep it to one short line.";
+  } else {
+    answerLine = "CORRECT ANSWER: unknown (you do NOT know it — never affirm or correct a diagnosis guess; just banter).";
+  }
   const threadNote = inAnswerThread
     ? "NOTE: this comment is a reply under your pinned Answer post, where the diagnosis is already public. Answer follow-up questions about the case directly (prognosis, mechanism, what to read next) and react to reactions. No need to stay coy about the diagnosis here."
     : "";
@@ -112,6 +136,7 @@ export async function classifyAndDraft(input: ClassifyInput): Promise<Decision> 
   const stableText = [`POST:\n${postText || "(unknown)"}`, factsBlock].filter(Boolean).join("\n\n");
   const varText = [
     answerLine,
+    prePublicNote,
     threadNote,
     followUpNote,
     recentBlock,
@@ -120,6 +145,16 @@ export async function classifyAndDraft(input: ClassifyInput): Promise<Decision> 
   ]
     .filter(Boolean)
     .join("\n\n");
+
+  // Spoiler backstop terms: pre-public, a reply must never contain the diagnosis or a
+  // distinctive answer word. Full alias phrases + words >=6 chars (minus generic ones).
+  const SPOILER_STOP = new Set(["disease", "syndrome", "deformity", "hernia", "condition", "disorder", "anomaly"]);
+  const spoilerPhrases = hasAnswer ? answerText.split("/").map((s) => s.trim().toLowerCase()).filter(Boolean) : [];
+  const spoilerWords = spoilerPhrases
+    .flatMap((p) => p.split(/\s+/))
+    .map((w) => w.replace(/[^\p{L}]/gu, ""))
+    .filter((w) => w.length >= 6 && !SPOILER_STOP.has(w));
+  const spoilerTerms = [...new Set([...spoilerPhrases, ...spoilerWords])];
 
   const content: Array<Anthropic.ImageBlockParam | Anthropic.TextBlockParam> = [];
   // 1) Post X-ray(s), part of the cached per-post prefix.
@@ -176,7 +211,7 @@ export async function classifyAndDraft(input: ClassifyInput): Promise<Decision> 
     if (!submit?.input) {
       return { decision: "skip", category: "other", reply_text: "", reason: "no submit_reply produced" };
     }
-    return sanitize(submit.input as Decision);
+    return sanitize(submit.input as Decision, { isPublic, terms: spoilerTerms });
   } catch (err) {
     // Any failure (API error, bad output) -> stay silent. Never post on uncertainty.
     const msg = err instanceof Error ? err.message : String(err);
@@ -218,7 +253,7 @@ function firstSentences(s: string, n: number, maxChars = 240): string {
   return (out || parts[0]).trim();
 }
 
-export function sanitize(d: Decision): Decision {
+export function sanitize(d: Decision, spoiler?: { isPublic: boolean; terms: string[] }): Decision {
   // Strip hashtags, links, mentions; collapse whitespace; cap length.
   let text = (d.reply_text || "")
     .replace(/<\/?[a-zA-Z][^>]*>/g, "") // strip any HTML/citation tags (e.g. web-search <cite>)
@@ -268,6 +303,20 @@ export function sanitize(d: Decision): Decision {
       reply_text: "",
       reason: `${d.reason}${isRetired ? " | retired stock line" : ""} | guard:forced-skip`,
     };
+  }
+
+  // Spoiler backstop: before the answer is public, never post a reply that NAMES the
+  // diagnosis or CONFIRMS a guess as correct (either gives it away). Defense in depth
+  // behind the voice rule — stay silent rather than spoil it for everyone still guessing.
+  if (d.decision === "reply" && spoiler && !spoiler.isPublic) {
+    const low = text.toLowerCase();
+    const namesAnswer = spoiler.terms.some((t) => t.length >= 4 && low.includes(t));
+    const confirms =
+      /\b(nailed it|spot on|exactly right|you (?:nailed|got) it|that'?s it|bingo|correct)\b/i.test(text) ||
+      /✅|💯/.test(text);
+    if (namesAnswer || confirms) {
+      return { decision: "skip", category: d.category, reply_text: "", reason: `${d.reason} | spoiler guard: pre-public reveal blocked` };
+    }
   }
 
   return { ...d, reply_text: d.decision === "skip" ? "" : text };

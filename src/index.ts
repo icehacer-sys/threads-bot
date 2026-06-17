@@ -15,6 +15,7 @@ import { dirname, join } from "node:path";
 const execFileAsync = promisify(execFile);
 import { config } from "./config";
 import { classifyAndDraft, type Decision, type InlineImage, type ImageMediaType } from "./reply";
+import { resolveXrayAnswer } from "./xray";
 import {
   getMyUsername,
   getRecentPosts,
@@ -145,6 +146,14 @@ function answerSpoiler(breakdown: string): { text: string; spoilers: SpoilerEnti
   const offset = m ? m[0].length : 0;
   const length = breakdown.length - offset;
   return { text: breakdown, spoilers: length > 0 ? [{ entity_type: "SPOILER", offset, length }] : [] };
+}
+
+// Reply ONLY to clearly-visible comments. Anything the owner (or Threads) has hidden,
+// covered, blocked, or restricted is left untouched until the owner unhides it. A missing
+// status, NOT_HUSHED, or UNHUSHED all mean visible.
+function isVisible(c: ThreadsReply): boolean {
+  const s = c.hide_status;
+  return !s || s === "NOT_HUSHED" || s === "UNHUSHED";
 }
 
 function selectCandidates(replies: ThreadsReply[]): ThreadsReply[] {
@@ -317,7 +326,10 @@ async function runLiveOrDry(mode: Mode, target: string | null): Promise<void> {
     }
     convByPost.set(post.id, conversation);
 
-    const resolved = resolveAnswer(post, conversation, me, answers);
+    // Prefer the xray-cases bridge (auto-posted cases) so the bot knows the diagnosis
+    // even before the answer is publicly posted; fall back to answers.json / pinned reply.
+    const bridged = await resolveXrayAnswer(post.id);
+    const resolved = bridged ?? resolveAnswer(post, conversation, me, answers);
     const postImages = await loadPostImages(post);
 
     // Comment ids we (the brand) have already replied to.
@@ -339,7 +351,7 @@ async function runLiveOrDry(mode: Mode, target: string | null): Promise<void> {
     // log, so if you delete one of the bot's replies that comment is re-answered.
     const wantsReply = (c: ThreadsReply): boolean =>
       c.username !== me &&
-      c.hide_status !== "HIDDEN" &&
+      isVisible(c) &&
       ((c.text ?? "").trim().length >= config.minCommentLength ||
         ((c.media_type === "IMAGE" || c.media_type === "VIDEO") && !!c.media_url)) &&
       !answeredByMe.has(c.id);
@@ -371,7 +383,11 @@ async function runLiveOrDry(mode: Mode, target: string | null): Promise<void> {
     // banter, no confirmation. In the answer thread the answer is already public, so it
     // flows normally there.
     const answerPublic = ansId !== null;
-    const revealAnswer = answerPublic ? resolved.answer : undefined;
+    // Pass the answer to the model whenever we KNOW it (so it can judge guesses), but
+    // only allow it to REVEAL once the answer is publicly posted. Facts stay private until
+    // then. Pre-public, the model nudges wrong guesses and warmly acknowledges correct ones
+    // without ever naming the diagnosis (see voice.ts + the spoiler backstop in reply.ts).
+    const knownAnswer = resolved.answer;
     const revealFacts = answerPublic ? resolved.facts : undefined;
 
     // Also reply to a follow-up someone leaves under one of OUR replies, but only ONE
@@ -430,7 +446,7 @@ async function runLiveOrDry(mode: Mode, target: string | null): Promise<void> {
       const baseInput = {
         postText: post.text ?? "",
         commentText: c.text ?? "",
-        answer: revealAnswer,
+        answer: knownAnswer,
         facts: revealFacts,
         images: postImages,
         recentReplies: [...recentOwnerReplies, ...postedThisRun],
@@ -438,6 +454,7 @@ async function runLiveOrDry(mode: Mode, target: string | null): Promise<void> {
         commentMediaKind,
         inAnswerThread: inAnswerThreadIds.has(c.id),
         priorExchange: followUpContext.get(c.id),
+        answerPublic,
       };
       // Two-tier: the cheap triage model drafts every comment; only accuracy-critical
       // categories (corrections / teaching) are re-drafted by the pricier quality model.

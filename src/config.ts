@@ -96,6 +96,11 @@ export const config = {
   graphBase: "https://graph.threads.net/v1.0",
   threadsUserId: process.env.THREADS_USER_ID ?? "me",
 
+  // Read-only bridge to the xray-cases publisher repo: lets the bot look up the live
+  // case's diagnosis (to judge guesses) before the answer is publicly posted. Empty
+  // disables the bridge. Fully guarded — any failure falls back to answers.json/pinned.
+  xrayCasesRawBase: (process.env.BOT_XRAY_CASES_BASE ?? "https://raw.githubusercontent.com/icehacer-sys/xray-cases/main").replace(/\/+$/, ""),
+
   // Local state file (replied-comment log + daily counter)
   stateFile: process.env.BOT_STATE_FILE ?? "./state.json",
 
