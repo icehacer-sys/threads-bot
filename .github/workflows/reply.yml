@@ -53,8 +53,8 @@ jobs:
       BOT_ACTIVE_WINDOWS: "21-9" # 9 PM until 9 AM Cairo (one overnight window)
       BOT_ACTIVE_START: "21"
       BOT_ACTIVE_END: "9"
-      BOT_PER_POST_CAP: "100"
-      BOT_DAILY_CAP: "150"
+      BOT_PER_POST_CAP: "150"
+      BOT_DAILY_CAP: "200"
       BOT_MODEL: "claude-sonnet-4-6" # quality model: only re-drafts corrections/teaching
       BOT_TRIAGE_MODEL: "claude-haiku-4-5-20251001" # cheap first pass for every comment
       BOT_ANTIREPEAT: "15" # smaller anti-repeat list = fewer uncached tokens per call
