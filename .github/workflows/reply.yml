@@ -43,7 +43,7 @@ jobs:
       THREADS_USER_ID: me
       BOT_CONFIRM_LIVE: "yes"
       BOT_EDUCATIONAL: "on"
-      BOT_NEWEST_ONLY: "off"
+      BOT_NEWEST_ONLY: "on" # reply only to the single newest post (focus the night on tonight's fresh case, not the sword)
       BOT_WINDOW_HOURS: "16" # scan only the day's fresh post: 16h excludes the prior day's post (~21-24h old at window open) so the bot focuses on today's, not yesterday's tail
       BOT_VISION: "on"
       BOT_ANSWER: "on"
