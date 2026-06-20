@@ -191,10 +191,19 @@ export async function classifyAndDraft(input: ClassifyInput): Promise<Decision> 
     toolChoice = { type: "auto" };
   }
 
+  // effort:low caps token spend on these short, structured replies. GA effort is
+  // supported on Sonnet 4.6 / Opus 4.x ONLY — it ERRORS on Haiku 4.5 (the triage
+  // model) and older models, so gate it to known-supported model strings.
+  const model = modelOverride ?? config.model;
+  const effortParam = /sonnet-4-6|opus-4-[5-9]|fable-5/.test(model)
+    ? { output_config: { effort: "low" } }
+    : {};
+
   try {
     const res = await getClient().messages.create({
-      model: modelOverride ?? config.model,
+      model,
       max_tokens: 1024,
+      ...effortParam,
       // System prompt is static -> cache it for 1h (survives the gaps between 10-min cycles).
       system: [{ type: "text", text: SYSTEM_PROMPT, cache_control: { type: "ephemeral", ttl: "1h" } }],
       messages: [{ role: "user", content }],
