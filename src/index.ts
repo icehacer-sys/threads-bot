@@ -156,11 +156,34 @@ function isVisible(c: ThreadsReply): boolean {
   return !s || s === "NOT_HUSHED" || s === "UNHUSHED";
 }
 
+// Cheap value heuristic (no API call): when a viral post gets more comments than the
+// per-post cap, we want the budget spent on the comments where a reply adds the most —
+// genuine questions and substantive guesses/stories — not on one-word jokes. A real
+// question that arrives late should still outrank an early "lol". Pure banter is overflow.
+function commentValue(c: ThreadsReply): number {
+  const t = (c.text ?? "").trim();
+  const len = t.length;
+  let score = 0;
+  if (/\?/.test(t)) score += 3; // a question — highest signal
+  if (/\b(how|why|what|when|where|which|whose|can|could|would|does|do|did|is it|are they|cause)\b/i.test(t)) score += 2;
+  if (len >= 80) score += 2; // detailed guess / personal story
+  else if (len >= 40) score += 1;
+  if (len <= 15) score -= 1; // one-word guess or quip
+  if (c.media_type === "IMAGE" || c.media_type === "VIDEO") score += 1; // attached media to react to
+  return score;
+}
+
 function selectCandidates(replies: ThreadsReply[]): ThreadsReply[] {
   const sorted = [...replies];
-  // "engagement" is best-effort: the replies edge does not reliably expose per-reply
-  // like counts, so we fall back to newest-first. Newest-first is the reliable default.
-  sorted.sort((a, b) => (b.timestamp ?? "").localeCompare(a.timestamp ?? ""));
+  // Rank by value first so questions/substantive comments win the limited budget;
+  // tie-break newest-first so the bot still feels responsive to the live conversation.
+  // (Per-reply like counts are not reliably exposed by the replies edge, so we score
+  // the text itself rather than engagement.)
+  sorted.sort((a, b) => {
+    const dv = commentValue(b) - commentValue(a);
+    if (dv !== 0) return dv;
+    return (b.timestamp ?? "").localeCompare(a.timestamp ?? "");
+  });
   return sorted.slice(0, config.perPostCap);
 }
 
