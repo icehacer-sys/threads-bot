@@ -11,6 +11,7 @@ export type Category =
   | "affirm"
   | "correct"
   | "teach"
+  | "reference"
   | "empathize"
   | "personal_medical"
   | "complaint"
@@ -32,7 +33,7 @@ const REPLY_SCHEMA = {
     decision: { type: "string", enum: ["reply", "skip"] },
     category: {
       type: "string",
-      enum: ["banter", "affirm", "correct", "teach", "empathize", "personal_medical", "complaint", "spam", "other"],
+      enum: ["banter", "affirm", "correct", "teach", "reference", "empathize", "personal_medical", "complaint", "spam", "other"],
     },
     reply_text: { type: "string" },
     reason: { type: "string" },
@@ -78,10 +79,13 @@ export interface ClassifyInput {
   /** True once the answer is publicly posted. When false, the model may KNOW the answer
    *  (to judge guesses) but must never reveal it. Undefined = treat as public (manual/demo). */
   answerPublic?: boolean;
+  /** Allow this one call to use web search. Only the quality-model re-run of an
+   *  unrecognized "reference" comment sets this — never the cheap triage pass. */
+  allowSearch?: boolean;
 }
 
 export async function classifyAndDraft(input: ClassifyInput): Promise<Decision> {
-  const { postText, commentText, answer, facts, images, recentReplies, commentImages, commentMediaKind, inAnswerThread, priorExchange, modelOverride, answerPublic } = input;
+  const { postText, commentText, answer, facts, images, recentReplies, commentImages, commentMediaKind, inAnswerThread, priorExchange, modelOverride, answerPublic, allowSearch } = input;
   const factsBlock =
     facts && facts.length
       ? `VETTED FACTS (owner-reviewed, source of truth):\n- ${facts.join("\n- ")}`
@@ -186,7 +190,9 @@ export async function classifyAndDraft(input: ClassifyInput): Promise<Decision> 
     },
   ];
   let toolChoice: unknown = { type: "tool", name: "submit_reply" };
-  if (config.webSearch) {
+  // Web search only on the quality-model re-run of an unrecognized reference (allowSearch),
+  // never on the per-comment triage pass — keeps cost/latency bounded to that small subset.
+  if (config.webSearch && allowSearch) {
     tools.unshift({ type: "web_search_20250305", name: "web_search", max_uses: 3 });
     toolChoice = { type: "auto" };
   }

@@ -57,8 +57,9 @@ jobs:
       BOT_DAILY_CAP: "300"
       BOT_MODEL: "claude-sonnet-4-6" # quality model: only re-drafts corrections/teaching
       BOT_TRIAGE_MODEL: "claude-haiku-4-5-20251001" # cheap first pass for every comment
+      BOT_ESCALATE: "correct,teach,reference" # categories the Haiku triage hands to Sonnet
       BOT_ANTIREPEAT: "15" # smaller anti-repeat list = fewer uncached tokens per call
-      BOT_WEB_SEARCH: "off" # forces one deterministic call per comment, no search fees
+      BOT_WEB_SEARCH: "on" # search runs ONLY on the Sonnet "reference" re-run (unrecognized memes/refs), never on triage
     steps:
       - uses: actions/checkout@v4
 

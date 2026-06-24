@@ -483,8 +483,11 @@ async function runLiveOrDry(mode: Mode, target: string | null): Promise<void> {
       // categories (corrections / teaching) are re-drafted by the pricier quality model.
       let d = await classifyAndDraft({ ...baseInput, modelOverride: config.triageModel });
       if (d.decision === "reply" && config.escalateCategories.includes(d.category)) {
-        console.log(`        (escalating ${d.category} to ${config.model})`);
-        d = await classifyAndDraft({ ...baseInput, modelOverride: config.model });
+        // Only the "reference" re-run gets web search (to look up an unrecognized
+        // movie/show/meme/person); medical correct/teach escalations rely on vetted facts.
+        const allowSearch = config.webSearch && d.category === "reference";
+        console.log(`        (escalating ${d.category} to ${config.model}${allowSearch ? " + web search" : ""})`);
+        d = await classifyAndDraft({ ...baseInput, modelOverride: config.model, allowSearch });
       }
       if (!config.educationalReplies && (d.category === "correct" || d.category === "teach")) {
         d = { ...d, decision: "skip", reply_text: "", reason: `${d.reason} | educational replies off` };
