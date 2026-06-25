@@ -115,6 +115,22 @@ export async function getRecentPosts(): Promise<ThreadsPost[]> {
   return r.data ?? [];
 }
 
+/** A single post by its media id — used for pinned posts that sit outside the recent window. */
+export async function getPostById(id: string): Promise<ThreadsPost> {
+  return api<ThreadsPost>(`/${id}`, {
+    query: { fields: "id,permalink,timestamp,text,media_type,media_url,thumbnail_url,children{id,media_type,media_url}" },
+  });
+}
+
+/** The account's own posts newest-first, ignoring the time window. Powers `--list` and resolves a pinned post URL/shortcode to its media id. */
+export async function getAllMyPosts(limit = 150): Promise<ThreadsPost[]> {
+  const out = await apiGetAll<ThreadsPost>(`/${config.threadsUserId}/threads`, {
+    fields: "id,permalink,timestamp,text",
+    limit: 100,
+  });
+  return out.slice(0, limit);
+}
+
 /** Top-level replies (comments) on a post — ALL of them, across pages. */
 export async function getReplies(mediaId: string): Promise<ThreadsReply[]> {
   return apiGetAll<ThreadsReply>(`/${mediaId}/replies`, {

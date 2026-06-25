@@ -10,6 +10,8 @@ interface StateShape {
   answeredPostIds: string[];
   postCounts: Record<string, number>;
   daily: { date: string; count: number };
+  /** Resolved pinned-post shortcode -> media id, so a URL is only matched against the post list once. */
+  pinnedResolved?: Record<string, string>;
 }
 
 function today(): string {
@@ -21,6 +23,7 @@ export class State {
   private answered: Set<string>;
   private postCounts: Record<string, number>;
   private daily: { date: string; count: number };
+  private pinnedResolved: Record<string, string>;
 
   constructor() {
     let loaded: StateShape | null = null;
@@ -34,8 +37,18 @@ export class State {
     this.replied = new Set(loaded?.repliedCommentIds ?? []);
     this.answered = new Set(loaded?.answeredPostIds ?? []);
     this.postCounts = loaded?.postCounts ?? {};
+    this.pinnedResolved = loaded?.pinnedResolved ?? {};
     this.daily =
       loaded?.daily && loaded.daily.date === today() ? loaded.daily : { date: today(), count: 0 };
+  }
+
+  resolvedPinned(key: string): string | undefined {
+    return this.pinnedResolved[key];
+  }
+
+  setResolvedPinned(key: string, id: string): void {
+    this.pinnedResolved[key] = id;
+    this.save();
   }
 
   hasReplied(commentId: string): boolean {
@@ -76,6 +89,7 @@ export class State {
       answeredPostIds: [...this.answered],
       postCounts: this.postCounts,
       daily: this.daily,
+      pinnedResolved: this.pinnedResolved,
     };
     writeFileSync(config.stateFile, JSON.stringify(out, null, 2));
   }

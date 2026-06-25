@@ -60,6 +60,16 @@ export const config = {
   // Only act on the single newest post (cleanest for a once-a-day challenge).
   newestOnly: (process.env.BOT_NEWEST_ONLY ?? "off").toLowerCase() === "on",
 
+  // Posts the bot ALWAYS scans on top of the daily post (e.g. a pinned intro thread).
+  // It replies to any comment there that has no reply yet, every run, and bypasses
+  // newest-only, the time window, and the cumulative per-post cap (bounded only by the
+  // daily cap). Comma-separated: media IDs or post URLs/shortcodes. Empty = off.
+  // Find a post's media id with: npm run dry -- --list
+  pinnedPostIds: (process.env.BOT_PINNED_POSTS ?? "")
+    .split(",")
+    .map((s) => s.trim())
+    .filter(Boolean),
+
   // Selection + budget
   selection: (process.env.BOT_SELECTION as Selection) ?? "recent",
   dailyCap: num("BOT_DAILY_CAP", 200), // safety backstop, stays under Threads' ~250/day

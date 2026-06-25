@@ -19,6 +19,8 @@ import { resolveXrayAnswer } from "./xray";
 import {
   getMyUsername,
   getRecentPosts,
+  getPostById,
+  getAllMyPosts,
   getReplies,
   getConversation,
   postReply,
@@ -283,6 +285,65 @@ function withinActiveHours(): boolean {
   return config.activeWindows.some(([a, b]) => (a <= b ? hour >= a && hour < b : hour >= a || hour < b));
 }
 
+function looksLikeMediaId(s: string): boolean {
+  return /^\d{6,}$/.test(s);
+}
+
+// Resolve BOT_PINNED_POSTS entries (media ids OR post URLs/shortcodes) to live posts,
+// skipping any already in the daily scan. A URL/shortcode is matched against the account's
+// post list once and the id is cached in state, so later runs cost a single fetch per pin.
+async function resolvePinnedPosts(
+  state: { resolvedPinned(k: string): string | undefined; setResolvedPinned(k: string, id: string): void },
+  daily: ThreadsPost[],
+): Promise<ThreadsPost[]> {
+  if (!config.pinnedPostIds.length) return [];
+  const dailyIds = new Set(daily.map((p) => p.id));
+  const out: ThreadsPost[] = [];
+  const seen = new Set<string>();
+  let listing: ThreadsPost[] | null = null;
+  for (const entry of config.pinnedPostIds) {
+    try {
+      let id: string | undefined;
+      if (looksLikeMediaId(entry)) {
+        id = entry;
+      } else {
+        const sc = shortcodeFromPermalink(entry) ?? entry;
+        id = state.resolvedPinned(sc);
+        if (!id) {
+          if (!listing) listing = await getAllMyPosts(2500); // scan deep once; the id is cached after
+          const found = listing.find((p) => shortcodeFromPermalink(p.permalink) === sc);
+          if (found) {
+            id = found.id;
+            state.setResolvedPinned(sc, id);
+          }
+        }
+      }
+      if (!id) {
+        console.error(`  ! pinned post not found (use a media id from --list or a post URL): ${entry}`);
+        continue;
+      }
+      if (dailyIds.has(id) || seen.has(id)) continue; // already scanned / duplicate pin
+      seen.add(id);
+      out.push(await getPostById(id));
+    } catch (err) {
+      console.error(`  ! pinned post ${entry} failed: ${(err as Error).message}`);
+    }
+  }
+  return out;
+}
+
+// `--list`: print recent posts with their media ids so you can copy a pinned thread's id
+// into BOT_PINNED_POSTS. Ignores the active window and the scan time window.
+async function runList(): Promise<void> {
+  const posts = await getAllMyPosts(100);
+  console.log(`\n${posts.length} recent posts (newest first). Copy a pinned thread's id into BOT_PINNED_POSTS:\n`);
+  for (const p of posts) {
+    const sc = shortcodeFromPermalink(p.permalink) ?? "?";
+    console.log(`  ${p.id}  [${sc}]  ${clip(p.text ?? "", 70)}`);
+  }
+  console.log("");
+}
+
 async function runLiveOrDry(mode: Mode, target: string | null): Promise<void> {
   const posting = mode === "live";
   if (posting && !config.confirmLive) {
@@ -312,9 +373,16 @@ async function runLiveOrDry(mode: Mode, target: string | null): Promise<void> {
   if (target) posts = posts.filter((p) => shortcodeFromPermalink(p.permalink) === target);
   // Newest post only: posts come back newest-first, so keep just the first.
   if (!target && config.newestOnly && posts.length > 1) posts = posts.slice(0, 1);
+
+  // Pinned posts (e.g. a pinned intro thread): always scanned on top of the daily post,
+  // unless a specific target was requested. They bypass the time window + per-post cap below.
+  const pinnedPosts = target ? [] : await resolvePinnedPosts(state, posts);
+  const pinnedIds = new Set(pinnedPosts.map((p) => p.id));
+  const scanPosts = [...posts, ...pinnedPosts];
+
   console.log(
     `\n${posting ? "LIVE" : "DRY-RUN"} — @${me}, model ${config.model}. ` +
-      `Scanning ${posts.length} post(s)${target ? ` (target ${target})` : ""}. ` +
+      `Scanning ${scanPosts.length} post(s)${pinnedPosts.length ? ` (incl. ${pinnedPosts.length} pinned)` : ""}${target ? ` (target ${target})` : ""}. ` +
       `Per-post cap ${config.perPostCap}, daily left ${state.remainingToday()}/${config.dailyCap}.` +
       (posting ? "" : " Nothing will be posted.") +
       "\n",
@@ -328,13 +396,14 @@ async function runLiveOrDry(mode: Mode, target: string | null): Promise<void> {
   // touched, so track the intended count against the cap directly.
   const budgetLeft = () => (posting ? state.remainingToday() : config.dailyCap - replied);
 
-  for (const post of posts) {
+  for (const post of scanPosts) {
     if (budgetLeft() <= 0) {
       console.log("Daily cap reached — stopping.");
       break;
     }
     // Optional time window: only enforced when windowHours > 0 (0 = no limit).
-    if (config.windowHours > 0) {
+    // Pinned posts are intentionally old, so they skip the age filter.
+    if (config.windowHours > 0 && !pinnedIds.has(post.id)) {
       const ageHours = post.timestamp ? (Date.now() - new Date(post.timestamp).getTime()) / 3_600_000 : 0;
       if (ageHours > config.windowHours) continue;
     }
@@ -444,11 +513,15 @@ async function runLiveOrDry(mode: Mode, target: string | null): Promise<void> {
     const pool = [...unanswered, ...answerSubs, ...followUps].filter((c) =>
       seenIds.has(c.id) ? false : (seenIds.add(c.id), true),
     );
-    const perPostRemaining = Math.max(0, config.perPostCap - state.repliedToPost(post.id));
+    // Pinned posts are not subject to the cumulative per-post cap (it would permanently
+    // cap a thread that should run forever) — they are bounded only by the daily cap.
+    const perPostRemaining = pinnedIds.has(post.id)
+      ? budgetLeft()
+      : Math.max(0, config.perPostCap - state.repliedToPost(post.id));
     const candidates = selectCandidates(pool).slice(0, perPostRemaining);
 
     console.log(
-      `Post ${clip(post.text ?? post.id, 40)} [answer: ${resolved.answer ?? "unknown"}${postImages.length ? ", image ✓" : ""}] — ${candidates.length} to reply (${state.repliedToPost(post.id)}/${config.perPostCap} done):`,
+      `Post ${clip(post.text ?? post.id, 40)} [answer: ${resolved.answer ?? "unknown"}${postImages.length ? ", image ✓" : ""}] — ${candidates.length} to reply (${pinnedIds.has(post.id) ? "pinned" : `${state.repliedToPost(post.id)}/${config.perPostCap}`} done):`,
     );
     if (candidates.length === 0) {
       console.log("  (none)\n");
@@ -568,6 +641,10 @@ async function runLiveOrDry(mode: Mode, target: string | null): Promise<void> {
 
 async function main(): Promise<void> {
   const argv = process.argv.slice(2);
+  if (argv.includes("--list")) {
+    await runList();
+    return;
+  }
   const mode = parseMode(argv);
   if (mode === "demo") {
     await runDemo();
