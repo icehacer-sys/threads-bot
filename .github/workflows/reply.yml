@@ -44,7 +44,7 @@ jobs:
       BOT_CONFIRM_LIVE: "yes"
       BOT_EDUCATIONAL: "on"
       BOT_NEWEST_ONLY: "on" # reply only to the single newest post (focus the night on tonight's fresh case, not the sword)
-      BOT_PINNED_POSTS: "https://www.threads.com/@mdnoteslab/post/DY_tUxfiMUb" # ALSO always scan these posts (the pinned intro thread), replying to any un-replied comment. Comma-separated media ids or post URLs. Find ids with: npm run dry -- --list
+      BOT_PINNED_POSTS: "17986874135820855" # pinned intro thread (DY_tUxfiMUb): ALSO scanned every run, replying to any un-replied comment. Comma-separated media ids or post URLs. Find ids with: npm run dry -- --list
       BOT_WINDOW_HOURS: "16" # scan only the day's fresh post: 16h excludes the prior day's post (~21-24h old at window open) so the bot focuses on today's, not yesterday's tail
       BOT_VISION: "on"
       BOT_ANSWER: "on"
