@@ -12,6 +12,8 @@ interface StateShape {
   daily: { date: string; count: number };
   /** Resolved pinned-post shortcode -> media id, so a URL is only matched against the post list once. */
   pinnedResolved?: Record<string, string>;
+  /** Comments we classified and chose to SKIP, so we never re-classify them (the main cost leak). */
+  skippedCommentIds?: string[];
 }
 
 function today(): string {
@@ -24,6 +26,7 @@ export class State {
   private postCounts: Record<string, number>;
   private daily: { date: string; count: number };
   private pinnedResolved: Record<string, string>;
+  private skipped: Set<string>;
 
   constructor() {
     let loaded: StateShape | null = null;
@@ -38,8 +41,18 @@ export class State {
     this.answered = new Set(loaded?.answeredPostIds ?? []);
     this.postCounts = loaded?.postCounts ?? {};
     this.pinnedResolved = loaded?.pinnedResolved ?? {};
+    this.skipped = new Set(loaded?.skippedCommentIds ?? []);
     this.daily =
       loaded?.daily && loaded.daily.date === today() ? loaded.daily : { date: today(), count: 0 };
+  }
+
+  hasSkipped(commentId: string): boolean {
+    return this.skipped.has(commentId);
+  }
+
+  markSkipped(commentId: string): void {
+    this.skipped.add(commentId);
+    this.save();
   }
 
   resolvedPinned(key: string): string | undefined {
@@ -90,6 +103,7 @@ export class State {
       postCounts: this.postCounts,
       daily: this.daily,
       pinnedResolved: this.pinnedResolved,
+      skippedCommentIds: [...this.skipped],
     };
     writeFileSync(config.stateFile, JSON.stringify(out, null, 2));
   }

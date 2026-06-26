@@ -446,7 +446,8 @@ async function runLiveOrDry(mode: Mode, target: string | null): Promise<void> {
       isVisible(c) &&
       ((c.text ?? "").trim().length >= config.minCommentLength ||
         ((c.media_type === "IMAGE" || c.media_type === "VIDEO") && !!c.media_url)) &&
-      !answeredByMe.has(c.id);
+      !answeredByMe.has(c.id) &&
+      !state.hasSkipped(c.id); // already classified+skipped once — don't re-pay to re-classify it every poll
 
     const unanswered = replies.filter(wantsReply);
 
@@ -569,6 +570,10 @@ async function runLiveOrDry(mode: Mode, target: string | null): Promise<void> {
 
       if (d.decision === "skip") {
         skipCounts[d.category] = (skipCounts[d.category] ?? 0) + 1;
+        // Record the skip so we never re-classify this comment again (the main cost leak) —
+        // but NOT transient API-error skips, which should still retry on a later poll.
+        const transient = /^error:/.test(d.reason) || d.reason.includes("no submit_reply");
+        if (posting && !transient) state.markSkipped(c.id);
         continue;
       }
       postedThisRun.push(d.reply_text);
