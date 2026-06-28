@@ -483,26 +483,40 @@ async function runLiveOrDry(mode: Mode, target: string | null): Promise<void> {
     const knownAnswer = resolved.answer;
     const revealFacts = answerPublic ? resolved.facts : undefined;
 
-    // Also reply to a follow-up someone leaves under one of OUR replies, but only ONE
-    // level deep: their comment -> our reply -> their follow-up -> our reply, then stop.
-    // This keeps it a single exchange per account, never a long back-and-forth.
-    // "Originals" are top-level comments + direct answer-thread subs; a follow-up is
-    // eligible only when the reply it answers was itself a reply to an original (so a
-    // reply to one of OUR follow-up replies is NOT eligible — that would be level 2).
+    // Reply to follow-ups people leave under one of OUR replies. A follow-up is eligible
+    // when its reply chain traces back to an ORIGINAL comment on this post (a top-level
+    // comment or an answer-thread sub) at ANY reasonable depth — so a genuine multi-question
+    // back-and-forth keeps getting answered instead of dying after the first follow-up.
+    // The model only actually replies when the follow-up is a real question/clarification
+    // (see followUpNote in reply.ts), so this never turns into endless banter; the hop cap
+    // is only a runaway backstop. answeredByMe still prevents re-answering the same one.
+    const MAX_FOLLOWUP_HOPS = 12; // ~6 exchanges deep
     const byId = new Map(conversation.map((c) => [c.id, c]));
     const botReplyIds = new Set(conversation.filter((c) => c.username === me).map((c) => c.id));
     const originalIds = new Set<string>([...replies.map((r) => r.id), ...answerDirectIds]);
+    // Walk up a reply chain to the id of the original comment it descends from (or null).
+    const rootOriginal = (c: ThreadsReply): string | null => {
+      let cur: ThreadsReply | undefined = c;
+      for (let hop = 0; cur && hop < MAX_FOLLOWUP_HOPS; hop++) {
+        const pid = cur.replied_to?.id;
+        if (!pid) return null;
+        if (originalIds.has(pid)) return pid;
+        cur = byId.get(pid);
+      }
+      return null;
+    };
     const followUpContext = new Map<string, { commenter: string; bot: string }>();
     const inAnswerThreadIds = new Set<string>(answerSubIds);
     const followUps = conversation.filter((c) => {
       if (c.username === me || !wantsReply(c)) return false;
       const parentId = c.replied_to?.id;
-      if (!parentId || !botReplyIds.has(parentId)) return false; // must reply to one of our replies
+      if (!parentId || !botReplyIds.has(parentId)) return false; // must reply to one of OUR replies
+      const originalId = rootOriginal(c);
+      if (!originalId) return false; // chain must trace back to an original on this post
       const ourReply = byId.get(parentId);
-      const originalId = ourReply?.replied_to?.id;
-      if (!originalId || !originalIds.has(originalId)) return false; // only one level deep
+      const priorCommentId = ourReply?.replied_to?.id; // the message our reply answered = the immediate context
       followUpContext.set(c.id, {
-        commenter: (byId.get(originalId)?.text ?? "").slice(0, 240),
+        commenter: (priorCommentId ? byId.get(priorCommentId)?.text ?? "" : "").slice(0, 240),
         bot: (ourReply?.text ?? "").slice(0, 240),
       });
       if (answerDirectIds.has(originalId)) inAnswerThreadIds.add(c.id);

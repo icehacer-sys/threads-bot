@@ -19,6 +19,7 @@ export type Category =
   | "other";
 
 export interface Decision {
+  intent?: string;
   decision: "reply" | "skip";
   category: Category;
   reply_text: string;
@@ -26,10 +27,18 @@ export interface Decision {
 }
 
 // JSON schema for structured outputs. additionalProperties:false is required.
+// `intent` is FIRST so the model reasons about what the comment literally is BEFORE it
+// picks a category — this stops genuine questions getting bantered (e.g. "so where the
+// ribs at" is a real "I can't see the ribs, why?" question, not a joke).
 const REPLY_SCHEMA = {
   type: "object",
   additionalProperties: false,
   properties: {
+    intent: {
+      type: "string",
+      description:
+        "FIRST, in one sentence, work out what this comment LITERALLY is and what the person actually wants: a joke/meme to top, a real diagnosis guess, a genuine question about the case OR the image (e.g. 'where are the ribs' = they genuinely cannot see them on the scan and want to know why), a personal story, or a complaint. If it reads like a plain question about what is in the image, it is a real question even when phrased casually or slangily. Settle the real intent here before choosing a category.",
+    },
     decision: { type: "string", enum: ["reply", "skip"] },
     category: {
       type: "string",
@@ -38,7 +47,7 @@ const REPLY_SCHEMA = {
     reply_text: { type: "string" },
     reason: { type: "string" },
   },
-  required: ["decision", "category", "reply_text", "reason"],
+  required: ["intent", "decision", "category", "reply_text", "reason"],
 } as const;
 
 let client: Anthropic | null = null;
@@ -130,7 +139,7 @@ export async function classifyAndDraft(input: ClassifyInput): Promise<Decision> 
     ? "NOTE: this comment is a reply under your pinned Answer post, where the diagnosis is already public. Answer follow-up questions about the case directly (prognosis, mechanism, what to read next) and react to reactions. No need to stay coy about the diagnosis here."
     : "";
   const followUpNote = priorExchange
-    ? `THIS IS A FOLLOW-UP under your own reply. Earlier the commenter said "${priorExchange.commenter}" and you replied "${priorExchange.bot}". The COMMENT below is their reply back to you. Reply ONLY if it is a genuine question or adds something worth answering — answer it directly, in the context of what was already said. If it is just thanks, agreement, or light banter, decision "skip" (do not extend the thread). Either way this is your LAST reply in this thread: give a complete answer, do NOT ask anything back or invite more back-and-forth.`
+    ? `THIS IS A FOLLOW-UP under your own reply. Earlier the commenter said "${priorExchange.commenter}" and you replied "${priorExchange.bot}". The COMMENT below is their reply back to you. Reply ONLY if it is a genuine QUESTION or genuinely needs CLARIFICATION — then answer it directly and accurately in the context of what was already said. If it is just thanks, agreement, a reaction, or light banter with no real question, decision "skip" (let it rest). You MAY keep answering genuine follow-up questions in this thread for as long as they keep asking real ones — a real question always deserves an answer no matter how deep the thread. But never ask anything back, never bait more chatter, and never keep the thread going yourself: you only ever respond to an actual question.`
     : "";
   // Split the prompt into a STABLE per-post prefix (same for every comment on this
   // post) and a VARIABLE per-comment tail. The prefix — X-ray image + post text +
