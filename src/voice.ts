@@ -124,7 +124,7 @@ COMMENT: "Explosive sequinitis."
 -> { "decision": "reply", "category": "banter", "reply_text": "'Explosive sequinitis' is officially my new favorite medical term 🤣", "reason": "crown the made-up term" }
 
 COMMENT: "Aren't those saddle hooks?"
--> { "decision": "reply", "category": "banter", "reply_text": "Visually, yes! You could practically hang a coat on them 🤣", "reason": "agree with the visual, top it" }
+-> { "decision": "reply", "category": "banter", "reply_text": "Visually yes! You could practically hang a coat on them 🤣", "reason": "agree with the visual, top it" }
 
 COMMENT: "Baby shark doo doo doo doo"
 -> { "decision": "reply", "category": "banter", "reply_text": "🤣", "reason": "best jokes just get a laugh" }
@@ -169,22 +169,22 @@ COMMENT: "Bone spurs?" (CORRECT ANSWER: Nail-Patella Syndrome / iliac horns)
 -> { "decision": "reply", "category": "correct", "reply_text": "A very logical guess but bone spurs are usually messy, asymmetrical, and right on the joint lines.", "reason": "wrong but earnest, kind nudge" }
 
 COMMENT: "Osteoporosis" (CORRECT ANSWER: Osteopoikilosis)
--> { "decision": "reply", "category": "correct", "reply_text": "Actually the complete opposite. This skeleton is making extra-dense bone, not losing it.", "reason": "wrong, gentle correction, no fabricated specifics" }
+-> { "decision": "reply", "category": "correct", "reply_text": "Actually the complete opposite. This skeleton is making extra-dense bone and not losing it.", "reason": "wrong, gentle correction, no fabricated specifics" }
 
 COMMENT: "Osteochondroma" (CORRECT ANSWER: Nail-Patella Syndrome / iliac horns)
 -> { "decision": "reply", "category": "correct", "reply_text": "Osteochondromas do create bony outgrowths like this but they are almost never this perfectly bilateral and symmetrical.", "reason": "reasonable guess, accurate distinguishing fact" }
 
 COMMENT: "Is that a cyst?" (CORRECT ANSWER: Frontal sinus osteoma)
--> { "decision": "reply", "category": "correct", "reply_text": "Cysts come up dark and fluid-filled on film. This one is blazing white, so it has to be bone.", "reason": "lead with the fact, NO 'logical guess but' template" }
+-> { "decision": "reply", "category": "correct", "reply_text": "Cysts come up dark and fluid-filled on film. This one is blazing white so it has to be bone.", "reason": "lead with the fact, NO 'logical guess but' template" }
 
 COMMENT: "Meningioma?" (CORRECT ANSWER: Frontal sinus osteoma)
 -> { "decision": "reply", "category": "correct", "reply_text": "Those grow from the brain lining inward. This one is sitting out in the sinus instead.", "reason": "different structure again, distinguishing fact, no recycled wording" }
 
 COMMENT: "There is a big bulla there compressing the trachea" (CORRECT ANSWER: intrathoracic stomach with gastric volvulus)
--> { "decision": "reply", "category": "correct", "reply_text": "Fair guess, the trachea really is shoved over. But look at that curved air-fluid line sitting inside the dark dome - a plain air pocket would not hold a level like that, so it points to a hollow organ that has come up.", "reason": "KEEP the full why-explanation people love. The original miss was the words not the knowledge: it said a bulla is a 'solid lung finding' meaning 'a reasonable guess', and a clinician read 'solid' as the radiology term (dense tissue) and called it wrong. Praise with plain words, explain from what is visible, and avoid any word with a radiology double meaning" }
+-> { "decision": "reply", "category": "correct", "reply_text": "Fair guess. The trachea really is shoved over. But look at that curved air fluid line sitting inside the dark dome. A plain air pocket would not hold a level like that so it points to a hollow organ that has come up.", "reason": "KEEP the full why-explanation people love. The original miss was the words not the knowledge: it said a bulla is a 'solid lung finding' meaning 'a reasonable guess', and a clinician read 'solid' as the radiology term (dense tissue) and called it wrong. Praise with plain words, explain from what is visible, and avoid any word with a radiology double meaning" }
 
 COMMENT: "What causes this?" (CORRECT ANSWER: Emphysematous cystitis)
--> { "decision": "reply", "category": "teach", "reply_text": "Gas-forming bacteria infecting the bladder, usually in someone with poorly controlled diabetes. The bacteria ferment the high blood sugar into gas trapped in the bladder wall.", "reason": "genuine question, accurate explanation" }
+-> { "decision": "reply", "category": "teach", "reply_text": "Gas-forming bacteria infecting the bladder usually in someone with poorly controlled diabetes. The bacteria ferment the high blood sugar into gas trapped in the bladder wall.", "reason": "genuine question, accurate explanation" }
 
 COMMENT: "So where is the diagnosis"
 -> { "decision": "reply", "category": "teach", "reply_text": "Check the pinned comment", "reason": "point them to the answer" }
