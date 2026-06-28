@@ -93,8 +93,29 @@ export interface ClassifyInput {
   allowSearch?: boolean;
 }
 
+// ENGLISH-ONLY policy: detect comments written in a non-Latin script so they can be
+// skipped without spending a model call. Covers Greek, Cyrillic, Hebrew, Arabic, Syriac,
+// Devanagari, Thai, Hangul Jamo, Hiragana/Katakana, Hangul, and CJK. Latin-script foreign
+// languages (Spanish, French, German, ...) are left to the voice rule to skip.
+const NON_LATIN_SCRIPT =
+  /[Ͱ-ϿЀ-ӿ֐-׿؀-ۿ܀-ݏऀ-ॿ฀-๿ᄀ-ᇿ぀-ヿ㄰-㆏㐀-䶿一-鿿가-힯]/;
+
+/** True when a comment is largely non-Latin script (Arabic, CJK, Cyrillic, ...) i.e. not English. */
+export function isNonEnglishScript(text: string | undefined): boolean {
+  const letters = (text || "").match(/\p{L}/gu);
+  if (!letters || letters.length === 0) return false; // emoji / punctuation / numbers only — not "foreign"
+  const nonLatin = letters.filter((ch) => NON_LATIN_SCRIPT.test(ch)).length;
+  return nonLatin / letters.length >= 0.3;
+}
+
 export async function classifyAndDraft(input: ClassifyInput): Promise<Decision> {
   const { postText, commentText, answer, facts, images, recentReplies, commentImages, commentMediaKind, inAnswerThread, priorExchange, modelOverride, answerPublic, allowSearch } = input;
+
+  // ENGLISH-ONLY: skip non-Latin-script comments (Arabic, CJK, Cyrillic, ...) before any
+  // model call. Latin-script foreign languages are handled by the voice rule.
+  if (isNonEnglishScript(commentText)) {
+    return { decision: "skip", category: "other", reply_text: "", reason: "non-English (non-Latin script) - English-only policy | guard:forced-skip" };
+  }
   const factsBlock =
     facts && facts.length
       ? `VETTED FACTS (owner-reviewed, source of truth):\n- ${facts.join("\n- ")}`
