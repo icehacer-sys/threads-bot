@@ -438,14 +438,20 @@ async function runLiveOrDry(mode: Mode, target: string | null): Promise<void> {
       .slice(-config.antiRepeatWindow);
     const postedThisRun: string[] = [];
 
-    // Unanswered = no live reply from us in the thread right now (answeredByMe is
-    // built from the current conversation). We trust the LIVE thread, not a local
-    // log, so if you delete one of the bot's replies that comment is re-answered.
+    // Unanswered = we have NO local record of replying AND no live reply from us in the
+    // thread. state.hasReplied is the hard backstop against double-posting: once we have
+    // posted to a comment we NEVER reply to it again, even if our reply has not surfaced in
+    // the live conversation yet — it may be lagging on the API, or HELD because the commenter's
+    // account requires comment approval. Relying on answeredByMe alone made the bot reply 2-3
+    // times to those (it never saw its own pending reply). (Trade-off: if the owner deletes a
+    // bot reply it will not be re-answered automatically — clearing the comment id from
+    // state.json's repliedCommentIds re-enables that, which is the right place for it.)
     const wantsReply = (c: ThreadsReply): boolean =>
       c.username !== me &&
       isVisible(c) &&
       ((c.text ?? "").trim().length >= config.minCommentLength ||
         ((c.media_type === "IMAGE" || c.media_type === "VIDEO") && !!c.media_url)) &&
+      !state.hasReplied(c.id) && // local record — never post twice, even if our reply is pending/lagging
       !answeredByMe.has(c.id) &&
       !state.hasSkipped(c.id); // already classified+skipped once — don't re-pay to re-classify it every poll
 
