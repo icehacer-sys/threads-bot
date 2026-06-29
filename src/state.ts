@@ -17,8 +17,13 @@ interface StateShape {
 }
 
 function today(): string {
-  // Date in the bot timezone (not UTC) so the 21-9 overnight window sits on one cap-day.
-  return new Intl.DateTimeFormat("en-CA", { timeZone: config.activeTz || "UTC" }).format(new Date());
+  // "Cap day" = the bot's local day shifted to roll at MIDDAY, not midnight. The active window is
+  // 9 PM-9 AM Cairo and crosses midnight, so a midnight rollover would split one night across two
+  // cap-days (letting the daily cap reset mid-shift). Subtracting 12h moves the rollover to ~noon
+  // Cairo, when the bot is idle, so the whole overnight shift always sits on ONE cap-day.
+  return new Intl.DateTimeFormat("en-CA", { timeZone: config.activeTz || "UTC" }).format(
+    new Date(Date.now() - 12 * 60 * 60 * 1000),
+  );
 }
 
 export class State {
