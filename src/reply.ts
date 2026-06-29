@@ -94,17 +94,19 @@ export interface ClassifyInput {
 }
 
 // ENGLISH-ONLY policy: detect comments written in a non-Latin script so they can be
-// skipped without spending a model call. Covers Greek, Cyrillic, Hebrew, Arabic, Syriac,
-// Devanagari, Thai, Hangul Jamo, Hiragana/Katakana, Hangul, and CJK. Latin-script foreign
-// languages (Spanish, French, German, ...) are left to the voice rule to skip.
-const NON_LATIN_SCRIPT =
-  /[Ͱ-ϿЀ-ӿ֐-׿؀-ۿ܀-ݏऀ-ॿ฀-๿ᄀ-ᇿ぀-ヿ㄰-㆏㐀-䶿一-鿿가-힯]/;
+// skipped without spending a model call. A POSITIVE Latin test (a letter is "foreign"
+// when it is NOT Latin script) catches EVERY non-Latin script — Arabic, CJK, Cyrillic,
+// Greek, Hebrew, plus the long tail a hand-rolled range list misses (Tamil, Bengali,
+// Telugu, Armenian, Georgian, Gujarati, Kannada, Malayalam, Lao, Khmer, Myanmar, Tibetan,
+// Sinhala, Amharic, ...). Latin-script foreign languages (Spanish, French, German, ...)
+// stay Latin here and are left to the voice rule to skip.
+const isLatin = (ch: string): boolean => /\p{Script=Latin}/u.test(ch);
 
 /** True when a comment is largely non-Latin script (Arabic, CJK, Cyrillic, ...) i.e. not English. */
 export function isNonEnglishScript(text: string | undefined): boolean {
   const letters = (text || "").match(/\p{L}/gu);
   if (!letters || letters.length === 0) return false; // emoji / punctuation / numbers only — not "foreign"
-  const nonLatin = letters.filter((ch) => NON_LATIN_SCRIPT.test(ch)).length;
+  const nonLatin = letters.filter((ch) => !isLatin(ch)).length;
   return nonLatin / letters.length >= 0.3;
 }
 
@@ -282,7 +284,7 @@ const ADVICE_PATTERN =
 // force a skip — model-independent, so even if the prompt slips, nothing gets posted. Never
 // confirm AND never deny: say nothing about the picture, ever.
 const CONFESSION =
-  /\bai\b|\ba\.i\.|artificial intelligence|ai[- ]?(generated|image|made|created)|computer[- ]?generated|machine[- ]?generated|digitally (created|generated|rendered|made)|\billustrative\b|\brecreation\b|\brecreated\b|\bsynthetic\b|photoshopp?ed|\bfabricated\b|generated (image|picture|scan|x-?ray)|not (a )?real (x-?ray|film|scan|photo|radiograph|image|picture)|is ?n'?t (a )?real (x-?ray|film|scan|photo|radiograph|image|picture)/i;
+  /\bai\b|\ba\.i\.|artificial intelligence|ai[- ]?(generated|image|made|created)|computer[- ]?generated|machine[- ]?generated|digitally (created|generated|rendered|made)|\billustrative\b|\brecreation\b|\brecreated\b|\bsynthetic\b|photoshopp?ed|\bfabricated\b|\bfake[d]?\b|\bcgi\b|\brendered?\b|\bsimulat(?:ed|ion)\b|\bmock-?up\b|\bdrawn\b|\bdrawing\b|\bmidjourney\b|\bdall-?e\b|\bstable diffusion\b|generated (image|picture|scan|x-?ray)|not (a )?(real|genuine|actual|authentic) (x-?ray|film|scan|photo|radiograph|image|picture)|is ?n'?t (a )?(real|genuine|actual|authentic) (x-?ray|film|scan|photo|radiograph|image|picture)/i;
 
 // AI-style preambles the model sometimes adds despite the voice rules. Stripped
 // from the start of any reply ("Great question.", "Thanks for sharing", ...).
@@ -293,7 +295,28 @@ const PREAMBLE =
 // always ending on a complete sentence (never a mid-word "…" cut).
 function firstSentences(s: string, n: number, maxChars = 240): string {
   const parts = s.match(/[^.!?]+[.!?]+(?:\s|$)/g);
-  if (!parts) return s;
+  // FALLBACK: no terminal punctuation -> returning `s` unchanged would bypass the cap.
+  // Treat clause connectors (and/but/so/then/because/...) as soft sentence breaks so the
+  // n-sentence cap still bites on run-on, punctuation-free drafts; if there are no such
+  // breaks either, hard-cut at a word boundary near maxChars.
+  if (!parts) {
+    const trimmed = s.trim();
+    if (!trimmed) return s;
+    const clauses = trimmed.split(/\s+(?=(?:and|but|so|then|because|which|while)\b)/i);
+    if (clauses.length <= 1) {
+      return trimmed.length > maxChars ? trimmed.slice(0, maxChars).replace(/\s\S*$/, "").trimEnd() : trimmed;
+    }
+    let out = "";
+    let count = 0;
+    for (const c of clauses) {
+      if (count >= n) break;
+      const next = out ? `${out} ${c}` : c;
+      if (out && next.length > maxChars) break;
+      out = next;
+      count += 1;
+    }
+    return (out || clauses[0]).trim();
+  }
   let out = "";
   let count = 0;
   for (const p of parts) {
@@ -359,6 +382,12 @@ export function sanitize(d: Decision, spoiler?: { isPublic: boolean; terms: stri
     };
   }
 
+  // ENGLISH-ONLY backstop on OUTPUT: even if the comment passed the input check, the model
+  // can still answer in a non-Latin script. Never post that — force a skip.
+  if (d.decision === "reply" && isNonEnglishScript(text)) {
+    return { decision: "skip", category: "other", reply_text: "", reason: `${d.reason} | non-English output (non-Latin script) | guard:forced-skip` };
+  }
+
   // Spoiler backstop: before the answer is public, never post a reply that NAMES the
   // diagnosis or CONFIRMS a guess as correct (either gives it away). Defense in depth
   // behind the voice rule — stay silent rather than spoil it for everyone still guessing.
@@ -366,7 +395,8 @@ export function sanitize(d: Decision, spoiler?: { isPublic: boolean; terms: stri
     const low = text.toLowerCase();
     const namesAnswer = spoiler.terms.some((t) => t.length >= 4 && low.includes(t));
     const confirms =
-      /\b(nailed it|spot on|exactly right|you (?:nailed|got) it|that'?s it|bingo|correct)\b/i.test(text) ||
+      /\b(nailed it|spot on|exactly right|you (?:nailed|got) it|that'?s it|bingo|correct|yes|yep|yup|exactly|absolutely|perfect|textbook|you'?re right|that'?s right)\b/i.test(text) ||
+      /\b100\s*%/.test(text) ||
       /✅|💯/.test(text);
     if (namesAnswer || confirms) {
       return { decision: "skip", category: d.category, reply_text: "", reason: `${d.reason} | spoiler guard: pre-public reveal blocked` };

@@ -54,8 +54,8 @@ jobs:
       BOT_ACTIVE_WINDOWS: "21-9" # 9 PM until 9 AM Cairo (one overnight window)
       BOT_ACTIVE_START: "21"
       BOT_ACTIVE_END: "9"
-      BOT_PER_POST_CAP: "250" # one viral post got 461 comments and the 150 cap ran dry ~4h in; 250 covers a hit
-      BOT_DAILY_CAP: "300"
+      BOT_PER_POST_CAP: "220" # sits below the 250 daily cap, leaving headroom for the pinned-thread replies; still covers a viral hit (461-comment post)
+      BOT_DAILY_CAP: "250" # Threads' ~250/day ceiling is the hard backstop
       BOT_MODEL: "claude-sonnet-4-6" # quality model: only re-drafts corrections/teaching
       BOT_TRIAGE_MODEL: "claude-haiku-4-5-20251001" # cheap first pass for every comment
       BOT_ESCALATE: "correct,teach,reference" # categories the Haiku triage hands to Sonnet

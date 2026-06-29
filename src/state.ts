@@ -17,7 +17,8 @@ interface StateShape {
 }
 
 function today(): string {
-  return new Date().toISOString().slice(0, 10);
+  // Date in the bot timezone (not UTC) so the 21-9 overnight window sits on one cap-day.
+  return new Intl.DateTimeFormat("en-CA", { timeZone: config.activeTz || "UTC" }).format(new Date());
 }
 
 export class State {

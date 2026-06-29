@@ -29,6 +29,7 @@ export interface ThreadsReply {
   replied_to?: { id: string };
   media_type?: string; // TEXT_POST | IMAGE | VIDEO | CAROUSEL_ALBUM
   media_url?: string;
+  thumbnail_url?: string;
 }
 
 interface ListResponse<T> {
@@ -134,7 +135,7 @@ export async function getAllMyPosts(limit = 150): Promise<ThreadsPost[]> {
 /** Top-level replies (comments) on a post — ALL of them, across pages. */
 export async function getReplies(mediaId: string): Promise<ThreadsReply[]> {
   return apiGetAll<ThreadsReply>(`/${mediaId}/replies`, {
-    fields: "id,text,username,timestamp,has_replies,hide_status,replied_to,media_type,media_url",
+    fields: "id,text,username,timestamp,has_replies,hide_status,replied_to,media_type,media_url,thumbnail_url",
     reverse: "false",
     limit: 100,
   });
@@ -143,7 +144,7 @@ export async function getReplies(mediaId: string): Promise<ThreadsReply[]> {
 /** Full flattened conversation under a post (used to see what we've already answered). */
 export async function getConversation(mediaId: string): Promise<ThreadsReply[]> {
   return apiGetAll<ThreadsReply>(`/${mediaId}/conversation`, {
-    fields: "id,text,username,timestamp,has_replies,hide_status,replied_to,media_type,media_url",
+    fields: "id,text,username,timestamp,has_replies,hide_status,replied_to,media_type,media_url,thumbnail_url",
     reverse: "false",
     limit: 100,
   });

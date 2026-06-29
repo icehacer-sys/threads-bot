@@ -40,7 +40,8 @@ export const config = {
   // higher-quality `model`. Set BOT_TRIAGE_MODEL=<same as model> to disable two-tier.
   model: process.env.BOT_MODEL ?? "claude-sonnet-4-6",
   triageModel: process.env.BOT_TRIAGE_MODEL ?? "claude-haiku-4-5-20251001",
-  escalateCategories: (process.env.BOT_ESCALATE ?? "correct,teach")
+  // Web search depends on 'reference' being present (search is gated to that category).
+  escalateCategories: (process.env.BOT_ESCALATE ?? "correct,teach,reference")
     .split(",")
     .map((s) => s.trim())
     .filter(Boolean),
@@ -72,8 +73,8 @@ export const config = {
 
   // Selection + budget
   selection: (process.env.BOT_SELECTION as Selection) ?? "recent",
-  dailyCap: num("BOT_DAILY_CAP", 200), // safety backstop, stays under Threads' ~250/day
-  perPostCap: num("BOT_PER_POST_CAP", 100), // hard cap on total replies per post
+  dailyCap: num("BOT_DAILY_CAP", 250), // Threads' ~250/day ceiling is the hard backstop
+  perPostCap: num("BOT_PER_POST_CAP", 220), // hard cap on total replies per post; sits below the daily cap
 
   // Ignore trivially short comments (single emoji, "👍", etc.)
   minCommentLength: num("BOT_MIN_COMMENT_LEN", 3),

@@ -175,14 +175,20 @@ function commentValue(c: ThreadsReply): number {
   return score;
 }
 
-function selectCandidates(replies: ThreadsReply[]): ThreadsReply[] {
+// `committed` holds ids that belong to a thread we are already invested in: a genuine
+// multi-turn follow-up under one of our replies, or a sub under our pinned answer. Those get
+// a ranking bonus so a slow back-and-forth survives the per-post cap instead of being sliced
+// out behind fresh first-touch banter on a viral post (which would orphan a real conversation).
+const COMMITTED_BONUS = 5;
+function selectCandidates(replies: ThreadsReply[], committed?: Set<string>): ThreadsReply[] {
   const sorted = [...replies];
+  const valueOf = (c: ThreadsReply): number => commentValue(c) + (committed?.has(c.id) ? COMMITTED_BONUS : 0);
   // Rank by value first so questions/substantive comments win the limited budget;
   // tie-break newest-first so the bot still feels responsive to the live conversation.
   // (Per-reply like counts are not reliably exposed by the replies edge, so we score
   // the text itself rather than engagement.)
   sorted.sort((a, b) => {
-    const dv = commentValue(b) - commentValue(a);
+    const dv = valueOf(b) - valueOf(a);
     if (dv !== 0) return dv;
     return (b.timestamp ?? "").localeCompare(a.timestamp ?? "");
   });
@@ -201,6 +207,9 @@ function imageUrlsForPost(post: ThreadsPost): string[] {
       .slice(0, 4);
   }
   if (post.media_type === "IMAGE" && post.media_url) return [post.media_url];
+  // A VIDEO post (e.g. an X-ray clip) has no still media_url, but Threads exposes a
+  // thumbnail_url — feed that representative frame so the model can still see the case.
+  if (post.thumbnail_url) return [post.thumbnail_url];
   return [];
 }
 
@@ -242,11 +251,35 @@ async function loadCommentImage(c: ThreadsReply): Promise<InlineImage[]> {
   return img ? [img] : [];
 }
 
-// A still frame from a commenter's GIF/video (Threads serves GIFs as VIDEO). We grab
-// one representative frame with ffmpeg so vision can at least see it. Returns [] if
-// ffmpeg is unavailable (e.g. a local Windows dry run) or extraction fails.
+// Probe ffmpeg ONCE at startup. Without it loadCommentVideoFrame swallows ENOENT exactly
+// like a real extraction failure, so a runner missing ffmpeg silently blinds the bot to ALL
+// motion media. This logs one clear warning instead. Cached so we never re-shell per comment.
+let ffmpegOk: boolean | null = null;
+async function ensureFfmpeg(): Promise<boolean> {
+  if (ffmpegOk !== null) return ffmpegOk;
+  try {
+    await execFileAsync("ffmpeg", ["-version"], { timeout: 10000 });
+    ffmpegOk = true;
+  } catch {
+    ffmpegOk = false;
+    console.error("  ! ffmpeg not found — GIF/video comment frames will be skipped (install ffmpeg on the runner).");
+  }
+  return ffmpegOk;
+}
+
+// A still frame from a commenter's GIF/video (Threads serves GIFs as VIDEO). Prefer the
+// thumbnail_url Threads already exposes (no download/ffmpeg needed); otherwise grab one
+// representative frame with ffmpeg so vision can at least see it. Returns [] if ffmpeg is
+// unavailable (e.g. a local Windows dry run) or extraction fails.
 async function loadCommentVideoFrame(c: ThreadsReply): Promise<InlineImage[]> {
-  if (!config.visionEnabled || c.media_type !== "VIDEO" || !c.media_url) return [];
+  if (!config.visionEnabled || c.media_type !== "VIDEO") return [];
+  // Cheapest path: Threads gives us a representative thumbnail for most motion media.
+  if (c.thumbnail_url) {
+    const thumb = await fetchInlineImage(c.thumbnail_url);
+    if (thumb) return [thumb];
+  }
+  if (!c.media_url) return [];
+  if (!(await ensureFfmpeg())) return []; // no ffmpeg -> already warned once at probe
   const id = c.id.replace(/[^a-zA-Z0-9]/g, "");
   const vid = join(tmpdir(), `c-${id}.mp4`);
   const frame = join(tmpdir(), `c-${id}.jpg`);
@@ -539,7 +572,11 @@ async function runLiveOrDry(mode: Mode, target: string | null): Promise<void> {
     const perPostRemaining = pinnedIds.has(post.id)
       ? budgetLeft()
       : Math.max(0, config.perPostCap - state.repliedToPost(post.id));
-    const candidates = selectCandidates(pool).slice(0, perPostRemaining);
+    // Threads we're already committed to (multi-turn follow-ups + answer-thread subs) get a
+    // ranking bonus inside selectCandidates so they survive the per-post cap instead of being
+    // sliced out behind fresh banter on a viral post.
+    const committed = new Set<string>([...followUpContext.keys(), ...inAnswerThreadIds]);
+    const candidates = selectCandidates(pool, committed).slice(0, perPostRemaining);
 
     console.log(
       `Post ${clip(post.text ?? post.id, 40)} [answer: ${resolved.answer ?? "unknown"}${postImages.length ? ", image ✓" : ""}] — ${candidates.length} to reply (${pinnedIds.has(post.id) ? "pinned" : `${state.repliedToPost(post.id)}/${config.perPostCap}`} done):`,
@@ -591,9 +628,13 @@ async function runLiveOrDry(mode: Mode, target: string | null): Promise<void> {
       if (d.decision === "skip") {
         skipCounts[d.category] = (skipCounts[d.category] ?? 0) + 1;
         // Record the skip so we never re-classify this comment again (the main cost leak) —
-        // but NOT transient API-error skips, which should still retry on a later poll.
+        // but NOT transient API-error skips, which should still retry on a later poll. AND only
+        // cache CLEARLY-FINAL categories: a borderline banter/teach/correct skip may be a cheap
+        // Haiku misread of a genuine question, so leave those un-cached to re-triage on a later
+        // poll (e.g. once Sonnet sees it). spam/complaint/personal_medical/other never change.
         const transient = /^error:/.test(d.reason) || d.reason.includes("no submit_reply");
-        if (posting && !transient) state.markSkipped(c.id);
+        const final = ["spam", "complaint", "personal_medical", "other"].includes(d.category);
+        if (posting && !transient && final) state.markSkipped(c.id);
         continue;
       }
       postedThisRun.push(d.reply_text);
@@ -619,7 +660,20 @@ async function runLiveOrDry(mode: Mode, target: string | null): Promise<void> {
       const entry = sc ? answers[sc] : undefined;
       if (!entry?.breakdown) continue;
       // Don't double-post the answer if you already posted it (a pinned "Answer:" reply).
-      const conv = convByPost.get(post.id);
+      // convByPost is only populated after a successful conversation fetch in the comment loop;
+      // if that fetch errored (or this post was skipped) conv is undefined and the duplicate
+      // guard below would be silently skipped, leaving only state.hasAnswered — so a manually
+      // pinned answer plus a fetch error could double-post. Fetch the conversation now so the
+      // guard always runs; if even this fetch fails, fall back to the state guard alone.
+      let conv = convByPost.get(post.id);
+      if (!conv) {
+        try {
+          conv = await getConversation(post.id);
+          convByPost.set(post.id, conv);
+        } catch (err) {
+          console.error(`  ! answer dup-check fetch failed for ${sc}: ${(err as Error).message}`);
+        }
+      }
       if (conv && answerFromConversation(conv, me)) {
         state.markAnswered(post.id);
         continue;
