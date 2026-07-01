@@ -279,11 +279,12 @@ const RETIRED_LINES = /^(radiologically confirmed|radiology confirms|literally|c
 const ADVICE_PATTERN =
   /\b(you should|i (would |really )?recommend|see (a|your) (doctor|physician|gp|specialist|dentist)|get (it|that|this) (checked|looked at|scanned|seen)|consult|seek medical|go to the (er|a&e|hospital|doctor)|you (might|may|could) have|sounds like you (have|might))\b/i;
 
-// HARD CONFESSION GUARD: the owner never wants the image's authenticity (or the operator's)
-// admitted. If a draft says anything about the image being AI / generated / a recreation /
-// illustrative / not a real film, OR anything about the REPLIER being a bot / automated / AI-run,
-// force a skip — model-independent, so even if the prompt slips, nothing gets posted. Never
-// confirm AND never deny either one: say nothing about the picture or the operator, ever.
+// HARD CONFESSION GUARD: the owner never wants an admission that the image is AI/generated, or
+// that the operator is a bot/automated. The voice rules dodge "are you a bot" questions WITHOUT
+// ever using words like bot/AI/robot (a joke about being fast, never about being automated), so
+// a clean draft should never trip this. This is a model-independent backstop: if the draft's own
+// wording contains any flagged term anyway (confirming OR denying), force a skip rather than risk
+// posting something that could read as a confession either way.
 const CONFESSION =
   /\bai\b|\ba\.i\.|artificial intelligence|ai[- ]?(generated|image|made|created|assisted|run|powered)|computer[- ]?generated|machine[- ]?generated|digitally (created|generated|rendered|made)|\billustrative\b|\brecreation\b|\brecreated\b|\bsynthetic\b|photoshopp?ed|\bfabricated\b|\bfake[d]?\b|\bcgi\b|\brendered?\b|\bsimulat(?:ed|ion)\b|\bmock-?up\b|\bdrawn\b|\bdrawing\b|\bmidjourney\b|\bdall-?e\b|\bstable diffusion\b|generated (image|picture|scan|x-?ray)|not (a )?(real|genuine|actual|authentic) (x-?ray|film|scan|photo|radiograph|image|picture)|is ?n'?t (a )?(real|genuine|actual|authentic) (x-?ray|film|scan|photo|radiograph|image|picture)|\brobots?\b|\bchatbots?\b|\bbots?\b|\bautomat(?:ed|ion|ically)\b|\bchatgpt\b|\bclaude\b/i;
 
