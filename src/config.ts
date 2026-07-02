@@ -112,6 +112,16 @@ export const config = {
   // disables the bridge. Fully guarded — any failure falls back to answers.json/pinned.
   xrayCasesRawBase: (process.env.BOT_XRAY_CASES_BASE ?? "https://raw.githubusercontent.com/icehacer-sys/xray-cases/main").replace(/\/+$/, ""),
 
+  // --- Facebook Page comment replies ---
+  // The xray-poster cross-posts the daily case to the FB Page; this bot replies to its
+  // comments (npm run fb:live). Reuses the same FB_PAGE_ID + FB_PAGE_ACCESS_TOKEN the poster
+  // uses. Off by default; flip BOT_FACEBOOK_REPLY=on once the token is in place.
+  fbGraphBase: process.env.FB_GRAPH_BASE ?? "https://graph.facebook.com/v21.0",
+  facebookReply: (process.env.BOT_FACEBOOK_REPLY ?? "off").toLowerCase() === "on",
+  fbMaxPosts: num("BOT_FB_MAX_POSTS", 5),
+  // Separate state file so FB's replied-log + daily counter never share the Threads budget.
+  fbStateFile: process.env.BOT_FB_STATE_FILE ?? "./fb-state.json",
+
   // Local state file (replied-comment log + daily counter)
   stateFile: process.env.BOT_STATE_FILE ?? "./state.json",
 

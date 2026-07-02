@@ -11,6 +11,8 @@
     "demo": "tsx src/index.ts --demo",
     "dry": "tsx src/index.ts --dry-run",
     "live": "tsx src/index.ts --live",
+    "fb:dry": "tsx src/fbindex.ts --dry-run",
+    "fb:live": "tsx src/fbindex.ts --live",
     "token:url": "tsx src/get-token.ts --url",
     "token": "tsx src/get-token.ts",
     "typecheck": "tsc --noEmit"

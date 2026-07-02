@@ -12,6 +12,8 @@ name: threads-autoreply
 # Required repository secrets (Settings -> Secrets and variables -> Actions):
 #   ANTHROPIC_API_KEY
 #   THREADS_ACCESS_TOKEN
+#   FB_PAGE_ID              (Facebook Page id — same value as in the xray-cases repo)
+#   FB_PAGE_ACCESS_TOKEN    (Facebook Page token — same value as in the xray-cases repo)
 
 on:
   schedule:
@@ -40,6 +42,8 @@ jobs:
     env:
       ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
       THREADS_ACCESS_TOKEN: ${{ secrets.THREADS_ACCESS_TOKEN }}
+      FB_PAGE_ID: ${{ secrets.FB_PAGE_ID }}
+      FB_PAGE_ACCESS_TOKEN: ${{ secrets.FB_PAGE_ACCESS_TOKEN }}
       THREADS_USER_ID: me
       BOT_CONFIRM_LIVE: "yes"
       BOT_EDUCATIONAL: "on"
@@ -61,6 +65,7 @@ jobs:
       BOT_ESCALATE: "correct,teach,reference" # categories the Haiku triage hands to Sonnet
       BOT_ANTIREPEAT: "15" # smaller anti-repeat list = fewer uncached tokens per call
       BOT_WEB_SEARCH: "on" # search runs ONLY on the Sonnet "reference" re-run (unrecognized memes/refs), never on triage
+      BOT_FACEBOOK_REPLY: "on" # also reply to comments on the Facebook page (needs FB_PAGE_ID + FB_PAGE_ACCESS_TOKEN); shares the active window + caps
     steps:
       - uses: actions/checkout@v4
 
@@ -87,6 +92,7 @@ jobs:
         run: |
           if [ "$MODE" = "dry" ]; then
             npm run dry
+            npm run fb:dry || true
             exit 0
           fi
           git config user.name "threads-bot"
@@ -95,8 +101,10 @@ jobs:
           for i in $(seq 1 60); do
             echo "::group::poll $i ($(TZ='Africa/Cairo' date +%H:%M) Cairo)"
             npm run live || echo "iteration $i errored, continuing"
-            if [ -n "$(git status --porcelain state.json)" ]; then
+            npm run fb:live || echo "fb iteration $i errored, continuing"
+            if [ -n "$(git status --porcelain state.json fb-state.json)" ]; then
               git add state.json
+              [ -f fb-state.json ] && git add fb-state.json
               git commit -m "chore: update reply state [skip ci]"
               git pull --rebase --autostash origin main >/dev/null 2>&1 || true
               git push || echo "push failed; will retry next loop"

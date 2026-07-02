@@ -33,12 +33,16 @@ export class State {
   private daily: { date: string; count: number };
   private pinnedResolved: Record<string, string>;
   private skipped: Set<string>;
+  private file: string;
 
-  constructor() {
+  // stateFile defaults to the Threads state; the Facebook reply loop passes its own path
+  // (config.fbStateFile) so the two never share a replied-log or daily counter.
+  constructor(stateFile: string = config.stateFile) {
+    this.file = stateFile;
     let loaded: StateShape | null = null;
-    if (existsSync(config.stateFile)) {
+    if (existsSync(this.file)) {
       try {
-        loaded = JSON.parse(readFileSync(config.stateFile, "utf8")) as StateShape;
+        loaded = JSON.parse(readFileSync(this.file, "utf8")) as StateShape;
       } catch {
         loaded = null;
       }
@@ -111,6 +115,6 @@ export class State {
       pinnedResolved: this.pinnedResolved,
       skippedCommentIds: [...this.skipped],
     };
-    writeFileSync(config.stateFile, JSON.stringify(out, null, 2));
+    writeFileSync(this.file, JSON.stringify(out, null, 2));
   }
 }
