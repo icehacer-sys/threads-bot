@@ -14,6 +14,8 @@ interface StateShape {
   pinnedResolved?: Record<string, string>;
   /** Comments we classified and chose to SKIP, so we never re-classify them (the main cost leak). */
   skippedCommentIds?: string[];
+  /** Consecutive "soft" skip counts per comment, before it graduates to skippedCommentIds. */
+  skipStrikes?: Record<string, number>;
 }
 
 function today(): string {
@@ -33,6 +35,7 @@ export class State {
   private daily: { date: string; count: number };
   private pinnedResolved: Record<string, string>;
   private skipped: Set<string>;
+  private skipStrikes: Record<string, number>;
   private file: string;
 
   // stateFile defaults to the Threads state; the Facebook reply loop passes its own path
@@ -52,6 +55,7 @@ export class State {
     this.postCounts = loaded?.postCounts ?? {};
     this.pinnedResolved = loaded?.pinnedResolved ?? {};
     this.skipped = new Set(loaded?.skippedCommentIds ?? []);
+    this.skipStrikes = loaded?.skipStrikes ?? {};
     this.daily =
       loaded?.daily && loaded.daily.date === today() ? loaded.daily : { date: today(), count: 0 };
   }
@@ -62,6 +66,24 @@ export class State {
 
   markSkipped(commentId: string): void {
     this.skipped.add(commentId);
+    delete this.skipStrikes[commentId];
+    this.save();
+  }
+
+  /**
+   * A "soft" skip in a category a cheap-model misread could flip (banter/affirm/empathize): count
+   * consecutive identical skips and only mark the comment permanently skipped once it repeats
+   * `threshold` polls in a row — so a one-off Haiku misread of a genuine question still gets
+   * re-checked next poll instead of being silenced forever.
+   */
+  recordSoftSkip(commentId: string, threshold: number): void {
+    const n = (this.skipStrikes[commentId] ?? 0) + 1;
+    if (n >= threshold) {
+      this.skipped.add(commentId);
+      delete this.skipStrikes[commentId];
+    } else {
+      this.skipStrikes[commentId] = n;
+    }
     this.save();
   }
 
@@ -114,6 +136,7 @@ export class State {
       daily: this.daily,
       pinnedResolved: this.pinnedResolved,
       skippedCommentIds: [...this.skipped],
+      skipStrikes: this.skipStrikes,
     };
     writeFileSync(this.file, JSON.stringify(out, null, 2));
   }

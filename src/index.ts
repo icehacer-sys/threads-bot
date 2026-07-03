@@ -613,12 +613,14 @@ async function runLiveOrDry(mode: Mode, target: string | null): Promise<void> {
       // Two-tier: the cheap triage model drafts every comment; only accuracy-critical
       // categories (corrections / teaching) are re-drafted by the pricier quality model.
       let d = await classifyAndDraft({ ...baseInput, modelOverride: config.triageModel });
+      let escalated = false;
       if (d.decision === "reply" && config.escalateCategories.includes(d.category)) {
         // Only the "reference" re-run gets web search (to look up an unrecognized
         // movie/show/meme/person); medical correct/teach escalations rely on vetted facts.
         const allowSearch = config.webSearch && d.category === "reference";
         console.log(`        (escalating ${d.category} to ${config.model}${allowSearch ? " + web search" : ""})`);
         d = await classifyAndDraft({ ...baseInput, modelOverride: config.model, allowSearch });
+        escalated = true;
       }
       if (!config.educationalReplies && (d.category === "correct" || d.category === "teach")) {
         d = { ...d, decision: "skip", reply_text: "", reason: `${d.reason} | educational replies off` };
@@ -627,14 +629,21 @@ async function runLiveOrDry(mode: Mode, target: string | null): Promise<void> {
 
       if (d.decision === "skip") {
         skipCounts[d.category] = (skipCounts[d.category] ?? 0) + 1;
-        // Record the skip so we never re-classify this comment again (the main cost leak) —
-        // but NOT transient API-error skips, which should still retry on a later poll. AND only
-        // cache CLEARLY-FINAL categories: a borderline banter/teach/correct skip may be a cheap
-        // Haiku misread of a genuine question, so leave those un-cached to re-triage on a later
-        // poll (e.g. once Sonnet sees it). spam/complaint/personal_medical/other never change.
+        // Cache the skip so we don't re-classify this comment on every 10-min poll all night (the
+        // main cost leak), with two carve-outs that MUST stay re-checkable: transient API-error
+        // skips (retry later) and spoiler-guard skips (a correct guess held pre-reveal has to be
+        // re-judged once the answer is public so it can finally get its "nailed it"). Everything
+        // else: cache immediately if the category is clearly final OR the pricier quality model
+        // already saw it (escalation IS the second opinion); a plain Haiku skip in a soft category
+        // (banter/affirm/empathize) might be a cheap-model misread, so only cache it after it
+        // repeats the same skip a few polls in a row.
         const transient = /^error:/.test(d.reason) || d.reason.includes("no submit_reply");
+        const spoilerHeld = d.reason.includes("spoiler guard");
         const final = ["spam", "complaint", "personal_medical", "other"].includes(d.category);
-        if (posting && !transient && final) state.markSkipped(c.id);
+        if (posting && !transient && !spoilerHeld) {
+          if (final || escalated) state.markSkipped(c.id);
+          else state.recordSoftSkip(c.id, 3);
+        }
         continue;
       }
       postedThisRun.push(d.reply_text);

@@ -128,10 +128,12 @@ async function main(): Promise<void> {
       };
       // Two-tier: cheap triage drafts every comment; accuracy-critical categories redraft on the quality model.
       let d = await classifyAndDraft({ ...baseInput, modelOverride: config.triageModel });
+      let escalated = false;
       if (d.decision === "reply" && config.escalateCategories.includes(d.category)) {
         const allowSearch = config.webSearch && d.category === "reference";
         console.log(`        (escalating ${d.category} to ${config.model}${allowSearch ? " + web search" : ""})`);
         d = await classifyAndDraft({ ...baseInput, modelOverride: config.model, allowSearch });
+        escalated = true;
       }
       if (!config.educationalReplies && (d.category === "correct" || d.category === "teach")) {
         d = { ...d, decision: "skip", reply_text: "", reason: `${d.reason} | educational replies off` };
@@ -140,9 +142,17 @@ async function main(): Promise<void> {
 
       if (d.decision === "skip") {
         skipCounts[d.category] = (skipCounts[d.category] ?? 0) + 1;
+        // Cache the skip so we don't re-classify the same comment every poll (see index.ts for the
+        // full rationale): keep transient + spoiler-guard skips re-checkable; cache final-category
+        // or already-escalated skips at once; strike-count soft categories so a cheap-model misread
+        // still gets a couple more polls before being silenced.
         const transient = /^error:/.test(d.reason) || d.reason.includes("no submit_reply");
+        const spoilerHeld = d.reason.includes("spoiler guard");
         const final = ["spam", "complaint", "personal_medical", "other"].includes(d.category);
-        if (posting && !transient && final) state.markSkipped(c.id);
+        if (posting && !transient && !spoilerHeld) {
+          if (final || escalated) state.markSkipped(c.id);
+          else state.recordSoftSkip(c.id, 3);
+        }
         continue;
       }
 
