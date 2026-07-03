@@ -65,7 +65,7 @@ jobs:
       BOT_ESCALATE: "correct,teach,reference" # categories the Haiku triage hands to Sonnet
       BOT_ANTIREPEAT: "15" # smaller anti-repeat list = fewer uncached tokens per call
       BOT_WEB_SEARCH: "on" # search runs ONLY on the Sonnet "reference" re-run (unrecognized memes/refs), never on triage
-      BOT_FACEBOOK_REPLY: "on" # also reply to comments on the Facebook page (needs FB_PAGE_ID + FB_PAGE_ACCESS_TOKEN); shares the active window + caps
+      BOT_FACEBOOK_REPLY: "off" # FB dropped — Threads only (owner deleted the Page over the "AI info" label, 2026-07-03). fbindex early-returns when off; flip to "on" to restore.
       BOT_GIF_REPLIES: "on" # rarely attach a curated reaction GIF (data/gifs.json) to a top-tier banter reply; max 1/post, 2/day; degrades to text if rejected
     steps:
       - uses: actions/checkout@v4
@@ -120,7 +120,7 @@ jobs:
             if npm run live; then fails=0; else fails=$((fails+1)); echo "iteration $i errored ($fails in a row)"; fi
             # Facebook engagement is far lower than Threads, so scan it every 3rd poll (~30 min)
             # instead of every 10 — cuts FB triage volume ~66% with negligible reply latency.
-            if [ $((i % 3)) -eq 1 ]; then npm run fb:live || echo "fb iteration $i errored, continuing"; fi
+            if [ "$BOT_FACEBOOK_REPLY" = "on" ] && [ $((i % 3)) -eq 1 ]; then npm run fb:live || echo "fb iteration $i errored, continuing"; fi
             if [ -n "$(git status --porcelain state.json fb-state.json)" ]; then
               git add state.json
               [ -f fb-state.json ] && git add fb-state.json
