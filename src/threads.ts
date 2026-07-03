@@ -199,8 +199,27 @@ export async function postReply(targetId: string, text: string, spoilers?: Spoil
       });
       return published.id;
     } catch (err) {
+      // DOUBLE-REPLY GUARD: a publish can succeed on Meta's side while its HTTP response is lost to
+      // a network blip. Re-publishing the SAME creation_id then fails with an "already published"
+      // error — but the reply IS live. Treat that as success so the caller records it (markReplied)
+      // and never re-posts a duplicate on the next run. Without this, the lost-response reply is
+      // re-created every run until it happens to surface in the live thread — the double we saw.
+      if (alreadyPublished(err)) {
+        console.warn(`  reply already live (recovered a lost publish response) for ${targetId}`);
+        return created.id; // the reply exists; id is best-effort (caller uses it only for logging)
+      }
       lastErr = err;
     }
   }
   throw lastErr instanceof Error ? lastErr : new Error(String(lastErr));
+}
+
+/**
+ * True when a publish error means the container was ALREADY published — i.e. a prior publish of
+ * the same creation_id actually succeeded but we lost its response. Narrow on purpose: a false
+ * positive would drop a reply, so match only clear "already published" phrasings.
+ */
+function alreadyPublished(err: unknown): boolean {
+  const m = (err instanceof Error ? err.message : String(err)).toLowerCase();
+  return (m.includes("already") && m.includes("publish")) || m.includes("has already been published");
 }
