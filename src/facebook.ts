@@ -17,6 +17,8 @@ export interface FbComment {
   created_time?: string;
   from?: { id?: string; name?: string };
   is_hidden?: boolean;
+  /** Present on nested replies (the parent comment id); absent on top-level comments. */
+  parent?: { id?: string };
 }
 
 /** The Page's own numeric id (to recognize the page's own comments and skip them). */
@@ -64,10 +66,15 @@ export async function getPagePosts(limit = 5): Promise<FbPost[]> {
   return r.data ?? [];
 }
 
-/** All top-level comments on a post (paged). filter=stream = full chronological stream. */
+/**
+ * Comments on a post (paged). filter=stream returns the full chronological stream INCLUDING
+ * nested replies, so we request parent{id}: the caller uses it to keep only top-level comments
+ * and to see which comments the page has already answered (its own replies carry the answered
+ * comment's id as their parent).
+ */
 export async function getComments(postId: string): Promise<FbComment[]> {
   return fbGetAll<FbComment>(`${postId}/comments`, {
-    fields: "id,message,created_time,from,is_hidden",
+    fields: "id,message,created_time,from,is_hidden,parent{id}",
     filter: "stream",
     limit: 100,
   });

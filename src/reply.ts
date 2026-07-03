@@ -118,6 +118,12 @@ export async function classifyAndDraft(input: ClassifyInput): Promise<Decision> 
   if (isNonEnglishScript(commentText)) {
     return { decision: "skip", category: "other", reply_text: "", reason: "non-English (non-Latin script) - English-only policy | guard:forced-skip" };
   }
+  // "Are you a bot?" pushed a SECOND time in the same thread (a follow-up that is itself another
+  // bot-question after the commenter already asked one) → skip deterministically. The owner's rule:
+  // dodge the first playfully, but never keep engaging the interrogation.
+  if (isBotQuestion(commentText) && priorExchange && isBotQuestion(priorExchange.commenter)) {
+    return { decision: "skip", category: "other", reply_text: "", reason: "repeat 'are you a bot' interrogation — not engaging | guard:forced-skip" };
+  }
   const factsBlock =
     facts && facts.length
       ? `VETTED FACTS (owner-reviewed, source of truth):\n- ${facts.join("\n- ")}`
@@ -187,9 +193,12 @@ export async function classifyAndDraft(input: ClassifyInput): Promise<Decision> 
   const SPOILER_STOP = new Set(["disease", "syndrome", "deformity", "hernia", "condition", "disorder", "anomaly"]);
   const spoilerPhrases = hasAnswer ? answerText.split("/").map((s) => s.trim().toLowerCase()).filter(Boolean) : [];
   const spoilerWords = spoilerPhrases
-    .flatMap((p) => p.split(/\s+/))
+    // Split on hyphens/underscores too (not just spaces) so "Nail-Patella" yields "nail" +
+    // "patella" — not the never-appears token "nailpatella" — and keep short distinctive names
+    // ("eagle", "gout", "lupus", "pott") that a >=6 filter used to drop and let leak pre-reveal.
+    .flatMap((p) => p.split(/[^\p{L}]+/u))
     .map((w) => w.replace(/[^\p{L}]/gu, ""))
-    .filter((w) => w.length >= 6 && !SPOILER_STOP.has(w));
+    .filter((w) => w.length >= 4 && !SPOILER_STOP.has(w));
   const spoilerTerms = [...new Set([...spoilerPhrases, ...spoilerWords])];
 
   const content: Array<Anthropic.ImageBlockParam | Anthropic.TextBlockParam> = [];
@@ -258,7 +267,7 @@ export async function classifyAndDraft(input: ClassifyInput): Promise<Decision> 
     if (!submit?.input) {
       return { decision: "skip", category: "other", reply_text: "", reason: "no submit_reply produced" };
     }
-    return sanitize(submit.input as Decision, { isPublic, terms: spoilerTerms });
+    return sanitize(submit.input as Decision, { isPublic, terms: spoilerTerms }, isBotQuestion(commentText));
   } catch (err) {
     // Any failure (API error, bad output) -> stay silent. Never post on uncertainty.
     const msg = err instanceof Error ? err.message : String(err);
@@ -277,7 +286,7 @@ const RETIRED_LINES = /^(radiologically confirmed|radiology confirms|literally|c
 
 // Phrases that read as medical advice. If any slip into a draft, we force a skip.
 const ADVICE_PATTERN =
-  /\b(you should|i (would |really )?recommend|see (a|your) (doctor|physician|gp|specialist|dentist)|get (it|that|this) (checked|looked at|scanned|seen)|consult|seek medical|go to the (er|a&e|hospital|doctor)|you (might|may|could) have|sounds like you (have|might))\b/i;
+  /\b(you should|i (would |really )?recommend|see (a|your) (doctor|physician|gp|specialist|dentist)|ask your (doctor|doc|physician|gp|dentist|specialist)|get (it|that|this) (checked|looked at|scanned|seen)|worth getting[^.]{0,20}(checked|scanned|looked at|seen)|needs? (a |an )?(scan|x-?ray|mri|ct|ultrasound|biopsy|work-?up|imaging)|push for (a|an|another)|don'?t ignore|get (checked|seen|scanned)|consult|seek medical|go to the (er|a&e|hospital|doctor)|you (might|may|could) have|sounds like you (have|might))\b/i;
 
 // HARD CONFESSION GUARD: the owner never wants an admission that the image is AI/generated, or
 // that the operator is a bot/automated. The voice rules dodge "are you a bot" questions WITHOUT
@@ -287,6 +296,24 @@ const ADVICE_PATTERN =
 // posting something that could read as a confession either way.
 const CONFESSION =
   /\bai\b|\ba\.i\.|artificial intelligence|ai[- ]?(generated|image|made|created|assisted|run|powered)|computer[- ]?generated|machine[- ]?generated|digitally (created|generated|rendered|made)|\billustrative\b|\brecreation\b|\brecreated\b|\bsynthetic\b|photoshopp?ed|\bfabricated\b|\bfake[d]?\b|\bcgi\b|\brendered?\b|\bsimulat(?:ed|ion)\b|\bmock-?up\b|\bdrawn\b|\bdrawing\b|\bmidjourney\b|\bdall-?e\b|\bstable diffusion\b|generated (image|picture|scan|x-?ray)|not (a )?(real|genuine|actual|authentic) (x-?ray|film|scan|photo|radiograph|image|picture)|is ?n'?t (a )?(real|genuine|actual|authentic) (x-?ray|film|scan|photo|radiograph|image|picture)|\brobots?\b|\bchatbots?\b|\bbots?\b|\bautomat(?:ed|ion|ically)\b|\bchatgpt\b|\bclaude\b/i;
+
+// Detects an "are you a bot / AI / human?" interrogation, including indirect phrasings
+// ("is this ChatGPT?", "human or machine?", "who runs this account?"). When a comment IS one,
+// its reply gets a STRICTER screen (BOT_ANSWER_LEAK) — the owner's rule is to dodge playfully and
+// never confirm OR deny being automated, and never claim to be human / a real person either.
+const BOT_QUESTION =
+  /\b(?:are|r|is|it'?s|u)\s+(?:you|u|this|it|these)\b[^?]{0,40}\b(?:bots?|robots?|a\.?i\.?|automated|automation|auto-?reply|chat\s*gpt|gpt|llm|language model|machine|human|real person|algorithms?|programm?ed|scripted)\b|\bhuman or (?:machine|bot|robot|ai)\b|\bbot or (?:human|person|real)\b|\bwho\s+(?:writes|makes|runs|is behind|does)\b/i;
+
+export function isBotQuestion(text: string | undefined): boolean {
+  return BOT_QUESTION.test(text || "");
+}
+
+// Words that, IN A REPLY TO an "are you a bot" question, read as either a confession or the
+// forbidden denial ("100% human", "just an algorithm", "you caught me"). Screened ONLY when the
+// comment is a bot-question (isBotQuestion) — these terms ("human", "machine", ...) are far too
+// common to hard-block on every reply, but in answer to that question they give the game away.
+const BOT_ANSWER_LEAK =
+  /\bhumans?\b|\breal person\b|\bmachines?\b|\bgpt-?\d?\b|\bllms?\b|\blanguage model\b|\balgorithms?\b|\bprogramm?ed\b|\bscripted\b|\bopen\s?ai\b|\banthropic\b|\bgemini\b|\bbeep\s?boop\b|\bcircuits?\b|\bauto-?reply\b|\b(?:you )?(?:caught|got) me\b|\bguilty\b|\bbusted\b|\bfine,? yes\b|\byes,? i(?:'?m| am)\b/i;
 
 // AI-style preambles the model sometimes adds despite the voice rules. Stripped
 // from the start of any reply ("Great question.", "Thanks for sharing", ...).
@@ -330,7 +357,7 @@ function firstSentences(s: string, n: number, maxChars = 240): string {
   return (out || parts[0]).trim();
 }
 
-export function sanitize(d: Decision, spoiler?: { isPublic: boolean; terms: string[] }): Decision {
+export function sanitize(d: Decision, spoiler?: { isPublic: boolean; terms: string[] }, isBotQ = false): Decision {
   // Strip hashtags, links, mentions; collapse whitespace; cap length.
   let text = (d.reply_text || "")
     .replace(/<\/?[a-zA-Z][^>]*>/g, "") // strip any HTML/citation tags (e.g. web-search <cite>)
@@ -368,7 +395,10 @@ export function sanitize(d: Decision, spoiler?: { isPublic: boolean; terms: stri
   if (text.length > maxLen) text = text.slice(0, maxLen).replace(/\s\S*$/, "").trimEnd();
 
   const looksLikeAdvice = ADVICE_PATTERN.test(text);
-  const confesses = CONFESSION.test(text);
+  // Always screen the base confession terms; when the comment was an "are you a bot" question,
+  // ALSO screen the broader identity terms (human / machine / gpt / caught me / ...) that would be
+  // a confession or the forbidden denial in that context.
+  const confesses = CONFESSION.test(text) || (isBotQ && BOT_ANSWER_LEAK.test(text));
   const personal = d.category === "personal_medical";
   // Whole reply is just a retired stock topper (ignore punctuation/emoji)?
   const isRetired = RETIRED_LINES.test(text.replace(/[^\p{L} ]+/gu, "").trim());
@@ -394,10 +424,23 @@ export function sanitize(d: Decision, spoiler?: { isPublic: boolean; terms: stri
   // diagnosis or CONFIRMS a guess as correct (either gives it away). Defense in depth
   // behind the voice rule — stay silent rather than spoil it for everyone still guessing.
   if (d.decision === "reply" && spoiler && !spoiler.isPublic) {
+    // An "affirm" reply exists only to confirm a guess — which gives the answer away. Never post
+    // one before the reveal, whatever the wording.
+    if (d.category === "affirm") {
+      return { decision: "skip", category: d.category, reply_text: "", reason: `${d.reason} | spoiler guard: no affirm before the reveal` };
+    }
     const low = text.toLowerCase();
-    const namesAnswer = spoiler.terms.some((t) => t.length >= 4 && low.includes(t));
+    // Compare punctuation-normalized too, so a hyphenated answer ("nail-patella syndrome") is
+    // still caught when the draft writes it spaced ("nail patella syndrome").
+    const lowNorm = low.replace(/[^\p{L}\p{N}]+/gu, " ");
+    const namesAnswer = spoiler.terms.some((t) => {
+      if (t.length < 4) return false;
+      if (low.includes(t)) return true;
+      const tNorm = t.replace(/[^\p{L}\p{N}]+/gu, " ").trim();
+      return tNorm.length >= 4 && lowNorm.includes(tNorm);
+    });
     const confirms =
-      /\b(nailed it|spot on|exactly right|you (?:nailed|got) it|that'?s it|bingo|correct|yes|yep|yup|exactly|absolutely|perfect|textbook|you'?re right|that'?s right)\b/i.test(text) ||
+      /\b(nailed it|nailed|spot on|exactly right|you (?:nailed|got) it|you got (?:it|there)|you called it|that'?s it|that'?s the one|bingo|ding ding|winner|right on the money|correct|yes|yep|yup|exactly|absolutely|perfect|textbook|you'?re right|that'?s right)\b/i.test(text) ||
       /\b100\s*%/.test(text) ||
       /✅|💯/.test(text);
     if (namesAnswer || confirms) {

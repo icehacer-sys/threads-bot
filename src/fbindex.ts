@@ -85,12 +85,22 @@ async function main(): Promise<void> {
       continue;
     }
 
-    // Reply candidates: not the page's own comment, not hidden, long enough, and neither
-    // already-replied nor already-skipped (state is the hard backstop against double-posting).
+    // The page's own replies are NESTED comments (each carries a parent = the comment it answers).
+    // Those parent ids are comments we've ALREADY answered live — a backstop behind fb-state.json
+    // so a lost or stale state file can't cause mass double-replies (mirrors the Threads loop).
+    const answeredByMe = new Set(
+      comments.filter((c) => c.from?.id === page && c.parent?.id).map((c) => c.parent!.id!),
+    );
+
+    // Reply candidates: a TOP-LEVEL comment (filter=stream also returns nested replies, which we
+    // skip — no follow-up handling in v1), not the page's own, not hidden, long enough, not already
+    // answered live, and neither already-replied nor already-skipped in state (the hard backstop).
     const wants = (c: FbComment): boolean =>
       c.from?.id !== page &&
+      !c.parent &&
       c.is_hidden !== true &&
       (c.message ?? "").trim().length >= config.minCommentLength &&
+      !answeredByMe.has(c.id) &&
       !state.hasReplied(c.id) &&
       !state.hasSkipped(c.id);
 
@@ -112,7 +122,9 @@ async function main(): Promise<void> {
         postText: post.message ?? "",
         commentText: c.message ?? "",
         recentReplies: postedThisRun,
-        answerPublic: false, // no FB answer bridge yet -> never affirm/deny a guess (safe)
+        // No FB answer bridge yet, so there is no diagnosis to protect: leave answerPublic unset
+        // (public), which drops the ~200-token pre-public spoiler block from every FB call. With no
+        // answer known the classifier still never affirms/denies a guess (the safe banter branch).
       };
       // Two-tier: cheap triage drafts every comment; accuracy-critical categories redraft on the quality model.
       let d = await classifyAndDraft({ ...baseInput, modelOverride: config.triageModel });
