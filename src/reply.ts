@@ -157,8 +157,8 @@ export async function classifyAndDraft(input: ClassifyInput): Promise<Decision> 
       "THE ANSWER IS NOT PUBLIC YET. Your reply must not let anyone reading work out the diagnosis. Use the answer above ONLY to judge this one comment. STRICT RULES:\n" +
       "- NEVER name, spell, abbreviate, OR describe the diagnosis or its findings (no mechanism, no 'benign growths', no 'cartilage', no body-part specifics, no what-it-actually-is).\n" +
       "- NEVER signal whether the guess is right or wrong by confirming it: no 'correct', 'yes', 'exactly', 'nailed it', 'spot on', 'you got it', 'bingo', and no ✅ or 💯.\n" +
-      '- If the guess is WRONG: reply with ONLY a short light rethink nudge and nothing else (e.g. "not the one, take another look" / "hmm, look again"). Do NOT explain why or hint at the real answer.\n' +
-      '- If the guess is RIGHT: stay coy and non-committal so you do not give it away (e.g. "bold call, you will have to wait for the reveal 👀" / "interesting, sit tight"). Do NOT confirm it.\n' +
+      '- If the guess is WRONG: reply with ONLY a short light rethink nudge and nothing else (e.g. "not the one. Take another look" / "hmm. Look again"). Do NOT explain why or hint at the real answer.\n' +
+      '- If the guess is RIGHT: stay coy and non-committal so you do not give it away (e.g. "bold call. You will have to wait for the reveal" / "interesting. Sit tight"). Do NOT confirm it. Occasionally give a strong WRONG guess the same wait-and-see energy so a coy reply never becomes a guaranteed yes.\n' +
       "- If it is NOT a diagnosis guess: just banter normally.\n" +
       "Keep it to one short line.";
   } else {
