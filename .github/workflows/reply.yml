@@ -66,6 +66,7 @@ jobs:
       BOT_ANTIREPEAT: "15" # smaller anti-repeat list = fewer uncached tokens per call
       BOT_WEB_SEARCH: "on" # search runs ONLY on the Sonnet "reference" re-run (unrecognized memes/refs), never on triage
       BOT_FACEBOOK_REPLY: "on" # also reply to comments on the Facebook page (needs FB_PAGE_ID + FB_PAGE_ACCESS_TOKEN); shares the active window + caps
+      BOT_GIF_REPLIES: "on" # rarely attach a curated reaction GIF (data/gifs.json) to a top-tier banter reply; max 1/post, 2/day; degrades to text if rejected
     steps:
       - uses: actions/checkout@v4
 

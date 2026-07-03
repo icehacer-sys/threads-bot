@@ -1,7 +1,7 @@
 [
   { "tag": "dead",       "gif_id": "WoFuun4jgxxizxRMpe", "url": "https://giphy.com/gifs/WoFuun4jgxxizxRMpe", "desc": "Pete Davidson on Hot Ones, crying-laughing" },
-  { "tag": "dead",       "gif_id": "PPrFKKsCF96d0sFrMO", "url": "https://giphy.com/gifs/PPrFKKsCF96d0sFrMO", "desc": "Seth Meyers losing it laughing" },
   { "tag": "dead",       "gif_id": "3oEdv0LJmhh8Yb7sti", "url": "https://giphy.com/gifs/3oEdv0LJmhh8Yb7sti", "desc": "rolling on the floor laughing" },
+  { "tag": "dead",       "gif_id": "XHeLeuirRbwptHhSWd", "url": "https://giphy.com/gifs/XHeLeuirRbwptHhSWd", "desc": "spit-take laughing" },
 
   { "tag": "mind_blown", "gif_id": "75ZaxapnyMp2w",      "url": "https://giphy.com/gifs/75ZaxapnyMp2w",      "desc": "Tim and Eric head-explode mind blown (the iconic one)" },
   { "tag": "mind_blown", "gif_id": "OK27wINdQS5YQ",      "url": "https://giphy.com/gifs/OK27wINdQS5YQ",      "desc": "Cosmo Kramer mind blown (Seinfeld)" },
@@ -9,17 +9,18 @@
 
   { "tag": "applause",   "gif_id": "NnGGHE0muVqpO",      "url": "https://giphy.com/gifs/NnGGHE0muVqpO",      "desc": "The Rock applauding" },
   { "tag": "applause",   "gif_id": "3o72FcJmLzIdYJdmDe", "url": "https://giphy.com/gifs/3o72FcJmLzIdYJdmDe", "desc": "Simon Cowell standing ovation" },
-  { "tag": "applause",   "gif_id": "3fiimcA0K0ifzoL7FF", "url": "https://giphy.com/gifs/3fiimcA0K0ifzoL7FF", "desc": "standing ovation applause" },
+  { "tag": "applause",   "gif_id": "8FYF17sVn6kBq",      "url": "https://giphy.com/gifs/8FYF17sVn6kBq",      "desc": "enthusiastic clapping applause" },
 
-  { "tag": "chefs_kiss", "gif_id": "m8ou5Eny9qoObXTHm4", "url": "https://giphy.com/gifs/m8ou5Eny9qoObXTHm4", "desc": "chef's kiss, well done (Apple Music)" },
   { "tag": "chefs_kiss", "gif_id": "3q3QK6KyDVUBzih7hB", "url": "https://giphy.com/gifs/3q3QK6KyDVUBzih7hB", "desc": "Nick Jonas chef's kiss" },
   { "tag": "chefs_kiss", "gif_id": "sgGBPGml4qhYgEd2if", "url": "https://giphy.com/gifs/sgGBPGml4qhYgEd2if", "desc": "good food, chef's kiss wow" },
+  { "tag": "chefs_kiss", "gif_id": "2QSvHa1pqlcmBOeI77", "url": "https://giphy.com/gifs/2QSvHa1pqlcmBOeI77", "desc": "America's Got Talent nailed-it reaction" },
 
   { "tag": "side_eye",   "gif_id": "H5C8CevNMbpBqNqFjl", "url": "https://giphy.com/gifs/H5C8CevNMbpBqNqFjl", "desc": "monkey puppet side-eye (the iconic meme)" },
   { "tag": "side_eye",   "gif_id": "qFcq2N4bAYTkDS4CPD", "url": "https://giphy.com/gifs/qFcq2N4bAYTkDS4CPD", "desc": "dog giving side-eye" },
   { "tag": "side_eye",   "gif_id": "5x0Z7DDDtXWD1YHzs5", "url": "https://giphy.com/gifs/5x0Z7DDDtXWD1YHzs5", "desc": "slow suspicious stare, c'mon now" },
+  { "tag": "side_eye",   "gif_id": "wr7oA0rSjnWuiLJOY5", "url": "https://giphy.com/gifs/wr7oA0rSjnWuiLJOY5", "desc": "cat side-eye meme" },
 
-  { "tag": "deadpan",    "gif_id": "i91QwAQtvWqNW",      "url": "https://giphy.com/gifs/i91QwAQtvWqNW",      "desc": "Jim Halpert camera look (The Office)" },
   { "tag": "deadpan",    "gif_id": "xUOxfolJrVBce4RNAI", "url": "https://giphy.com/gifs/xUOxfolJrVBce4RNAI", "desc": "Jim Halpert flat stare (The Office)" },
-  { "tag": "deadpan",    "gif_id": "RQ1gQt69dgzwhOmON0", "url": "https://giphy.com/gifs/RQ1gQt69dgzwhOmON0", "desc": "Pawn Stars unimpressed deadpan" }
+  { "tag": "deadpan",    "gif_id": "SxpX5m1rJXjMY",      "url": "https://giphy.com/gifs/SxpX5m1rJXjMY",      "desc": "The Office bored deadpan" },
+  { "tag": "deadpan",    "gif_id": "CTmxnNaVPooCs",      "url": "https://giphy.com/gifs/CTmxnNaVPooCs",      "desc": "Kanye neutral-face deadpan meme" }
 ]
