@@ -223,6 +223,9 @@ export async function classifyAndDraft(input: ClassifyInput): Promise<Decision> 
   // lets the model look up references it does not recognize. With web search off we
   // FORCE submit_reply for a deterministic single call. With it on we let the model
   // choose to search first (server-side, auto-run), then submit.
+  const model = modelOverride ?? config.model;
+  const isTriage = model === config.triageModel;
+
   const tools: unknown[] = [
     {
       name: "submit_reply",
@@ -231,9 +234,13 @@ export async function classifyAndDraft(input: ClassifyInput): Promise<Decision> 
     },
   ];
   let toolChoice: unknown = { type: "tool", name: "submit_reply" };
-  // Web search only on the quality-model re-run of an unrecognized reference (allowSearch),
-  // never on the per-comment triage pass — keeps cost/latency bounded to that small subset.
-  if (config.webSearch && allowSearch) {
+  // Keep web_search available on EVERY quality-model (Sonnet) escalation, not only the
+  // `reference` one, so the tool ARRAY is identical across all escalations and they share a
+  // single prompt-cache entry. A changing tool array invalidates the ENTIRE cached prefix
+  // (tools -> system -> messages) — that was the main Sonnet cache leak. tool_choice:auto lets
+  // the model search only when it actually needs to (the voice rules gate that); the cheap Haiku
+  // triage stays deterministic (forced submit_reply, no search) for one clean call.
+  if (config.webSearch && (!isTriage || allowSearch)) {
     tools.unshift({ type: "web_search_20250305", name: "web_search", max_uses: 3 });
     toolChoice = { type: "auto" };
   }
@@ -241,7 +248,6 @@ export async function classifyAndDraft(input: ClassifyInput): Promise<Decision> 
   // effort:low caps token spend on these short, structured replies. GA effort is
   // supported on Sonnet 4.6 / Opus 4.x ONLY — it ERRORS on Haiku 4.5 (the triage
   // model) and older models, so gate it to known-supported model strings.
-  const model = modelOverride ?? config.model;
   const effortParam = /sonnet-4-6|opus-4-[5-9]|fable-5/.test(model)
     ? { output_config: { effort: "low" } }
     : {};
