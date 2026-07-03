@@ -54,6 +54,7 @@ async function fbGetAll<T>(path: string, query: Record<string, string | number |
     if (Array.isArray(json.data)) out.push(...json.data);
     next = json.paging?.next;
   }
+  if (next) console.warn(`  ! ${path}: hit the 25-page (~2500 item) fetch cap; comments beyond that were not read this run`);
   return out;
 }
 

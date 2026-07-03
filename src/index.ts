@@ -683,7 +683,11 @@ async function runLiveOrDry(mode: Mode, target: string | null): Promise<void> {
           console.error(`  ! answer dup-check fetch failed for ${sc}: ${(err as Error).message}`);
         }
       }
-      if (conv && answerFromConversation(conv, me)) {
+      // Fail CLOSED: if we could not read the conversation we cannot tell whether the answer is
+      // already up (e.g. a manually pinned "Answer:" the state file doesn't know about), so skip
+      // this run rather than risk a duplicate public answer — a later poll retries.
+      if (!conv) continue;
+      if (answerFromConversation(conv, me)) {
         state.markAnswered(post.id);
         continue;
       }

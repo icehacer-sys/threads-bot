@@ -93,6 +93,7 @@ async function apiGetAll<T>(
     if (body.data) out.push(...body.data);
     next = body.paging?.next;
   }
+  if (next) console.warn(`  ! ${path}: hit the 25-page (~2500 item) fetch cap; items beyond that were not read this run`);
   return out;
 }
 
@@ -136,7 +137,9 @@ export async function getAllMyPosts(limit = 150): Promise<ThreadsPost[]> {
 export async function getReplies(mediaId: string): Promise<ThreadsReply[]> {
   return apiGetAll<ThreadsReply>(`/${mediaId}/replies`, {
     fields: "id,text,username,timestamp,has_replies,hide_status,replied_to,media_type,media_url,thumbnail_url",
-    reverse: "false",
+    // Newest-first: if a viral thread exceeds the 25-page fetch cap, the items dropped are the OLD
+    // already-processed ones, not fresh unanswered comments. (selectCandidates re-sorts anyway.)
+    reverse: "true",
     limit: 100,
   });
 }
@@ -145,7 +148,9 @@ export async function getReplies(mediaId: string): Promise<ThreadsReply[]> {
 export async function getConversation(mediaId: string): Promise<ThreadsReply[]> {
   return apiGetAll<ThreadsReply>(`/${mediaId}/conversation`, {
     fields: "id,text,username,timestamp,has_replies,hide_status,replied_to,media_type,media_url,thumbnail_url",
-    reverse: "false",
+    // Newest-first so the bot's own recent answers/replies stay visible for dedup even when a huge
+    // conversation exceeds the 25-page cap.
+    reverse: "true",
     limit: 100,
   });
 }
