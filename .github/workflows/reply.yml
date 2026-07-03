@@ -90,6 +90,21 @@ jobs:
           GH_TOKEN: ${{ github.token }}
           MAXSECS: "19800" # ~5.5h per run, then it launches the next (under the 6h job limit)
         run: |
+          # Push local commits, retrying rebase+push. Runs every loop (not only when the tree is
+          # freshly dirty) so a push that failed on a previous loop is genuinely retried instead of
+          # being lost at the next hand-off. On a rebase conflict it aborts (never leaves the repo
+          # mid-rebase, which used to break every later push in the run) and retries.
+          sync_repo() {
+            for attempt in 1 2 3; do
+              if ! git pull --rebase --autostash origin "${GITHUB_REF_NAME}"; then
+                git rebase --abort 2>/dev/null || true
+                echo "rebase failed (attempt $attempt/3), retrying in 3s"; sleep 3; continue
+              fi
+              if git push; then return 0; fi
+              echo "push failed (attempt $attempt/3), retrying in 3s"; sleep 3
+            done
+            echo "WARNING: git sync failed after 3 attempts; will retry next loop"; return 0
+          }
           if [ "$MODE" = "dry" ]; then
             npm run dry
             npm run fb:dry || true
@@ -98,18 +113,25 @@ jobs:
           git config user.name "threads-bot"
           git config user.email "github-actions[bot]@users.noreply.github.com"
           start=$(date +%s)
+          fails=0
           for i in $(seq 1 60); do
             echo "::group::poll $i ($(TZ='Africa/Cairo' date +%H:%M) Cairo)"
-            npm run live || echo "iteration $i errored, continuing"
-            npm run fb:live || echo "fb iteration $i errored, continuing"
+            if npm run live; then fails=0; else fails=$((fails+1)); echo "iteration $i errored ($fails in a row)"; fi
+            # Facebook engagement is far lower than Threads, so scan it every 3rd poll (~30 min)
+            # instead of every 10 — cuts FB triage volume ~66% with negligible reply latency.
+            if [ $((i % 3)) -eq 1 ]; then npm run fb:live || echo "fb iteration $i errored, continuing"; fi
             if [ -n "$(git status --porcelain state.json fb-state.json)" ]; then
               git add state.json
               [ -f fb-state.json ] && git add fb-state.json
               git commit -m "chore: update reply state [skip ci]"
-              git pull --rebase --autostash origin main >/dev/null 2>&1 || true
-              git push || echo "push failed; will retry next loop"
             fi
+            sync_repo
             echo "::endgroup::"
+            # Surface a real outage (dead Threads token, Anthropic billing, ...) that the
+            # per-iteration '|| continue' would otherwise hide behind a green run: after 6
+            # consecutive Threads-reply failures, fail the job so GitHub emails. The */30 cron
+            # restarts the chain. (fb:live stays best-effort so a FB-only issue never trips this.)
+            if [ "$fails" -ge 6 ]; then echo "::error::$fails consecutive live failures — aborting so the outage surfaces"; exit 1; fi
             if [ $(( $(date +%s) - start )) -ge "$MAXSECS" ]; then break; fi
             sleep 600
           done
