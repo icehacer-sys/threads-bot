@@ -55,9 +55,9 @@ jobs:
       BOT_ANSWER_DELAY_HOURS: "1"
       BOT_ANSWER_SPOILER: "on"
       BOT_ACTIVE_TZ: "Africa/Cairo"
-      BOT_ACTIVE_WINDOWS: "22-10" # 10 PM until 10 AM Cairo (one overnight window)
-      BOT_ACTIVE_START: "22"
-      BOT_ACTIVE_END: "10"
+      BOT_ACTIVE_WINDOWS: "21-9" # 9 PM until 9 AM Cairo (one overnight window). Changed from 22-10 (owner, 2026-07-03)
+      BOT_ACTIVE_START: "21"
+      BOT_ACTIVE_END: "9"
       BOT_PER_POST_CAP: "220" # sits below the 250 daily cap, leaving headroom for the pinned-thread replies; still covers a viral hit (461-comment post)
       BOT_DAILY_CAP: "250" # Threads' ~250/day ceiling is the hard backstop
       BOT_MODEL: "claude-sonnet-4-6" # quality model: only re-drafts corrections/teaching
