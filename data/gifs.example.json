@@ -1,0 +1,9 @@
+[
+  { "tag": "dead",       "gif_id": "REPLACE_WITH_GIPHY_ID", "url": "https://giphy.com/gifs/<slug>-<ID>", "desc": "collapsing / wheeze laughing" },
+  { "tag": "dead",       "gif_id": "REPLACE_WITH_GIPHY_ID", "url": "https://giphy.com/gifs/<slug>-<ID>", "desc": "tears-of-laughter reaction" },
+  { "tag": "mind_blown", "gif_id": "REPLACE_WITH_GIPHY_ID", "url": "https://giphy.com/gifs/<slug>-<ID>", "desc": "head-explode reaction" },
+  { "tag": "applause",   "gif_id": "REPLACE_WITH_GIPHY_ID", "url": "https://giphy.com/gifs/<slug>-<ID>", "desc": "slow clap building to a standing ovation" },
+  { "tag": "chefs_kiss", "gif_id": "REPLACE_WITH_GIPHY_ID", "url": "https://giphy.com/gifs/<slug>-<ID>", "desc": "chef's kiss, perfection" },
+  { "tag": "side_eye",   "gif_id": "REPLACE_WITH_GIPHY_ID", "url": "https://giphy.com/gifs/<slug>-<ID>", "desc": "suspicious squint / side-eye" },
+  { "tag": "deadpan",    "gif_id": "REPLACE_WITH_GIPHY_ID", "url": "https://giphy.com/gifs/<slug>-<ID>", "desc": "flat, unimpressed stare" }
+]

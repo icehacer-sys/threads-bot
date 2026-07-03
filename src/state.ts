@@ -16,6 +16,10 @@ interface StateShape {
   skippedCommentIds?: string[];
   /** Consecutive "soft" skip counts per comment, before it graduates to skippedCommentIds. */
   skipStrikes?: Record<string, number>;
+  /** Curated-GIF rarity tracking: GIFs attached per post, per cap-day, and recently-used ids. */
+  gifPostCounts?: Record<string, number>;
+  gifDaily?: { date: string; count: number };
+  recentGifIds?: string[];
 }
 
 function today(): string {
@@ -36,6 +40,9 @@ export class State {
   private pinnedResolved: Record<string, string>;
   private skipped: Set<string>;
   private skipStrikes: Record<string, number>;
+  private gifPostCounts: Record<string, number>;
+  private gifDaily: { date: string; count: number };
+  private recentGifIds: string[];
   private file: string;
 
   // stateFile defaults to the Threads state; the Facebook reply loop passes its own path
@@ -56,6 +63,10 @@ export class State {
     this.pinnedResolved = loaded?.pinnedResolved ?? {};
     this.skipped = new Set(loaded?.skippedCommentIds ?? []);
     this.skipStrikes = loaded?.skipStrikes ?? {};
+    this.gifPostCounts = loaded?.gifPostCounts ?? {};
+    this.gifDaily =
+      loaded?.gifDaily && loaded.gifDaily.date === today() ? loaded.gifDaily : { date: today(), count: 0 };
+    this.recentGifIds = loaded?.recentGifIds ?? [];
     this.daily =
       loaded?.daily && loaded.daily.date === today() ? loaded.daily : { date: today(), count: 0 };
   }
@@ -84,6 +95,26 @@ export class State {
     } else {
       this.skipStrikes[commentId] = n;
     }
+    this.save();
+  }
+
+  // --- curated GIF rarity (mirrors the reply per-post/per-day caps) ---
+  gifsOnPost(postId: string): number {
+    return this.gifPostCounts[postId] ?? 0;
+  }
+
+  gifsToday(): number {
+    return this.gifDaily.date === today() ? this.gifDaily.count : 0;
+  }
+
+  recentGifs(): string[] {
+    return this.recentGifIds;
+  }
+
+  markGifPosted(postId: string, gifId: string): void {
+    this.gifPostCounts[postId] = (this.gifPostCounts[postId] ?? 0) + 1;
+    this.gifDaily = { date: today(), count: this.gifsToday() + 1 };
+    this.recentGifIds = [...this.recentGifIds, gifId].slice(-8);
     this.save();
   }
 
@@ -137,6 +168,9 @@ export class State {
       pinnedResolved: this.pinnedResolved,
       skippedCommentIds: [...this.skipped],
       skipStrikes: this.skipStrikes,
+      gifPostCounts: this.gifPostCounts,
+      gifDaily: this.gifDaily,
+      recentGifIds: this.recentGifIds,
     };
     writeFileSync(this.file, JSON.stringify(out, null, 2));
   }

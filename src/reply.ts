@@ -5,6 +5,7 @@
 import Anthropic from "@anthropic-ai/sdk";
 import { config, requireEnv } from "./config";
 import { SYSTEM_PROMPT } from "./voice";
+import { GIF_TAGS } from "./gifs";
 
 export type Category =
   | "banter"
@@ -24,6 +25,8 @@ export interface Decision {
   category: Category;
   reply_text: string;
   reason: string;
+  /** Mood tag for a curated reaction GIF. Only ever honored on a live "banter" reply. */
+  gif_tag?: string;
 }
 
 // JSON schema for structured outputs. additionalProperties:false is required.
@@ -46,8 +49,14 @@ const REPLY_SCHEMA = {
     },
     reply_text: { type: "string" },
     reason: { type: "string" },
+    gif_tag: {
+      type: "string",
+      enum: GIF_TAGS,
+      description:
+        'Almost always "none". A mood tag ONLY when this is a top-tier banter banger that a reaction GIF would top better than words alone. RARER than the 🤣 rule — at most the single funniest comment on a post. NEVER on a diagnosis guess (even a joking one), a question, a personal story, a correction, or anything medical or tender.',
+    },
   },
-  required: ["intent", "decision", "category", "reply_text", "reason"],
+  required: ["intent", "decision", "category", "reply_text", "reason", "gif_tag"],
 } as const;
 
 let client: Anthropic | null = null;
@@ -454,5 +463,7 @@ export function sanitize(d: Decision, spoiler?: { isPublic: boolean; terms: stri
     }
   }
 
-  return { ...d, reply_text: d.decision === "skip" ? "" : text };
+  // GIF is defense-in-depth banter-only: strip the tag on any non-banter or skipped reply.
+  const gifOk = d.decision === "reply" && d.category === "banter" && !!d.gif_tag && d.gif_tag !== "none";
+  return { ...d, reply_text: d.decision === "skip" ? "" : text, gif_tag: gifOk ? d.gif_tag : undefined };
 }

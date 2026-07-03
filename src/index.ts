@@ -14,7 +14,8 @@ import { dirname, join } from "node:path";
 
 const execFileAsync = promisify(execFile);
 import { config } from "./config";
-import { classifyAndDraft, type Decision, type InlineImage, type ImageMediaType } from "./reply";
+import { classifyAndDraft, isBotQuestion, type Decision, type InlineImage, type ImageMediaType } from "./reply";
+import { pickGif } from "./gifs";
 import { resolveXrayAnswer } from "./xray";
 import {
   getMyUsername,
@@ -647,15 +648,34 @@ async function runLiveOrDry(mode: Mode, target: string | null): Promise<void> {
         continue;
       }
       postedThisRun.push(d.reply_text);
+      // Curated GIF gate: banter-only (sanitize already enforced that), post-reveal only, never on
+      // a bot-question or a follow-up thread, probability + hard per-post/per-day caps. Any miss ->
+      // a normal text reply. pickGif returns null if no on-tag GIF is available (never substitutes).
+      const gif =
+        config.gifReplies &&
+        d.gif_tag &&
+        answerPublic &&
+        !followUpContext.has(c.id) &&
+        !isBotQuestion(c.text) &&
+        state.gifsOnPost(post.id) < config.gifMaxPerPost &&
+        state.gifsToday() < config.gifMaxPerDay &&
+        Math.random() < config.gifChance
+          ? pickGif(d.gif_tag, state.recentGifs())
+          : null;
       if (posting) {
         try {
-          await postReply(c.id, d.reply_text);
+          await postReply(c.id, d.reply_text, undefined, gif?.gif_id);
           state.markReplied(c.id, post.id);
+          if (gif) {
+            state.markGifPosted(post.id, gif.gif_id);
+            console.log(`        (+ GIF ${gif.tag}: ${gif.desc})`);
+          }
           replied += 1;
         } catch (err) {
           console.error(`    ! post failed for ${c.id}: ${(err as Error).message}`);
         }
       } else {
+        if (gif) console.log(`        (+ would attach GIF ${gif.tag}: ${gif.desc})`);
         replied += 1; // count intended replies for the dry-run summary
       }
     }

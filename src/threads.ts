@@ -170,10 +170,22 @@ function sleep(ms: number): Promise<void> {
   return new Promise((resolve) => setTimeout(resolve, ms));
 }
 
-export async function postReply(targetId: string, text: string, spoilers?: SpoilerEntity[]): Promise<string> {
+export async function postReply(targetId: string, text: string, spoilers?: SpoilerEntity[], gifId?: string): Promise<string> {
   const body: Record<string, string> = { media_type: "TEXT", text, reply_to_id: targetId };
   if (spoilers && spoilers.length > 0) body.text_entities = JSON.stringify(spoilers);
-  const created = await api<{ id: string }>(`/${config.threadsUserId}/threads`, { method: "POST", body });
+  // A curated reaction GIF rides along on the TEXT container (Threads `gif_attachment`). If the
+  // container is rejected (bad id, or gif_attachment not accepted on a reply) fall back to the
+  // SAME reply as plain text — a GIF must never cost us the reply.
+  if (gifId) body.gif_attachment = JSON.stringify({ gif_id: gifId, provider: "GIPHY" });
+  let created: { id: string };
+  try {
+    created = await api<{ id: string }>(`/${config.threadsUserId}/threads`, { method: "POST", body });
+  } catch (err) {
+    if (!gifId) throw err;
+    console.warn(`  ! gif container rejected — posting text-only: ${(err as Error).message.slice(0, 120)}`);
+    delete body.gif_attachment;
+    created = await api<{ id: string }>(`/${config.threadsUserId}/threads`, { method: "POST", body });
+  }
 
   // The reply container isn't always immediately publishable ("media not found"),
   // so wait briefly and retry the publish a few times before giving up.

@@ -122,6 +122,16 @@ export const config = {
   // Separate state file so FB's replied-log + daily counter never share the Threads budget.
   fbStateFile: process.env.BOT_FB_STATE_FILE ?? "./fb-state.json",
 
+  // --- Curated GIF replies (Threads only) ---
+  // Rarely attach a curated reaction GIF (Threads `gif_attachment` + a hand-picked GIPHY id
+  // from data/gifs.json) to a top-tier banter reply. Off by default: curate data/gifs.json
+  // first (copy data/gifs.example.json), then flip BOT_GIF_REPLIES=on. A rejected GIF container
+  // degrades to a plain-text reply, so this can never break a reply. Threads-only (not FB).
+  gifReplies: (process.env.BOT_GIF_REPLIES ?? "off").toLowerCase() === "on",
+  gifChance: num("BOT_GIF_CHANCE", 0.5), // probability gate on a model-flagged banger
+  gifMaxPerPost: num("BOT_GIF_MAX_PER_POST", 1), // hard: never a second GIF on one post
+  gifMaxPerDay: num("BOT_GIF_MAX_PER_DAY", 2),
+
   // Local state file (replied-comment log + daily counter)
   stateFile: process.env.BOT_STATE_FILE ?? "./state.json",
 
