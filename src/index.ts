@@ -218,7 +218,7 @@ function imageUrlsForPost(post: ThreadsPost): string[] {
 // Anthropic's URL fetcher via robots.txt.
 async function fetchInlineImage(url: string): Promise<InlineImage | null> {
   try {
-    const res = await fetch(url);
+    const res = await fetch(url, { signal: AbortSignal.timeout(10_000) });
     if (!res.ok) return null;
     const ct = (res.headers.get("content-type") ?? "").toLowerCase();
     const media_type: ImageMediaType = ct.includes("png")
@@ -284,7 +284,7 @@ async function loadCommentVideoFrame(c: ThreadsReply): Promise<InlineImage[]> {
   const vid = join(tmpdir(), `c-${id}.mp4`);
   const frame = join(tmpdir(), `c-${id}.jpg`);
   try {
-    const res = await fetch(c.media_url);
+    const res = await fetch(c.media_url, { signal: AbortSignal.timeout(15_000) });
     if (!res.ok) return [];
     await writeFile(vid, Buffer.from(await res.arrayBuffer()));
     await execFileAsync("ffmpeg", ["-y", "-loglevel", "error", "-i", vid, "-vf", "thumbnail", "-frames:v", "1", frame], {
