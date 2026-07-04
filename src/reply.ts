@@ -53,7 +53,7 @@ const REPLY_SCHEMA = {
       type: "string",
       enum: GIF_TAGS,
       description:
-        'Usually "none". Emit a mood tag when this is clearly funny banter that a reaction GIF would top better than words alone — you do not have to wait for the single funniest comment, but keep it to the genuinely playful ones (a few per post at most, and the per-post/per-day caps enforce the rest). NEVER on a diagnosis guess (even a joking one), a question, a personal story, a correction, or anything medical or tender.',
+        'DO tag clearly funny, delighted, or shocked banter with the mood that fits — do not default to "none" on a genuinely playful comment. The caps (1 GIF per post, 2 per day) mean only the FIRST tagged reply on a post actually gets one, so lean toward tagging a real banter banger rather than withholding. Moods: "dead" (hilarious / dying laughing), "mind_blown" (whoa / shocked), "applause" (impressed), "chefs_kiss" (perfect / nailed it), "side_eye" (cheeky / sus), "deadpan" (dry flat joke). Use "none" only when no mood fits or the comment is NOT light banter. NEVER tag a diagnosis guess (even a joking one), a question, a personal story, a correction, or anything medical or tender.',
     },
   },
   required: ["intent", "decision", "category", "reply_text", "reason", "gif_tag"],
