@@ -27,6 +27,9 @@ export interface Decision {
   reason: string;
   /** Mood tag for a curated reaction GIF. Only ever honored on a live "banter" reply. */
   gif_tag?: string;
+  /** Set by the cheap triage pass when it sees a reference (in text or an attached image/GIF) it
+   *  can't confidently name — signals the orchestrator to escalate to the quality model + web search. */
+  needs_lookup?: boolean;
 }
 
 // JSON schema for structured outputs. additionalProperties:false is required.
@@ -55,8 +58,13 @@ const REPLY_SCHEMA = {
       description:
         'DO tag clearly funny, delighted, or shocked banter with the mood that fits — do not default to "none" on a genuinely playful comment. The caps (1 GIF per post, 2 per day) mean only the FIRST tagged reply on a post actually gets one, so lean toward tagging a real banter banger rather than withholding. Moods: "dead" (hilarious / dying laughing), "mind_blown" (whoa / shocked), "applause" (impressed), "chefs_kiss" (perfect / nailed it), "side_eye" (cheeky / sus), "deadpan" (dry flat joke). Use "none" only when no mood fits or the comment is NOT light banter. NEVER tag a diagnosis guess (even a joking one), a question, a personal story, a correction, or anything medical or tender.',
     },
+    needs_lookup: {
+      type: "boolean",
+      description:
+        'true ONLY when the comment or its attached image/GIF clearly points to a SPECIFIC identifiable person, movie, show, game, meme, or scene that you recognize as "a real reference I should name" but cannot confidently place yourself (e.g. a reaction GIF of someone you can tell is a known figure but can\'t name, on-screen text like "HAMSTER" you can\'t source). It triggers a web lookup so the reply can name it and top it precisely. false whenever you already recognize it, or there is nothing specific to identify (generic photo, plain banter, a guess, a question).',
+    },
   },
-  required: ["intent", "decision", "category", "reply_text", "reason", "gif_tag"],
+  required: ["intent", "decision", "category", "reply_text", "reason", "gif_tag", "needs_lookup"],
 } as const;
 
 let client: Anthropic | null = null;

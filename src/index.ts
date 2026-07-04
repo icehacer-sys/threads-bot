@@ -624,11 +624,20 @@ async function runLiveOrDry(mode: Mode, target: string | null): Promise<void> {
       // categories (corrections / teaching) are re-drafted by the pricier quality model.
       let d = await classifyAndDraft({ ...baseInput, modelOverride: config.triageModel });
       let escalated = false;
-      if (d.decision === "reply" && config.escalateCategories.includes(d.category)) {
-        // Only the "reference" re-run gets web search (to look up an unrecognized
-        // movie/show/meme/person); medical correct/teach escalations rely on vetted facts.
-        const allowSearch = config.webSearch && d.category === "reference";
-        console.log(`        (escalating ${d.category} to ${config.model}${allowSearch ? " + web search" : ""})`);
+      // Escalate to the quality model when the category is accuracy-critical (corrections/teaching/
+      // reference), OR triage flagged an unidentifiable reference (needs_lookup), OR the comment
+      // carries a GIF/image we can show it. Reaction GIFs are usually pop-culture references (a
+      // person, a movie scene) and the cheap Haiku triage names them poorly; the quality model has
+      // stronger vision AND web search (Sonnet escalations always have it available), so it identifies
+      // the reference and tops it precisely instead of a generic reaction. Bounded to image/GIF
+      // comments only, which are a small fraction of the volume (owner accepted the per-GIF cost).
+      const hasVisibleMedia = commentImages.length > 0;
+      const wantsLookup = d.decision === "reply" && config.webSearch && (d.needs_lookup === true || hasVisibleMedia);
+      if (d.decision === "reply" && (config.escalateCategories.includes(d.category) || wantsLookup)) {
+        // Web search on the "reference" re-run and on any lookup escalation (to identify an
+        // unrecognized movie/show/meme/person); medical correct/teach escalations rely on vetted facts.
+        const allowSearch = config.webSearch && (d.category === "reference" || wantsLookup);
+        console.log(`        (escalating ${d.category}${wantsLookup ? " +lookup" : ""} to ${config.model}${allowSearch ? " + web search" : ""})`);
         d = await classifyAndDraft({ ...baseInput, modelOverride: config.model, allowSearch });
         escalated = true;
       }
