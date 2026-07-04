@@ -172,7 +172,7 @@ function commentValue(c: ThreadsReply): number {
   if (len >= 80) score += 2; // detailed guess / personal story
   else if (len >= 40) score += 1;
   if (len <= 15) score -= 1; // one-word guess or quip
-  if (c.media_type === "IMAGE" || c.media_type === "VIDEO") score += 1; // attached media to react to
+  if (c.media_type === "IMAGE" || c.media_type === "VIDEO" || c.gif_url) score += 1; // attached media (incl. a GIPHY GIF) to react to
   return score;
 }
 
@@ -484,7 +484,8 @@ async function runLiveOrDry(mode: Mode, target: string | null): Promise<void> {
       c.username !== me &&
       isVisible(c) &&
       ((c.text ?? "").trim().length >= config.minCommentLength ||
-        ((c.media_type === "IMAGE" || c.media_type === "VIDEO") && !!c.media_url)) &&
+        ((c.media_type === "IMAGE" || c.media_type === "VIDEO") && !!c.media_url) ||
+        !!c.gif_url) && // a bare GIF (no text) is still worth reacting to
       !state.hasReplied(c.id) && // local record — never post twice, even if our reply is pending/lagging
       !answeredByMe.has(c.id) &&
       !state.hasSkipped(c.id); // already classified+skipped once — don't re-pay to re-classify it every poll
@@ -597,6 +598,14 @@ async function runLiveOrDry(mode: Mode, target: string | null): Promise<void> {
       } else if (c.media_type === "VIDEO") {
         commentImages = await loadCommentVideoFrame(c);
         commentMediaKind = commentImages.length ? "video-frame" : "video";
+      } else if (c.gif_url) {
+        // A GIF attached via the Threads GIPHY picker comes back as media_type TEXT_POST with the
+        // GIF only in gif_url (no VIDEO type, no media_url). Fetch it so vision actually SEES the
+        // reaction (a Richard Hammond "HAMSTER" GIF, a movie scene, ...) instead of the bot reacting
+        // blindly to the text. It reuses the video-frame prompting: one representative frame + gesture.
+        const gif = config.visionEnabled ? await fetchInlineImage(c.gif_url) : null;
+        commentImages = gif ? [gif] : [];
+        commentMediaKind = gif ? "video-frame" : "video";
       }
       const baseInput = {
         postText: post.text ?? "",

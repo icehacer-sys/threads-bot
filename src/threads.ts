@@ -30,6 +30,10 @@ export interface ThreadsReply {
   media_type?: string; // TEXT_POST | IMAGE | VIDEO | CAROUSEL_ALBUM
   media_url?: string;
   thumbnail_url?: string;
+  // A GIF attached via the Threads GIPHY picker comes back as media_type TEXT_POST with the GIF
+  // ONLY in this field (no media_url/thumbnail_url) — so it must be requested explicitly or the
+  // bot is blind to the GIF and reacts to the text alone.
+  gif_url?: string;
 }
 
 interface ListResponse<T> {
@@ -136,7 +140,7 @@ export async function getAllMyPosts(limit = 150): Promise<ThreadsPost[]> {
 /** Top-level replies (comments) on a post — ALL of them, across pages. */
 export async function getReplies(mediaId: string): Promise<ThreadsReply[]> {
   return apiGetAll<ThreadsReply>(`/${mediaId}/replies`, {
-    fields: "id,text,username,timestamp,has_replies,hide_status,replied_to,media_type,media_url,thumbnail_url",
+    fields: "id,text,username,timestamp,has_replies,hide_status,replied_to,media_type,media_url,thumbnail_url,gif_url",
     // Newest-first: if a viral thread exceeds the 25-page fetch cap, the items dropped are the OLD
     // already-processed ones, not fresh unanswered comments. (selectCandidates re-sorts anyway.)
     reverse: "true",
@@ -147,7 +151,7 @@ export async function getReplies(mediaId: string): Promise<ThreadsReply[]> {
 /** Full flattened conversation under a post (used to see what we've already answered). */
 export async function getConversation(mediaId: string): Promise<ThreadsReply[]> {
   return apiGetAll<ThreadsReply>(`/${mediaId}/conversation`, {
-    fields: "id,text,username,timestamp,has_replies,hide_status,replied_to,media_type,media_url,thumbnail_url",
+    fields: "id,text,username,timestamp,has_replies,hide_status,replied_to,media_type,media_url,thumbnail_url,gif_url",
     // Newest-first so the bot's own recent answers/replies stay visible for dedup even when a huge
     // conversation exceeds the 25-page cap.
     reverse: "true",
