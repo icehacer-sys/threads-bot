@@ -648,13 +648,14 @@ async function runLiveOrDry(mode: Mode, target: string | null): Promise<void> {
         continue;
       }
       postedThisRun.push(d.reply_text);
-      // Curated GIF gate: banter-only (sanitize already enforced that), post-reveal only, never on
-      // a bot-question or a follow-up thread, probability + hard per-post/per-day caps. Any miss ->
-      // a normal text reply. pickGif returns null if no on-tag GIF is available (never substitutes).
+      // Curated GIF gate: banter-only (sanitize already enforced that), never on a bot-question or a
+      // follow-up thread, probability + hard per-post/per-day caps. A reaction GIF is not a spoiler,
+      // so it is allowed during the guessing window too (owner, 2026-07-04 — moderate loosening: the
+      // funniest banter lands before the reveal). Any miss -> a normal text reply. pickGif returns
+      // null if no on-tag GIF is available (never substitutes).
       const gif =
         config.gifReplies &&
         d.gif_tag &&
-        answerPublic &&
         !followUpContext.has(c.id) &&
         !isBotQuestion(c.text) &&
         state.gifsOnPost(post.id) < config.gifMaxPerPost &&

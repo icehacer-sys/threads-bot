@@ -53,7 +53,7 @@ const REPLY_SCHEMA = {
       type: "string",
       enum: GIF_TAGS,
       description:
-        'Almost always "none". A mood tag ONLY when this is a top-tier banter banger that a reaction GIF would top better than words alone. RARER than the 🤣 rule — at most the single funniest comment on a post. NEVER on a diagnosis guess (even a joking one), a question, a personal story, a correction, or anything medical or tender.',
+        'Usually "none". Emit a mood tag when this is clearly funny banter that a reaction GIF would top better than words alone — you do not have to wait for the single funniest comment, but keep it to the genuinely playful ones (a few per post at most, and the per-post/per-day caps enforce the rest). NEVER on a diagnosis guess (even a joking one), a question, a personal story, a correction, or anything medical or tender.',
     },
   },
   required: ["intent", "decision", "category", "reply_text", "reason", "gif_tag"],

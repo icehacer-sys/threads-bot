@@ -66,7 +66,8 @@ jobs:
       BOT_ANTIREPEAT: "15" # smaller anti-repeat list = fewer uncached tokens per call
       BOT_WEB_SEARCH: "on" # search runs ONLY on the Sonnet "reference" re-run (unrecognized memes/refs), never on triage
       BOT_FACEBOOK_REPLY: "off" # FB dropped — Threads only (owner deleted the Page over the "AI info" label, 2026-07-03). fbindex early-returns when off; flip to "on" to restore.
-      BOT_GIF_REPLIES: "on" # rarely attach a curated reaction GIF (data/gifs.json) to a top-tier banter reply; max 1/post, 2/day; degrades to text if rejected
+      BOT_GIF_REPLIES: "on" # attach a curated reaction GIF (data/gifs.json) to a clearly-funny banter reply; max 1/post, 2/day; degrades to text if rejected
+      BOT_GIF_CHANCE: "1" # no coin flip — when the model tags a banter reply and caps allow, attach the GIF (owner, 2026-07-04 moderate loosening; was 0.5). Volume is bounded by the model's tag rate + the 1/post, 2/day caps
     steps:
       - uses: actions/checkout@v4
 
