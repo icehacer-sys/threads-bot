@@ -641,9 +641,14 @@ async function runLiveOrDry(mode: Mode, target: string | null): Promise<void> {
         const transient = /^error:/.test(d.reason) || d.reason.includes("no submit_reply");
         const spoilerHeld = d.reason.includes("spoiler guard");
         const final = ["spam", "complaint", "personal_medical", "other"].includes(d.category);
+        // Follow-ups + answer-thread subs are the owner's engagement threads. A clearly-final
+        // skip (spam/other noise like a lone emoji) still caches, but a SOFT skip on one of these
+        // stays re-checkable instead of soft-caching: a single cheap-model misread of a warm
+        // reaction must never permanently silence a thread the owner cares about.
+        const committedThread = committed.has(c.id);
         if (posting && !transient && !spoilerHeld) {
           if (final || escalated) state.markSkipped(c.id);
-          else state.recordSoftSkip(c.id, 3);
+          else if (!committedThread) state.recordSoftSkip(c.id, 3);
         }
         continue;
       }
