@@ -284,6 +284,10 @@ export async function classifyAndDraft(input: ClassifyInput): Promise<Decision> 
     if (res.content.some((b) => (b as { type: string }).type === "web_search_tool_result")) {
       console.log(`    (web search used for: "${commentText.slice(0, 40).replace(/\s+/g, " ")}")`);
     }
+    // Never post a draft the model cut off at the token limit (its tool JSON / reply_text is partial).
+    if (res.stop_reason === "max_tokens") {
+      return { decision: "skip", category: "other", reply_text: "", reason: "truncated (max_tokens) — not posting a cut-off reply" };
+    }
     const submit = res.content.find(
       (b) => (b as { type: string; name?: string }).type === "tool_use" && (b as { name?: string }).name === "submit_reply",
     ) as { input?: unknown } | undefined;
@@ -395,6 +399,11 @@ export function sanitize(d: Decision, spoiler?: { isPublic: boolean; terms: stri
     .replace(/\s+/g, " ")
     .trim();
 
+  // Comma backstop: the voice bans commas except in a genuine list of 3+ (which carries >=2 commas).
+  // A LONE comma is a clause-join the model slipped past the rule (Sonnet escalations do this most) —
+  // split it into two beats. Never touch a comma inside a number (1,000) or a real multi-item list.
+  if ((text.match(/(?<!\d),(?!\d)/g) || []).length === 1) text = text.replace(/(?<!\d),(?!\d)\s*/, ". ");
+
   // Capitalize the first letter of each sentence (e.g. where a dash became a period).
   text = text.replace(/([.!?])\s+(\p{Ll})/gu, (_m, p: string, c: string) => `${p} ${c.toUpperCase()}`);
 
@@ -412,10 +421,15 @@ export function sanitize(d: Decision, spoiler?: { isPublic: boolean; terms: stri
   if (d.category === "correct") text = firstSentences(text, 2);
   else if (d.category === "teach") text = firstSentences(text, 3, 360); // room for multi-part clinical questions
 
-  // Backstop length cap: cut at a word boundary (never mid-word, no trailing "…").
-  // Teach answers (esp. multi-part questions) get more room; everything else stays tight.
+  // Backstop length cap: prefer cutting at the last COMPLETE sentence within the budget so a capped
+  // reply never ends mid-sentence (the "...crystallized uric acid. The body" bug). Fall back to a
+  // word boundary only when there's no earlier sentence break. Teach answers get more room.
   const maxLen = d.category === "teach" ? 480 : 280;
-  if (text.length > maxLen) text = text.slice(0, maxLen).replace(/\s\S*$/, "").trimEnd();
+  if (text.length > maxLen) {
+    const clipped = text.slice(0, maxLen);
+    const sentence = clipped.match(/^[\s\S]*[.!?]/); // longest prefix ending at sentence punctuation
+    text = (sentence && sentence[0].length >= maxLen * 0.5 ? sentence[0] : clipped.replace(/\s\S*$/, "")).trimEnd();
+  }
 
   const looksLikeAdvice = ADVICE_PATTERN.test(text);
   // Always screen the base confession terms; when the comment was an "are you a bot" question,
