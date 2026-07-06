@@ -297,7 +297,7 @@ export async function classifyAndDraft(input: ClassifyInput): Promise<Decision> 
   // effort:low caps token spend on these short, structured replies. GA effort is
   // supported on Sonnet 4.6 / Opus 4.x ONLY — it ERRORS on Haiku 4.5 (the triage
   // model) and older models, so gate it to known-supported model strings.
-  const effortParam = /sonnet-4-6|opus-4-[5-9]|fable-5/.test(model)
+  const effortParam = /sonnet-4-6|sonnet-5|opus-4-[5-9]|fable-5/.test(model)
     ? { output_config: { effort: "low" } }
     : {};
 
@@ -320,10 +320,33 @@ export async function classifyAndDraft(input: ClassifyInput): Promise<Decision> 
     if (res.stop_reason === "max_tokens") {
       return { decision: "skip", category: "other", reply_text: "", reason: "truncated (max_tokens) — not posting a cut-off reply" };
     }
-    const submit = res.content.find(
-      (b) => (b as { type: string; name?: string }).type === "tool_use" && (b as { name?: string }).name === "submit_reply",
-    ) as { input?: unknown } | undefined;
+    const findSubmit = (m: Anthropic.Message) =>
+      m.content.find(
+        (b) => (b as { type: string; name?: string }).type === "tool_use" && (b as { name?: string }).name === "submit_reply",
+      ) as { input?: unknown } | undefined;
+    const submit = findSubmit(res);
     if (!submit?.input) {
+      // With auto tool choice (web search on) the model can end its turn after searching without
+      // ever emitting submit_reply. Retry ONCE forcing the tool so the comment gets a real reply
+      // instead of being dropped AND re-paid on every 10-min poll for the rest of the night.
+      if ((toolChoice as { type?: string }).type === "auto") {
+        const forced = await getClient().messages.create({
+          model,
+          max_tokens: 1024,
+          ...effortParam,
+          system: [{ type: "text", text: FULL_SYSTEM, cache_control: { type: "ephemeral", ttl: "1h" } }],
+          messages: [{ role: "user", content }],
+          tools,
+          tool_choice: { type: "tool", name: "submit_reply" },
+        } as unknown as Anthropic.MessageCreateParamsNonStreaming);
+        if (forced.stop_reason === "max_tokens") {
+          return { decision: "skip", category: "other", reply_text: "", reason: "truncated (max_tokens) — not posting a cut-off reply" };
+        }
+        const forcedSubmit = findSubmit(forced);
+        if (forcedSubmit?.input) {
+          return sanitize(forcedSubmit.input as Decision, { isPublic, terms: spoilerTerms }, isBotQuestion(commentText));
+        }
+      }
       return { decision: "skip", category: "other", reply_text: "", reason: "no submit_reply produced" };
     }
     return sanitize(submit.input as Decision, { isPublic, terms: spoilerTerms }, isBotQuestion(commentText));

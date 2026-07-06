@@ -4,7 +4,7 @@
 //   npm run dry    -> read REAL recent comments via Threads API, print what it WOULD post. Posts nothing.
 //   npm run live   -> same as dry, but actually posts (requires BOT_CONFIRM_LIVE=yes).
 
-import { readFileSync, writeFileSync } from "node:fs";
+import { readFileSync } from "node:fs";
 import { writeFile, readFile, unlink } from "node:fs/promises";
 import { execFile } from "node:child_process";
 import { promisify } from "node:util";
@@ -121,6 +121,17 @@ function answerFromConversation(convo: ThreadsReply[], me: string): string | nul
 // the sub-replies people leave under it (the answer thread).
 function answerCommentId(convo: ThreadsReply[], me: string): string | null {
   return convo.find((c) => c.username === me && /^\s*answer\s*:/i.test(c.text ?? ""))?.id ?? null;
+}
+
+// Detect the answer already being live even when it was pinned WITHOUT the "Answer:" prefix
+// (e.g. "The reveal: ..."). Matches an owner comment that contains a distinctive chunk of the
+// breakdown text, so a manual pin in any wording still blocks a duplicate auto-post — the
+// ^answer: regex + state.hasAnswered alone would miss it and post a second public answer.
+function answerAlreadyPosted(convo: ThreadsReply[], me: string, breakdown: string): boolean {
+  const norm = (s?: string) => (s ?? "").replace(/\s+/g, " ").trim().toLowerCase();
+  const key = norm(breakdown).replace(/^answer\s*:\s*/, "").slice(0, 50);
+  if (key.length < 20) return false;
+  return convo.some((c) => c.username === me && norm(c.text).includes(key));
 }
 
 interface ResolvedAnswer {
@@ -388,12 +399,6 @@ async function runLiveOrDry(mode: Mode, target: string | null): Promise<void> {
   }
 
   if (posting && !withinActiveHours()) {
-    // Marker the polling loop reads to know it's outside all windows.
-    try {
-      writeFileSync(".bot-idle", "outside-window");
-    } catch {
-      /* best effort */
-    }
     const windows = config.activeWindows.map(([a, b]) => `${a}-${b}`).join(", ");
     console.log(`Outside active hours (${windows} ${config.activeTz}). Nothing to do.`);
     return;
@@ -426,6 +431,8 @@ async function runLiveOrDry(mode: Mode, target: string | null): Promise<void> {
   const convByPost = new Map<string, ThreadsReply[]>();
   const answers = loadAnswers();
   let replied = 0;
+  let processed = 0; // comments we got a final decision for (a live model verdict, not a fetch skip)
+  let errorSkips = 0; // of those, how many were API-error skips — used for the outage dead-man's-switch
   const skipCounts: Record<string, number> = {};
   // In live mode markReplied() updates remainingToday(); in dry mode state is not
   // touched, so track the intended count against the cap directly.
@@ -645,6 +652,8 @@ async function runLiveOrDry(mode: Mode, target: string | null): Promise<void> {
       if (!config.educationalReplies && (d.category === "correct" || d.category === "teach")) {
         d = { ...d, decision: "skip", reply_text: "", reason: `${d.reason} | educational replies off` };
       }
+      processed += 1;
+      if (d.decision === "skip" && /^error:/.test(d.reason)) errorSkips += 1;
       printRow(c.text ?? "", d);
 
       if (d.decision === "skip") {
@@ -657,7 +666,10 @@ async function runLiveOrDry(mode: Mode, target: string | null): Promise<void> {
         // already saw it (escalation IS the second opinion); a plain Haiku skip in a soft category
         // (banter/affirm/empathize) might be a cheap-model misread, so only cache it after it
         // repeats the same skip a few polls in a row.
-        const transient = /^error:/.test(d.reason) || d.reason.includes("no submit_reply");
+        // Only a true API error is worth retrying next poll. "no submit_reply" is NOT transient
+        // (reply.ts already retries it once with a forced tool) — leaving it re-checkable made an
+        // escalation that never submits re-run its pricey Sonnet+search call every poll all night.
+        const transient = /^error:/.test(d.reason);
         const spoilerHeld = d.reason.includes("spoiler guard");
         const final = ["spam", "complaint", "personal_medical", "other"].includes(d.category);
         // Follow-ups + answer-thread subs are the owner's engagement threads. A clearly-final
@@ -756,7 +768,7 @@ async function runLiveOrDry(mode: Mode, target: string | null): Promise<void> {
       // already up (e.g. a manually pinned "Answer:" the state file doesn't know about), so skip
       // this run rather than risk a duplicate public answer — a later poll retries.
       if (!conv) continue;
-      if (answerFromConversation(conv, me)) {
+      if (answerFromConversation(conv, me) || answerAlreadyPosted(conv, me, entry.breakdown)) {
         state.markAnswered(post.id);
         continue;
       }
@@ -789,14 +801,13 @@ async function runLiveOrDry(mode: Mode, target: string | null): Promise<void> {
       `Skipped by category: ${skipSummary}.\n`,
   );
 
-  // Live: write a marker when the newest post has hit the per-post cap, so the
-  // workflow's 10-minute polling loop knows to stop.
-  if (posting && posts.some((p) => state.repliedToPost(p.id) >= config.perPostCap)) {
-    try {
-      writeFileSync(".bot-stop", "done");
-    } catch {
-      /* best effort */
-    }
+  // Outage dead-man's-switch: if EVERY comment we classified this run error-skipped (dead API key,
+  // billing lapse, Anthropic outage) the bot posted nothing while every poll still exits 0 and the
+  // job stays green. Exit non-zero so the workflow's 6-consecutive-failure alarm fires instead of
+  // the outage hiding for days. Requires processed > 0 so a normal quiet poll never trips it.
+  if (posting && processed > 0 && errorSkips === processed) {
+    console.error(`All ${processed} classification(s) errored — likely an API outage. Failing the run so it surfaces.`);
+    process.exitCode = 1;
   }
 }
 

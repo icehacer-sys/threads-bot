@@ -16,7 +16,9 @@ import { getRecentPosts, getAllMyPosts, getConversation, getMyUsername, type Thr
 const HERE = dirname(fileURLToPath(import.meta.url));
 const NOTES = join(HERE, "..", "data", "voice-learned.md");
 const CHANGELOG = join(HERE, "..", "data", "voice-changelog.md");
-const MODEL = process.env.BOT_LEARN_MODEL ?? "claude-fable-5";
+// Sonnet 5 is the chosen audit model (the workflow sets BOT_LEARN_MODEL=claude-sonnet-5). Default
+// to it too, so a local `npm run learn` without the env var doesn't silently bill Fable 5 at ~4.5x.
+const MODEL = process.env.BOT_LEARN_MODEL ?? "claude-sonnet-5";
 const MAX_PAIRS = Number(process.env.BOT_LEARN_MAX_PAIRS ?? 150);
 const DAYS = Number(process.env.BOT_LEARN_DAYS ?? 3);
 
@@ -85,7 +87,7 @@ Study what the LANDED replies do that the others don't (specific, human, matched
 Output EXACTLY this markdown structure and nothing else:
 
 # Learned voice notes
-_Auto-updated by the Fable 5 self-audit. Refine the established voice, never reinvent it._
+_Auto-updated by the daily voice self-audit. Refine the established voice, never reinvent it._
 
 ## Do more (what the landed replies do)
 - ...

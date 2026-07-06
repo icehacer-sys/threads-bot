@@ -2,8 +2,10 @@ node_modules/
 .env
 .env.local
 *.log
-.bot-stop
-.bot-idle
+
+# Scratch / one-off analysis scripts (underscore-prefixed). Never commit — some carry unsafe
+# local config (e.g. _replyloop.sh sets 24/7 windows + 400 caps). Matches root and src/.
+_*
 
 # state.json is intentionally TRACKED: the GitHub Actions runner commits it back
 # each run so the bot remembers which comments it already answered. Do not ignore it.

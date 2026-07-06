@@ -41,6 +41,32 @@ interface ListResponse<T> {
   paging?: { cursors?: unknown; next?: string };
 }
 
+// Retry transient Threads failures (429 rate-limit, 5xx) with jittered exponential backoff,
+// honoring Retry-After on a 429. Auth/permission 4xx are permanent, so they fall straight
+// through to the caller's !ok throw. Without this a single transient 429 on /replies skips a
+// whole post for that poll and a throw on /me fails the entire iteration. (postReply keeps its
+// own publish-step retry.)
+async function fetchRetry(input: string | URL, init?: RequestInit, attempts = 3): Promise<Response> {
+  let lastErr: unknown;
+  for (let i = 0; i < attempts; i++) {
+    try {
+      const res = await fetch(input, init);
+      if ((res.status === 429 || res.status >= 500) && i < attempts - 1) {
+        const ra = Number(res.headers.get("retry-after"));
+        const wait = Number.isFinite(ra) && ra > 0 ? ra * 1000 : 800 * 2 ** i + Math.floor(Math.random() * 400);
+        await new Promise((r) => setTimeout(r, wait));
+        continue;
+      }
+      return res;
+    } catch (e) {
+      lastErr = e; // network error -> backoff + retry
+      if (i === attempts - 1) throw e;
+      await new Promise((r) => setTimeout(r, 800 * 2 ** i + Math.floor(Math.random() * 400)));
+    }
+  }
+  throw lastErr instanceof Error ? lastErr : new Error(String(lastErr));
+}
+
 async function api<T>(
   path: string,
   opts: { method?: "GET" | "POST"; query?: Record<string, string | number | undefined>; body?: Record<string, string> } = {},
@@ -62,7 +88,7 @@ async function api<T>(
     init.body = new URLSearchParams(opts.body).toString();
   }
 
-  const res = await fetch(url, init);
+  const res = await fetchRetry(url, init);
   const json: unknown = await res.json().catch(() => ({}));
   if (!res.ok) {
     throw new Error(`Threads API ${init.method} ${path} -> ${res.status}: ${JSON.stringify(json)}`);
@@ -88,7 +114,7 @@ async function apiGetAll<T>(
   let next: string | undefined = first.toString();
   const out: T[] = [];
   for (let page = 0; next && page < 25; page++) {
-    const res = await fetch(next, { headers: { Authorization: `Bearer ${token}` } });
+    const res = await fetchRetry(next, { headers: { Authorization: `Bearer ${token}` } });
     const json: unknown = await res.json().catch(() => ({}));
     if (!res.ok) {
       throw new Error(`Threads API GET ${path} -> ${res.status}: ${JSON.stringify(json)}`);

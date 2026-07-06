@@ -140,6 +140,16 @@ jobs:
             if [ $(( $(date +%s) - start )) -ge "$MAXSECS" ]; then break; fi
             sleep 600
           done
+          # Before handing off to a FRESH checkout, make a best effort to land this run's state on
+          # origin. The next run clones origin; any un-pushed reply commit would be re-classified and
+          # double-posted publicly. This blocking push (5 tries) shrinks that window well below the
+          # per-loop sync_repo alone. answeredByMe is the live backstop, but it can't see held/lagging
+          # replies, so pushing state is the real guard.
+          for attempt in 1 2 3 4 5; do
+            if git pull --rebase --autostash origin "${GITHUB_REF_NAME}" && git push; then break; fi
+            git rebase --abort 2>/dev/null || true
+            echo "final state push failed ($attempt/5), retrying in 5s"; sleep 5
+          done
           # Perpetual chain: always launch the next run so a loop is ALWAYS alive.
           # The bot itself posts only inside the active windows, up to the cap, so
           # outside the windows these runs just no-op. Concurrency keeps it a single
