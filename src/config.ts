@@ -132,6 +132,14 @@ export const config = {
   gifMaxPerPost: num("BOT_GIF_MAX_PER_POST", 1), // hard: never a second GIF on one post
   gifMaxPerDay: num("BOT_GIF_MAX_PER_DAY", 2),
 
+  // RARE product plug (catalog in data/products.json) woven into a reply when the comment gives a
+  // genuine opening ("is there a book?", superfan gushing). The model picks the product; CODE appends
+  // the URL (never model-written). Hard caps below keep it from ever reading as spam. On by default —
+  // an empty products.json leaves it inert. Set BOT_PROMO=off to disable.
+  promoReplies: (process.env.BOT_PROMO ?? "on").toLowerCase() !== "off",
+  promoMaxPerPost: num("BOT_PROMO_PER_POST", 1), // hard: never a second plug on one post
+  promoMaxPerDay: num("BOT_PROMO_PER_DAY", 3),
+
   // Local state file (replied-comment log + daily counter)
   stateFile: process.env.BOT_STATE_FILE ?? "./state.json",
 

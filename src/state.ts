@@ -20,6 +20,9 @@ interface StateShape {
   gifPostCounts?: Record<string, number>;
   gifDaily?: { date: string; count: number };
   recentGifIds?: string[];
+  /** Product-plug rarity tracking: promos per post and per cap-day (mirrors the GIF caps). */
+  promoPostCounts?: Record<string, number>;
+  promoDaily?: { date: string; count: number };
 }
 
 function today(): string {
@@ -43,6 +46,8 @@ export class State {
   private gifPostCounts: Record<string, number>;
   private gifDaily: { date: string; count: number };
   private recentGifIds: string[];
+  private promoPostCounts: Record<string, number>;
+  private promoDaily: { date: string; count: number };
   private file: string;
 
   // stateFile defaults to the Threads state; the Facebook reply loop passes its own path
@@ -67,6 +72,9 @@ export class State {
     this.gifDaily =
       loaded?.gifDaily && loaded.gifDaily.date === today() ? loaded.gifDaily : { date: today(), count: 0 };
     this.recentGifIds = loaded?.recentGifIds ?? [];
+    this.promoPostCounts = loaded?.promoPostCounts ?? {};
+    this.promoDaily =
+      loaded?.promoDaily && loaded.promoDaily.date === today() ? loaded.promoDaily : { date: today(), count: 0 };
     this.daily =
       loaded?.daily && loaded.daily.date === today() ? loaded.daily : { date: today(), count: 0 };
   }
@@ -115,6 +123,21 @@ export class State {
     this.gifPostCounts[postId] = (this.gifPostCounts[postId] ?? 0) + 1;
     this.gifDaily = { date: today(), count: this.gifsToday() + 1 };
     this.recentGifIds = [...this.recentGifIds, gifId].slice(-8);
+    this.save();
+  }
+
+  // --- product-plug rarity (mirrors the GIF caps) ---
+  promosOnPost(postId: string): number {
+    return this.promoPostCounts[postId] ?? 0;
+  }
+
+  promosToday(): number {
+    return this.promoDaily.date === today() ? this.promoDaily.count : 0;
+  }
+
+  markPromoPosted(postId: string): void {
+    this.promoPostCounts[postId] = (this.promoPostCounts[postId] ?? 0) + 1;
+    this.promoDaily = { date: today(), count: this.promosToday() + 1 };
     this.save();
   }
 
@@ -171,6 +194,8 @@ export class State {
       gifPostCounts: this.gifPostCounts,
       gifDaily: this.gifDaily,
       recentGifIds: this.recentGifIds,
+      promoPostCounts: this.promoPostCounts,
+      promoDaily: this.promoDaily,
     };
     writeFileSync(this.file, JSON.stringify(out, null, 2));
   }

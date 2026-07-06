@@ -9,6 +9,7 @@ import { dirname, join } from "node:path";
 import { config, requireEnv } from "./config";
 import { SYSTEM_PROMPT } from "./voice";
 import { GIF_TAGS } from "./gifs";
+import { PROMO_TAGS, PRODUCTS_BLOCK } from "./products";
 
 // Self-learned voice notes (maintained by the Fable 5 self-audit in voicelearn.ts). Loaded ONCE and
 // appended to the cached system prompt, so the voice keeps sharpening with zero per-reply cost.
@@ -19,7 +20,7 @@ const LEARNED_NOTES = (() => {
     return md ? `\n\n## LEARNED FROM YOUR OWN REPLIES (self-audit — these SHARPEN the voice above, never override its hard rules)\n${md.replace(/<!--[\s\S]*?-->/g, "").trim()}` : "";
   } catch { return ""; }
 })();
-const FULL_SYSTEM = SYSTEM_PROMPT + LEARNED_NOTES;
+const FULL_SYSTEM = SYSTEM_PROMPT + PRODUCTS_BLOCK + LEARNED_NOTES;
 
 export type Category =
   | "banter"
@@ -44,6 +45,9 @@ export interface Decision {
   /** Set by the cheap triage pass when it sees a reference (in text or an attached image/GIF) it
    *  can't confidently name — signals the orchestrator to escalate to the quality model + web search. */
   needs_lookup?: boolean;
+  /** Product tag for the RARE promo plug (catalog in data/products.json). The URL is appended by
+   *  code in index.ts — the model never writes links. Blocked on medical/tender/correction replies. */
+  promo_product?: string;
 }
 
 // JSON schema for structured outputs. additionalProperties:false is required.
@@ -77,8 +81,14 @@ const REPLY_SCHEMA = {
       description:
         'true ONLY when the comment or its attached image/GIF clearly points to a SPECIFIC identifiable person, movie, show, game, meme, or scene that you recognize as "a real reference I should name" but cannot confidently place yourself (e.g. a reaction GIF of someone you can tell is a known figure but can\'t name, on-screen text like "HAMSTER" you can\'t source). It triggers a web lookup so the reply can name it and top it precisely. false whenever you already recognize it, or there is nothing specific to identify (generic photo, plain banter, a guess, a question).',
     },
+    promo_product: {
+      type: "string",
+      enum: PROMO_TAGS,
+      description:
+        '"none" UNLESS the comment gives a genuine opening for a product plug: they ask where to find more cases / whether there is a book or collection, say they would buy or read a whole book of these, gush that they are obsessed with this series, or joke about doctors dismissing them as "just anxiety" (→ anxiety_game). On a clear opening DO pick the one product from YOUR PRODUCT CATALOG that fits the moment (free_pack is the default for casual interest). REQUIRED when you pick a product: reply_text itself must contain your one casual owner-voice plug line that names the thing ("I actually turned these into a card game" / "I put 50 of these into a book") — the link is appended right under your words, so a reply that never mentions the product leaves a naked link. Never ad copy; you may name the price or the SPOTIT code; NEVER write a URL. If your reply does not naturally carry that line, set "none". ALWAYS "none" on: a personal medical story, anything tender, a correction, a complaint, a plain guess, or a comment that never asked for more.',
+    },
   },
-  required: ["intent", "decision", "category", "reply_text", "reason", "gif_tag", "needs_lookup"],
+  required: ["intent", "decision", "category", "reply_text", "reason", "gif_tag", "needs_lookup", "promo_product"],
 } as const;
 
 let client: Anthropic | null = null;
@@ -501,5 +511,15 @@ export function sanitize(d: Decision, spoiler?: { isPublic: boolean; terms: stri
 
   // GIF is defense-in-depth banter-only: strip the tag on any non-banter or skipped reply.
   const gifOk = d.decision === "reply" && d.category === "banter" && !!d.gif_tag && d.gif_tag !== "none";
-  return { ...d, reply_text: d.decision === "skip" ? "" : text, gif_tag: gifOk ? d.gif_tag : undefined };
+  // Promo is defense-in-depth too: never on a skipped reply or a tender/critical category. A plug
+  // next to someone's medical story or a correction is exactly the brand risk this blocklist prevents.
+  const PROMO_BLOCKED = new Set<Category>(["personal_medical", "empathize", "correct", "complaint", "spam"]);
+  const promoOk =
+    d.decision === "reply" && !!d.promo_product && d.promo_product !== "none" && !PROMO_BLOCKED.has(d.category);
+  return {
+    ...d,
+    reply_text: d.decision === "skip" ? "" : text,
+    gif_tag: gifOk ? d.gif_tag : undefined,
+    promo_product: promoOk ? d.promo_product : undefined,
+  };
 }

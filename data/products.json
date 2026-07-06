@@ -1,0 +1,126 @@
+[
+  {
+    "tag": "free_pack",
+    "name": "The Hopital Pack (FREE)",
+    "url": "https://free.mednoteslab.com/",
+    "price": "free",
+    "when": "DEFAULT plug for casual interest: someone enjoying the cases, asking if there are more, or new to the account. Zero friction — 6 wild cases, free.",
+    "keywords": [
+      "pack",
+      "free",
+      "starter"
+    ]
+  },
+  {
+    "tag": "complete_collection",
+    "name": "Weird X-Ray Case Files: The Complete Collection",
+    "url": "https://mednoteslab.gumroad.com/l/collection",
+    "price": "$79, code SPOTIT takes $30 off",
+    "when": "Superfans: 'I could read these all day', 'I'd buy a whole book of this', asks for everything in one place. Six editions, 140 cases, every answer.",
+    "keywords": [
+      "collection",
+      "book",
+      "140",
+      "spotit",
+      "full run",
+      "every edition",
+      "all six"
+    ]
+  },
+  {
+    "tag": "could_you_spot_it",
+    "name": "Could You Spot It?",
+    "url": "https://spot.mednoteslab.com/",
+    "price": "$24",
+    "when": "Someone who loves the GUESSING game specifically — 50 of the strangest cases, one guess per page, flip for the answer.",
+    "keywords": [
+      "spot it",
+      "book",
+      "50"
+    ]
+  },
+  {
+    "tag": "volume_1",
+    "name": "Weird X-Ray Case Files: Volume 1",
+    "url": "https://xray.mednoteslab.com/",
+    "price": "$12",
+    "when": "Someone asking where to START with a paid edition — the original 20 cases explained in simple language.",
+    "keywords": [
+      "volume",
+      "book",
+      "original"
+    ]
+  },
+  {
+    "tag": "volume_2",
+    "name": "Weird X-Ray Case Files: Volume 2",
+    "url": "https://xray2.mednoteslab.com/",
+    "price": "$12",
+    "when": "Readers who already read Volume 1 and want the next 20 bizarre cases.",
+    "keywords": [
+      "volume",
+      "book",
+      "second",
+      "vol 2"
+    ]
+  },
+  {
+    "tag": "volume_3",
+    "name": "Weird X-Ray Case Files: Volume 3",
+    "url": "https://xray3.mednoteslab.com/",
+    "price": "$12",
+    "when": "Returning readers who already know the series and want the NEWEST 20 cases.",
+    "keywords": [
+      "volume",
+      "newest",
+      "book"
+    ]
+  },
+  {
+    "tag": "rarest_findings",
+    "name": "Rarest Findings",
+    "url": "https://rare.mednoteslab.com/",
+    "price": "$12",
+    "when": "Comments obsessed with how RARE a case is ('how rare is this', 'never seen anything like it') — the 10 rarest cases in radiology.",
+    "keywords": [
+      "rarest",
+      "rare cases",
+      "book"
+    ]
+  },
+  {
+    "tag": "hopital_edition",
+    "name": "Hopital Field Edition",
+    "url": "https://field.mednoteslab.com/",
+    "price": "$12",
+    "when": "In-joke moments around the 'hopital' meme — 20 wild cases where the only answer is hopital.",
+    "keywords": [
+      "hopital"
+    ]
+  },
+  {
+    "tag": "anxiety_game",
+    "name": "It's Just Anxiety — the medical gaslighting card game",
+    "url": "https://anxiety.mednoteslab.com/",
+    "price": "$16",
+    "when": "Jokes or stories about being dismissed by doctors ('they said it was anxiety/stress/in my head') where the commenter is JOKING, not sharing raw pain — 120 cards, most dismissive answer wins.",
+    "keywords": [
+      "card game",
+      "game",
+      "cards",
+      "deck"
+    ]
+  },
+  {
+    "tag": "volume_4_waitlist",
+    "name": "Volume 4 waitlist (free to join)",
+    "url": "https://mednoteslab.gumroad.com/l/fyxwcu",
+    "price": "free waitlist",
+    "when": "Someone who finished/owns the previous volumes and asks what's next.",
+    "keywords": [
+      "waitlist",
+      "volume 4",
+      "next one"
+    ]
+  }
+]
