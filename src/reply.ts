@@ -334,9 +334,10 @@ export async function classifyAndDraft(input: ClassifyInput): Promise<Decision> 
   }
 }
 
-// Only these emojis are allowed in replies (the account owner's set).
-// Everything else (😳, 🦴, 👀, 🤘, ...) is stripped before posting.
-const ALLOWED_EMOJI = new Set(["🤣", "✅", "💯", "👏"]);
+// Only these emojis are allowed in replies (the account owner's set). Expanded 2026-07-06 so 🤣 is
+// no longer the ONLY casual-emotion option (its monotony was the top "bot" tell): 😭 = crying-laughing/
+// overwhelm, 🤍 = warmth, 🫡 = respect. Everything else (😳, 🦴, 👀, 🤘, ...) is stripped before posting.
+const ALLOWED_EMOJI = new Set(["🤣", "😭", "🤍", "🫡", "✅", "💯", "👏"]);
 const EMOJI_SEQ = /\p{Extended_Pictographic}(?:️|[\u{1F3FB}-\u{1F3FF}]|‍\p{Extended_Pictographic}️?)*/gu;
 
 // Worn-out house one-liners. The model still reaches for these as a lazy dry topper
