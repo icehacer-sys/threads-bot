@@ -36,6 +36,11 @@ jobs:
       ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
       THREADS_ACCESS_TOKEN: ${{ secrets.THREADS_ACCESS_TOKEN }}
       THREADS_USER_ID: me
+      # Sonnet 5 is the sweet spot for this bounded voice-distillation task: near-Opus judgment on
+      # humor/voice at ~1/4 of Fable 5's cost (~$0.10 vs ~$0.45 per daily run). Flip to claude-fable-5
+      # or claude-opus-4-8 for an occasional deeper audit; the max_tokens=12000 ceiling in voicelearn.ts
+      # gives any reasoning model enough headroom (it bills only actual output, not the ceiling).
+      BOT_LEARN_MODEL: "claude-sonnet-5"
       BOT_LEARN_DAYS: "3"
       BOT_LEARN_MAX_PAIRS: "150"
     steps:
