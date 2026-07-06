@@ -45,9 +45,12 @@ export interface Decision {
   /** Set by the cheap triage pass when it sees a reference (in text or an attached image/GIF) it
    *  can't confidently name — signals the orchestrator to escalate to the quality model + web search. */
   needs_lookup?: boolean;
-  /** Product tag for the RARE promo plug (catalog in data/products.json). The URL is appended by
-   *  code in index.ts — the model never writes links. Blocked on medical/tender/correction replies. */
+  /** Product tag for the RARE promo mention (catalog in data/products.json). The reply names the
+   *  product in-voice; code appends the URL ONLY when promo_explicit is true. Never writes links. */
   promo_product?: string;
+  /** true ONLY when the commenter explicitly asked for the link / where to buy / the price. Gates
+   *  whether the raw URL is attached (ask-only links, to minimise spam/reach risk). */
+  promo_explicit?: boolean;
 }
 
 // JSON schema for structured outputs. additionalProperties:false is required.
@@ -85,10 +88,15 @@ const REPLY_SCHEMA = {
       type: "string",
       enum: PROMO_TAGS,
       description:
-        '"none" UNLESS the comment gives a genuine opening for a product plug: they ask where to find more cases / whether there is a book or collection, say they would buy or read a whole book of these, gush that they are obsessed with this series, or joke about doctors dismissing them as "just anxiety" (→ anxiety_game). On a clear opening DO pick the one product from YOUR PRODUCT CATALOG that fits the moment (free_pack is the default for casual interest). REQUIRED when you pick a product: reply_text itself must contain your one casual owner-voice plug line that names the thing ("I actually turned these into a card game" / "I put 50 of these into a book") — the link is appended right under your words, so a reply that never mentions the product leaves a naked link. Never ad copy; you may name the price or the SPOTIT code; NEVER write a URL. If your reply does not naturally carry that line, set "none". ALWAYS "none" on: a personal medical story, anything tender, a correction, a complaint, a plain guess, or a comment that never asked for more.',
+        '"none" UNLESS the comment gives a genuine opening to mention a product: they ask where to find more cases / whether there is a book or collection, say they would buy or read a whole book of these, gush that they are obsessed with this series, or joke about doctors dismissing them as "just anxiety" (→ anxiety_game). On a clear opening pick the one product from YOUR PRODUCT CATALOG that fits (free_pack is the default for casual interest). A DIRECT purchase/link request ("where can I buy this", "drop the link", "how do I get it", "how much") is ALWAYS an opening — never answer it with "none"; if they did not name a product, default to free_pack (start free) or complete_collection. REQUIRED: reply_text must carry your one casual owner-voice line that NAMES the thing ("I actually turned these into a card game" / "I put 50 of these into a book"). That line must read fine on its own with no link. Never ad copy; you may name the price or the SPOTIT code; NEVER write a URL. If your reply does not naturally carry that line, set "none". ALWAYS "none" on: a personal medical story, anything tender, a correction, a complaint, a plain guess, or a comment that never asked for more.',
+    },
+    promo_explicit: {
+      type: "boolean",
+      description:
+        'true ONLY when the commenter EXPLICITLY asked for the actual link / where to buy / the price / how to get it ("where can I buy this?", "is there a link?", "how much?", "drop the link"). false for softer interest (gushing, "wish there were more", "I\'d buy a book of these") — those get the in-voice product mention but NO link. Always false when promo_product is "none".',
     },
   },
-  required: ["intent", "decision", "category", "reply_text", "reason", "gif_tag", "needs_lookup", "promo_product"],
+  required: ["intent", "decision", "category", "reply_text", "reason", "gif_tag", "needs_lookup", "promo_product", "promo_explicit"],
 } as const;
 
 let client: Anthropic | null = null;
@@ -521,5 +529,6 @@ export function sanitize(d: Decision, spoiler?: { isPublic: boolean; terms: stri
     reply_text: d.decision === "skip" ? "" : text,
     gif_tag: gifOk ? d.gif_tag : undefined,
     promo_product: promoOk ? d.promo_product : undefined,
+    promo_explicit: promoOk ? d.promo_explicit : undefined,
   };
 }

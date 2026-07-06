@@ -68,9 +68,9 @@ jobs:
       BOT_FACEBOOK_REPLY: "off" # FB dropped — Threads only (owner deleted the Page over the "AI info" label, 2026-07-03). fbindex early-returns when off; flip to "on" to restore.
       BOT_GIF_REPLIES: "on" # attach a curated reaction GIF (data/gifs.json) to a clearly-funny banter reply; max 1/post, 2/day; degrades to text if rejected
       BOT_GIF_CHANCE: "1" # no coin flip — when the model tags a banter reply and caps allow, attach the GIF (owner, 2026-07-04 moderate loosening; was 0.5). Volume is bounded by the model's tag rate + the 1/post, 2/day caps
-      BOT_PROMO: "on" # RARE product plug (data/products.json) when a comment genuinely asks for more ("is there a book?", superfan gushing). Model picks the product; code appends the Gumroad URL. Never on medical/tender/corrections.
-      BOT_PROMO_PER_POST: "1" # hard: never a second plug on one post
-      BOT_PROMO_PER_DAY: "3"
+      BOT_PROMO: "on" # RARE product plug (data/products.json). The reply NAMES the product in-voice on a genuine opening; the raw LINK is attached ONLY when the commenter explicitly asks for it (ask-only links, to keep spam/reach risk low). Never on medical/tender/corrections.
+      BOT_PROMO_PER_POST: "1" # hard: never a second LINK on one post
+      BOT_PROMO_PER_DAY: "2" # link-frequency is the main spam signal; kept low
     steps:
       - uses: actions/checkout@v4
 

@@ -677,22 +677,21 @@ async function runLiveOrDry(mode: Mode, target: string | null): Promise<void> {
       // so it is allowed during the guessing window too (owner, 2026-07-04 — moderate loosening: the
       // funniest banter lands before the reveal). Any miss -> a normal text reply. pickGif returns
       // null if no on-tag GIF is available (never substitutes).
-      // RARE product plug: the model flagged a genuine opening (sanitize already blocked tender/
-      // critical categories); code owns the URL (data/products.json — never model-written) and hard
-      // caps bound the volume (1/post, 3/day). The plug line lives in reply_text; only the link is
-      // appended here, after sanitize, so the URL survives the link-stripping. Never with a GIF.
-      const promo =
-        config.promoReplies &&
-        d.promo_product &&
+      // RARE product plug. The in-voice product MENTION already lives in reply_text (the model wrote
+      // it; sanitize blocked tender/critical categories). ASK-ONLY LINKS: the raw URL (owned by code,
+      // never model-written) is appended ONLY when the commenter explicitly asked for it
+      // (promo_explicit) AND the link caps allow (1/post, 2/day) — this keeps external-link frequency
+      // low, the main spam/reach signal. Softer openings just name the product, no link. Never with a GIF.
+      const product = config.promoReplies && d.promo_product ? getProduct(d.promo_product) : null;
+      const attachLink =
+        product &&
+        d.promo_explicit &&
         !isBotQuestion(c.text) &&
         state.promosOnPost(post.id) < config.promoMaxPerPost &&
-        state.promosToday() < config.promoMaxPerDay
-          ? getProduct(d.promo_product)
-          : null;
-      const replyText =
-        promo && d.reply_text.length + promo.url.length + 2 <= 495
-          ? `${d.reply_text}\n${promo.url}`
-          : d.reply_text;
+        state.promosToday() < config.promoMaxPerDay &&
+        d.reply_text.length + product.url.length + 2 <= 495;
+      const promo = attachLink ? product : null; // "promo" now means "a LINK is being posted"
+      const replyText = attachLink ? `${d.reply_text}\n${product!.url}` : d.reply_text;
       const gif =
         config.gifReplies &&
         d.gif_tag &&
@@ -713,8 +712,10 @@ async function runLiveOrDry(mode: Mode, target: string | null): Promise<void> {
             console.log(`        (+ GIF ${gif.tag}: ${gif.desc})`);
           }
           if (promo && replyText !== d.reply_text) {
-            state.markPromoPosted(post.id);
-            console.log(`        (+ promo ${promo.tag}: ${promo.url})`);
+            state.markPromoPosted(post.id); // cap tracks LINKS, not mentions
+            console.log(`        (+ promo LINK ${promo.tag}: ${promo.url})`);
+          } else if (product) {
+            console.log(`        (+ mentioned ${product.tag}, no link — not an explicit ask${d.promo_explicit ? " (cap hit)" : ""})`);
           }
           replied += 1;
         } catch (err) {
@@ -722,7 +723,8 @@ async function runLiveOrDry(mode: Mode, target: string | null): Promise<void> {
         }
       } else {
         if (gif) console.log(`        (+ would attach GIF ${gif.tag}: ${gif.desc})`);
-        if (promo) console.log(`        (+ would plug ${promo.tag}: ${promo.url})`);
+        if (promo) console.log(`        (+ would attach LINK ${promo.tag}: ${promo.url})`);
+        else if (product) console.log(`        (+ would mention ${product.tag}, no link)`);
         replied += 1; // count intended replies for the dry-run summary
       }
     }

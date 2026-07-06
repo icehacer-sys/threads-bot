@@ -137,8 +137,8 @@ export const config = {
   // the URL (never model-written). Hard caps below keep it from ever reading as spam. On by default —
   // an empty products.json leaves it inert. Set BOT_PROMO=off to disable.
   promoReplies: (process.env.BOT_PROMO ?? "on").toLowerCase() !== "off",
-  promoMaxPerPost: num("BOT_PROMO_PER_POST", 1), // hard: never a second plug on one post
-  promoMaxPerDay: num("BOT_PROMO_PER_DAY", 3),
+  promoMaxPerPost: num("BOT_PROMO_PER_POST", 1), // hard: never a second LINK on one post
+  promoMaxPerDay: num("BOT_PROMO_PER_DAY", 2), // link-frequency is the main spam signal; kept low (owner, 2/day). Product MENTIONS (no link) are not capped here.
 
   // Local state file (replied-comment log + daily counter)
   stateFile: process.env.BOT_STATE_FILE ?? "./state.json",
