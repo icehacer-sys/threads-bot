@@ -3,9 +3,23 @@
 // Every result passes through sanitize() as defense-in-depth before it can be posted.
 
 import Anthropic from "@anthropic-ai/sdk";
+import { readFileSync } from "node:fs";
+import { fileURLToPath } from "node:url";
+import { dirname, join } from "node:path";
 import { config, requireEnv } from "./config";
 import { SYSTEM_PROMPT } from "./voice";
 import { GIF_TAGS } from "./gifs";
+
+// Self-learned voice notes (maintained by the Fable 5 self-audit in voicelearn.ts). Loaded ONCE and
+// appended to the cached system prompt, so the voice keeps sharpening with zero per-reply cost.
+// Absent/empty file = no-op (the core voice still fully applies).
+const LEARNED_NOTES = (() => {
+  try {
+    const md = readFileSync(join(dirname(fileURLToPath(import.meta.url)), "..", "data", "voice-learned.md"), "utf8").trim();
+    return md ? `\n\n## LEARNED FROM YOUR OWN REPLIES (self-audit — these SHARPEN the voice above, never override its hard rules)\n${md.replace(/<!--[\s\S]*?-->/g, "").trim()}` : "";
+  } catch { return ""; }
+})();
+const FULL_SYSTEM = SYSTEM_PROMPT + LEARNED_NOTES;
 
 export type Category =
   | "banter"
@@ -275,7 +289,7 @@ export async function classifyAndDraft(input: ClassifyInput): Promise<Decision> 
       max_tokens: 1024,
       ...effortParam,
       // System prompt is static -> cache it for 1h (survives the gaps between 10-min cycles).
-      system: [{ type: "text", text: SYSTEM_PROMPT, cache_control: { type: "ephemeral", ttl: "1h" } }],
+      system: [{ type: "text", text: FULL_SYSTEM, cache_control: { type: "ephemeral", ttl: "1h" } }],
       messages: [{ role: "user", content }],
       tools,
       tool_choice: toolChoice,

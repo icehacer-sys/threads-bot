@@ -1,0 +1,65 @@
+name: voice-self-learn
+
+# Once a day, Fable 5 audits the account's own recent comment->reply pairs (weighting the replies
+# that sparked a human reply back) and consolidates a bounded set of "learned voice notes" into
+# data/voice-learned.md. reply.ts injects that file into every reply's system prompt, so the voice
+# keeps sharpening itself. The file is git-tracked, so every daily update is a reviewable, revertible
+# diff — and it only refines a SEPARATE notes layer, never rewrites the core voice in voice.ts.
+#
+# Runs at 09:00 UTC (12 PM Cairo), just after the 11 PM-11 AM Cairo reply window closes, so it learns
+# from the full night's engagement. Trigger manually (Actions -> Run workflow) with backfill=true to
+# reseed from ALL past posts.
+#
+# Required repository secrets: ANTHROPIC_API_KEY (with Fable 5 access), THREADS_ACCESS_TOKEN
+
+on:
+  schedule:
+    - cron: "0 9 * * *"
+  workflow_dispatch:
+    inputs:
+      backfill:
+        description: "Seed from ALL past posts (capped) instead of the recent window"
+        type: boolean
+        default: false
+
+concurrency:
+  group: voice-self-learn
+  cancel-in-progress: false
+
+permissions:
+  contents: write
+
+jobs:
+  learn:
+    runs-on: ubuntu-latest
+    env:
+      ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+      THREADS_ACCESS_TOKEN: ${{ secrets.THREADS_ACCESS_TOKEN }}
+      THREADS_USER_ID: me
+      BOT_LEARN_DAYS: "3"
+      BOT_LEARN_MAX_PAIRS: "150"
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: "npm"
+      - name: Install dependencies
+        run: npm ci
+      - name: Fable 5 voice self-audit
+        run: |
+          if [ "${{ github.event.inputs.backfill }}" = "true" ]; then npm run learn:backfill; else npm run learn; fi
+      - name: Commit updated voice notes
+        run: |
+          if [ -n "$(git status --porcelain data/voice-learned.md)" ]; then
+            git config user.name "threads-bot"
+            git config user.email "github-actions[bot]@users.noreply.github.com"
+            git add data/voice-learned.md
+            git commit -m "chore: voice self-audit — update learned notes [skip ci]"
+            for attempt in 1 2 3; do
+              git pull --rebase --autostash origin "${GITHUB_REF_NAME}" || { git rebase --abort 2>/dev/null || true; sleep 3; continue; }
+              git push && break || { echo "push failed ($attempt/3)"; sleep 3; }
+            done
+          else
+            echo "no change to voice-learned.md this run"
+          fi

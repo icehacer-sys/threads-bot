@@ -15,6 +15,8 @@
     "fb:live": "tsx src/fbindex.ts --live",
     "token:url": "tsx src/get-token.ts --url",
     "token": "tsx src/get-token.ts",
+    "learn": "tsx src/voicelearn.ts",
+    "learn:backfill": "tsx src/voicelearn.ts --backfill",
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
