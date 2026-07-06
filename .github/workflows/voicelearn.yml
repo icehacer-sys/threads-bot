@@ -48,18 +48,23 @@ jobs:
         run: npm ci
       - name: Fable 5 voice self-audit
         run: |
-          if [ "${{ github.event.inputs.backfill }}" = "true" ]; then npm run learn:backfill; else npm run learn; fi
+          if [ "${{ github.event.inputs.backfill }}" = "true" ]; then npm run learn:backfill | tee /tmp/learn.log; else npm run learn | tee /tmp/learn.log; fi
       - name: Commit updated voice notes
         run: |
-          if [ -n "$(git status --porcelain data/voice-learned.md)" ]; then
+          if [ -n "$(git status --porcelain data/voice-learned.md data/voice-changelog.md)" ]; then
+            # The commit message carries the one-line "what changed" summary Fable emitted, so
+            # `git log` skims the voice's evolution. voice-changelog.md is the full running log.
+            SUMMARY=$(grep -m1 '^CHANGE_SUMMARY:' /tmp/learn.log | sed 's/^CHANGE_SUMMARY:[[:space:]]*//' | cut -c1-140)
+            [ -z "$SUMMARY" ] && SUMMARY="update learned notes"
             git config user.name "threads-bot"
             git config user.email "github-actions[bot]@users.noreply.github.com"
-            git add data/voice-learned.md
-            git commit -m "chore: voice self-audit — update learned notes [skip ci]"
+            git add data/voice-learned.md data/voice-changelog.md
+            printf 'chore: voice self-audit — %s [skip ci]\n' "$SUMMARY" > /tmp/msg.txt
+            git commit -F /tmp/msg.txt
             for attempt in 1 2 3; do
               git pull --rebase --autostash origin "${GITHUB_REF_NAME}" || { git rebase --abort 2>/dev/null || true; sleep 3; continue; }
               git push && break || { echo "push failed ($attempt/3)"; sleep 3; }
             done
           else
-            echo "no change to voice-learned.md this run"
+            echo "no change to voice notes this run"
           fi

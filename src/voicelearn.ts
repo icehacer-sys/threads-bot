@@ -15,6 +15,7 @@ import { getRecentPosts, getAllMyPosts, getConversation, getMyUsername, type Thr
 
 const HERE = dirname(fileURLToPath(import.meta.url));
 const NOTES = join(HERE, "..", "data", "voice-learned.md");
+const CHANGELOG = join(HERE, "..", "data", "voice-changelog.md");
 const MODEL = process.env.BOT_LEARN_MODEL ?? "claude-fable-5";
 const MAX_PAIRS = Number(process.env.BOT_LEARN_MAX_PAIRS ?? 150);
 const DAYS = Number(process.env.BOT_LEARN_DAYS ?? 3);
@@ -95,6 +96,9 @@ _Auto-updated by the Fable 5 self-audit. Refine the established voice, never rei
 ## Retire these phrasings (overused in the real replies)
 - ...
 
+Then, on the VERY LAST line, output exactly:
+CHANGE: <one plain sentence naming what you ADDED, sharpened, or DROPPED versus the current notes this run — e.g. "Added a lesson on topping reactions with a fresh detail; dropped the stale 'brutal' retire." If nothing materially changed, write "no material change.">
+
 === CORE VOICE STANDARD ===
 ${SYSTEM_PROMPT}
 
@@ -120,9 +124,13 @@ async function main(): Promise<void> {
   let text = res.content.map((b: any) => (b.type === "text" ? b.text : "")).join("").trim();
   text = text.replace(/^```[a-z]*\s*/i, "").replace(/\s*```$/i, "").trim(); // strip code fences if any
   // Anchor on the "Do more" section (the reliable marker); keep from the H1 if present, else synthesize it.
+  // Pull the one-line change summary Fable appends, then strip it from the notes body.
+  const changeMatch = text.match(/^CHANGE:\s*(.+)$/im);
+  const change = changeMatch ? changeMatch[1].trim() : "updated";
   const h1 = text.search(/#\s*Learned voice notes/i);
   const dm = text.search(/##\s*Do more/i);
   let body = h1 >= 0 ? text.slice(h1) : dm >= 0 ? `# Learned voice notes\n\n${text.slice(dm)}` : "";
+  body = body.replace(/^CHANGE:.*$/im, "").trim(); // keep the change line out of the notes file
   // Guard: never overwrite good notes with an empty/garbled result.
   if (!body || body.length < 120 || dm < 0) {
     console.error(`audit produced no usable notes (stop=${res.stop_reason}, len=${text.length}) — leaving the file unchanged.`);
@@ -130,10 +138,20 @@ async function main(): Promise<void> {
     return;
   }
   const stamp = new Date().toISOString().slice(0, 10);
-  const header = `<!-- audited ${pairs.length} replies (${landed} landed) across ${backfill ? "all past posts" : `last ${DAYS} days`} on ${stamp} -->\n`;
+  const scope = backfill ? "all past posts" : `last ${DAYS} days`;
+  const header = `<!-- audited ${pairs.length} replies (${landed} landed) across ${scope} on ${stamp} -->\n`;
   mkdirSync(dirname(NOTES), { recursive: true });
   writeFileSync(NOTES, header + body.trim() + "\n");
   console.log(`updated ${NOTES} (${body.length} chars)`);
+
+  // Running changelog so the voice's evolution is skimmable at a glance (and in git log). Rebuild from
+  // a fixed intro + all entry lines (newest first) so ordering is robust across runs.
+  const INTRO = "# Voice self-audit changelog\n\n_What the Fable 5 self-audit changed each run, newest first._\n\n";
+  const logLine = `- **${stamp}** (${pairs.length} replies, ${landed} landed, ${scope}): ${change}`;
+  let priorEntries: string[] = [];
+  try { priorEntries = readFileSync(CHANGELOG, "utf8").split("\n").filter((l) => l.startsWith("- **")); } catch { /* first run */ }
+  writeFileSync(CHANGELOG, INTRO + [logLine, ...priorEntries].join("\n") + "\n");
+  console.log(`CHANGE_SUMMARY: ${change}`); // the workflow greps this for the commit message
 }
 
 main().catch((e) => { console.error(e instanceof Error ? e.message : String(e)); process.exit(1); });
