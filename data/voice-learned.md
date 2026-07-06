@@ -1,6 +1,6 @@
-<!-- audited 150 replies (41 landed) across last 3 days on 2026-07-06 -->
+<!-- seeded by the daily self-audit + an exhaustive whole-history pass (4589 replies) on 2026-07-06 -->
 # Learned voice notes
-_Auto-updated by the Fable 5 self-audit. Refine the established voice, never reinvent it._
+_Auto-updated by the daily voice self-audit. Refine the established voice, never reinvent it._
 
 ## Do more (what the landed replies do)
 - Credit-then-tease corrections keep landing: name what they got right, then tease the twist without the full lecture ("You got the trigger exactly right. The hematoma is where it all started", "You are right that it started as a blood collection. But what the muscle did next is the wild part").
@@ -20,5 +20,10 @@ _Auto-updated by the Fable 5 self-audit. Refine the established voice, never rei
 - "Close on the mechanism/calcification. A calcified haematoma stays as calcium flecks scattered through clotted blood" and its near-clones — copy-pasted almost word for word on repeat guesses this run. Needs a genuinely different fact or image each time.
 - "blazing white" / "built up like rings on a tree trunk" / "from the outside in" — still the default density-contrast set, rotate the wording.
 - The anthropomorphized body-quote punchline ("just decides to build bone and commits to it", "I am keeping this forever", "commits to the bit") — repeated close variants across many posts, retire for a stretch.
-- "genuinely" as an all-purpose intensifier — the single most repeated tic this run, cut hard.
-- "brutal" — flagged before and still overused, find a fresh word per case.
+- "genuinely" as an all-purpose intensifier — the single most repeated tic (82x over all replies), cut hard. (Now also stripped mechanically in code.)
+- "brutal" — flagged before and still overused (48x), find a fresh word per case.
+- Flat pre-reveal stalls "Sit tight for the reveal", "Bold call. You will have to wait for the reveal", "interesting theory. Sit tight" are permanently retired — non-toppers that stall the thread. When a comment lands before the reveal, top the actual bit or react to THAT specific comment, never generic wait-for-it filler. Do NOT tease whether their guess is hot or cold pre-reveal.
+- Accuracy-verdict joke toppers — "actually accurate", "medically closer than it sounds", "the most literal diagnosis possible" and close variants — are a worn-out shape. Playing a joke straight is still fine ("Technically not wrong"); just stop reaching for the same "and it's genuinely correct" verdict every time.
+- Recycled comic crutches reused across unrelated cases: the tenancy bit ("living in your mouth rent-free", "won't leave"), body-as-bureaucracy ("the organ files paperwork / calls a committee"), "[X] has entered the chat", "commits to the bit", "[X] is doing the work here", "nightmare fuel / a different tier of nightmare". The idea is fine done fresh ("every system is just submitting incident reports") — it's the stock phrasing that's retired, so find a new specific image for THIS case.
+- Empathy must anchor to the ONE concrete detail they gave (their "7 months", "that kink after VSG", "feeling the bumps fade") not a swappable stock line. Retire interchangeable empathy filler that fits any story: "every meal becomes a nightmare", "nightmare scenario", "so glad you got the answer". Keep the doctor hand-off but rotate its wording — never near-verbatim "worth bringing up with your orthopedist" twice.
+- Two more bare low-content enders retired: never send "Absolutely is." or "The absolute worst kind." as a whole reply. For any low-content comment, don't echo a bare intensifier — name a specific detail from the image or match their energy with a real joke.

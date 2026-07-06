@@ -208,6 +208,34 @@ function selectCandidates(replies: ThreadsReply[], committed?: Set<string>): Thr
   return sorted.slice(0, config.perPostCap);
 }
 
+// --- Mechanical voice enforcement -------------------------------------------------------------
+// The exhaustive whole-history audit (4589 replies) found the PROSE rules for these two do not
+// hold on their own: 🤣 rides ~1 in 3 replies despite voice.ts telling it to cut to ~1 in 6, and
+// "genuinely" leaks as an intensifier ~82x despite being retired. So enforce them in code.
+
+// Strip "genuinely" used as an intensifier — the stickiest verbal tic. Removing it always leaves
+// valid text ("genuinely wild" -> "wild"); restore a leading capital if it was sentence-initial.
+function stripTics(text: string): string {
+  let t = text.replace(/\bgenuinely\s+/gi, "").replace(/[ \t]{2,}/g, " ").trim();
+  const first = text.trim().charAt(0);
+  if (t && first && first === first.toUpperCase() && /[a-z]/.test(t.charAt(0))) {
+    t = t.charAt(0).toUpperCase() + t.slice(1);
+  }
+  return t || text;
+}
+
+// Drop a TRAILING 🤣 (the auto-appended laugh-track) when 🤣 already appeared in the recent posted
+// replies, enforcing ~1-in-6 spacing. Dry lines land harder (the audit found LANDED replies skew
+// emoji-free). Only ever touches a trailing 🤣, never one used mid-sentence, and only judges once
+// there is enough history — so an occasional genuine laugh still gets through.
+function throttleLaugh(text: string, recent: string[]): string {
+  if (!/🤣\s*$/u.test(text)) return text;
+  const window = recent.slice(-5);
+  if (window.length < 3) return text;
+  if (window.some((r) => /🤣/u.test(r))) return text.replace(/\s*🤣\s*$/u, "").trimEnd() || text;
+  return text;
+}
+
 // The post's X-ray image URL(s), so the model can actually see the case.
 // Handles single-image posts and carousels; empty when vision is off or no image.
 function imageUrlsForPost(post: ThreadsPost): string[] {
@@ -683,6 +711,10 @@ async function runLiveOrDry(mode: Mode, target: string | null): Promise<void> {
         }
         continue;
       }
+      // Mechanical voice enforcement (audit: the prose rules for these two are not holding on
+      // their own) — strip the "genuinely" tic and space the 🤣 laugh-track to ~1 in 6. Only ever
+      // removes characters, so length/spoiler checks already run stay valid.
+      d = { ...d, reply_text: throttleLaugh(stripTics(d.reply_text), [...recentOwnerReplies, ...postedThisRun]) };
       postedThisRun.push(d.reply_text);
       // Curated GIF gate: banter-only (sanitize already enforced that), never on a bot-question or a
       // follow-up thread, probability + hard per-post/per-day caps. A reaction GIF is not a spoiler,
