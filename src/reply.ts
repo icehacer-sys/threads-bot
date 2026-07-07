@@ -185,7 +185,9 @@ export async function classifyAndDraft(input: ClassifyInput): Promise<Decision> 
     commentMediaKind === "video"
       ? "NOTE: the commenter sent a GIF/video you cannot see. React to their words and the playful gesture of sending one."
       : commentMediaKind === "video-frame"
-        ? "NOTE: the commenter sent a GIF/video; ONE still frame from it is shown above (you see a single frame, not the motion). React to what is in the frame and the gesture."
+        ? commentImages && commentImages.length > 1
+          ? "NOTE: the commenter sent a GIF; SEVERAL frames from it are shown above IN ORDER (start to end). Read them as a SEQUENCE — the punchline or on-screen TEXT often appears only in a LATER frame, so never react to the first frame alone (a 'shocked face' opening frame may say 'I WON' by the end, meaning they are celebrating being RIGHT, not shocked). React to what the WHOLE gif says plus the playful gesture of sending one."
+          : "NOTE: the commenter sent a GIF/video; ONE still frame from it is shown above (you see a single frame, not the motion). React to what is in the frame and the gesture."
         : commentImages && commentImages.length
           ? "NOTE: the commenter attached the image shown above. React to what is actually in it and tie it to the case."
           : "";
@@ -262,7 +264,12 @@ export async function classifyAndDraft(input: ClassifyInput): Promise<Decision> 
   if (commentImages && commentImages.length) {
     content.push({
       type: "text",
-      text: commentMediaKind === "video-frame" ? "A STILL FRAME FROM THE GIF/VIDEO THIS COMMENTER SENT:" : "THE IMAGE THIS COMMENTER ATTACHED:",
+      text:
+        commentImages.length > 1
+          ? "FRAMES FROM THE GIF THIS COMMENTER SENT, IN ORDER (start -> end). Read them together as one animation before reacting:"
+          : commentMediaKind === "video-frame"
+            ? "A STILL FRAME FROM THE GIF/VIDEO THIS COMMENTER SENT:"
+            : "THE IMAGE THIS COMMENTER ATTACHED:",
     });
     for (const img of commentImages) content.push({ type: "image", source: { type: "base64", media_type: img.media_type, data: img.data } });
   }

@@ -236,6 +236,21 @@ function throttleLaugh(text: string, recent: string[]): string {
   return text;
 }
 
+// The audit's #1 residual tell: bare check-mark stamps ("You nailed it ✅") posted verbatim, even
+// twice on one post (the "You nailed it ✅ ×2" the owner flagged). When a reply is ONLY a bare stamp
+// AND that exact phrasing already appeared in the recent replies, rotate it to an unused one so the
+// same stamp never repeats on a post. A confirmation that ADDED a specific detail is left untouched
+// (it is not a bare stamp, so it never matches). voice.ts still pushes for crowning their phrasing.
+const STAMP_RE = /^(spot on|you nailed it|nailed it|that'?s the one|exactly( right)?|100%( correct)?|textbook( perfect)?|dead on|called it|you got it|bang on|yep,? that'?s it|you are correct|correct)\s*[\p{Extended_Pictographic}\p{Emoji_Modifier}️]*$/iu;
+const STAMP_ROTATION = ["Spot on ✅", "Nailed it ✅", "You got it ✅", "Dead on ✅", "Called it ✅", "That's the one ✅", "Exactly ✅", "Bang on ✅", "Textbook ✅", "100% ✅", "Yep that's it ✅"];
+const stampKey = (s: string): string => s.toLowerCase().replace(/[^\p{L}\p{N}]/gu, "");
+function dedupeStamp(text: string, recent: string[]): string {
+  if (!STAMP_RE.test(text.trim())) return text; // not a bare stamp -> leave it
+  const used = new Set(recent.map(stampKey));
+  if (!used.has(stampKey(text))) return text; // first use on this post -> fine
+  return STAMP_ROTATION.find((s) => !used.has(stampKey(s))) ?? text; // rotate to an unused stamp
+}
+
 // The post's X-ray image URL(s), so the model can actually see the case.
 // Handles single-image posts and carousels; empty when vision is off or no image.
 function imageUrlsForPost(post: ThreadsPost): string[] {
@@ -338,6 +353,60 @@ async function loadCommentVideoFrame(c: ThreadsReply): Promise<InlineImage[]> {
   } finally {
     await unlink(vid).catch(() => {});
     await unlink(frame).catch(() => {});
+  }
+}
+
+// A commenter's GIPHY GIF (arrives as gif_url). Extract SEVERAL frames across its length, not one.
+// Reaction GIFs put the payoff — the punchline or on-screen TEXT — in a LATER frame: a "shocked
+// face" first frame becomes "I WON" by the end (a real miss the owner caught). Reading only the
+// first frame misreads the whole meaning, so sample start/middle/end and let the model see the arc.
+// Falls back to a single fetch when ffmpeg/ffprobe is unavailable (e.g. a local dry run).
+async function loadCommentGifFrames(url: string, cid: string): Promise<InlineImage[]> {
+  if (!config.visionEnabled) return [];
+  if (!(await ensureFfmpeg())) {
+    const one = await fetchInlineImage(url);
+    return one ? [one] : [];
+  }
+  const key = cid.replace(/[^a-zA-Z0-9]/g, "");
+  const src = join(tmpdir(), `g-${key}.bin`);
+  const outs: string[] = [];
+  try {
+    const res = await fetch(url, { signal: AbortSignal.timeout(15_000) });
+    if (!res.ok) return [];
+    await writeFile(src, Buffer.from(await res.arrayBuffer()));
+    let dur = NaN;
+    try {
+      const { stdout } = await execFileAsync(
+        "ffprobe",
+        ["-v", "error", "-show_entries", "format=duration", "-of", "default=nokey=1:noprint_wrappers=1", src],
+        { timeout: 10000 },
+      );
+      dur = parseFloat(stdout.trim());
+    } catch {
+      /* no ffprobe -> use fixed second offsets below */
+    }
+    const fracs = [0.1, 0.5, 0.92]; // start / middle / end — catches text that only appears late
+    const frames: InlineImage[] = [];
+    for (let i = 0; i < fracs.length; i++) {
+      const out = join(tmpdir(), `g-${key}-${i}.jpg`);
+      outs.push(out);
+      const t = Number.isFinite(dur) && dur > 0 ? (dur * fracs[i]).toFixed(2) : (i * 0.5).toFixed(2);
+      try {
+        await execFileAsync("ffmpeg", ["-y", "-loglevel", "error", "-ss", t, "-i", src, "-frames:v", "1", out], { timeout: 20000 });
+        const data = (await readFile(out)).toString("base64");
+        if (data) frames.push({ media_type: "image/jpeg", data });
+      } catch {
+        /* this frame failed -> skip it, the others still give the arc */
+      }
+    }
+    if (frames.length) return frames;
+    const one = await fetchInlineImage(url); // extraction gave nothing -> at least the first frame
+    return one ? [one] : [];
+  } catch {
+    return [];
+  } finally {
+    await unlink(src).catch(() => {});
+    for (const o of outs) await unlink(o).catch(() => {});
   }
 }
 
@@ -636,12 +705,11 @@ async function runLiveOrDry(mode: Mode, target: string | null): Promise<void> {
         commentMediaKind = commentImages.length ? "video-frame" : "video";
       } else if (c.gif_url) {
         // A GIF attached via the Threads GIPHY picker comes back as media_type TEXT_POST with the
-        // GIF only in gif_url (no VIDEO type, no media_url). Fetch it so vision actually SEES the
-        // reaction (a Richard Hammond "HAMSTER" GIF, a movie scene, ...) instead of the bot reacting
-        // blindly to the text. It reuses the video-frame prompting: one representative frame + gesture.
-        const gif = config.visionEnabled ? await fetchInlineImage(c.gif_url) : null;
-        commentImages = gif ? [gif] : [];
-        commentMediaKind = gif ? "video-frame" : "video";
+        // GIF only in gif_url (no VIDEO type, no media_url). Extract SEVERAL frames so vision reads
+        // the whole reaction arc, not just frame 1 — the punchline/on-screen text often lands in a
+        // LATER frame (the "shocked face" -> "I WON" miss the owner caught).
+        commentImages = await loadCommentGifFrames(c.gif_url, c.id);
+        commentMediaKind = commentImages.length ? "video-frame" : "video";
       }
       const baseInput = {
         postText: post.text ?? "",
@@ -711,10 +779,12 @@ async function runLiveOrDry(mode: Mode, target: string | null): Promise<void> {
         }
         continue;
       }
-      // Mechanical voice enforcement (audit: the prose rules for these two are not holding on
-      // their own) — strip the "genuinely" tic and space the 🤣 laugh-track to ~1 in 6. Only ever
-      // removes characters, so length/spoiler checks already run stay valid.
-      d = { ...d, reply_text: throttleLaugh(stripTics(d.reply_text), [...recentOwnerReplies, ...postedThisRun]) };
+      // Mechanical voice enforcement (audit: the prose rules for these are not holding on their
+      // own) — strip the "genuinely" tic, space the 🤣 laugh-track to ~1 in 6, and rotate a bare
+      // check-mark stamp so the same one never posts twice on a post. stripTics/throttleLaugh only
+      // remove characters and dedupeStamp only swaps a bare stamp, so the length/spoiler checks stay valid.
+      const recent = [...recentOwnerReplies, ...postedThisRun];
+      d = { ...d, reply_text: dedupeStamp(throttleLaugh(stripTics(d.reply_text), recent), recent) };
       postedThisRun.push(d.reply_text);
       // Curated GIF gate: banter-only (sanitize already enforced that), never on a bot-question or a
       // follow-up thread, probability + hard per-post/per-day caps. A reaction GIF is not a spoiler,

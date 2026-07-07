@@ -66,7 +66,7 @@ jobs:
       BOT_ANTIREPEAT: "15" # smaller anti-repeat list = fewer uncached tokens per call
       BOT_WEB_SEARCH: "on" # search runs ONLY on the Sonnet "reference" re-run (unrecognized memes/refs), never on triage
       BOT_FACEBOOK_REPLY: "off" # FB dropped — Threads only (owner deleted the Page over the "AI info" label, 2026-07-03). fbindex early-returns when off; flip to "on" to restore.
-      BOT_GIF_REPLIES: "on" # attach a curated reaction GIF (data/gifs.json) to a clearly-funny banter reply; max 1/post, 2/day; degrades to text if rejected
+      BOT_GIF_REPLIES: "off" # bot-posted reaction GIFs KILLED by owner (2026-07-07) — text replies only. (Reading COMMENTER GIFs is unaffected; that path stays on.)
       BOT_GIF_CHANCE: "1" # no coin flip — when the model tags a banter reply and caps allow, attach the GIF (owner, 2026-07-04 moderate loosening; was 0.5). Volume is bounded by the model's tag rate + the 1/post, 2/day caps
       BOT_PROMO: "on" # RARE product plug (data/products.json). The reply NAMES the product in-voice on a genuine opening; the raw LINK is attached ONLY when the commenter explicitly asks for it (ask-only links, to keep spam/reach risk low). Never on medical/tender/corrections.
       BOT_PROMO_PER_POST: "1" # hard: never a second LINK on one post
