@@ -55,9 +55,9 @@ jobs:
       BOT_ANSWER_DELAY_HOURS: "1"
       BOT_ANSWER_SPOILER: "on"
       BOT_ACTIVE_TZ: "Africa/Cairo"
-      BOT_ACTIVE_WINDOWS: "23-11" # 11 PM until 11 AM Cairo (one overnight window). Changed from 21-9 (owner, 2026-07-04 — reach recovery, shifted to match the later 11 PM post time)
-      BOT_ACTIVE_START: "23"
-      BOT_ACTIVE_END: "11"
+      BOT_ACTIVE_WINDOWS: "22-10" # 10 PM until 10 AM Cairo (one overnight window). Changed from 23-11 (owner, 2026-07-07) to match the post moving from 11 PM to 10 PM. Window opens exactly when the post goes up (19:00 UTC = 10 PM Cairo summer).
+      BOT_ACTIVE_START: "22"
+      BOT_ACTIVE_END: "10"
       BOT_PER_POST_CAP: "220" # sits below the 250 daily cap, leaving headroom for the pinned-thread replies; still covers a viral hit (461-comment post)
       BOT_DAILY_CAP: "250" # Threads' ~250/day ceiling is the hard backstop
       BOT_MODEL: "claude-sonnet-4-6" # quality model: only re-drafts corrections/teaching
