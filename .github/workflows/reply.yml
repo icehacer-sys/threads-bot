@@ -84,7 +84,7 @@ jobs:
 
       # One run polls every 10 minutes for hours instead of relying on GitHub's
       # cron (which throttles */10 badly). The bot posts only inside the active
-      # windows (BOT_ACTIVE_WINDOWS, 11 PM -> 11 AM Cairo); it replies, commits
+      # windows (BOT_ACTIVE_WINDOWS, 10 PM -> 10 AM Cairo); it replies, commits
       # progress, sleeps 10 min, repeats. Near the 6h job limit it hands off to a
       # fresh run so coverage spans the whole window. Stops at the per-post/daily
       # cap or outside the window. State is pushed each cycle so a restart never
