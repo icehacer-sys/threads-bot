@@ -570,11 +570,12 @@ async function runLiveOrDry(mode: Mode, target: string | null): Promise<void> {
 
     // Short replies we've already posted on this post, so the model can vary its
     // wording instead of reusing the same shapes. Grows as this run posts more.
-    const recentOwnerReplies = conversation
+    const allOwnerReplies = conversation
       .filter((c) => c.username === me && (c.text ?? "").trim().length > 0 && (c.text ?? "").length <= 280)
       .sort((a, b) => (a.timestamp ?? "").localeCompare(b.timestamp ?? ""))
-      .map((c) => c.text as string)
-      .slice(-config.antiRepeatWindow);
+      .map((c) => c.text as string);
+    // The anti-repeat PROMPT block is windowed (token cost); the bare-stamp dedup uses the FULL list.
+    const recentOwnerReplies = allOwnerReplies.slice(-config.antiRepeatWindow);
     const postedThisRun: string[] = [];
 
     // Unanswered = we have NO local record of replying AND no live reply from us in the
@@ -784,7 +785,10 @@ async function runLiveOrDry(mode: Mode, target: string | null): Promise<void> {
       // check-mark stamp so the same one never posts twice on a post. stripTics/throttleLaugh only
       // remove characters and dedupeStamp only swaps a bare stamp, so the length/spoiler checks stay valid.
       const recent = [...recentOwnerReplies, ...postedThisRun];
-      d = { ...d, reply_text: dedupeStamp(throttleLaugh(stripTics(d.reply_text), recent), recent) };
+      // Bare-stamp dedup checks the WHOLE post's replies (not just the anti-repeat window) so the
+      // same check-mark never repeats even on a 100+ reply night (the "That's the one ✅ ×3" case);
+      // the 🤣 throttle stays on the recent window since it is a recency-spacing thing.
+      d = { ...d, reply_text: dedupeStamp(throttleLaugh(stripTics(d.reply_text), recent), [...allOwnerReplies, ...postedThisRun]) };
       postedThisRun.push(d.reply_text);
       // Curated GIF gate: banter-only (sanitize already enforced that), never on a bot-question or a
       // follow-up thread, probability + hard per-post/per-day caps. A reaction GIF is not a spoiler,

@@ -63,7 +63,7 @@ jobs:
       BOT_MODEL: "claude-sonnet-4-6" # quality model: only re-drafts corrections/teaching
       BOT_TRIAGE_MODEL: "claude-haiku-4-5-20251001" # cheap first pass for every comment
       BOT_ESCALATE: "correct,teach,reference" # categories the Haiku triage hands to Sonnet
-      BOT_ANTIREPEAT: "15" # smaller anti-repeat list = fewer uncached tokens per call
+      BOT_ANTIREPEAT: "30" # replies the model sees as ALREADY POSTED so it doesn't repeat toppers/corrections. Raised 15->30 on 2026-07-08 after a 101-reply night repeated toppers >15 apart (modest uncached-token cost, worth it on viral nights)
       BOT_WEB_SEARCH: "on" # search runs ONLY on the Sonnet "reference" re-run (unrecognized memes/refs), never on triage
       BOT_FACEBOOK_REPLY: "off" # FB dropped — Threads only (owner deleted the Page over the "AI info" label, 2026-07-03). fbindex early-returns when off; flip to "on" to restore.
       BOT_GIF_REPLIES: "off" # bot-posted reaction GIFs KILLED by owner (2026-07-07) — text replies only. (Reading COMMENTER GIFs is unaffected; that path stays on.)

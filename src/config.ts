@@ -48,7 +48,7 @@ export const config = {
 
   // How many of our recent replies to feed back in as the "don't repeat these" list.
   // Sent uncached on every call, so smaller = cheaper; 15 is plenty for variety.
-  antiRepeatWindow: num("BOT_ANTIREPEAT", 15),
+  antiRepeatWindow: num("BOT_ANTIREPEAT", 30),
 
   // Let the model web-search a reference it doesn't recognize (it decides when;
   // most comments won't trigger one). Adds a small per-search cost. Off by default.
