@@ -110,5 +110,20 @@
       "cards",
       "deck"
     ]
+  },
+  {
+    "tag": "viral_10",
+    "name": "Weird X-Ray Case Files: The Viral 10",
+    "url": "https://viral.mednoteslab.com/",
+    "price": "$5",
+    "when": "A cheap impulse ask ('is there a cheaper one', 'do you have anything smaller/less expensive') or someone mentioning a specific case that went viral — the 10 highest-viewed cases ever posted, bundled.",
+    "keywords": [
+      "viral",
+      "cheap",
+      "$5",
+      "starter",
+      "top 10",
+      "most viewed"
+    ]
   }
 ]
