@@ -1,20 +1,22 @@
 name: voice-self-learn
 
-# Once a day, Fable 5 audits the account's own recent comment->reply pairs (weighting the replies
+# Once a WEEK, Fable 5 audits the account's own recent comment->reply pairs (weighting the replies
 # that sparked a human reply back) and consolidates a bounded set of "learned voice notes" into
 # data/voice-learned.md. reply.ts injects that file into every reply's system prompt, so the voice
-# keeps sharpening itself. The file is git-tracked, so every daily update is a reviewable, revertible
+# keeps sharpening itself. The file is git-tracked, so every update is a reviewable, revertible
 # diff — and it only refines a SEPARATE notes layer, never rewrites the core voice in voice.ts.
 #
-# Runs at 09:00 UTC (12 PM Cairo), just after the 11 PM-11 AM Cairo reply window closes, so it learns
-# from the full night's engagement. Trigger manually (Actions -> Run workflow) with backfill=true to
-# reseed from ALL past posts.
+# Runs Mondays at 09:00 UTC (12 PM Cairo), just after the 11 PM-11 AM Cairo reply window closes, so
+# it learns from a full week of engagement in one pass. Changed from daily -> weekly (owner,
+# 2026-07-17) to cut API spend: a day of replies rarely moves the notes enough to justify a full
+# Fable 5 audit, and a week's worth gives it more signal per run. Trigger manually (Actions -> Run
+# workflow) with backfill=true to reseed from ALL past posts.
 #
 # Required repository secrets: ANTHROPIC_API_KEY (with Fable 5 access), THREADS_ACCESS_TOKEN
 
 on:
   schedule:
-    - cron: "0 9 * * *"
+    - cron: "0 9 * * 1" # Mondays 09:00 UTC (12 PM Cairo)
   workflow_dispatch:
     inputs:
       backfill:
