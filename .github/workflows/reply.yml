@@ -17,7 +17,7 @@ name: threads-autoreply
 
 on:
   schedule:
-    - cron: "*/30 * * * *" # heartbeat to (re)start the polling loop; the loop does the 10-min cadence
+    - cron: "*/30 * * * *" # heartbeat to (re)start the polling loop; the loop does the 15-min cadence
   workflow_dispatch: # lets you (or me) run it manually from the Actions tab
     inputs:
       mode:
@@ -82,14 +82,19 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
-      # One run polls every 10 minutes for hours instead of relying on GitHub's
-      # cron (which throttles */10 badly). The bot posts only inside the active
-      # windows (BOT_ACTIVE_WINDOWS, 10 PM -> 10 AM Cairo); it replies, commits
-      # progress, sleeps 10 min, repeats. Near the 6h job limit it hands off to a
-      # fresh run so coverage spans the whole window. Stops at the per-post/daily
-      # cap or outside the window. State is pushed each cycle so a restart never
-      # double-replies. Long runs are free on this public repo.
-      - name: Poll every 10 min (perpetual chain); post only inside the active windows
+      # One run polls every 15 minutes for hours instead of relying on GitHub's
+      # cron (which throttles fine-grained schedules badly). The bot posts only
+      # inside the active windows (BOT_ACTIVE_WINDOWS, 10 PM -> 10 AM Cairo); it
+      # replies, commits progress, sleeps 15 min, repeats. Near the 6h job limit it
+      # hands off to a fresh run so coverage spans the whole window. Stops at the
+      # per-post/daily cap or outside the window. State is pushed each cycle so a
+      # restart never double-replies. Long runs are free on this public repo.
+      #
+      # Cadence was 10 min until 2026-07-17. Moved to 15 to cut API spend ~33%: each
+      # poll costs a triage pass over new comments, and a reply landing <=5 min later
+      # is invisible to the audience. (BOT_ANTIREPEAT was considered as a second lever
+      # and rejected — it is deliberately 30, see its comment above.)
+      - name: Poll every 15 min (perpetual chain); post only inside the active windows
         env:
           MODE: ${{ github.event.inputs.mode || 'live' }}
           GH_TOKEN: ${{ github.token }}
@@ -122,8 +127,9 @@ jobs:
           for i in $(seq 1 60); do
             echo "::group::poll $i ($(TZ='Africa/Cairo' date +%H:%M) Cairo)"
             if npm run live; then fails=0; else fails=$((fails+1)); echo "iteration $i errored ($fails in a row)"; fi
-            # Facebook engagement is far lower than Threads, so scan it every 3rd poll (~30 min)
-            # instead of every 10 — cuts FB triage volume ~66% with negligible reply latency.
+            # Facebook engagement is far lower than Threads, so scan it every 3rd poll (~45 min at
+            # the 15-min cadence) instead of every poll — cuts FB triage volume ~66% with
+            # negligible reply latency.
             if [ "$BOT_FACEBOOK_REPLY" = "on" ] && [ $((i % 3)) -eq 1 ]; then npm run fb:live || echo "fb iteration $i errored, continuing"; fi
             if [ -n "$(git status --porcelain state.json fb-state.json)" ]; then
               git add state.json
@@ -138,7 +144,7 @@ jobs:
             # restarts the chain. (fb:live stays best-effort so a FB-only issue never trips this.)
             if [ "$fails" -ge 6 ]; then echo "::error::$fails consecutive live failures — aborting so the outage surfaces"; exit 1; fi
             if [ $(( $(date +%s) - start )) -ge "$MAXSECS" ]; then break; fi
-            sleep 600
+            sleep 900
           done
           # Before handing off to a FRESH checkout, make a best effort to land this run's state on
           # origin. The next run clones origin; any un-pushed reply commit would be re-classified and
