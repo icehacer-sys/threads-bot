@@ -163,6 +163,16 @@ export async function getAllMyPosts(limit = 150): Promise<ThreadsPost[]> {
   return out.slice(0, limit);
 }
 
+/** Same as getAllMyPosts but with media fields too (image URL, type) — for one-off backfill/export
+ *  jobs that need the actual post image, not just id/text. */
+export async function getAllMyPostsWithMedia(limit = 300): Promise<ThreadsPost[]> {
+  const out = await apiGetAll<ThreadsPost>(`/${config.threadsUserId}/threads`, {
+    fields: "id,permalink,timestamp,text,media_type,media_url,thumbnail_url,children{id,media_type,media_url}",
+    limit: 100,
+  });
+  return out.slice(0, limit);
+}
+
 /** Top-level replies (comments) on a post — ALL of them, across pages. */
 export async function getReplies(mediaId: string): Promise<ThreadsReply[]> {
   return apiGetAll<ThreadsReply>(`/${mediaId}/replies`, {
@@ -172,6 +182,22 @@ export async function getReplies(mediaId: string): Promise<ThreadsReply[]> {
     reverse: "true",
     limit: 100,
   });
+}
+
+/** The OLDEST replies on a post — a SINGLE page, not the full apiGetAll pagination loop. The
+ *  account's own answer reply is always posted early (minutes/hours after the challenge, before
+ *  organic engagement piles up), so one page chronological-ascending finds it instantly even on
+ *  a viral post with thousands of replies, where a newest-first paginated fetch would otherwise
+ *  have to page past everything posted since (or hit the 25-page cap and miss it entirely). */
+export async function getOldestReplies(mediaId: string, limit = 50): Promise<ThreadsReply[]> {
+  const r = await api<ListResponse<ThreadsReply>>(`/${mediaId}/replies`, {
+    query: {
+      fields: "id,text,username,timestamp,has_replies,hide_status,replied_to,media_type,media_url,thumbnail_url,gif_url",
+      reverse: "false",
+      limit,
+    },
+  });
+  return r.data ?? [];
 }
 
 /** Full flattened conversation under a post (used to see what we've already answered). */
