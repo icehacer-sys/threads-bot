@@ -1,4 +1,14 @@
-# CTA replies — copy-paste under the pinned answer
+# CTA replies — DEPRECATED, do not hand-post
+
+> **Discontinued 2026-07-17.** The publish pipeline auto-posts a rotated CTA under the
+> pinned answer every night (xray-poster Stage 3, `BOT_CTA_REPLY=on`, live since 2026-07-07)
+> with a Gumroad link-preview card. Pasting one of these by hand now puts a SECOND CTA on the
+> thread. Stop hand-posting.
+>
+> The live rotation lives in `xray-poster/src/captions.ts` (`CTA_TEXT` + `CTA_ROTATION`).
+> Edit the CTAs there, not here. This file is kept only as a historical reference.
+
+---
 
 Owner-written CTAs (no commas, brand voice). Pick one that fits the case, paste it as a reply under your pinned "Answer:" comment. Rotate them so the same line does not repeat every night.
 
