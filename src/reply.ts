@@ -82,7 +82,7 @@ const REPLY_SCHEMA = {
     needs_lookup: {
       type: "boolean",
       description:
-        'true ONLY when the comment or its attached image/GIF clearly points to a SPECIFIC identifiable person, movie, show, game, meme, or scene that you recognize as "a real reference I should name" but cannot confidently place yourself (e.g. a reaction GIF of someone you can tell is a known figure but can\'t name, on-screen text like "HAMSTER" you can\'t source). It triggers a web lookup so the reply can name it and top it precisely. false whenever you already recognize it, or there is nothing specific to identify (generic photo, plain banter, a guess, a question).',
+        'true ONLY when the COMMENTER has made a specific named thing the actual joke — they typed a quote, named a show/film/game/event, or the gag only works if you know that exact scene — and you cannot confidently place it, so a lookup is genuinely needed to reply well (e.g. on-screen text like "HAMSTER" you can\'t source). Do NOT set it merely to put a name to a face in a reaction GIF: naming the celebrity is not the goal and reads as a bot showing off. false whenever you already recognize it, whenever the GIF is just carrying a mood rather than quoting something, or there is nothing specific to identify (generic photo, plain banter, a guess, a question).',
     },
     promo_product: {
       type: "string",
