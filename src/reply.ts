@@ -374,6 +374,12 @@ const EMOJI_SEQ = /\p{Extended_Pictographic}(?:️|[\u{1F3FB}-\u{1F3FF}]|‍\p{E
 // despite the voice rules, so if a WHOLE reply is just one of them, we skip it.
 const RETIRED_LINES = /^(radiologically confirmed|radiology confirms|literally|confirmed)$/i;
 
+// Whole-sentence filler that acknowledges without engaging. These read as a bot reaching for
+// something safe, and every one of them would fit under a completely different comment.
+// Matched against ONE sentence at a time (punctuation already stripped) — see sanitize().
+const FILLER_SENTENCE =
+  /^(?:and\s+|but\s+|ok(?:ay)?\s+|honestly\s+|genuinely\s+)*(?:honestly\s+)?(?:fair|fair enough|valid|that(?:'s| is) fair|that(?:'s| is) valid|no notes|big mood|same energy|this is the correct reaction|the correct reaction|(?:that is )?exactly how it feels|felt that|i felt that)$/i;
+
 // Phrases that read as medical advice. If any slip into a draft, we force a skip.
 const ADVICE_PATTERN =
   /\b(you should|i (would |really )?recommend|see (a|your) (doctor|physician|gp|specialist|dentist)|ask your (doctor|doc|physician|gp|dentist|specialist)|get (it|that|this) (checked|looked at|scanned|seen)|worth getting[^.]{0,20}(checked|scanned|looked at|seen)|needs? (a |an )?(scan|x-?ray|mri|ct|ultrasound|biopsy|work-?up|imaging)|push for (a|an|another)|don'?t ignore|get (checked|seen|scanned)|consult|seek medical|go to the (er|a&e|hospital|doctor)|you (might|may|could) have|sounds like you (have|might))\b/i;
@@ -457,7 +463,7 @@ export function sanitize(d: Decision, spoiler?: { isPublic: boolean; terms: stri
     .replace(/\b[a-z0-9][a-z0-9-]*(?:\.[a-z0-9-]+)*\.(?:com|net|org|io|co|me|app|dev|ai|xyz|info|biz|gg|tv|link|page|site|online|store|shop)\b(?:\/\S*)?/gi, "")
     .replace(/(^|\s)@[\p{L}\p{N}_.]+/gu, "$1")
     .replace(/\s*[—–]\s*/g, ". ") // no em/en dashes; break into two beats (no comma — the voice bans commas)
-    .replace(/,\s+(but|so|yet|not|though|although|whereas|while)\b/gi, " $1") // casual voice: no comma before a contrast word
+    .replace(/,\s+(and|or|but|so|yet|not|though|although|whereas|while)\b/gi, " $1") // casual voice: no comma before a joining word. Keeps the clause FLOWING instead of falling through to the lone-comma rule below, which would hard-stop it into two clipped beats.
     .replace(EMOJI_SEQ, (m) => (ALLOWED_EMOJI.has([...m][0]) ? m : "")) // only the allowed emojis
     .replace(/\s+/g, " ")
     .trim();
@@ -466,6 +472,19 @@ export function sanitize(d: Decision, spoiler?: { isPublic: boolean; terms: stri
   // A LONE comma is a clause-join the model slipped past the rule (Sonnet escalations do this most) —
   // split it into two beats. Never touch a comma inside a number (1,000) or a real multi-item list.
   if ((text.match(/(?<!\d),(?!\d)/g) || []).length === 1) text = text.replace(/(?<!\d),(?!\d)\s*/, ". ");
+
+  // Vague-acknowledgement filler ("Honestly fair.", "No notes.", "Big mood.") engages nothing and is
+  // the safe-and-empty failure the owner flags as sounding botted — it would fit under ANY comment.
+  // When such a phrase is a WHOLE sentence, drop that sentence and keep the rest. Never splice
+  // mid-sentence (that wrecks the grammar) and never empty the reply: only strip when something
+  // substantive survives.
+  {
+    const sentences = text.split(/(?<=[.!?])\s+/).filter(Boolean);
+    if (sentences.length > 1) {
+      const kept = sentences.filter((s) => !FILLER_SENTENCE.test(s.replace(/[.!?]+$/, "").trim()));
+      if (kept.length) text = kept.join(" ");
+    }
+  }
 
   // Capitalize the first letter of each sentence (e.g. where a dash became a period).
   text = text.replace(/([.!?])\s+(\p{Ll})/gu, (_m, p: string, c: string) => `${p} ${c.toUpperCase()}`);
