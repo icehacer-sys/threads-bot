@@ -155,9 +155,21 @@ jobs:
             # fresh prompt-cache write on BOTH models. 15 -> 30 -> 60 min cuts ~48 polls to ~26
             # with no reply latency anyone awake would notice.
             ch=$(TZ='Africa/Cairo' date +%-H)
-            if [ "$ch" -ge 22 ] || [ "$ch" -lt 2 ]; then nap=900
-            elif [ "$ch" -lt 5 ]; then nap=1800
-            else nap=3600
+            cm=$(TZ='Africa/Cairo' date +%-M)
+            if [ "$ch" -ge 22 ] || [ "$ch" -lt 2 ]; then
+              nap=900    # 22:00-02:00 Cairo — the post just went up, comments arrive fastest
+            elif [ "$ch" -lt 5 ]; then
+              nap=1800   # 02:00-05:00
+            elif [ "$ch" -lt 10 ]; then
+              nap=3600   # 05:00-10:00, the quiet tail of the window
+            else
+              # 10:00-22:00, OUTSIDE the window. These polls are free (index.ts early-returns
+              # before any API call), so idle at an hour — but NEVER sleep past the 22:00 open,
+              # or the run skips straight over the busiest stretch of the night. Capped at 1h so
+              # the loop still reaches its MAXSECS hand-off well inside the 6h job limit.
+              nap=$(( (22 - ch) * 3600 - cm * 60 + 20 ))
+              if [ "$nap" -gt 3600 ]; then nap=3600; fi
+              if [ "$nap" -lt 60 ]; then nap=60; fi
             fi
             echo "sleeping ${nap}s (Cairo ${ch}:00)"
             sleep "$nap"
