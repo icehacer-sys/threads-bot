@@ -23,6 +23,8 @@ interface StateShape {
   /** Product-plug rarity tracking: promos per post and per cap-day (mirrors the GIF caps). */
   promoPostCounts?: Record<string, number>;
   promoDaily?: { date: string; count: number };
+  /** Anthropic spend for the current cap-day, so the bot can budget itself across a night. */
+  spend?: { date: string; usd: number };
 }
 
 function today(): string {
@@ -48,6 +50,7 @@ export class State {
   private recentGifIds: string[];
   private promoPostCounts: Record<string, number>;
   private promoDaily: { date: string; count: number };
+  private spend: { date: string; usd: number };
   private file: string;
 
   // stateFile defaults to the Threads state; the Facebook reply loop passes its own path
@@ -77,6 +80,21 @@ export class State {
       loaded?.promoDaily && loaded.promoDaily.date === today() ? loaded.promoDaily : { date: today(), count: 0 };
     this.daily =
       loaded?.daily && loaded.daily.date === today() ? loaded.daily : { date: today(), count: 0 };
+    this.spend =
+      loaded?.spend && loaded.spend.date === today() ? loaded.spend : { date: today(), usd: 0 };
+  }
+
+  // --- Anthropic spend for this cap-day ---
+  // Shares today()'s midday rollover with the reply counter, so one overnight shift always
+  // sits on ONE budget day instead of resetting at midnight halfway through the window.
+  spentToday(): number {
+    return this.spend.date === today() ? this.spend.usd : 0;
+  }
+
+  addSpend(usd: number): void {
+    if (!(usd > 0)) return;
+    this.spend = { date: today(), usd: this.spentToday() + usd };
+    this.save();
   }
 
   hasSkipped(commentId: string): boolean {
@@ -196,6 +214,7 @@ export class State {
       recentGifIds: this.recentGifIds,
       promoPostCounts: this.promoPostCounts,
       promoDaily: this.promoDaily,
+      spend: this.spend,
     };
     writeFileSync(this.file, JSON.stringify(out, null, 2));
   }

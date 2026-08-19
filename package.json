@@ -17,7 +17,9 @@
     "token": "tsx src/get-token.ts",
     "learn": "tsx src/voicelearn.ts",
     "learn:backfill": "tsx src/voicelearn.ts --backfill",
-    "typecheck": "tsc --noEmit"
+    "typecheck": "tsc --noEmit",
+    "prompt:size": "tsx tools/measure-prompt.mts",
+    "spend:verify": "tsx tools/verify-spend.mts"
   },
   "dependencies": {
     "@anthropic-ai/sdk": "^0.104.1",

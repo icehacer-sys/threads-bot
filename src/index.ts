@@ -16,6 +16,7 @@ const execFileAsync = promisify(execFile);
 import { config } from "./config";
 import { classifyAndDraft, isBotQuestion, type Decision, type InlineImage, type ImageMediaType } from "./reply";
 import { pickGif } from "./gifs";
+import { drainSpend, usd } from "./spend";
 import { getProduct } from "./products";
 import { resolveXrayAnswer } from "./xray";
 import {
@@ -385,7 +386,10 @@ async function loadCommentGifFrames(url: string, cid: string): Promise<InlineIma
     } catch {
       /* no ffprobe -> use fixed second offsets below */
     }
-    const fracs = [0.1, 0.5, 0.92]; // start / middle / end — catches text that only appears late
+    // Start + payoff. The punchline / on-screen text lands late, so the END frame is the one
+    // that carries meaning; the middle frame added the least and cost ~1.3k image tokens on
+    // every model call that saw it.
+    const fracs = [0.15, 0.9];
     const frames: InlineImage[] = [];
     for (let i = 0; i < fracs.length; i++) {
       const out = join(tmpdir(), `g-${key}-${i}.jpg`);
@@ -535,11 +539,24 @@ async function runLiveOrDry(mode: Mode, target: string | null): Promise<void> {
   // touched, so track the intended count against the cap directly.
   const budgetLeft = () => (posting ? state.remainingToday() : config.dailyCap - replied);
 
+  // --- API spend budget ---------------------------------------------------------------
+  // Every classification reports its exact cost (see spend.ts). Live runs read the persisted
+  // per-cap-day total so the budget spans the whole overnight window and every hand-off
+  // between GitHub Actions runs; dry runs just meter this process. Two gates, both soft-fail
+  // to "do less" rather than error: past escalateUsdCap we stop using the quality model, past
+  // dailyUsdCap we stop classifying at all.
+  let spentThisRun = 0;
+  let budgetStop = false;
+  const spentUsd = () => (posting ? state.spentToday() : spentThisRun);
+  const escalationAllowed = () => config.escalateUsdCap <= 0 || spentUsd() < config.escalateUsdCap;
+  const usdExhausted = () => config.dailyUsdCap > 0 && spentUsd() >= config.dailyUsdCap;
+
   for (const post of scanPosts) {
     if (budgetLeft() <= 0) {
       console.log("Daily cap reached — stopping.");
       break;
     }
+    if (budgetStop) break;
     // Optional time window: only enforced when windowHours > 0 (0 = no limit).
     // Pinned posts are intentionally old, so they skip the age filter.
     if (config.windowHours > 0 && !pinnedIds.has(post.id)) {
@@ -696,6 +713,13 @@ async function runLiveOrDry(mode: Mode, target: string | null): Promise<void> {
 
     for (const c of candidates) {
       if (budgetLeft() <= 0) break;
+      if (usdExhausted()) {
+        console.log(
+          `  Daily API budget reached (${usd(spentUsd())} of ${usd(config.dailyUsdCap)}) — stopping for this cap-day.`,
+        );
+        budgetStop = true;
+        break;
+      }
       let commentImages: InlineImage[] = [];
       let commentMediaKind: "image" | "video-frame" | "video" | undefined;
       if (c.media_type === "IMAGE") {
@@ -730,24 +754,47 @@ async function runLiveOrDry(mode: Mode, target: string | null): Promise<void> {
       let d = await classifyAndDraft({ ...baseInput, modelOverride: config.triageModel });
       let escalated = false;
       // Escalate to the quality model when the category is accuracy-critical (corrections/teaching/
-      // reference), OR triage flagged an unidentifiable reference (needs_lookup), OR the comment
-      // carries a GIF/image we can show it. Reaction GIFs are usually pop-culture references (a
-      // person, a movie scene) and the cheap Haiku triage names them poorly; the quality model has
-      // stronger vision AND web search (Sonnet escalations always have it available), so it identifies
-      // the reference and tops it precisely instead of a generic reaction. Bounded to image/GIF
-      // comments only, which are a small fraction of the volume (owner accepted the per-GIF cost).
+      // reference), OR triage flagged a reference it cannot place (needs_lookup), OR — subject to
+      // BOT_ESCALATE_MEDIA — the comment carries a GIF/image. The quality model has stronger vision
+      // and web search, so it names a pop-culture reference the cheap triage would fumble.
+      // Until 2026-08-19 EVERY media comment escalated, which turned out to be about half of all
+      // quality-model calls on a ~6x-per-call model; it is now gated to the ones triage says it
+      // actually cannot place.
       const hasVisibleMedia = commentImages.length > 0;
-      const wantsLookup = d.decision === "reply" && config.webSearch && (d.needs_lookup === true || hasVisibleMedia);
-      if (d.decision === "reply" && (config.escalateCategories.includes(d.category) || wantsLookup)) {
+      // Media escalation is gated by BOT_ESCALATE_MEDIA (default "lookup"). Sending EVERY
+      // image/GIF comment for a quality re-draft was ~half of all escalations, and one
+      // escalation costs roughly 6x a triage call. Triage still SEES every frame either way —
+      // only the second, pricier read of the same frames is what this gate removes.
+      const mediaWantsQuality =
+        hasVisibleMedia &&
+        (config.escalateMedia === "all" || (config.escalateMedia === "lookup" && d.needs_lookup === true));
+      const wantsLookup = d.decision === "reply" && config.webSearch && (d.needs_lookup === true || mediaWantsQuality);
+      const wantsEscalation = d.decision === "reply" && (config.escalateCategories.includes(d.category) || wantsLookup);
+      if (wantsEscalation && escalationAllowed()) {
         // Web search on the "reference" re-run and on any lookup escalation (to identify an
         // unrecognized movie/show/meme/person); medical correct/teach escalations rely on vetted facts.
         const allowSearch = config.webSearch && (d.category === "reference" || wantsLookup);
         console.log(`        (escalating ${d.category}${wantsLookup ? " +lookup" : ""} to ${config.model}${allowSearch ? " + web search" : ""})`);
         d = await classifyAndDraft({ ...baseInput, modelOverride: config.model, allowSearch });
         escalated = true;
+      } else if (wantsEscalation) {
+        console.log(`        (budget ${usd(spentUsd())} of ${usd(config.escalateUsdCap)} — holding the ${d.category} escalation)`);
       }
+      // Fold this comment's exact API cost into the budget before the next one is judged.
+      const spent = drainSpend();
+      spentThisRun += spent.usd;
+      if (posting) state.addSpend(spent.usd);
+
       if (!config.educationalReplies && (d.category === "correct" || d.category === "teach")) {
         d = { ...d, decision: "skip", reply_text: "", reason: `${d.reason} | educational replies off` };
+      }
+      // Budget-degraded: a correct/teach draft that never got its quality-model pass must not be
+      // posted from the cheap triage model (same accuracy rule as educationalReplies off). Hold it
+      // instead. The soft skip below re-checks it on the next couple of polls (so a budget that
+      // frees up shortly after still catches it) and then stops, rather than re-judging it all
+      // night. A medical question left unanswered is the correct failure mode here; a wrong one is not.
+      if (wantsEscalation && !escalated && (d.category === "correct" || d.category === "teach")) {
+        d = { ...d, decision: "skip", reply_text: "", reason: `${d.reason} | held: escalation budget reached` };
       }
       processed += 1;
       if (d.decision === "skip" && /^error:/.test(d.reason)) errorSkips += 1;
@@ -775,8 +822,12 @@ async function runLiveOrDry(mode: Mode, target: string | null): Promise<void> {
         // reaction must never permanently silence a thread the owner cares about.
         const committedThread = committed.has(c.id);
         if (posting && !transient && !spoilerHeld) {
+          // A committed thread used to record NOTHING here, which meant a soft skip on one was
+          // re-classified on EVERY poll for the rest of the night — up to ~48 model calls to
+          // re-decide a lone "lol". It still gets more chances than a normal comment (a misread
+          // must not permanently silence a thread the owner cares about), but a bounded number.
           if (final || escalated) state.markSkipped(c.id);
-          else if (!committedThread) state.recordSoftSkip(c.id, 3);
+          else state.recordSoftSkip(c.id, committedThread ? 6 : 2);
         }
         continue;
       }
@@ -902,9 +953,11 @@ async function runLiveOrDry(mode: Mode, target: string | null): Promise<void> {
     Object.entries(skipCounts)
       .map(([k, v]) => `${k}:${v}`)
       .join(", ") || "none";
+  const budgetNote = config.dailyUsdCap > 0 ? ` of ${usd(config.dailyUsdCap)}` : "";
   console.log(
     `Summary: ${posting ? "posted" : "would post"} ${replied} repl${replied === 1 ? "y" : "ies"}. ` +
-      `Skipped by category: ${skipSummary}.\n`,
+      `Skipped by category: ${skipSummary}. ` +
+      `Spend this run ${usd(spentThisRun)}; ${posting ? "cap-day" : "run"} total ${usd(spentUsd())}${budgetNote}.\n`,
   );
 
   // Outage dead-man's-switch: if EVERY comment we classified this run error-skipped (dead API key,

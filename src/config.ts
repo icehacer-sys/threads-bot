@@ -46,6 +46,27 @@ export const config = {
     .map((s) => s.trim())
     .filter(Boolean),
 
+  // When a comment carries an image/GIF, how eagerly to hand it to the pricey quality model.
+  //   "all"    - every media comment is re-drafted by `model` (the old behaviour; ~half of all
+  //              escalations, and an escalation costs ~6x a triage call)
+  //   "lookup" - only when triage sets needs_lookup, i.e. it genuinely cannot place the
+  //              reference. Triage still SEES every frame either way. (default)
+  //   "off"    - media never escalates on its own (categories/needs_lookup still can)
+  escalateMedia: (process.env.BOT_ESCALATE_MEDIA ?? "lookup").toLowerCase(),
+
+  // Which brand-voice prompt to send. "lean" is the consolidated prompt (same rules, ~35%
+  // fewer tokens); "full" is the original. The prompt is the cached prefix on EVERY call, so
+  // its size is the single biggest multiplier on the bill — this flag reverts that without a
+  // code change if the leaner prompt ever reads worse.
+  voiceVariant: (process.env.BOT_VOICE ?? "lean").toLowerCase(),
+
+  // --- Anthropic spend budget (per cap-day, rolls at midday Cairo like the reply counter) ---
+  // Past escalateUsdCap the bot runs triage-only (no quality-model re-drafts, and correct/teach
+  // are held rather than posted from a cheap draft). Past dailyUsdCap it stops classifying.
+  // Set either to 0 to disable that gate and only meter/log.
+  dailyUsdCap: num("BOT_DAILY_USD", 1.0),
+  escalateUsdCap: num("BOT_ESCALATE_USD", 0.7),
+
   // How many of our recent replies to feed back in as the "don't repeat these" list.
   // Sent uncached on every call, so smaller = cheaper; 15 is plenty for variety.
   antiRepeatWindow: num("BOT_ANTIREPEAT", 30),

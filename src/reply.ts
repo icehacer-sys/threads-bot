@@ -10,6 +10,7 @@ import { config, requireEnv } from "./config";
 import { SYSTEM_PROMPT } from "./voice";
 import { GIF_TAGS } from "./gifs";
 import { PROMO_TAGS, PRODUCTS_BLOCK } from "./products";
+import { recordUsage } from "./spend";
 
 // Self-learned voice notes (maintained by the Fable 5 self-audit in voicelearn.ts). Loaded ONCE and
 // appended to the cached system prompt, so the voice keeps sharpening with zero per-reply cost.
@@ -73,12 +74,19 @@ const REPLY_SCHEMA = {
     },
     reply_text: { type: "string" },
     reason: { type: "string" },
-    gif_tag: {
-      type: "string",
-      enum: GIF_TAGS,
-      description:
-        'DO tag clearly funny, delighted, or shocked banter with the mood that fits — do not default to "none" on a genuinely playful comment. The caps (1 GIF per post, 2 per day) mean only the FIRST tagged reply on a post actually gets one, so lean toward tagging a real banter banger rather than withholding. Moods: "dead" (hilarious / dying laughing), "mind_blown" (whoa / shocked), "applause" (impressed), "chefs_kiss" (perfect / nailed it), "side_eye" (cheeky / sus), "deadpan" (dry flat joke). Use "none" only when no mood fits or the comment is NOT light banter. NEVER tag a diagnosis guess (even a joking one), a question, a personal story, a correction, or anything medical or tender.',
-    },
+    // gif_tag exists ONLY when bot-posted GIFs are enabled. With BOT_GIF_REPLIES=off its long
+    // description rode in the cached prefix on every single call and the model spent output
+    // tokens filling a field nothing downstream reads.
+    ...(config.gifReplies
+      ? {
+          gif_tag: {
+            type: "string",
+            enum: GIF_TAGS,
+            description:
+              'DO tag clearly funny, delighted, or shocked banter with the mood that fits — do not default to "none" on a genuinely playful comment. The caps (1 GIF per post, 2 per day) mean only the FIRST tagged reply on a post actually gets one, so lean toward tagging a real banter banger rather than withholding. Moods: "dead" (hilarious / dying laughing), "mind_blown" (whoa / shocked), "applause" (impressed), "chefs_kiss" (perfect / nailed it), "side_eye" (cheeky / sus), "deadpan" (dry flat joke). Use "none" only when no mood fits or the comment is NOT light banter. NEVER tag a diagnosis guess (even a joking one), a question, a personal story, a correction, or anything medical or tender.',
+          },
+        }
+      : {}),
     needs_lookup: {
       type: "boolean",
       description:
@@ -96,8 +104,29 @@ const REPLY_SCHEMA = {
         'true ONLY when the commenter EXPLICITLY asked for the actual link / where to buy / the price / how to get it ("where can I buy this?", "is there a link?", "how much?", "drop the link"). false for softer interest (gushing, "wish there were more", "I\'d buy a book of these") — those get the in-voice product mention but NO link. Always false when promo_product is "none".',
     },
   },
-  required: ["intent", "decision", "category", "reply_text", "reason", "gif_tag", "needs_lookup", "promo_product", "promo_explicit"],
-} as const;
+  required: [
+    "intent",
+    "decision",
+    "category",
+    "reply_text",
+    "reason",
+    ...(config.gifReplies ? ["gif_tag"] : []),
+    "needs_lookup",
+    "promo_product",
+    "promo_explicit",
+  ],
+};
+
+// The tool array is constant for the whole run and is the FIRST thing in the cache prefix
+// (render order is tools -> system -> messages), so it is built once here rather than per call:
+// any difference between calls would invalidate the entire cached prefix behind it.
+export const REPLY_TOOLS: unknown[] = [
+  {
+    name: "submit_reply",
+    description: "Submit your final decision and reply for this one comment. Call this exactly once, last.",
+    input_schema: REPLY_SCHEMA,
+  },
+];
 
 let client: Anthropic | null = null;
 function getClient(): Anthropic {
@@ -282,13 +311,7 @@ export async function classifyAndDraft(input: ClassifyInput): Promise<Decision> 
   const model = modelOverride ?? config.model;
   const isTriage = model === config.triageModel;
 
-  const tools: unknown[] = [
-    {
-      name: "submit_reply",
-      description: "Submit your final decision and reply for this one comment. Call this exactly once, last.",
-      input_schema: REPLY_SCHEMA,
-    },
-  ];
+  const tools: unknown[] = [...REPLY_TOOLS];
   let toolChoice: unknown = { type: "tool", name: "submit_reply" };
   // Keep web_search available on EVERY quality-model (Sonnet) escalation, not only the
   // `reference` one, so the tool ARRAY is identical across all escalations and they share a
@@ -319,6 +342,7 @@ export async function classifyAndDraft(input: ClassifyInput): Promise<Decision> 
       tools,
       tool_choice: toolChoice,
     } as unknown as Anthropic.MessageCreateParamsNonStreaming);
+    recordUsage(model, res.usage);
 
     if (res.content.some((b) => (b as { type: string }).type === "web_search_tool_result")) {
       console.log(`    (web search used for: "${commentText.slice(0, 40).replace(/\s+/g, " ")}")`);
@@ -346,6 +370,7 @@ export async function classifyAndDraft(input: ClassifyInput): Promise<Decision> 
           tools,
           tool_choice: { type: "tool", name: "submit_reply" },
         } as unknown as Anthropic.MessageCreateParamsNonStreaming);
+        recordUsage(model, forced.usage);
         if (forced.stop_reason === "max_tokens") {
           return { decision: "skip", category: "other", reply_text: "", reason: "truncated (max_tokens) — not posting a cut-off reply" };
         }

@@ -43,7 +43,7 @@ jobs:
       # or claude-opus-4-8 for an occasional deeper audit; the max_tokens=12000 ceiling in voicelearn.ts
       # gives any reasoning model enough headroom (it bills only actual output, not the ceiling).
       BOT_LEARN_MODEL: "claude-sonnet-5"
-      BOT_LEARN_DAYS: "3"
+      BOT_LEARN_DAYS: "7" # matches the weekly cron — at 3 the audit paid for a weekly run but only ever saw 3 of the 7 days
       BOT_LEARN_MAX_PAIRS: "150"
     steps:
       - uses: actions/checkout@v4
