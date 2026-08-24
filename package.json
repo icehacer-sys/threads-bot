@@ -20,7 +20,8 @@
     "typecheck": "tsc --noEmit",
     "prompt:size": "tsx tools/measure-prompt.mts",
     "spend:verify": "tsx tools/verify-spend.mts",
-    "budget:verify": "tsx tools/verify-budget.mts"
+    "budget:verify": "tsx tools/verify-budget.mts",
+    "voice:verify": "tsx tools/verify-voice.mts"
   },
   "dependencies": {
     "@anthropic-ai/sdk": "^0.104.1",
