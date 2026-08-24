@@ -18,7 +18,10 @@ import { dirname, join } from "node:path";
 const here = dirname(fileURLToPath(import.meta.url));
 loadEnv({ path: join(here, "..", ".env"), quiet: true });
 
-const est = (s: string) => Math.round(s.length / 4.1);
+// Calibrated against a real count_tokens run on this exact prompt (45,920 chars -> 12,596
+// tokens = 3.65 chars/token). The old 4.1 divisor under-counted by ~11%, which made a
+// measured number look like prompt drift when nothing had actually changed.
+const est = (s: string) => Math.round(s.length / 3.65);
 
 // --- child mode: report the prefix size for whatever env this process was given -------------
 if (process.env.MEASURE_ONE) {
