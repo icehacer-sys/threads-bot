@@ -64,8 +64,8 @@ export const config = {
   // Past escalateUsdCap the bot runs triage-only (no quality-model re-drafts, and correct/teach
   // are held rather than posted from a cheap draft). Past dailyUsdCap it stops classifying.
   // Set either to 0 to disable that gate and only meter/log.
-  dailyUsdCap: num("BOT_DAILY_USD", 1.0),
-  escalateUsdCap: num("BOT_ESCALATE_USD", 0.7),
+  dailyUsdCap: num("BOT_DAILY_USD", 1.25),
+  escalateUsdCap: num("BOT_ESCALATE_USD", 0.875),
 
   // MEDICAL RESERVE. Live data (2026-08-23) showed the flat escalate gate sacrificing exactly
   // the wrong replies: it fired at 00:15 Cairo and held 16 correct/teach comments — real medical
@@ -74,7 +74,7 @@ export const config = {
   // So the last `medicalReserveUsd` of the daily budget is held back: once inside it the bot
   // stops triaging LOW-VALUE comments at all (free — the comment is dropped before any model
   // call) and stops discretionary escalations, but keeps answering correct/teach to the hard cap.
-  medicalReserveUsd: num("BOT_MEDICAL_RESERVE_USD", 0.25),
+  medicalReserveUsd: num("BOT_MEDICAL_RESERVE_USD", 0.31),
   // Minimum commentValue() score still worth a model call once inside the reserve. commentValue
   // scores a question mark +3, question words +2, length >=80 +2 / >=40 +1, <=15 -1, media +1.
   // 2 keeps genuine questions AND long personal stories (which score only +2 on length and would

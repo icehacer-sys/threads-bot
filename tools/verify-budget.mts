@@ -1,8 +1,12 @@
 // Checks the budget gates behave as intended at each spend level, and that fatal API errors are
 // classified correctly. Run: npx tsx tools/verify-budget.mts
 import { isFatalApiError } from "../src/reply";
+import { config } from "../src/config";
 
-const dailyUsdCap = 1.0, escalateUsdCap = 0.7, medicalReserveUsd = 0.25, reserveMinValue = 2;
+// Read the SHIPPED config rather than hardcoded dollars, so raising BOT_DAILY_USD without
+// scaling the derived thresholds fails here instead of silently breaking the degradation order.
+const { dailyUsdCap, escalateUsdCap, medicalReserveUsd, reserveMinValue } = config;
+const reserveStarts = dailyUsdCap - medicalReserveUsd;
 
 const reserveActive = (spent: number) =>
   dailyUsdCap > 0 && medicalReserveUsd > 0 && spent >= dailyUsdCap - medicalReserveUsd;
@@ -21,18 +25,19 @@ const check = (label: string, got: unknown, want: unknown) => {
 };
 
 console.log("=== escalation gating by spend level ===");
-for (const spent of [0.1, 0.65, 0.75, 0.9, 0.99, 1.0]) {
+for (const spent of [0, escalateUsdCap - 0.01, escalateUsdCap, reserveStarts, dailyUsdCap - 0.01, dailyUsdCap]) {
   const med = escalationAllowed(spent, true), disc = escalationAllowed(spent, false);
   console.log(`  $${spent.toFixed(2)}  medical=${med ? "ALLOW" : "hold "}  discretionary=${disc ? "ALLOW" : "hold "}  reserve=${reserveActive(spent) ? "on" : "off"}`);
 }
 console.log();
 console.log("=== the behaviour the 2026-08-23 night got wrong ===");
-check("at $0.75 a medical escalation still runs", escalationAllowed(0.75, true), true);
-check("at $0.75 a discretionary escalation is held", escalationAllowed(0.75, false), false);
-check("at $0.99 a medical escalation still runs", escalationAllowed(0.99, true), true);
-check("at the hard cap even medical stops", escalationAllowed(1.0, true), false);
-check("reserve is off before $0.75", reserveActive(0.74), false);
-check("reserve is on at $0.75", reserveActive(0.75), true);
+check("degradation order: escalate < (daily - reserve) < daily", escalateUsdCap < reserveStarts && reserveStarts < dailyUsdCap, true);
+  check("a medical escalation still runs inside the reserve", escalationAllowed(reserveStarts, true), true);
+check("a discretionary escalation is held inside the reserve", escalationAllowed(reserveStarts, false), false);
+check("a medical escalation runs right up to the cap", escalationAllowed(dailyUsdCap - 0.01, true), true);
+check("at the hard cap even medical stops", escalationAllowed(dailyUsdCap, true), false);
+check("reserve is off just below its start", reserveActive(reserveStarts - 0.01), false);
+check("reserve is on at its start", reserveActive(reserveStarts), true);
 
 console.log("\n=== reserve drops low-value comments, keeps questions ===");
 // commentValue(): '?' +3, question words +2, len>=80 +2 / >=40 +1, len<=15 -1, media +1

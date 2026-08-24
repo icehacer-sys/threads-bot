@@ -61,9 +61,15 @@ jobs:
       BOT_PER_POST_CAP: "220" # sits below the 250 daily cap, leaving headroom for the pinned-thread replies; still covers a viral hit (461-comment post)
       BOT_DAILY_CAP: "250" # Threads' ~250/day ceiling is the hard backstop
       BOT_VOICE: "lean" # consolidated brand voice (same rules, ~20% fewer prompt tokens). "full" reverts to the original voice-full.ts with no code change.
-      BOT_DAILY_USD: "1.00" # hard API budget per cap-day (owner, 2026-08-19). Past this the bot stops classifying and logs it. Typical night now runs ~$0.65 so this ceiling rarely binds — it exists so a viral night cannot run away, not as a nightly target.
-      BOT_ESCALATE_USD: "0.70" # past this, DISCRETIONARY escalations (reference / media lookups) stop. correct+teach keep escalating up to BOT_DAILY_USD — see BOT_MEDICAL_RESERVE_USD.
-      BOT_MEDICAL_RESERVE_USD: "0.25" # the last $0.25 of the night is reserved for medical replies. Added 2026-08-24 after a night where the flat gate held 16 correct/teach comments unanswered from 00:15 Cairo while cheap banter kept posting on the rest of the budget.
+      # Raised 1.00 -> 1.25 (owner, 2026-08-24). Five nights of live data averaged $0.943, so a
+      # $1.00 ceiling bound roughly one night in three — and it bound on the BUSY nights, which
+      # are the ones you least want truncated. This is a runaway guard, not a nightly target.
+      # The three numbers must keep their order: escalate < (daily - reserve) < daily, so the bot
+      # degrades in stages (discretionary escalations -> low-value triage -> stop) instead of
+      # falling off a cliff. npm run budget:verify asserts that ordering against this config.
+      BOT_DAILY_USD: "1.25"
+      BOT_ESCALATE_USD: "0.875" # 70% of the cap: past this, DISCRETIONARY escalations (reference / media lookups) stop. correct+teach keep escalating up to BOT_DAILY_USD.
+      BOT_MEDICAL_RESERVE_USD: "0.31" # 25% of the cap, reserved for medical replies. Added 2026-08-24 after a night where the flat gate held 16 correct/teach comments unanswered from 00:15 Cairo while cheap banter kept posting on the rest of the budget.
       BOT_RESERVE_MIN_VALUE: "2" # inside the reserve, only comments scoring >=2 on the value heuristic are triaged at all (questions, long stories); one-word quips and guesses are dropped un-triaged, costing nothing.
       BOT_ESCALATE_MEDIA: "lookup" # image/GIF comments go to the quality model ONLY when triage cannot place the reference. "all" restores the old every-media-comment behaviour; "off" disables it entirely. Triage still SEES every frame either way.
       BOT_MODEL: "claude-sonnet-4-6" # quality model: only re-drafts corrections/teaching
