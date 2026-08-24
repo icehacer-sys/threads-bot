@@ -62,7 +62,9 @@ jobs:
       BOT_DAILY_CAP: "250" # Threads' ~250/day ceiling is the hard backstop
       BOT_VOICE: "lean" # consolidated brand voice (same rules, ~20% fewer prompt tokens). "full" reverts to the original voice-full.ts with no code change.
       BOT_DAILY_USD: "1.00" # hard API budget per cap-day (owner, 2026-08-19). Past this the bot stops classifying and logs it. Typical night now runs ~$0.65 so this ceiling rarely binds — it exists so a viral night cannot run away, not as a nightly target.
-      BOT_ESCALATE_USD: "0.70" # 70% of the daily cap: past this it runs triage-only (no quality-model re-drafts; correct/teach are held rather than posted from a cheap draft). Keep it at ~70% of BOT_DAILY_USD so the bot degrades before it stops.
+      BOT_ESCALATE_USD: "0.70" # past this, DISCRETIONARY escalations (reference / media lookups) stop. correct+teach keep escalating up to BOT_DAILY_USD — see BOT_MEDICAL_RESERVE_USD.
+      BOT_MEDICAL_RESERVE_USD: "0.25" # the last $0.25 of the night is reserved for medical replies. Added 2026-08-24 after a night where the flat gate held 16 correct/teach comments unanswered from 00:15 Cairo while cheap banter kept posting on the rest of the budget.
+      BOT_RESERVE_MIN_VALUE: "2" # inside the reserve, only comments scoring >=2 on the value heuristic are triaged at all (questions, long stories); one-word quips and guesses are dropped un-triaged, costing nothing.
       BOT_ESCALATE_MEDIA: "lookup" # image/GIF comments go to the quality model ONLY when triage cannot place the reference. "all" restores the old every-media-comment behaviour; "off" disables it entirely. Triage still SEES every frame either way.
       BOT_MODEL: "claude-sonnet-4-6" # quality model: only re-drafts corrections/teaching
       BOT_TRIAGE_MODEL: "claude-haiku-4-5-20251001" # cheap first pass for every comment
@@ -131,7 +133,21 @@ jobs:
           fails=0
           for i in $(seq 1 60); do
             echo "::group::poll $i ($(TZ='Africa/Cairo' date +%H:%M) Cairo)"
-            if npm run live; then fails=0; else fails=$((fails+1)); echo "iteration $i errored ($fails in a row)"; fi
+            if npm run live; then
+              fails=0
+            else
+              rc=$?
+              fails=$((fails+1))
+              # Exit code 3 = a billing/auth failure the bot cannot recover from on its own.
+              # Surface it NOW: waiting for the 6-consecutive-failure alarm meant 3-6h of silent
+              # downtime under the tapered cadence (2026-08-24: credit died at 01:23 and the rest
+              # of the night was spent re-classifying the same comments into the same 400).
+              if [ "$rc" -eq 3 ]; then
+                echo "::error::Fatal Anthropic API error (billing/auth). The bot cannot reply until this is fixed - check the API credit balance."
+                exit 1
+              fi
+              echo "iteration $i errored ($fails in a row)"
+            fi
             # Facebook engagement is far lower than Threads, so scan it every 3rd poll (~45 min at
             # the 15-min cadence) instead of every poll — cuts FB triage volume ~66% with
             # negligible reply latency.

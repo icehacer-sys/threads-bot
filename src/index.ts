@@ -547,16 +547,30 @@ async function runLiveOrDry(mode: Mode, target: string | null): Promise<void> {
   // dailyUsdCap we stop classifying at all.
   let spentThisRun = 0;
   let budgetStop = false;
+  let fatalStop = false; // a billing/auth failure: abort the whole run, do not retry per comment
+  let consecutiveErrors = 0;
+  let reserveDeferred = 0; // low-value comments dropped un-triaged to protect the medical reserve
   const spentUsd = () => (posting ? state.spentToday() : spentThisRun);
-  const escalationAllowed = () => config.escalateUsdCap <= 0 || spentUsd() < config.escalateUsdCap;
   const usdExhausted = () => config.dailyUsdCap > 0 && spentUsd() >= config.dailyUsdCap;
+  // Inside the reserve, the remaining budget belongs to medical replies (see config.ts).
+  const reserveActive = () =>
+    config.dailyUsdCap > 0 &&
+    config.medicalReserveUsd > 0 &&
+    spentUsd() >= config.dailyUsdCap - config.medicalReserveUsd;
+  // correct/teach are the accuracy-critical categories the reserve exists to protect; they may
+  // spend right up to the hard cap. Everything else (reference, media lookups) yields earlier.
+  const escalationAllowed = (medical: boolean) => {
+    if (config.escalateUsdCap <= 0) return true;
+    if (medical) return !usdExhausted();
+    return spentUsd() < config.escalateUsdCap && !reserveActive();
+  };
 
   for (const post of scanPosts) {
     if (budgetLeft() <= 0) {
       console.log("Daily cap reached — stopping.");
       break;
     }
-    if (budgetStop) break;
+    if (budgetStop || fatalStop) break;
     // Optional time window: only enforced when windowHours > 0 (0 = no limit).
     // Pinned posts are intentionally old, so they skip the age filter.
     if (config.windowHours > 0 && !pinnedIds.has(post.id)) {
@@ -713,6 +727,15 @@ async function runLiveOrDry(mode: Mode, target: string | null): Promise<void> {
 
     for (const c of candidates) {
       if (budgetLeft() <= 0) break;
+      if (fatalStop) break;
+      // Protect the medical reserve: once inside it, a low-value comment is dropped BEFORE any
+      // model call (so this costs nothing) and left un-cached, so it is simply re-considered for
+      // free on the next poll or on a fresh budget day. Questions and substantive comments still
+      // get through — that is exactly what commentValue() ranks for.
+      if (reserveActive() && commentValue(c) < config.reserveMinValue) {
+        reserveDeferred += 1;
+        continue;
+      }
       if (usdExhausted()) {
         console.log(
           `  Daily API budget reached (${usd(spentUsd())} of ${usd(config.dailyUsdCap)}) — stopping for this cap-day.`,
@@ -770,7 +793,10 @@ async function runLiveOrDry(mode: Mode, target: string | null): Promise<void> {
         (config.escalateMedia === "all" || (config.escalateMedia === "lookup" && d.needs_lookup === true));
       const wantsLookup = d.decision === "reply" && config.webSearch && (d.needs_lookup === true || mediaWantsQuality);
       const wantsEscalation = d.decision === "reply" && (config.escalateCategories.includes(d.category) || wantsLookup);
-      if (wantsEscalation && escalationAllowed()) {
+      // The reserve protects these two: they are the accuracy-critical replies, and holding one
+      // means a real medical question goes unanswered.
+      const isMedical = d.category === "correct" || d.category === "teach";
+      if (wantsEscalation && escalationAllowed(isMedical)) {
         // Web search on the "reference" re-run and on any lookup escalation (to identify an
         // unrecognized movie/show/meme/person); medical correct/teach escalations rely on vetted facts.
         const allowSearch = config.webSearch && (d.category === "reference" || wantsLookup);
@@ -778,7 +804,8 @@ async function runLiveOrDry(mode: Mode, target: string | null): Promise<void> {
         d = await classifyAndDraft({ ...baseInput, modelOverride: config.model, allowSearch });
         escalated = true;
       } else if (wantsEscalation) {
-        console.log(`        (budget ${usd(spentUsd())} of ${usd(config.escalateUsdCap)} — holding the ${d.category} escalation)`);
+        const limit = isMedical ? config.dailyUsdCap : config.escalateUsdCap;
+        console.log(`        (budget ${usd(spentUsd())} of ${usd(limit)} — holding the ${d.category} escalation)`);
       }
       // Fold this comment's exact API cost into the budget before the next one is judged.
       const spent = drainSpend();
@@ -797,8 +824,26 @@ async function runLiveOrDry(mode: Mode, target: string | null): Promise<void> {
         d = { ...d, decision: "skip", reply_text: "", reason: `${d.reason} | held: escalation budget reached` };
       }
       processed += 1;
-      if (d.decision === "skip" && /^error:/.test(d.reason)) errorSkips += 1;
+      const isErr = d.decision === "skip" && /^(error|fatal):/.test(d.reason);
+      if (isErr) errorSkips += 1;
+      consecutiveErrors = isErr ? consecutiveErrors + 1 : 0;
       printRow(c.text ?? "", d);
+
+      // A billing/auth failure will not fix itself. Stop now instead of retrying it against every
+      // remaining comment (which is what turned one credit lapse into 85 failed calls in a single
+      // poll) and fail the run so the outage actually surfaces.
+      if (/^fatal:/.test(d.reason)) {
+        console.error(`\n  FATAL API ERROR — aborting the run. ${d.reason.slice(0, 160)}`);
+        fatalStop = true;
+        break;
+      }
+      // Transient errors that keep repeating are an outage too (rate limit, provider incident).
+      // Bail out of this poll rather than walking the whole candidate list into the same wall;
+      // the next poll retries from scratch because error skips are never cached.
+      if (consecutiveErrors >= 5) {
+        console.error(`\n  ${consecutiveErrors} consecutive API errors — abandoning this poll, will retry next cycle.`);
+        break;
+      }
 
       if (d.decision === "skip") {
         skipCounts[d.category] = (skipCounts[d.category] ?? 0) + 1;
@@ -954,17 +999,27 @@ async function runLiveOrDry(mode: Mode, target: string | null): Promise<void> {
       .map(([k, v]) => `${k}:${v}`)
       .join(", ") || "none";
   const budgetNote = config.dailyUsdCap > 0 ? ` of ${usd(config.dailyUsdCap)}` : "";
+  const reserveNote = reserveDeferred
+    ? ` Medical reserve active: ${reserveDeferred} low-value comment(s) dropped un-triaged to keep budget for correct/teach.`
+    : "";
   console.log(
     `Summary: ${posting ? "posted" : "would post"} ${replied} repl${replied === 1 ? "y" : "ies"}. ` +
       `Skipped by category: ${skipSummary}. ` +
-      `Spend this run ${usd(spentThisRun)}; ${posting ? "cap-day" : "run"} total ${usd(spentUsd())}${budgetNote}.\n`,
+      `Spend this run ${usd(spentThisRun)}; ${posting ? "cap-day" : "run"} total ${usd(spentUsd())}${budgetNote}.` +
+      reserveNote +
+      "\n",
   );
 
   // Outage dead-man's-switch: if EVERY comment we classified this run error-skipped (dead API key,
   // billing lapse, Anthropic outage) the bot posted nothing while every poll still exits 0 and the
   // job stays green. Exit non-zero so the workflow's 6-consecutive-failure alarm fires instead of
   // the outage hiding for days. Requires processed > 0 so a normal quiet poll never trips it.
-  if (posting && processed > 0 && errorSkips === processed) {
+  // A fatal API error (dead key, exhausted credit) surfaces IMMEDIATELY — waiting for six
+  // consecutive all-errored polls meant 3-6h of silent downtime under the tapered cadence.
+  if (fatalStop) {
+    console.error("Fatal API error this run (billing/auth) — failing so the outage surfaces now, not hours from now.");
+    process.exitCode = 3; // distinct code: the workflow aborts the whole chain on this, not after 6 polls
+  } else if (posting && processed > 0 && errorSkips === processed) {
     console.error(`All ${processed} classification(s) errored — likely an API outage. Failing the run so it surfaces.`);
     process.exitCode = 1;
   }

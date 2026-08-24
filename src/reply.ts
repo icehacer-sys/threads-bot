@@ -134,6 +134,20 @@ function getClient(): Anthropic {
   return client;
 }
 
+/**
+ * True for API failures that will keep failing until a human intervenes: an exhausted credit
+ * balance, a revoked/invalid key, a permissions problem. These must stop the run rather than be
+ * retried per comment. Everything else (429, 5xx, network) stays transient and re-checkable.
+ */
+export function isFatalApiError(err: unknown): boolean {
+  const status = (err as { status?: number } | null)?.status;
+  if (status === 401 || status === 403) return true;
+  const msg = err instanceof Error ? err.message : String(err ?? "");
+  return /credit balance|billing|payment required|insufficient.{0,12}(credit|quota|funds)|invalid x-api-key|authentication_error|permission_error/i.test(
+    msg,
+  );
+}
+
 export type ImageMediaType = "image/jpeg" | "image/png" | "image/gif" | "image/webp";
 
 // Base64-encoded image. We send images inline (not by URL) because Anthropic's
@@ -385,7 +399,16 @@ export async function classifyAndDraft(input: ClassifyInput): Promise<Decision> 
   } catch (err) {
     // Any failure (API error, bad output) -> stay silent. Never post on uncertainty.
     const msg = err instanceof Error ? err.message : String(err);
-    return { decision: "skip", category: "other", reply_text: "", reason: `error: ${msg.slice(0, 140)}` };
+    // A billing/auth failure is NOT transient: retrying it on every comment for the rest of the
+    // night just burns polls and hides the outage. On 2026-08-24 the credit ran out at 01:23
+    // Cairo and the bot spent the next 3 hours re-classifying the same comments — 85 failed
+    // calls in one poll — while every run still exited green. Mark it so the caller can abort.
+    return {
+      decision: "skip",
+      category: "other",
+      reply_text: "",
+      reason: `${isFatalApiError(err) ? "fatal" : "error"}: ${msg.slice(0, 140)}`,
+    };
   }
 }
 

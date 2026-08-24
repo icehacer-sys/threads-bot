@@ -67,6 +67,23 @@ export const config = {
   dailyUsdCap: num("BOT_DAILY_USD", 1.0),
   escalateUsdCap: num("BOT_ESCALATE_USD", 0.7),
 
+  // MEDICAL RESERVE. Live data (2026-08-23) showed the flat escalate gate sacrificing exactly
+  // the wrong replies: it fired at 00:15 Cairo and held 16 correct/teach comments — real medical
+  // questions — unanswered, while cheap banter kept posting all night on the remaining budget.
+  // Banter is abundant; an unanswered question is the reply that actually costs the brand.
+  // So the last `medicalReserveUsd` of the daily budget is held back: once inside it the bot
+  // stops triaging LOW-VALUE comments at all (free — the comment is dropped before any model
+  // call) and stops discretionary escalations, but keeps answering correct/teach to the hard cap.
+  medicalReserveUsd: num("BOT_MEDICAL_RESERVE_USD", 0.25),
+  // Minimum commentValue() score still worth a model call once inside the reserve. commentValue
+  // scores a question mark +3, question words +2, length >=80 +2 / >=40 +1, <=15 -1, media +1.
+  // 2 keeps genuine questions AND long personal stories (which score only +2 on length and would
+  // be dropped at 3 — an empathy reply is not something to cut) while dropping one-word quips.
+  // TRADE-OFF, deliberate: one-word diagnosis guesses ("Osteosarcoma") also score below this and
+  // are dropped once inside the reserve. That is the cost of guaranteeing the night can still
+  // answer medical questions; it only applies to the last `medicalReserveUsd` of the budget.
+  reserveMinValue: num("BOT_RESERVE_MIN_VALUE", 2),
+
   // How many of our recent replies to feed back in as the "don't repeat these" list.
   // Sent uncached on every call, so smaller = cheaper; 15 is plenty for variety.
   antiRepeatWindow: num("BOT_ANTIREPEAT", 30),
