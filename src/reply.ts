@@ -301,6 +301,16 @@ export async function classifyAndDraft(input: ClassifyInput): Promise<Decision> 
     .filter((w) => w.length >= 4 && !SPOILER_STOP.has(w));
   const spoilerTerms = [...new Set([...spoilerPhrases, ...spoilerWords])];
 
+  const model = modelOverride ?? config.model;
+  const isTriage = model === config.triageModel;
+  // Cache TTL by model, because the two run at completely different densities.
+  // Haiku triage fires on every comment, so its prefix stays warm and the 1h write (2x base)
+  // amortizes ~25x. Sonnet escalations are a handful a night, often hours apart, so a 1h write
+  // rarely earns its 2x back — measured live on 2026-08-27, a cold Sonnet write cost $0.076
+  // against $0.038 for the same call sent uncached. 5m (1.25x) still covers the burst of
+  // escalations inside a single poll, which is where the reads actually are.
+  const cacheTtl: "1h" | "5m" = isTriage ? "1h" : "5m";
+
   const content: Array<Anthropic.ImageBlockParam | Anthropic.TextBlockParam> = [];
   // 1) Post X-ray(s), part of the cached per-post prefix.
   if (images && images.length) {
@@ -308,7 +318,7 @@ export async function classifyAndDraft(input: ClassifyInput): Promise<Decision> 
     for (const img of images) content.push({ type: "image", source: { type: "base64", media_type: img.media_type, data: img.data } });
   }
   // 2) Stable per-post text. The cache breakpoint here caches system + X-ray + this block.
-  content.push({ type: "text", text: stableText, cache_control: { type: "ephemeral", ttl: "1h" } });
+  content.push({ type: "text", text: stableText, cache_control: { type: "ephemeral", ttl: cacheTtl } });
   // 3) The commenter's own media + the variable per-comment text (uncached tail).
   if (commentImages && commentImages.length) {
     content.push({
@@ -328,9 +338,6 @@ export async function classifyAndDraft(input: ClassifyInput): Promise<Decision> 
   // lets the model look up references it does not recognize. With web search off we
   // FORCE submit_reply for a deterministic single call. With it on we let the model
   // choose to search first (server-side, auto-run), then submit.
-  const model = modelOverride ?? config.model;
-  const isTriage = model === config.triageModel;
-
   const tools: unknown[] = [...REPLY_TOOLS];
   let toolChoice: unknown = { type: "tool", name: "submit_reply" };
   // Keep web_search available on EVERY quality-model (Sonnet) escalation, not only the
@@ -357,7 +364,7 @@ export async function classifyAndDraft(input: ClassifyInput): Promise<Decision> 
       max_tokens: 1024,
       ...effortParam,
       // System prompt is static -> cache it for 1h (survives the gaps between 10-min cycles).
-      system: [{ type: "text", text: FULL_SYSTEM, cache_control: { type: "ephemeral", ttl: "1h" } }],
+      system: [{ type: "text", text: FULL_SYSTEM, cache_control: { type: "ephemeral", ttl: cacheTtl } }],
       messages: [{ role: "user", content }],
       tools,
       tool_choice: toolChoice,
@@ -385,7 +392,7 @@ export async function classifyAndDraft(input: ClassifyInput): Promise<Decision> 
           model,
           max_tokens: 1024,
           ...effortParam,
-          system: [{ type: "text", text: FULL_SYSTEM, cache_control: { type: "ephemeral", ttl: "1h" } }],
+          system: [{ type: "text", text: FULL_SYSTEM, cache_control: { type: "ephemeral", ttl: cacheTtl } }],
           messages: [{ role: "user", content }],
           tools,
           tool_choice: { type: "tool", name: "submit_reply" },

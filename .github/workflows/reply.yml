@@ -183,7 +183,12 @@ jobs:
             elif [ "$ch" -lt 5 ]; then
               nap=1800   # 02:00-05:00
             elif [ "$ch" -lt 10 ]; then
-              nap=3600   # 05:00-10:00, the quiet tail of the window
+              # 05:00-10:00, the quiet tail. 30 min, NOT 60: measured 2026-08-27, a 60-minute gap
+              # outlives the 1h prompt cache, so every tail poll paid a fresh ~$0.025 Haiku cache
+              # write and cost $0.0131 per classification against $0.0033 on a 30-minute gap.
+              # Polls with nothing new are free, so the extra polls cost nothing and the cache
+              # stays warm. Do not raise this back to 3600 without re-measuring per-poll cost.
+              nap=1800
             else
               # 10:00-22:00, OUTSIDE the window. These polls are free (index.ts early-returns
               # before any API call), so idle at an hour — but NEVER sleep past the 22:00 open,

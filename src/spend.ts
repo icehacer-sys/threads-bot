@@ -72,8 +72,10 @@ export function costOf(model: string, usage: CallUsage | null | undefined, now: 
   const p = priceFor(model, now);
   const write1h = n(usage.cache_creation?.ephemeral_1h_input_tokens);
   const write5m = n(usage.cache_creation?.ephemeral_5m_input_tokens);
-  // Older SDKs report only the total. Everything this bot writes asks for ttl:"1h", so price
-  // an unsplit total at the 1h rate rather than under-counting it.
+  // Older SDKs report only the total, with no 5m/1h split. Since 2026-08-27 the bot writes at
+  // BOTH TTLs (Haiku 1h, Sonnet 5m — see cacheTtl in reply.ts), so an unsplit total is
+  // ambiguous; price it at the higher 1h rate. Over-estimating an unknown is the safe
+  // direction: the budget gate trips early rather than letting spend run past the cap.
   const split = write1h + write5m;
   const total = n(usage.cache_creation_input_tokens);
   const unsplit = split > 0 ? 0 : total;
