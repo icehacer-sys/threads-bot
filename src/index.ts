@@ -362,6 +362,15 @@ async function loadCommentVideoFrame(c: ThreadsReply): Promise<InlineImage[]> {
 // face" first frame becomes "I WON" by the end (a real miss the owner caught). Reading only the
 // first frame misreads the whole meaning, so sample start/middle/end and let the model see the arc.
 // Falls back to a single fetch when ffmpeg/ffprobe is unavailable (e.g. a local dry run).
+// Threads hands us GIPHY's small variant (113x200 on the case that broke) — too coarse for the
+// model to read the ACTION: it described a pencil sharpener as "a computer mouse". The full-size
+// variant is ~2.4x the resolution and costs 190 tokens a frame against 50, which is nothing.
+// Returns candidates newest-best-first; the caller falls back to whatever Threads gave us.
+export function gifUrlCandidates(url: string): string[] {
+  const m = url.match(/^(https?:\/\/media\d*\.giphy\.com\/media\/.+?\/)(?:200|200w|200_d|giphy_s|100)\.gif(\?.*)?$/i);
+  return m ? [`${m[1]}giphy.gif${m[2] ?? ""}`, url] : [url];
+}
+
 async function loadCommentGifFrames(url: string, cid: string): Promise<InlineImage[]> {
   if (!config.visionEnabled) return [];
   if (!(await ensureFfmpeg())) {
@@ -372,8 +381,14 @@ async function loadCommentGifFrames(url: string, cid: string): Promise<InlineIma
   const src = join(tmpdir(), `g-${key}.bin`);
   const outs: string[] = [];
   try {
-    const res = await fetch(url, { signal: AbortSignal.timeout(15_000) });
-    if (!res.ok) return [];
+    let res: Response | null = null;
+    for (const candidate of gifUrlCandidates(url)) {
+      try {
+        const r = await fetch(candidate, { signal: AbortSignal.timeout(15_000) });
+        if (r.ok) { res = r; break; }
+      } catch { /* try the next candidate */ }
+    }
+    if (!res) return [];
     await writeFile(src, Buffer.from(await res.arrayBuffer()));
     let dur = NaN;
     try {
@@ -386,10 +401,16 @@ async function loadCommentGifFrames(url: string, cid: string): Promise<InlineIma
     } catch {
       /* no ffprobe -> use fixed second offsets below */
     }
-    // Start + payoff. The punchline / on-screen text lands late, so the END frame is the one
-    // that carries meaning; the middle frame added the least and cost ~1.3k image tokens on
-    // every model call that saw it.
-    const fracs = [0.15, 0.9];
+    // FOUR frames across the clip. Reaction GIFs are often a little STORY, and the middle is
+    // where the story happens — cutting to 2 frames (0.15/0.9) to save ~1.3k tokens broke a real
+    // reply on 2026-08-28: a GIF of a pencil sharpener eating a boy and burping out a bone was
+    // sampled at "boy holding pencil" and "empty room with a bone", so the model never saw the
+    // sucking-in that connects them and reacted to the boy's FACE instead of the joke — on a
+    // bone post, where the GIF's own punchline was a bone. Two frames cannot carry a narrative.
+    // MEASURED, not assumed: one frame is 50 tokens at the size Threads serves and 190 at full
+    // size. The 3->2 cut I justified as "saving ~1.3k image tokens" actually saved about 50 —
+    // I had the cost wrong by ~26x and traded a real joke-whiff for nothing.
+    const fracs = [0.08, 0.35, 0.62, 0.9];
     const frames: InlineImage[] = [];
     for (let i = 0; i < fracs.length; i++) {
       const out = join(tmpdir(), `g-${key}-${i}.jpg`);
@@ -788,9 +809,16 @@ async function runLiveOrDry(mode: Mode, target: string | null): Promise<void> {
       // image/GIF comment for a quality re-draft was ~half of all escalations, and one
       // escalation costs roughly 6x a triage call. Triage still SEES every frame either way —
       // only the second, pricier read of the same frames is what this gate removes.
+      // An animated GIF sampled into SEVERAL frames is a story to be read; a single static image
+      // is not. "motion" escalates the former (plus anything triage cannot place) and leaves the
+      // latter on triage — narrower than "all", but it covers the case that actually broke on
+      // 2026-08-28, where the cheap model reacted to a face and missed a 4-beat visual gag.
+      const isMotionSequence = commentImages.length > 1;
       const mediaWantsQuality =
         hasVisibleMedia &&
-        (config.escalateMedia === "all" || (config.escalateMedia === "lookup" && d.needs_lookup === true));
+        (config.escalateMedia === "all" ||
+          (config.escalateMedia === "motion" && (isMotionSequence || d.needs_lookup === true)) ||
+          (config.escalateMedia === "lookup" && d.needs_lookup === true));
       const wantsLookup = d.decision === "reply" && config.webSearch && (d.needs_lookup === true || mediaWantsQuality);
       const wantsEscalation = d.decision === "reply" && (config.escalateCategories.includes(d.category) || wantsLookup);
       // The reserve protects these two: they are the accuracy-critical replies, and holding one

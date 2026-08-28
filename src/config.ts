@@ -52,7 +52,9 @@ export const config = {
   //   "lookup" - only when triage sets needs_lookup, i.e. it genuinely cannot place the
   //              reference. Triage still SEES every frame either way. (default)
   //   "off"    - media never escalates on its own (categories/needs_lookup still can)
-  escalateMedia: (process.env.BOT_ESCALATE_MEDIA ?? "lookup").toLowerCase(),
+  //   "motion" - escalate an animated GIF/video that was sampled into SEVERAL frames (a visual
+  //              story the cheap model misreads), plus anything triage cannot place. (default)
+  escalateMedia: (process.env.BOT_ESCALATE_MEDIA ?? "motion").toLowerCase(),
 
   // Which brand-voice prompt to send. "lean" is the consolidated prompt (same rules, ~35%
   // fewer tokens); "full" is the original. The prompt is the cached prefix on EVERY call, so

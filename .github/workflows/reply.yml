@@ -71,7 +71,7 @@ jobs:
       BOT_ESCALATE_USD: "0.875" # 70% of the cap: past this, DISCRETIONARY escalations (reference / media lookups) stop. correct+teach keep escalating up to BOT_DAILY_USD.
       BOT_MEDICAL_RESERVE_USD: "0.31" # 25% of the cap, reserved for medical replies. Added 2026-08-24 after a night where the flat gate held 16 correct/teach comments unanswered from 00:15 Cairo while cheap banter kept posting on the rest of the budget.
       BOT_RESERVE_MIN_VALUE: "2" # inside the reserve, only comments scoring >=2 on the value heuristic are triaged at all (questions, long stories); one-word quips and guesses are dropped un-triaged, costing nothing.
-      BOT_ESCALATE_MEDIA: "lookup" # image/GIF comments go to the quality model ONLY when triage cannot place the reference. "all" restores the old every-media-comment behaviour; "off" disables it entirely. Triage still SEES every frame either way.
+      BOT_ESCALATE_MEDIA: "motion" # animated GIFs (sampled into several frames = a visual story) go to the quality model, as does anything triage cannot place; a single static image stays on triage. Was "lookup" until 2026-08-28, when the cheap model read a 4-beat GIF gag as a reaction to someone's face. "all" = every media comment, "lookup" = only needs_lookup, "off" = never.
       BOT_MODEL: "claude-sonnet-4-6" # quality model: only re-drafts corrections/teaching
       BOT_TRIAGE_MODEL: "claude-haiku-4-5-20251001" # cheap first pass for every comment
       BOT_ESCALATE: "correct,teach,reference" # categories the Haiku triage hands to Sonnet
