@@ -112,6 +112,7 @@ jobs:
           MODE: ${{ github.event.inputs.mode || 'live' }}
           GH_TOKEN: ${{ github.token }}
           MAXSECS: "19800" # ~5.5h per run, then it launches the next (under the 6h job limit)
+          FATAL_COOLDOWN: "1800" # on a billing/auth failure: wait 30 min before the queued retry runs, so an outage retries twice an hour instead of spinning
         run: |
           # Push local commits, retrying rebase+push. Runs every loop (not only when the tree is
           # freshly dirty) so a push that failed on a previous loop is genuinely retried instead of
@@ -150,6 +151,25 @@ jobs:
               # of the night was spent re-classifying the same comments into the same 400).
               if [ "$rc" -eq 3 ]; then
                 echo "::error::Fatal Anthropic API error (billing/auth). The bot cannot reply until this is fixed - check the API credit balance."
+                # Land whatever state this run produced before we go.
+                if [ -n "$(git status --porcelain state.json)" ]; then
+                  git add state.json
+                  git commit -m "chore: update reply state [skip ci]" || true
+                fi
+                sync_repo
+                # Do NOT let the chain die here. Until 2026-08-28 this exited immediately, which killed
+                # the perpetual chain: the */30 cron meant to revive it is throttled by GitHub and did
+                # not fire for 4.5h, so the bot stayed down straight through a window opening even
+                # after the balance was topped up.
+                #
+                # Hand off FIRST (the new run queues behind this one on the concurrency group), THEN
+                # cool off, THEN fail. Dispatching before the sleep means the chain survives even if
+                # this job is killed at the 6h limit during the cooldown. The cooldown makes the retry
+                # cadence ~30 min instead of a spin; the exit 1 still fails the job so GitHub emails
+                # for every cycle the outage lasts.
+                gh workflow run reply.yml -f mode=live || echo "fatal hand-off dispatch failed"
+                echo "cooling off ${FATAL_COOLDOWN}s; the queued run retries after that and recovers on its own once credit is back"
+                sleep "$FATAL_COOLDOWN"
                 exit 1
               fi
               echo "iteration $i errored ($fails in a row)"
