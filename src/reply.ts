@@ -303,13 +303,22 @@ export async function classifyAndDraft(input: ClassifyInput): Promise<Decision> 
 
   const model = modelOverride ?? config.model;
   const isTriage = model === config.triageModel;
-  // Cache TTL by model, because the two run at completely different densities.
-  // Haiku triage fires on every comment, so its prefix stays warm and the 1h write (2x base)
-  // amortizes ~25x. Sonnet escalations are a handful a night, often hours apart, so a 1h write
-  // rarely earns its 2x back — measured live on 2026-08-27, a cold Sonnet write cost $0.076
-  // against $0.038 for the same call sent uncached. 5m (1.25x) still covers the burst of
-  // escalations inside a single poll, which is where the reads actually are.
-  const cacheTtl: "1h" | "5m" = isTriage ? "1h" : "5m";
+  // BOTH models cache at 1h. A 5m TTL was tried for Sonnet on 2026-08-27 and REVERTED the next
+  // day after one night of live data — do not try it again without re-reading this.
+  //
+  // The reasoning that failed: Sonnet escalations look sparse, so a 1h write at 2x seemed
+  // unlikely to amortize, and 5m at 1.25x seemed enough to cover "the burst of escalations
+  // inside one poll". The measured reality is that MOST polls carry exactly ONE escalation and
+  // polls are 15-30 min apart — far longer than 5 minutes. So the 5m entry was never read once:
+  // every escalation paid a full cold write.
+  //
+  //   cold 1h write $0.0756 shared across ~3.4 calls  ->  $0.0263 per escalation
+  //   cold 5m write $0.0472 paid on EVERY call        ->  $0.0472 per escalation
+  //
+  // Live confirmation: single-escalation polls cost $0.0722-$0.1021 each under 5m. The one poll
+  // that carried 3 escalations came in at $0.0344 each — the only case where sharing worked.
+  // The 1h entry spans several polls, which is exactly where Sonnet's reads actually come from.
+  const cacheTtl: "1h" | "5m" = "1h";
 
   const content: Array<Anthropic.ImageBlockParam | Anthropic.TextBlockParam> = [];
   // 1) Post X-ray(s), part of the cached per-post prefix.
