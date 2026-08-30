@@ -230,10 +230,18 @@ function stripTics(text: string): string {
 // emoji-free). Only ever touches a trailing 🤣, never one used mid-sentence, and only judges once
 // there is enough history — so an occasional genuine laugh still gets through.
 function throttleLaugh(text: string, recent: string[]): string {
-  if (!/🤣\s*$/u.test(text)) return text;
+  // 🤣 AND 🤍 both get spaced. 🤍 was added to break the 🤣 monotony, but on the 2026-08-30
+  // personal post it immediately became the same reflex — 44% of replies ended on it, which is
+  // worse than the 31.7% 🤣 rate that started this whole guard. Any single emoji that closes
+  // every warm reply stops meaning anything.
+  const trailing = text.match(/(🤣|🤍)\s*$/u);
+  if (!trailing) return text;
+  const emoji = trailing[1];
   const window = recent.slice(-5);
   if (window.length < 3) return text;
-  if (window.some((r) => /🤣/u.test(r))) return text.replace(/\s*🤣\s*$/u, "").trimEnd() || text;
+  if (window.some((r) => r.includes(emoji))) {
+    return text.replace(new RegExp(`\s*${emoji}\s*$`, "u"), "").trimEnd() || text;
+  }
   return text;
 }
 

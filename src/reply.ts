@@ -286,7 +286,11 @@ export async function classifyAndDraft(input: ClassifyInput): Promise<Decision> 
       "- KINDNESS about the account or the post. A short genuine thank you is right here. This is your own work so you may accept the credit. Keep it small and human, never a speech.\n" +
       "- LIGHT BANTER. Still fine, still top it, but the post set a quieter tone so read the room before reaching for a big joke.\n" +
       "Skip empty noise as always. NEVER mention or link a product anywhere under this post: people opened up here and a plug is the one thing that would cheapen it.\n" +
-      "NEVER offer to look at, receive or comment on anybody's OWN imaging or records, and never tell anyone to DM or send you a scan. People will offer warmly and sincerely and the answer is still no. You cannot read a stranger's film and you do not want their medical images in your inbox. Thank them for the offer and take the reply somewhere else, or skip."
+      "NEVER offer to look at, receive or comment on anybody's OWN imaging or records, and never tell anyone to DM or send you a scan or go and check a post of theirs. People will offer warmly and sincerely and the answer is still no. You cannot read a stranger's film and you do not want their medical images in your inbox. Thank them for the offer and take the reply somewhere else, or skip. When more than one person offers, do NOT decline them all with the same shape - the second one needs different words entirely.
+" +
+      "LENGTH: keep these SHORT. There is no case to teach here, so nothing earns a paragraph. One or two sentences. Several replies on 2026-08-30 ran past 240 characters and read like an essay under somebody's one-line comment.
+" +
+      "No check-mark stamp language either. Nobody guessed anything, so 'you nailed it', 'exactly' and 'spot on' have nothing to be right about and land as a reflex."
     : "";
 
   const threadNote = inAnswerThread
@@ -482,7 +486,7 @@ const FILLER_SENTENCE =
 // cannot act on. Prose rules leak, so this is a hard force-skip: staying silent on "can I send
 // you my MRI" is always safe, replying almost never is.
 const IMAGE_SOLICIT =
-  /\b(?:i(?:'?d| would)?\s+(?:be happy to\s+)?(?:look at|take a look|review|check out|see)\b[^.!?]{0,30}\b(?:it|yours|your|them|that)\b|(?:send|dm|share|email|message)\s+(?:it|them|those|me|my|your)\b[^.!?]{0,40}\b(?:x-?ray|mri|ct|scan|film|image|imaging|report|record|result)|dms?\s+(?:are|is|would be)\s+(?:easiest|best|fine|open|good)|(?:you can|feel free to)\s+(?:send|dm|share|message)\b)/i;
+  /\b(?:i(?:'?d| would)?\s+(?:be happy to\s+)?(?:look at|take a look|review|check out|see)\b[^.!?]{0,30}\b(?:it|yours|your|them|that)\b|(?:send|dm|share|email|message)\s+(?:it|them|those|me|my|your)\b[^.!?]{0,40}\b(?:x-?ray|mri|ct|scan|film|image|imaging|report|record|result)|dms?\s+(?:are|is|would be)\s+(?:easiest|best|fine|open|good)|(?:you can|feel free to)\s+(?:send|dm|share|message)\b|i(?:'?ll| will)\s+(?:go\s+)?(?:check|look at|find|see)\b[^.!?]{0,25}\b(?:your|their)\b)/i;
 
 // Phrases that read as medical advice. If any slip into a draft, we force a skip.
 const ADVICE_PATTERN =
@@ -577,7 +581,21 @@ export function sanitize(d: Decision, spoiler?: { isPublic: boolean; terms: stri
   // Comma backstop: the voice bans commas except in a genuine list of 3+ (which carries >=2 commas).
   // A LONE comma is a clause-join the model slipped past the rule (Sonnet escalations do this most) —
   // split it into two beats. Never touch a comma inside a number (1,000) or a real multi-item list.
-  if ((text.match(/(?<!\d),(?!\d)/g) || []).length === 1) text = text.replace(/(?<!\d),(?!\d)\s*/, ". ");
+  // ...but NOT when that comma sits inside quoted speech. On 2026-08-30 this turned
+  // 'screaming "explain THIS one, Doc"' into 'screaming "explain THIS one. Doc"' and posted a
+  // broken sentence inside the quotation. A comma inside quotes is someone's actual words.
+  {
+    const m = text.match(/(?<!\d),(?!\d)/);
+    const inQuotes = (() => {
+      if (!m || m.index === undefined) return false;
+      const before = text.slice(0, m.index);
+      // odd number of quote marks before it => we are inside an open quotation
+      return ((before.match(/["“”]/g) || []).length % 2) === 1;
+    })();
+    if (m && !inQuotes && (text.match(/(?<!\d),(?!\d)/g) || []).length === 1) {
+      text = text.replace(/(?<!\d),(?!\d)\s*/, ". ");
+    }
+  }
 
   // Vague-acknowledgement filler ("Honestly fair.", "No notes.", "Big mood.") engages nothing and is
   // the safe-and-empty failure the owner flags as sounding botted — it would fit under ANY comment.
