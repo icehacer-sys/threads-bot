@@ -25,6 +25,11 @@ on:
         type: choice
         options: [live, dry]
         default: live
+      window:
+        description: 'Active window this run only, Cairo hours as "START-END" (e.g. 20-10 when the post went up early). Blank = the normal 22-10.'
+        type: string
+        required: false
+        default: ""
 
 # Never let two runs overlap (they'd both read the same state and double-reply).
 concurrency:
@@ -55,7 +60,12 @@ jobs:
       BOT_ANSWER_DELAY_HOURS: "1"
       BOT_ANSWER_SPOILER: "on"
       BOT_ACTIVE_TZ: "Africa/Cairo"
-      BOT_ACTIVE_WINDOWS: "22-10" # 10 PM until 10 AM Cairo (one overnight window). Changed from 23-11 (owner, 2026-07-07) to match the post moving from 11 PM to 10 PM. Window opens exactly when the post goes up (19:00 UTC = 10 PM Cairo summer).
+      # 10 PM until 10 AM Cairo (one overnight window). Changed from 23-11 (owner, 2026-07-07) to
+      # match the post moving from 11 PM to 10 PM. The `window` dispatch input overrides this for
+      # a single run, for the night a post goes up early — added 2026-08-30 after a 20:00 post left
+      # a two-hour gap that had to be covered by running the bot locally, which means stopping the
+      # cloud chain, syncing state by hand and remembering to hand back. One input instead.
+      BOT_ACTIVE_WINDOWS: ${{ github.event.inputs.window || '22-10' }}
       BOT_ACTIVE_START: "22"
       BOT_ACTIVE_END: "10"
       BOT_PER_POST_CAP: "220" # sits below the 250 daily cap, leaving headroom for the pinned-thread replies; still covers a viral hit (461-comment post)
