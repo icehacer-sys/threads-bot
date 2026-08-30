@@ -243,7 +243,10 @@ export async function classifyAndDraft(input: ClassifyInput): Promise<Decision> 
   const hasAnswer = answerText.length > 0 && answerText.toLowerCase() !== "unknown";
   // Undefined answerPublic = treat as public (manual runs / demo). The answer thread is
   // only reachable once the answer is posted, so inAnswerThread also implies public.
-  const isPublic = inAnswerThread || answerPublic !== false;
+  // A personal post has no diagnosis, so there is nothing to spoil and the pre-reveal guard must
+  // not run: without this it force-skipped every "affirm" and blocked ordinary words like
+  // "exactly", silently killing warm replies to people thanking the account.
+  const isPublic = isPersonalPost || inAnswerThread || answerPublic !== false;
   let answerLine: string;
   let prePublicNote = "";
   if (isPublic) {
@@ -282,7 +285,8 @@ export async function classifyAndDraft(input: ClassifyInput): Promise<Decision> 
       "- THEIR OWN STORY (an illness, an injury, being dismissed by doctors, a recovery). Brief warm empathy and nothing else. No advice, no diagnosis, no risk talk, no product. Match how heavy it is: someone describing years of being disbelieved does not get a joke, and gets no emoji beyond a single warmth one.\n" +
       "- KINDNESS about the account or the post. A short genuine thank you is right here. This is your own work so you may accept the credit. Keep it small and human, never a speech.\n" +
       "- LIGHT BANTER. Still fine, still top it, but the post set a quieter tone so read the room before reaching for a big joke.\n" +
-      "Skip empty noise as always. NEVER mention or link a product anywhere under this post: people opened up here and a plug is the one thing that would cheapen it."
+      "Skip empty noise as always. NEVER mention or link a product anywhere under this post: people opened up here and a plug is the one thing that would cheapen it.\n" +
+      "NEVER offer to look at, receive or comment on anybody's OWN imaging or records, and never tell anyone to DM or send you a scan. People will offer warmly and sincerely and the answer is still no. You cannot read a stranger's film and you do not want their medical images in your inbox. Thank them for the offer and take the reply somewhere else, or skip."
     : "";
 
   const threadNote = inAnswerThread
@@ -472,6 +476,14 @@ const RETIRED_LINES = /^(radiologically confirmed|radiology confirms|literally|c
 const FILLER_SENTENCE =
   /^(?:and\s+|but\s+|ok(?:ay)?\s+|honestly\s+|genuinely\s+)*(?:honestly\s+)?(?:fair|fair enough|valid|that(?:'s| is) fair|that(?:'s| is) valid|no notes|big mood|same energy|this is the correct reaction|the correct reaction|(?:that is )?exactly how it feels|felt that|i felt that|(?:it(?:'s| is) )?(?:been )?added to (?:the |my )?(?:list|pile|queue|shortlist)|adding (?:it |that )?to (?:the |my )?(?:list|pile|queue|shortlist)|(?:it(?:'s| is) )?on (?:the |my )?(?:list|pile|queue|shortlist)|noted|duly noted)$/i;
 
+// Offering to receive or look at somebody's OWN imaging or records. The bot generated exactly
+// this under the 2026-08-30 personal post ("But I'd look at it", "DMs are easiest") — which is
+// the one thing the owner has said he cannot do, and it would invite a stream of DM'd scans he
+// cannot act on. Prose rules leak, so this is a hard force-skip: staying silent on "can I send
+// you my MRI" is always safe, replying almost never is.
+const IMAGE_SOLICIT =
+  /\b(?:i(?:'?d| would)?\s+(?:be happy to\s+)?(?:look at|take a look|review|check out|see)\b[^.!?]{0,30}\b(?:it|yours|your|them|that)\b|(?:send|dm|share|email|message)\s+(?:it|them|those|me|my|your)\b[^.!?]{0,40}\b(?:x-?ray|mri|ct|scan|film|image|imaging|report|record|result)|dms?\s+(?:are|is|would be)\s+(?:easiest|best|fine|open|good)|(?:you can|feel free to)\s+(?:send|dm|share|message)\b)/i;
+
 // Phrases that read as medical advice. If any slip into a draft, we force a skip.
 const ADVICE_PATTERN =
   /\b(you should|i (would |really )?recommend|see (a|your) (doctor|physician|gp|specialist|dentist)|ask your (doctor|doc|physician|gp|dentist|specialist)|get (it|that|this) (checked|looked at|scanned|seen)|worth getting[^.]{0,20}(checked|scanned|looked at|seen)|needs? (a |an )?(scan|x-?ray|mri|ct|ultrasound|biopsy|work-?up|imaging)|push for (a|an|another)|don'?t ignore|get (checked|seen|scanned)|consult|seek medical|go to the (er|a&e|hospital|doctor)|you (might|may|could) have|sounds like you (have|might))\b/i;
@@ -549,6 +561,8 @@ export function sanitize(d: Decision, spoiler?: { isPublic: boolean; terms: stri
   // Strip hashtags, links, mentions; collapse whitespace; cap length.
   let text = (d.reply_text || "")
     .replace(/<\/?[a-zA-Z][^>]*>/g, "") // strip any HTML/citation tags (e.g. web-search <cite>)
+    .replace(/\*+([^*]+)\*+/g, "$1") // Threads renders no markdown, so *emphasis* would post literally
+    .replace(/(^|\s)[*_]{1,2}(?=\S)|(?<=\S)[*_]{1,2}($|\s)/g, "$1$2") // stray unmatched markers
     .replace(/#[\p{L}\p{N}_]+/gu, "")
     .replace(/https?:\/\/\S+/gi, "")
     // bare domains too (no http://), e.g. a promo link like "rare.example.com/x"
@@ -605,7 +619,7 @@ export function sanitize(d: Decision, spoiler?: { isPublic: boolean; terms: stri
     text = (sentence && sentence[0].length >= maxLen * 0.5 ? sentence[0] : clipped.replace(/\s\S*$/, "")).trimEnd();
   }
 
-  const looksLikeAdvice = ADVICE_PATTERN.test(text);
+  const looksLikeAdvice = ADVICE_PATTERN.test(text) || IMAGE_SOLICIT.test(text);
   // Always screen the base confession terms; when the comment was an "are you a bot" question,
   // ALSO screen the broader identity terms (human / machine / gpt / caught me / ...) that would be
   // a confession or the forbidden denial in that context.
