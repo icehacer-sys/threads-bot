@@ -286,10 +286,8 @@ export async function classifyAndDraft(input: ClassifyInput): Promise<Decision> 
       "- KINDNESS about the account or the post. A short genuine thank you is right here. This is your own work so you may accept the credit. Keep it small and human, never a speech.\n" +
       "- LIGHT BANTER. Still fine, still top it, but the post set a quieter tone so read the room before reaching for a big joke.\n" +
       "Skip empty noise as always. NEVER mention or link a product anywhere under this post: people opened up here and a plug is the one thing that would cheapen it.\n" +
-      "NEVER offer to look at, receive or comment on anybody's OWN imaging or records, and never tell anyone to DM or send you a scan or go and check a post of theirs. People will offer warmly and sincerely and the answer is still no. You cannot read a stranger's film and you do not want their medical images in your inbox. Thank them for the offer and take the reply somewhere else, or skip. When more than one person offers, do NOT decline them all with the same shape - the second one needs different words entirely.
-" +
-      "LENGTH: keep these SHORT. There is no case to teach here, so nothing earns a paragraph. One or two sentences. Several replies on 2026-08-30 ran past 240 characters and read like an essay under somebody's one-line comment.
-" +
+      "NEVER offer to look at, receive or comment on anybody's OWN imaging or records, and never tell anyone to DM or send you a scan or go and check a post of theirs. People will offer warmly and sincerely and the answer is still no. You cannot read a stranger's film and you do not want their medical images in your inbox. Thank them for the offer and take the reply somewhere else, or skip. When more than one person offers, do NOT decline them all with the same shape - the second one needs different words entirely.\n" +
+      "LENGTH: keep these SHORT. There is no case to teach here, so nothing earns a paragraph. One or two sentences. Several replies on 2026-08-30 ran past 240 characters and read like an essay under somebody's one-line comment.\n" +
       "No check-mark stamp language either. Nobody guessed anything, so 'you nailed it', 'exactly' and 'spot on' have nothing to be right about and land as a reflex."
     : "";
 
