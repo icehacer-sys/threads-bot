@@ -183,6 +183,11 @@ export interface ClassifyInput {
   /** Allow this one call to use web search. Only the quality-model re-run of an
    *  unrecognized "reference" comment sets this — never the cheap triage pass. */
   allowSearch?: boolean;
+  /** This post is NOT a case: no X-ray, no diagnosis (the periodic personal / life post,
+   *  or an ask-the-audience post). Comments under it are stories, support and case REQUESTS,
+   *  never guesses — the whole case framing has to come off or the bot banters at people
+   *  telling it something real. */
+  isPersonalPost?: boolean;
 }
 
 // ENGLISH-ONLY policy: detect comments written in a non-Latin script so they can be
@@ -203,7 +208,7 @@ export function isNonEnglishScript(text: string | undefined): boolean {
 }
 
 export async function classifyAndDraft(input: ClassifyInput): Promise<Decision> {
-  const { postText, commentText, answer, facts, images, recentReplies, commentImages, commentMediaKind, inAnswerThread, priorExchange, modelOverride, answerPublic, allowSearch } = input;
+  const { postText, commentText, answer, facts, images, recentReplies, commentImages, commentMediaKind, inAnswerThread, priorExchange, modelOverride, answerPublic, allowSearch, isPersonalPost } = input;
 
   // ENGLISH-ONLY: skip non-Latin-script comments (Arabic, CJK, Cyrillic, ...) before any
   // model call. Latin-script foreign languages are handled by the voice rule.
@@ -262,8 +267,24 @@ export async function classifyAndDraft(input: ClassifyInput): Promise<Decision> 
       "- If it is NOT a diagnosis guess: just banter normally.\n" +
       "Keep it to one short line.";
   } else {
-    answerLine = "CORRECT ANSWER: unknown (you do NOT know it — never affirm or correct a diagnosis guess; just banter).";
+    answerLine = isPersonalPost
+      ? "THERE IS NO CASE ON THIS POST. Do not look for a diagnosis and do not treat anything as a guess."
+      : "CORRECT ANSWER: unknown (you do NOT know it — never affirm or correct a diagnosis guess; just banter).";
   }
+  // A personal / ask-the-audience post has no X-ray and no diagnosis, so the whole case framing
+  // has to come off. Without this the model is told "CORRECT ANSWER: unknown ... just banter",
+  // which is exactly wrong under a post where people are telling you something real. Sent as a
+  // per-call note rather than added to voice.ts so it costs nothing on the case posts.
+  const personalPostNote = isPersonalPost
+    ? "THIS POST IS NOT A CASE. There is no X-ray and no diagnosis here. It is the periodic personal post where the account owner writes about their own life and asks the audience what to cover next. Everything about guessing is OFF: no comment here is a diagnosis guess, so never affirm, never nudge, never correct, and never say anything about a reveal.\n" +
+      "The comments will be four things. Handle each in its own register:\n" +
+      "- A CASE REQUEST (they name a condition, an injury, a body part or a story they want covered). This is the point of the post, so treat it as the gift it is. Name the SPECIFIC thing they asked for back to them and say something real about why it is a good shout or what makes it hard to film. You MAY show real appetite for it (\"that one I actually want to do\", \"that films beautifully\"). What you must NOT do is commit: no \"I will\", no \"I'll cover that\", no dates, no \"next week\", no promises. Somebody who waited eleven years for a diagnosis should not be handed another thing to wait for. And never end on a bare acknowledgement like 'added to the list' or 'noted' — that sentence is stripped before posting anyway, so make the whole reply carry something.\n" +
+      "- THEIR OWN STORY (an illness, an injury, being dismissed by doctors, a recovery). Brief warm empathy and nothing else. No advice, no diagnosis, no risk talk, no product. Match how heavy it is: someone describing years of being disbelieved does not get a joke, and gets no emoji beyond a single warmth one.\n" +
+      "- KINDNESS about the account or the post. A short genuine thank you is right here. This is your own work so you may accept the credit. Keep it small and human, never a speech.\n" +
+      "- LIGHT BANTER. Still fine, still top it, but the post set a quieter tone so read the room before reaching for a big joke.\n" +
+      "Skip empty noise as always. NEVER mention or link a product anywhere under this post: people opened up here and a plug is the one thing that would cheapen it."
+    : "";
+
   const threadNote = inAnswerThread
     ? "NOTE: this comment is a reply under your pinned Answer post, where the diagnosis is already public. Answer follow-up questions about the case directly (prognosis, mechanism, what to read next) and react to reactions. No need to stay coy about the diagnosis here."
     : "";
@@ -278,6 +299,7 @@ export async function classifyAndDraft(input: ClassifyInput): Promise<Decision> 
   const stableText = [`POST:\n${postText || "(unknown)"}`, factsBlock].filter(Boolean).join("\n\n");
   const varText = [
     answerLine,
+    personalPostNote,
     prePublicNote,
     threadNote,
     followUpNote,
@@ -448,7 +470,7 @@ const RETIRED_LINES = /^(radiologically confirmed|radiology confirms|literally|c
 // something safe, and every one of them would fit under a completely different comment.
 // Matched against ONE sentence at a time (punctuation already stripped) — see sanitize().
 const FILLER_SENTENCE =
-  /^(?:and\s+|but\s+|ok(?:ay)?\s+|honestly\s+|genuinely\s+)*(?:honestly\s+)?(?:fair|fair enough|valid|that(?:'s| is) fair|that(?:'s| is) valid|no notes|big mood|same energy|this is the correct reaction|the correct reaction|(?:that is )?exactly how it feels|felt that|i felt that)$/i;
+  /^(?:and\s+|but\s+|ok(?:ay)?\s+|honestly\s+|genuinely\s+)*(?:honestly\s+)?(?:fair|fair enough|valid|that(?:'s| is) fair|that(?:'s| is) valid|no notes|big mood|same energy|this is the correct reaction|the correct reaction|(?:that is )?exactly how it feels|felt that|i felt that|(?:it(?:'s| is) )?(?:been )?added to (?:the |my )?(?:list|pile|queue|shortlist)|adding (?:it |that )?to (?:the |my )?(?:list|pile|queue|shortlist)|(?:it(?:'s| is) )?on (?:the |my )?(?:list|pile|queue|shortlist)|noted|duly noted)$/i;
 
 // Phrases that read as medical advice. If any slip into a draft, we force a skip.
 const ADVICE_PATTERN =

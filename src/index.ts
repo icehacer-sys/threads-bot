@@ -679,6 +679,11 @@ async function runLiveOrDry(mode: Mode, target: string | null): Promise<void> {
     // only allow it to REVEAL once the answer is publicly posted. Facts stay private until
     // then. Pre-public, the model nudges wrong guesses and warmly acknowledges correct ones
     // without ever naming the diagnosis (see voice.ts + the spoiler backstop in reply.ts).
+    // A case post always carries an X-ray and has an answer (from the xray-cases bridge or
+    // answers.json). No image AND no answer means this is the periodic personal / ask-the-
+    // audience post, where the whole guessing frame has to come off — see personalPostNote.
+    const isPersonalPost = postImages.length === 0 && !resolved.answer;
+    if (isPersonalPost) console.log("  (no X-ray and no answer -> treating this as a PERSONAL post: no guessing, no promo)");
     const knownAnswer = resolved.answer;
     const revealFacts = answerPublic ? resolved.facts : undefined;
 
@@ -792,6 +797,7 @@ async function runLiveOrDry(mode: Mode, target: string | null): Promise<void> {
         inAnswerThread: inAnswerThreadIds.has(c.id),
         priorExchange: followUpContext.get(c.id),
         answerPublic,
+        isPersonalPost,
       };
       // Two-tier: the cheap triage model drafts every comment; only accuracy-critical
       // categories (corrections / teaching) are re-drafted by the pricier quality model.
@@ -924,7 +930,9 @@ async function runLiveOrDry(mode: Mode, target: string | null): Promise<void> {
       // never model-written) is appended ONLY when the commenter explicitly asked for it
       // (promo_explicit) AND the link caps allow (1/post, 2/day) — this keeps external-link frequency
       // low, the main spam/reach signal. Softer openings just name the product, no link. Never with a GIF.
-      const product = config.promoReplies && d.promo_product ? getProduct(d.promo_product) : null;
+      // Hard block on the personal post: people share real things there and a plug next to a
+      // story about being disbelieved by doctors is exactly the brand risk the caps exist for.
+      const product = config.promoReplies && d.promo_product && !isPersonalPost ? getProduct(d.promo_product) : null;
       const attachLink =
         product &&
         d.promo_explicit &&
