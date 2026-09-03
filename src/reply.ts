@@ -167,6 +167,10 @@ export interface ClassifyInput {
   images?: InlineImage[];
   /** Replies already posted on this post, so the model avoids reusing shapes. */
   recentReplies?: string[];
+  /** How many FULL explanations (long teaching/correcting replies) are already on this post.
+   *  Once the mechanism has been laid out, every later correct guesser re-reading the thread
+   *  sees the same lesson reworded — the "assembly line" tell. Drives explainedNote below. */
+  priorExplanations?: number;
   /** Image(s) the commenter attached, or a still frame extracted from their GIF/video. */
   commentImages?: InlineImage[];
   /** What the comment's media is: a real image, a frame from a GIF/video, or an unreadable GIF/video. */
@@ -208,7 +212,7 @@ export function isNonEnglishScript(text: string | undefined): boolean {
 }
 
 export async function classifyAndDraft(input: ClassifyInput): Promise<Decision> {
-  const { postText, commentText, answer, facts, images, recentReplies, commentImages, commentMediaKind, inAnswerThread, priorExchange, modelOverride, answerPublic, allowSearch, isPersonalPost } = input;
+  const { postText, commentText, answer, facts, images, recentReplies, commentImages, commentMediaKind, inAnswerThread, priorExchange, modelOverride, answerPublic, allowSearch, isPersonalPost, priorExplanations } = input;
 
   // ENGLISH-ONLY: skip non-Latin-script comments (Arabic, CJK, Cyrillic, ...) before any
   // model call. Latin-script foreign languages are handled by the voice rule.
@@ -229,6 +233,15 @@ export async function classifyAndDraft(input: ClassifyInput): Promise<Decision> 
     recentReplies && recentReplies.length
       ? `ALREADY POSTED on this post (do NOT reuse these openings, sentence shapes, jokes, or punchlines — write something clearly different):\n- ${recentReplies.slice(-config.antiRepeatWindow).join("\n- ")}`
       : "";
+  // The generic ALREADY POSTED list demonstrably does NOT stop the mechanism being re-explained:
+  // on the 2026-09-03 pectus post four replies named the diagnosis and two spelled out the same
+  // "sternum caves in and shoves the heart left" lesson in different words. A reader scrolling
+  // the thread sees the same paragraph twice. So the count is stated as its own hard instruction.
+  const explainedNote =
+    priorExplanations && priorExplanations > 0
+      ? `ALREADY EXPLAINED: you have already given ${priorExplanations} full explanation(s) of this case on this post. Do NOT explain the mechanism again in any wording. This reply gets the short treatment: acknowledge them, then either add ONE specific detail nobody has been given yet or say nothing more. Two lines maximum. If you have nothing new to add, a clean acknowledgement on its own is the right answer — repeating the lesson in fresh words is the exact assembly-line tell you are trying to avoid.`
+      : "";
+
   const mediaNote =
     commentMediaKind === "video"
       ? "NOTE: the commenter sent a GIF/video you cannot see. React to their words and the playful gesture of sending one."
@@ -310,6 +323,7 @@ export async function classifyAndDraft(input: ClassifyInput): Promise<Decision> 
     threadNote,
     followUpNote,
     recentBlock,
+    explainedNote,
     mediaNote,
     `COMMENT:\n${commentText || "(no text — just the attached image)"}`,
   ]
@@ -524,7 +538,7 @@ const PREAMBLE =
 
 // Keep teaching/correcting replies tight: the first `n` sentences, under maxChars,
 // always ending on a complete sentence (never a mid-word "…" cut).
-function firstSentences(s: string, n: number, maxChars = 240): string {
+export function firstSentences(s: string, n: number, maxChars = 240): string {
   const parts = s.match(/[^.!?]+[.!?]+(?:\s|$)/g);
   // FALLBACK: no terminal punctuation -> returning `s` unchanged would bypass the cap.
   // Treat clause connectors (and/but/so/then/because/...) as soft sentence breaks so the

@@ -14,7 +14,7 @@ import { dirname, join } from "node:path";
 
 const execFileAsync = promisify(execFile);
 import { config } from "./config";
-import { classifyAndDraft, isBotQuestion, type Decision, type InlineImage, type ImageMediaType } from "./reply";
+import { classifyAndDraft, isBotQuestion, firstSentences, type Decision, type InlineImage, type ImageMediaType } from "./reply";
 import { pickGif } from "./gifs";
 import { drainSpend, usd } from "./spend";
 import { getProduct } from "./products";
@@ -803,6 +803,10 @@ async function runLiveOrDry(mode: Mode, target: string | null): Promise<void> {
         facts: revealFacts,
         images: postImages,
         recentReplies: [...recentOwnerReplies, ...postedThisRun],
+        // A "full explanation" is a long reply — the ones that lay out the mechanism. Counting
+        // them lets reply.ts tell the model plainly that the lesson is already on the post, which
+        // the generic ALREADY POSTED list was not achieving.
+        priorExplanations: [...allOwnerReplies, ...postedThisRun].filter((r) => r.length >= 140).length,
         commentImages,
         commentMediaKind,
         inAnswerThread: inAnswerThreadIds.has(c.id),
@@ -929,6 +933,22 @@ async function runLiveOrDry(mode: Mode, target: string | null): Promise<void> {
       // Bare-stamp dedup checks the WHOLE post's replies (not just the anti-repeat window) so the
       // same check-mark never repeats even on a 100+ reply night (the "That's the one ✅ ×3" case);
       // the 🤣 throttle stays on the recent window since it is a recency-spacing thing.
+      // Length backstop for the re-explaining tell. Once TWO full explanations are on the post,
+      // any further long reply is trimmed to its first two sentences: the prompt asks for this
+      // and mostly complies, but the 2026-09-03 pectus post shows it still slips. firstSentences
+      // cuts on a sentence boundary so a trimmed reply never ends mid-thought.
+      const explained = [...allOwnerReplies, ...postedThisRun].filter((r) => r.length >= 140).length;
+      if (explained >= 2 && d.reply_text.length > 200) {
+        const trimmed = firstSentences(d.reply_text, 2, 240);
+        // NEVER let the backstop make the reply worse. Trimming "Close enough. Pectus excavatum
+        // is the proper name but..." down to a bare "Close enough." is a worse reply than the
+        // repetition it was trying to prevent, so a trim that leaves a stub is discarded and the
+        // prompt-side ALREADY EXPLAINED note is left to do the work on its own.
+        if (trimmed.length >= 80 && trimmed.length < d.reply_text.length) {
+          console.log(`        (${explained} explanations already on this post — trimming ${d.reply_text.length}->${trimmed.length} chars)`);
+          d = { ...d, reply_text: trimmed };
+        }
+      }
       d = { ...d, reply_text: dedupeStamp(throttleLaugh(stripTics(d.reply_text), recent), [...allOwnerReplies, ...postedThisRun]) };
 
       // EXACT-DUPLICATE BACKSTOP. The ALREADY POSTED prompt block is advisory and leaks: across
