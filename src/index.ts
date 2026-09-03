@@ -250,7 +250,10 @@ function throttleLaugh(text: string, recent: string[]): string {
 // AND that exact phrasing already appeared in the recent replies, rotate it to an unused one so the
 // same stamp never repeats on a post. A confirmation that ADDED a specific detail is left untouched
 // (it is not a bare stamp, so it never matches). voice.ts still pushes for crowning their phrasing.
-const STAMP_RE = /^(spot on|you nailed it|nailed it|that'?s the one|exactly( right)?|100%( correct)?|textbook( perfect)?|dead on|called it|you got it|bang on|yep,? that'?s it|you are correct|correct)\s*[\p{Extended_Pictographic}\p{Emoji_Modifier}️]*$/iu;
+// "that's it" added 2026-09-03: the model produces it as a stamp but it was not in this set, so
+// the duplicate backstop would DROP a repeat instead of letting dedupeStamp rotate it — which
+// means silence for a correct guesser. Any stamp wording the model actually uses belongs here.
+const STAMP_RE = /^(spot on|you nailed it|nailed it|that'?s the one|that'?s it|exactly( right)?|100%( correct)?|textbook( perfect)?|dead on|called it|you got it|bang on|yep,? that'?s it|you are correct|correct)\s*[\p{Extended_Pictographic}\p{Emoji_Modifier}️]*$/iu;
 const STAMP_ROTATION = ["Spot on ✅", "Nailed it ✅", "You got it ✅", "Dead on ✅", "Called it ✅", "That's the one ✅", "Exactly ✅", "Bang on ✅", "Textbook ✅", "100% ✅", "Yep that's it ✅"];
 const stampKey = (s: string): string => s.toLowerCase().replace(/[^\p{L}\p{N}]/gu, "");
 function dedupeStamp(text: string, recent: string[]): string {
@@ -927,6 +930,22 @@ async function runLiveOrDry(mode: Mode, target: string | null): Promise<void> {
       // same check-mark never repeats even on a 100+ reply night (the "That's the one ✅ ×3" case);
       // the 🤣 throttle stays on the recent window since it is a recency-spacing thing.
       d = { ...d, reply_text: dedupeStamp(throttleLaugh(stripTics(d.reply_text), recent), [...allOwnerReplies, ...postedThisRun]) };
+
+      // EXACT-DUPLICATE BACKSTOP. The ALREADY POSTED prompt block is advisory and leaks: across
+      // 2026-08-31..09-02 the bot posted four verbatim repeats on the SAME post — a 118-char
+      // goiter/face-hugger joke twice 32 minutes apart, a "most medically sound triage plan"
+      // line twice, and a heavy arachnoiditis empathy line recycled onto an unrelated comment.
+      // Saying the identical sentence twice is the single clearest "a machine wrote this" signal
+      // in the whole feed, so a repeat is dropped instead of posted.
+      // BARE stamps are exempt: dedupeStamp already rotates those, and on a post where many
+      // people guess right, a second "Spot on ✅" beats ignoring a correct guesser.
+      const normReply = (s: string) => s.toLowerCase().replace(/[^\p{L}\p{N} ]/gu, "").replace(/\s+/g, " ").trim();
+      if (!STAMP_RE.test(d.reply_text.trim()) && [...allOwnerReplies, ...postedThisRun].some((r) => normReply(r) === normReply(d.reply_text))) {
+        console.log(`        (word-for-word repeat of a reply already on this post — dropped)`);
+        if (posting) state.recordSoftSkip(c.id, 2);
+        continue;
+      }
+
       postedThisRun.push(d.reply_text);
       // Curated GIF gate: banter-only (sanitize already enforced that), never on a bot-question or a
       // follow-up thread, probability + hard per-post/per-day caps. A reaction GIF is not a spoiler,
