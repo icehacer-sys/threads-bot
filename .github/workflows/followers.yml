@@ -1,0 +1,61 @@
+name: follower-snapshot
+
+# Builds the daily follower series that Threads' API does not provide.
+#
+# The Insights panel shows Follows/Unfollows as charts only, and the API exposes no follows
+# metric — just `followers_count` as a bare snapshot. Snapshotting it once a day turns that into
+# a series whose deltas are net follower change, which is the measurement arm of the FOLLOW-CTA
+# experiment (see data/audit-2026-09-04-findings.md).
+#
+# 18:00 UTC is exactly one hour before the 19:00 UTC challenge post, so the delta between two
+# snapshots brackets one post's entire response window instead of splitting it across a midnight
+# boundary. Both are fixed in UTC, so the gap survives the late-October Cairo DST shift.
+#
+# Read-only against the API. Commits data/followers-log.json.
+#
+# Required repository secret: THREADS_ACCESS_TOKEN
+
+on:
+  schedule:
+    - cron: "0 18 * * *" # daily, 1h before the challenge posts
+  workflow_dispatch:
+
+concurrency:
+  group: follower-snapshot
+  cancel-in-progress: false
+
+permissions:
+  contents: write
+
+jobs:
+  snapshot:
+    runs-on: ubuntu-latest
+    env:
+      THREADS_ACCESS_TOKEN: ${{ secrets.THREADS_ACCESS_TOKEN }}
+      THREADS_USER_ID: me
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: "npm"
+      - name: Install dependencies
+        run: npm ci
+      - name: Snapshot followers
+        run: npx tsx src/followersnapshot.ts
+      - name: Commit the snapshot
+        run: |
+          if [ -n "$(git status --porcelain data/followers-log.json)" ]; then
+            git config user.name "threads-bot"
+            git config user.email "github-actions[bot]@users.noreply.github.com"
+            git add data/followers-log.json
+            git commit -m "chore: follower snapshot [skip ci]"
+            # The reply bot pushes state.json from its perpetual chain constantly, so a plain
+            # push races it. Rebase and retry, the same way reply.yml's sync_repo does.
+            for attempt in 1 2 3; do
+              git pull --rebase --autostash origin "${GITHUB_REF_NAME}" || { git rebase --abort 2>/dev/null || true; sleep 3; continue; }
+              git push && break || { echo "push failed ($attempt/3)"; sleep 3; }
+            done
+          else
+            echo "no change this run"
+          fi
