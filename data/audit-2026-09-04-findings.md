@@ -88,7 +88,40 @@ Aug's ~245. If that holds when you read the chart precisely, reach is *necessary
 sufficient*, and 23 Aug had something extra worth copying. My chart-date reading is eyeballed off
 a 30-day sparkline and must be confirmed before anything is built on it.
 
-### 8. The hook pattern that separates over- from under-performers.
+### 8. CORRECTED 2026-09-05 — the "specificity" pattern does not survive testing.
+
+**What this section originally claimed is wrong.** It read the pattern off the top and bottom
+performers, which is the exact error the audit exists to prevent. Tested against the real
+`case.json` `symptom`/`hook` fields (n=75 joined posts), scored as ratio-to-quintile-median:
+
+| operationalisation | result |
+|---|---|
+| symptom length vs performance | Spearman rho **−0.104** |
+| hook length vs performance | Spearman rho **−0.056** |
+| median split, short vs long symptom | 1.01 vs 0.99 — **no difference** |
+
+And the direction does not hold at the extremes either: **"hip pain" is the single best
+over-performer at 3.2x**, while "a newborn with fists that would not open and soles that curved
+outward" is among the worst. Vagueness does not predict anything.
+
+**What does survive, weakly.** Posts whose setup states an explicit *contradiction* — matched on
+`yet / nowhere / strangely / painless / did not / would not / despite` — do better:
+
+- contradiction present: n=11, median ratio **1.23**
+- absent: n=64, median ratio **0.99**
+- AUC 0.631, **permutation p = 0.084** (one-sided, 20,000 shuffles)
+
+Suggestive, underpowered, not significant. That is a reasonable thing to test prospectively and an
+unreasonable thing to act on as fact.
+
+**Design problem worth knowing before building it:** a contradiction is a *property of the case*,
+not a freely assignable treatment. You cannot add "the bullet was nowhere near the entry point" to
+a case where that is not the finding without lying about the medicine. Selecting contradiction-rich
+cases onto B nights confounds the arm with the diagnosis. The only honest randomisable version is
+**foreground vs plain wording of a tension the case genuinely contains** — same facts, different
+emphasis, assignable to every case.
+
+### 8b. Original (uncorrected) observation, kept for the record.
 
 Same reach tier, opposite outcomes:
 
