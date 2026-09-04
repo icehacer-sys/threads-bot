@@ -204,25 +204,41 @@ across the whole history, confirming it. **Watch item:** if a breakdown is hand-
 **No arm logging needed** — the answer's own offset from the post (+21 vs +90) is measurable from
 the API, so the data self-labels. The audit's "Answer mechanisms" table reads it directly.
 
-### 2. Hook specificity — the mechanism behind rho = −0.95
+### 2. Hook framing — BUILT BUT DORMANT until ~2026-10-03
 
-**Hypothesis:** hooks built on a concrete spatial contradiction hold their engagement rate at high
-reach; vague-chronic-symptom hooks buy cold reach that never converts.
+**The original hypothesis here was wrong.** See the correction in finding 8: specificity-as-length
+shows nothing (rho −0.10), and "hip pain" is the best over-performer in the whole dataset.
 
-**Metric:** interactions per 1k views, compared **within reach quintile** so the comparison is not
-just re-measuring reach. Win = B arm beats its quintile median by >1.5x consistently.
+**Surviving hypothesis:** foregrounding how *ordinary* the presentation was beats the plain wording.
+Observational support is weak on purpose — AUC 0.631, permutation p = 0.084, n=11 vs 64.
 
-**Design:** 14 nights per arm, alternating. A = current caption generation. B = constrained to a
-visible spatial contradiction, modelled on 6 Aug.
+**Metric:** interactions per 1k views, compared **within reach quintile**. Win = B beats A by >1.2x
+on the within-quintile median, analysed **intent-to-treat**.
 
-**Change:** caption generation in `xray-poster` (`src/captions.ts`). House style applies to any new
-hook copy — no commas outside genuine lists.
+**Why it is not randomisable the obvious way:** a contradiction is a property of the case, not an
+assignable treatment. The variable is foreground-vs-plain *wording* of a tension the case genuinely
+contains — same medicine, different emphasis.
 
-Reference shapes that worked (all published, all in-voice):
+**Status:** `draftForegroundedCaption()` in `xray-poster/src/captions.ts` drafts the variant into
+every `case.json` at generation time, so there is **no lead time** — uncommenting the four-line
+parity block in `publish.yml` starts it that night. Parity is `(doy / 4) % 2`, a third orthogonal
+slot giving a balanced 2×2×2 on an 8-night cycle.
 
-> A patient came in with a gunshot wound to the thigh yet the bullet was nowhere near the entry point.
+**Deliberately off until the answer-delay experiment ends (~2026-10-03).** Running it now would vary
+three things in one caption and cut cells to ~3.5 nights, leaving any interaction unreadable.
 
-> A patient came in with a baby with a slowly growing belly mass since birth.
+**Three guards, because the first draft failed:**
+
+- **Reveal leak.** The first prompt produced *"a hearing device and nothing more - yet something was
+  coiling deep inside the inner ear like a watch spring"* — the X-ray finding moved into the line
+  that runs *before* "Then the X-ray loaded", destroying the guess. Any word the hook uses that the
+  symptom does not is now rejected outright.
+- **No-op variant.** Case 00142 echoed the symptom back unchanged, which would have posted a B night
+  identical to A and counted as treated. Now returns `""`.
+- Diagnosis-name, comma, and length checks, all falling back to the plain caption.
+
+`""` means drafted but the case had no ordinary presentation to lean on — a valid outcome, hit on
+**2 of 7** queued cases. That non-compliance rate is why the analysis must be intent-to-treat.
 
 ### 3. Follow CTA — the north-star metric, never once tested
 
