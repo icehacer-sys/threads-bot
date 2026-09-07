@@ -2,6 +2,7 @@
 
 _What the Fable 5 self-audit changed each run, newest first._
 
+- **2026-09-07** (150 replies, 31 landed, last 7 days): Dropped the stale "Except X 😭" and rickets-script notes (not present in this batch) and added the now-dominant "You nailed it" lead-in overuse, the bare-✅ flatline, and 😭 replacing 🤣 as the default joke-closer.
 - **2026-08-31** (150 replies, 47 landed, last 7 days): Added a strong new lesson on the verbatim-reused rickets/osteomalacia correction script and the "Except [X] 😭" opener overuse (both new this batch), dropped the stale "final form" and generic glitter/gas-bacteria duplicate-line notes that no longer appear in the data.
 - **2026-08-17** (150 replies, 37 landed, last 3 days): Added fresh lessons on verbatim-repeated lines within the same post, the recycled TB-pattern description, the emerging "[Thing]'s final form" tic, and 😭 overuse replacing 🤣; dropped the stale "Half right"/"Close enough" and bare "look again" notes since they didn't recur in this batch.
 - **2026-08-03** (150 replies, 38 landed, last 3 days): Added a new lesson on the "[stamp] ✅ and you nailed X too" formula becoming copy-paste, flagged "Half right" and "Close enough" as fresh repeated tics, sharpened the reveal-stall/brutal notes out since they weren't recurring, and kept but tightened the couplet, superlative, and personifying-frame retirements with fresh evidence.
