@@ -37,9 +37,12 @@ concurrency:
   cancel-in-progress: false
 
 # contents: commit state.json back. actions: hand off to a fresh run near the 6h job limit.
+# issues: open the "credit exhausted" alarm from the pre-flight check (a failing job only emails;
+# an issue actually lands in notifications and can be closed once the balance is topped up).
 permissions:
   contents: write
   actions: write
+  issues: write
 
 jobs:
   reply:
@@ -123,6 +126,11 @@ jobs:
           GH_TOKEN: ${{ github.token }}
           MAXSECS: "19800" # ~5.5h per run, then it launches the next (under the 6h job limit)
           FATAL_COOLDOWN: "1800" # on a billing/auth failure: wait 30 min before the queued retry runs, so an outage retries twice an hour instead of spinning
+          # How far BEFORE the window opens the credit check runs. 5 min is the balance between
+          # "enough warning to top up" and "recent enough that the answer still holds at 22:00".
+          # Raising it much past ~15 min just widens the gap in which the balance can die after a
+          # PASS; the live path's own fatal detection covers that case either way.
+          PREFLIGHT_LEAD: "300"
         run: |
           # Push local commits, retrying rebase+push. Runs every loop (not only when the tree is
           # freshly dirty) so a push that failed on a previous loop is genuinely retried instead of
@@ -208,6 +216,9 @@ jobs:
             # with no reply latency anyone awake would notice.
             ch=$(TZ='Africa/Cairo' date +%-H)
             cm=$(TZ='Africa/Cairo' date +%-M)
+            # Re-armed only by the out-of-window branch below, and only on the nap that lands just
+            # before the open. Reset every iteration so a stale 1 can never fire a second check.
+            preflight_due=0
             if [ "$ch" -ge 22 ] || [ "$ch" -lt 2 ]; then
               nap=900    # 22:00-02:00 Cairo — the post just went up, comments arrive fastest
             elif [ "$ch" -lt 5 ]; then
@@ -224,12 +235,64 @@ jobs:
               # before any API call), so idle at an hour — but NEVER sleep past the 22:00 open,
               # or the run skips straight over the busiest stretch of the night. Capped at 1h so
               # the loop still reaches its MAXSECS hand-off well inside the 6h job limit.
-              nap=$(( (22 - ch) * 3600 - cm * 60 + 20 ))
+              #
+              # The LAST nap of the day deliberately lands PREFLIGHT_LEAD seconds SHORT of the
+              # open (not 20s past it) so the credit check below runs while there is still time
+              # to act on it. Landing after the open would make the alarm useless: the post is
+              # already up and collecting comments by then.
+              nap=$(( (BOT_ACTIVE_START - ch) * 3600 - cm * 60 - PREFLIGHT_LEAD ))
+              # Only the nap that actually lands on the pre-open mark arms the check. A nap capped
+              # at an hour is mid-afternoon and says nothing about the balance at 22:00; a nap
+              # clamped up to the 60s floor means we are already inside the lead and have checked.
+              if [ "$nap" -gt 0 ] && [ "$nap" -le 3600 ]; then preflight_due=1; fi
               if [ "$nap" -gt 3600 ]; then nap=3600; fi
               if [ "$nap" -lt 60 ]; then nap=60; fi
             fi
             echo "sleeping ${nap}s (Cairo ${ch}:00)"
             sleep "$nap"
+
+            # --- pre-window credit check -------------------------------------------------------
+            # Added 2026-09-09. On 2026-09-08 the balance hit zero at 23:12 Cairo, 70 minutes into
+            # the window: 105 comments went unanswered across 9.5h and 14 dead runs, and the only
+            # alarm was a failing-job email that arrived in the middle of the night. The recovery
+            # machinery all worked — what was missing was warning EARLY enough to top up before the
+            # post went out. One ~$0.00002 call a few minutes before the open buys that.
+            if [ "$preflight_due" = "1" ]; then
+              lead_min=$((PREFLIGHT_LEAD / 60))
+              echo "::group::pre-flight credit check (window opens in ~${lead_min} min)"
+              # The `if` form, not `npm run preflight; pf=$?` — the step runs under `bash -e`, so a
+              # bare non-zero exit would abort the whole run before the alarm below could fire.
+              if npm run preflight; then pf=0; else pf=$?; fi
+              echo "::endgroup::"
+              if [ "$pf" -eq 3 ]; then
+                echo "::error::PRE-FLIGHT FAILED — the Anthropic key cannot spend and the window opens in ~${lead_min} minutes. Top up the credit balance now, or tonight's post goes unanswered like 2026-09-08."
+                # A ::error:: annotation alone does not email; a failing job does, and an issue
+                # actually lands in the owner's notifications. Do both, but dedupe on title so a
+                # multi-night outage does not open one issue per run.
+                if [ -z "$(gh issue list --state open --search 'in:title Anthropic credit exhausted' --json number -q '.[0].number')" ]; then
+                  # printf builds the body so every SOURCE line here stays indented (a bare
+                  # continuation line at column 0 would terminate this `run: |` block scalar and
+                  # break the whole workflow) while the ISSUE text comes out unindented — four
+                  # leading spaces would render the body as a markdown code block.
+                  gh issue create \
+                    --title "Anthropic credit exhausted — tonight's window will go unanswered" \
+                    --body "$(printf '%s\n' \
+                      "The pre-flight credit check failed ~${lead_min} minutes before the ${BOT_ACTIVE_START}:00 Cairo window opens. The API key cannot spend, so the bot will not reply to tonight's post until the balance is topped up." \
+                      "" \
+                      "Run: ${GITHUB_SERVER_URL}/${GITHUB_REPOSITORY}/actions/runs/${GITHUB_RUN_ID}" \
+                      "" \
+                      "The chain stays alive and recovers on its own once credit is back — no restart needed. Close this issue once topped up.")" \
+                    || echo "issue create failed (continuing; the job failure below still emails)"
+                fi
+                # Hand off BEFORE failing, same as the fatal path below: until 2026-08-28 exiting
+                # here killed the perpetual chain and the throttled */30 cron did not revive it for
+                # 4.5h. The successor keeps polling into the window, so a top-up mid-night is picked
+                # up automatically. No cooldown — the whole point is to be live at the open.
+                gh workflow run reply.yml -f mode=live || echo "pre-flight hand-off dispatch failed"
+                exit 1
+              fi
+              preflight_due=0
+            fi
           done
           # Before handing off to a FRESH checkout, make a best effort to land this run's state on
           # origin. The next run clones origin; any un-pushed reply commit would be re-classified and
