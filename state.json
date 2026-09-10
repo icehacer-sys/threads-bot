@@ -499,6 +499,15 @@
       },
       "publishedId": "18166057957465317",
       "confirmedPublished": true
+    },
+    "comment:18110796533117963": {
+      "creationId": "17888760123614054",
+      "createdAt": "2026-09-10T21:43:21.480Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "A cap would've been invisible on X-ray, this metal disc is too crisp and bright for plastic. The coin showed up because it's dense. Kid really went for the shiniest snack option.",
+        "reply_to_id": "18110796533117963"
+      }
     }
   },
   "repliedCommentIds": [
@@ -8516,7 +8525,8 @@
     "17987174195868500",
     "17882297514506379",
     "18130592152680575",
-    "18088709009203077"
+    "18088709009203077",
+    "17922604416200888"
   ],
   "answeredPostIds": [
     "18395606890093068"
@@ -8621,11 +8631,11 @@
     "18123015703890508": 82,
     "18085399412691930": 133,
     "17900166078657433": 109,
-    "18103023326210157": 44
+    "18103023326210157": 45
   },
   "daily": {
     "date": "2026-09-10",
-    "count": 44
+    "count": 45
   },
   "pinnedResolved": {
     "DaTTCIwoAw7": "18014812820883466"
@@ -9413,6 +9423,6 @@
   },
   "spend": {
     "date": "2026-09-10",
-    "usd": 0.6343497999999995
+    "usd": 0.6374315999999995
   }
 }
