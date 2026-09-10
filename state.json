@@ -22,6 +22,15 @@
       },
       "publishedId": "18627257869004447",
       "confirmedPublished": true
+    },
+    "comment:18389155444165489": {
+      "creationId": "17888753925614054",
+      "createdAt": "2026-09-10T20:09:43.860Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Slick in theory. Definitely not in practice when it's lodged in your neck.",
+        "reply_to_id": "18389155444165489"
+      }
     }
   },
   "repliedCommentIds": [
@@ -8882,6 +8891,6 @@
   },
   "spend": {
     "date": "2026-09-10",
-    "usd": 0.0619158
+    "usd": 0.06808850000000001
   }
 }
