@@ -1,4 +1,16 @@
 {
+  "ownerReviews": {},
+  "publications": {
+    "comment:18366808555245367": {
+      "creationId": "17888751582614054",
+      "createdAt": "2026-09-10T19:46:41.871Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "That's a slick one",
+        "reply_to_id": "18366808555245367"
+      }
+    }
+  },
   "repliedCommentIds": [
     "18130831093594636",
     "17930778492290785",
@@ -8077,8 +8089,8 @@
     "17900166078657433": 109
   },
   "daily": {
-    "date": "2026-09-09",
-    "count": 109
+    "date": "2026-09-10",
+    "count": 0
   },
   "pinnedResolved": {
     "DaTTCIwoAw7": "18014812820883466"
@@ -8838,7 +8850,7 @@
     "17865730374636613": 1
   },
   "gifDaily": {
-    "date": "2026-09-09",
+    "date": "2026-09-10",
     "count": 0
   },
   "recentGifIds": [
@@ -8849,11 +8861,11 @@
   ],
   "promoPostCounts": {},
   "promoDaily": {
-    "date": "2026-09-09",
+    "date": "2026-09-10",
     "count": 0
   },
   "spend": {
-    "date": "2026-09-09",
-    "usd": 1.117989
+    "date": "2026-09-10",
+    "usd": 0.0215042
   }
 }
