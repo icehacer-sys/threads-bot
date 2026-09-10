@@ -190,6 +190,15 @@
       },
       "publishedId": "18230714107326290",
       "confirmedPublished": true
+    },
+    "comment:18140916916594600": {
+      "creationId": "17888757870614054",
+      "createdAt": "2026-09-10T21:14:59.850Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "This one turned out to be a coin. Still. Ruling out a button battery was urgent. Those burn tissue in hours so it's always the first fear to eliminate.",
+        "reply_to_id": "18140916916594600"
+      }
     }
   },
   "repliedCommentIds": [
@@ -8179,7 +8188,8 @@
     "18628360969013327",
     "18182214007420097",
     "18065177939685330",
-    "18094909400415952"
+    "18094909400415952",
+    "17951271735038054"
   ],
   "answeredPostIds": [
     "18395606890093068"
@@ -8284,11 +8294,11 @@
     "18123015703890508": 82,
     "18085399412691930": 133,
     "17900166078657433": 109,
-    "18103023326210157": 16
+    "18103023326210157": 17
   },
   "daily": {
     "date": "2026-09-10",
-    "count": 16
+    "count": 17
   },
   "pinnedResolved": {
     "DaTTCIwoAw7": "18014812820883466"
@@ -9069,6 +9079,6 @@
   },
   "spend": {
     "date": "2026-09-10",
-    "usd": 0.38433299999999976
+    "usd": 0.3948969999999997
   }
 }
