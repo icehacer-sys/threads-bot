@@ -620,6 +620,15 @@
       },
       "publishedId": "18342418228249994",
       "confirmedPublished": true
+    },
+    "comment:18469910428117724": {
+      "creationId": "17888767071614054",
+      "createdAt": "2026-09-10T23:34:18.616Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Kids really do come with a built-in stress warranty, don't they 😭",
+        "reply_to_id": "18469910428117724"
+      }
     }
   },
   "repliedCommentIds": [
@@ -9549,6 +9558,6 @@
   },
   "spend": {
     "date": "2026-09-10",
-    "usd": 0.7091571999999994
+    "usd": 0.7124049999999994
   }
 }
