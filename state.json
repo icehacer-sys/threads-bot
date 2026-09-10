@@ -609,6 +609,15 @@
       },
       "publishedId": "18166003747462823",
       "confirmedPublished": true
+    },
+    "comment:18108517217601071": {
+      "creationId": "17888764350614054",
+      "createdAt": "2026-09-10T22:48:35.992Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Coin, it turned out. And yeah, no version of this story makes momma happy.",
+        "reply_to_id": "18108517217601071"
+      }
     }
   },
   "repliedCommentIds": [
@@ -9537,6 +9546,6 @@
   },
   "spend": {
     "date": "2026-09-10",
-    "usd": 0.7062633999999994
+    "usd": 0.7091571999999994
   }
 }
