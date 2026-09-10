@@ -488,6 +488,15 @@
       },
       "publishedId": "18053711051578750",
       "confirmedPublished": true
+    },
+    "comment:17922604416200888": {
+      "creationId": "17888760111614054",
+      "createdAt": "2026-09-10T21:42:59.608Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "That skull cross-section hits different when you realize the whole construction site happening up there. This one turned out to be a coin, but the battery caution you flagged is always the first fear to rule out, those burn fast.",
+        "reply_to_id": "17922604416200888"
+      }
     }
   },
   "repliedCommentIds": [
@@ -8504,7 +8513,8 @@
     "18121075544294103",
     "17987174195868500",
     "17882297514506379",
-    "18130592152680575"
+    "18130592152680575",
+    "18088709009203077"
   ],
   "answeredPostIds": [
     "18395606890093068"
@@ -8609,11 +8619,11 @@
     "18123015703890508": 82,
     "18085399412691930": 133,
     "17900166078657433": 109,
-    "18103023326210157": 43
+    "18103023326210157": 44
   },
   "daily": {
     "date": "2026-09-10",
-    "count": 43
+    "count": 44
   },
   "pinnedResolved": {
     "DaTTCIwoAw7": "18014812820883466"
@@ -9401,6 +9411,6 @@
   },
   "spend": {
     "date": "2026-09-10",
-    "usd": 0.6309429999999995
+    "usd": 0.6343497999999995
   }
 }
