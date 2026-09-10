@@ -58,6 +58,15 @@
       },
       "publishedId": "18091079747181744",
       "confirmedPublished": true
+    },
+    "comment:18130635976672539": {
+      "creationId": "17888755173614054",
+      "createdAt": "2026-09-10T20:38:15.751Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Resistance was not futile. It was just ineffective.",
+        "reply_to_id": "18130635976672539"
+      }
     }
   },
   "repliedCommentIds": [
@@ -8923,6 +8932,6 @@
   },
   "spend": {
     "date": "2026-09-10",
-    "usd": 0.16191760000000005
+    "usd": 0.2181724
   }
 }
