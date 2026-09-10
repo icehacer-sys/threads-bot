@@ -290,6 +290,15 @@
       },
       "publishedId": "18029934359851347",
       "confirmedPublished": true
+    },
+    "comment:17956896645216584": {
+      "creationId": "17888758191614054",
+      "createdAt": "2026-09-10T21:20:33.986Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Coins are actually one of the lucky swallows. Most do make it through the whole trip without getting stuck. That's a relief it came out the other end without drama.",
+        "reply_to_id": "17956896645216584"
+      }
     }
   },
   "repliedCommentIds": [
@@ -8288,7 +8297,8 @@
     "17962084818197068",
     "17881900152512457",
     "17973918377931535",
-    "18065918375783985"
+    "18065918375783985",
+    "18162361048468075"
   ],
   "answeredPostIds": [
     "18395606890093068"
@@ -8393,11 +8403,11 @@
     "18123015703890508": 82,
     "18085399412691930": 133,
     "17900166078657433": 109,
-    "18103023326210157": 25
+    "18103023326210157": 26
   },
   "daily": {
     "date": "2026-09-10",
-    "count": 25
+    "count": 26
   },
   "pinnedResolved": {
     "DaTTCIwoAw7": "18014812820883466"
@@ -9179,6 +9189,6 @@
   },
   "spend": {
     "date": "2026-09-10",
-    "usd": 0.45784999999999965
+    "usd": 0.4607487999999996
   }
 }
