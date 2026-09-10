@@ -1,0 +1,71 @@
+import assert from 'node:assert/strict';
+import { mkdtempSync } from 'node:fs';
+import { tmpdir } from 'node:os';
+import { join } from 'node:path';
+process.env.GITHUB_ACTIONS = 'false';
+process.env.ANTHROPIC_API_KEY = 'offline-fixture';
+process.env.BOT_USAGE_LOG = 'off';
+let calls = 0;
+globalThis.fetch = async () => { throw new Error('Unexpected network call'); };
+const { ACKNOWLEDGMENTS, acknowledgmentKind, directConcern, holdForImageReview } = await import('../src/concerns');
+const { classifyAndDraft, sanitize } = await import('../src/reply');
+const { config } = await import('../src/config');
+const { State } = await import('../src/state');
+const { atomicJson } = await import('../src/persistence');
+const input = { postText: 'X-ray challenge', commentText: 'Why are there two left clavicles?', answerPublic: false };
+const image = await classifyAndDraft(input);
+assert.equal(image.reply_text, ACKNOWLEDGMENTS.image);
+assert.match(image.reason, /owner review/);
+assert.equal((await classifyAndDraft({ ...input, commentText: 'Is this AI?' })).decision, 'skip');
+assert.equal((await classifyAndDraft({ ...input, commentText: "Is this a real patient's scan?" })).decision, 'skip');
+assert.equal((await classifyAndDraft({ ...input, commentText: 'You idiot, why are there two left clavicles?' })).decision, 'skip');
+assert.equal((await classifyAndDraft({ ...input, commentText: 'Can I send you my MRI?' })).reply_text, ACKNOWLEDGMENTS.scan);
+assert.equal((await classifyAndDraft({ ...input, commentText: 'My baby is choking' })).reply_text, ACKNOWLEDGMENTS.urgent);
+assert.equal((await classifyAndDraft({ ...input, priorExchange: { commenter: input.commentText, bot: ACKNOWLEDGMENTS.image } })).decision, 'skip');
+assert.equal(directConcern('I had surgery years ago. That was scary.'), undefined);
+assert.equal(directConcern('My child has an extra finger. What should I do?'), undefined, 'personal anatomy concerns must reach personal-medical classification rather than holding the posted image');
+console.log('PASS anatomy acknowledgment, provenance/hostility skip, scan boundary, urgent boundary and no repeated exchange');
+for (const text of Object.values(ACKNOWLEDGMENTS)) {
+  const clean = sanitize({ decision: 'reply', category: 'personal_medical', reply_text: text, reason: 'approved acknowledgment', promo_product: 'fixture', promo_explicit: true, gif_tag: 'applause' }, { isPublic: false, terms: ['coin'] });
+  assert.equal(clean.reply_text, text);
+  assert.equal(clean.promo_product, undefined);
+  assert.equal(clean.gif_tag, undefined);
+}
+assert.equal(sanitize({ decision: 'reply', category: 'personal_medical', reply_text: 'You should take medication.', reason: 'unsafe' }).decision, 'skip');
+globalThis.fetch = async (url) => {
+  assert.match(String(url), /api\.anthropic\.com/); calls++;
+  return new Response(JSON.stringify({ id: 'fixture', type: 'message', role: 'assistant', model: config.triageModel, stop_reason: 'tool_use', stop_sequence: null,
+    usage: {input_tokens:1,output_tokens:1}, content:[{type:'tool_use',id:'tool-fixture',name:'submit_reply',input:{intent:'personal advice',decision:'reply',category:'personal_medical',reply_text:'You should take medication.',reason:'personal symptoms',needs_lookup:false,promo_product:'none',promo_explicit:false,...(config.gifReplies?{gif_tag:'none'}:{})}}] }), { headers: {'content-type':'application/json'} });
+};
+const medical = await classifyAndDraft({ ...input, commentText: 'My child is drooling. Should I get an X-ray?', modelOverride: config.triageModel });
+assert.equal(medical.reply_text, ACKNOWLEDGMENTS.personal);
+assert.equal(medical.promo_product, undefined);
+assert.equal(calls, 1);
+const followup = await classifyAndDraft({ ...input, commentText: 'But what medicine should I use?', priorExchange:{commenter:'My child is drooling',bot:ACKNOWLEDGMENTS.personal},modelOverride:config.triageModel });
+assert.equal(followup.decision,'skip');
+console.log('PASS unsafe model advice is replaced with approved copy; no promo, GIF or medical follow-up');
+for (const category of ['affirm','correct','teach','reference'] as const) {
+  const d = {decision:'reply' as const,category,reply_text:'A claim about this image',reason:'fixture'};
+  assert.equal(holdForImageReview(d,true).decision,'skip');
+  assert.equal(holdForImageReview(d,false).decision,'reply');
+}
+assert.equal(holdForImageReview({decision:'reply',category:'banter',reply_text:'A harmless joke',reason:'fixture'},true).decision,'reply');
+const dir=mkdtempSync(join(tmpdir(),'reply-concerns-'));
+config.stateFile=join(dir,'state.json');
+atomicJson(config.stateFile,{repliedCommentIds:[],answeredPostIds:[],postCounts:{},daily:{date:'2020-01-01',count:0}});
+const state=new State();
+state.queueOwnerReview('image-1','post','owner review: image/anatomy inconsistency',input.commentText,'reader');
+state.queueOwnerReview('image-2','post','owner review: image/anatomy inconsistency','A missing rib','another');
+assert.equal(new State().hasImageReview('post'),true);
+assert.equal(new State().pendingOwnerReviews()[0].commentText,input.commentText);
+state.resolveOwnerReview('image-1','Owner checked the finding');
+assert.equal(state.hasImageReview('post'),true,'all relevant concerns must be resolved');
+state.resolveOwnerReview('image-2','Owner corrected the image');
+state.queueOwnerReview('image-2','post','owner review: image/anatomy inconsistency');
+assert.equal(new State().hasImageReview('post'),false,'the same resolved comment must not reopen a hold');
+assert.equal(state.claimConcernAcknowledgment('post','reader','personal','comment-1'),true);
+assert.equal(new State().claimConcernAcknowledgment('post','READER','personal','comment-1'),true,'same comment may recover an interrupted publication');
+assert.equal(new State().claimConcernAcknowledgment('post','reader','personal','comment-2'),false,'another comment must not repeat the acknowledgment');
+assert.equal(new State().claimConcernAcknowledgment('post','another','personal','comment-3'),true);
+assert.equal(acknowledgmentKind(ACKNOWLEDGMENTS.personal),'personal');
+console.log('PASS persistent review details, selective holds, explicit resolution and restart-safe acknowledgment claims');

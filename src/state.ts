@@ -7,6 +7,7 @@ import { config } from "./config";
 import { atomicJson, checkpointState, PersistenceError, validPublications, type Publication, type PublicationStore } from "./persistence.js";
 
 interface StateShape {
+  concernAcknowledgments?: Record<string, string>;
   ownerReviews?: Record<string, string>;
   publications?: Record<string, Publication>;
   repliedCommentIds: string[];
@@ -42,6 +43,7 @@ function today(): string {
 
 export class State {
   private ownerReviews: Record<string, string>;
+  private concernAcknowledgments: Record<string, string>;
   private publications: Record<string, Publication>;
   private replied: Set<string>;
   private answered: Set<string>;
@@ -70,6 +72,7 @@ export class State {
       try {
         loaded = JSON.parse(readFileSync(this.file, "utf8")) as StateShape;
         const strings = (v: unknown) => Array.isArray(v) && v.every((s) => typeof s === "string");
+        if (loaded?.concernAcknowledgments !== undefined && (!loaded.concernAcknowledgments || typeof loaded.concernAcknowledgments !== 'object' || Array.isArray(loaded.concernAcknowledgments) || !Object.values(loaded.concernAcknowledgments).every(v => typeof v === 'string'))) throw new Error('invalid concern acknowledgments');
         if (loaded?.ownerReviews !== undefined && (!loaded.ownerReviews || typeof loaded.ownerReviews !== "object" || Array.isArray(loaded.ownerReviews) || !Object.values(loaded.ownerReviews).every(v => typeof v === "string"))) throw new Error("invalid owner review queue");
         const counts = (v: unknown) => !!v && typeof v === "object" && !Array.isArray(v) && Object.values(v).every((n) => Number.isInteger(n) && n >= 0);
         const daily = (v: any) => !!v && typeof v.date === "string" && Number.isFinite(Date.parse(v.date)) && Number.isInteger(v.count) && v.count >= 0;
@@ -94,6 +97,7 @@ export class State {
     }
     this.replied = new Set(loaded?.repliedCommentIds ?? []);
     this.ownerReviews = loaded?.ownerReviews ?? {};
+    this.concernAcknowledgments = loaded?.concernAcknowledgments ?? {};
     this.publications = loaded?.publications ?? {};
     this.answered = new Set(loaded?.answeredPostIds ?? []);
     this.postCounts = loaded?.postCounts ?? {};
@@ -200,9 +204,30 @@ export class State {
   hasReplied(commentId: string): boolean {
     return this.replied.has(commentId);
   }
-  queueOwnerReview(commentId: string, postId: string, reason: string): void {
-    this.ownerReviews[commentId] ??= JSON.stringify({ postId, reason, queuedAt: new Date().toISOString() });
+  queueOwnerReview(commentId: string, postId: string, reason: string, commentText?: string, username?: string): void {
+    if (this.ownerReviews[commentId]) return;
+    this.ownerReviews[commentId] = JSON.stringify({ postId, reason, commentText, username, queuedAt: new Date().toISOString() });
     this.save();
+  }
+  pendingOwnerReviews(): Array<{ commentId: string; postId: string; reason: string; commentText?: string; username?: string; queuedAt: string }> {
+    return Object.entries(this.ownerReviews).flatMap(([commentId, raw]) => {
+      const review = JSON.parse(raw);
+      return review.resolvedAt ? [] : [{ ...review, commentId }];
+    });
+  }
+  hasImageReview(postId: string): boolean {
+    return this.pendingOwnerReviews().some(r => r.postId === postId && /image\/anatomy/i.test(r.reason));
+  }
+  resolveOwnerReview(commentId: string, note: string): void {
+    if (!note.trim() || !this.ownerReviews[commentId]) throw new Error('Existing review and resolution note are required');
+    const review = JSON.parse(this.ownerReviews[commentId]);
+    this.ownerReviews[commentId] = JSON.stringify({ ...review, resolvedAt: new Date().toISOString(), resolution: note.trim() });
+    this.save();
+  }
+  claimConcernAcknowledgment(postId: string, username: string, kind: string, commentId: string): boolean {
+    const key = JSON.stringify([postId, username.toLowerCase(), kind]);
+    if (this.concernAcknowledgments[key]) return this.concernAcknowledgments[key] === commentId;
+    this.concernAcknowledgments[key] = commentId; this.save(); return true;
   }
 
   publication(key: string): PublicationStore {
@@ -248,6 +273,7 @@ export class State {
   private save(): void {
     const out: StateShape = {
       ownerReviews: this.ownerReviews,
+      concernAcknowledgments: this.concernAcknowledgments,
       publications: this.publications,
       repliedCommentIds: [...this.replied],
       answeredPostIds: [...this.answered],

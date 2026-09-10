@@ -18,6 +18,7 @@ import { PersistenceError } from "./persistence";
 import { classifyAndDraft, isBotQuestion, firstSentences, type Decision, type InlineImage, type ImageMediaType } from "./reply";
 import { pickGif } from "./gifs";
 import { drainSpend, usd } from "./spend";
+import { acknowledgmentKind, holdForImageReview, imageConcernKind } from "./concerns";
 import { getProduct } from "./products";
 import { resolveXrayAnswer } from "./xray";
 import {
@@ -629,6 +630,10 @@ async function runLiveOrDry(mode: Mode, target: string | null): Promise<void> {
       continue;
     }
     convByPost.set(post.id, conversation);
+    // Register concerns before recovering containers or ranking new replies.
+    const visibleConcerns = [...replies, ...conversation].filter(c => c.username !== me && isVisible(c) && imageConcernKind(c.text ?? '') === 'anatomy');
+    if (posting) for (const concern of visibleConcerns) state.queueOwnerReview(concern.id, post.id, 'owner review: image/anatomy inconsistency', concern.text, concern.username);
+    const imageReviewHeld = state.hasImageReview(post.id) || (!posting && visibleConcerns.length > 0);
 
     // Resume saved containers before paying to classify the same comment again.
     const resumed = new Set<string>();
@@ -639,6 +644,10 @@ async function runLiveOrDry(mode: Mode, target: string | null): Promise<void> {
         if (!pending || resumed.has(c.id) || state.hasReplied(c.id)) continue;
         if (budgetLeft() <= 0) break;
         resumed.add(c.id);
+        if (imageReviewHeld && !pending.publishedId && !acknowledgmentKind(pending.params.text)) {
+          console.log(`    saved reply for ${c.id} paused for image review`);
+          continue;
+        }
         try {
           await postReply(c.id, pending.params.text, undefined, undefined, publication);
           state.markReplied(c.id, post.id);
@@ -836,9 +845,10 @@ async function runLiveOrDry(mode: Mode, target: string | null): Promise<void> {
       const baseInput = {
         postText: post.text ?? "",
         commentText: c.text ?? "",
-        answer: knownAnswer,
-        facts: revealFacts,
-        images: postImages,
+        answer: imageReviewHeld || state.hasImageReview(post.id) ? undefined : knownAnswer,
+        facts: imageReviewHeld || state.hasImageReview(post.id) ? undefined : revealFacts,
+        images: imageReviewHeld || state.hasImageReview(post.id) ? [] : postImages,
+        imageReviewPending: imageReviewHeld || state.hasImageReview(post.id),
         recentReplies: [...recentOwnerReplies, ...postedThisRun],
         // A "full explanation" is a long reply — the ones that lay out the mechanism. Counting
         // them lets reply.ts tell the model plainly that the lesson is already on the post, which
@@ -848,12 +858,13 @@ async function runLiveOrDry(mode: Mode, target: string | null): Promise<void> {
         commentMediaKind,
         inAnswerThread: inAnswerThreadIds.has(c.id),
         priorExchange: followUpContext.get(c.id),
-        answerPublic,
+        answerPublic: imageReviewHeld || state.hasImageReview(post.id) ? false : answerPublic,
         isPersonalPost,
       };
       // Two-tier: the cheap triage model drafts every comment; only accuracy-critical
       // categories (corrections / teaching) are re-drafted by the pricier quality model.
       let d = await classifyAndDraft({ ...baseInput, modelOverride: config.triageModel });
+      d = holdForImageReview(d, imageReviewHeld || state.hasImageReview(post.id));
       const triageSpend = drainSpend();
       spentThisRun += triageSpend.usd;
       if (posting) state.addSpend(triageSpend.usd);
@@ -912,6 +923,8 @@ async function runLiveOrDry(mode: Mode, target: string | null): Promise<void> {
       if (wantsEscalation && !escalated && (d.category === "correct" || d.category === "teach")) {
         d = { ...d, decision: "skip", reply_text: "", reason: `${d.reason} | held: escalation budget reached` };
       }
+      d = holdForImageReview(d, imageReviewHeld || state.hasImageReview(post.id));
+      if (posting && /owner review|owner response/i.test(d.reason) && !/image-dependent reply paused/.test(d.reason) && (!imageReviewHeld || ['complaint','personal_medical'].includes(d.category) || /owner response/.test(d.reason))) state.queueOwnerReview(c.id, post.id, d.reason, c.text, c.username);
       processed += 1;
       const isErr = d.decision === "skip" && /^(error|fatal):/.test(d.reason);
       if (isErr) errorSkips += 1;
@@ -935,7 +948,6 @@ async function runLiveOrDry(mode: Mode, target: string | null): Promise<void> {
       }
 
       if (d.decision === "skip") {
-        if (posting && /owner review|owner response/i.test(d.reason)) state.queueOwnerReview(c.id, post.id, d.reason);
         skipCounts[d.category] = (skipCounts[d.category] ?? 0) + 1;
         // Cache the skip so we don't re-classify this comment on every 10-min poll all night (the
         // main cost leak), with two carve-outs that MUST stay re-checkable: transient API-error
@@ -948,7 +960,7 @@ async function runLiveOrDry(mode: Mode, target: string | null): Promise<void> {
         // Only a true API error is worth retrying next poll. "no submit_reply" is NOT transient
         // (reply.ts already retries it once with a forced tool) — leaving it re-checkable made an
         // escalation that never submits re-run its pricey Sonnet+search call every poll all night.
-        const transient = /^error:/.test(d.reason);
+        const transient = /^error:/.test(d.reason) || d.reason.includes('image-dependent reply paused') || ((imageReviewHeld || state.hasImageReview(post.id)) && !['spam','complaint','personal_medical'].includes(d.category));
         const spoilerHeld = d.reason.includes("spoiler guard") || (!answerPublic && /before.{0,20}reveal|answer.{0,20}(?:private|not public)|diagnosis.{0,20}withheld/i.test(d.reason));
         const final = ["spam", "complaint", "personal_medical", "other"].includes(d.category);
         // Follow-ups + answer-thread subs are the owner's engagement threads. A clearly-final
@@ -1007,6 +1019,12 @@ async function runLiveOrDry(mode: Mode, target: string | null): Promise<void> {
         continue;
       }
 
+      const acknowledgment = acknowledgmentKind(d.reply_text);
+      if (acknowledgment && posting && !state.claimConcernAcknowledgment(post.id, c.username ?? c.id, acknowledgment === 'image' ? 'image' : 'personal', c.id)) {
+        state.markSkipped(c.id);
+        console.log('        (this commenter already received an acknowledgment for this concern)');
+        continue;
+      }
       postedThisRun.push(d.reply_text);
       // Curated GIF gate: banter-only (sanitize already enforced that), never on a bot-question or a
       // follow-up thread, probability + hard per-post/per-day caps. A reaction GIF is not a spoiler,
@@ -1020,7 +1038,7 @@ async function runLiveOrDry(mode: Mode, target: string | null): Promise<void> {
       // low, the main spam/reach signal. Softer openings just name the product, no link. Never with a GIF.
       // Hard block on the personal post: people share real things there and a plug next to a
       // story about being disbelieved by doctors is exactly the brand risk the caps exist for.
-      const product = config.promoReplies && d.promo_product && !isPersonalPost ? getProduct(d.promo_product) : null;
+      const product = !acknowledgment && config.promoReplies && d.promo_product && !isPersonalPost ? getProduct(d.promo_product) : null;
       const attachLink =
         product &&
         d.promo_explicit &&
@@ -1031,7 +1049,7 @@ async function runLiveOrDry(mode: Mode, target: string | null): Promise<void> {
       const promo = attachLink ? product : null; // "promo" now means "a LINK is being posted"
       const replyText = attachLink ? `${d.reply_text}\n${product!.url}` : d.reply_text;
       const gif =
-        config.gifReplies &&
+        !acknowledgment && config.gifReplies &&
         d.gif_tag &&
         !promo && // a plug and a GIF in one reply is too loud — the link wins
         !followUpContext.has(c.id) &&
@@ -1073,6 +1091,7 @@ async function runLiveOrDry(mode: Mode, target: string | null): Promise<void> {
   // Post the day's answer breakdown (a separate job from replying to comments).
   if (config.answerEnabled) {
     for (const post of posts) {
+      if (state.hasImageReview(post.id)) continue;
       const sc = shortcodeFromPermalink(post.permalink);
       const entry = sc ? answers[sc] : undefined;
       if (!entry?.breakdown) continue;

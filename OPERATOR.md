@@ -6,9 +6,9 @@ The active service reads Threads comments and drafts replies in the account's wr
 
 All diagnosis guesses are held before the answer is public, whether right or wrong. Private answers are not sent to the drafting prompt in that state. After reveal, supported guesses can be affirmed and genuine new questions answered. Prior replies to another reader do not suppress a useful answer to this reader.
 
-Image/anatomy inconsistencies and questions about the account's operator are held for owner review rather than given invented explanations. Pending owner items are recorded in `state.json` under `ownerReviews`, including post, reason and time. They are an operator queue, not an automatic direct-message or notification service.
+Specific image/anatomy concerns may receive one neutral acknowledgment and create a persistent review hold. The bot pauses image-dependent replies until every concern for that post is resolved. Image-provenance and operator questions remain unanswered for owner review. Pending items include the post, comment, reason and time. Use `npm run reviews` to view them. See [concern reply rules and resolution](docs/concern-replies.md). This queue does not send automatic messages or notifications.
 
-Personal symptoms and requests for individual advice are skipped. Shared experiences receive brief empathy when appropriate. Product facts come from the catalog; links require an explicit request. Outgoing GIF attachments and the Facebook branch remain disabled in the active workflow. Input media may still be read.
+Personal symptoms and requests for individual advice receive approved boundary wording at most once per commenter and post. Scan requests receive a fixed decline. The bot does not diagnose, suggest treatment or request private information. Shared experiences remain eligible for brief empathy. Concern acknowledgments have no product plugs, links or GIFs. Product facts elsewhere come from the catalog; links require an explicit request. Outgoing GIF attachments and the Facebook branch remain disabled in the active workflow. Input media may still be read.
 
 ## Running and recovery
 

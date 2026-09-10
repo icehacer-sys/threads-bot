@@ -1,6 +1,6 @@
 # Threads Auto-Reply Bot (@mdnoteslab)
 
-For current operation, use [OPERATOR.md](OPERATOR.md) and the [generated runtime configuration](docs/runtime-config.md). Older descriptions below document earlier behavior. Current replies withhold the diagnosis before reveal, support bounded conversation follow-ups, and hold image or operator questions for owner review.
+For current operation, use [OPERATOR.md](OPERATOR.md), the [concern acknowledgment and review rules](docs/concern-replies.md) and the [generated runtime configuration](docs/runtime-config.md). Older descriptions below document earlier behavior. Current replies withhold the diagnosis before reveal, support bounded conversation follow-ups and use approved acknowledgments for medical and anatomy concerns while keeping provenance questions for owner review.
 
 Finds comments on your recent Threads posts that you have not replied to yet (top-level comments, sub-replies under your pinned **Answer:**, and one follow-up if someone replies back to the bot), reads the X-ray plus any image or GIF a commenter attaches, drafts a reply in your voice, and (in live mode) posts it. It **never** auto-answers personal medical questions. Those are silently skipped.
 
