@@ -1,5 +1,6 @@
 {
   "ownerReviews": {},
+  "concernAcknowledgments": {},
   "publications": {
     "comment:18366808555245367": {
       "creationId": "17888751582614054",
@@ -33,6 +34,15 @@
       },
       "publishedId": "18407772931081790",
       "confirmedPublished": true
+    },
+    "comment:17872212351587080": {
+      "creationId": "17888754615614054",
+      "createdAt": "2026-09-10T20:21:31.980Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Only if the hospital bill doesn't cash in first.",
+        "reply_to_id": "17872212351587080"
+      }
     }
   },
   "repliedCommentIds": [
@@ -8894,6 +8904,6 @@
   },
   "spend": {
     "date": "2026-09-10",
-    "usd": 0.1030386
+    "usd": 0.11840919999999999
   }
 }
