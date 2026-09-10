@@ -11,6 +11,15 @@
       },
       "publishedId": "18205498909371268",
       "confirmedPublished": true
+    },
+    "comment:18337583392261306": {
+      "creationId": "17888752191614054",
+      "createdAt": "2026-09-10T19:53:39.847Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Turns out the power pellets don't come with a how-to guide for real life.",
+        "reply_to_id": "18337583392261306"
+      }
     }
   },
   "repliedCommentIds": [
@@ -8870,6 +8879,6 @@
   },
   "spend": {
     "date": "2026-09-10",
-    "usd": 0.028606
+    "usd": 0.0419289
   }
 }
