@@ -124,6 +124,15 @@
       },
       "publishedId": "18105972986264737",
       "confirmedPublished": true
+    },
+    "comment:18064699451750180": {
+      "creationId": "17888757786614054",
+      "createdAt": "2026-09-10T21:12:33.097Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Exactly. A coin is what landed here but button batteries are the ones that flip the clock to hours instead of days.",
+        "reply_to_id": "18064699451750180"
+      }
     }
   },
   "repliedCommentIds": [
@@ -8107,7 +8116,8 @@
     "18125257357845679",
     "18103857032237229",
     "17998769846796960",
-    "17919044805431587"
+    "17919044805431587",
+    "18622357186052478"
   ],
   "answeredPostIds": [
     "18395606890093068"
@@ -8212,11 +8222,11 @@
     "18123015703890508": 82,
     "18085399412691930": 133,
     "17900166078657433": 109,
-    "18103023326210157": 10
+    "18103023326210157": 11
   },
   "daily": {
     "date": "2026-09-10",
-    "count": 10
+    "count": 11
   },
   "pinnedResolved": {
     "DaTTCIwoAw7": "18014812820883466"
@@ -8995,6 +9005,6 @@
   },
   "spend": {
     "date": "2026-09-10",
-    "usd": 0.31814659999999984
+    "usd": 0.3208733999999998
   }
 }
