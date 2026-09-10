@@ -320,7 +320,9 @@
         "media_type": "TEXT",
         "text": "That's it.",
         "reply_to_id": "17908761540522161"
-      }
+      },
+      "publishedId": "18095909006242106",
+      "confirmedPublished": true
     }
   },
   "repliedCommentIds": [
