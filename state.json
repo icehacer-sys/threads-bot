@@ -201,6 +201,15 @@
       },
       "publishedId": "17893219209420877",
       "confirmedPublished": true
+    },
+    "comment:17945035176321983": {
+      "creationId": "17888757882614054",
+      "createdAt": "2026-09-10T21:15:22.083Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Close call on the urgency. This one's a coin but yeah, you've nailed the playbook. Endoscopy under sedation is exactly how it comes out. And ruling out a battery first? That's the move.",
+        "reply_to_id": "17945035176321983"
+      }
     }
   },
   "repliedCommentIds": [
@@ -8191,7 +8200,8 @@
     "18182214007420097",
     "18065177939685330",
     "18094909400415952",
-    "17951271735038054"
+    "17951271735038054",
+    "18140916916594600"
   ],
   "answeredPostIds": [
     "18395606890093068"
@@ -8296,11 +8306,11 @@
     "18123015703890508": 82,
     "18085399412691930": 133,
     "17900166078657433": 109,
-    "18103023326210157": 17
+    "18103023326210157": 18
   },
   "daily": {
     "date": "2026-09-10",
-    "count": 17
+    "count": 18
   },
   "pinnedResolved": {
     "DaTTCIwoAw7": "18014812820883466"
@@ -9081,6 +9091,6 @@
   },
   "spend": {
     "date": "2026-09-10",
-    "usd": 0.3948969999999997
+    "usd": 0.39779679999999973
   }
 }
