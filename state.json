@@ -455,6 +455,15 @@
       },
       "publishedId": "17999297345808391",
       "confirmedPublished": true
+    },
+    "comment:17882297514506379": {
+      "creationId": "17888758812614054",
+      "createdAt": "2026-09-10T21:26:31.945Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Carrot wouldn't make the X-ray glow like that, coin's the winner here. Kid definitely picked the shiniest snack option.",
+        "reply_to_id": "17882297514506379"
+      }
     }
   },
   "repliedCommentIds": [
@@ -8468,7 +8477,8 @@
     "18127882789762243",
     "17962616756981047",
     "18103226912460949",
-    "18121075544294103"
+    "18121075544294103",
+    "17987174195868500"
   ],
   "answeredPostIds": [
     "18395606890093068"
@@ -8573,11 +8583,11 @@
     "18123015703890508": 82,
     "18085399412691930": 133,
     "17900166078657433": 109,
-    "18103023326210157": 40
+    "18103023326210157": 41
   },
   "daily": {
     "date": "2026-09-10",
-    "count": 40
+    "count": 41
   },
   "pinnedResolved": {
     "DaTTCIwoAw7": "18014812820883466"
@@ -9364,6 +9374,6 @@
   },
   "spend": {
     "date": "2026-09-10",
-    "usd": 0.6071257999999994
+    "usd": 0.6102305999999994
   }
 }
