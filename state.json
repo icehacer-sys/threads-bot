@@ -631,6 +631,15 @@
       },
       "publishedId": "17969441895148477",
       "confirmedPublished": true
+    },
+    "comment:18113840981102806": {
+      "creationId": "17888767086614054",
+      "createdAt": "2026-09-10T23:34:38.809Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Honestly, mundane is kind of the vibe. The X-ray doesn't tell us the denomination, but a kid swallowing a quarter is exactly the kind of ordinary disaster that plays out 😭",
+        "reply_to_id": "18113840981102806"
+      }
     }
   },
   "repliedCommentIds": [
@@ -8660,7 +8669,8 @@
     "18632688865001237",
     "18094162253408044",
     "18103646831352148",
-    "18108517217601071"
+    "18108517217601071",
+    "18469910428117724"
   ],
   "answeredPostIds": [
     "18395606890093068"
@@ -8765,11 +8775,11 @@
     "18123015703890508": 82,
     "18085399412691930": 133,
     "17900166078657433": 109,
-    "18103023326210157": 56
+    "18103023326210157": 57
   },
   "daily": {
     "date": "2026-09-10",
-    "count": 56
+    "count": 57
   },
   "pinnedResolved": {
     "DaTTCIwoAw7": "18014812820883466"
@@ -9560,6 +9570,6 @@
   },
   "spend": {
     "date": "2026-09-10",
-    "usd": 0.7124049999999994
+    "usd": 0.7154927999999994
   }
 }
