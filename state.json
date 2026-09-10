@@ -168,6 +168,15 @@
       },
       "publishedId": "18077970461358235",
       "confirmedPublished": true
+    },
+    "comment:18094909400415952": {
+      "creationId": "17888757843614054",
+      "createdAt": "2026-09-10T21:14:09.125Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Coin it is. And yeah. Battery risk is real. Which is why the team has to rule that out fast. Button batteries burn tissue in hours so drooling + refusal to eat triggers urgent imaging and endoscopy.",
+        "reply_to_id": "18094909400415952"
+      }
     }
   },
   "repliedCommentIds": [
@@ -8155,7 +8164,8 @@
     "18622357186052478",
     "18064699451750180",
     "18628360969013327",
-    "18182214007420097"
+    "18182214007420097",
+    "18065177939685330"
   ],
   "answeredPostIds": [
     "18395606890093068"
@@ -8260,11 +8270,11 @@
     "18123015703890508": 82,
     "18085399412691930": 133,
     "17900166078657433": 109,
-    "18103023326210157": 14
+    "18103023326210157": 15
   },
   "daily": {
     "date": "2026-09-10",
-    "count": 14
+    "count": 15
   },
   "pinnedResolved": {
     "DaTTCIwoAw7": "18014812820883466"
@@ -8981,7 +8991,8 @@
     "18426224761197191",
     "18472035316114990",
     "17964301992196998",
-    "17957971563251435"
+    "17957971563251435",
+    "18093729209399626"
   ],
   "skipStrikes": {
     "17895266316520842": 1,
@@ -9044,6 +9055,6 @@
   },
   "spend": {
     "date": "2026-09-10",
-    "usd": 0.33050059999999976
+    "usd": 0.3815171999999998
   }
 }
