@@ -803,7 +803,12 @@ async function runLiveOrDry(mode: Mode, target: string | null): Promise<void> {
     // ranking bonus inside selectCandidates so they survive the per-post cap instead of being
     // sliced out behind fresh banter on a viral post.
     const committed = new Set<string>([...followUpContext.keys(), ...inAnswerThreadIds]);
-    const candidates = selectCandidates(pool, committed).slice(0, perPostRemaining);
+    // Recheck held guesses only after the actual answer appears, or the comment is edited.
+    // Filter before ranking so held comments cannot crowd out fresh engagement.
+    const eligible = pool.filter(c => !state.isWaitingForReveal(c.id, c.text ?? "", answerPublic));
+    const waitingForReveal = pool.length - eligible.length;
+    if (waitingForReveal) console.log(`  ${waitingForReveal} comment(s) waiting for reveal; no model calls for these.`);
+    const candidates = selectCandidates(eligible, committed).slice(0, perPostRemaining);
 
     console.log(
       `Post ${clip(post.text ?? post.id, 40)} [answer: ${resolved.answer ?? "unknown"}${postImages.length ? ", image ✓" : ""}] — ${candidates.length} to reply (${pinnedIds.has(post.id) ? "pinned" : `${state.repliedToPost(post.id)}/${config.perPostCap}`} done):`,
@@ -967,6 +972,7 @@ async function runLiveOrDry(mode: Mode, target: string | null): Promise<void> {
         // escalation that never submits re-run its pricey Sonnet+search call every poll all night.
         const transient = /^error:/.test(d.reason) || d.reason.includes('image-dependent reply paused') || ((imageReviewHeld || state.hasImageReview(post.id)) && !['spam','complaint','personal_medical'].includes(d.category));
         const spoilerHeld = d.reason.includes("spoiler guard") || (!answerPublic && /before.{0,20}reveal|answer.{0,20}(?:private|not public)|diagnosis.{0,20}withheld/i.test(d.reason));
+        if (posting && !transient && spoilerHeld && !answerPublic) state.holdUntilReveal(c.id, c.text ?? "");
         const final = ["spam", "complaint", "personal_medical", "other"].includes(d.category);
         // Follow-ups + answer-thread subs are the owner's engagement threads. A clearly-final
         // skip (spam/other noise like a lone emoji) still caches, but a SOFT skip on one of these

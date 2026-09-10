@@ -7,6 +7,7 @@ import { config } from "./config";
 import { atomicJson, checkpointState, PersistenceError, validPublications, type Publication, type PublicationStore } from "./persistence.js";
 
 interface StateShape {
+  revealHeldComments?: Record<string, string>;
   concernAcknowledgments?: Record<string, string>;
   ownerReviews?: Record<string, string>;
   publications?: Record<string, Publication>;
@@ -42,6 +43,7 @@ function today(): string {
 }
 
 export class State {
+  private revealHeldComments: Record<string, string>;
   private ownerReviews: Record<string, string>;
   private concernAcknowledgments: Record<string, string>;
   private publications: Record<string, Publication>;
@@ -72,6 +74,7 @@ export class State {
       try {
         loaded = JSON.parse(readFileSync(this.file, "utf8")) as StateShape;
         const strings = (v: unknown) => Array.isArray(v) && v.every((s) => typeof s === "string");
+        if (loaded?.revealHeldComments !== undefined && (!loaded.revealHeldComments || typeof loaded.revealHeldComments !== 'object' || Array.isArray(loaded.revealHeldComments) || !Object.values(loaded.revealHeldComments).every(v => typeof v === 'string'))) throw new Error('invalid reveal holds');
         if (loaded?.concernAcknowledgments !== undefined && (!loaded.concernAcknowledgments || typeof loaded.concernAcknowledgments !== 'object' || Array.isArray(loaded.concernAcknowledgments) || !Object.values(loaded.concernAcknowledgments).every(v => typeof v === 'string'))) throw new Error('invalid concern acknowledgments');
         if (loaded?.ownerReviews !== undefined && (!loaded.ownerReviews || typeof loaded.ownerReviews !== "object" || Array.isArray(loaded.ownerReviews) || !Object.values(loaded.ownerReviews).every(v => typeof v === "string"))) throw new Error("invalid owner review queue");
         const counts = (v: unknown) => !!v && typeof v === "object" && !Array.isArray(v) && Object.values(v).every((n) => Number.isInteger(n) && n >= 0);
@@ -96,6 +99,7 @@ export class State {
       }
     }
     this.replied = new Set(loaded?.repliedCommentIds ?? []);
+    this.revealHeldComments = loaded?.revealHeldComments ?? {};
     this.ownerReviews = loaded?.ownerReviews ?? {};
     this.concernAcknowledgments = loaded?.concernAcknowledgments ?? {};
     this.publications = loaded?.publications ?? {};
@@ -132,6 +136,15 @@ export class State {
 
   hasSkipped(commentId: string): boolean {
     return this.skipped.has(commentId);
+  }
+
+  holdUntilReveal(commentId: string, commentText: string): void {
+    this.revealHeldComments[commentId] = commentText;
+    this.save();
+  }
+
+  isWaitingForReveal(commentId: string, commentText: string, answerPublic: boolean): boolean {
+    return !answerPublic && this.revealHeldComments[commentId] === commentText;
   }
 
   markSkipped(commentId: string): void {
@@ -272,6 +285,7 @@ export class State {
 
   private save(): void {
     const out: StateShape = {
+      revealHeldComments: this.revealHeldComments,
       ownerReviews: this.ownerReviews,
       concernAcknowledgments: this.concernAcknowledgments,
       publications: this.publications,
