@@ -17,7 +17,7 @@ export const VOICE_CASES = [
 export async function evaluateVoice(notes: string): Promise<{ passed: boolean; results: { name: string; passed: boolean; decision: Decision }[] }> {
   const results = [];
   for (const c of VOICE_CASES) {
-    const decision = await classifyAndDraft({ postText: "Educational illustration of a round metal disc at the thoracic inlet.", commentText: c.text,
+    const decision = await classifyAndDraft({ postText: "A round metal disc appeared at the base of the neck.", commentText: c.text,
       answer: "Coin in the oesophagus", facts: ["Drooling can indicate oesophageal obstruction; a symptomatic oesophageal coin needs urgent assessment."],
       answerPublic: c.public, priorExplanations: 3, modelOverride: config.triageModel, learnedNotesOverride: notes, allowSearch: false });
     const unsupportedAbsolute = c.name === "new medical question" && /only (happens|occurs)|always (means|indicates)|definitely|nothing else/i.test(decision.reply_text);

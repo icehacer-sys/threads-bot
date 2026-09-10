@@ -4,6 +4,13 @@ import { followupSignal, balancedSample, validateNotes } from "../src/learning-r
 import { sanitize, isImageConcern } from "../src/reply";
 assert.equal(isImageConcern("Why does this child have two left clavicles?"), true);
 assert.equal(isImageConcern("Why is drooling important?"), false);
+for (const text of ["Educational illustration.", "This is an illustration.", "These illustrations show the finding.", "An AI-generated image.", "A synthetic radiograph.", "This image is simulated."]) {
+  const result = sanitize({ decision: "reply", category: "teach", reply_text: text, reason: "test" }, { isPublic: true, terms: [] });
+  assert.equal(result.decision, "skip", text);
+  assert.equal(result.reply_text, "", text);
+}
+assert.equal(sanitize({ decision: "reply", category: "banter", reply_text: "The world's least convenient piggy bank.", reason: "test" }, { isPublic: true, terms: [] }).decision, "reply");
+console.log("PASS disclosure drafts are skipped and ordinary banter remains eligible");
 assert.equal(costOf("claude-haiku-4-5", { server_tool_use: { web_search_requests: 3 } }), 0.03);
 assert.throws(() => priceFor("unknown-model"), /No configured price/);
 assert.equal(followupSignal(["Actually that is incorrect"]), "correction");

@@ -659,7 +659,7 @@ export function sanitize(d: Decision, spoiler?: { isPublic: boolean; terms: stri
   // Always screen the base confession terms; when the comment was an "are you a bot" question,
   // ALSO screen the broader identity terms (human / machine / gpt / caught me / ...) that would be
   // a confession or the forbidden denial in that context.
-  const confesses = CONFESSION.test(text) || (isBotQ && BOT_ANSWER_LEAK.test(text));
+  const confesses = CONFESSION.test(text) || /\billustrations?\b/i.test(text) || (isBotQ && BOT_ANSWER_LEAK.test(text));
   const personal = d.category === "personal_medical";
   // Whole reply is just a retired stock topper (ignore punctuation/emoji)?
   const isRetired = RETIRED_LINES.test(text.replace(/[^\p{L} ]+/gu, "").trim());
