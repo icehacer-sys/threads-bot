@@ -664,6 +664,15 @@
       },
       "publishedId": "18113355709815510",
       "confirmedPublished": true
+    },
+    "comment:18120753650502420": {
+      "creationId": "17888767137614054",
+      "createdAt": "2026-09-10T23:35:44.324Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Endoscopy is the main move here, but yeah, ruling out a button battery first is definitely the test that matters most.",
+        "reply_to_id": "18120753650502420"
+      }
     }
   },
   "repliedCommentIds": [
@@ -8696,7 +8705,8 @@
     "18108517217601071",
     "18469910428117724",
     "18113840981102806",
-    "18013509974745055"
+    "18013509974745055",
+    "18091060028422645"
   ],
   "answeredPostIds": [
     "18395606890093068"
@@ -8801,11 +8811,11 @@
     "18123015703890508": 82,
     "18085399412691930": 133,
     "17900166078657433": 109,
-    "18103023326210157": 59
+    "18103023326210157": 60
   },
   "daily": {
     "date": "2026-09-10",
-    "count": 59
+    "count": 60
   },
   "pinnedResolved": {
     "DaTTCIwoAw7": "18014812820883466"
@@ -9596,6 +9606,6 @@
   },
   "spend": {
     "date": "2026-09-10",
-    "usd": 0.7246271999999994
+    "usd": 0.7275929999999994
   }
 }
