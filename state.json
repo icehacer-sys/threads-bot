@@ -433,6 +433,15 @@
       },
       "publishedId": "18114186586915619",
       "confirmedPublished": true
+    },
+    "comment:18121075544294103": {
+      "creationId": "17888758650614054",
+      "createdAt": "2026-09-10T21:25:50.706Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "This one turned out to be a coin. Battery was the right fear to rule out first though, since those can burn tissue in hours.",
+        "reply_to_id": "18121075544294103"
+      }
     }
   },
   "repliedCommentIds": [
@@ -8444,7 +8453,8 @@
     "17969040426177222",
     "17915267604445223",
     "18127882789762243",
-    "17962616756981047"
+    "17962616756981047",
+    "18103226912460949"
   ],
   "answeredPostIds": [
     "18395606890093068"
@@ -8549,11 +8559,11 @@
     "18123015703890508": 82,
     "18085399412691930": 133,
     "17900166078657433": 109,
-    "18103023326210157": 38
+    "18103023326210157": 39
   },
   "daily": {
     "date": "2026-09-10",
-    "count": 38
+    "count": 39
   },
   "pinnedResolved": {
     "DaTTCIwoAw7": "18014812820883466"
@@ -9338,6 +9348,6 @@
   },
   "spend": {
     "date": "2026-09-10",
-    "usd": 0.5862193999999995
+    "usd": 0.5988383999999994
   }
 }
