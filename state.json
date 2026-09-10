@@ -378,6 +378,15 @@
       },
       "publishedId": "17870684964638475",
       "confirmedPublished": true
+    },
+    "comment:17969040426177222": {
+      "creationId": "17888758353614054",
+      "createdAt": "2026-09-10T21:23:10.906Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Coin's the one. Battery would've been the emergency call though. Those burn tissue in hours so that's always the first thing to rule out.",
+        "reply_to_id": "17969040426177222"
+      }
     }
   },
   "repliedCommentIds": [
@@ -8384,7 +8393,8 @@
     "18208936957362574",
     "18111817610019216",
     "17965840386188945",
-    "17877453477691735"
+    "17877453477691735",
+    "18162831916484180"
   ],
   "answeredPostIds": [
     "18395606890093068"
@@ -8489,11 +8499,11 @@
     "18123015703890508": 82,
     "18085399412691930": 133,
     "17900166078657433": 109,
-    "18103023326210157": 33
+    "18103023326210157": 34
   },
   "daily": {
     "date": "2026-09-10",
-    "count": 33
+    "count": 34
   },
   "pinnedResolved": {
     "DaTTCIwoAw7": "18014812820883466"
@@ -9278,6 +9288,6 @@
   },
   "spend": {
     "date": "2026-09-10",
-    "usd": 0.5007019999999996
+    "usd": 0.5035467999999996
   }
 }
