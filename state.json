@@ -422,6 +422,15 @@
       },
       "publishedId": "18337429948257443",
       "confirmedPublished": true
+    },
+    "comment:18103226912460949": {
+      "creationId": "17888758638614054",
+      "createdAt": "2026-09-10T21:25:24.364Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Flagging that fear, button batteries are exactly what make this move fast. This one turned out to be a coin, but ruling out a battery first is always the right call.",
+        "reply_to_id": "18103226912460949"
+      }
     }
   },
   "repliedCommentIds": [
@@ -8432,7 +8441,8 @@
     "18162831916484180",
     "17969040426177222",
     "17915267604445223",
-    "18127882789762243"
+    "18127882789762243",
+    "17962616756981047"
   ],
   "answeredPostIds": [
     "18395606890093068"
@@ -8537,11 +8547,11 @@
     "18123015703890508": 82,
     "18085399412691930": 133,
     "17900166078657433": 109,
-    "18103023326210157": 37
+    "18103023326210157": 38
   },
   "daily": {
     "date": "2026-09-10",
-    "count": 37
+    "count": 38
   },
   "pinnedResolved": {
     "DaTTCIwoAw7": "18014812820883466"
@@ -9326,6 +9336,6 @@
   },
   "spend": {
     "date": "2026-09-10",
-    "usd": 0.5832205999999995
+    "usd": 0.5862193999999995
   }
 }
