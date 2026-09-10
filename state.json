@@ -91,6 +91,15 @@
       },
       "publishedId": "17943025539343284",
       "confirmedPublished": true
+    },
+    "comment:17998769846796960": {
+      "creationId": "17888757753614054",
+      "createdAt": "2026-09-10T21:11:20.344Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Spot on. The halo and step-off signs are the key tells that flip this from \"urgent\" to \"call it in now\". Battery burns tissue in hours not days. The drooling and refusal to swallow are the red flags that make this one move fast.",
+        "reply_to_id": "17998769846796960"
+      }
     }
   },
   "repliedCommentIds": [
@@ -8959,6 +8968,6 @@
   },
   "spend": {
     "date": "2026-09-10",
-    "usd": 0.2958273999999998
+    "usd": 0.3083133999999998
   }
 }
