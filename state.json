@@ -477,6 +477,15 @@
       },
       "publishedId": "18128081341748523",
       "confirmedPublished": true
+    },
+    "comment:18088709009203077": {
+      "creationId": "17888760027614054",
+      "createdAt": "2026-09-10T21:42:39.763Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "The shiny factor is real. Plus they're pocket-sized and, tragically, exactly the right size to lodge in the esophagus.",
+        "reply_to_id": "18088709009203077"
+      }
     }
   },
   "repliedCommentIds": [
@@ -9390,6 +9399,6 @@
   },
   "spend": {
     "date": "2026-09-10",
-    "usd": 0.6278581999999995
+    "usd": 0.6309429999999995
   }
 }
