@@ -145,7 +145,7 @@ jobs:
               if git push; then return 0; fi
               echo "push failed (attempt $attempt/3), retrying in 3s"; sleep 3
             done
-            echo "WARNING: git sync failed after 3 attempts; will retry next loop"; return 0
+            echo "::error::Git sync failed after 3 attempts; stopping before further public writes or handoff"; return 1
           }
           if [ "$MODE" = "dry" ]; then
             npm run dry
@@ -156,12 +156,15 @@ jobs:
           git config user.email "github-actions[bot]@users.noreply.github.com"
           start=$(date +%s)
           fails=0
+          had_errors=0
           for i in $(seq 1 60); do
             echo "::group::poll $i ($(TZ='Africa/Cairo' date +%H:%M) Cairo)"
             if npm run live; then
               fails=0
             else
               rc=$?
+              had_errors=1
+              if [ "$rc" -eq 4 ]; then echo "::error::Publication state could not be secured; stopping"; exit 4; fi
               fails=$((fails+1))
               # Exit code 3 = a billing/auth failure the bot cannot recover from on its own.
               # Surface it NOW: waiting for the 6-consecutive-failure alarm meant 3-6h of silent
@@ -294,19 +297,26 @@ jobs:
               preflight_due=0
             fi
           done
-          # Before handing off to a FRESH checkout, make a best effort to land this run's state on
+          # Before handing off to a fresh checkout, require this run's state to reach
           # origin. The next run clones origin; any un-pushed reply commit would be re-classified and
-          # double-posted publicly. This blocking push (5 tries) shrinks that window well below the
+          # double-posted publicly. This blocking push shrinks that window well below the
           # per-loop sync_repo alone. answeredByMe is the live backstop, but it can't see held/lagging
           # replies, so pushing state is the real guard.
-          for attempt in 1 2 3 4 5; do
-            if git pull --rebase --autostash origin "${GITHUB_REF_NAME}" && git push; then break; fi
-            git rebase --abort 2>/dev/null || true
-            echo "final state push failed ($attempt/5), retrying in 5s"; sleep 5
-          done
+          sync_repo
           # Perpetual chain: always launch the next run so a loop is ALWAYS alive.
           # The bot itself posts only inside the active windows, up to the cap, so
           # outside the windows these runs just no-op. Concurrency keeps it a single
           # chain; the */30 cron restarts it only if a hand-off ever fails.
           echo "Launching the next run (keeps the bot live 24/7)."
-          gh workflow run reply.yml -f mode=live || echo "hand-off dispatch failed"
+          gh workflow run reply.yml -f mode=live
+          exit "$had_errors"
+
+      - name: Preserve state after failure
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: reply-recovery-${{ github.run_id }}
+          path: |
+            state.json
+            fb-state.json
+          retention-days: 7

@@ -1,5 +1,7 @@
 # Threads Auto-Reply Bot (@mdnoteslab)
 
+For current operation, use [OPERATOR.md](OPERATOR.md) and the [generated runtime configuration](docs/runtime-config.md). Older descriptions below document earlier behavior. Current replies withhold the diagnosis before reveal, support bounded conversation follow-ups, and hold image or operator questions for owner review.
+
 Finds comments on your recent Threads posts that you have not replied to yet (top-level comments, sub-replies under your pinned **Answer:**, and one follow-up if someone replies back to the bot), reads the X-ray plus any image or GIF a commenter attaches, drafts a reply in your voice, and (in live mode) posts it. It **never** auto-answers personal medical questions. Those are silently skipped.
 
 This is self-contained. It does not touch the Med Notes Lab website. It has its own `package.json` and is excluded from the site's TypeScript/ESLint, so it cannot affect your Vercel build.
@@ -14,6 +16,23 @@ This is self-contained. It does not touch the Med Notes Lab website. It has its 
 6. Post the safe replies, up to `BOT_PER_POST_CAP` per post (200 in the shipped cloud config, counted across runs) and a daily backstop (`BOT_DAILY_CAP`, 240).
 
 ## Two things to know about behavior
+
+Publication recovery: each reply now records its container and original parameters in
+`state.json` before publishing. In GitHub Actions, that record must reach the repository
+before the public write. Interrupted attempts reuse the saved container without redrafting.
+An explicit already-published response is recorded as complete, including when the reply
+has not appeared in the conversation yet. State writes are atomic; missing live state or
+corrupt history stops the bot instead of resetting it. Exit code 4 stops the workflow
+immediately because persistence is unavailable. Other operational errors make the run fail
+while preserving completed replies. Normal handoff requires a successful state push, and
+failed runs retain a recovery artifact for seven days.
+
+Pending records are kept when an outcome cannot be confirmed, including expired containers.
+Inspect the public thread before manually clearing a record. To deliberately replace a
+deleted reply, both its `repliedCommentIds` entry and `publications["comment:<id>"]` receipt
+must be reviewed. These guards reduce duplicate risk across Threads and Git; they do not
+provide a transaction spanning both systems. Run `npm run publishing:verify` for offline
+regressions with mocked HTTP and temporary state.
 
 - **How it runs (perpetual chain):** GitHub's scheduled cron is too flaky to rely on, so the bot **keeps itself alive**. Every run launches the next one before it ends, forming a chain that is *always running* (the `workflow_dispatch` self-launch works with the built-in token; verified). Each run polls every 10 min and **posts only inside the active window** (`BOT_ACTIVE_WINDOWS`, Cairo, currently `22-10` meaning **10 PM to 10 AM**; comma-separated windows like `20-2,4-10` also work and wrap past midnight), up to `BOT_PER_POST_CAP` (**200**) per post; outside the window it just no-ops. Progress (`state.json`) is committed every cycle, so a restart never double-replies. Concurrency keeps it a single chain, and the `*/30` cron restarts it only if a hand-off ever fails. **Start it once** (in the Actions tab, click Run workflow) and it runs forever; **disable the workflow** to stop it.
 - **How it learns the answer:** it reads your own on-thread `Answer: <diagnosis>` reply automatically. The spoiler blur is display-only, so the bot still reads the real text, and affirmations ("Spot on ✅") are then exact. Wrong-guess *corrections* lean on the answer plus the X-ray plus general knowledge; for a tricky case you can make them bulletproof by adding `facts` to `data/answers.json`, otherwise you never touch the file.

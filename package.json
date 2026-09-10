@@ -19,10 +19,14 @@
     "learn": "tsx src/voicelearn.ts",
     "learn:backfill": "tsx src/voicelearn.ts --backfill",
     "typecheck": "tsc --noEmit",
+    "publishing:verify": "tsx tools/verify-publishing.mts",
     "prompt:size": "tsx tools/measure-prompt.mts",
     "spend:verify": "tsx tools/verify-spend.mts",
     "budget:verify": "tsx tools/verify-budget.mts",
-    "voice:verify": "tsx tools/verify-voice.mts"
+    "voice:verify": "tsx tools/verify-voice.mts",
+    "audit:verify": "tsx tools/verify-audit.mts",
+    "runtime:summary": "tsx tools/runtime-summary.mts",
+    "voice:evaluate": "tsx tools/evaluate-voice.mts --live"
   },
   "dependencies": {
     "@anthropic-ai/sdk": "^0.104.1",

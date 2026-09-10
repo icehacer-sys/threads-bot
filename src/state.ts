@@ -2,10 +2,13 @@
 // Good enough for a prototype / cron-on-a-box. For serverless (Vercel) swap this
 // for a real store (Vercel KV, Supabase) — same interface.
 
-import { existsSync, readFileSync, writeFileSync } from "node:fs";
+import { existsSync, readFileSync } from "node:fs";
 import { config } from "./config";
+import { atomicJson, checkpointState, PersistenceError, validPublications, type Publication, type PublicationStore } from "./persistence.js";
 
 interface StateShape {
+  ownerReviews?: Record<string, string>;
+  publications?: Record<string, Publication>;
   repliedCommentIds: string[];
   answeredPostIds: string[];
   postCounts: Record<string, number>;
@@ -38,6 +41,8 @@ function today(): string {
 }
 
 export class State {
+  private ownerReviews: Record<string, string>;
+  private publications: Record<string, Publication>;
   private replied: Set<string>;
   private answered: Set<string>;
   private postCounts: Record<string, number>;
@@ -57,15 +62,39 @@ export class State {
   // (config.fbStateFile) so the two never share a replied-log or daily counter.
   constructor(stateFile: string = config.stateFile) {
     this.file = stateFile;
+    if (config.confirmLive && !existsSync(this.file)) {
+      throw new PersistenceError(`Missing ${this.file}; restore reply history before running live`);
+    }
     let loaded: StateShape | null = null;
     if (existsSync(this.file)) {
       try {
         loaded = JSON.parse(readFileSync(this.file, "utf8")) as StateShape;
+        const strings = (v: unknown) => Array.isArray(v) && v.every((s) => typeof s === "string");
+        if (loaded?.ownerReviews !== undefined && (!loaded.ownerReviews || typeof loaded.ownerReviews !== "object" || Array.isArray(loaded.ownerReviews) || !Object.values(loaded.ownerReviews).every(v => typeof v === "string"))) throw new Error("invalid owner review queue");
+        const counts = (v: unknown) => !!v && typeof v === "object" && !Array.isArray(v) && Object.values(v).every((n) => Number.isInteger(n) && n >= 0);
+        const daily = (v: any) => !!v && typeof v.date === "string" && Number.isFinite(Date.parse(v.date)) && Number.isInteger(v.count) && v.count >= 0;
+        for (const v of [loaded?.skipStrikes, loaded?.gifPostCounts, loaded?.promoPostCounts]) {
+          if (v !== undefined && !counts(v)) throw new Error("invalid optional counters");
+        }
+        for (const v of [loaded?.gifDaily, loaded?.promoDaily]) {
+          if (v !== undefined && !daily(v)) throw new Error("invalid optional daily counters");
+        }
+        if (loaded?.spend !== undefined && (!loaded.spend || typeof loaded.spend.date !== "string" || !Number.isFinite(Date.parse(loaded.spend.date)) || typeof loaded.spend.usd !== "number" || !Number.isFinite(loaded.spend.usd) || loaded.spend.usd < 0)) throw new Error("invalid spend");
+        if (loaded?.recentGifIds !== undefined && !strings(loaded.recentGifIds)) throw new Error("invalid GIF history");
+        if (loaded?.pinnedResolved !== undefined && (!loaded.pinnedResolved || typeof loaded.pinnedResolved !== "object" || Array.isArray(loaded.pinnedResolved) || !Object.values(loaded.pinnedResolved).every((v) => typeof v === "string"))) throw new Error("invalid pinned map");
+        if (!loaded || !strings(loaded.repliedCommentIds) || !strings(loaded.answeredPostIds) ||
+            !loaded.postCounts || typeof loaded.postCounts !== "object" || Array.isArray(loaded.postCounts) ||
+            !Object.values(loaded.postCounts).every((n) => Number.isInteger(n) && n >= 0) ||
+            !loaded.daily || typeof loaded.daily.date !== "string" || !Number.isInteger(loaded.daily.count) || loaded.daily.count < 0 ||
+            (loaded.skippedCommentIds !== undefined && !strings(loaded.skippedCommentIds)) ||
+            (loaded.publications !== undefined && !validPublications(loaded.publications))) throw new Error("invalid state fields");
       } catch {
-        loaded = null;
+        throw new PersistenceError(`Cannot read ${this.file}; refusing to reset reply history`);
       }
     }
     this.replied = new Set(loaded?.repliedCommentIds ?? []);
+    this.ownerReviews = loaded?.ownerReviews ?? {};
+    this.publications = loaded?.publications ?? {};
     this.answered = new Set(loaded?.answeredPostIds ?? []);
     this.postCounts = loaded?.postCounts ?? {};
     this.pinnedResolved = loaded?.pinnedResolved ?? {};
@@ -171,8 +200,24 @@ export class State {
   hasReplied(commentId: string): boolean {
     return this.replied.has(commentId);
   }
+  queueOwnerReview(commentId: string, postId: string, reason: string): void {
+    this.ownerReviews[commentId] ??= JSON.stringify({ postId, reason, queuedAt: new Date().toISOString() });
+    this.save();
+  }
+
+  publication(key: string): PublicationStore {
+    return {
+      get: () => this.publications[key],
+      set: (value) => {
+        this.publications[key] = value;
+        this.save();
+        checkpointState(this.file);
+      },
+    };
+  }
 
   markReplied(commentId: string, postId: string): void {
+    if (this.replied.has(commentId)) return;
     this.replied.add(commentId);
     this.postCounts[postId] = (this.postCounts[postId] ?? 0) + 1;
     this.daily.count += 1;
@@ -202,6 +247,8 @@ export class State {
 
   private save(): void {
     const out: StateShape = {
+      ownerReviews: this.ownerReviews,
+      publications: this.publications,
       repliedCommentIds: [...this.replied],
       answeredPostIds: [...this.answered],
       postCounts: this.postCounts,
@@ -216,6 +263,6 @@ export class State {
       promoDaily: this.promoDaily,
       spend: this.spend,
     };
-    writeFileSync(this.file, JSON.stringify(out, null, 2));
+    atomicJson(this.file, out);
   }
 }

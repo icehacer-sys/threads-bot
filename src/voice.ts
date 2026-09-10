@@ -1,9 +1,5 @@
-// Brand-voice selector.
-//
-// The system prompt is the cached prefix on EVERY model call, so its size is the single biggest
-// multiplier on the API bill. voice-lean.ts is the consolidated prompt (same rules, the
-// repetition merged); voice-full.ts is the original, kept verbatim as the revert path.
-// BOT_VOICE=full switches back with no code change if the leaner prompt ever reads worse.
+// Brand-voice selector. Both legacy full and lean names use the audited core policy.
+// Cached policy is shared so a configuration switch cannot restore retired rules.
 //
 // The reaction-GIF paragraph is appended ONLY when BOT_GIF_REPLIES is on. With the feature off
 // it was ~900 chars of dead prompt riding on every single call (and reply.ts likewise drops the

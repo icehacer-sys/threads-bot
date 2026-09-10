@@ -7,6 +7,7 @@
 // ?access_token= query param documented by Meta.
 
 import { config, requireEnv } from "./config";
+import { PersistenceError, type PublicationStore } from "./persistence";
 
 export interface ThreadsPost {
   id: string;
@@ -226,7 +227,12 @@ function sleep(ms: number): Promise<void> {
   return new Promise((resolve) => setTimeout(resolve, ms));
 }
 
-export async function postReply(targetId: string, text: string, spoilers?: SpoilerEntity[], gifId?: string): Promise<string> {
+export async function postReply(targetId: string, text: string, spoilers?: SpoilerEntity[], gifId?: string, store?: PublicationStore): Promise<string> {
+  let receipt = store?.get();
+  if (receipt) store!.set(receipt);
+  if (receipt?.publishedId) return receipt.publishedId;
+  // The orchestrator only logs this return value; it never uses it as a reply parent.
+  if (receipt?.confirmedPublished) return receipt.creationId;
   const body: Record<string, string> = { media_type: "TEXT", text, reply_to_id: targetId };
   if (spoilers && spoilers.length > 0) body.text_entities = JSON.stringify(spoilers);
   // A curated reaction GIF rides along on the TEXT container (Threads `gif_attachment`). If the
@@ -234,13 +240,20 @@ export async function postReply(targetId: string, text: string, spoilers?: Spoil
   // SAME reply as plain text — a GIF must never cost us the reply.
   if (gifId) body.gif_attachment = JSON.stringify({ gif_id: gifId, provider: "GIPHY" });
   let created: { id: string };
-  try {
-    created = await api<{ id: string }>(`/${config.threadsUserId}/threads`, { method: "POST", body });
-  } catch (err) {
-    if (!gifId) throw err;
-    console.warn(`  ! gif container rejected — posting text-only: ${(err as Error).message.slice(0, 120)}`);
-    delete body.gif_attachment;
-    created = await api<{ id: string }>(`/${config.threadsUserId}/threads`, { method: "POST", body });
+  if (receipt) {
+    created = { id: receipt.creationId };
+  } else {
+    try {
+      created = await api<{ id: string }>(`/${config.threadsUserId}/threads`, { method: "POST", body });
+    } catch (err) {
+      if (!gifId) throw err;
+      console.warn(`  ! gif container rejected; posting text-only: ${(err as Error).message.slice(0, 120)}`);
+      delete body.gif_attachment;
+      created = await api<{ id: string }>(`/${config.threadsUserId}/threads`, { method: "POST", body });
+    }
+    if (!created?.id) throw new Error("Threads container creation returned no id");
+    receipt = { creationId: String(created.id), createdAt: new Date().toISOString(), params: body };
+    store?.set(receipt);
   }
 
   // The reply container isn't always immediately publishable ("media not found"),
@@ -253,14 +266,18 @@ export async function postReply(targetId: string, text: string, spoilers?: Spoil
         method: "POST",
         body: { creation_id: created.id },
       });
-      return published.id;
+      if (!published?.id) throw new Error("Threads publish returned no id");
+      store?.set({ ...receipt, publishedId: String(published.id), confirmedPublished: true });
+      return String(published.id);
     } catch (err) {
+      if (err instanceof PersistenceError) throw err;
       // DOUBLE-REPLY GUARD: a publish can succeed on Meta's side while its HTTP response is lost to
       // a network blip. Re-publishing the SAME creation_id then fails with an "already published"
       // error — but the reply IS live. Treat that as success so the caller records it (markReplied)
       // and never re-posts a duplicate on the next run. Without this, the lost-response reply is
       // re-created every run until it happens to surface in the live thread — the double we saw.
       if (alreadyPublished(err)) {
+        store?.set({ ...receipt, confirmedPublished: true });
         console.warn(`  reply already live (recovered a lost publish response) for ${targetId}`);
         return created.id; // the reply exists; id is best-effort (caller uses it only for logging)
       }
@@ -277,5 +294,5 @@ export async function postReply(targetId: string, text: string, spoilers?: Spoil
  */
 function alreadyPublished(err: unknown): boolean {
   const m = (err instanceof Error ? err.message : String(err)).toLowerCase();
-  return (m.includes("already") && m.includes("publish")) || m.includes("has already been published");
+  return /already (?:been )?published/.test(m);
 }

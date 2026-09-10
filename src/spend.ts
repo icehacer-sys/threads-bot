@@ -35,7 +35,7 @@ function introOverride(model: string, now: number): ModelPrice | null {
 
 // Model ids may carry a date suffix (claude-haiku-4-5-20251001). Match the longest known
 // prefix so a dated snapshot prices the same as its base model.
-function priceFor(model: string, now: number = Date.now()): ModelPrice {
+export function priceFor(model: string, now: number = Date.now()): ModelPrice {
   const intro = introOverride(model, now);
   if (intro) return intro;
   let best: ModelPrice | null = null;
@@ -48,12 +48,14 @@ function priceFor(model: string, now: number = Date.now()): ModelPrice {
   }
   // Unknown model -> price it as Sonnet. Over-estimating an unknown is the safe direction:
   // the budget gate trips early rather than letting an unpriced model spend invisibly.
-  return best ?? { input: 3, output: 15 };
+  if (!best) throw new Error(`No configured price for model ${model}; update the price table before making calls`);
+  return best;
 }
 
 // Structural shape rather than the SDK's Usage type: the cache_creation split is a newer
 // field and we want this to keep compiling (and pricing) across SDK versions.
 export interface CallUsage {
+  server_tool_use?: { web_search_requests?: number | null } | null;
   input_tokens?: number | null;
   output_tokens?: number | null;
   cache_read_input_tokens?: number | null;
@@ -87,7 +89,7 @@ export function costOf(model: string, usage: CallUsage | null | undefined, now: 
       write5m * p.input * 1.25) /
     1_000_000;
   const outputUsd = (n(usage.output_tokens) * p.output) / 1_000_000;
-  return inputUsd + outputUsd;
+  return inputUsd + outputUsd + n(usage.server_tool_use?.web_search_requests) * 0.01;
 }
 
 // --- process-local accumulator -------------------------------------------------------------

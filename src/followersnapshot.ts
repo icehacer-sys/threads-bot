@@ -1,30 +1,19 @@
-// Daily follower snapshot — the measurement arm of the FOLLOW-CTA experiment.
-//
-// Threads' Insights panel shows daily Follows/Unfollows as CHARTS ONLY; the API exposes no
-// follows metric at all. What it does expose is `followers_count` as a bare snapshot, so the
-// daily series has to be BUILT by snapshotting it once a day. Consecutive deltas give net
-// follower change, and since unfollows sit on a flat ~135-150/day floor (audit 2026-09-04),
-// net + that floor is a usable proxy for gross follows.
-//
-// Net change is dominated by reach, so account-level daily `views` is captured alongside it --
-// that one IS a real time series and comes back retroactively, which is what makes it possible
-// to control for a 2.4M-view night swamping a ~20/night CTA effect.
-//
-// Runs at 18:00 UTC, exactly one hour before the 19:00 UTC challenge post, so the delta between
-// two snapshots brackets one post's entire response window. Both times are fixed in UTC, so the
-// gap survives the late-October Cairo DST shift.
-//
-// Read-only against the API. Appends to data/followers-log.json, one entry per date, idempotent.
-// Run: npx tsx src/followersnapshot.ts
+// Daily account-level follower snapshot. Deltas are net changes, not gross follows
+// or attribution to a particular case. Each interval records its elapsed hours.
+// The 18:00 UTC snapshot has a seasonal gap from the 22:00 Cairo challenge.
+// Read-only API collection; appends atomically to data/followers-log.json.
 
-import { existsSync, readFileSync, writeFileSync } from "node:fs";
+import { existsSync, readFileSync } from "node:fs";
 import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
 import { config, requireEnv } from "./config.js";
+import { atomicJson } from "./persistence.js";
 
 const LOG = join(dirname(fileURLToPath(import.meta.url)), "..", "data", "followers-log.json");
 
 interface Entry {
+  intervalHours?: number | null;
+  attribution?: string;
   /** UTC date of the snapshot, YYYY-MM-DD. */
   date: string;
   takenAt: string;
@@ -81,6 +70,8 @@ async function main(): Promise<void> {
   const prev = log.filter((e) => e.date < today).sort((a, b) => a.date.localeCompare(b.date)).pop();
 
   const entry: Entry = {
+    intervalHours: prev?.takenAt ? (now.getTime() - Date.parse(prev.takenAt)) / 3600000 : null,
+    attribution: "Account-wide net change, not gross follows or attribution to a single case/reply",
     date: today,
     takenAt: now.toISOString(),
     followersCount,
@@ -100,7 +91,7 @@ async function main(): Promise<void> {
   }
 
   log.sort((a, b) => a.date.localeCompare(b.date));
-  writeFileSync(LOG, JSON.stringify(log, null, 2), "utf8");
+  atomicJson(LOG, log);
 
   console.log(
     `${today}: followers=${followersCount.toLocaleString()} ` +

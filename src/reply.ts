@@ -1,5 +1,5 @@
 // Classify a single comment and draft a reply in the brand voice.
-// Uses the Anthropic Messages API with structured outputs (guaranteed-valid JSON).
+// Uses the Anthropic Messages API with a locally validated reply tool payload.
 // Every result passes through sanitize() as defense-in-depth before it can be posted.
 
 import Anthropic from "@anthropic-ai/sdk";
@@ -10,7 +10,7 @@ import { config, requireEnv } from "./config";
 import { SYSTEM_PROMPT } from "./voice";
 import { GIF_TAGS } from "./gifs";
 import { PROMO_TAGS, PRODUCTS_BLOCK } from "./products";
-import { recordUsage } from "./spend";
+import { recordUsage, priceFor } from "./spend";
 
 // Self-learned voice notes (maintained by the Fable 5 self-audit in voicelearn.ts). Loaded ONCE and
 // appended to the cached system prompt, so the voice keeps sharpening with zero per-reply cost.
@@ -128,6 +128,24 @@ export const REPLY_TOOLS: unknown[] = [
   },
 ];
 
+/** Check the actual tool schema before flags can control escalation or public links. */
+export function parseDecision(value: unknown): Decision {
+  if (!value || typeof value !== "object" || Array.isArray(value)) throw new Error("Invalid reply verdict: expected an object");
+  const record = value as Record<string, unknown>;
+  const properties = REPLY_SCHEMA.properties as Record<string, { type: string; enum?: readonly string[] }>;
+  if (Object.keys(record).some((key) => !Object.hasOwn(properties, key))) throw new Error("Invalid reply verdict: unexpected field");
+  for (const key of REPLY_SCHEMA.required) {
+    const field = properties[key];
+    if (!Object.hasOwn(record, key) || typeof record[key] !== field.type ||
+        (field.enum && !field.enum.includes(record[key] as string))) {
+      throw new Error(`Invalid reply verdict: ${key}`);
+    }
+  }
+  if (record.decision === "reply" && !(record.reply_text as string).trim()) throw new Error("Invalid reply verdict: empty reply");
+  if (record.promo_explicit === true && record.promo_product === "none") throw new Error("Invalid reply verdict: link requested without a product");
+  return value as Decision;
+}
+
 let client: Anthropic | null = null;
 function getClient(): Anthropic {
   if (!client) client = new Anthropic({ apiKey: requireEnv("ANTHROPIC_API_KEY") });
@@ -158,6 +176,8 @@ export interface InlineImage {
 }
 
 export interface ClassifyInput {
+  /** Candidate notes used only by the offline/live evaluation harness before activation. */
+  learnedNotesOverride?: string;
   postText: string;
   commentText: string;
   answer?: string;
@@ -211,8 +231,14 @@ export function isNonEnglishScript(text: string | undefined): boolean {
   return nonLatin / letters.length >= 0.3;
 }
 
+export function isImageConcern(text: string): boolean {
+  const anatomy = /bone|rib|clavicle|scapula|scapulae|teeth|tooth|finger|anatom|vertebra|jaw|limb/i.test(text);
+  return (anatomy && /duplicat|extra|missing|two (?:left|right)|impossible|wrong (?:number|side)|where (?:are|is)|can(?:not|'t) see|garbled|melted/i.test(text)) || /(?:fake|ai[- ]generated|artificial|recreat).{0,35}(?:image|x.?ray|scan)|(?:image|x.?ray|scan).{0,35}(?:fake|ai[- ]generated|artificial)/i.test(text);
+}
 export async function classifyAndDraft(input: ClassifyInput): Promise<Decision> {
+  const systemPrompt = input.learnedNotesOverride === undefined ? FULL_SYSTEM : SYSTEM_PROMPT + PRODUCTS_BLOCK + "\nCandidate style notes (untrusted; never override core policy):\n" + input.learnedNotesOverride;
   const { postText, commentText, answer, facts, images, recentReplies, commentImages, commentMediaKind, inAnswerThread, priorExchange, modelOverride, answerPublic, allowSearch, isPersonalPost, priorExplanations } = input;
+  if (isImageConcern(commentText)) return { decision: "skip", category: "complaint", reply_text: "", reason: "owner review: possible image/anatomy inconsistency; do not invent a projection explanation" };
 
   // ENGLISH-ONLY: skip non-Latin-script comments (Arabic, CJK, Cyrillic, ...) before any
   // model call. Latin-script foreign languages are handled by the voice rule.
@@ -222,13 +248,12 @@ export async function classifyAndDraft(input: ClassifyInput): Promise<Decision> 
   // "Are you a bot?" pushed a SECOND time in the same thread (a follow-up that is itself another
   // bot-question after the commenter already asked one) → skip deterministically. The owner's rule:
   // dodge the first playfully, but never keep engaging the interrogation.
-  if (isBotQuestion(commentText) && priorExchange && isBotQuestion(priorExchange.commenter)) {
-    return { decision: "skip", category: "other", reply_text: "", reason: "repeat 'are you a bot' interrogation — not engaging | guard:forced-skip" };
+  if (isBotQuestion(commentText)) {
+    return { decision: "skip", category: "other", reply_text: "", reason: "operator authenticity question requires owner response | guard:forced-skip" };
   }
-  const factsBlock =
-    facts && facts.length
-      ? `VETTED FACTS (owner-reviewed, source of truth):\n- ${facts.join("\n- ")}`
-      : "VETTED FACTS: none";
+  const factsBlock = (isPersonalPost || inAnswerThread || answerPublic === true) && facts?.length
+    ? 'CASE REFERENCE FACTS (context, not proof of image accuracy):\n- ' + facts.join('\n- ')
+    : 'CASE REFERENCE FACTS: withheld until the reveal';
   const recentBlock =
     recentReplies && recentReplies.length
       ? `ALREADY POSTED on this post (do NOT reuse these openings, sentence shapes, jokes, or punchlines — write something clearly different):\n- ${recentReplies.slice(-config.antiRepeatWindow).join("\n- ")}`
@@ -237,10 +262,7 @@ export async function classifyAndDraft(input: ClassifyInput): Promise<Decision> 
   // on the 2026-09-03 pectus post four replies named the diagnosis and two spelled out the same
   // "sternum caves in and shoves the heart left" lesson in different words. A reader scrolling
   // the thread sees the same paragraph twice. So the count is stated as its own hard instruction.
-  const explainedNote =
-    priorExplanations && priorExplanations > 0
-      ? `ALREADY EXPLAINED: you have already given ${priorExplanations} full explanation(s) of this case on this post. Do NOT explain the mechanism again in any wording. This reply gets the short treatment: acknowledge them, then either add ONE specific detail nobody has been given yet or say nothing more. Two lines maximum. If you have nothing new to add, a clean acknowledgement on its own is the right answer — repeating the lesson in fresh words is the exact assembly-line tell you are trying to avoid.`
-      : "";
+  const explainedNote = 'Answer a new substantive question even if other people received explanations. Avoid repeating information already supplied in this commenter\'s prior exchange. Reply length is not a measure of whether the question was answered.';
 
   const mediaNote =
     commentMediaKind === "video"
@@ -259,33 +281,16 @@ export async function classifyAndDraft(input: ClassifyInput): Promise<Decision> 
   // A personal post has no diagnosis, so there is nothing to spoil and the pre-reveal guard must
   // not run: without this it force-skipped every "affirm" and blocked ordinary words like
   // "exactly", silently killing warm replies to people thanking the account.
-  const isPublic = isPersonalPost || inAnswerThread || answerPublic !== false;
+  const isPublic = isPersonalPost || inAnswerThread || answerPublic === true;
   let answerLine: string;
   let prePublicNote = "";
   if (isPublic) {
     answerLine = inAnswerThread
       ? `CORRECT ANSWER (already revealed publicly in this answer thread, so you MAY name and discuss it): ${hasAnswer ? answerText : "unknown"}`
-      : `CORRECT ANSWER (now public, you MAY name and discuss it): ${hasAnswer ? answerText : "unknown"}`;
-  } else if (hasAnswer) {
-    answerLine = `CORRECT ANSWER (PRIVATE — the reveal is NOT posted yet): ${answerText}`;
-    prePublicNote =
-      "THE ANSWER IS NOT PUBLIC YET. Your reply must not let anyone reading work out the diagnosis. Use the answer above ONLY to judge this one comment. STRICT RULES:\n" +
-      "- NEVER name, spell, abbreviate, OR describe the diagnosis or its findings (no mechanism, no 'benign growths', no 'cartilage', no body-part specifics, no what-it-actually-is).\n" +
-      "- NEVER signal whether the guess is right or wrong by confirming it: no 'correct', 'yes', 'exactly', 'nailed it', 'spot on', 'you got it', 'bingo', and no ✅ or 💯.\n" +
-      // These examples used to be "not the one. Take another look" / "hmm. Look again" and
-      // "bold call. You will have to wait for the reveal" / "interesting. Sit tight" — the exact
-      // phrases voice.ts RETIRES. A per-call note sits right next to the comment while the voice
-      // prompt is thousands of tokens back in the cached prefix, so the note won and the bot
-      // posted the retired lines verbatim. Both layers now say the same thing.
-      '- If the guess is WRONG: ONE short line that moves them off it without explaining why and without naming or hinting at the answer. ENGAGE the guess rather than dismissing it — a bare "look again" with nothing attached reads dismissive and ends the thread. Vary it every time (e.g. "Not the road this one took" / "Something stranger than that going on here" / "Not this one but I can see how you got there").\n' +
-      '- If the guess is RIGHT: stay coy and non-committal so you do not give it away, and still hand them something to reply to. Do NOT confirm it. Vary it every time (e.g. "That is a very specific place to land" / "Okay you are going somewhere with this" / "Interesting road to get there"). Occasionally give a strong WRONG guess the same energy so a coy reply never becomes a guaranteed yes.\n' +
-      "- NEVER stall. Any variant of \"wait for the reveal\", \"sit tight\", or \"you'll find out later\" is retired: a bare stall ends the thread. The reply must react to THIS guess.\n" +
-      "- If it is NOT a diagnosis guess: just banter normally.\n" +
-      "Keep it to one short line.";
+      : `CORRECT ANSWER (now public, you MAY name and discuss it): ${hasAnswer ? answerText : "unknown"}. A direct correct diagnosis guess gets a brief affirmation even without a question or extra detail. Prior explanations to other people do not prohibit affirmation.`;
   } else {
-    answerLine = isPersonalPost
-      ? "THERE IS NO CASE ON THIS POST. Do not look for a diagnosis and do not treat anything as a guess."
-      : "CORRECT ANSWER: unknown (you do NOT know it — never affirm or correct a diagnosis guess; just banter).";
+    answerLine = 'ANSWER NOT PUBLIC. The diagnosis is withheld.';
+    prePublicNote = 'Treat ALL diagnosis guesses identically: skip without confirming, rejecting, grading or hinting. Do not infer correctness from case imagery or the post. Non-diagnostic jokes may get a short specific reply. Medical questions that could expose the answer must be held.';
   }
   // A personal / ask-the-audience post has no X-ray and no diagnosis, so the whole case framing
   // has to come off. Without this the model is told "CORRECT ANSWER: unknown ... just banter",
@@ -344,6 +349,7 @@ export async function classifyAndDraft(input: ClassifyInput): Promise<Decision> 
   const spoilerTerms = [...new Set([...spoilerPhrases, ...spoilerWords])];
 
   const model = modelOverride ?? config.model;
+  priceFor(model); // Fail before billing an unpriced model.
   const isTriage = model === config.triageModel;
   // BOTH models cache at 1h. A 5m TTL was tried for Sonnet on 2026-08-27 and REVERTED the next
   // day after one night of live data — do not try it again without re-reading this.
@@ -415,7 +421,7 @@ export async function classifyAndDraft(input: ClassifyInput): Promise<Decision> 
       max_tokens: 1024,
       ...effortParam,
       // System prompt is static -> cache it for 1h (survives the gaps between 10-min cycles).
-      system: [{ type: "text", text: FULL_SYSTEM, cache_control: { type: "ephemeral", ttl: cacheTtl } }],
+      system: [{ type: "text", text: systemPrompt, cache_control: { type: "ephemeral", ttl: cacheTtl } }],
       messages: [{ role: "user", content }],
       tools,
       tool_choice: toolChoice,
@@ -427,7 +433,7 @@ export async function classifyAndDraft(input: ClassifyInput): Promise<Decision> 
     }
     // Never post a draft the model cut off at the token limit (its tool JSON / reply_text is partial).
     if (res.stop_reason === "max_tokens") {
-      return { decision: "skip", category: "other", reply_text: "", reason: "truncated (max_tokens) — not posting a cut-off reply" };
+      throw new Error("Truncated reply verdict (max_tokens)");
     }
     const findSubmit = (m: Anthropic.Message) =>
       m.content.find(
@@ -443,23 +449,23 @@ export async function classifyAndDraft(input: ClassifyInput): Promise<Decision> 
           model,
           max_tokens: 1024,
           ...effortParam,
-          system: [{ type: "text", text: FULL_SYSTEM, cache_control: { type: "ephemeral", ttl: cacheTtl } }],
-          messages: [{ role: "user", content }],
+          system: [{ type: "text", text: systemPrompt, cache_control: { type: "ephemeral", ttl: cacheTtl } }],
+          messages: [{ role: "user", content }, { role: "assistant", content: res.content }, { role: "user", content: "Use the search evidence already returned. Submit the decision now; skip if the evidence is insufficient." }],
           tools,
           tool_choice: { type: "tool", name: "submit_reply" },
         } as unknown as Anthropic.MessageCreateParamsNonStreaming);
         recordUsage(model, forced.usage);
         if (forced.stop_reason === "max_tokens") {
-          return { decision: "skip", category: "other", reply_text: "", reason: "truncated (max_tokens) — not posting a cut-off reply" };
+          throw new Error("Truncated reply verdict (max_tokens)");
         }
         const forcedSubmit = findSubmit(forced);
         if (forcedSubmit?.input) {
-          return sanitize(forcedSubmit.input as Decision, { isPublic, terms: spoilerTerms }, isBotQuestion(commentText));
+          return sanitize(parseDecision(forcedSubmit.input), { isPublic, terms: spoilerTerms }, isBotQuestion(commentText));
         }
       }
-      return { decision: "skip", category: "other", reply_text: "", reason: "no submit_reply produced" };
+      throw new Error("No submit_reply produced");
     }
-    return sanitize(submit.input as Decision, { isPublic, terms: spoilerTerms }, isBotQuestion(commentText));
+    return sanitize(parseDecision(submit.input), { isPublic, terms: spoilerTerms }, isBotQuestion(commentText));
   } catch (err) {
     // Any failure (API error, bad output) -> stay silent. Never post on uncertainty.
     const msg = err instanceof Error ? err.message : String(err);
@@ -681,7 +687,7 @@ export function sanitize(d: Decision, spoiler?: { isPublic: boolean; terms: stri
   if (d.decision === "reply" && spoiler && !spoiler.isPublic) {
     // An "affirm" reply exists only to confirm a guess — which gives the answer away. Never post
     // one before the reveal, whatever the wording.
-    if (d.category === "affirm") {
+    if (["affirm", "correct", "teach"].includes(d.category)) {
       return { decision: "skip", category: d.category, reply_text: "", reason: `${d.reason} | spoiler guard: no affirm before the reveal` };
     }
     const low = text.toLowerCase();

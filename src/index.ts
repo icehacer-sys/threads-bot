@@ -14,6 +14,7 @@ import { dirname, join } from "node:path";
 
 const execFileAsync = promisify(execFile);
 import { config } from "./config";
+import { PersistenceError } from "./persistence";
 import { classifyAndDraft, isBotQuestion, firstSentences, type Decision, type InlineImage, type ImageMediaType } from "./reply";
 import { pickGif } from "./gifs";
 import { drainSpend, usd } from "./spend";
@@ -474,6 +475,7 @@ function looksLikeMediaId(s: string): boolean {
 async function resolvePinnedPosts(
   state: { resolvedPinned(k: string): string | undefined; setResolvedPinned(k: string, id: string): void },
   daily: ThreadsPost[],
+  onFailure: (err: unknown) => void,
 ): Promise<ThreadsPost[]> {
   if (!config.pinnedPostIds.length) return [];
   const dailyIds = new Set(daily.map((p) => p.id));
@@ -498,6 +500,7 @@ async function resolvePinnedPosts(
         }
       }
       if (!id) {
+        onFailure(new Error(`Pinned post not found: ${entry}`));
         console.error(`  ! pinned post not found (use a media id from --list or a post URL): ${entry}`);
         continue;
       }
@@ -505,6 +508,7 @@ async function resolvePinnedPosts(
       seen.add(id);
       out.push(await getPostById(id));
     } catch (err) {
+      onFailure(err);
       console.error(`  ! pinned post ${entry} failed: ${(err as Error).message}`);
     }
   }
@@ -540,6 +544,11 @@ async function runLiveOrDry(mode: Mode, target: string | null): Promise<void> {
   // Lazy import so demo mode never needs the state file or Threads token.
   const { State } = await import("./state");
   const state = new State();
+  let operationalFailures = 0;
+  const recordFailure = (err: unknown) => {
+    if (err instanceof PersistenceError) throw err;
+    operationalFailures++;
+  };
 
   const me = await getMyUsername();
   let posts = await getRecentPosts();
@@ -549,7 +558,7 @@ async function runLiveOrDry(mode: Mode, target: string | null): Promise<void> {
 
   // Pinned posts (e.g. a pinned intro thread): always scanned on top of the daily post,
   // unless a specific target was requested. They bypass the time window + per-post cap below.
-  const pinnedPosts = target ? [] : await resolvePinnedPosts(state, posts);
+  const pinnedPosts = target ? [] : await resolvePinnedPosts(state, posts, recordFailure);
   const pinnedIds = new Set(pinnedPosts.map((p) => p.id));
   const scanPosts = [...posts, ...pinnedPosts];
 
@@ -615,10 +624,37 @@ async function runLiveOrDry(mode: Mode, target: string | null): Promise<void> {
     try {
       [replies, conversation] = await Promise.all([getReplies(post.id), getConversation(post.id)]);
     } catch (err) {
+      recordFailure(err);
       console.error(`  ! skipping post ${post.id}: ${(err as Error).message}`);
       continue;
     }
     convByPost.set(post.id, conversation);
+
+    // Resume saved containers before paying to classify the same comment again.
+    const resumed = new Set<string>();
+    if (posting) {
+      for (const c of [...replies, ...conversation]) {
+        const publication = state.publication(`comment:${c.id}`);
+        const pending = publication.get();
+        if (!pending || resumed.has(c.id) || state.hasReplied(c.id)) continue;
+        if (budgetLeft() <= 0) break;
+        resumed.add(c.id);
+        try {
+          await postReply(c.id, pending.params.text, undefined, undefined, publication);
+          state.markReplied(c.id, post.id);
+          if (pending.params.gif_attachment) {
+            const attachment = JSON.parse(pending.params.gif_attachment) as { gif_id: string };
+            state.markGifPosted(post.id, attachment.gif_id);
+          }
+          if (/https?:\/\//i.test(pending.params.text)) state.markPromoPosted(post.id);
+          replied++;
+          console.log(`    recovered saved reply for ${c.id}`);
+        } catch (err) {
+          recordFailure(err);
+          console.error(`    ! reply recovery failed for ${c.id}: ${(err as Error).message}`);
+        }
+      }
+    }
 
     // Prefer the xray-cases bridge (auto-posted cases) so the bot knows the diagnosis
     // even before the answer is publicly posted; fall back to answers.json / pinned reply.
@@ -656,6 +692,7 @@ async function runLiveOrDry(mode: Mode, target: string | null): Promise<void> {
         ((c.media_type === "IMAGE" || c.media_type === "VIDEO") && !!c.media_url) ||
         !!c.gif_url) && // a bare GIF (no text) is still worth reacting to
       !state.hasReplied(c.id) && // local record — never post twice, even if our reply is pending/lagging
+      !resumed.has(c.id) &&
       !answeredByMe.has(c.id) &&
       !state.hasSkipped(c.id); // already classified+skipped once — don't re-pay to re-classify it every poll
 
@@ -817,6 +854,9 @@ async function runLiveOrDry(mode: Mode, target: string | null): Promise<void> {
       // Two-tier: the cheap triage model drafts every comment; only accuracy-critical
       // categories (corrections / teaching) are re-drafted by the pricier quality model.
       let d = await classifyAndDraft({ ...baseInput, modelOverride: config.triageModel });
+      const triageSpend = drainSpend();
+      spentThisRun += triageSpend.usd;
+      if (posting) state.addSpend(triageSpend.usd);
       let escalated = false;
       // Escalate to the quality model when the category is accuracy-critical (corrections/teaching/
       // reference), OR triage flagged a reference it cannot place (needs_lookup), OR — subject to
@@ -895,6 +935,7 @@ async function runLiveOrDry(mode: Mode, target: string | null): Promise<void> {
       }
 
       if (d.decision === "skip") {
+        if (posting && /owner review|owner response/i.test(d.reason)) state.queueOwnerReview(c.id, post.id, d.reason);
         skipCounts[d.category] = (skipCounts[d.category] ?? 0) + 1;
         // Cache the skip so we don't re-classify this comment on every 10-min poll all night (the
         // main cost leak), with two carve-outs that MUST stay re-checkable: transient API-error
@@ -908,7 +949,7 @@ async function runLiveOrDry(mode: Mode, target: string | null): Promise<void> {
         // (reply.ts already retries it once with a forced tool) — leaving it re-checkable made an
         // escalation that never submits re-run its pricey Sonnet+search call every poll all night.
         const transient = /^error:/.test(d.reason);
-        const spoilerHeld = d.reason.includes("spoiler guard");
+        const spoilerHeld = d.reason.includes("spoiler guard") || (!answerPublic && /before.{0,20}reveal|answer.{0,20}(?:private|not public)|diagnosis.{0,20}withheld/i.test(d.reason));
         const final = ["spam", "complaint", "personal_medical", "other"].includes(d.category);
         // Follow-ups + answer-thread subs are the owner's engagement threads. A clearly-final
         // skip (spam/other noise like a lone emoji) still caches, but a SOFT skip on one of these
@@ -1002,7 +1043,7 @@ async function runLiveOrDry(mode: Mode, target: string | null): Promise<void> {
           : null;
       if (posting) {
         try {
-          await postReply(c.id, replyText, undefined, gif?.gif_id);
+          await postReply(c.id, replyText, undefined, gif?.gif_id, state.publication(`comment:${c.id}`));
           state.markReplied(c.id, post.id);
           if (gif) {
             state.markGifPosted(post.id, gif.gif_id);
@@ -1016,6 +1057,7 @@ async function runLiveOrDry(mode: Mode, target: string | null): Promise<void> {
           }
           replied += 1;
         } catch (err) {
+          recordFailure(err);
           console.error(`    ! post failed for ${c.id}: ${(err as Error).message}`);
         }
       } else {
@@ -1046,6 +1088,7 @@ async function runLiveOrDry(mode: Mode, target: string | null): Promise<void> {
           conv = await getConversation(post.id);
           convByPost.set(post.id, conv);
         } catch (err) {
+          recordFailure(err);
           console.error(`  ! answer dup-check fetch failed for ${sc}: ${(err as Error).message}`);
         }
       }
@@ -1065,10 +1108,11 @@ async function runLiveOrDry(mode: Mode, target: string | null): Promise<void> {
         : { text: entry.breakdown, spoilers: [] as SpoilerEntity[] };
       if (posting) {
         try {
-          await postReply(post.id, text, spoilers);
+          await postReply(post.id, text, spoilers, undefined, state.publication(`answer:${post.id}`));
           state.markAnswered(post.id);
           console.log(`Answer posted for ${sc}${config.answerUseSpoiler ? " (explanation blurred)" : ""}. Now pin it in the app.`);
         } catch (err) {
+          recordFailure(err);
           console.error(`  ! answer post failed for ${sc}: ${(err as Error).message}`);
         }
       } else {
@@ -1102,8 +1146,8 @@ async function runLiveOrDry(mode: Mode, target: string | null): Promise<void> {
   if (fatalStop) {
     console.error("Fatal API error this run (billing/auth) — failing so the outage surfaces now, not hours from now.");
     process.exitCode = 3; // distinct code: the workflow aborts the whole chain on this, not after 6 polls
-  } else if (posting && processed > 0 && errorSkips === processed) {
-    console.error(`All ${processed} classification(s) errored — likely an API outage. Failing the run so it surfaces.`);
+  } else if (operationalFailures > 0 || errorSkips > 0) {
+    console.error(`${operationalFailures} operation(s) and ${errorSkips}/${processed} classification(s) failed. Successful replies were saved; failing this run so errors surface.`);
     process.exitCode = 1;
   }
 }
@@ -1124,5 +1168,5 @@ async function main(): Promise<void> {
 
 main().catch((err) => {
   console.error(err instanceof Error ? err.message : err);
-  process.exitCode = 1;
+  process.exitCode = err instanceof PersistenceError ? 4 : 1;
 });

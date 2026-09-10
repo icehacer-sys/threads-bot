@@ -1,0 +1,10 @@
+import { readFileSync } from "node:fs";
+import { evaluateVoice } from "../src/voice-evaluation";
+import { drainSpend } from "../src/spend";
+import { atomicJson } from "../src/persistence";
+if (!process.argv.includes("--live")) throw new Error("Use --live to run paid model checks on synthetic comments; no replies are published");
+const notes = readFileSync(new URL("../data/voice-learned.md", import.meta.url), "utf8");
+const result = await evaluateVoice(notes);
+atomicJson("data/voice-evaluation.json", { at: new Date().toISOString(), scope: "12 synthetic text comments; no public posts or real comments", spend: drainSpend(), ...result });
+for (const r of result.results) console.log(`${r.passed ? "PASS" : "FAIL"} ${r.name}: ${JSON.stringify(r.decision)}`);
+if (!result.passed) process.exitCode = 1;

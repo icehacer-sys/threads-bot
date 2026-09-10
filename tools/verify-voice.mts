@@ -47,7 +47,7 @@ for (const h of hits) { fail++; console.log(`  FAIL  reply.ts:${h.line} prescrib
 
 console.log("\n=== the pre-reveal note tells the model to engage, not stall ===");
 const replyTs = read("src/reply.ts");
-for (const s of ["NEVER stall", "Vary it every time"]) {
+for (const s of ["Treat ALL diagnosis guesses identically", "The diagnosis is withheld"]) {
   const ok = replyTs.includes(s);
   if (!ok) fail++;
   console.log(`  ${ok ? "PASS" : "FAIL"}  contains "${s}"`);

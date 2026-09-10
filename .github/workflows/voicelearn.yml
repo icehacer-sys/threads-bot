@@ -53,25 +53,37 @@ jobs:
           cache: "npm"
       - name: Install dependencies
         run: npm ci
-      - name: Fable 5 voice self-audit
+      - name: Generate and evaluate voice candidate
+        shell: bash
         run: |
           if [ "${{ github.event.inputs.backfill }}" = "true" ]; then npm run learn:backfill | tee /tmp/learn.log; else npm run learn | tee /tmp/learn.log; fi
       - name: Commit updated voice notes
         run: |
-          if [ -n "$(git status --porcelain data/voice-learned.md data/voice-changelog.md)" ]; then
+          if [ -n "$(git status --porcelain data/voice-learned.md data/voice-changelog.md data/voice-candidate.md data/voice-evaluation.json)" ]; then
             # The commit message carries the one-line "what changed" summary Fable emitted, so
             # `git log` skims the voice's evolution. voice-changelog.md is the full running log.
             SUMMARY=$(grep -m1 '^CHANGE_SUMMARY:' /tmp/learn.log | sed 's/^CHANGE_SUMMARY:[[:space:]]*//' | cut -c1-140)
             [ -z "$SUMMARY" ] && SUMMARY="update learned notes"
             git config user.name "threads-bot"
             git config user.email "github-actions[bot]@users.noreply.github.com"
-            git add data/voice-learned.md data/voice-changelog.md
-            printf 'chore: voice self-audit — %s [skip ci]\n' "$SUMMARY" > /tmp/msg.txt
+            git add data/voice-learned.md data/voice-changelog.md data/voice-candidate.md data/voice-evaluation.json
+            printf 'chore: voice self-audit: %s [skip ci]\n' "$SUMMARY" > /tmp/msg.txt
             git commit -F /tmp/msg.txt
+            synced=false
             for attempt in 1 2 3; do
               git pull --rebase --autostash origin "${GITHUB_REF_NAME}" || { git rebase --abort 2>/dev/null || true; sleep 3; continue; }
-              git push && break || { echo "push failed ($attempt/3)"; sleep 3; }
+              git push && { synced=true; break; } || { echo "push failed ($attempt/3)"; sleep 3; }
             done
+            [ "$synced" = true ] || exit 1
           else
             echo "no change to voice notes this run"
           fi
+      - name: Preserve failed candidate and evaluation
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: voice-review
+          path: |
+            data/voice-candidate.md
+            data/voice-evaluation.json
+          retention-days: 7
