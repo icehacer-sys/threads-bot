@@ -256,6 +256,15 @@
       },
       "publishedId": "18125734717840869",
       "confirmedPublished": true
+    },
+    "comment:17973918377931535": {
+      "creationId": "17888758071614054",
+      "createdAt": "2026-09-10T21:17:39.031Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Quarter's the call. Battery risk is always the first thing to rule out though. Those burn fast if they're sitting on wet tissue.",
+        "reply_to_id": "17973918377931535"
+      }
     }
   },
   "repliedCommentIds": [
@@ -8251,7 +8260,8 @@
     "17945035176321983",
     "17885465100619152",
     "18232782481321736",
-    "17962084818197068"
+    "17962084818197068",
+    "17881900152512457"
   ],
   "answeredPostIds": [
     "18395606890093068"
@@ -8356,11 +8366,11 @@
     "18123015703890508": 82,
     "18085399412691930": 133,
     "17900166078657433": 109,
-    "18103023326210157": 22
+    "18103023326210157": 23
   },
   "daily": {
     "date": "2026-09-10",
-    "count": 22
+    "count": 23
   },
   "pinnedResolved": {
     "DaTTCIwoAw7": "18014812820883466"
@@ -9142,6 +9152,6 @@
   },
   "spend": {
     "date": "2026-09-10",
-    "usd": 0.43934939999999967
+    "usd": 0.44206519999999966
   }
 }
