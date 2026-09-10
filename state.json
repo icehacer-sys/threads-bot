@@ -587,6 +587,15 @@
       },
       "publishedId": "17884979853685108",
       "confirmedPublished": true
+    },
+    "comment:18094162253408044": {
+      "creationId": "17888762217614054",
+      "createdAt": "2026-09-10T22:17:22.757Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Good fears to have first, this one turned out to be a coin. But battery and magnet are exactly the right objects to rule out before anything else.",
+        "reply_to_id": "18094162253408044"
+      }
     }
   },
   "repliedCommentIds": [
@@ -8612,7 +8621,8 @@
     "18098310344129430",
     "17983275477114037",
     "18104461060957015",
-    "18377297614232264"
+    "18377297614232264",
+    "18632688865001237"
   ],
   "answeredPostIds": [
     "18395606890093068"
@@ -8717,11 +8727,11 @@
     "18123015703890508": 82,
     "18085399412691930": 133,
     "17900166078657433": 109,
-    "18103023326210157": 52
+    "18103023326210157": 53
   },
   "daily": {
     "date": "2026-09-10",
-    "count": 52
+    "count": 53
   },
   "pinnedResolved": {
     "DaTTCIwoAw7": "18014812820883466"
@@ -9511,6 +9521,6 @@
   },
   "spend": {
     "date": "2026-09-10",
-    "usd": 0.6883337999999996
+    "usd": 0.7002347999999995
   }
 }
