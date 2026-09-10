@@ -69,6 +69,15 @@
       },
       "publishedId": "17982136515110194",
       "confirmedPublished": true
+    },
+    "comment:18125257357845679": {
+      "creationId": "17888756484614054",
+      "createdAt": "2026-09-10T20:54:34.277Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "The internal button warranty expires at 45, apparently. One sneeze and the whole assembly unravels. You've basically described every radiologist's diagnosis note for anyone who moved near a gym.",
+        "reply_to_id": "18125257357845679"
+      }
     }
   },
   "repliedCommentIds": [
@@ -8935,6 +8944,6 @@
   },
   "spend": {
     "date": "2026-09-10",
-    "usd": 0.22916499999999998
+    "usd": 0.25372019999999995
   }
 }
