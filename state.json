@@ -279,6 +279,15 @@
       },
       "publishedId": "18222735325333669",
       "confirmedPublished": true
+    },
+    "comment:18162361048468075": {
+      "creationId": "17888758185614054",
+      "createdAt": "2026-09-10T21:20:15.598Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Exactly the right call. When you can't tell from the image. You treat it as the dangerous one until the lateral view or endoscopy proves different.",
+        "reply_to_id": "18162361048468075"
+      }
     }
   },
   "repliedCommentIds": [
@@ -8276,7 +8285,8 @@
     "18232782481321736",
     "17962084818197068",
     "17881900152512457",
-    "17973918377931535"
+    "17973918377931535",
+    "18065918375783985"
   ],
   "answeredPostIds": [
     "18395606890093068"
@@ -8381,11 +8391,11 @@
     "18123015703890508": 82,
     "18085399412691930": 133,
     "17900166078657433": 109,
-    "18103023326210157": 24
+    "18103023326210157": 25
   },
   "daily": {
     "date": "2026-09-10",
-    "count": 24
+    "count": 25
   },
   "pinnedResolved": {
     "DaTTCIwoAw7": "18014812820883466"
@@ -9167,6 +9177,6 @@
   },
   "spend": {
     "date": "2026-09-10",
-    "usd": 0.44479999999999964
+    "usd": 0.45784999999999965
   }
 }
