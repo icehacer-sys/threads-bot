@@ -154,6 +154,9 @@ jobs:
           fi
           git config user.name "threads-bot"
           git config user.email "github-actions[bot]@users.noreply.github.com"
+          # A queued run's checkout may predate the previous worker's final checkpoints.
+          # Sync before loading State, while there is no in-memory history to invalidate.
+          sync_repo
           start=$(date +%s)
           fails=0
           had_errors=0
