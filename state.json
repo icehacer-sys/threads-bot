@@ -411,6 +411,15 @@
       },
       "publishedId": "18133093906636945",
       "confirmedPublished": true
+    },
+    "comment:17962616756981047": {
+      "creationId": "17888758620614054",
+      "createdAt": "2026-09-10T21:25:02.978Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Nickel's close, it's a coin, yep. Good instinct flagging the battery though. That one would've been the real emergency.",
+        "reply_to_id": "17962616756981047"
+      }
     }
   },
   "repliedCommentIds": [
@@ -8420,7 +8429,8 @@
     "17877453477691735",
     "18162831916484180",
     "17969040426177222",
-    "17915267604445223"
+    "17915267604445223",
+    "18127882789762243"
   ],
   "answeredPostIds": [
     "18395606890093068"
@@ -8525,11 +8535,11 @@
     "18123015703890508": 82,
     "18085399412691930": 133,
     "17900166078657433": 109,
-    "18103023326210157": 36
+    "18103023326210157": 37
   },
   "daily": {
     "date": "2026-09-10",
-    "count": 36
+    "count": 37
   },
   "pinnedResolved": {
     "DaTTCIwoAw7": "18014812820883466"
@@ -9314,6 +9324,6 @@
   },
   "spend": {
     "date": "2026-09-10",
-    "usd": 0.5802487999999996
+    "usd": 0.5832205999999995
   }
 }
