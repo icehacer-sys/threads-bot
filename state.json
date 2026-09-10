@@ -598,6 +598,15 @@
       },
       "publishedId": "18082980842692382",
       "confirmedPublished": true
+    },
+    "comment:18103646831352148": {
+      "creationId": "17888763963614054",
+      "createdAt": "2026-09-10T22:33:01.590Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Flagging the battery worry first, that's always the scariest option to rule out. This one turned out to be a coin, so at least the timeline breathed a little easier.",
+        "reply_to_id": "18103646831352148"
+      }
     }
   },
   "repliedCommentIds": [
@@ -9459,7 +9468,8 @@
     "18090275096664566",
     "18407117581081667",
     "17887297668681227",
-    "18136601626618107"
+    "18136601626618107",
+    "17924154855423299"
   ],
   "skipStrikes": {
     "17895266316520842": 1,
@@ -9524,6 +9534,6 @@
   },
   "spend": {
     "date": "2026-09-10",
-    "usd": 0.7002347999999995
+    "usd": 0.7062633999999994
   }
 }
