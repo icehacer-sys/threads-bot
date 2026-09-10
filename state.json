@@ -165,7 +165,9 @@
         "media_type": "TEXT",
         "text": "That's the one.",
         "reply_to_id": "18065177939685330"
-      }
+      },
+      "publishedId": "18077970461358235",
+      "confirmedPublished": true
     }
   },
   "repliedCommentIds": [
