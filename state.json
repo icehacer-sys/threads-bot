@@ -135,6 +135,15 @@
       },
       "publishedId": "18117388727317221",
       "confirmedPublished": true
+    },
+    "comment:18628360969013327": {
+      "creationId": "17888757804614054",
+      "createdAt": "2026-09-10T21:12:58.198Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Not always. Most coins come out via endoscopy first. Which is way less invasive than the OR. Surgery's the backup if it's stuck tight or causing real trouble.",
+        "reply_to_id": "18628360969013327"
+      }
     }
   },
   "repliedCommentIds": [
@@ -8119,7 +8128,8 @@
     "18103857032237229",
     "17998769846796960",
     "17919044805431587",
-    "18622357186052478"
+    "18622357186052478",
+    "18064699451750180"
   ],
   "answeredPostIds": [
     "18395606890093068"
@@ -8224,11 +8234,11 @@
     "18123015703890508": 82,
     "18085399412691930": 133,
     "17900166078657433": 109,
-    "18103023326210157": 11
+    "18103023326210157": 12
   },
   "daily": {
     "date": "2026-09-10",
-    "count": 11
+    "count": 12
   },
   "pinnedResolved": {
     "DaTTCIwoAw7": "18014812820883466"
@@ -9007,6 +9017,6 @@
   },
   "spend": {
     "date": "2026-09-10",
-    "usd": 0.3208733999999998
+    "usd": 0.3234731999999998
   }
 }
