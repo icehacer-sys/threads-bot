@@ -1,6 +1,10 @@
 {
-  "ownerReviews": {},
-  "concernAcknowledgments": {},
+  "ownerReviews": {
+    "17937444630360450": "{\"postId\":\"18103023326210157\",\"reason\":\"owner review: personal medical concern\",\"commentText\":\"Little sister of my friend swalloved a coin of 1 fim. At hospital the family was advised to thoroughly keep an eye on her poops. So, the next day they found two 50 penny coins😀.\",\"username\":\"velitapiof\",\"queuedAt\":\"2026-09-10T20:21:59.741Z\"}"
+  },
+  "concernAcknowledgments": {
+    "[\"18103023326210157\",\"velitapiof\",\"personal\"]": "17937444630360450"
+  },
   "publications": {
     "comment:18366808555245367": {
       "creationId": "17888751582614054",
@@ -45,6 +49,15 @@
       },
       "publishedId": "17871365364636011",
       "confirmedPublished": true
+    },
+    "comment:17937444630360450": {
+      "creationId": "17888754651614054",
+      "createdAt": "2026-09-10T20:22:02.609Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "That sounds worrying. A comment can't establish what's causing it. A clinician can assess your symptoms.",
+        "reply_to_id": "17937444630360450"
+      }
     }
   },
   "repliedCommentIds": [
@@ -8021,7 +8034,8 @@
     "17980460052107905",
     "18366808555245367",
     "18337583392261306",
-    "18389155444165489"
+    "18389155444165489",
+    "17872212351587080"
   ],
   "answeredPostIds": [
     "18395606890093068"
@@ -8126,11 +8140,11 @@
     "18123015703890508": 82,
     "18085399412691930": 133,
     "17900166078657433": 109,
-    "18103023326210157": 3
+    "18103023326210157": 4
   },
   "daily": {
     "date": "2026-09-10",
-    "count": 3
+    "count": 4
   },
   "pinnedResolved": {
     "DaTTCIwoAw7": "18014812820883466"
@@ -8906,6 +8920,6 @@
   },
   "spend": {
     "date": "2026-09-10",
-    "usd": 0.11840919999999999
+    "usd": 0.12825820000000002
   }
 }
