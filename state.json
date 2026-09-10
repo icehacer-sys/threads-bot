@@ -342,7 +342,9 @@
         "media_type": "TEXT",
         "text": "At least you'd know exactly where it ended up.",
         "reply_to_id": "18111817610019216"
-      }
+      },
+      "publishedId": "17898231567663678",
+      "confirmedPublished": true
     }
   },
   "repliedCommentIds": [
