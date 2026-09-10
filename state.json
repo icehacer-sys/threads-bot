@@ -234,6 +234,15 @@
       },
       "publishedId": "17945442579292836",
       "confirmedPublished": true
+    },
+    "comment:17962084818197068": {
+      "creationId": "17888757933614054",
+      "createdAt": "2026-09-10T21:16:43.253Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "This one's a coin but the battery instinct is exactly right to flag. The main danger with a button battery is actually the electrical current it generates against wet tissue. Rapid burns within hours.",
+        "reply_to_id": "17962084818197068"
+      }
     }
   },
   "repliedCommentIds": [
@@ -8227,7 +8236,8 @@
     "17951271735038054",
     "18140916916594600",
     "17945035176321983",
-    "17885465100619152"
+    "17885465100619152",
+    "18232782481321736"
   ],
   "answeredPostIds": [
     "18395606890093068"
@@ -8332,11 +8342,11 @@
     "18123015703890508": 82,
     "18085399412691930": 133,
     "17900166078657433": 109,
-    "18103023326210157": 20
+    "18103023326210157": 21
   },
   "daily": {
     "date": "2026-09-10",
-    "count": 20
+    "count": 21
   },
   "pinnedResolved": {
     "DaTTCIwoAw7": "18014812820883466"
@@ -9117,6 +9127,6 @@
   },
   "spend": {
     "date": "2026-09-10",
-    "usd": 0.4121755999999997
+    "usd": 0.4253745999999997
   }
 }
