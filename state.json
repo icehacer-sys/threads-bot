@@ -554,6 +554,15 @@
       },
       "publishedId": "18162252310477946",
       "confirmedPublished": true
+    },
+    "comment:18104461060957015": {
+      "creationId": "17888761059614054",
+      "createdAt": "2026-09-10T22:00:57.300Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Exactly the spot. The thoracic inlet is one of the natural choke points in the oesophagus, which is why swallowed coins so often stop right there.",
+        "reply_to_id": "18104461060957015"
+      }
     }
   },
   "repliedCommentIds": [
@@ -8576,7 +8585,8 @@
     "18110796533117963",
     "18150943249522991",
     "18184253560416227",
-    "18098310344129430"
+    "18098310344129430",
+    "17983275477114037"
   ],
   "answeredPostIds": [
     "18395606890093068"
@@ -8681,11 +8691,11 @@
     "18123015703890508": 82,
     "18085399412691930": 133,
     "17900166078657433": 109,
-    "18103023326210157": 49
+    "18103023326210157": 50
   },
   "daily": {
     "date": "2026-09-10",
-    "count": 49
+    "count": 50
   },
   "pinnedResolved": {
     "DaTTCIwoAw7": "18014812820883466"
@@ -9475,6 +9485,6 @@
   },
   "spend": {
     "date": "2026-09-10",
-    "usd": 0.6693971999999996
+    "usd": 0.6820171999999995
   }
 }
