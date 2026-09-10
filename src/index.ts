@@ -18,7 +18,7 @@ import { PersistenceError } from "./persistence";
 import { classifyAndDraft, isBotQuestion, firstSentences, type Decision, type InlineImage, type ImageMediaType } from "./reply";
 import { pickGif } from "./gifs";
 import { drainSpend, usd } from "./spend";
-import { acknowledgmentKind, holdForImageReview, imageConcernKind } from "./concerns";
+import { acknowledgmentKind, holdForImageReview, imageConcernKind, isRetiredMedicalBoundary } from "./concerns";
 import { getProduct } from "./products";
 import { resolveXrayAnswer } from "./xray";
 import {
@@ -644,6 +644,11 @@ async function runLiveOrDry(mode: Mode, target: string | null): Promise<void> {
         if (!pending || resumed.has(c.id) || state.hasReplied(c.id)) continue;
         if (budgetLeft() <= 0) break;
         resumed.add(c.id);
+        if (isRetiredMedicalBoundary(pending.params.text)) {
+          state.queueOwnerReview(c.id, post.id, 'Retired medical boundary in saved publication; do not publish', c.text, c.username);
+          console.log(`    saved reply for ${c.id} blocked: retired medical boundary`);
+          continue;
+        }
         if (imageReviewHeld && !pending.publishedId && !acknowledgmentKind(pending.params.text)) {
           console.log(`    saved reply for ${c.id} paused for image review`);
           continue;

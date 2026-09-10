@@ -1,12 +1,24 @@
 import type { Decision } from './reply';
 
 export const ACKNOWLEDGMENTS = {
-  personal: "That sounds worrying. A comment can't establish what's causing it. A clinician can assess your symptoms.",
+  personal: "Personal medical advice needs an assessment by a clinician who knows your history.",
   scan: "This account doesn't review personal scans. The clinician handling your care can interpret it with your history.",
   image: "Thanks for flagging that detail.",
   urgent: "If someone is in immediate danger contact local emergency services now. This account cannot assess emergencies.",
 } as const;
 export type ConcernKind = keyof typeof ACKNOWLEDGMENTS;
+export function isRetiredMedicalBoundary(text: string): boolean {
+  return /that sounds worrying|a comment (?:can['’]?t|cannot) establish (?:what['’]?s|what is) causing it|a clinician can assess your symptoms/i.test(text);
+}
+export function requestsPersonalAdvice(text: string): boolean {
+  // A medical anecdote, hospital visit or quoted advice is not a current request.
+  const request = /\b(?:should|could|can|would|do)\s+(?:i|we|my\s+(?:child|baby|son|daughter|partner))\b|\bwhat\s+(?:medicine|medication|treatment|test)\s+should\b|\bwhat should (?:i|we) do\b|\b(?:please|can you|could you)\s+(?:help|advise|diagnose|tell)\b|\b(?:i|we)\s+(?:need|want)\s+(?:medical\s+)?advice\b/i;
+  const personal = /\b(?:i|me|my|we|our|us)\b/i;
+  return text.split(/(?<=[.!?])\s+/).some(sentence => {
+    if (/\b(?:asked|was told|were told|was advised|were advised|doctor said|doctor told)\b/i.test(sentence) && !/\b(?:now|today|still)\b/i.test(sentence)) return false;
+    return personal.test(sentence) && request.test(sentence);
+  });
+}
 export function acknowledgmentKind(text: string): ConcernKind | undefined {
   return (Object.keys(ACKNOWLEDGMENTS) as ConcernKind[]).find(k => ACKNOWLEDGMENTS[k] === text);
 }
@@ -17,7 +29,7 @@ export function imageConcernKind(text: string): 'anatomy' | 'provenance' | undef
   if (anatomy && /duplicat|extra|missing|two (?:left|right)|impossible|wrong (?:number|side)|where (?:are|is)|can(?:not|'t) see|garbled|melted/i.test(text)) return 'anatomy';
 }
 export function concernAcknowledgment(kind: ConcernKind, priorReply?: string): Decision {
-  const repeated = !!priorReply && acknowledgmentKind(priorReply) !== undefined;
+  const repeated = !!priorReply && (acknowledgmentKind(priorReply) !== undefined || isRetiredMedicalBoundary(priorReply));
   return { decision: repeated ? 'skip' : 'reply', category: kind === 'image' ? 'complaint' : 'personal_medical',
     reply_text: repeated ? '' : ACKNOWLEDGMENTS[kind], reason: `owner review: ${kind === 'image' ? 'image/anatomy inconsistency' : 'personal medical concern'}${repeated ? '; acknowledgment already given' : ''}` };
 }

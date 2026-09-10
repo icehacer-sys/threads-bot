@@ -11,7 +11,7 @@ import { SYSTEM_PROMPT } from "./voice";
 import { GIF_TAGS } from "./gifs";
 import { PROMO_TAGS, PRODUCTS_BLOCK } from "./products";
 import { recordUsage, priceFor } from "./spend";
-import { acknowledgmentKind, concernAcknowledgment, directConcern, imageConcernKind } from "./concerns";
+import { acknowledgmentKind, concernAcknowledgment, directConcern, imageConcernKind, requestsPersonalAdvice, isRetiredMedicalBoundary } from "./concerns";
 
 // Self-learned voice notes (maintained by the Fable 5 self-audit in voicelearn.ts). Loaded ONCE and
 // appended to the cached system prompt, so the voice keeps sharpening with zero per-reply cost.
@@ -206,6 +206,8 @@ export interface ClassifyInput {
    *  (to judge guesses) but must never reveal it. Undefined = treat as public (manual/demo). */
   answerPublic?: boolean;
   imageReviewPending?: boolean;
+  /** One bounded recheck when personal_medical has no matching advice request. */
+  storyRecheck?: boolean;
   /** Allow this one call to use web search. Only the quality-model re-run of an
    *  unrecognized "reference" comment sets this — never the cheap triage pass. */
   allowSearch?: boolean;
@@ -245,8 +247,12 @@ export async function classifyAndDraft(input: ClassifyInput): Promise<Decision> 
   }
   const concern = directConcern(commentText, priorExchange?.bot);
   if (concern) return concern;
-  const finalize = (d: Decision): Decision => {
-    if (d.category === 'personal_medical') return concernAcknowledgment('personal', priorExchange?.bot);
+  const finalize = async (d: Decision): Promise<Decision> => {
+    if (d.category === 'personal_medical') {
+      if (requestsPersonalAdvice(commentText)) return concernAcknowledgment('personal', priorExchange?.bot);
+      if (!input.storyRecheck) return classifyAndDraft({ ...input, storyRecheck: true, allowSearch: false });
+      return { decision: 'skip', category: 'other', reply_text: '', reason: 'No explicit advice request; ambiguous story classification after one recheck. Never substitute a medical boundary.' };
+    }
     return d;
   };
   // "Are you a bot?" pushed a SECOND time in the same thread (a follow-up that is itself another
@@ -394,6 +400,7 @@ export async function classifyAndDraft(input: ClassifyInput): Promise<Decision> 
     for (const img of commentImages) content.push({ type: "image", source: { type: "base64", media_type: img.media_type, data: img.data } });
   }
   content.push({ type: "text", text: varText });
+  if (input.storyRecheck) content.push({ type: 'text', text: 'CLASSIFICATION RECHECK: No explicit request for personal medical advice was found in this comment. Re-read the actual comment. A completed anecdote, reported hospital advice or a joke is not a current symptom assessment. Use empathize for a sincere story or banter for its light punchline. Do not send a medical disclaimer or invent current symptoms. If the intent is still uncertain or describes current danger, skip. All spoiler, accuracy and image-review rules still apply.' });
 
   // The submit_reply tool gives guaranteed-structured output; web_search (optional)
   // lets the model look up references it does not recognize. With web search off we
@@ -668,7 +675,7 @@ export function sanitize(d: Decision, spoiler?: { isPublic: boolean; terms: stri
   const confesses = CONFESSION.test(text) || /\billustrations?\b/i.test(text) || (isBotQ && BOT_ANSWER_LEAK.test(text));
   const personal = d.category === "personal_medical" && !acknowledgmentKind(text);
   // Whole reply is just a retired stock topper (ignore punctuation/emoji)?
-  const isRetired = RETIRED_LINES.test(text.replace(/[^\p{L} ]+/gu, "").trim());
+  const isRetired = RETIRED_LINES.test(text.replace(/[^\p{L} ]+/gu, "").trim()) || isRetiredMedicalBoundary(text);
 
   // Force skip: personal-medical, advice-like wording, an authenticity confession (AI/recreation),
   // a retired stock line, or an empty draft.

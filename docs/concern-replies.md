@@ -3,7 +3,8 @@
 Owner-approved behavior, 2026-09-10.
 
 - Personal experiences without an advice request remain eligible for natural empathy.
-- Personal medical questions receive approved boundary wording. The model cannot write diagnosis or treatment advice into that response.
+- Explicit requests for personal medical advice receive approved boundary wording. Mentioning illness, hospitals or advice received in the past does not qualify. A personal_medical classification without an explicit request gets one recheck for story/empathy/banter; persistent ambiguity is skipped. The model cannot write diagnosis or treatment advice into the boundary response.
+- The retired response beginning "That sounds worrying" is blocked in fresh drafts and saved publication recovery. Deleted replies are not automatically reposted.
 - Requests to send personal scans receive a fixed decline. No scans, private details or DMs are requested.
 - Explicit immediate-danger wording has a short emergency-services boundary. This is not a comprehensive emergency-triage system.
 - Specific anatomy concerns receive at most one neutral acknowledgment. Provenance questions and hostile image accusations receive no automatic answer.

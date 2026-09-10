@@ -7,7 +7,7 @@ process.env.ANTHROPIC_API_KEY = 'offline-fixture';
 process.env.BOT_USAGE_LOG = 'off';
 let calls = 0;
 globalThis.fetch = async () => { throw new Error('Unexpected network call'); };
-const { ACKNOWLEDGMENTS, acknowledgmentKind, directConcern, holdForImageReview } = await import('../src/concerns');
+const { ACKNOWLEDGMENTS, acknowledgmentKind, directConcern, holdForImageReview, requestsPersonalAdvice, isRetiredMedicalBoundary } = await import('../src/concerns');
 const { classifyAndDraft, sanitize } = await import('../src/reply');
 const { config } = await import('../src/config');
 const { State } = await import('../src/state');
@@ -32,7 +32,9 @@ for (const text of Object.values(ACKNOWLEDGMENTS)) {
   assert.equal(clean.gif_tag, undefined);
 }
 assert.equal(sanitize({ decision: 'reply', category: 'personal_medical', reply_text: 'You should take medication.', reason: 'unsafe' }).decision, 'skip');
-globalThis.fetch = async (url) => {
+let mockModel: typeof fetch;
+globalThis.fetch = (...args) => mockModel(...args);
+mockModel = async (url) => {
   assert.match(String(url), /api\.anthropic\.com/); calls++;
   return new Response(JSON.stringify({ id: 'fixture', type: 'message', role: 'assistant', model: config.triageModel, stop_reason: 'tool_use', stop_sequence: null,
     usage: {input_tokens:1,output_tokens:1}, content:[{type:'tool_use',id:'tool-fixture',name:'submit_reply',input:{intent:'personal advice',decision:'reply',category:'personal_medical',reply_text:'You should take medication.',reason:'personal symptoms',needs_lookup:false,promo_product:'none',promo_explicit:false,...(config.gifReplies?{gif_tag:'none'}:{})}}] }), { headers: {'content-type':'application/json'} });
@@ -44,6 +46,32 @@ assert.equal(calls, 1);
 const followup = await classifyAndDraft({ ...input, commentText: 'But what medicine should I use?', priorExchange:{commenter:'My child is drooling',bot:ACKNOWLEDGMENTS.personal},modelOverride:config.triageModel });
 assert.equal(followup.decision,'skip');
 console.log('PASS unsafe model advice is replaced with approved copy; no promo, GIF or medical follow-up');
+const story = 'Little sister of my friend swallowed a coin of 1 fim. At hospital the family was advised to thoroughly keep an eye on her poops. So, the next day they found two 50 penny coins 😀.';
+for (const text of [story, 'I swallowed a coin when I was little.', 'My child had surgery years ago. That was terrifying.', 'I asked the doctor if I should get an X-ray. They said no.']) assert.equal(requestsPersonalAdvice(text), false, text);
+for (const text of ['My child is drooling. Should I get an X-ray?', 'I have pain. Could I have this?', 'What medicine should I use?', 'I need medical advice']) assert.equal(requestsPersonalAdvice(text), true, text);
+const retired = "That sounds worrying. A comment can't establish what's causing it. A clinician can assess your symptoms.";
+assert.equal(isRetiredMedicalBoundary(retired), true);
+assert.equal(sanitize({decision:'reply',category:'empathize',reply_text:retired,reason:'story'}).decision,'skip');
+let storyCalls = 0;
+let alwaysPersonal = false;
+mockModel = async (_url, init) => {
+  storyCalls++;
+  const body = JSON.parse(String(init?.body));
+  if (storyCalls === 2) assert.match(JSON.stringify(body.messages), /CLASSIFICATION RECHECK/);
+  const verdict = {intent:'personal story',decision:'reply',category:alwaysPersonal || storyCalls === 1 ? 'personal_medical' : 'banter',reply_text:alwaysPersonal || storyCalls === 1 ? retired : "That's one way to get change.",reason:'completed anecdote with a punchline',needs_lookup:false,promo_product:'none',promo_explicit:false,...(config.gifReplies?{gif_tag:'none'}:{})};
+  return new Response(JSON.stringify({id:'story-fixture',type:'message',role:'assistant',model:config.triageModel,stop_reason:'tool_use',stop_sequence:null,usage:{input_tokens:1,output_tokens:1},content:[{type:'tool_use',id:'story-tool',name:'submit_reply',input:verdict}]}), {headers:{'content-type':'application/json'}});
+};
+const storyReply = await classifyAndDraft({...input,commentText:story,modelOverride:config.triageModel});
+assert.equal(storyCalls,2);
+assert.equal(storyReply.category,'banter');
+assert.equal(storyReply.reply_text,"That's one way to get change.");
+assert.equal(isRetiredMedicalBoundary(storyReply.reply_text),false);
+alwaysPersonal = true; storyCalls = 0;
+const ambiguous = await classifyAndDraft({...input,commentText:story,modelOverride:config.triageModel});
+assert.equal(storyCalls,2,'recheck must be bounded');
+assert.equal(ambiguous.decision,'skip');
+assert.equal(ambiguous.reply_text,'');
+console.log('PASS exact reported story receives one classification recheck and relevant banter; retired line is blocked');
 for (const category of ['affirm','correct','teach','reference'] as const) {
   const d = {decision:'reply' as const,category,reply_text:'A claim about this image',reason:'fixture'};
   assert.equal(holdForImageReview(d,true).decision,'skip');
