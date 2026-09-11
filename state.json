@@ -1071,7 +1071,9 @@
         "media_type": "TEXT",
         "text": "That's the one.",
         "reply_to_id": "18013910312951936"
-      }
+      },
+      "publishedId": "18123748756878458",
+      "confirmedPublished": true
     }
   },
   "repliedCommentIds": [
