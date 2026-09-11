@@ -1385,6 +1385,15 @@
       },
       "publishedId": "18114941026948892",
       "confirmedPublished": true
+    },
+    "comment:18077565650701749": {
+      "creationId": "17888912208614054",
+      "createdAt": "2026-09-11T23:02:37.678Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Mostly on the right track but the dark cavity here is an odontogenic keratocyst rather than an abscess pocket. It tends to grow silently without infection so the painless swelling is actually one of its hallmarks.",
+        "reply_to_id": "18077565650701749"
+      }
     }
   },
   "repliedCommentIds": [
@@ -10340,7 +10349,8 @@
     "18107542421466512",
     "18115643215780921",
     "17945459904325990",
-    "18203013955330934"
+    "18203013955330934",
+    "18093186710559118"
   ],
   "skipStrikes": {
     "17895266316520842": 1,
@@ -10409,6 +10419,6 @@
   },
   "spend": {
     "date": "2026-09-11",
-    "usd": 0.4396456999999998
+    "usd": 0.5026704999999998
   }
 }
