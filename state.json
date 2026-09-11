@@ -1352,6 +1352,15 @@
       },
       "publishedId": "17893314402415943",
       "confirmedPublished": true
+    },
+    "comment:18129937207667091": {
+      "creationId": "17888908407614054",
+      "createdAt": "2026-09-11T22:00:30.655Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Close but it's an odontogenic keratocyst. Both wrap around an impacted tooth and look similar on the scan so histology is what separates them.",
+        "reply_to_id": "18129937207667091"
+      }
     }
   },
   "repliedCommentIds": [
@@ -9445,7 +9454,8 @@
     "18140182132591747",
     "18110564882024896",
     "18496678798098171",
-    "18103435322205143"
+    "18103435322205143",
+    "18153232639512160"
   ],
   "answeredPostIds": [
     "18395606890093068"
@@ -9551,11 +9561,11 @@
     "18085399412691930": 133,
     "17900166078657433": 109,
     "18103023326210157": 84,
-    "18114371644992668": 36
+    "18114371644992668": 37
   },
   "daily": {
     "date": "2026-09-11",
-    "count": 36
+    "count": 37
   },
   "pinnedResolved": {
     "DaTTCIwoAw7": "18014812820883466"
@@ -10370,6 +10380,6 @@
   },
   "spend": {
     "date": "2026-09-11",
-    "usd": 0.42237509999999984
+    "usd": 0.4252566999999998
   }
 }
