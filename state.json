@@ -797,6 +797,15 @@
       },
       "publishedId": "18115463386992582",
       "confirmedPublished": true
+    },
+    "comment:17946599481281409": {
+      "creationId": "17888779185614054",
+      "createdAt": "2026-09-11T02:11:25.545Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Pretty much right, actually. Location is the key call. A coin stuck in the oesophagus needs endoscopic removal because it can cause problems sitting there.",
+        "reply_to_id": "17946599481281409"
+      }
     }
   },
   "repliedCommentIds": [
@@ -9746,6 +9755,6 @@
   },
   "spend": {
     "date": "2026-09-10",
-    "usd": 0.8319425999999995
+    "usd": 0.9002945999999995
   }
 }
