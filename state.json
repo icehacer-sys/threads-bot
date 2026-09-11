@@ -893,7 +893,9 @@
         "media_type": "TEXT",
         "text": "Close, but this one swallowed the coin. No spider escalation required 😭",
         "reply_to_id": "18133153252710751"
-      }
+      },
+      "publishedId": "18105811325591999",
+      "confirmedPublished": true
     }
   },
   "repliedCommentIds": [
