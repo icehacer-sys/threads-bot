@@ -785,6 +785,15 @@
       },
       "publishedId": "17862876630678318",
       "confirmedPublished": true
+    },
+    "comment:18125895901876121": {
+      "creationId": "17888773617614054",
+      "createdAt": "2026-09-11T01:10:33.733Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Close call on the concern, button batteries absolutely need to be ruled out first because they're the emergency case. This one turned out to be a coin, but the battery worry you flagged is always where the mind should go.",
+        "reply_to_id": "18125895901876121"
+      }
     }
   },
   "repliedCommentIds": [
@@ -8828,7 +8837,8 @@
     "17956712046236744",
     "17934963747121996",
     "17890510047611251",
-    "18102191723002491"
+    "18102191723002491",
+    "18355893562222786"
   ],
   "answeredPostIds": [
     "18395606890093068"
@@ -8933,11 +8943,11 @@
     "18123015703890508": 82,
     "18085399412691930": 133,
     "17900166078657433": 109,
-    "18103023326210157": 70
+    "18103023326210157": 71
   },
   "daily": {
     "date": "2026-09-10",
-    "count": 70
+    "count": 71
   },
   "pinnedResolved": {
     "DaTTCIwoAw7": "18014812820883466"
@@ -9731,6 +9741,6 @@
   },
   "spend": {
     "date": "2026-09-10",
-    "usd": 0.8254729999999996
+    "usd": 0.8287117999999996
   }
 }
