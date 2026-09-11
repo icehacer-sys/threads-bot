@@ -716,7 +716,9 @@
         "media_type": "TEXT",
         "text": "Look, at least it's not a whole album stuck in there 😭",
         "reply_to_id": "18090071786658587"
-      }
+      },
+      "publishedId": "17988053835112456",
+      "confirmedPublished": true
     }
   },
   "repliedCommentIds": [
