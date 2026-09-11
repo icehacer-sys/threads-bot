@@ -819,6 +819,15 @@
       },
       "publishedId": "18340100272267158",
       "confirmedPublished": true
+    },
+    "comment:18028574018855115": {
+      "creationId": "17888779326614054",
+      "createdAt": "2026-09-11T02:12:10.208Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "That's the one. Coin in the oesophagus, it cleared the airway but got stuck lower down where it blocks swallowing, which is why you're seeing the drooling and refusal to eat.",
+        "reply_to_id": "18028574018855115"
+      }
     }
   },
   "repliedCommentIds": [
@@ -8865,7 +8874,8 @@
     "18102191723002491",
     "18355893562222786",
     "18125895901876121",
-    "17946599481281409"
+    "17946599481281409",
+    "17892353388608610"
   ],
   "answeredPostIds": [
     "18395606890093068"
@@ -8970,11 +8980,11 @@
     "18123015703890508": 82,
     "18085399412691930": 133,
     "17900166078657433": 109,
-    "18103023326210157": 73
+    "18103023326210157": 74
   },
   "daily": {
     "date": "2026-09-10",
-    "count": 73
+    "count": 74
   },
   "pinnedResolved": {
     "DaTTCIwoAw7": "18014812820883466"
@@ -9769,6 +9779,6 @@
   },
   "spend": {
     "date": "2026-09-10",
-    "usd": 0.9148965999999995
+    "usd": 0.9182883999999996
   }
 }
