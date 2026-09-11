@@ -863,6 +863,15 @@
       },
       "publishedId": "18142913713566631",
       "confirmedPublished": true
+    },
+    "comment:18153385804511957": {
+      "creationId": "17888785113614054",
+      "createdAt": "2026-09-11T03:14:08.856Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "The lateral view helps a lot: a button battery shows a double-ring or halo sign on its edge, while a coin looks uniform all the way around.",
+        "reply_to_id": "18153385804511957"
+      }
     }
   },
   "repliedCommentIds": [
@@ -9820,6 +9829,6 @@
   },
   "spend": {
     "date": "2026-09-10",
-    "usd": 0.9428005999999997
+    "usd": 0.9563485999999997
   }
 }
