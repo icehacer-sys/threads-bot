@@ -675,6 +675,15 @@
       },
       "publishedId": "18144457153602885",
       "confirmedPublished": true
+    },
+    "comment:17998498478991680": {
+      "creationId": "17888769060614054",
+      "createdAt": "2026-09-11T00:06:17.684Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Nickels do have that subtle metallic edge, though honestly the X-ray doesn't give us the denomination call. And yeah, button batteries are indiscriminate; they'll burn through a pet's esophagus just as fast.",
+        "reply_to_id": "17998498478991680"
+      }
     }
   },
   "repliedCommentIds": [
@@ -9611,6 +9620,6 @@
   },
   "spend": {
     "date": "2026-09-10",
-    "usd": 0.7330385999999994
+    "usd": 0.7367073999999995
   }
 }
