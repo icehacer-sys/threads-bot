@@ -986,6 +986,15 @@
       },
       "publishedId": "18079356098345754",
       "confirmedPublished": true
+    },
+    "comment:18113551151003101": {
+      "creationId": "17888895567614054",
+      "createdAt": "2026-09-11T19:33:06.430Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Exactly. That impacted tooth is the key detail. The odontogenic keratocyst grows around it and can sit there quietly for years before the swelling shows up.",
+        "reply_to_id": "18113551151003101"
+      }
     }
   },
   "repliedCommentIds": [
@@ -9046,7 +9055,8 @@
     "18132537781731807",
     "17935317942382894",
     "18119395096941460",
-    "18126401083700503"
+    "18126401083700503",
+    "18093583313355437"
   ],
   "answeredPostIds": [
     "18395606890093068"
@@ -9152,11 +9162,11 @@
     "18085399412691930": 133,
     "17900166078657433": 109,
     "18103023326210157": 84,
-    "18114371644992668": 3
+    "18114371644992668": 4
   },
   "daily": {
     "date": "2026-09-11",
-    "count": 3
+    "count": 4
   },
   "pinnedResolved": {
     "DaTTCIwoAw7": "18014812820883466"
@@ -9959,6 +9969,6 @@
   },
   "spend": {
     "date": "2026-09-11",
-    "usd": 0.1372835
+    "usd": 0.1395601
   }
 }
