@@ -730,6 +730,15 @@
       },
       "publishedId": "17949168585264721",
       "confirmedPublished": true
+    },
+    "comment:17956712046236744": {
+      "creationId": "17888771160614054",
+      "createdAt": "2026-09-11T00:38:32.454Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "That's exactly the right fear to flag first, button batteries burn tissue in hours and need emergency removal. This one turned out to be a coin, but ruling out a battery before anything else is always the call that matters most.",
+        "reply_to_id": "17956712046236744"
+      }
     }
   },
   "repliedCommentIds": [
@@ -8768,7 +8777,8 @@
     "17998498478991680",
     "18112380320516702",
     "18122433982681387",
-    "18090071786658587"
+    "18090071786658587",
+    "17901951732580230"
   ],
   "answeredPostIds": [
     "18395606890093068"
@@ -8873,11 +8883,11 @@
     "18123015703890508": 82,
     "18085399412691930": 133,
     "17900166078657433": 109,
-    "18103023326210157": 65
+    "18103023326210157": 66
   },
   "daily": {
     "date": "2026-09-10",
-    "count": 65
+    "count": 66
   },
   "pinnedResolved": {
     "DaTTCIwoAw7": "18014812820883466"
@@ -9671,6 +9681,6 @@
   },
   "spend": {
     "date": "2026-09-10",
-    "usd": 0.8063251999999996
+    "usd": 0.8095139999999996
   }
 }
