@@ -719,6 +719,15 @@
       },
       "publishedId": "17988053835112456",
       "confirmedPublished": true
+    },
+    "comment:17901951732580230": {
+      "creationId": "17888771130614054",
+      "createdAt": "2026-09-11T00:38:10.931Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "That steak scenario is a different kind of urgent, solid blockage needs the rigid scope muscle. And yeah, that granddaughter case is the exact x-ray twin, sitting in the stomach where coins sometimes end up.",
+        "reply_to_id": "17901951732580230"
+      }
     }
   },
   "repliedCommentIds": [
@@ -9660,6 +9669,6 @@
   },
   "spend": {
     "date": "2026-09-10",
-    "usd": 0.8027973999999997
+    "usd": 0.8063251999999996
   }
 }
