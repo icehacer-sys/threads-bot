@@ -838,7 +838,9 @@
         "media_type": "TEXT",
         "text": "That's a lot to go through. Glad you know what to look for now.",
         "reply_to_id": "17944585323068768"
-      }
+      },
+      "publishedId": "18351370132219703",
+      "confirmedPublished": true
     }
   },
   "repliedCommentIds": [
