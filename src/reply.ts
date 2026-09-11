@@ -8,6 +8,7 @@ import { fileURLToPath } from "node:url";
 import { dirname, join } from "node:path";
 import { config, requireEnv } from "./config";
 import { SYSTEM_PROMPT } from "./voice";
+import { replyStyleIssue, needsClinicalReview, clinicalClaimIssue } from './reply-style';
 import { GIF_TAGS } from "./gifs";
 import { PROMO_TAGS, PRODUCTS_BLOCK } from "./products";
 import { recordUsage, priceFor } from "./spend";
@@ -208,6 +209,7 @@ export interface ClassifyInput {
   imageReviewPending?: boolean;
   /** One bounded recheck when personal_medical has no matching advice request. */
   storyRecheck?: boolean;
+  styleRecheck?: boolean;
   /** Allow this one call to use web search. Only the quality-model re-run of an
    *  unrecognized "reference" comment sets this — never the cheap triage pass. */
   allowSearch?: boolean;
@@ -253,7 +255,12 @@ export async function classifyAndDraft(input: ClassifyInput): Promise<Decision> 
       if (!input.storyRecheck) return classifyAndDraft({ ...input, storyRecheck: true, allowSearch: false });
       return { decision: 'skip', category: 'other', reply_text: '', reason: 'No explicit advice request; ambiguous story classification after one recheck. Never substitute a medical boundary.' };
     }
-    return d;
+    const clean = sanitize(d, { isPublic, terms: spoilerTerms }, isBotQuestion(commentText));
+    if (clean.reason.includes('punctuation guard') && !input.styleRecheck) {
+      return classifyAndDraft({ ...input, styleRecheck: true, allowSearch: false });
+    }
+    if (clean.reason.includes('punctuation guard')) return { ...clean, category: 'other' }; // cache the final failure instead of paying again next poll
+    return clean;
   };
   // "Are you a bot?" pushed a SECOND time in the same thread (a follow-up that is itself another
   // bot-question after the commenter already asked one) → skip deterministically. The owner's rule:
@@ -401,6 +408,7 @@ export async function classifyAndDraft(input: ClassifyInput): Promise<Decision> 
   }
   content.push({ type: "text", text: varText });
   if (input.storyRecheck) content.push({ type: 'text', text: 'CLASSIFICATION RECHECK: No explicit request for personal medical advice was found in this comment. Re-read the actual comment. A completed anecdote, reported hospital advice or a joke is not a current symptom assessment. Use empathize for a sincere story or banter for its light punchline. Do not send a medical disclaimer or invent current symptoms. If the intent is still uncertain or describes current danger, skip. All spoiler, accuracy and image-review rules still apply.' });
+  if (input.styleRecheck) content.push({ type: 'text', text: 'STYLE RECHECK (only attempt): Draft a simpler reply to the original comment. Prefer one complete sentence with no comma at all. Commas are allowed only in a short explicit list of three or more items. No semicolons or em dashes. No sentence starting And or Which after punctuation. Use ordinary conjunctions within a sentence or write complete separate sentences. No repeated praise about the right fear or instinct. Keep every accuracy, personal-story and reveal rule. Do not add facts to fill space.' });
 
   // The submit_reply tool gives guaranteed-structured output; web_search (optional)
   // lets the model look up references it does not recognize. With web search off we
@@ -418,6 +426,7 @@ export async function classifyAndDraft(input: ClassifyInput): Promise<Decision> 
     tools.unshift({ type: "web_search_20250305", name: "web_search", max_uses: 3 });
     toolChoice = { type: "auto" };
   }
+  if (input.styleRecheck) toolChoice = { type: 'tool', name: 'submit_reply' }; // punctuation repair never needs a paid web search
 
   // effort:low caps token spend on these short, structured replies. GA effort is
   // supported on Sonnet 4.6 / Opus 4.x ONLY — it ERRORS on Haiku 4.5 (the triage
@@ -472,13 +481,13 @@ export async function classifyAndDraft(input: ClassifyInput): Promise<Decision> 
         const forcedSubmit = findSubmit(forced);
         if (forcedSubmit?.input) {
           const parsed = parseDecision(forcedSubmit.input);
-          return parsed.category === 'personal_medical' ? finalize(parsed) : sanitize(parsed, { isPublic, terms: spoilerTerms }, isBotQuestion(commentText));
+          return finalize(parsed);
         }
       }
       throw new Error("No submit_reply produced");
     }
     const parsed = parseDecision(submit.input);
-    return parsed.category === 'personal_medical' ? finalize(parsed) : sanitize(parsed, { isPublic, terms: spoilerTerms }, isBotQuestion(commentText));
+    return finalize(parsed);
   } catch (err) {
     // Any failure (API error, bad output) -> stay silent. Never post on uncertainty.
     const msg = err instanceof Error ? err.message : String(err);
@@ -604,13 +613,11 @@ export function sanitize(d: Decision, spoiler?: { isPublic: boolean; terms: stri
     .replace(/\b[a-z0-9][a-z0-9-]*(?:\.[a-z0-9-]+)*\.(?:com|net|org|io|co|me|app|dev|ai|xyz|info|biz|gg|tv|link|page|site|online|store|shop)\b(?:\/\S*)?/gi, "")
     .replace(/(^|\s)@[\p{L}\p{N}_.]+/gu, "$1")
     .replace(/(?<=\d)[—–](?=\d)/g, "-") // preserve numeric ranges
-    .replace(/\s*[—–]\s*/g, ", ") // retain the clause connection instead of manufacturing a sentence break
     .replace(EMOJI_SEQ, (m) => (ALLOWED_EMOJI.has([...m][0]) ? m : "")) // only the allowed emojis
     .replace(/\s+/g, " ")
     .trim();
 
-  // Preserve the writer's commas, including clause joins, quotations and numbers.
-  // Natural sentence structure belongs in the draft, not a comma-to-period rewrite.
+  // Do not manufacture sentence breaks from commas or semicolons. Invalid prose is redrafted.
 
   // Vague-acknowledgement filler ("Honestly fair.", "No notes.", "Big mood.") engages nothing and is
   // the safe-and-empty failure the owner flags as sounding botted — it would fit under ANY comment.
@@ -652,6 +659,10 @@ export function sanitize(d: Decision, spoiler?: { isPublic: boolean; terms: stri
     text = (sentence && sentence[0].length >= maxLen * 0.5 ? sentence[0] : clipped.replace(/\s\S*$/, "")).trimEnd();
   }
 
+  const styleIssue = replyStyleIssue(text);
+  if (d.decision === 'reply' && clinicalClaimIssue(text)) return { ...d, decision: 'skip', reply_text: '', reason: 'owner review: unsupported airway or battery imaging claim' };
+  if (d.decision === 'reply' && styleIssue) return { ...d, decision: 'skip', reply_text: '', reason: `punctuation guard: ${styleIssue}` };
+  if (d.decision === 'reply' && ['affirm', 'banter', 'empathize'].includes(d.category) && needsClinicalReview(text)) d = { ...d, category: 'teach' };
   const looksLikeAdvice = ADVICE_PATTERN.test(text) || IMAGE_SOLICIT.test(text);
   // Always screen the base confession terms; when the comment was an "are you a bot" question,
   // ALSO screen the broader identity terms (human / machine / gpt / caught me / ...) that would be

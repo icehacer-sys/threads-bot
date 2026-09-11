@@ -15,6 +15,7 @@ import { dirname, join } from "node:path";
 const execFileAsync = promisify(execFile);
 import { config } from "./config";
 import { PersistenceError } from "./persistence";
+import { isLossStory, replyStyleIssue } from './reply-style';
 import { classifyAndDraft, isBotQuestion, firstSentences, type Decision, type InlineImage, type ImageMediaType } from "./reply";
 import { pickGif } from "./gifs";
 import { drainSpend, usd } from "./spend";
@@ -182,6 +183,7 @@ function commentValue(c: ThreadsReply): number {
   const t = (c.text ?? "").trim();
   const len = t.length;
   let score = 0;
+  if (isLossStory(t)) score += 3; // Short bereavement stories must not be discarded by the reserve gate.
   if (/\?/.test(t)) score += 3; // a question — highest signal
   if (/\b(how|why|what|when|where|which|whose|can|could|would|does|do|did|is it|are they|cause)\b/i.test(t)) score += 2;
   if (len >= 80) score += 2; // detailed guess / personal story
@@ -654,6 +656,10 @@ async function runLiveOrDry(mode: Mode, target: string | null): Promise<void> {
           continue;
         }
         try {
+          if (!pending.publishedId && replyStyleIssue(pending.params.text)) {
+            state.queueOwnerReview(c.id, post.id, 'owner review: saved draft violates current punctuation rules', c.text, c.username);
+            continue;
+          }
           await postReply(c.id, pending.params.text, undefined, undefined, publication);
           state.markReplied(c.id, post.id);
           if (pending.params.gif_attachment) {
@@ -1072,6 +1078,10 @@ async function runLiveOrDry(mode: Mode, target: string | null): Promise<void> {
           : null;
       if (posting) {
         try {
+          if (replyStyleIssue(replyText)) {
+            state.queueOwnerReview(c.id, post.id, 'owner review: final reply violates punctuation rules', c.text, c.username);
+            continue;
+          }
           await postReply(c.id, replyText, undefined, gif?.gif_id, state.publication(`comment:${c.id}`));
           state.markReplied(c.id, post.id);
           if (gif) {
