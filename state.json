@@ -1440,6 +1440,15 @@
       },
       "publishedId": "18172374796454712",
       "confirmedPublished": true
+    },
+    "comment:18098553437636357": {
+      "creationId": "17888914524614054",
+      "createdAt": "2026-09-11T23:34:34.342Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Close but it's an odontogenic keratocyst and you're right that path is what calls it since imaging can't separate them.",
+        "reply_to_id": "18098553437636357"
+      }
     }
   },
   "repliedCommentIds": [
@@ -9541,7 +9550,8 @@
     "18077565650701749",
     "18111661484328513",
     "18630128611053568",
-    "17988405738049267"
+    "17988405738049267",
+    "18062445224784089"
   ],
   "answeredPostIds": [
     "18395606890093068"
@@ -9647,11 +9657,11 @@
     "18085399412691930": 133,
     "17900166078657433": 109,
     "18103023326210157": 84,
-    "18114371644992668": 44
+    "18114371644992668": 45
   },
   "daily": {
     "date": "2026-09-11",
-    "count": 44
+    "count": 45
   },
   "pinnedResolved": {
     "DaTTCIwoAw7": "18014812820883466"
@@ -10471,6 +10481,6 @@
   },
   "spend": {
     "date": "2026-09-11",
-    "usd": 0.5226596999999998
+    "usd": 0.5558625999999999
   }
 }
