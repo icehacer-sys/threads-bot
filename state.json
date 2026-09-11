@@ -841,6 +841,15 @@
       },
       "publishedId": "18351370132219703",
       "confirmedPublished": true
+    },
+    "comment:17935392834369257": {
+      "creationId": "17888783199614054",
+      "createdAt": "2026-09-11T02:43:15.358Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "This one turned out to be a coin. Battery always gets ruled out first though, since those are the cases that can't wait.",
+        "reply_to_id": "17935392834369257"
+      }
     }
   },
   "repliedCommentIds": [
@@ -9770,7 +9779,8 @@
     "17915267604445223": 1,
     "18127882789762243": 1,
     "18632688865001237": 1,
-    "18071883050731643": 1
+    "18071883050731643": 1,
+    "18142226416586656": 1
   },
   "gifPostCounts": {
     "18432085978123193": 1,
@@ -9795,6 +9805,6 @@
   },
   "spend": {
     "date": "2026-09-10",
-    "usd": 0.9240069999999996
+    "usd": 0.9396717999999996
   }
 }
