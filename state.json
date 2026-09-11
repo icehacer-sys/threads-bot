@@ -919,6 +919,15 @@
       },
       "publishedId": "18110944325273835",
       "confirmedPublished": true
+    },
+    "comment:18132537781731807": {
+      "creationId": "17888794035614054",
+      "createdAt": "2026-09-11T04:47:38.363Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "That's a child's jaw doing its thing! The adult teeth are already forming inside the bone, sitting just above the baby teeth that haven't fallen out yet.",
+        "reply_to_id": "18132537781731807"
+      }
     }
   },
   "repliedCommentIds": [
@@ -9882,6 +9891,6 @@
   },
   "spend": {
     "date": "2026-09-10",
-    "usd": 0.9903813999999995
+    "usd": 1.0560513999999996
   }
 }
