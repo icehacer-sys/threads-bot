@@ -808,6 +808,15 @@
       },
       "publishedId": "18107985806145870",
       "confirmedPublished": true
+    },
+    "comment:17892353388608610": {
+      "creationId": "17888779212614054",
+      "createdAt": "2026-09-11T02:11:51.281Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Exactly. It cleared the airway but lodged in the oesophagus, so breathing is fine but swallowing isn't, which is why the drooling and refusal to eat are the giveaway.",
+        "reply_to_id": "17892353388608610"
+      }
     }
   },
   "repliedCommentIds": [
@@ -8853,7 +8862,8 @@
     "17890510047611251",
     "18102191723002491",
     "18355893562222786",
-    "18125895901876121"
+    "18125895901876121",
+    "17946599481281409"
   ],
   "answeredPostIds": [
     "18395606890093068"
@@ -8958,11 +8968,11 @@
     "18123015703890508": 82,
     "18085399412691930": 133,
     "17900166078657433": 109,
-    "18103023326210157": 72
+    "18103023326210157": 73
   },
   "daily": {
     "date": "2026-09-10",
-    "count": 72
+    "count": 73
   },
   "pinnedResolved": {
     "DaTTCIwoAw7": "18014812820883466"
@@ -9757,6 +9767,6 @@
   },
   "spend": {
     "date": "2026-09-10",
-    "usd": 0.9002945999999995
+    "usd": 0.9148965999999995
   }
 }
