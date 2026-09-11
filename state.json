@@ -1,5 +1,9 @@
 {
-  "revealHeldComments": {},
+  "revealHeldComments": {
+    "18126401083700503": "Conventional Ameloblastoma - multicystic type\nIt's the textbook example for:\n•  painless swelling of posterior mandible - 80% in mandibular molar / ramus area\n•  20-40 years old typical, but can be any age\n•  multilocular radiolucent with soap-bubble septa\n•  associated with an impacted tooth - here the lower left 3rd molar\n•  grows slowly, so painless until large",
+    "18093583313355437": "Impacted wisdom tooth with a large abscess and I have no idea how it could possibly be painless.",
+    "18113551151003101": "Pretty sure it has something to do with that tooth at the bottom that shouldn’t be there"
+  },
   "ownerReviews": {
     "17937444630360450": "{\"postId\":\"18103023326210157\",\"reason\":\"owner review: personal medical concern\",\"commentText\":\"Little sister of my friend swalloved a coin of 1 fim. At hospital the family was advised to thoroughly keep an eye on her poops. So, the next day they found two 50 penny coins😀.\",\"username\":\"velitapiof\",\"queuedAt\":\"2026-09-10T20:21:59.741Z\",\"resolvedAt\":\"2026-09-10T20:36:02.929Z\",\"resolution\":\"Owner confirmed this is a completed personal story and deleted the inappropriate boundary reply. No clinical review is needed.\"}",
     "18147946708537215": "{\"postId\":\"18103023326210157\",\"reason\":\"Diagnosis guess before reveal already public. Although the reveal is now public, this is a wrong guess. Skipping to hold the reply for owner review, as the commenter's brevity and certainty ('Button battery.') may indicate they are reading prior comments and making a competing call rather than genuinely uncertain. A correction after the reveal usually affirms correct guesses or gently corrects mistaken ones with supplied facts, but this commenter has not asked a question or engaged substantively enough to warrant an unsolicited correction.\",\"commentText\":\"Child.  Button battery.\",\"username\":\"larrym2025\",\"queuedAt\":\"2026-09-11T01:10:50.470Z\"}",
@@ -930,6 +934,15 @@
       },
       "publishedId": "18391132789203491",
       "confirmedPublished": true
+    },
+    "comment:17935317942382894": {
+      "creationId": "17888894340614054",
+      "createdAt": "2026-09-11T19:16:04.205Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "A built-in life jacket beats most of the alternatives.",
+        "reply_to_id": "17935317942382894"
+      }
     }
   },
   "repliedCommentIds": [
@@ -9095,8 +9108,8 @@
     "18103023326210157": 84
   },
   "daily": {
-    "date": "2026-09-10",
-    "count": 84
+    "date": "2026-09-11",
+    "count": 0
   },
   "pinnedResolved": {
     "DaTTCIwoAw7": "18014812820883466"
@@ -9879,7 +9892,7 @@
     "17865730374636613": 1
   },
   "gifDaily": {
-    "date": "2026-09-10",
+    "date": "2026-09-11",
     "count": 0
   },
   "recentGifIds": [
@@ -9890,11 +9903,11 @@
   ],
   "promoPostCounts": {},
   "promoDaily": {
-    "date": "2026-09-10",
+    "date": "2026-09-11",
     "count": 0
   },
   "spend": {
-    "date": "2026-09-10",
-    "usd": 1.0696953999999996
+    "date": "2026-09-11",
+    "usd": 0.019037
   }
 }
