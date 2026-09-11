@@ -1,7 +1,8 @@
 {
   "revealHeldComments": {},
   "ownerReviews": {
-    "17937444630360450": "{\"postId\":\"18103023326210157\",\"reason\":\"owner review: personal medical concern\",\"commentText\":\"Little sister of my friend swalloved a coin of 1 fim. At hospital the family was advised to thoroughly keep an eye on her poops. So, the next day they found two 50 penny coins😀.\",\"username\":\"velitapiof\",\"queuedAt\":\"2026-09-10T20:21:59.741Z\",\"resolvedAt\":\"2026-09-10T20:36:02.929Z\",\"resolution\":\"Owner confirmed this is a completed personal story and deleted the inappropriate boundary reply. No clinical review is needed.\"}"
+    "17937444630360450": "{\"postId\":\"18103023326210157\",\"reason\":\"owner review: personal medical concern\",\"commentText\":\"Little sister of my friend swalloved a coin of 1 fim. At hospital the family was advised to thoroughly keep an eye on her poops. So, the next day they found two 50 penny coins😀.\",\"username\":\"velitapiof\",\"queuedAt\":\"2026-09-10T20:21:59.741Z\",\"resolvedAt\":\"2026-09-10T20:36:02.929Z\",\"resolution\":\"Owner confirmed this is a completed personal story and deleted the inappropriate boundary reply. No clinical review is needed.\"}",
+    "18147946708537215": "{\"postId\":\"18103023326210157\",\"reason\":\"Diagnosis guess before reveal already public. Although the reveal is now public, this is a wrong guess. Skipping to hold the reply for owner review, as the commenter's brevity and certainty ('Button battery.') may indicate they are reading prior comments and making a competing call rather than genuinely uncertain. A correction after the reveal usually affirms correct guesses or gently corrects mistaken ones with supplied facts, but this commenter has not asked a question or engaged substantively enough to warrant an unsolicited correction.\",\"commentText\":\"Child.  Button battery.\",\"username\":\"larrym2025\",\"queuedAt\":\"2026-09-11T01:10:50.470Z\"}"
   },
   "concernAcknowledgments": {},
   "publications": {
@@ -8840,7 +8841,8 @@
     "17934963747121996",
     "17890510047611251",
     "18102191723002491",
-    "18355893562222786"
+    "18355893562222786",
+    "18125895901876121"
   ],
   "answeredPostIds": [
     "18395606890093068"
@@ -8945,11 +8947,11 @@
     "18123015703890508": 82,
     "18085399412691930": 133,
     "17900166078657433": 109,
-    "18103023326210157": 71
+    "18103023326210157": 72
   },
   "daily": {
     "date": "2026-09-10",
-    "count": 71
+    "count": 72
   },
   "pinnedResolved": {
     "DaTTCIwoAw7": "18014812820883466"
@@ -9678,7 +9680,8 @@
     "17924154855423299",
     "18135841159723106",
     "18061258412789479",
-    "18132073483726545"
+    "18132073483726545",
+    "18147946708537215"
   ],
   "skipStrikes": {
     "17895266316520842": 1,
@@ -9743,6 +9746,6 @@
   },
   "spend": {
     "date": "2026-09-10",
-    "usd": 0.8287117999999996
+    "usd": 0.8319425999999995
   }
 }
