@@ -1082,7 +1082,9 @@
         "media_type": "TEXT",
         "text": "That's putting it mildly",
         "reply_to_id": "18134182231728046"
-      }
+      },
+      "publishedId": "18129342703809596",
+      "confirmedPublished": true
     }
   },
   "repliedCommentIds": [
