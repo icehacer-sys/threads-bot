@@ -14,7 +14,8 @@
   "ownerReviews": {
     "17937444630360450": "{\"postId\":\"18103023326210157\",\"reason\":\"owner review: personal medical concern\",\"commentText\":\"Little sister of my friend swalloved a coin of 1 fim. At hospital the family was advised to thoroughly keep an eye on her poops. So, the next day they found two 50 penny coins😀.\",\"username\":\"velitapiof\",\"queuedAt\":\"2026-09-10T20:21:59.741Z\",\"resolvedAt\":\"2026-09-10T20:36:02.929Z\",\"resolution\":\"Owner confirmed this is a completed personal story and deleted the inappropriate boundary reply. No clinical review is needed.\"}",
     "18147946708537215": "{\"postId\":\"18103023326210157\",\"reason\":\"Diagnosis guess before reveal already public. Although the reveal is now public, this is a wrong guess. Skipping to hold the reply for owner review, as the commenter's brevity and certainty ('Button battery.') may indicate they are reading prior comments and making a competing call rather than genuinely uncertain. A correction after the reveal usually affirms correct guesses or gently corrects mistaken ones with supplied facts, but this commenter has not asked a question or engaged substantively enough to warrant an unsolicited correction.\",\"commentText\":\"Child.  Button battery.\",\"username\":\"larrym2025\",\"queuedAt\":\"2026-09-11T01:10:50.470Z\"}",
-    "17950625301255489": "{\"postId\":\"18103023326210157\",\"reason\":\"Comment describes emergency airway protocols in a way that conflates choking (airway obstruction) with esophageal foreign body (swallowed object). The case shows a coin lodged in the esophagus after clearing the airway—the Heimlich maneuver and infant back blows are for acute airway obstruction, not for coins already in the esophagus requiring endoscopy. The comment contains medical instruction that may be inaccurate for this case and lacks clear intent (teaching? testing? confusion?). Owner review needed to distinguish whether this warrants a factual correction about the difference between airway obstruction and esophageal foreign body management, or whether the comment is spam/incoherent.\",\"commentText\":\"Foreign body in esophagus, if conscious, do helminch manuever, unconscious, start chest compressions, before 2 years give back taps 5 times\",\"username\":\"_.divyanshhh_\",\"queuedAt\":\"2026-09-11T03:46:38.905Z\"}"
+    "17950625301255489": "{\"postId\":\"18103023326210157\",\"reason\":\"Comment describes emergency airway protocols in a way that conflates choking (airway obstruction) with esophageal foreign body (swallowed object). The case shows a coin lodged in the esophagus after clearing the airway—the Heimlich maneuver and infant back blows are for acute airway obstruction, not for coins already in the esophagus requiring endoscopy. The comment contains medical instruction that may be inaccurate for this case and lacks clear intent (teaching? testing? confusion?). Owner review needed to distinguish whether this warrants a factual correction about the difference between airway obstruction and esophageal foreign body management, or whether the comment is spam/incoherent.\",\"commentText\":\"Foreign body in esophagus, if conscious, do helminch manuever, unconscious, start chest compressions, before 2 years give back taps 5 times\",\"username\":\"_.divyanshhh_\",\"queuedAt\":\"2026-09-11T03:46:38.905Z\"}",
+    "18087760094228299": "{\"postId\":\"18114371644992668\",\"reason\":\"Diagnosis guess before reveal is public. Hold for owner review per protocol.\",\"commentText\":\"Abscess caused by an impacted wisdom tooth?\",\"username\":\"positive.cookiee\",\"queuedAt\":\"2026-09-11T19:32:07.689Z\"}"
   },
   "concernAcknowledgments": {},
   "publications": {
@@ -963,6 +964,15 @@
       },
       "publishedId": "17895434688399053",
       "confirmedPublished": true
+    },
+    "comment:18126401083700503": {
+      "creationId": "17888895525614054",
+      "createdAt": "2026-09-11T19:32:20.599Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Great clinical reasoning but the answer is an odontogenic keratocyst. It shares nearly every feature you listed which is exactly why imaging alone can't separate them and histology is required to call it.",
+        "reply_to_id": "18126401083700503"
+      }
     }
   },
   "repliedCommentIds": [
@@ -9866,7 +9876,8 @@
     "18142226416586656",
     "17950625301255489",
     "17962476944986084",
-    "17984799657071188"
+    "17984799657071188",
+    "18087760094228299"
   ],
   "skipStrikes": {
     "17895266316520842": 1,
@@ -9934,6 +9945,6 @@
   },
   "spend": {
     "date": "2026-09-11",
-    "usd": 0.040171
+    "usd": 0.1078546
   }
 }
