@@ -975,6 +975,15 @@
       },
       "publishedId": "18125169079695189",
       "confirmedPublished": true
+    },
+    "comment:18093583313355437": {
+      "creationId": "17888895549614054",
+      "createdAt": "2026-09-11T19:32:50.691Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "It's actually an odontogenic keratocyst and they're notorious for growing quietly for years before anyone notices the swelling.",
+        "reply_to_id": "18093583313355437"
+      }
     }
   },
   "repliedCommentIds": [
@@ -9034,7 +9043,8 @@
     "17923010508424860",
     "18132537781731807",
     "17935317942382894",
-    "18119395096941460"
+    "18119395096941460",
+    "18126401083700503"
   ],
   "answeredPostIds": [
     "18395606890093068"
@@ -9140,11 +9150,11 @@
     "18085399412691930": 133,
     "17900166078657433": 109,
     "18103023326210157": 84,
-    "18114371644992668": 2
+    "18114371644992668": 3
   },
   "daily": {
     "date": "2026-09-11",
-    "count": 2
+    "count": 3
   },
   "pinnedResolved": {
     "DaTTCIwoAw7": "18014812820883466"
@@ -9947,6 +9957,6 @@
   },
   "spend": {
     "date": "2026-09-11",
-    "usd": 0.1078546
+    "usd": 0.1372835
   }
 }
