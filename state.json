@@ -1341,6 +1341,15 @@
       },
       "publishedId": "18137727985619262",
       "confirmedPublished": true
+    },
+    "comment:18153232639512160": {
+      "creationId": "17888908386614054",
+      "createdAt": "2026-09-11T22:00:14.642Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "More like someone's sweet tooth moved in permanently.",
+        "reply_to_id": "18153232639512160"
+      }
     }
   },
   "repliedCommentIds": [
@@ -10359,6 +10368,6 @@
   },
   "spend": {
     "date": "2026-09-11",
-    "usd": 0.41940249999999984
+    "usd": 0.42237509999999984
   }
 }
