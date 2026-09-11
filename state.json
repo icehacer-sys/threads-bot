@@ -1197,6 +1197,15 @@
       },
       "publishedId": "18104335919376695",
       "confirmedPublished": true
+    },
+    "comment:17904214593560366": {
+      "creationId": "17888900940614054",
+      "createdAt": "2026-09-11T20:24:48.426Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Absolutely. The panoramic flags it and narrows the differential but CT is what the surgeon needs to see the full extent before they operate and you're right that repeating scans just adds dose for no reason.",
+        "reply_to_id": "17904214593560366"
+      }
     }
   },
   "repliedCommentIds": [
@@ -9276,7 +9285,8 @@
     "18165677404476572",
     "18383316994226622",
     "18102969659258677",
-    "18065452910774016"
+    "18065452910774016",
+    "18155659780512745"
   ],
   "answeredPostIds": [
     "18395606890093068"
@@ -9382,11 +9392,11 @@
     "18085399412691930": 133,
     "17900166078657433": 109,
     "18103023326210157": 84,
-    "18114371644992668": 22
+    "18114371644992668": 23
   },
   "daily": {
     "date": "2026-09-11",
-    "count": 22
+    "count": 23
   },
   "pinnedResolved": {
     "DaTTCIwoAw7": "18014812820883466"
@@ -10195,6 +10205,6 @@
   },
   "spend": {
     "date": "2026-09-11",
-    "usd": 0.27326269999999997
+    "usd": 0.27635629999999994
   }
 }
