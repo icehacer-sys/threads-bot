@@ -763,6 +763,15 @@
       },
       "publishedId": "18109862855155002",
       "confirmedPublished": true
+    },
+    "comment:18102191723002491": {
+      "creationId": "17888773587614054",
+      "createdAt": "2026-09-11T01:09:59.450Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "The odds of a repeat performance are high 😭 At least the next time you'll know exactly what to watch for on the X-ray.",
+        "reply_to_id": "18102191723002491"
+      }
     }
   },
   "repliedCommentIds": [
@@ -8804,7 +8813,8 @@
     "18090071786658587",
     "17901951732580230",
     "17956712046236744",
-    "17934963747121996"
+    "17934963747121996",
+    "17890510047611251"
   ],
   "answeredPostIds": [
     "18395606890093068"
@@ -8909,11 +8919,11 @@
     "18123015703890508": 82,
     "18085399412691930": 133,
     "17900166078657433": 109,
-    "18103023326210157": 68
+    "18103023326210157": 69
   },
   "daily": {
     "date": "2026-09-10",
-    "count": 68
+    "count": 69
   },
   "pinnedResolved": {
     "DaTTCIwoAw7": "18014812820883466"
@@ -9707,6 +9717,6 @@
   },
   "spend": {
     "date": "2026-09-10",
-    "usd": 0.8188973999999996
+    "usd": 0.8220451999999996
   }
 }
