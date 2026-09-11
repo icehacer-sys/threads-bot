@@ -896,6 +896,15 @@
       },
       "publishedId": "18105811325591999",
       "confirmedPublished": true
+    },
+    "comment:17907728781471078": {
+      "creationId": "17888788788614054",
+      "createdAt": "2026-09-11T03:46:11.350Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "It's a child, so the adult teeth are already forming inside the jaw and sitting just above the baby teeth that haven't fallen out yet.",
+        "reply_to_id": "17907728781471078"
+      }
     }
   },
   "repliedCommentIds": [
@@ -9856,6 +9865,6 @@
   },
   "spend": {
     "date": "2026-09-10",
-    "usd": 0.9654239999999996
+    "usd": 0.9806989999999995
   }
 }
