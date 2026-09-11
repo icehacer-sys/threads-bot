@@ -1219,6 +1219,15 @@
       },
       "publishedId": "17869780230639686",
       "confirmedPublished": true
+    },
+    "comment:18415956151157861": {
+      "creationId": "17888901951614054",
+      "createdAt": "2026-09-11T20:40:42.949Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Depends on the size but smaller cysts can often be removed with the bone healing well on its own.",
+        "reply_to_id": "18415956151157861"
+      }
     }
   },
   "repliedCommentIds": [
@@ -10221,6 +10230,6 @@
   },
   "spend": {
     "date": "2026-09-11",
-    "usd": 0.2818004999999999
+    "usd": 0.2947956999999999
   }
 }
