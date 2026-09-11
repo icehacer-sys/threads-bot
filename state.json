@@ -1016,7 +1016,9 @@
         "media_type": "TEXT",
         "text": "That's the saddest chicken wing outcome I've seen 😭",
         "reply_to_id": "18107204813272119"
-      }
+      },
+      "publishedId": "18027482486684761",
+      "confirmedPublished": true
     }
   },
   "repliedCommentIds": [
