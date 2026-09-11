@@ -8,7 +8,8 @@
     "18176992648386859": "Ewing's sarcoma ?",
     "18060961571536843": "Impacted (abscessed) wisdom tooth?",
     "18147942664528671": "Chewing gum?",
-    "17922795441202147": "Looks like the 7 lost it’s way and got super angry about it 🤔"
+    "17922795441202147": "Looks like the 7 lost it’s way and got super angry about it 🤔",
+    "17972752473137487": "Jaw cyst"
   },
   "ownerReviews": {
     "17937444630360450": "{\"postId\":\"18103023326210157\",\"reason\":\"owner review: personal medical concern\",\"commentText\":\"Little sister of my friend swalloved a coin of 1 fim. At hospital the family was advised to thoroughly keep an eye on her poops. So, the next day they found two 50 penny coins😀.\",\"username\":\"velitapiof\",\"queuedAt\":\"2026-09-10T20:21:59.741Z\",\"resolvedAt\":\"2026-09-10T20:36:02.929Z\",\"resolution\":\"Owner confirmed this is a completed personal story and deleted the inappropriate boundary reply. No clinical review is needed.\"}",
@@ -9020,7 +9021,8 @@
     "17907728781471078",
     "17923010508424860",
     "18132537781731807",
-    "17935317942382894"
+    "17935317942382894",
+    "18119395096941460"
   ],
   "answeredPostIds": [
     "18395606890093068"
@@ -9126,11 +9128,11 @@
     "18085399412691930": 133,
     "17900166078657433": 109,
     "18103023326210157": 84,
-    "18114371644992668": 1
+    "18114371644992668": 2
   },
   "daily": {
     "date": "2026-09-11",
-    "count": 1
+    "count": 2
   },
   "pinnedResolved": {
     "DaTTCIwoAw7": "18014812820883466"
@@ -9863,7 +9865,8 @@
     "18147946708537215",
     "18142226416586656",
     "17950625301255489",
-    "17962476944986084"
+    "17962476944986084",
+    "17984799657071188"
   ],
   "skipStrikes": {
     "17895266316520842": 1,
@@ -9905,7 +9908,8 @@
     "18127882789762243": 1,
     "18632688865001237": 1,
     "18071883050731643": 1,
-    "18134182231728046": 1
+    "18134182231728046": 1,
+    "18122647874476013": 1
   },
   "gifPostCounts": {
     "18432085978123193": 1,
@@ -9930,6 +9934,6 @@
   },
   "spend": {
     "date": "2026-09-11",
-    "usd": 0.034205
+    "usd": 0.040171
   }
 }
