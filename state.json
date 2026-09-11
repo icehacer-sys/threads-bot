@@ -1119,6 +1119,15 @@
       },
       "publishedId": "18201518797374651",
       "confirmedPublished": true
+    },
+    "comment:17960026143197463": {
+      "creationId": "17888897313614054",
+      "createdAt": "2026-09-11T19:51:59.146Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Solid reasoning but the answer here is an odontogenic keratocyst. It shares the multilocular look and the jaw swelling without pain so imaging alone can't separate them and histology is what calls it.",
+        "reply_to_id": "17960026143197463"
+      }
     }
   },
   "repliedCommentIds": [
@@ -9191,7 +9200,8 @@
     "18013910312951936",
     "18134182231728046",
     "18122647874476013",
-    "17972752473137487"
+    "17972752473137487",
+    "18119386258878977"
   ],
   "answeredPostIds": [
     "18395606890093068"
@@ -9297,11 +9307,11 @@
     "18085399412691930": 133,
     "17900166078657433": 109,
     "18103023326210157": 84,
-    "18114371644992668": 15
+    "18114371644992668": 16
   },
   "daily": {
     "date": "2026-09-11",
-    "count": 15
+    "count": 16
   },
   "pinnedResolved": {
     "DaTTCIwoAw7": "18014812820883466"
@@ -10107,6 +10117,6 @@
   },
   "spend": {
     "date": "2026-09-11",
-    "usd": 0.1932355
+    "usd": 0.2045457
   }
 }
