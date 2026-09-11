@@ -1104,7 +1104,9 @@
         "media_type": "TEXT",
         "text": "That's it.",
         "reply_to_id": "17972752473137487"
-      }
+      },
+      "publishedId": "18094223909434988",
+      "confirmedPublished": true
     }
   },
   "repliedCommentIds": [
