@@ -1041,6 +1041,15 @@
       },
       "publishedId": "18345424048249736",
       "confirmedPublished": true
+    },
+    "comment:18218892040341136": {
+      "creationId": "17888895660614054",
+      "createdAt": "2026-09-11T19:34:38.183Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "That's the one and you nailed the differential too since imaging can't tell them apart without histology.",
+        "reply_to_id": "18218892040341136"
+      }
     }
   },
   "repliedCommentIds": [
@@ -9106,7 +9115,8 @@
     "18113551151003101",
     "18103438958360788",
     "18107204813272119",
-    "18095766170633847"
+    "18095766170633847",
+    "18147942664528671"
   ],
   "answeredPostIds": [
     "18395606890093068"
@@ -9212,11 +9222,11 @@
     "18085399412691930": 133,
     "17900166078657433": 109,
     "18103023326210157": 84,
-    "18114371644992668": 8
+    "18114371644992668": 9
   },
   "daily": {
     "date": "2026-09-11",
-    "count": 8
+    "count": 9
   },
   "pinnedResolved": {
     "DaTTCIwoAw7": "18014812820883466"
@@ -10021,6 +10031,6 @@
   },
   "spend": {
     "date": "2026-09-11",
-    "usd": 0.15692789999999998
+    "usd": 0.1614511
   }
 }
