@@ -686,6 +686,15 @@
       },
       "publishedId": "18090133964667522",
       "confirmedPublished": true
+    },
+    "comment:18112380320516702": {
+      "creationId": "17888769084614054",
+      "createdAt": "2026-09-11T00:06:45.584Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Kid is right, and the battery/magnet instinct is exactly where your mind should go first. This one turned out to be a coin, but those are the objects that make it urgent until proven otherwise.",
+        "reply_to_id": "18112380320516702"
+      }
     }
   },
   "repliedCommentIds": [
@@ -8720,7 +8729,8 @@
     "18113840981102806",
     "18013509974745055",
     "18091060028422645",
-    "18120753650502420"
+    "18120753650502420",
+    "17998498478991680"
   ],
   "answeredPostIds": [
     "18395606890093068"
@@ -8825,11 +8835,11 @@
     "18123015703890508": 82,
     "18085399412691930": 133,
     "17900166078657433": 109,
-    "18103023326210157": 61
+    "18103023326210157": 62
   },
   "daily": {
     "date": "2026-09-10",
-    "count": 61
+    "count": 62
   },
   "pinnedResolved": {
     "DaTTCIwoAw7": "18014812820883466"
@@ -9622,6 +9632,6 @@
   },
   "spend": {
     "date": "2026-09-10",
-    "usd": 0.7367073999999995
+    "usd": 0.7911401999999995
   }
 }
