@@ -1249,7 +1249,9 @@
         "media_type": "TEXT",
         "text": "That's a seven-year commitment to one flavor 😭",
         "reply_to_id": "18614804122026515"
-      }
+      },
+      "publishedId": "18624163603048019",
+      "confirmedPublished": true
     }
   },
   "repliedCommentIds": [
