@@ -2,7 +2,13 @@
   "revealHeldComments": {
     "18126401083700503": "Conventional Ameloblastoma - multicystic type\nIt's the textbook example for:\n•  painless swelling of posterior mandible - 80% in mandibular molar / ramus area\n•  20-40 years old typical, but can be any age\n•  multilocular radiolucent with soap-bubble septa\n•  associated with an impacted tooth - here the lower left 3rd molar\n•  grows slowly, so painless until large",
     "18093583313355437": "Impacted wisdom tooth with a large abscess and I have no idea how it could possibly be painless.",
-    "18113551151003101": "Pretty sure it has something to do with that tooth at the bottom that shouldn’t be there"
+    "18113551151003101": "Pretty sure it has something to do with that tooth at the bottom that shouldn’t be there",
+    "18107204813272119": "Tried to swallow drumstick?",
+    "18095766170633847": "Too many teeth syndrome?",
+    "18176992648386859": "Ewing's sarcoma ?",
+    "18060961571536843": "Impacted (abscessed) wisdom tooth?",
+    "18147942664528671": "Chewing gum?",
+    "17922795441202147": "Looks like the 7 lost it’s way and got super angry about it 🤔"
   },
   "ownerReviews": {
     "17937444630360450": "{\"postId\":\"18103023326210157\",\"reason\":\"owner review: personal medical concern\",\"commentText\":\"Little sister of my friend swalloved a coin of 1 fim. At hospital the family was advised to thoroughly keep an eye on her poops. So, the next day they found two 50 penny coins😀.\",\"username\":\"velitapiof\",\"queuedAt\":\"2026-09-10T20:21:59.741Z\",\"resolvedAt\":\"2026-09-10T20:36:02.929Z\",\"resolution\":\"Owner confirmed this is a completed personal story and deleted the inappropriate boundary reply. No clinical review is needed.\"}",
@@ -945,6 +951,15 @@
       },
       "publishedId": "18007619348985585",
       "confirmedPublished": true
+    },
+    "comment:18119395096941460": {
+      "creationId": "17888894361614054",
+      "createdAt": "2026-09-11T19:16:41.558Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Worst flavor debut ever 😭",
+        "reply_to_id": "18119395096941460"
+      }
     }
   },
   "repliedCommentIds": [
@@ -9002,7 +9017,8 @@
     "18133153252710751",
     "17907728781471078",
     "17923010508424860",
-    "18132537781731807"
+    "18132537781731807",
+    "17935317942382894"
   ],
   "answeredPostIds": [
     "18395606890093068"
@@ -9107,11 +9123,12 @@
     "18123015703890508": 82,
     "18085399412691930": 133,
     "17900166078657433": 109,
-    "18103023326210157": 84
+    "18103023326210157": 84,
+    "18114371644992668": 1
   },
   "daily": {
     "date": "2026-09-11",
-    "count": 0
+    "count": 1
   },
   "pinnedResolved": {
     "DaTTCIwoAw7": "18014812820883466"
@@ -9885,7 +9902,8 @@
     "17915267604445223": 1,
     "18127882789762243": 1,
     "18632688865001237": 1,
-    "18071883050731643": 1
+    "18071883050731643": 1,
+    "18134182231728046": 1
   },
   "gifPostCounts": {
     "18432085978123193": 1,
@@ -9910,6 +9928,6 @@
   },
   "spend": {
     "date": "2026-09-11",
-    "usd": 0.019037
+    "usd": 0.034205
   }
 }
