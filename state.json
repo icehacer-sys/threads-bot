@@ -697,6 +697,15 @@
       },
       "publishedId": "17986492374106060",
       "confirmedPublished": true
+    },
+    "comment:18122433982681387": {
+      "creationId": "17888769099614054",
+      "createdAt": "2026-09-11T00:07:10.702Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Next-level location sharing 😭 Turns out it was just a coin, but honestly the commitment to always knowing where this kid is heading would've been peak parenting.",
+        "reply_to_id": "18122433982681387"
+      }
     }
   },
   "repliedCommentIds": [
@@ -8732,7 +8741,8 @@
     "18013509974745055",
     "18091060028422645",
     "18120753650502420",
-    "17998498478991680"
+    "17998498478991680",
+    "18112380320516702"
   ],
   "answeredPostIds": [
     "18395606890093068"
@@ -8837,11 +8847,11 @@
     "18123015703890508": 82,
     "18085399412691930": 133,
     "17900166078657433": 109,
-    "18103023326210157": 62
+    "18103023326210157": 63
   },
   "daily": {
     "date": "2026-09-10",
-    "count": 62
+    "count": 63
   },
   "pinnedResolved": {
     "DaTTCIwoAw7": "18014812820883466"
@@ -9634,6 +9644,6 @@
   },
   "spend": {
     "date": "2026-09-10",
-    "usd": 0.7911401999999995
+    "usd": 0.7943189999999996
   }
 }
