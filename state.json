@@ -852,6 +852,15 @@
       },
       "publishedId": "17988157752021166",
       "confirmedPublished": true
+    },
+    "comment:18380278336228230": {
+      "creationId": "17888783214614054",
+      "createdAt": "2026-09-11T02:43:32.233Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Even an exhausted battery can still burn, which is the whole nightmare. Fortunately this one's a coin, so at least the urgency clock isn't ticking quite as hard.",
+        "reply_to_id": "18380278336228230"
+      }
     }
   },
   "repliedCommentIds": [
@@ -8901,7 +8910,8 @@
     "17946599481281409",
     "17892353388608610",
     "18028574018855115",
-    "17944585323068768"
+    "17944585323068768",
+    "17935392834369257"
   ],
   "answeredPostIds": [
     "18395606890093068"
@@ -9006,11 +9016,11 @@
     "18123015703890508": 82,
     "18085399412691930": 133,
     "17900166078657433": 109,
-    "18103023326210157": 76
+    "18103023326210157": 77
   },
   "daily": {
     "date": "2026-09-10",
-    "count": 76
+    "count": 77
   },
   "pinnedResolved": {
     "DaTTCIwoAw7": "18014812820883466"
@@ -9807,6 +9817,6 @@
   },
   "spend": {
     "date": "2026-09-10",
-    "usd": 0.9396717999999996
+    "usd": 0.9428005999999997
   }
 }
