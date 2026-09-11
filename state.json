@@ -2,7 +2,8 @@
   "revealHeldComments": {},
   "ownerReviews": {
     "17937444630360450": "{\"postId\":\"18103023326210157\",\"reason\":\"owner review: personal medical concern\",\"commentText\":\"Little sister of my friend swalloved a coin of 1 fim. At hospital the family was advised to thoroughly keep an eye on her poops. So, the next day they found two 50 penny coins😀.\",\"username\":\"velitapiof\",\"queuedAt\":\"2026-09-10T20:21:59.741Z\",\"resolvedAt\":\"2026-09-10T20:36:02.929Z\",\"resolution\":\"Owner confirmed this is a completed personal story and deleted the inappropriate boundary reply. No clinical review is needed.\"}",
-    "18147946708537215": "{\"postId\":\"18103023326210157\",\"reason\":\"Diagnosis guess before reveal already public. Although the reveal is now public, this is a wrong guess. Skipping to hold the reply for owner review, as the commenter's brevity and certainty ('Button battery.') may indicate they are reading prior comments and making a competing call rather than genuinely uncertain. A correction after the reveal usually affirms correct guesses or gently corrects mistaken ones with supplied facts, but this commenter has not asked a question or engaged substantively enough to warrant an unsolicited correction.\",\"commentText\":\"Child.  Button battery.\",\"username\":\"larrym2025\",\"queuedAt\":\"2026-09-11T01:10:50.470Z\"}"
+    "18147946708537215": "{\"postId\":\"18103023326210157\",\"reason\":\"Diagnosis guess before reveal already public. Although the reveal is now public, this is a wrong guess. Skipping to hold the reply for owner review, as the commenter's brevity and certainty ('Button battery.') may indicate they are reading prior comments and making a competing call rather than genuinely uncertain. A correction after the reveal usually affirms correct guesses or gently corrects mistaken ones with supplied facts, but this commenter has not asked a question or engaged substantively enough to warrant an unsolicited correction.\",\"commentText\":\"Child.  Button battery.\",\"username\":\"larrym2025\",\"queuedAt\":\"2026-09-11T01:10:50.470Z\"}",
+    "17950625301255489": "{\"postId\":\"18103023326210157\",\"reason\":\"Comment describes emergency airway protocols in a way that conflates choking (airway obstruction) with esophageal foreign body (swallowed object). The case shows a coin lodged in the esophagus after clearing the airway—the Heimlich maneuver and infant back blows are for acute airway obstruction, not for coins already in the esophagus requiring endoscopy. The comment contains medical instruction that may be inaccurate for this case and lacks clear intent (teaching? testing? confusion?). Owner review needed to distinguish whether this warrants a factual correction about the difference between airway obstruction and esophageal foreign body management, or whether the comment is spam/incoherent.\",\"commentText\":\"Foreign body in esophagus, if conscious, do helminch manuever, unconscious, start chest compressions, before 2 years give back taps 5 times\",\"username\":\"_.divyanshhh_\",\"queuedAt\":\"2026-09-11T03:46:38.905Z\"}"
   },
   "concernAcknowledgments": {},
   "publications": {
@@ -907,6 +908,15 @@
       },
       "publishedId": "18055102802563704",
       "confirmedPublished": true
+    },
+    "comment:17923010508424860": {
+      "creationId": "17888788830614054",
+      "createdAt": "2026-09-11T03:46:45.409Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Operates great, just not great at returning the coins 😭",
+        "reply_to_id": "17923010508424860"
+      }
     }
   },
   "repliedCommentIds": [
@@ -8961,7 +8971,8 @@
     "18380278336228230",
     "18153385804511957",
     "18099060413632163",
-    "18133153252710751"
+    "18133153252710751",
+    "17907728781471078"
   ],
   "answeredPostIds": [
     "18395606890093068"
@@ -9066,11 +9077,11 @@
     "18123015703890508": 82,
     "18085399412691930": 133,
     "17900166078657433": 109,
-    "18103023326210157": 81
+    "18103023326210157": 82
   },
   "daily": {
     "date": "2026-09-10",
-    "count": 81
+    "count": 82
   },
   "pinnedResolved": {
     "DaTTCIwoAw7": "18014812820883466"
@@ -9801,7 +9812,8 @@
     "18061258412789479",
     "18132073483726545",
     "18147946708537215",
-    "18142226416586656"
+    "18142226416586656",
+    "17950625301255489"
   ],
   "skipStrikes": {
     "17895266316520842": 1,
@@ -9867,6 +9879,6 @@
   },
   "spend": {
     "date": "2026-09-10",
-    "usd": 0.9806989999999995
+    "usd": 0.9903813999999995
   }
 }
