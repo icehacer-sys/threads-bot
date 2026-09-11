@@ -1186,6 +1186,15 @@
       },
       "publishedId": "18125275840795935",
       "confirmedPublished": true
+    },
+    "comment:18155659780512745": {
+      "creationId": "17888900907614054",
+      "createdAt": "2026-09-11T20:24:29.231Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "OKCs are thought to arise from remnants of the dental lamina so they develop independently of the impacted tooth but the two often go together because the cyst can prevent the tooth from erupting in the first place.",
+        "reply_to_id": "18155659780512745"
+      }
     }
   },
   "repliedCommentIds": [
@@ -10184,6 +10193,6 @@
   },
   "spend": {
     "date": "2026-09-11",
-    "usd": 0.24834509999999996
+    "usd": 0.27326269999999997
   }
 }
