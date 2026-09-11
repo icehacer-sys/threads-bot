@@ -942,7 +942,9 @@
         "media_type": "TEXT",
         "text": "A built-in life jacket beats most of the alternatives.",
         "reply_to_id": "17935317942382894"
-      }
+      },
+      "publishedId": "18007619348985585",
+      "confirmedPublished": true
     }
   },
   "repliedCommentIds": [
