@@ -1316,7 +1316,9 @@
         "media_type": "TEXT",
         "text": "That's one apocalypse I'd rather not x-ray.",
         "reply_to_id": "18110564882024896"
-      }
+      },
+      "publishedId": "18098658029180504",
+      "confirmedPublished": true
     }
   },
   "repliedCommentIds": [
