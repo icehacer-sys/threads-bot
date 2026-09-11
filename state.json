@@ -882,7 +882,9 @@
         "media_type": "TEXT",
         "text": "Definitely not the recommended payment method 😭",
         "reply_to_id": "18099060413632163"
-      }
+      },
+      "publishedId": "17898498525596769",
+      "confirmedPublished": true
     }
   },
   "repliedCommentIds": [
