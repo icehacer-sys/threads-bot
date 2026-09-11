@@ -1286,6 +1286,15 @@
       },
       "publishedId": "18030436487904336",
       "confirmedPublished": true
+    },
+    "comment:18484725871111652": {
+      "creationId": "17888904873614054",
+      "createdAt": "2026-09-11T21:28:35.800Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "That's a lot to manage on both sides and months of drainage is rough.",
+        "reply_to_id": "18484725871111652"
+      }
     }
   },
   "repliedCommentIds": [
@@ -10298,6 +10307,6 @@
   },
   "spend": {
     "date": "2026-09-11",
-    "usd": 0.34731229999999985
+    "usd": 0.35359649999999987
   }
 }
