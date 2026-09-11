@@ -741,6 +741,15 @@
       },
       "publishedId": "18124197571846104",
       "confirmedPublished": true
+    },
+    "comment:17934963747121996": {
+      "creationId": "17888771193614054",
+      "createdAt": "2026-09-11T00:39:08.988Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Honestly that is the uncanny part. All those teeth lined up like they're just... Waiting for their moment, while the baby ones are still clocking in. Peak body logistics.",
+        "reply_to_id": "17934963747121996"
+      }
     }
   },
   "repliedCommentIds": [
@@ -8780,7 +8789,8 @@
     "18112380320516702",
     "18122433982681387",
     "18090071786658587",
-    "17901951732580230"
+    "17901951732580230",
+    "17956712046236744"
   ],
   "answeredPostIds": [
     "18395606890093068"
@@ -8885,11 +8895,11 @@
     "18123015703890508": 82,
     "18085399412691930": 133,
     "17900166078657433": 109,
-    "18103023326210157": 66
+    "18103023326210157": 67
   },
   "daily": {
     "date": "2026-09-10",
-    "count": 66
+    "count": 67
   },
   "pinnedResolved": {
     "DaTTCIwoAw7": "18014812820883466"
@@ -9683,6 +9693,6 @@
   },
   "spend": {
     "date": "2026-09-10",
-    "usd": 0.8095139999999996
+    "usd": 0.8126397999999996
   }
 }
