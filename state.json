@@ -1363,6 +1363,15 @@
       },
       "publishedId": "18351205792172751",
       "confirmedPublished": true
+    },
+    "comment:18046123568619673": {
+      "creationId": "17888909757614054",
+      "createdAt": "2026-09-11T22:16:00.742Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "That dark lucency is exactly what flags the keratocyst and why it can fool you on a scan alone.",
+        "reply_to_id": "18046123568619673"
+      }
     }
   },
   "repliedCommentIds": [
@@ -10383,6 +10392,6 @@
   },
   "spend": {
     "date": "2026-09-11",
-    "usd": 0.4252566999999998
+    "usd": 0.43123389999999984
   }
 }
