@@ -752,6 +752,15 @@
       },
       "publishedId": "18354946852174161",
       "confirmedPublished": true
+    },
+    "comment:17890510047611251": {
+      "creationId": "17888773551614054",
+      "createdAt": "2026-09-11T01:09:40.190Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Nickel-swallowing holy terrors hit different though 😭",
+        "reply_to_id": "17890510047611251"
+      }
     }
   },
   "repliedCommentIds": [
@@ -9696,6 +9705,6 @@
   },
   "spend": {
     "date": "2026-09-10",
-    "usd": 0.8154215999999995
+    "usd": 0.8188973999999996
   }
 }
