@@ -2150,6 +2150,15 @@
       },
       "publishedId": "17971572075131288",
       "confirmedPublished": true
+    },
+    "comment:18483962365108779": {
+      "creationId": "17889053472614054",
+      "createdAt": "2026-09-12T22:47:55.897Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "If only it were that easy.",
+        "reply_to_id": "18483962365108779"
+      }
     }
   },
   "repliedCommentIds": [
@@ -11262,6 +11271,6 @@
   },
   "spend": {
     "date": "2026-09-12",
-    "usd": 0.4713207999999999
+    "usd": 0.4988517999999999
   }
 }
