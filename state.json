@@ -2128,6 +2128,15 @@
       },
       "publishedId": "17907693309311111",
       "confirmedPublished": true
+    },
+    "comment:18105867418902491": {
+      "creationId": "17889050400614054",
+      "createdAt": "2026-09-12T22:15:48.230Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "CT would definitely nail down whether there's a fracture hiding in there but honestly the clinical picture and the AP view already make the call pretty clear on this one.",
+        "reply_to_id": "18105867418902491"
+      }
     }
   },
   "repliedCommentIds": [
@@ -11238,6 +11247,6 @@
   },
   "spend": {
     "date": "2026-09-12",
-    "usd": 0.4230405
+    "usd": 0.4261482
   }
 }
