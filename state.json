@@ -1605,6 +1605,15 @@
       },
       "publishedId": "17969836836137526",
       "confirmedPublished": true
+    },
+    "comment:18114444232789052": {
+      "creationId": "17888930214614054",
+      "createdAt": "2026-09-12T02:41:37.900Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "The impacted tooth is associated with it but the keratocyst actually arises from remnants of dental tissue left over from tooth development so the tooth doesn't cause the cyst so much as they tend to grow up together.",
+        "reply_to_id": "18114444232789052"
+      }
     }
   },
   "repliedCommentIds": [
@@ -10656,6 +10665,6 @@
   },
   "spend": {
     "date": "2026-09-11",
-    "usd": 0.7648336999999998
+    "usd": 0.8423999999999999
   }
 }
