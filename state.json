@@ -20,7 +20,8 @@
     "18134829715732354": "Dislocated humerus",
     "18070388843738252": "??Inferior Shoulder Dislocation aka Luxatio Erecta-xrays show ball of humerus is completely dislocated inferior to  Glenoid Socket of shoulder joint. This is rare dislocation, & pt presents with affected arm stuck in \"hands up\"position. Pt had to fall with shoulder forced into sudden hyperabduction.Tx:Drs ✔️ for Neurovasc Comps,esp with Axillary Nerve-check sensation on lateral shldr, & ✔️ Axillary Artery by checking Radial & Brachial Pulses.Closed Reduct with sedation, & f/u Xrays.",
     "18095067119256540": "Dislocation, torn rotator.",
-    "18100494506018633": "How did she get an X-ray without trying antidepressants and losing 20 pounds first?"
+    "18100494506018633": "How did she get an X-ray without trying antidepressants and losing 20 pounds first?",
+    "18146902144505086": "But seriously, that looks like a shoulder of a swimmer or someone with hyper flexible (read: slack tendons/ligaments) shoulders and tripped over a crack in the pavement and landed funny. Not that I know or anything….."
   },
   "ownerReviews": {
     "17937444630360450": "{\"postId\":\"18103023326210157\",\"reason\":\"owner review: personal medical concern\",\"commentText\":\"Little sister of my friend swalloved a coin of 1 fim. At hospital the family was advised to thoroughly keep an eye on her poops. So, the next day they found two 50 penny coins😀.\",\"username\":\"velitapiof\",\"queuedAt\":\"2026-09-10T20:21:59.741Z\",\"resolvedAt\":\"2026-09-10T20:36:02.929Z\",\"resolution\":\"Owner confirmed this is a completed personal story and deleted the inappropriate boundary reply. No clinical review is needed.\"}",
@@ -1818,6 +1819,15 @@
       },
       "publishedId": "18096086660093655",
       "confirmedPublished": true
+    },
+    "comment:18087719867231685": {
+      "creationId": "17889042450614054",
+      "createdAt": "2026-09-12T20:33:06.908Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Just needs some elbow grease and a really optimistic physiotherapist.",
+        "reply_to_id": "18087719867231685"
+      }
     }
   },
   "repliedCommentIds": [
@@ -9952,7 +9962,8 @@
     "18022359728878190",
     "18167963560461349",
     "18104284664248239",
-    "18149025049534677"
+    "18149025049534677",
+    "18165774235478199"
   ],
   "answeredPostIds": [
     "18395606890093068"
@@ -10059,11 +10070,11 @@
     "17900166078657433": 109,
     "18103023326210157": 84,
     "18114371644992668": 73,
-    "18151028044531026": 4
+    "18151028044531026": 5
   },
   "daily": {
     "date": "2026-09-12",
-    "count": 4
+    "count": 5
   },
   "pinnedResolved": {
     "DaTTCIwoAw7": "18014812820883466"
@@ -10890,6 +10901,6 @@
   },
   "spend": {
     "date": "2026-09-12",
-    "usd": 0.051526199999999994
+    "usd": 0.056056999999999996
   }
 }
