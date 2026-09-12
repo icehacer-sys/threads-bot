@@ -2184,6 +2184,15 @@
       },
       "publishedId": "17965917171174650",
       "confirmedPublished": true
+    },
+    "comment:18110568164147912": {
+      "creationId": "17889056610614054",
+      "createdAt": "2026-09-12T23:34:42.079Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "That's an awful lot of damage to walk away from with no nerve loss. The fact that you didn't know until you tried to lift the bike speaks to how shock can completely rewrite what your body's telling you in the moment.",
+        "reply_to_id": "18110568164147912"
+      }
     }
   },
   "repliedCommentIds": [
@@ -11300,6 +11309,6 @@
   },
   "spend": {
     "date": "2026-09-12",
-    "usd": 0.5381622999999999
+    "usd": 0.5426356999999998
   }
 }
