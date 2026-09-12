@@ -141,6 +141,7 @@ function answerAlreadyPosted(convo: ThreadsReply[], me: string, breakdown: strin
 interface ResolvedAnswer {
   answer?: string;
   facts?: string[];
+  diagnosticContext?: import('./case-evidence').DiagnosticContext;
 }
 
 function resolveAnswer(
@@ -863,6 +864,7 @@ async function runLiveOrDry(mode: Mode, target: string | null): Promise<void> {
         commentText: c.text ?? "",
         answer: imageReviewHeld || state.hasImageReview(post.id) ? undefined : knownAnswer,
         facts: imageReviewHeld || state.hasImageReview(post.id) ? undefined : revealFacts,
+        diagnosticContext: imageReviewHeld || state.hasImageReview(post.id) ? undefined : resolved.diagnosticContext,
         images: imageReviewHeld || state.hasImageReview(post.id) ? [] : postImages,
         imageReviewPending: imageReviewHeld || state.hasImageReview(post.id),
         recentReplies: [...recentOwnerReplies, ...postedThisRun],

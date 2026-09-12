@@ -8,6 +8,8 @@ import { fileURLToPath } from "node:url";
 import { dirname, join } from "node:path";
 import { config, requireEnv } from "./config";
 import { SYSTEM_PROMPT } from "./voice";
+import { diagnosticContext, unsupportedConfirmation, rejectsAcceptedDifferential, overstatesImagingLimit, type DiagnosticContext } from './case-evidence';
+import { varietyNote, restrainEmoji } from './reply-variety';
 import { replyStyleIssue, needsClinicalReview, clinicalClaimIssue } from './reply-style';
 import { GIF_TAGS } from "./gifs";
 import { PROMO_TAGS, PRODUCTS_BLOCK } from "./products";
@@ -185,6 +187,8 @@ export interface ClassifyInput {
   answer?: string;
   /** Owner-reviewed facts about this case; treated as source of truth by the model. */
   facts?: string[];
+  diagnosticContext?: DiagnosticContext;
+  evidenceRecheck?: boolean;
   /** The post's X-ray image(s), inline, for the model to actually see. */
   images?: InlineImage[];
   /** Replies already posted on this post, so the model avoids reusing shapes. */
@@ -252,11 +256,16 @@ export async function classifyAndDraft(input: ClassifyInput): Promise<Decision> 
   const finalize = async (d: Decision): Promise<Decision> => {
     if (d.category === 'personal_medical') {
       if (requestsPersonalAdvice(commentText)) return concernAcknowledgment('personal', priorExchange?.bot);
-      if (!input.storyRecheck) return classifyAndDraft({ ...input, storyRecheck: true, allowSearch: false });
+      if (!input.storyRecheck && !input.evidenceRecheck && !input.styleRecheck) return classifyAndDraft({ ...input, storyRecheck: true, allowSearch: false });
       return { decision: 'skip', category: 'other', reply_text: '', reason: 'No explicit advice request; ambiguous story classification after one recheck. Never substitute a medical boundary.' };
     }
-    const clean = sanitize(d, { isPublic, terms: spoilerTerms }, isBotQuestion(commentText));
-    if (clean.reason.includes('punctuation guard') && !input.styleRecheck) {
+    const context = diagnosticContext(input.diagnosticContext, input.diagnosticContext?.certainty === 'illustrative');
+    if (d.decision === 'reply' && (unsupportedConfirmation(d.reply_text, context) || rejectsAcceptedDifferential(d.reply_text, commentText, context) || overstatesImagingLimit(d.reply_text))) {
+      if (!input.evidenceRecheck && !input.styleRecheck && !input.storyRecheck) return classifyAndDraft({ ...input, evidenceRecheck: true, allowSearch: false });
+      return { ...d, decision: 'skip', category: 'other', reply_text: '', reason: 'owner review: unsupported confirmation or dismissal of an accepted differential | guard:forced-skip' };
+    }
+    const clean = sanitize({ ...d, reply_text: restrainEmoji(d.reply_text, recentReplies ?? []) }, { isPublic, terms: spoilerTerms }, isBotQuestion(commentText));
+    if (clean.reason.includes('punctuation guard') && !input.styleRecheck && !input.evidenceRecheck && !input.storyRecheck) {
       return classifyAndDraft({ ...input, styleRecheck: true, allowSearch: false });
     }
     if (clean.reason.includes('punctuation guard')) return { ...clean, category: 'other' }; // cache the final failure instead of paying again next poll
@@ -303,8 +312,8 @@ export async function classifyAndDraft(input: ClassifyInput): Promise<Decision> 
   let prePublicNote = "";
   if (isPublic) {
     answerLine = inAnswerThread
-      ? `CORRECT ANSWER (already revealed publicly in this answer thread, so you MAY name and discuss it): ${hasAnswer ? answerText : "unknown"}`
-      : `CORRECT ANSWER (now public, you MAY name and discuss it): ${hasAnswer ? answerText : "unknown"}. A direct correct diagnosis guess gets a brief affirmation even without a question or extra detail. Prior explanations to other people do not prohibit affirmation.`;
+      ? `PUBLISHED TEACHING ANSWER (you MAY discuss it; this label is not proof of a patient test result): ${hasAnswer ? answerText : "unknown"}`
+      : `PUBLISHED TEACHING ANSWER (not a confirmed patient result): ${hasAnswer ? answerText : "unknown"}. A matching guess may receive a brief acknowledgment. Consider supported alternative diagnoses fairly. Prior explanations to other people do not prohibit a useful reply.`;
   } else {
     answerLine = 'ANSWER NOT PUBLIC. The diagnosis is withheld.';
     prePublicNote = 'Treat ALL diagnosis guesses identically: skip without confirming, rejecting, grading or hinting. Do not infer correctness from case imagery or the post. Non-diagnostic jokes may get a short specific reply. Medical questions that could expose the answer must be held.';
@@ -337,7 +346,8 @@ export async function classifyAndDraft(input: ClassifyInput): Promise<Decision> 
   // vetted facts — is cached for 1h, so every later comment on the same post reads it
   // cheaply instead of re-sending it at full price. The tail (answer line, notes, the
   // anti-repeat list, the comment itself) changes per call and stays uncached.
-  const stableText = [`POST:\n${postText || "(unknown)"}`, factsBlock].filter(Boolean).join("\n\n");
+  const evidenceBlock = isPublic && !isPersonalPost ? `DIAGNOSTIC CONTEXT (only this field records confirmation; the post and earlier replies do not):\n${JSON.stringify(diagnosticContext(input.diagnosticContext, input.diagnosticContext?.certainty === 'illustrative'))}\nAn empty confirmationEvidence list means no patient test result or outcome is recorded. Never infer one. Accepted differentials are plausible alternatives, not aliases or wrong guesses.` : '';
+  const stableText = [`POST:\n${postText || "(unknown)"}`, factsBlock, evidenceBlock].filter(Boolean).join("\n\n");
   const varText = [
     answerLine,
     personalPostNote,
@@ -345,8 +355,10 @@ export async function classifyAndDraft(input: ClassifyInput): Promise<Decision> 
     threadNote,
     followUpNote,
     recentBlock,
+    varietyNote(recentReplies ?? []),
     explainedNote,
     mediaNote,
+    isPersonalPost ? 'CURRENT POST TYPE: personal post. No diagnosis guessing rules apply.' : `CURRENT REVEAL STATE: ${isPublic ? 'PUBLIC. The answer has already been published. Do not skip a diagnosis discussion for being before the reveal.' : 'PRIVATE. Skip all diagnosis guesses.'}`,
     `COMMENT:\n${commentText || "(no text — just the attached image)"}`,
   ]
     .filter(Boolean)
@@ -408,6 +420,7 @@ export async function classifyAndDraft(input: ClassifyInput): Promise<Decision> 
   }
   content.push({ type: "text", text: varText });
   if (input.storyRecheck) content.push({ type: 'text', text: 'CLASSIFICATION RECHECK: No explicit request for personal medical advice was found in this comment. Re-read the actual comment. A completed anecdote, reported hospital advice or a joke is not a current symptom assessment. Use empathize for a sincere story or banter for its light punchline. Do not send a medical disclaimer or invent current symptoms. If the intent is still uncertain or describes current danger, skip. All spoiler, accuracy and image-review rules still apply.' });
+  if (input.evidenceRecheck) content.push({ type: 'text', text: 'EVIDENCE RECHECK (one attempt): Your draft invented a confirmation/result, dismissed an accepted differential or overstated an imaging limitation. Write a fresh reply using only recorded evidence. Do not say came back as, biopsy confirmed or invent surgery, recovery or duration. Recognize a supported differential without replacing it with certainty. When THIS image is insufficient, say so without claiming that imaging in general cannot distinguish conditions. If the question cannot be answered from the supplied evidence, skip for owner review. Keep every reveal and punctuation rule.' });
   if (input.styleRecheck) content.push({ type: 'text', text: 'STYLE RECHECK (only attempt): Draft a simpler reply to the original comment. Prefer one complete sentence with no comma at all. Commas are allowed only in a short explicit list of three or more items. No semicolons or em dashes. No sentence starting And or Which after punctuation. Use ordinary conjunctions within a sentence or write complete separate sentences. No repeated praise about the right fear or instinct. Keep every accuracy, personal-story and reveal rule. Do not add facts to fill space.' });
 
   // The submit_reply tool gives guaranteed-structured output; web_search (optional)
@@ -426,7 +439,7 @@ export async function classifyAndDraft(input: ClassifyInput): Promise<Decision> 
     tools.unshift({ type: "web_search_20250305", name: "web_search", max_uses: 3 });
     toolChoice = { type: "auto" };
   }
-  if (input.styleRecheck) toolChoice = { type: 'tool', name: 'submit_reply' }; // punctuation repair never needs a paid web search
+  if (input.styleRecheck || input.evidenceRecheck) toolChoice = { type: 'tool', name: 'submit_reply' }; // repair uses supplied evidence only
 
   // effort:low caps token spend on these short, structured replies. GA effort is
   // supported on Sonnet 4.6 / Opus 4.x ONLY — it ERRORS on Haiku 4.5 (the triage

@@ -17,7 +17,7 @@ export function replyStyleIssue(text: string): string | undefined {
 }
 
 export function needsClinicalReview(text: string): boolean {
-  return /\b(?:endoscop\w*|surgery|sedation|ana?esthesia|tissue|airway|windpipe|trachea|halo|step.off|double.ring|radiopa\w*|burn\w*|rigid scope|breathing|urgent|emergency|invisible on x.ray)\b/i.test(text);
+  return /\b(?:biopsy|histolog\w*|patholog\w*|differential|confirmed|diagnos\w*|endoscop\w*|surgery|sedation|ana?esthesia|tissue|airway|windpipe|trachea|halo|step.off|double.ring|radiopa\w*|burn\w*|rigid scope|breathing|urgent|emergency|invisible on x.ray)\b/i.test(text);
 }
 
 export function isLossStory(text: string): boolean {

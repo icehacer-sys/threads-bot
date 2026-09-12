@@ -10,11 +10,14 @@
 // throws and never blocks a reply run.
 
 import { config } from "./config";
+import { diagnosticContext, type DiagnosticContext } from './case-evidence';
 
 interface XrayState {
   stages?: Record<string, { threadsPostId?: string }>;
 }
 interface XrayCase {
+  source?: string;
+  diagnosticContext?: DiagnosticContext;
   diagnosis?: string;
   aliases?: string[];
   whatYouSee?: string;
@@ -26,6 +29,7 @@ interface XrayCase {
 export interface BridgedAnswer {
   answer: string;
   facts: string[];
+  diagnosticContext: DiagnosticContext;
 }
 
 // undefined = not fetched yet; null = fetched and failed (don't retry this run).
@@ -62,5 +66,5 @@ export async function resolveXrayAnswer(postId: string): Promise<BridgedAnswer |
 
   const answer = [c.diagnosis, ...(c.aliases ?? [])].filter(Boolean).join(" / ");
   const facts = [c.whatYouSee, c.whyItMatters, c.treatment, c.takeaway].filter((x): x is string => !!x && x.trim().length > 0);
-  return { answer, facts };
+  return { answer, facts, diagnosticContext: diagnosticContext(c.diagnosticContext, c.source === 'generated') };
 }
