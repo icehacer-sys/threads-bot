@@ -2117,6 +2117,15 @@
       },
       "publishedId": "18102233309204837",
       "confirmedPublished": true
+    },
+    "comment:18144613870564502": {
+      "creationId": "17889048999614054",
+      "createdAt": "2026-09-12T22:00:13.863Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Both shoulders locked overhead and nobody's arms are supposed to go there. That's a tough afternoon in theatre.",
+        "reply_to_id": "18144613870564502"
+      }
     }
   },
   "repliedCommentIds": [
@@ -10278,7 +10287,8 @@
     "18635807944011020",
     "17901158283580009",
     "18041403140824268",
-    "18134231248656156"
+    "18134231248656156",
+    "17928494889167321"
   ],
   "answeredPostIds": [
     "18395606890093068"
@@ -10385,11 +10395,11 @@
     "17900166078657433": 109,
     "18103023326210157": 84,
     "18114371644992668": 73,
-    "18151028044531026": 31
+    "18151028044531026": 32
   },
   "daily": {
     "date": "2026-09-12",
-    "count": 31
+    "count": 32
   },
   "pinnedResolved": {
     "DaTTCIwoAw7": "18014812820883466"
@@ -11225,6 +11235,6 @@
   },
   "spend": {
     "date": "2026-09-12",
-    "usd": 0.4076243
+    "usd": 0.4134787
   }
 }
