@@ -19,7 +19,8 @@
     "18106644349900567": "Both dislocation and a fracture.",
     "18134829715732354": "Dislocated humerus",
     "18070388843738252": "??Inferior Shoulder Dislocation aka Luxatio Erecta-xrays show ball of humerus is completely dislocated inferior to  Glenoid Socket of shoulder joint. This is rare dislocation, & pt presents with affected arm stuck in \"hands up\"position. Pt had to fall with shoulder forced into sudden hyperabduction.Tx:Drs ✔️ for Neurovasc Comps,esp with Axillary Nerve-check sensation on lateral shldr, & ✔️ Axillary Artery by checking Radial & Brachial Pulses.Closed Reduct with sedation, & f/u Xrays.",
-    "18095067119256540": "Dislocation, torn rotator."
+    "18095067119256540": "Dislocation, torn rotator.",
+    "18100494506018633": "How did she get an X-ray without trying antidepressants and losing 20 pounds first?"
   },
   "ownerReviews": {
     "17937444630360450": "{\"postId\":\"18103023326210157\",\"reason\":\"owner review: personal medical concern\",\"commentText\":\"Little sister of my friend swalloved a coin of 1 fim. At hospital the family was advised to thoroughly keep an eye on her poops. So, the next day they found two 50 penny coins😀.\",\"username\":\"velitapiof\",\"queuedAt\":\"2026-09-10T20:21:59.741Z\",\"resolvedAt\":\"2026-09-10T20:36:02.929Z\",\"resolution\":\"Owner confirmed this is a completed personal story and deleted the inappropriate boundary reply. No clinical review is needed.\"}",
@@ -1806,6 +1807,15 @@
       },
       "publishedId": "18047788292607830",
       "confirmedPublished": true
+    },
+    "comment:18165774235478199": {
+      "creationId": "17889042369614054",
+      "createdAt": "2026-09-12T20:32:49.250Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Reserved for the humerus only.",
+        "reply_to_id": "18165774235478199"
+      }
     }
   },
   "repliedCommentIds": [
@@ -10878,6 +10888,6 @@
   },
   "spend": {
     "date": "2026-09-12",
-    "usd": 0.04721039999999999
+    "usd": 0.051526199999999994
   }
 }
