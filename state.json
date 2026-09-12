@@ -2026,7 +2026,9 @@
         "media_type": "TEXT",
         "text": "Cats got the memo about the rules of physics and decided to opt out.",
         "reply_to_id": "18118496777317881"
-      }
+      },
+      "publishedId": "17987438586105564",
+      "confirmedPublished": true
     }
   },
   "repliedCommentIds": [
