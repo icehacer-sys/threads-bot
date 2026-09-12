@@ -1962,6 +1962,15 @@
       },
       "publishedId": "18104352242354719",
       "confirmedPublished": true
+    },
+    "comment:18106644349900567": {
+      "creationId": "17889044622614054",
+      "createdAt": "2026-09-12T20:53:33.245Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "The dislocation part is right but the findings here point to a pure inferior dislocation with no fracture recorded.",
+        "reply_to_id": "18106644349900567"
+      }
     }
   },
   "repliedCommentIds": [
@@ -10109,7 +10118,8 @@
     "17935770309366432",
     "18146902144505086",
     "17965002732076141",
-    "18132786196633304"
+    "18132786196633304",
+    "18134829715732354"
   ],
   "answeredPostIds": [
     "18395606890093068"
@@ -10216,11 +10226,11 @@
     "17900166078657433": 109,
     "18103023326210157": 84,
     "18114371644992668": 73,
-    "18151028044531026": 17
+    "18151028044531026": 18
   },
   "daily": {
     "date": "2026-09-12",
-    "count": 17
+    "count": 18
   },
   "pinnedResolved": {
     "DaTTCIwoAw7": "18014812820883466"
@@ -11054,6 +11064,6 @@
   },
   "spend": {
     "date": "2026-09-12",
-    "usd": 0.2640458
+    "usd": 0.28276229999999997
   }
 }
