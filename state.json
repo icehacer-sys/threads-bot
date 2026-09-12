@@ -1561,6 +1561,15 @@
       },
       "publishedId": "18136897561715120",
       "confirmedPublished": true
+    },
+    "comment:18015366959941501": {
+      "creationId": "17888921997614054",
+      "createdAt": "2026-09-12T01:09:14.748Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "That tooth really committed to the alley-oop and decided to stay mid-air 😭",
+        "reply_to_id": "18015366959941501"
+      }
     }
   },
   "repliedCommentIds": [
@@ -10606,6 +10615,6 @@
   },
   "spend": {
     "date": "2026-09-11",
-    "usd": 0.6926824999999999
+    "usd": 0.6954240999999999
   }
 }
