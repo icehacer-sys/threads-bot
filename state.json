@@ -1996,6 +1996,15 @@
       },
       "publishedId": "18102340670346919",
       "confirmedPublished": true
+    },
+    "comment:17909379606470042": {
+      "creationId": "17889045774614054",
+      "createdAt": "2026-09-12T21:10:28.957Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Car accident shoulder injuries are brutal. That's a lot of pain to push through.",
+        "reply_to_id": "17909379606470042"
+      }
     }
   },
   "repliedCommentIds": [
@@ -11093,6 +11102,6 @@
   },
   "spend": {
     "date": "2026-09-12",
-    "usd": 0.3199608
+    "usd": 0.3307856
   }
 }
