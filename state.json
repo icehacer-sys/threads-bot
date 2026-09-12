@@ -1904,7 +1904,9 @@
         "media_type": "TEXT",
         "text": "That's the one.",
         "reply_to_id": "18120625909930823"
-      }
+      },
+      "publishedId": "18102884153201432",
+      "confirmedPublished": true
     }
   },
   "repliedCommentIds": [
