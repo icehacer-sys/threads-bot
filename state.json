@@ -1738,6 +1738,15 @@
       },
       "publishedId": "17877363177547256",
       "confirmedPublished": true
+    },
+    "comment:17987775267044721": {
+      "creationId": "17888952120614054",
+      "createdAt": "2026-09-12T06:48:38.955Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Quarter-chipmunk diagnosed on radiographs only. Insurance companies hate this one weird trick 😭",
+        "reply_to_id": "17987775267044721"
+      }
     }
   },
   "repliedCommentIds": [
@@ -10802,6 +10811,6 @@
   },
   "spend": {
     "date": "2026-09-11",
-    "usd": 1.0663868999999997
+    "usd": 1.0693234999999996
   }
 }
