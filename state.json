@@ -1918,6 +1918,15 @@
       },
       "publishedId": "17907294282474307",
       "confirmedPublished": true
+    },
+    "comment:18146902144505086": {
+      "creationId": "17889044541614054",
+      "createdAt": "2026-09-12T20:51:53.266Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Hypermobility + pavement crack is definitely the setup for this one and a crack in something is way harder to explain to an ER doc than it looks.",
+        "reply_to_id": "18146902144505086"
+      }
     }
   },
   "repliedCommentIds": [
@@ -10061,7 +10070,8 @@
     "18124613228506789",
     "18070388843738252",
     "18113175788013278",
-    "18120625909930823"
+    "18120625909930823",
+    "17935770309366432"
   ],
   "answeredPostIds": [
     "18395606890093068"
@@ -10168,11 +10178,11 @@
     "17900166078657433": 109,
     "18103023326210157": 84,
     "18114371644992668": 73,
-    "18151028044531026": 13
+    "18151028044531026": 14
   },
   "daily": {
     "date": "2026-09-12",
-    "count": 13
+    "count": 14
   },
   "pinnedResolved": {
     "DaTTCIwoAw7": "18014812820883466"
@@ -11002,6 +11012,6 @@
   },
   "spend": {
     "date": "2026-09-12",
-    "usd": 0.2203873
+    "usd": 0.2259229
   }
 }
