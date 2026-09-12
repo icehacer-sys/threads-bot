@@ -1503,7 +1503,9 @@
         "media_type": "TEXT",
         "text": "And it's got company now 😭",
         "reply_to_id": "18092782610134463"
-      }
+      },
+      "publishedId": "17873629497651359",
+      "confirmedPublished": true
     }
   },
   "repliedCommentIds": [
