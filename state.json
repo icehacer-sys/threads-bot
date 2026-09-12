@@ -1583,6 +1583,15 @@
       },
       "publishedId": "17895045699670469",
       "confirmedPublished": true
+    },
+    "comment:17901320208591855": {
+      "creationId": "17888927289614054",
+      "createdAt": "2026-09-12T02:10:33.108Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Keratocyst's the one. Both wrap around that impacted tooth and look nearly identical on the scan so histology is what separates them.",
+        "reply_to_id": "17901320208591855"
+      }
     }
   },
   "repliedCommentIds": [
@@ -10606,7 +10615,8 @@
     "18071883050731643": 1,
     "18134182231728046": 1,
     "18122647874476013": 1,
-    "18065452910774016": 1
+    "18065452910774016": 1,
+    "18091452002666119": 1
   },
   "gifPostCounts": {
     "18432085978123193": 1,
@@ -10631,6 +10641,6 @@
   },
   "spend": {
     "date": "2026-09-11",
-    "usd": 0.7570328999999998
+    "usd": 0.7622260999999998
   }
 }
