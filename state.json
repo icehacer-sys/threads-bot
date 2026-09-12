@@ -2095,6 +2095,15 @@
       },
       "publishedId": "17887770669460635",
       "confirmedPublished": true
+    },
+    "comment:18134231248656156": {
+      "creationId": "17889048972614054",
+      "createdAt": "2026-09-12T21:59:35.426Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Pretty sure the ball is supposed to stay in the socket though.",
+        "reply_to_id": "18134231248656156"
+      }
     }
   },
   "repliedCommentIds": [
@@ -11202,6 +11211,6 @@
   },
   "spend": {
     "date": "2026-09-12",
-    "usd": 0.3940468
+    "usd": 0.4027189
   }
 }
