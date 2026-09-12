@@ -1792,6 +1792,15 @@
       },
       "publishedId": "18115022473772180",
       "confirmedPublished": true
+    },
+    "comment:18149025049534677": {
+      "creationId": "17889038307614054",
+      "createdAt": "2026-09-12T19:47:09.103Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "That's the moment everyone in the waiting room stops scrolling their phone.",
+        "reply_to_id": "18149025049534677"
+      }
     }
   },
   "repliedCommentIds": [
@@ -10862,6 +10871,6 @@
   },
   "spend": {
     "date": "2026-09-12",
-    "usd": 0.0366754
+    "usd": 0.0392658
   }
 }
