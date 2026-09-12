@@ -1694,6 +1694,15 @@
       },
       "publishedId": "18045229052820105",
       "confirmedPublished": true
+    },
+    "comment:18118301543486709": {
+      "creationId": "17888942478614054",
+      "createdAt": "2026-09-12T04:45:23.104Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "That would explain the painless arrival and the dramatic reveal 😭",
+        "reply_to_id": "18118301543486709"
+      }
     }
   },
   "repliedCommentIds": [
@@ -10754,6 +10763,6 @@
   },
   "spend": {
     "date": "2026-09-11",
-    "usd": 0.9442345999999998
+    "usd": 0.9468851999999998
   }
 }
