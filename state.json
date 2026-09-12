@@ -1727,6 +1727,15 @@
       },
       "publishedId": "18631007440034467",
       "confirmedPublished": true
+    },
+    "comment:18332583943279507": {
+      "creationId": "17888949045614054",
+      "createdAt": "2026-09-12T06:18:08.416Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Usually a surgeon removes the cyst lining entirely and scrapes the cavity walls to get any remnant tissue since even a small piece left behind can seed a recurrence. The impacted tooth comes out at the same time.",
+        "reply_to_id": "18332583943279507"
+      }
     }
   },
   "repliedCommentIds": [
@@ -10790,6 +10799,6 @@
   },
   "spend": {
     "date": "2026-09-11",
-    "usd": 1.0516436999999996
+    "usd": 1.0663868999999997
   }
 }
