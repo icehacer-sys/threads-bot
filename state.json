@@ -34,7 +34,8 @@
     "17919704034223315": "{\"postId\":\"18114371644992668\",\"reason\":\"Comment appears unrelated to the jaw X-ray case or is misplaced. No clear engagement with the image or diagnosis challenge. Requires owner review to determine intent.\",\"commentText\":\"Primary hyperthyroidism\",\"username\":\"dr.andrii_hryshchyshyn\",\"queuedAt\":\"2026-09-12T04:15:03.461Z\"}",
     "17928958281405744": "{\"postId\":\"18151028044531026\",\"reason\":\"Medical question about treatment options before the diagnosis is revealed. Answering would expose the diagnosis and confirm whether fracture is present. Holding for owner review once case is public.\",\"commentText\":\"How can you get this ball back in and that fractured looking bone right without surgery ?\",\"username\":\"carolesmith34\",\"queuedAt\":\"2026-09-12T19:31:50.115Z\"}",
     "17885815866618036": "{\"postId\":\"18151028044531026\",\"reason\":\"Owner response required. Commenter is asking about the reveal timing, reveal location, or account mechanics—not making a diagnosis guess or asking a case question. This falls outside the scope of a direct comment reply and needs an account-holder clarification about how answers are posted or when they become public.\",\"commentText\":\"Where is your semi-hidden answer ?? I need to know !  Thanks.\",\"username\":\"stripey777\",\"queuedAt\":\"2026-09-12T19:31:53.033Z\"}",
-    "18106644349900567": "{\"postId\":\"18151028044531026\",\"reason\":\"Diagnosis guess before reveal is public. Hold for owner review after answer posts.\",\"commentText\":\"Both dislocation and a fracture.\",\"username\":\"laxorm\",\"queuedAt\":\"2026-09-12T19:32:00.231Z\"}"
+    "18106644349900567": "{\"postId\":\"18151028044531026\",\"reason\":\"Diagnosis guess before reveal is public. Hold for owner review after answer posts.\",\"commentText\":\"Both dislocation and a fracture.\",\"username\":\"laxorm\",\"queuedAt\":\"2026-09-12T19:32:00.231Z\"}",
+    "18114990634935989": "{\"postId\":\"18151028044531026\",\"reason\":\"owner review: commenter is raising a specific anatomical concern that the humeral head appears disconnected from the shaft on the image. This is a potential image/anatomy inconsistency that requires owner review rather than an automatic reply. I cannot confirm or deny the anatomy without risking inventing an explanation.\",\"commentText\":\"But the humeral head doesn’t look like it’s still attached to the humeral shaft. Another view would better clarify it for me.\",\"username\":\"letitiawlewis\",\"queuedAt\":\"2026-09-12T20:54:20.089Z\"}"
   },
   "concernAcknowledgments": {},
   "publications": {
@@ -1973,6 +1974,15 @@
       },
       "publishedId": "17946092115292153",
       "confirmedPublished": true
+    },
+    "comment:17971684854130252": {
+      "creationId": "17889044649614054",
+      "createdAt": "2026-09-12T20:54:25.959Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "A dislocated shoulder barely registers compared to \"have you tried relaxing\".",
+        "reply_to_id": "17971684854130252"
+      }
     }
   },
   "repliedCommentIds": [
@@ -10996,7 +11006,8 @@
     "18011583128952156",
     "18490923727099829",
     "18095067119256540",
-    "17990228757046446"
+    "17990228757046446",
+    "18114990634935989"
   ],
   "skipStrikes": {
     "17895266316520842": 1,
@@ -11067,6 +11078,6 @@
   },
   "spend": {
     "date": "2026-09-12",
-    "usd": 0.28276229999999997
+    "usd": 0.3077123
   }
 }
