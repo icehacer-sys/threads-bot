@@ -1800,7 +1800,9 @@
         "media_type": "TEXT",
         "text": "That's the moment everyone in the waiting room stops scrolling their phone.",
         "reply_to_id": "18149025049534677"
-      }
+      },
+      "publishedId": "18047788292607830",
+      "confirmedPublished": true
     }
   },
   "repliedCommentIds": [
