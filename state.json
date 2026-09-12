@@ -2073,6 +2073,15 @@
       },
       "publishedId": "18352470031172974",
       "confirmedPublished": true
+    },
+    "comment:17901158283580009": {
+      "creationId": "17889047799614054",
+      "createdAt": "2026-09-12T21:43:26.003Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "The X-ray really does make a compelling counterargument to that particular script.",
+        "reply_to_id": "17901158283580009"
+      }
     }
   },
   "repliedCommentIds": [
@@ -11178,6 +11187,6 @@
   },
   "spend": {
     "date": "2026-09-12",
-    "usd": 0.3696658
+    "usd": 0.3721575
   }
 }
