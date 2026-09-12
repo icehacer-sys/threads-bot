@@ -2158,7 +2158,9 @@
         "media_type": "TEXT",
         "text": "If only it were that easy.",
         "reply_to_id": "18483962365108779"
-      }
+      },
+      "publishedId": "18122009779918216",
+      "confirmedPublished": true
     }
   },
   "repliedCommentIds": [
