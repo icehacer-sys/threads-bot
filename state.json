@@ -2059,7 +2059,9 @@
         "media_type": "TEXT",
         "text": "The shoulder's GPS really failed on this one.",
         "reply_to_id": "17887844007681728"
-      }
+      },
+      "publishedId": "18109559900166342",
+      "confirmedPublished": true
     }
   },
   "repliedCommentIds": [
