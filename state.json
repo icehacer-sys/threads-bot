@@ -1716,6 +1716,15 @@
       },
       "publishedId": "18105719663236783",
       "confirmedPublished": true
+    },
+    "comment:18114829033820401": {
+      "creationId": "17888946189614054",
+      "createdAt": "2026-09-12T05:47:29.425Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "The dark cavity here is actually an odontogenic keratocyst rather than an abscess and the silent painless growth is one of its hallmarks. You're right that removal is no small job since it has a real tendency to recur.",
+        "reply_to_id": "18114829033820401"
+      }
     }
   },
   "repliedCommentIds": [
@@ -10778,6 +10787,6 @@
   },
   "spend": {
     "date": "2026-09-11",
-    "usd": 0.9799630999999998
+    "usd": 1.0516436999999996
   }
 }
