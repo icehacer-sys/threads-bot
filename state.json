@@ -1882,7 +1882,9 @@
         "media_type": "TEXT",
         "text": "That's the one and you've got the whole workup right.",
         "reply_to_id": "18070388843738252"
-      }
+      },
+      "publishedId": "17964031701195530",
+      "confirmedPublished": true
     }
   },
   "repliedCommentIds": [
