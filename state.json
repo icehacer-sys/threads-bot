@@ -9,7 +9,10 @@
     "18060961571536843": "Impacted (abscessed) wisdom tooth?",
     "18147942664528671": "Chewing gum?",
     "17922795441202147": "Looks like the 7 lost it’s way and got super angry about it 🤔",
-    "17972752473137487": "Jaw cyst"
+    "17972752473137487": "Jaw cyst",
+    "18120625909930823": "Inferior dislocation of shoulder joint?",
+    "18105773345608079": "A dislocation?",
+    "18132786196633304": "As someone who has a wonky shoulder-OUCH!!"
   },
   "ownerReviews": {
     "17937444630360450": "{\"postId\":\"18103023326210157\",\"reason\":\"owner review: personal medical concern\",\"commentText\":\"Little sister of my friend swalloved a coin of 1 fim. At hospital the family was advised to thoroughly keep an eye on her poops. So, the next day they found two 50 penny coins😀.\",\"username\":\"velitapiof\",\"queuedAt\":\"2026-09-10T20:21:59.741Z\",\"resolvedAt\":\"2026-09-10T20:36:02.929Z\",\"resolution\":\"Owner confirmed this is a completed personal story and deleted the inappropriate boundary reply. No clinical review is needed.\"}",
@@ -9902,7 +9905,8 @@
     "18114829033820401",
     "18332583943279507",
     "17987775267044721",
-    "18022359728878190"
+    "18022359728878190",
+    "18167963560461349"
   ],
   "answeredPostIds": [
     "18395606890093068"
@@ -10009,11 +10013,11 @@
     "17900166078657433": 109,
     "18103023326210157": 84,
     "18114371644992668": 73,
-    "18151028044531026": 1
+    "18151028044531026": 2
   },
   "daily": {
     "date": "2026-09-12",
-    "count": 1
+    "count": 2
   },
   "pinnedResolved": {
     "DaTTCIwoAw7": "18014812820883466"
@@ -10838,6 +10842,6 @@
   },
   "spend": {
     "date": "2026-09-12",
-    "usd": 0.0184108
+    "usd": 0.024290000000000003
   }
 }
