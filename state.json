@@ -1517,6 +1517,15 @@
       },
       "publishedId": "18636562912020678",
       "confirmedPublished": true
+    },
+    "comment:18631807900003479": {
+      "creationId": "17888919672614054",
+      "createdAt": "2026-09-12T00:37:23.672Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Now that's the visual evidence I needed 😭",
+        "reply_to_id": "18631807900003479"
+      }
     }
   },
   "repliedCommentIds": [
@@ -10556,6 +10565,6 @@
   },
   "spend": {
     "date": "2026-09-11",
-    "usd": 0.6409459999999998
+    "usd": 0.6458695999999998
   }
 }
