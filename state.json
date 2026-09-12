@@ -35,7 +35,8 @@
     "17928958281405744": "{\"postId\":\"18151028044531026\",\"reason\":\"Medical question about treatment options before the diagnosis is revealed. Answering would expose the diagnosis and confirm whether fracture is present. Holding for owner review once case is public.\",\"commentText\":\"How can you get this ball back in and that fractured looking bone right without surgery ?\",\"username\":\"carolesmith34\",\"queuedAt\":\"2026-09-12T19:31:50.115Z\"}",
     "17885815866618036": "{\"postId\":\"18151028044531026\",\"reason\":\"Owner response required. Commenter is asking about the reveal timing, reveal location, or account mechanics—not making a diagnosis guess or asking a case question. This falls outside the scope of a direct comment reply and needs an account-holder clarification about how answers are posted or when they become public.\",\"commentText\":\"Where is your semi-hidden answer ?? I need to know !  Thanks.\",\"username\":\"stripey777\",\"queuedAt\":\"2026-09-12T19:31:53.033Z\"}",
     "18106644349900567": "{\"postId\":\"18151028044531026\",\"reason\":\"Diagnosis guess before reveal is public. Hold for owner review after answer posts.\",\"commentText\":\"Both dislocation and a fracture.\",\"username\":\"laxorm\",\"queuedAt\":\"2026-09-12T19:32:00.231Z\"}",
-    "18114990634935989": "{\"postId\":\"18151028044531026\",\"reason\":\"owner review: commenter is raising a specific anatomical concern that the humeral head appears disconnected from the shaft on the image. This is a potential image/anatomy inconsistency that requires owner review rather than an automatic reply. I cannot confirm or deny the anatomy without risking inventing an explanation.\",\"commentText\":\"But the humeral head doesn’t look like it’s still attached to the humeral shaft. Another view would better clarify it for me.\",\"username\":\"letitiawlewis\",\"queuedAt\":\"2026-09-12T20:54:20.089Z\"}"
+    "18114990634935989": "{\"postId\":\"18151028044531026\",\"reason\":\"owner review: commenter is raising a specific anatomical concern that the humeral head appears disconnected from the shaft on the image. This is a potential image/anatomy inconsistency that requires owner review rather than an automatic reply. I cannot confirm or deny the anatomy without risking inventing an explanation.\",\"commentText\":\"But the humeral head doesn’t look like it’s still attached to the humeral shaft. Another view would better clarify it for me.\",\"username\":\"letitiawlewis\",\"queuedAt\":\"2026-09-12T20:54:20.089Z\"}",
+    "18182862016410732": "{\"postId\":\"18151028044531026\",\"reason\":\"owner review: image anatomy concern. Commenter questions whether the humeral head remains attached to the shaft and whether the AP view adequately demonstrates the head-to-shaft relationship. This is an unresolved anatomy concern requiring review before any diagnosis or imaging interpretation can be discussed.\",\"commentText\":\"What I don’t like is the position of the humeral head to the shaft. Even a y view would help visualize the head to the shaft better. In the AP view the head doesn’t appear to be still attached to the shaft. Hence my questioning it.\",\"username\":\"letitiawlewis\",\"queuedAt\":\"2026-09-12T23:03:45.850Z\"}"
   },
   "concernAcknowledgments": {},
   "publications": {
@@ -2172,6 +2173,15 @@
       },
       "publishedId": "18108914336165458",
       "confirmedPublished": true
+    },
+    "comment:18458966152185883": {
+      "creationId": "17889054579614054",
+      "createdAt": "2026-09-12T23:03:51.402Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "That's the exact expression the humerus had when it found out about the vacancy.",
+        "reply_to_id": "18458966152185883"
+      }
     }
   },
   "repliedCommentIds": [
@@ -10338,7 +10348,8 @@
     "18144613870564502",
     "18105867418902491",
     "18154498198525667",
-    "18483962365108779"
+    "18483962365108779",
+    "17941250619350750"
   ],
   "answeredPostIds": [
     "18395606890093068"
@@ -10445,11 +10456,11 @@
     "17900166078657433": 109,
     "18103023326210157": 84,
     "18114371644992668": 73,
-    "18151028044531026": 36
+    "18151028044531026": 37
   },
   "daily": {
     "date": "2026-09-12",
-    "count": 36
+    "count": 37
   },
   "pinnedResolved": {
     "DaTTCIwoAw7": "18014812820883466"
@@ -11214,7 +11225,8 @@
     "18095067119256540",
     "17990228757046446",
     "18114990634935989",
-    "18097005638640189"
+    "18097005638640189",
+    "18182862016410732"
   ],
   "skipStrikes": {
     "17895266316520842": 1,
@@ -11285,6 +11297,6 @@
   },
   "spend": {
     "date": "2026-09-12",
-    "usd": 0.5101695999999998
+    "usd": 0.5162779999999997
   }
 }
