@@ -1852,6 +1852,15 @@
       },
       "publishedId": "18125093149654251",
       "confirmedPublished": true
+    },
+    "comment:18100494506018633": {
+      "creationId": "17889044316614054",
+      "createdAt": "2026-09-12T20:48:57.643Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "The overhead arm position must have been pretty hard to explain away as stress.",
+        "reply_to_id": "18100494506018633"
+      }
     }
   },
   "repliedCommentIds": [
@@ -10928,6 +10937,6 @@
   },
   "spend": {
     "date": "2026-09-12",
-    "usd": 0.062489199999999995
+    "usd": 0.06867509999999999
   }
 }
