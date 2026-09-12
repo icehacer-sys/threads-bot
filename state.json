@@ -2106,6 +2106,15 @@
       },
       "publishedId": "18096121904420507",
       "confirmedPublished": true
+    },
+    "comment:17928494889167321": {
+      "creationId": "17889048990614054",
+      "createdAt": "2026-09-12T21:59:52.839Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "The reduction itself is often the worst part. After that the shoulder's just mad but not actively relocating.",
+        "reply_to_id": "17928494889167321"
+      }
     }
   },
   "repliedCommentIds": [
@@ -10266,7 +10275,8 @@
     "17887844007681728",
     "18635807944011020",
     "17901158283580009",
-    "18041403140824268"
+    "18041403140824268",
+    "18134231248656156"
   ],
   "answeredPostIds": [
     "18395606890093068"
@@ -10373,11 +10383,11 @@
     "17900166078657433": 109,
     "18103023326210157": 84,
     "18114371644992668": 73,
-    "18151028044531026": 30
+    "18151028044531026": 31
   },
   "daily": {
     "date": "2026-09-12",
-    "count": 30
+    "count": 31
   },
   "pinnedResolved": {
     "DaTTCIwoAw7": "18014812820883466"
@@ -11213,6 +11223,6 @@
   },
   "spend": {
     "date": "2026-09-12",
-    "usd": 0.4027189
+    "usd": 0.4076243
   }
 }
