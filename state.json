@@ -1572,6 +1572,15 @@
       },
       "publishedId": "18031817807894538",
       "confirmedPublished": true
+    },
+    "comment:18082916429316429": {
+      "creationId": "17888924589614054",
+      "createdAt": "2026-09-12T01:39:59.336Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Right neighborhood but this one came back as an odontogenic keratocyst on histology since imaging alone can't separate the two.",
+        "reply_to_id": "18082916429316429"
+      }
     }
   },
   "repliedCommentIds": [
@@ -10619,6 +10628,6 @@
   },
   "spend": {
     "date": "2026-09-11",
-    "usd": 0.7012652999999999
+    "usd": 0.7570328999999998
   }
 }
