@@ -16,7 +16,8 @@
     "17928958281405744": "How can you get this ball back in and that fractured looking bone right without surgery ?",
     "18011583128952156": "It look like it hurts. How many degrees of separation, there",
     "17990228757046446": "Volleyball shoulder. To many overhead volleyball serves.",
-    "18106644349900567": "Both dislocation and a fracture."
+    "18106644349900567": "Both dislocation and a fracture.",
+    "18134829715732354": "Dislocated humerus"
   },
   "ownerReviews": {
     "17937444630360450": "{\"postId\":\"18103023326210157\",\"reason\":\"owner review: personal medical concern\",\"commentText\":\"Little sister of my friend swalloved a coin of 1 fim. At hospital the family was advised to thoroughly keep an eye on her poops. So, the next day they found two 50 penny coins😀.\",\"username\":\"velitapiof\",\"queuedAt\":\"2026-09-10T20:21:59.741Z\",\"resolvedAt\":\"2026-09-10T20:36:02.929Z\",\"resolution\":\"Owner confirmed this is a completed personal story and deleted the inappropriate boundary reply. No clinical review is needed.\"}",
@@ -9936,7 +9937,8 @@
     "17987775267044721",
     "18022359728878190",
     "18167963560461349",
-    "18104284664248239"
+    "18104284664248239",
+    "18149025049534677"
   ],
   "answeredPostIds": [
     "18395606890093068"
@@ -10043,11 +10045,11 @@
     "17900166078657433": 109,
     "18103023326210157": 84,
     "18114371644992668": 73,
-    "18151028044531026": 3
+    "18151028044531026": 4
   },
   "daily": {
     "date": "2026-09-12",
-    "count": 3
+    "count": 4
   },
   "pinnedResolved": {
     "DaTTCIwoAw7": "18014812820883466"
@@ -10873,6 +10875,6 @@
   },
   "spend": {
     "date": "2026-09-12",
-    "usd": 0.0392658
+    "usd": 0.041112199999999995
   }
 }
