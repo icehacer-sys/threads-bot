@@ -1959,7 +1959,9 @@
         "media_type": "TEXT",
         "text": "That's it.",
         "reply_to_id": "18134829715732354"
-      }
+      },
+      "publishedId": "18104352242354719",
+      "confirmedPublished": true
     }
   },
   "repliedCommentIds": [
