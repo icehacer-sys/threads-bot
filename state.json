@@ -1885,6 +1885,15 @@
       },
       "publishedId": "17964031701195530",
       "confirmedPublished": true
+    },
+    "comment:18113175788013278": {
+      "creationId": "17889044355614054",
+      "createdAt": "2026-09-12T20:50:46.465Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "The dislocation part is right but this is a pure inferior dislocation (luxatio erecta) with the humeral head sitting below the socket rather than a fracture-dislocation.",
+        "reply_to_id": "18113175788013278"
+      }
     }
   },
   "repliedCommentIds": [
@@ -10025,7 +10034,8 @@
     "17922766989200423",
     "18115929313785795",
     "18100494506018633",
-    "18124613228506789"
+    "18124613228506789",
+    "18070388843738252"
   ],
   "answeredPostIds": [
     "18395606890093068"
@@ -10132,11 +10142,11 @@
     "17900166078657433": 109,
     "18103023326210157": 84,
     "18114371644992668": 73,
-    "18151028044531026": 10
+    "18151028044531026": 11
   },
   "daily": {
     "date": "2026-09-12",
-    "count": 10
+    "count": 11
   },
   "pinnedResolved": {
     "DaTTCIwoAw7": "18014812820883466"
@@ -10965,6 +10975,6 @@
   },
   "spend": {
     "date": "2026-09-12",
-    "usd": 0.1758714
+    "usd": 0.1976362
   }
 }
