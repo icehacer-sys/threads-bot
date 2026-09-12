@@ -2195,6 +2195,15 @@
       },
       "publishedId": "18009777968761473",
       "confirmedPublished": true
+    },
+    "comment:18019989050716370": {
+      "creationId": "17889056628614054",
+      "createdAt": "2026-09-12T23:35:04.763Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "That's brutal especially in a place supposed to keep people safe. Rotator cuff tears are serious damage and the pain from that kind of injury is next level.",
+        "reply_to_id": "18019989050716370"
+      }
     }
   },
   "repliedCommentIds": [
@@ -10363,7 +10372,8 @@
     "18154498198525667",
     "18483962365108779",
     "17941250619350750",
-    "18458966152185883"
+    "18458966152185883",
+    "18110568164147912"
   ],
   "answeredPostIds": [
     "18395606890093068"
@@ -10470,11 +10480,11 @@
     "17900166078657433": 109,
     "18103023326210157": 84,
     "18114371644992668": 73,
-    "18151028044531026": 38
+    "18151028044531026": 39
   },
   "daily": {
     "date": "2026-09-12",
-    "count": 38
+    "count": 39
   },
   "pinnedResolved": {
     "DaTTCIwoAw7": "18014812820883466"
@@ -11311,6 +11321,6 @@
   },
   "spend": {
     "date": "2026-09-12",
-    "usd": 0.5426356999999998
+    "usd": 0.5528834999999999
   }
 }
