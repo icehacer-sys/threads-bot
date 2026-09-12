@@ -1649,6 +1649,15 @@
       },
       "publishedId": "17907711150499533",
       "confirmedPublished": true
+    },
+    "comment:18127539457783163": {
+      "creationId": "17888933703614054",
+      "createdAt": "2026-09-12T03:13:24.899Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "That's an impacted wisdom tooth sitting right inside the keratocyst so it never made it through the gum at all.",
+        "reply_to_id": "18127539457783163"
+      }
     }
   },
   "repliedCommentIds": [
@@ -10704,6 +10713,6 @@
   },
   "spend": {
     "date": "2026-09-11",
-    "usd": 0.8534693999999998
+    "usd": 0.8741189999999998
   }
 }
