@@ -1462,6 +1462,15 @@
       },
       "publishedId": "18101334260014004",
       "confirmedPublished": true
+    },
+    "comment:18036467141648619": {
+      "creationId": "17888917020614054",
+      "createdAt": "2026-09-12T00:05:30.091Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Not typically but it can cause serious problems if left untreated since it can destroy a significant amount of jaw bone and has a tendency to recur after removal so long-term follow-up matters a lot.",
+        "reply_to_id": "18036467141648619"
+      }
     }
   },
   "repliedCommentIds": [
@@ -10496,6 +10505,6 @@
   },
   "spend": {
     "date": "2026-09-11",
-    "usd": 0.5611087999999999
+    "usd": 0.6182663999999999
   }
 }
