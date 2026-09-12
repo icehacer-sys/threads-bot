@@ -1660,6 +1660,15 @@
       },
       "publishedId": "18088065470215843",
       "confirmedPublished": true
+    },
+    "comment:18382260856232937": {
+      "creationId": "17888936832614054",
+      "createdAt": "2026-09-12T03:43:58.407Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Nah you had the right energy about it punching through 😭 That's closer than most guesses get.",
+        "reply_to_id": "18382260856232937"
+      }
     }
   },
   "repliedCommentIds": [
@@ -10716,6 +10725,6 @@
   },
   "spend": {
     "date": "2026-09-11",
-    "usd": 0.8741189999999998
+    "usd": 0.8772165999999998
   }
 }
