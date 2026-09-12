@@ -18,7 +18,8 @@
     "18087760094228299": "{\"postId\":\"18114371644992668\",\"reason\":\"Diagnosis guess before reveal is public. Hold for owner review per protocol.\",\"commentText\":\"Abscess caused by an impacted wisdom tooth?\",\"username\":\"positive.cookiee\",\"queuedAt\":\"2026-09-11T19:32:07.689Z\"}",
     "17955279180225415": "{\"postId\":\"18114371644992668\",\"reason\":\"owner review: image provenance question — cannot confirm the imaging modality without owner input. This is a panoramic dental X-ray not a mammogram but the image-provenance rule requires an owner response rather than an automatic reply about how the image was produced.\",\"commentText\":\"Oh my, did they take this using a mammogram machine?\",\"username\":\"raaawb\",\"queuedAt\":\"2026-09-11T19:51:24.007Z\"}",
     "17989883109056878": "{\"postId\":\"18114371644992668\",\"reason\":\"Commenter is asking \\\"where do you work?\\\" for the second time — this requires an owner response and no automatic reply per policy.\",\"commentText\":\"That multiple cyst hae very low density. Filled with fluid ? \\n\\n(Ewing sarcomas use to hit \\nyoung kids, in their long bones .)\\n\\nFor the second time ; where do you work ? \\n\\nThere are CT and jawsurgeons!\",\"username\":\"chrismellander\",\"queuedAt\":\"2026-09-11T20:08:30.664Z\"}",
-    "18112537013104445": "{\"postId\":\"18114371644992668\",\"reason\":\"Questions about case sourcing and operator identity/workplace require an owner response. Not automated replies.\",\"commentText\":\"That's ok!\\n\\nBut why do you not tell me , where do you find thoose old singleviewed , \\npulmonary x-rays!\\nAnd where you are working? \\nBoth are of my interest ! \\n\\nColleagaues ot not 🥳\",\"username\":\"chrismellander\",\"queuedAt\":\"2026-09-11T21:12:53.635Z\"}"
+    "18112537013104445": "{\"postId\":\"18114371644992668\",\"reason\":\"Questions about case sourcing and operator identity/workplace require an owner response. Not automated replies.\",\"commentText\":\"That's ok!\\n\\nBut why do you not tell me , where do you find thoose old singleviewed , \\npulmonary x-rays!\\nAnd where you are working? \\nBoth are of my interest ! \\n\\nColleagaues ot not 🥳\",\"username\":\"chrismellander\",\"queuedAt\":\"2026-09-11T21:12:53.635Z\"}",
+    "17919704034223315": "{\"postId\":\"18114371644992668\",\"reason\":\"Comment appears unrelated to the jaw X-ray case or is misplaced. No clear engagement with the image or diagnosis challenge. Requires owner review to determine intent.\",\"commentText\":\"Primary hyperthyroidism\",\"username\":\"dr.andrii_hryshchyshyn\",\"queuedAt\":\"2026-09-12T04:15:03.461Z\"}"
   },
   "concernAcknowledgments": {},
   "publications": {
@@ -9817,7 +9818,8 @@
     "17947447902295336",
     "18127539457783163",
     "18382260856232937",
-    "18118313275940323"
+    "18118313275940323",
+    "18123430579899863"
   ],
   "answeredPostIds": [
     "18395606890093068"
@@ -9923,11 +9925,11 @@
     "18085399412691930": 133,
     "17900166078657433": 109,
     "18103023326210157": 84,
-    "18114371644992668": 67
+    "18114371644992668": 68
   },
   "daily": {
     "date": "2026-09-11",
-    "count": 67
+    "count": 68
   },
   "pinnedResolved": {
     "DaTTCIwoAw7": "18014812820883466"
@@ -10682,7 +10684,8 @@
     "18159983938496365",
     "18148875085483777",
     "18102946781256033",
-    "18091452002666119"
+    "18091452002666119",
+    "17919704034223315"
   ],
   "skipStrikes": {
     "17895266316520842": 1,
@@ -10751,6 +10754,6 @@
   },
   "spend": {
     "date": "2026-09-11",
-    "usd": 0.9385003999999998
+    "usd": 0.9442345999999998
   }
 }
