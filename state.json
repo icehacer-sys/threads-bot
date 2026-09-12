@@ -1774,6 +1774,15 @@
       },
       "publishedId": "18057135248548955",
       "confirmedPublished": true
+    },
+    "comment:18104284664248239": {
+      "creationId": "17889036810614054",
+      "createdAt": "2026-09-12T19:31:35.786Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Oh no that's rough. Got the first one sorted and the second one just volunteered itself mid-explanation.",
+        "reply_to_id": "18104284664248239"
+      }
     }
   },
   "repliedCommentIds": [
@@ -10842,6 +10851,6 @@
   },
   "spend": {
     "date": "2026-09-12",
-    "usd": 0.024290000000000003
+    "usd": 0.026651400000000002
   }
 }
