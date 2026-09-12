@@ -2092,7 +2092,9 @@
         "media_type": "TEXT",
         "text": "That position would solve the sleeping problem pretty fast.",
         "reply_to_id": "18041403140824268"
-      }
+      },
+      "publishedId": "17887770669460635",
+      "confirmedPublished": true
     }
   },
   "repliedCommentIds": [
