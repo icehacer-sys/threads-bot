@@ -2741,6 +2741,15 @@
       },
       "publishedId": "18174930742439931",
       "confirmedPublished": true
+    },
+    "comment:17900619186581056": {
+      "creationId": "17889195228614054",
+      "createdAt": "2026-09-13T20:43:35.638Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Safety pins come in a range of sizes and infants' airways are smaller than they look on a flat frontal image so the pin can appear oversized relative to what you'd expect.",
+        "reply_to_id": "17900619186581056"
+      }
     }
   },
   "repliedCommentIds": [
@@ -11915,6 +11924,6 @@
   },
   "spend": {
     "date": "2026-09-13",
-    "usd": 0.22522900000000007
+    "usd": 0.23826780000000006
   }
 }
