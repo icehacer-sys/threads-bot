@@ -4,6 +4,8 @@ The active service reads Threads comments and drafts replies in the account's wr
 
 ## Reply policy
 
+Interpret the target of a comment before its tone. Caption criticism and rhetorical questions should receive a short acknowledgment of the writing rather than a reaction to the scan. Narrow quoted-caption cues have a 12-word backstop and share the existing single-repair allowance; genuine clarification questions keep their normal handling. See the [September 14 sarcasm audit](docs/wording-sarcasm-audit-2026-09-14.md). Offline regression command: `npm run wording:verify`.
+
 All diagnosis guesses are held before the answer is public, whether right or wrong. Private answers are not sent to the drafting prompt in that state. After reveal, supported guesses can be affirmed and genuine new questions answered. Prior replies to another reader do not suppress a useful answer to this reader.
 
 Specific image/anatomy concerns may receive one neutral acknowledgment and create a persistent review hold. The bot pauses image-dependent replies until every concern for that post is resolved. Image-provenance and operator questions remain unanswered for owner review. Pending items include the post, comment, reason and time. Use `npm run reviews` to view them. See [concern reply rules and resolution](docs/concern-replies.md). This queue does not send automatic messages or notifications.

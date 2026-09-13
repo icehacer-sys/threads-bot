@@ -1,0 +1,54 @@
+import assert from 'node:assert/strict';
+process.env.ANTHROPIC_API_KEY = 'offline-fixture';
+process.env.BOT_USAGE_LOG = 'off';
+process.env.BOT_WEB_SEARCH = 'off';
+const { classifyAndDraft } = await import('../src/reply');
+const { isWordingReaction, wordingReplyIssue } = await import('../src/wording-reply');
+const { config } = await import('../src/config');
+const postText = 'Then the X-ray loaded. An open V-shaped metal object with a small coil appeared at the base of the neck.';
+const commentText = '"an open V-shaped metal object with a small coil” !\nReally?';
+assert.equal(isWordingReaction(postText, commentText), true);
+assert.equal(isWordingReaction(postText, '“an open V-shaped metal object with a small coil” Seriously?'), true);
+assert.equal(isWordingReaction(postText, 'That description is way too dramatic.'), true);
+for (const text of ['Really?', 'What does "small coil" mean?', '"an open V-shaped metal object with a small coil" Really? How is it removed?', 'Is it really in the oesophagus?', 'Where are the ribs?', 'This wording is unclear. Does upper mean the throat?', '"a completely unrelated quoted phrase" Really?']) {
+  assert.equal(isWordingReaction(postText, text), false, text);
+}
+
+const bad = { intent: 'surprise at the X-ray', decision: 'reply', category: 'banter', reply_text: "Right? That's the kind of detail that makes you do a double take at the monitor.", reason: 'react to surprise', needs_lookup: false, promo_product: 'none', promo_explicit: false };
+const good = { ...bad, intent: 'dry criticism of the elaborate caption', reply_text: 'That description took the scenic route.', reason: 'acknowledge the wordy caption' };
+assert.equal(wordingReplyIssue('banter', 'That description reads a bit like a metal detector treasure hunt. The actual object is simpler once you see what landed in there.'), true);
+let calls = 0;
+let queue: unknown[] = [];
+const bodies: any[] = [];
+globalThis.fetch = async (_url, init) => {
+  calls++;
+  const body = JSON.parse(String(init?.body)); bodies.push(body);
+  const next = queue.shift(); assert.ok(next, 'unexpected extra model call');
+  assert.equal(body.tools.some((t: any) => t.name === 'web_search'), false);
+  return new Response(JSON.stringify({ id: 'fixture', type: 'message', role: 'assistant', model: config.triageModel, stop_reason: 'tool_use', usage: { input_tokens: 1, output_tokens: 1 }, content: [{ type: 'tool_use', id: 'fixture-tool', name: 'submit_reply', input: next }] }), { headers: { 'content-type': 'application/json' } });
+};
+const input = { postText, commentText, answer: 'Swallowed safety pin', answerPublic: true, modelOverride: config.triageModel, allowSearch: false };
+queue = [good]; calls = 0;
+assert.equal((await classifyAndDraft(input)).reply_text, good.reply_text);
+assert.equal(calls, 1);
+assert.match(JSON.stringify(bodies.at(-1)), /CONTEXT CUE/);
+queue = [bad, good]; calls = 0;
+assert.equal((await classifyAndDraft(input)).reply_text, good.reply_text);
+assert.equal(calls, 2);
+assert.match(JSON.stringify(bodies.at(-1)), /WORDING RECHECK/);
+queue = [bad, bad]; calls = 0;
+const held = await classifyAndDraft(input);
+assert.equal(held.decision, 'skip'); assert.equal(held.category, 'other'); assert.equal(calls, 2);
+queue = [{ ...good, reply_text: 'The wording is clumsy; that was long.' }, bad]; calls = 0;
+assert.equal((await classifyAndDraft(input)).decision, 'skip'); assert.equal(calls, 2, 'style and wording share one repair');
+queue = [good]; calls = 0;
+assert.equal((await classifyAndDraft({ ...input, answerPublic: false })).decision, 'reply');
+queue = [{ ...good, reply_text: 'A swallowed safety pin was a simpler description.' }];
+assert.equal((await classifyAndDraft({ ...input, answerPublic: false })).decision, 'skip', 'caption criticism cannot expose the answer');
+queue = [{ ...good, category: 'teach', reply_text: 'The supplied description places it in the upper oesophageal region.' }];
+assert.equal((await classifyAndDraft({ ...input, commentText: 'Where is the object?' })).category, 'teach');
+assert.ok(!JSON.stringify(bodies.at(-1)).includes('CONTEXT CUE'));
+queue = []; calls = 0;
+assert.equal((await classifyAndDraft({ ...input, commentText: 'Are you a bot?' })).decision, 'skip');
+assert.equal(calls, 0);
+console.log('PASS actual sarcasm regression, conservative caption cues, genuine questions, one shared repair, cached failure and reveal/operator boundaries');

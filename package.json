@@ -27,6 +27,7 @@
     "budget:verify": "tsx tools/verify-budget.mts",
     "voice:verify": "tsx tools/verify-voice.mts",
     "media:verify": "tsx tools/verify-media-replies.mts",
+    "wording:verify": "tsx tools/verify-wording-replies.mts",
     "repetition:verify": "tsx tools/verify-reply-repetition.mts",
     "audit:verify": "tsx tools/verify-audit.mts",
     "runtime:summary": "tsx tools/runtime-summary.mts",

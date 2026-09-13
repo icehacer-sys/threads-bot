@@ -11,6 +11,7 @@ import { SYSTEM_PROMPT } from "./voice";
 import { diagnosticContext, unsupportedConfirmation, rejectsAcceptedDifferential, overstatesImagingLimit, type DiagnosticContext } from './case-evidence';
 import { varietyNote, restrainEmoji } from './reply-variety';
 import { GIF_SYSTEM_PROMPT, MEDIA_FIELDS, MEDIA_REPLY_NOTE, mediaReplyIssue, mediaVarietyNote, type MediaRead } from './media-reply';
+import { isWordingReaction, WORDING_NOTE, wordingReplyIssue } from './wording-reply';
 import { replyStyleIssue, needsClinicalReview, clinicalClaimIssue } from './reply-style';
 import { GIF_TAGS } from "./gifs";
 import { PROMO_TAGS, PRODUCTS_BLOCK } from "./products";
@@ -60,9 +61,8 @@ export interface Decision extends Partial<MediaRead> {
 }
 
 // JSON schema for structured outputs. additionalProperties:false is required.
-// `intent` is FIRST so the model reasons about what the comment literally is BEFORE it
-// picks a category — this stops genuine questions getting bantered (e.g. "so where the
-// ribs at" is a real "I can't see the ribs, why?" question, not a joke).
+// Resolve the comment's target and intended meaning before choosing a category.
+// Preserve genuine questions without mistaking rhetorical criticism for one.
 const REPLY_SCHEMA = {
   type: "object",
   additionalProperties: false,
@@ -70,7 +70,7 @@ const REPLY_SCHEMA = {
     intent: {
       type: "string",
       description:
-        "FIRST, in one sentence, work out what this comment LITERALLY is and what the person actually wants: a joke/meme to top, a real diagnosis guess, a genuine question about the case OR the image (e.g. 'where are the ribs' = they genuinely cannot see them on the scan and want to know why), a personal story, or a complaint. If it reads like a plain question about what is in the image, it is a real question even when phrased casually or slangily. Settle the real intent here before choosing a category.",
+        "FIRST identify what the comment targets: the case/image, the caption's wording, your previous reply, or a personal experience. Compare quotes and rhetorical questions with the actual post and prior exchange. Then state the intended meaning: genuine question, diagnosis guess, wordplay, dry sarcasm, writing criticism, story or complaint. A question mark or Really? does not automatically request facts. Do not treat mock praise or disbelief at awkward wording as literal praise or shock at the scan. Do preserve genuine image/anatomy and clinical questions even when casual or slangy. If the target is ambiguous, do not invent a premise. Settle intent before choosing a category.",
     },
     decision: { type: "string", enum: ["reply", "skip"] },
     category: {
@@ -228,6 +228,7 @@ export interface ClassifyInput {
   storyRecheck?: boolean;
   styleRecheck?: boolean;
   mediaRecheck?: boolean;
+  wordingRecheck?: boolean;
   /** Allow this one call to use web search. Only the quality-model re-run of an
    *  unrecognized "reference" comment sets this — never the cheap triage pass. */
   allowSearch?: boolean;
@@ -269,11 +270,16 @@ export async function classifyAndDraft(input: ClassifyInput): Promise<Decision> 
   }
   const concern = directConcern(commentText, priorExchange?.bot);
   if (concern) return concern;
-  const rechecked = input.storyRecheck || input.evidenceRecheck || input.styleRecheck || input.mediaRecheck;
+  const wordingReaction = isWordingReaction(postText, commentText);
+  const rechecked = input.storyRecheck || input.evidenceRecheck || input.styleRecheck || input.mediaRecheck || input.wordingRecheck;
   if ((commentMediaKind === 'video' || commentMediaKind === 'video-frame') && !commentImages?.length && !commentText.trim()) {
     return { decision: 'skip', category: 'other', reply_text: '', reason: 'GIF unavailable and no text to answer | guard:forced-skip' };
   }
   const finalize = async (d: Decision): Promise<Decision> => {
+    if (wordingReaction && d.decision === 'reply' && wordingReplyIssue(d.category, d.reply_text)) {
+      if (!rechecked) return classifyAndDraft({ ...input, wordingRecheck: true, allowSearch: false });
+      return { ...d, decision: 'skip', category: 'other', reply_text: '', reason: 'wording guard: draft misses the caption or overexplains the reaction | guard:forced-skip' };
+    }
     if (d.category === 'personal_medical') {
       if (requestsPersonalAdvice(commentText)) return concernAcknowledgment('personal', priorExchange?.bot);
       if (!rechecked) return classifyAndDraft({ ...input, storyRecheck: true, allowSearch: false });
@@ -386,6 +392,7 @@ export async function classifyAndDraft(input: ClassifyInput): Promise<Decision> 
     bareMedia ? '' : explainedNote,
     mediaNote,
     withMedia ? MEDIA_REPLY_NOTE : '',
+    wordingReaction ? WORDING_NOTE : '',
     isPersonalPost ? 'CURRENT POST TYPE: personal post. No diagnosis guessing rules apply.' : `CURRENT REVEAL STATE: ${isPublic ? 'PUBLIC. The answer has already been published. Do not skip a diagnosis discussion for being before the reveal.' : 'PRIVATE. Skip all diagnosis guesses.'}`,
     `COMMENT:\n${commentText || "(no text — just the attached image)"}`,
   ]
@@ -452,6 +459,7 @@ export async function classifyAndDraft(input: ClassifyInput): Promise<Decision> 
   if (input.evidenceRecheck) content.push({ type: 'text', text: 'EVIDENCE RECHECK (one attempt): Your draft invented a confirmation/result, dismissed an accepted differential or overstated an imaging limitation. Write a fresh reply using only recorded evidence. Do not say came back as, biopsy confirmed or invent surgery, recovery or duration. Recognize a supported differential without replacing it with certainty. When THIS image is insufficient, say so without claiming that imaging in general cannot distinguish conditions. If the question cannot be answered from the supplied evidence, skip for owner review. Keep every reveal and punctuation rule.' });
   if (input.styleRecheck) content.push({ type: 'text', text: 'STYLE RECHECK (only attempt): Draft a simpler reply to the original comment. Prefer one complete sentence with no comma at all. Commas are allowed only in a short explicit list of three or more items. No semicolons or em dashes. No sentence starting And or Which after punctuation. Use ordinary conjunctions within a sentence or write complete separate sentences. No repeated praise about the right fear or instinct. Keep every accuracy, personal-story and reveal rule. Do not add facts to fill space.' });
   if (input.mediaRecheck) content.push({ type: 'text', text: 'MEDIA RECHECK (only attempt): The previous draft repeated an earlier reply, used generic reaction commentary or repeated the medical case unnecessarily. Re-read the visible action and on-screen words. Write a fresh brief response to their meaning without narrating the GIF or explaining its connection to the X-ray. Skip if that meaning is unclear. Do not use a synonym for the rejected template.' });
+  if (input.wordingRecheck) content.push({ type: 'text', text: 'WORDING RECHECK (only attempt): The draft missed the caption criticism or overexplained it. Respond to the awkward or overcomplicated phrasing itself in at most 12 plain words. No clinical recap, second sentence, elaborate analogy, diagnosis affirmation, defensive explanation or generic shock. If you cannot establish the intended meaning, skip.' });
 
   // The submit_reply tool gives guaranteed-structured output; web_search (optional)
   // lets the model look up references it does not recognize. With web search off we
