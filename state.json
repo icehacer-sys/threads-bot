@@ -2399,6 +2399,15 @@
       },
       "publishedId": "18095974706560585",
       "confirmedPublished": true
+    },
+    "comment:18115630699770860": {
+      "creationId": "17889188220614054",
+      "createdAt": "2026-09-13T19:32:32.374Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Understandable reaction to that particular parenting curveball.",
+        "reply_to_id": "18115630699770860"
+      }
     }
   },
   "repliedCommentIds": [
@@ -11538,6 +11547,6 @@
   },
   "spend": {
     "date": "2026-09-13",
-    "usd": 0.041092300000000005
+    "usd": 0.04746020000000001
   }
 }
