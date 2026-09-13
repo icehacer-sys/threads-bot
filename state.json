@@ -2429,7 +2429,9 @@
         "media_type": "TEXT",
         "text": "That's the one. Though in this case the safety concerns are very real.",
         "reply_to_id": "17899437648373546"
-      }
+      },
+      "publishedId": "17903652909560315",
+      "confirmedPublished": true
     }
   },
   "repliedCommentIds": [
