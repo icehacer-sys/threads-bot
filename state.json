@@ -2619,6 +2619,15 @@
       },
       "publishedId": "18421541599144478",
       "confirmedPublished": true
+    },
+    "comment:18052653527800431": {
+      "creationId": "17889191418614054",
+      "createdAt": "2026-09-13T20:09:50.542Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "The oldest trap in the house. Cookie tin opens and suddenly there's a whole metalwork hobby where dessert should be.",
+        "reply_to_id": "18052653527800431"
+      }
     }
   },
   "repliedCommentIds": [
@@ -10825,7 +10834,8 @@
     "18661896823006944",
     "18030699305847944",
     "17993911968043149",
-    "18122886856888514"
+    "18122886856888514",
+    "17971372358943103"
   ],
   "answeredPostIds": [
     "18395606890093068"
@@ -10933,11 +10943,11 @@
     "18103023326210157": 84,
     "18114371644992668": 73,
     "18151028044531026": 53,
-    "17984836785119873": 23
+    "17984836785119873": 24
   },
   "daily": {
     "date": "2026-09-13",
-    "count": 23
+    "count": 24
   },
   "pinnedResolved": {
     "DaTTCIwoAw7": "18014812820883466"
@@ -11779,6 +11789,6 @@
   },
   "spend": {
     "date": "2026-09-13",
-    "usd": 0.181872
+    "usd": 0.1844115
   }
 }
