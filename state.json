@@ -2327,6 +2327,15 @@
       },
       "publishedId": "18062662265787037",
       "confirmedPublished": true
+    },
+    "comment:18095800175183071": {
+      "creationId": "17889085623614054",
+      "createdAt": "2026-09-13T04:15:50.041Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Yeah the shoulder would very much prefer to move back in.",
+        "reply_to_id": "18095800175183071"
+      }
     }
   },
   "repliedCommentIds": [
@@ -11456,6 +11465,6 @@
   },
   "spend": {
     "date": "2026-09-12",
-    "usd": 0.8756014000000001
+    "usd": 0.9000614000000002
   }
 }
