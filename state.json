@@ -2950,6 +2950,15 @@
       },
       "publishedId": "18170162281397362",
       "confirmedPublished": true
+    },
+    "comment:18140145955606850": {
+      "creationId": "17889200136614054",
+      "createdAt": "2026-09-13T21:40:26.721Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Exactly. One head turn and the sharp end repositions itself and you're working blind on what actually happened inside or how the child feels about it.",
+        "reply_to_id": "18140145955606850"
+      }
     }
   },
   "repliedCommentIds": [
@@ -12150,6 +12159,6 @@
   },
   "spend": {
     "date": "2026-09-13",
-    "usd": 0.5292873
+    "usd": 0.5330967
   }
 }
