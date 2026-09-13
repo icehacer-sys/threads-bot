@@ -2969,7 +2969,9 @@
         "media_type": "TEXT",
         "text": "That's it and ouch is right.",
         "reply_to_id": "18137685421624421"
-      }
+      },
+      "publishedId": "17925244248413313",
+      "confirmedPublished": true
     }
   },
   "repliedCommentIds": [
