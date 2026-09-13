@@ -2418,7 +2418,9 @@
         "media_type": "TEXT",
         "text": "That's one way to do a complete wardrobe inventory.",
         "reply_to_id": "18181597897424848"
-      }
+      },
+      "publishedId": "18074079182727333",
+      "confirmedPublished": true
     }
   },
   "repliedCommentIds": [
