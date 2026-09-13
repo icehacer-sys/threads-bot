@@ -22,7 +22,8 @@
     "18095067119256540": "Shoular separation,  dislocation, torn rotator.",
     "18100494506018633": "How did she get an X-ray without trying antidepressants and losing 20 pounds first?",
     "18146902144505086": "But seriously, that looks like a shoulder of a swimmer or someone with hyper flexible (read: slack tendons/ligaments) shoulders and tripped over a crack in the pavement and landed funny. Not that I know or anything…..",
-    "18231314434321718": "Poor little duffer swallowed a safety pin!"
+    "18231314434321718": "Poor little duffer swallowed a safety pin!",
+    "17946312831275709": "Swallowed a safety pin - foreign body in esophagus"
   },
   "ownerReviews": {
     "17937444630360450": "{\"postId\":\"18103023326210157\",\"reason\":\"owner review: personal medical concern\",\"commentText\":\"Little sister of my friend swalloved a coin of 1 fim. At hospital the family was advised to thoroughly keep an eye on her poops. So, the next day they found two 50 penny coins😀.\",\"username\":\"velitapiof\",\"queuedAt\":\"2026-09-10T20:21:59.741Z\",\"resolvedAt\":\"2026-09-10T20:36:02.929Z\",\"resolution\":\"Owner confirmed this is a completed personal story and deleted the inappropriate boundary reply. No clinical review is needed.\"}",
@@ -2383,6 +2384,15 @@
       },
       "publishedId": "17936582469381932",
       "confirmedPublished": true
+    },
+    "comment:17942809041340988": {
+      "creationId": "17889184635614054",
+      "createdAt": "2026-09-13T19:16:43.964Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "That's the marketing department's worst nightmare.",
+        "reply_to_id": "17942809041340988"
+      }
     }
   },
   "repliedCommentIds": [
@@ -10568,7 +10578,8 @@
     "18095800175183071",
     "18112079603114370",
     "17899558572372633",
-    "17893271199673703"
+    "17893271199673703",
+    "17908571310520944"
   ],
   "answeredPostIds": [
     "18395606890093068"
@@ -10676,11 +10687,11 @@
     "18103023326210157": 84,
     "18114371644992668": 73,
     "18151028044531026": 53,
-    "17984836785119873": 2
+    "17984836785119873": 3
   },
   "daily": {
     "date": "2026-09-13",
-    "count": 2
+    "count": 3
   },
   "pinnedResolved": {
     "DaTTCIwoAw7": "18014812820883466"
@@ -11517,6 +11528,6 @@
   },
   "spend": {
     "date": "2026-09-13",
-    "usd": 0.0220634
+    "usd": 0.0260936
   }
 }
