@@ -2663,6 +2663,15 @@
       },
       "publishedId": "18109767506158091",
       "confirmedPublished": true
+    },
+    "comment:18095292455452132": {
+      "creationId": "17889192921614054",
+      "createdAt": "2026-09-13T20:26:08.254Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "That's exactly the call. An open pin at that location needs specialist removal fast before the edges do real damage.",
+        "reply_to_id": "18095292455452132"
+      }
     }
   },
   "repliedCommentIds": [
@@ -10873,7 +10882,8 @@
     "17971372358943103",
     "18052653527800431",
     "18012519098952977",
-    "17895379392399099"
+    "17895379392399099",
+    "18057632330795377"
   ],
   "answeredPostIds": [
     "18395606890093068"
@@ -10981,11 +10991,11 @@
     "18103023326210157": 84,
     "18114371644992668": 73,
     "18151028044531026": 53,
-    "17984836785119873": 27
+    "17984836785119873": 28
   },
   "daily": {
     "date": "2026-09-13",
-    "count": 27
+    "count": 28
   },
   "pinnedResolved": {
     "DaTTCIwoAw7": "18014812820883466"
@@ -11827,6 +11837,6 @@
   },
   "spend": {
     "date": "2026-09-13",
-    "usd": 0.19530550000000002
+    "usd": 0.19807700000000003
   }
 }
