@@ -2705,7 +2705,9 @@
         "media_type": "TEXT",
         "text": "It really is. That moment when you see it on the screen must have been terrifying for everyone.",
         "reply_to_id": "18585475048066922"
-      }
+      },
+      "publishedId": "18149650987531040",
+      "confirmedPublished": true
     }
   },
   "repliedCommentIds": [
