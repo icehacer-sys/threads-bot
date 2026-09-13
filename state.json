@@ -2793,7 +2793,9 @@
         "media_type": "TEXT",
         "text": "That's one way to commit to the look.",
         "reply_to_id": "17984900913112847"
-      }
+      },
+      "publishedId": "17945557557318438",
+      "confirmedPublished": true
     }
   },
   "repliedCommentIds": [
