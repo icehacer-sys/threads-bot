@@ -2294,6 +2294,15 @@
       },
       "publishedId": "18640946788007466",
       "confirmedPublished": true
+    },
+    "comment:17899031049602529": {
+      "creationId": "17889070506614054",
+      "createdAt": "2026-09-13T02:10:56.595Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "The shower trap is real. Heat loosens everything up and then your cardiovascular system files a formal complaint.",
+        "reply_to_id": "17899031049602529"
+      }
     }
   },
   "repliedCommentIds": [
@@ -11420,6 +11429,6 @@
   },
   "spend": {
     "date": "2026-09-12",
-    "usd": 0.7150979
+    "usd": 0.7181816
   }
 }
