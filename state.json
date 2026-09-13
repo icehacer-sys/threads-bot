@@ -3013,7 +3013,9 @@
         "media_type": "TEXT",
         "text": "Right there with you.",
         "reply_to_id": "18020303672867967"
-      }
+      },
+      "publishedId": "18224138509336220",
+      "confirmedPublished": true
     }
   },
   "repliedCommentIds": [
