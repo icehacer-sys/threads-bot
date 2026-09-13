@@ -2983,6 +2983,15 @@
       },
       "publishedId": "18146014849551257",
       "confirmedPublished": true
+    },
+    "comment:18099028466320170": {
+      "creationId": "17889203079614054",
+      "createdAt": "2026-09-13T22:27:04.301Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "That open clasp at that location is exactly as bad as it looks. Thankfully specialist extraction exists for this nightmare scenario.",
+        "reply_to_id": "18099028466320170"
+      }
     }
   },
   "repliedCommentIds": [
@@ -11222,7 +11231,8 @@
     "17919759966221930",
     "18116492620759233",
     "18140145955606850",
-    "18137685421624421"
+    "18137685421624421",
+    "17944602309072573"
   ],
   "answeredPostIds": [
     "18395606890093068"
@@ -11330,11 +11340,11 @@
     "18103023326210157": 84,
     "18114371644992668": 73,
     "18151028044531026": 53,
-    "17984836785119873": 56
+    "17984836785119873": 57
   },
   "daily": {
     "date": "2026-09-13",
-    "count": 56
+    "count": 57
   },
   "pinnedResolved": {
     "DaTTCIwoAw7": "18014812820883466"
@@ -12187,6 +12197,6 @@
   },
   "spend": {
     "date": "2026-09-13",
-    "usd": 0.5654854999999999
+    "usd": 0.5686878999999999
   }
 }
