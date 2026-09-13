@@ -2873,6 +2873,15 @@
       },
       "publishedId": "18283319905294818",
       "confirmedPublished": true
+    },
+    "comment:17937646947365643": {
+      "creationId": "17889198498614054",
+      "createdAt": "2026-09-13T21:19:37.145Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Nailed the anatomy and the critical detail about shielding the sharp end during extraction. That's the whole game right there.",
+        "reply_to_id": "17937646947365643"
+      }
     }
   },
   "repliedCommentIds": [
@@ -12065,6 +12074,6 @@
   },
   "spend": {
     "date": "2026-09-13",
-    "usd": 0.37375990000000003
+    "usd": 0.37695530000000005
   }
 }
