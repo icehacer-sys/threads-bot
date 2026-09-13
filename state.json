@@ -2392,7 +2392,9 @@
         "media_type": "TEXT",
         "text": "That's the marketing department's worst nightmare.",
         "reply_to_id": "17942809041340988"
-      }
+      },
+      "publishedId": "18095974706560585",
+      "confirmedPublished": true
     }
   },
   "repliedCommentIds": [
