@@ -2608,6 +2608,15 @@
       },
       "publishedId": "18078512069362106",
       "confirmedPublished": true
+    },
+    "comment:17971372358943103": {
+      "creationId": "17889191397614054",
+      "createdAt": "2026-09-13T20:09:29.911Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "That moment on the monitor must have been terrifying. Glad it was caught and that specialist care was right there.",
+        "reply_to_id": "17971372358943103"
+      }
     }
   },
   "repliedCommentIds": [
@@ -11768,6 +11777,6 @@
   },
   "spend": {
     "date": "2026-09-13",
-    "usd": 0.17928850000000002
+    "usd": 0.181872
   }
 }
