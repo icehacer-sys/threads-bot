@@ -2906,6 +2906,15 @@
       },
       "publishedId": "17984489202114256",
       "confirmedPublished": true
+    },
+    "comment:18050482964651430": {
+      "creationId": "17889198699614054",
+      "createdAt": "2026-09-13T21:20:44.689Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "An open pin absolutely can escalate beyond scope depending on position and orientation so an open neck approach makes sense when endoscopic retrieval isn't safe.",
+        "reply_to_id": "18050482964651430"
+      }
     }
   },
   "repliedCommentIds": [
@@ -11138,7 +11147,8 @@
     "18090851273182396",
     "18009951974974987",
     "17937646947365643",
-    "18105489886944809"
+    "18105489886944809",
+    "18151776820521244"
   ],
   "answeredPostIds": [
     "18395606890093068"
@@ -11246,11 +11256,11 @@
     "18103023326210157": 84,
     "18114371644992668": 73,
     "18151028044531026": 53,
-    "17984836785119873": 49
+    "17984836785119873": 50
   },
   "daily": {
     "date": "2026-09-13",
-    "count": 49
+    "count": 50
   },
   "pinnedResolved": {
     "DaTTCIwoAw7": "18014812820883466"
@@ -12100,6 +12110,6 @@
   },
   "spend": {
     "date": "2026-09-13",
-    "usd": 0.3831321000000001
+    "usd": 0.4171055000000001
   }
 }
