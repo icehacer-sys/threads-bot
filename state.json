@@ -2316,6 +2316,15 @@
       },
       "publishedId": "18135191506730754",
       "confirmedPublished": true
+    },
+    "comment:18112143974039584": {
+      "creationId": "17889082143614054",
+      "createdAt": "2026-09-13T03:44:57.306Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Straight down. No bounce back on this one.",
+        "reply_to_id": "18112143974039584"
+      }
     }
   },
   "repliedCommentIds": [
@@ -11444,6 +11453,6 @@
   },
   "spend": {
     "date": "2026-09-12",
-    "usd": 0.8411816000000001
+    "usd": 0.8707170000000001
   }
 }
