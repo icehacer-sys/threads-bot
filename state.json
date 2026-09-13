@@ -2349,6 +2349,15 @@
       },
       "publishedId": "18050391203800326",
       "confirmedPublished": true
+    },
+    "comment:17899558572372633": {
+      "creationId": "17889184590614054",
+      "createdAt": "2026-09-13T19:15:42.508Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Right? That's the kind of detail that makes you do a double take at the monitor.",
+        "reply_to_id": "17899558572372633"
+      }
     }
   },
   "repliedCommentIds": [
@@ -10642,8 +10651,8 @@
     "18151028044531026": 53
   },
   "daily": {
-    "date": "2026-09-12",
-    "count": 53
+    "date": "2026-09-13",
+    "count": 0
   },
   "pinnedResolved": {
     "DaTTCIwoAw7": "18014812820883466"
@@ -11464,7 +11473,7 @@
     "17865730374636613": 1
   },
   "gifDaily": {
-    "date": "2026-09-12",
+    "date": "2026-09-13",
     "count": 0
   },
   "recentGifIds": [
@@ -11475,11 +11484,11 @@
   ],
   "promoPostCounts": {},
   "promoDaily": {
-    "date": "2026-09-12",
+    "date": "2026-09-13",
     "count": 0
   },
   "spend": {
-    "date": "2026-09-12",
-    "usd": 0.9891873000000002
+    "date": "2026-09-13",
+    "usd": 0.0161881
   }
 }
