@@ -23,7 +23,11 @@
     "18100494506018633": "How did she get an X-ray without trying antidepressants and losing 20 pounds first?",
     "18146902144505086": "But seriously, that looks like a shoulder of a swimmer or someone with hyper flexible (read: slack tendons/ligaments) shoulders and tripped over a crack in the pavement and landed funny. Not that I know or anything…..",
     "18231314434321718": "Poor little duffer swallowed a safety pin!",
-    "17946312831275709": "Swallowed a safety pin - foreign body in esophagus"
+    "17946312831275709": "Swallowed a safety pin - foreign body in esophagus",
+    "17986449117116720": "",
+    "18148498333473015": "Baby swallowed a safety pin",
+    "17993911968043149": "Foreign body (Safetypin) in esophagus",
+    "17879342019690024": "that safety pin ain’t so safe"
   },
   "ownerReviews": {
     "17937444630360450": "{\"postId\":\"18103023326210157\",\"reason\":\"owner review: personal medical concern\",\"commentText\":\"Little sister of my friend swalloved a coin of 1 fim. At hospital the family was advised to thoroughly keep an eye on her poops. So, the next day they found two 50 penny coins😀.\",\"username\":\"velitapiof\",\"queuedAt\":\"2026-09-10T20:21:59.741Z\",\"resolvedAt\":\"2026-09-10T20:36:02.929Z\",\"resolution\":\"Owner confirmed this is a completed personal story and deleted the inappropriate boundary reply. No clinical review is needed.\"}",
@@ -10581,7 +10585,8 @@
     "18112079603114370",
     "17899558572372633",
     "17893271199673703",
-    "17908571310520944"
+    "17908571310520944",
+    "17942809041340988"
   ],
   "answeredPostIds": [
     "18395606890093068"
@@ -10689,11 +10694,11 @@
     "18103023326210157": 84,
     "18114371644992668": 73,
     "18151028044531026": 53,
-    "17984836785119873": 3
+    "17984836785119873": 4
   },
   "daily": {
     "date": "2026-09-13",
-    "count": 3
+    "count": 4
   },
   "pinnedResolved": {
     "DaTTCIwoAw7": "18014812820883466"
@@ -11505,7 +11510,10 @@
     "18122647874476013": 1,
     "18065452910774016": 1,
     "18458966152185883": 1,
-    "18105773345608079": 1
+    "18105773345608079": 1,
+    "18030860357895065": 1,
+    "18115146490978733": 1,
+    "17964362874187385": 1
   },
   "gifPostCounts": {
     "18432085978123193": 1,
@@ -11530,6 +11538,6 @@
   },
   "spend": {
     "date": "2026-09-13",
-    "usd": 0.0260936
+    "usd": 0.041092300000000005
   }
 }
