@@ -2228,6 +2228,15 @@
       },
       "publishedId": "18140186059717434",
       "confirmedPublished": true
+    },
+    "comment:17985389103116966": {
+      "creationId": "17889059562614054",
+      "createdAt": "2026-09-13T00:06:37.367Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "That relief after reduction is real. Going from locked and panicked to realigning the joint is night and day for pain and what your body can actually do.",
+        "reply_to_id": "17985389103116966"
+      }
     }
   },
   "repliedCommentIds": [
@@ -10399,7 +10408,8 @@
     "18458966152185883",
     "18110568164147912",
     "18019989050716370",
-    "17868669249641671"
+    "17868669249641671",
+    "17878825470626667"
   ],
   "answeredPostIds": [
     "18395606890093068"
@@ -10506,11 +10516,11 @@
     "17900166078657433": 109,
     "18103023326210157": 84,
     "18114371644992668": 73,
-    "18151028044531026": 41
+    "18151028044531026": 42
   },
   "daily": {
     "date": "2026-09-12",
-    "count": 41
+    "count": 42
   },
   "pinnedResolved": {
     "DaTTCIwoAw7": "18014812820883466"
@@ -11347,6 +11357,6 @@
   },
   "spend": {
     "date": "2026-09-12",
-    "usd": 0.5813424999999998
+    "usd": 0.5939099999999998
   }
 }
