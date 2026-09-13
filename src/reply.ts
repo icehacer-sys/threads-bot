@@ -10,6 +10,7 @@ import { config, requireEnv } from "./config";
 import { SYSTEM_PROMPT } from "./voice";
 import { diagnosticContext, unsupportedConfirmation, rejectsAcceptedDifferential, overstatesImagingLimit, type DiagnosticContext } from './case-evidence';
 import { varietyNote, restrainEmoji } from './reply-variety';
+import { GIF_SYSTEM_PROMPT, MEDIA_FIELDS, MEDIA_REPLY_NOTE, mediaReplyIssue, mediaVarietyNote, type MediaRead } from './media-reply';
 import { replyStyleIssue, needsClinicalReview, clinicalClaimIssue } from './reply-style';
 import { GIF_TAGS } from "./gifs";
 import { PROMO_TAGS, PRODUCTS_BLOCK } from "./products";
@@ -39,7 +40,7 @@ export type Category =
   | "spam"
   | "other";
 
-export interface Decision {
+export interface Decision extends Partial<MediaRead> {
   intent?: string;
   decision: "reply" | "skip";
   category: Category;
@@ -132,13 +133,25 @@ export const REPLY_TOOLS: unknown[] = [
   },
 ];
 
+const MEDIA_REPLY_SCHEMA = {
+  ...REPLY_SCHEMA,
+  properties: {
+    ...MEDIA_FIELDS,
+    ...REPLY_SCHEMA.properties,
+    reply_text: { type: 'string', description: 'The line actually posted to the PERSON. For a bare reaction use at most 12 words. Share the emotion or respond to the on-screen claim in your own conversational voice. Do not mention frames, GIFs, their reaction, what it captures or how well it fits. No case summary. Empty when skipping.' },
+  },
+  required: [...Object.keys(MEDIA_FIELDS), ...REPLY_SCHEMA.required],
+};
+const MEDIA_REPLY_TOOLS: unknown[] = [{ name: 'submit_reply', description: 'Submit the observed media evidence and final reply decision.', input_schema: MEDIA_REPLY_SCHEMA }];
+
 /** Check the actual tool schema before flags can control escalation or public links. */
-export function parseDecision(value: unknown): Decision {
+export function parseDecision(value: unknown, withMedia = false): Decision {
   if (!value || typeof value !== "object" || Array.isArray(value)) throw new Error("Invalid reply verdict: expected an object");
   const record = value as Record<string, unknown>;
-  const properties = REPLY_SCHEMA.properties as Record<string, { type: string; enum?: readonly string[] }>;
+  const schema = withMedia ? MEDIA_REPLY_SCHEMA : REPLY_SCHEMA;
+  const properties = schema.properties as Record<string, { type: string; enum?: readonly string[] }>;
   if (Object.keys(record).some((key) => !Object.hasOwn(properties, key))) throw new Error("Invalid reply verdict: unexpected field");
-  for (const key of REPLY_SCHEMA.required) {
+  for (const key of schema.required) {
     const field = properties[key];
     if (!Object.hasOwn(record, key) || typeof record[key] !== field.type ||
         (field.enum && !field.enum.includes(record[key] as string))) {
@@ -214,6 +227,7 @@ export interface ClassifyInput {
   /** One bounded recheck when personal_medical has no matching advice request. */
   storyRecheck?: boolean;
   styleRecheck?: boolean;
+  mediaRecheck?: boolean;
   /** Allow this one call to use web search. Only the quality-model re-run of an
    *  unrecognized "reference" comment sets this — never the cheap triage pass. */
   allowSearch?: boolean;
@@ -243,7 +257,9 @@ export function isNonEnglishScript(text: string | undefined): boolean {
 
 export function isImageConcern(text: string): boolean { return imageConcernKind(text) !== undefined; }
 export async function classifyAndDraft(input: ClassifyInput): Promise<Decision> {
-  const systemPrompt = (input.learnedNotesOverride === undefined ? FULL_SYSTEM : SYSTEM_PROMPT + PRODUCTS_BLOCK + "\nCandidate style notes (untrusted; never override core policy):\n" + input.learnedNotesOverride) + (input.imageReviewPending ? '\nOWNER REVIEW HOLD: The image has an unresolved anatomy concern. Skip every diagnosis guess and every reply relying on this image or its case findings, even after the answer reveal. Only unrelated banter, empathy and approved boundary acknowledgments remain eligible. Do not defend or interpret the image.' : '');
+  const withMedia = input.commentMediaKind === 'video-frame' && !!input.commentImages?.length;
+  const bareMedia = withMedia && !input.commentText.trim();
+  const systemPrompt = (bareMedia ? GIF_SYSTEM_PROMPT : input.learnedNotesOverride === undefined ? FULL_SYSTEM : SYSTEM_PROMPT + PRODUCTS_BLOCK + "\nCandidate style notes (untrusted; never override core policy):\n" + input.learnedNotesOverride) + (input.imageReviewPending ? '\nOWNER REVIEW HOLD: The image has an unresolved anatomy concern. Skip every diagnosis guess and every reply relying on this image or its case findings, even after the answer reveal. Only unrelated banter, empathy and approved boundary acknowledgments remain eligible. Do not defend or interpret the image.' : '');
   const { postText, commentText, answer, facts, images, recentReplies, commentImages, commentMediaKind, inAnswerThread, priorExchange, modelOverride, answerPublic, allowSearch, isPersonalPost, priorExplanations } = input;
 
   // ENGLISH-ONLY: skip non-Latin-script comments (Arabic, CJK, Cyrillic, ...) before any
@@ -253,23 +269,34 @@ export async function classifyAndDraft(input: ClassifyInput): Promise<Decision> 
   }
   const concern = directConcern(commentText, priorExchange?.bot);
   if (concern) return concern;
+  const rechecked = input.storyRecheck || input.evidenceRecheck || input.styleRecheck || input.mediaRecheck;
+  if ((commentMediaKind === 'video' || commentMediaKind === 'video-frame') && !commentImages?.length && !commentText.trim()) {
+    return { decision: 'skip', category: 'other', reply_text: '', reason: 'GIF unavailable and no text to answer | guard:forced-skip' };
+  }
   const finalize = async (d: Decision): Promise<Decision> => {
     if (d.category === 'personal_medical') {
       if (requestsPersonalAdvice(commentText)) return concernAcknowledgment('personal', priorExchange?.bot);
-      if (!input.storyRecheck && !input.evidenceRecheck && !input.styleRecheck) return classifyAndDraft({ ...input, storyRecheck: true, allowSearch: false });
+      if (!rechecked) return classifyAndDraft({ ...input, storyRecheck: true, allowSearch: false });
       return { decision: 'skip', category: 'other', reply_text: '', reason: 'No explicit advice request; ambiguous story classification after one recheck. Never substitute a medical boundary.' };
     }
     const context = diagnosticContext(input.diagnosticContext, input.diagnosticContext?.certainty === 'illustrative');
     if (d.decision === 'reply' && (unsupportedConfirmation(d.reply_text, context) || rejectsAcceptedDifferential(d.reply_text, commentText, context) || overstatesImagingLimit(d.reply_text))) {
-      if (!input.evidenceRecheck && !input.styleRecheck && !input.storyRecheck) return classifyAndDraft({ ...input, evidenceRecheck: true, allowSearch: false });
+      if (!rechecked) return classifyAndDraft({ ...input, evidenceRecheck: true, allowSearch: false });
       return { ...d, decision: 'skip', category: 'other', reply_text: '', reason: 'owner review: unsupported confirmation or dismissal of an accepted differential | guard:forced-skip' };
     }
     const clean = sanitize({ ...d, reply_text: restrainEmoji(d.reply_text, recentReplies ?? []) }, { isPublic, terms: spoilerTerms }, isBotQuestion(commentText));
-    if (clean.reason.includes('punctuation guard') && !input.styleRecheck && !input.evidenceRecheck && !input.storyRecheck) {
+    if (clean.reason.includes('punctuation guard') && !rechecked) {
       return classifyAndDraft({ ...input, styleRecheck: true, allowSearch: false });
     }
     if (clean.reason.includes('punctuation guard')) return { ...clean, category: 'other' }; // cache the final failure instead of paying again next poll
-    return clean;
+    if (withMedia && clean.decision === 'reply') {
+      const normalizeReply = (text: string) => text.toLowerCase().replace(/[^\p{L}\p{N}]+/gu, ' ').trim();
+      const repeated = bareMedia && recentReplies?.some(text => normalizeReply(text) === normalizeReply(clean.reply_text));
+      const issue = repeated ? 'repeated media reply' : mediaReplyIssue(d, clean.reply_text, bareMedia && clean.category === 'banter');
+      if (issue && issue !== 'unclear media meaning' && !rechecked) return classifyAndDraft({ ...input, mediaRecheck: true, allowSearch: false });
+      if (issue) return { ...clean, decision: 'skip', category: 'other', reply_text: '', reason: `media guard: ${issue} | guard:forced-skip` };
+    }
+    return withMedia ? { ...clean, media_observation: d.media_observation, media_text: d.media_text, media_meaning: d.media_meaning, media_clear: d.media_clear } : clean;
   };
   // "Are you a bot?" pushed a SECOND time in the same thread (a follow-up that is itself another
   // bot-question after the commenter already asked one) → skip deterministically. The owner's rule:
@@ -277,7 +304,7 @@ export async function classifyAndDraft(input: ClassifyInput): Promise<Decision> 
   if (isBotQuestion(commentText)) {
     return { decision: "skip", category: "other", reply_text: "", reason: "operator authenticity question requires owner response | guard:forced-skip" };
   }
-  const factsBlock = (isPersonalPost || inAnswerThread || answerPublic === true) && facts?.length
+  const factsBlock = !bareMedia && (isPersonalPost || inAnswerThread || answerPublic === true) && facts?.length
     ? 'CASE REFERENCE FACTS (context, not proof of image accuracy):\n- ' + facts.join('\n- ')
     : 'CASE REFERENCE FACTS: withheld until the reveal';
   const recentBlock =
@@ -292,11 +319,11 @@ export async function classifyAndDraft(input: ClassifyInput): Promise<Decision> 
 
   const mediaNote =
     commentMediaKind === "video"
-      ? "NOTE: the commenter sent a GIF/video you cannot see. React to their words and the playful gesture of sending one."
+      ? "NOTE: the attached GIF/video is unavailable. Answer only the written comment when it stands on its own. Do not guess the unseen reaction or refer to a face, mood, gesture or action."
       : commentMediaKind === "video-frame"
         ? commentImages && commentImages.length > 1
-          ? "NOTE: the commenter sent a GIF; SEVERAL frames from it are shown above IN ORDER (start to end). FIRST work out what HAPPENS across them — the sequence of EVENTS, who does what to whom, and how it ends. Most reaction GIFs are a tiny story, and the joke is the story, not any single frame. State that story to yourself before you write. Two traps: (1) never react to the first frame alone — an opening 'shocked face' may be celebrating by the end; (2) never react to a FACE or a mood when the frames show an ACTION — if a character gets eaten, launched, crushed or transformed between frames, THAT is what they are saying, and a line about someone's expression means you missed it. On-screen TEXT in any frame is their words, and it often lands late. If the ending of the story connects to this case (a bone, a scan, a body part), top THAT connection — it is why they picked this GIF."
-          : "NOTE: the commenter sent a GIF/video; ONE still frame from it is shown above (you see a single frame, not the motion). React to what is in the frame and the gesture."
+          ? "NOTE: ordered GIF/video frames are shown from start to end. Read the full sequence and the on-screen text."
+          : "NOTE: only ONE still frame is available. Visible text and a visible pose can be read, but motion and an ending cannot be inferred."
         : commentImages && commentImages.length
           ? "NOTE: the commenter attached the image shown above. React to what is actually in it and tie it to the case."
           : "";
@@ -346,18 +373,19 @@ export async function classifyAndDraft(input: ClassifyInput): Promise<Decision> 
   // vetted facts — is cached for 1h, so every later comment on the same post reads it
   // cheaply instead of re-sending it at full price. The tail (answer line, notes, the
   // anti-repeat list, the comment itself) changes per call and stays uncached.
-  const evidenceBlock = isPublic && !isPersonalPost ? `DIAGNOSTIC CONTEXT (only this field records confirmation; the post and earlier replies do not):\n${JSON.stringify(diagnosticContext(input.diagnosticContext, input.diagnosticContext?.certainty === 'illustrative'))}\nAn empty confirmationEvidence list means no patient test result or outcome is recorded. Never infer one. Accepted differentials are plausible alternatives, not aliases or wrong guesses.` : '';
-  const stableText = [`POST:\n${postText || "(unknown)"}`, factsBlock, evidenceBlock].filter(Boolean).join("\n\n");
+  const evidenceBlock = !bareMedia && isPublic && !isPersonalPost ? `DIAGNOSTIC CONTEXT (only this field records confirmation; the post and earlier replies do not):\n${JSON.stringify(diagnosticContext(input.diagnosticContext, input.diagnosticContext?.certainty === 'illustrative'))}\nAn empty confirmationEvidence list means no patient test result or outcome is recorded. Never infer one. Accepted differentials are plausible alternatives, not aliases or wrong guesses.` : '';
+  const stableText = bareMedia ? 'POST CONTEXT: a reaction under an image challenge. Answer the supplied GIF itself. Do not infer clinical details.' : [`POST:\n${postText || "(unknown)"}`, factsBlock, evidenceBlock].filter(Boolean).join("\n\n");
   const varText = [
-    answerLine,
+    bareMedia ? '' : answerLine,
     personalPostNote,
     prePublicNote,
     threadNote,
     followUpNote,
-    recentBlock,
-    varietyNote(recentReplies ?? []),
-    explainedNote,
+    bareMedia ? mediaVarietyNote(recentReplies ?? []) : recentBlock,
+    varietyNote(bareMedia ? [] : recentReplies ?? []),
+    bareMedia ? '' : explainedNote,
     mediaNote,
+    withMedia ? MEDIA_REPLY_NOTE : '',
     isPersonalPost ? 'CURRENT POST TYPE: personal post. No diagnosis guessing rules apply.' : `CURRENT REVEAL STATE: ${isPublic ? 'PUBLIC. The answer has already been published. Do not skip a diagnosis discussion for being before the reveal.' : 'PRIVATE. Skip all diagnosis guesses.'}`,
     `COMMENT:\n${commentText || "(no text — just the attached image)"}`,
   ]
@@ -398,8 +426,9 @@ export async function classifyAndDraft(input: ClassifyInput): Promise<Decision> 
   const cacheTtl: "1h" | "5m" = "1h";
 
   const content: Array<Anthropic.ImageBlockParam | Anthropic.TextBlockParam> = [];
-  // 1) Post X-ray(s), part of the cached per-post prefix.
-  if (images && images.length) {
+  // 1) Post X-ray(s), part of the cached per-post prefix for written comments.
+  // Bare reaction GIFs use their own visuals and the concise reaction context only.
+  if (images && images.length && !(withMedia && !commentText.trim())) {
     content.push({ type: "text", text: "THE X-RAY ON THE POST:" });
     for (const img of images) content.push({ type: "image", source: { type: "base64", media_type: img.media_type, data: img.data } });
   }
@@ -422,12 +451,13 @@ export async function classifyAndDraft(input: ClassifyInput): Promise<Decision> 
   if (input.storyRecheck) content.push({ type: 'text', text: 'CLASSIFICATION RECHECK: No explicit request for personal medical advice was found in this comment. Re-read the actual comment. A completed anecdote, reported hospital advice or a joke is not a current symptom assessment. Use empathize for a sincere story or banter for its light punchline. Do not send a medical disclaimer or invent current symptoms. If the intent is still uncertain or describes current danger, skip. All spoiler, accuracy and image-review rules still apply.' });
   if (input.evidenceRecheck) content.push({ type: 'text', text: 'EVIDENCE RECHECK (one attempt): Your draft invented a confirmation/result, dismissed an accepted differential or overstated an imaging limitation. Write a fresh reply using only recorded evidence. Do not say came back as, biopsy confirmed or invent surgery, recovery or duration. Recognize a supported differential without replacing it with certainty. When THIS image is insufficient, say so without claiming that imaging in general cannot distinguish conditions. If the question cannot be answered from the supplied evidence, skip for owner review. Keep every reveal and punctuation rule.' });
   if (input.styleRecheck) content.push({ type: 'text', text: 'STYLE RECHECK (only attempt): Draft a simpler reply to the original comment. Prefer one complete sentence with no comma at all. Commas are allowed only in a short explicit list of three or more items. No semicolons or em dashes. No sentence starting And or Which after punctuation. Use ordinary conjunctions within a sentence or write complete separate sentences. No repeated praise about the right fear or instinct. Keep every accuracy, personal-story and reveal rule. Do not add facts to fill space.' });
+  if (input.mediaRecheck) content.push({ type: 'text', text: 'MEDIA RECHECK (only attempt): The previous draft repeated an earlier reply, used generic reaction commentary or repeated the medical case unnecessarily. Re-read the visible action and on-screen words. Write a fresh brief response to their meaning without narrating the GIF or explaining its connection to the X-ray. Skip if that meaning is unclear. Do not use a synonym for the rejected template.' });
 
   // The submit_reply tool gives guaranteed-structured output; web_search (optional)
   // lets the model look up references it does not recognize. With web search off we
   // FORCE submit_reply for a deterministic single call. With it on we let the model
   // choose to search first (server-side, auto-run), then submit.
-  const tools: unknown[] = [...REPLY_TOOLS];
+  const tools: unknown[] = [...(withMedia ? MEDIA_REPLY_TOOLS : REPLY_TOOLS)];
   let toolChoice: unknown = { type: "tool", name: "submit_reply" };
   // Keep web_search available on EVERY quality-model (Sonnet) escalation, not only the
   // `reference` one, so the tool ARRAY is identical across all escalations and they share a
@@ -435,11 +465,11 @@ export async function classifyAndDraft(input: ClassifyInput): Promise<Decision> 
   // (tools -> system -> messages) — that was the main Sonnet cache leak. tool_choice:auto lets
   // the model search only when it actually needs to (the voice rules gate that); the cheap Haiku
   // triage stays deterministic (forced submit_reply, no search) for one clean call.
-  if (config.webSearch && (!isTriage || allowSearch)) {
+  if (config.webSearch && (!isTriage || allowSearch) && (!withMedia || allowSearch === true)) {
     tools.unshift({ type: "web_search_20250305", name: "web_search", max_uses: 3 });
     toolChoice = { type: "auto" };
   }
-  if (input.styleRecheck || input.evidenceRecheck) toolChoice = { type: 'tool', name: 'submit_reply' }; // repair uses supplied evidence only
+  if (rechecked) toolChoice = { type: 'tool', name: 'submit_reply' }; // repairs use supplied evidence only
 
   // effort:low caps token spend on these short, structured replies. GA effort is
   // supported on Sonnet 4.6 / Opus 4.x ONLY — it ERRORS on Haiku 4.5 (the triage
@@ -493,13 +523,13 @@ export async function classifyAndDraft(input: ClassifyInput): Promise<Decision> 
         }
         const forcedSubmit = findSubmit(forced);
         if (forcedSubmit?.input) {
-          const parsed = parseDecision(forcedSubmit.input);
+          const parsed = parseDecision(forcedSubmit.input, withMedia);
           return finalize(parsed);
         }
       }
       throw new Error("No submit_reply produced");
     }
-    const parsed = parseDecision(submit.input);
+    const parsed = parseDecision(submit.input, withMedia);
     return finalize(parsed);
   } catch (err) {
     // Any failure (API error, bad output) -> stay silent. Never post on uncertainty.

@@ -16,6 +16,7 @@ const execFileAsync = promisify(execFile);
 import { config } from "./config";
 import { PersistenceError } from "./persistence";
 import { isLossStory, replyStyleIssue } from './reply-style';
+import { mediaModelRoute } from './media-reply';
 import { classifyAndDraft, isBotQuestion, firstSentences, type Decision, type InlineImage, type ImageMediaType } from "./reply";
 import { pickGif } from "./gifs";
 import { drainSpend, usd } from "./spend";
@@ -879,14 +880,19 @@ async function runLiveOrDry(mode: Mode, target: string | null): Promise<void> {
         answerPublic: imageReviewHeld || state.hasImageReview(post.id) ? false : answerPublic,
         isPersonalPost,
       };
-      // Two-tier: the cheap triage model drafts every comment; only accuracy-critical
-      // categories (corrections / teaching) are re-drafted by the pricier quality model.
-      let d = await classifyAndDraft({ ...baseInput, modelOverride: config.triageModel });
+      // Motion media uses one quality read, avoiding a cheap draft that misses the action
+      // and a second paid reading of the same frames. A budget hold must not publish triage filler.
+      const mediaRoute = mediaModelRoute(commentMediaKind, commentImages.length, config.escalateMedia, escalationAllowed(false));
+      if (commentMediaKind) console.log(`        (comment media: ${commentMediaKind}; ${commentImages.length} frame(s); route=${mediaRoute})`);
+      let d: Decision = mediaRoute === 'hold'
+        ? { decision: 'skip', category: 'other', reply_text: '', reason: 'GIF quality budget unavailable; no draft purchased | guard:forced-skip' }
+        : await classifyAndDraft({ ...baseInput, modelOverride: mediaRoute === 'quality' ? config.model : config.triageModel, allowSearch: false });
       d = holdForImageReview(d, imageReviewHeld || state.hasImageReview(post.id));
+      if (d.media_observation) console.log(JSON.stringify({ commentId: c.id, mediaObservation: d.media_observation, mediaText: d.media_text, mediaMeaning: d.media_meaning, mediaClear: d.media_clear }));
       const triageSpend = drainSpend();
       spentThisRun += triageSpend.usd;
       if (posting) state.addSpend(triageSpend.usd);
-      let escalated = false;
+      let escalated = mediaRoute === 'quality';
       // Escalate to the quality model when the category is accuracy-critical (corrections/teaching/
       // reference), OR triage flagged a reference it cannot place (needs_lookup), OR — subject to
       // BOT_ESCALATE_MEDIA — the comment carries a GIF/image. The quality model has stronger vision
@@ -910,7 +916,7 @@ async function runLiveOrDry(mode: Mode, target: string | null): Promise<void> {
           (config.escalateMedia === "motion" && (isMotionSequence || d.needs_lookup === true)) ||
           (config.escalateMedia === "lookup" && d.needs_lookup === true));
       const wantsLookup = d.decision === "reply" && config.webSearch && (d.needs_lookup === true || mediaWantsQuality);
-      const wantsEscalation = d.decision === "reply" && (config.escalateCategories.includes(d.category) || wantsLookup);
+      const wantsEscalation = !escalated && d.decision === "reply" && (config.escalateCategories.includes(d.category) || wantsLookup);
       // The reserve protects these two: they are the accuracy-critical replies, and holding one
       // means a real medical question goes unanswered.
       const isMedical = d.category === "correct" || d.category === "teach";

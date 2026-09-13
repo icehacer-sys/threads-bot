@@ -52,8 +52,8 @@ export const config = {
   //   "lookup" - only when triage sets needs_lookup, i.e. it genuinely cannot place the
   //              reference. Triage still SEES every frame either way. (default)
   //   "off"    - media never escalates on its own (categories/needs_lookup still can)
-  //   "motion" - escalate an animated GIF/video that was sampled into SEVERAL frames (a visual
-  //              story the cheap model misreads), plus anything triage cannot place. (default)
+  //   "motion" - send GIF/video frames directly to one quality read, plus escalate text/static
+  //              references triage cannot place. No cheap GIF fallback at the quality budget cap.
   escalateMedia: (process.env.BOT_ESCALATE_MEDIA ?? "motion").toLowerCase(),
 
   // Which brand-voice prompt to send. "lean" is the consolidated prompt (same rules, ~35%

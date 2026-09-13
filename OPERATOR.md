@@ -20,6 +20,8 @@ The publisher remains responsible for its case challenge, answer and CTA. The re
 
 ## Budget and learning
 
+Incoming GIFs and video frames use one direct quality-model read with search disabled. Bare GIF reactions receive the actual frames and a concise conversational prompt. Case summaries stay out of that prompt; written questions with media retain the full case context. The model must record the visible action, on-screen words and meaning privately. Unreadable textless media and unavailable quality budget skip without a model call. Generic or repeated drafts receive at most one shared repair attempt before a cached skip. Frame counts and media interpretations are logged for audit. See the [September 13 GIF audit](docs/gif-reply-audit-2026-09-13.md).
+
 Reply spending estimates include model/cache tokens and provider-reported web searches. Current triage cost is charged before deciding on escalation. Unknown model pricing fails explicitly. The configured dollar threshold is an estimated reply budget, not a strict system-wide cap: an in-flight call can cross it, and generation, preflight and weekly learning are separate. Provider billing is authoritative.
 
 Weekly learning samples actual follow-ups across days and coarse feedback categories. A reply back is not automatically a success. Proposed notes have enforced size limits and must pass the fixed synthetic evaluation before replacing active notes. Failed candidates and evaluation artifacts remain available while the previous active notes are retained.
@@ -30,6 +32,6 @@ Follower snapshots record elapsed hours and account-wide net change. They do not
 
 ## Verification
 
-Offline checks: `npm run typecheck`, `npm run publishing:verify`, `npm run audit:verify`, `npm run voice:verify`, `npm run spend:verify`, and `npm run budget:verify`. They use fixtures rather than live publishing endpoints.
+Offline checks: `npm run typecheck`, `npm run publishing:verify`, `npm run audit:verify`, `npm run voice:verify`, `npm run media:verify`, `npm run spend:verify`, and `npm run budget:verify`. They use fixtures rather than live publishing endpoints.
 
 Regenerate the configuration document with `npm run runtime:summary -- --write`. This reads tracked source expressions and workflow settings without printing credentials or resolving GitHub secrets.
