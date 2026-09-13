@@ -2652,6 +2652,15 @@
       },
       "publishedId": "18108683234143859",
       "confirmedPublished": true
+    },
+    "comment:18057632330795377": {
+      "creationId": "17889192894614054",
+      "createdAt": "2026-09-13T20:25:50.113Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "They were named for keeping fabric safe and closed before anybody figured out kids would try the opposite approach.",
+        "reply_to_id": "18057632330795377"
+      }
     }
   },
   "repliedCommentIds": [
@@ -11816,6 +11825,6 @@
   },
   "spend": {
     "date": "2026-09-13",
-    "usd": 0.1893035
+    "usd": 0.19530550000000002
   }
 }
