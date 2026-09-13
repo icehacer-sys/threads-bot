@@ -42,7 +42,8 @@
     "17885815866618036": "{\"postId\":\"18151028044531026\",\"reason\":\"Owner response required. Commenter is asking about the reveal timing, reveal location, or account mechanics—not making a diagnosis guess or asking a case question. This falls outside the scope of a direct comment reply and needs an account-holder clarification about how answers are posted or when they become public.\",\"commentText\":\"Where is your semi-hidden answer ?? I need to know !  Thanks.\",\"username\":\"stripey777\",\"queuedAt\":\"2026-09-12T19:31:53.033Z\"}",
     "18106644349900567": "{\"postId\":\"18151028044531026\",\"reason\":\"Diagnosis guess before reveal is public. Hold for owner review after answer posts.\",\"commentText\":\"Both dislocation and a fracture.\",\"username\":\"laxorm\",\"queuedAt\":\"2026-09-12T19:32:00.231Z\"}",
     "18114990634935989": "{\"postId\":\"18151028044531026\",\"reason\":\"owner review: commenter is raising a specific anatomical concern that the humeral head appears disconnected from the shaft on the image. This is a potential image/anatomy inconsistency that requires owner review rather than an automatic reply. I cannot confirm or deny the anatomy without risking inventing an explanation.\",\"commentText\":\"But the humeral head doesn’t look like it’s still attached to the humeral shaft. Another view would better clarify it for me.\",\"username\":\"letitiawlewis\",\"queuedAt\":\"2026-09-12T20:54:20.089Z\"}",
-    "18182862016410732": "{\"postId\":\"18151028044531026\",\"reason\":\"owner review: image anatomy concern. Commenter questions whether the humeral head remains attached to the shaft and whether the AP view adequately demonstrates the head-to-shaft relationship. This is an unresolved anatomy concern requiring review before any diagnosis or imaging interpretation can be discussed.\",\"commentText\":\"What I don’t like is the position of the humeral head to the shaft. Even a y view would help visualize the head to the shaft better. In the AP view the head doesn’t appear to be still attached to the shaft. Hence my questioning it.\",\"username\":\"letitiawlewis\",\"queuedAt\":\"2026-09-12T23:03:45.850Z\"}"
+    "18182862016410732": "{\"postId\":\"18151028044531026\",\"reason\":\"owner review: image anatomy concern. Commenter questions whether the humeral head remains attached to the shaft and whether the AP view adequately demonstrates the head-to-shaft relationship. This is an unresolved anatomy concern requiring review before any diagnosis or imaging interpretation can be discussed.\",\"commentText\":\"What I don’t like is the position of the humeral head to the shaft. Even a y view would help visualize the head to the shaft better. In the AP view the head doesn’t appear to be still attached to the shaft. Hence my questioning it.\",\"username\":\"letitiawlewis\",\"queuedAt\":\"2026-09-12T23:03:45.850Z\"}",
+    "18018833603927841": "{\"postId\":\"17984836785119873\",\"reason\":\"Image verification question: commenter is raising a real concern about whether the object's location can be confirmed on this single projection. A lateral view would help establish internal vs. external positioning. This requires owner review to confirm image integrity and provide additional imaging if available.\",\"commentText\":\"I need a lateral view to confirm if the safety pin is external to the child's body.\",\"username\":\"maggiep3263\",\"queuedAt\":\"2026-09-13T20:26:41.594Z\"}"
   },
   "concernAcknowledgments": {},
   "publications": {
@@ -2685,6 +2686,15 @@
       },
       "publishedId": "17977870953105397",
       "confirmedPublished": true
+    },
+    "comment:18125266243653678": {
+      "creationId": "17889193041614054",
+      "createdAt": "2026-09-13T20:26:51.193Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "That's just the angle and the frontal head projection making everything look wider than it is.",
+        "reply_to_id": "18125266243653678"
+      }
     }
   },
   "repliedCommentIds": [
@@ -10897,7 +10907,8 @@
     "18012519098952977",
     "17895379392399099",
     "18057632330795377",
-    "18095292455452132"
+    "18095292455452132",
+    "17936392950367667"
   ],
   "answeredPostIds": [
     "18395606890093068"
@@ -11005,11 +11016,11 @@
     "18103023326210157": 84,
     "18114371644992668": 73,
     "18151028044531026": 53,
-    "17984836785119873": 29
+    "17984836785119873": 30
   },
   "daily": {
     "date": "2026-09-13",
-    "count": 29
+    "count": 30
   },
   "pinnedResolved": {
     "DaTTCIwoAw7": "18014812820883466"
@@ -11776,7 +11787,8 @@
     "18114990634935989",
     "18097005638640189",
     "18182862016410732",
-    "18006911366974054"
+    "18006911366974054",
+    "18018833603927841"
   ],
   "skipStrikes": {
     "17895266316520842": 1,
@@ -11851,6 +11863,6 @@
   },
   "spend": {
     "date": "2026-09-13",
-    "usd": 0.20413000000000003
+    "usd": 0.21206650000000005
   }
 }
