@@ -2994,6 +2994,15 @@
       },
       "publishedId": "18157810546500953",
       "confirmedPublished": true
+    },
+    "comment:18108593167960392": {
+      "creationId": "17889203961614054",
+      "createdAt": "2026-09-13T22:42:37.638Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "That's the win right there. Caught early enough that the sharp edges stayed put and didn't have time to work through the wall.",
+        "reply_to_id": "18108593167960392"
+      }
     }
   },
   "repliedCommentIds": [
@@ -12200,6 +12209,6 @@
   },
   "spend": {
     "date": "2026-09-13",
-    "usd": 0.5686878999999999
+    "usd": 0.5720873
   }
 }
