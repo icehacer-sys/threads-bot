@@ -2884,6 +2884,15 @@
       },
       "publishedId": "17915032119445820",
       "confirmedPublished": true
+    },
+    "comment:18105489886944809": {
+      "creationId": "17889198513614054",
+      "createdAt": "2026-09-13T21:19:56.151Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Kids have a weird luck with these things. The sharp end was probably pointing down as it went through and the oesophagus is a bit more forgiving on the way in than it is sitting lodged there with time to cause damage.",
+        "reply_to_id": "18105489886944809"
+      }
     }
   },
   "repliedCommentIds": [
@@ -11114,7 +11123,8 @@
     "18134306572725834",
     "18112385852088829",
     "18090851273182396",
-    "18009951974974987"
+    "18009951974974987",
+    "17937646947365643"
   ],
   "answeredPostIds": [
     "18395606890093068"
@@ -11222,11 +11232,11 @@
     "18103023326210157": 84,
     "18114371644992668": 73,
     "18151028044531026": 53,
-    "17984836785119873": 47
+    "17984836785119873": 48
   },
   "daily": {
     "date": "2026-09-13",
-    "count": 47
+    "count": 48
   },
   "pinnedResolved": {
     "DaTTCIwoAw7": "18014812820883466"
@@ -12076,6 +12086,6 @@
   },
   "spend": {
     "date": "2026-09-13",
-    "usd": 0.37695530000000005
+    "usd": 0.38018370000000007
   }
 }
