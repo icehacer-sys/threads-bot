@@ -2484,7 +2484,9 @@
         "media_type": "TEXT",
         "text": "That's the face everyone makes when they see what came back on the X-ray.",
         "reply_to_id": "18030860357895065"
-      }
+      },
+      "publishedId": "17990269653024742",
+      "confirmedPublished": true
     }
   },
   "repliedCommentIds": [
