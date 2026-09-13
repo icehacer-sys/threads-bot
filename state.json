@@ -2561,7 +2561,9 @@
         "media_type": "TEXT",
         "text": "Yeah. That open pin is about as bad as it gets in there.",
         "reply_to_id": "18133172719629469"
-      }
+      },
+      "publishedId": "18120963554515061",
+      "confirmedPublished": true
     }
   },
   "repliedCommentIds": [
