@@ -2283,6 +2283,15 @@
       },
       "publishedId": "17947239387056817",
       "confirmedPublished": true
+    },
+    "comment:18124653769888784": {
+      "creationId": "17889067695614054",
+      "createdAt": "2026-09-13T01:39:49.977Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "The Black Knight's shoulder had better positioning than this one.",
+        "reply_to_id": "18124653769888784"
+      }
     }
   },
   "repliedCommentIds": [
@@ -11408,6 +11417,6 @@
   },
   "spend": {
     "date": "2026-09-12",
-    "usd": 0.6814397999999997
+    "usd": 0.6848864999999997
   }
 }
