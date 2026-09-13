@@ -2851,6 +2851,15 @@
       },
       "publishedId": "18114338597055140",
       "confirmedPublished": true
+    },
+    "comment:18090851273182396": {
+      "creationId": "17889197304614054",
+      "createdAt": "2026-09-13T21:03:47.610Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "That's it. The urgency comes from the open clasp and sharp edges though - perforation risk is highest before it moves or during removal so waiting isn't really an option here.",
+        "reply_to_id": "18090851273182396"
+      }
     }
   },
   "repliedCommentIds": [
@@ -11078,7 +11087,8 @@
     "18089337407669231",
     "17882086392513619",
     "18409343650087652",
-    "18134306572725834"
+    "18134306572725834",
+    "18112385852088829"
   ],
   "answeredPostIds": [
     "18395606890093068"
@@ -11186,11 +11196,11 @@
     "18103023326210157": 84,
     "18114371644992668": 73,
     "18151028044531026": 53,
-    "17984836785119873": 44
+    "17984836785119873": 45
   },
   "daily": {
     "date": "2026-09-13",
-    "count": 44
+    "count": 45
   },
   "pinnedResolved": {
     "DaTTCIwoAw7": "18014812820883466"
@@ -12039,6 +12049,6 @@
   },
   "spend": {
     "date": "2026-09-13",
-    "usd": 0.3628313
+    "usd": 0.3659037
   }
 }
