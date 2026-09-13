@@ -2807,6 +2807,15 @@
       },
       "publishedId": "18115533493943502",
       "confirmedPublished": true
+    },
+    "comment:17882086392513619": {
+      "creationId": "17889195408614054",
+      "createdAt": "2026-09-13T20:47:09.462Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Yeah. That open clasp is precisely why extraction takes real care at that location.",
+        "reply_to_id": "17882086392513619"
+      }
     }
   },
   "repliedCommentIds": [
@@ -11964,7 +11973,7 @@
     "17964362874187385": 1,
     "17993911968043149": 1,
     "18343826824266884": 1,
-    "18151776820521244": 1,
+    "18151776820521244": 2,
     "17882086392513619": 1
   },
   "gifPostCounts": {
@@ -11990,6 +11999,6 @@
   },
   "spend": {
     "date": "2026-09-13",
-    "usd": 0.26962610000000004
+    "usd": 0.2876645
   }
 }
