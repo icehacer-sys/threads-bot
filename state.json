@@ -2597,6 +2597,15 @@
       },
       "publishedId": "18229157857322975",
       "confirmedPublished": true
+    },
+    "comment:18122886856888514": {
+      "creationId": "17889189939614054",
+      "createdAt": "2026-09-13T19:54:08.589Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Yep. They're just sitting there mixed in with thread and needles like it's totally fine. One unattended moment and a curious kid finds the whole treasure box.",
+        "reply_to_id": "18122886856888514"
+      }
     }
   },
   "repliedCommentIds": [
@@ -11756,6 +11765,6 @@
   },
   "spend": {
     "date": "2026-09-13",
-    "usd": 0.176381
+    "usd": 0.17928850000000002
   }
 }
