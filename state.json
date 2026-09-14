@@ -3016,6 +3016,15 @@
       },
       "publishedId": "18224138509336220",
       "confirmedPublished": true
+    },
+    "comment:17945791410295772": {
+      "creationId": "17889211086614054",
+      "createdAt": "2026-09-14T00:14:08.583Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Just the reference you picked. The safety pin location was actually timeless until this kid made a new choice.",
+        "reply_to_id": "17945791410295772"
+      }
     }
   },
   "repliedCommentIds": [
@@ -12224,6 +12233,6 @@
   },
   "spend": {
     "date": "2026-09-13",
-    "usd": 0.5747637
+    "usd": 0.5907567
   }
 }
