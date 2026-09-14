@@ -1,3 +1,4 @@
+- 2026-09-14T16:22:35.867Z: evaluated 150 balanced reply pairs; fixed evaluation passed.
 # Voice self-audit changelog
 
 _What the Fable 5 self-audit changed each run, newest first._
