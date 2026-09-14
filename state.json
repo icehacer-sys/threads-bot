@@ -3082,6 +3082,15 @@
       },
       "publishedId": "18120487429903666",
       "confirmedPublished": true
+    },
+    "comment:17992727265031130": {
+      "creationId": "17889232509614054",
+      "createdAt": "2026-09-14T03:18:06.172Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "That's the exact brand of problem that gets you admitted.",
+        "reply_to_id": "17992727265031130"
+      }
     }
   },
   "repliedCommentIds": [
@@ -12299,6 +12308,6 @@
   },
   "spend": {
     "date": "2026-09-13",
-    "usd": 0.6198347000000001
+    "usd": 0.6353777
   }
 }
