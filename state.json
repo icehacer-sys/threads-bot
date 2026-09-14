@@ -3258,7 +3258,9 @@
         "media_type": "TEXT",
         "text": "The skeleton song lied to you.",
         "reply_to_id": "17984822349079211"
-      }
+      },
+      "publishedId": "17947495812292079",
+      "confirmedPublished": true
     }
   },
   "repliedCommentIds": [
