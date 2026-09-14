@@ -3283,6 +3283,15 @@
       },
       "publishedId": "18194360257387589",
       "confirmedPublished": true
+    },
+    "comment:17869896585640081": {
+      "creationId": "17889348111614054",
+      "createdAt": "2026-09-14T20:07:36.629Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "That callus pile is wild isn't it. The bone's basically throwing a tantrum in slow motion.",
+        "reply_to_id": "17869896585640081"
+      }
     }
   },
   "repliedCommentIds": [
@@ -12520,6 +12529,6 @@
   },
   "spend": {
     "date": "2026-09-14",
-    "usd": 0.1298506
+    "usd": 0.1325817
   }
 }
