@@ -3093,6 +3093,15 @@
       },
       "publishedId": "17964605898178685",
       "confirmedPublished": true
+    },
+    "comment:17961708069191362": {
+      "creationId": "17889234390614054",
+      "createdAt": "2026-09-14T03:49:11.613Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "True and an open pin is basically the worst thing they could pick from the anything pile.",
+        "reply_to_id": "17961708069191362"
+      }
     }
   },
   "repliedCommentIds": [
@@ -12311,6 +12320,6 @@
   },
   "spend": {
     "date": "2026-09-13",
-    "usd": 0.6353777
+    "usd": 0.6382891
   }
 }
