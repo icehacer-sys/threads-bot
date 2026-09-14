@@ -3046,7 +3046,9 @@
         "media_type": "TEXT",
         "text": "That's a lot for a little person to go through.",
         "reply_to_id": "18455643634186762"
-      }
+      },
+      "publishedId": "18114085931585686",
+      "confirmedPublished": true
     }
   },
   "repliedCommentIds": [
