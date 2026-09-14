@@ -3380,7 +3380,9 @@
         "media_type": "TEXT",
         "text": "Literally this time.",
         "reply_to_id": "17933209800398245"
-      }
+      },
+      "publishedId": "18163556038468963",
+      "confirmedPublished": true
     }
   },
   "repliedCommentIds": [
