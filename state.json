@@ -3250,6 +3250,15 @@
       },
       "publishedId": "18465945067191735",
       "confirmedPublished": true
+    },
+    "comment:17984822349079211": {
+      "creationId": "17889346659614054",
+      "createdAt": "2026-09-14T19:51:24.853Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "The skeleton song lied to you.",
+        "reply_to_id": "17984822349079211"
+      }
     }
   },
   "repliedCommentIds": [
@@ -12484,6 +12493,6 @@
   },
   "spend": {
     "date": "2026-09-14",
-    "usd": 0.08912169999999998
+    "usd": 0.1196551
   }
 }
