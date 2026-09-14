@@ -3429,6 +3429,15 @@
       },
       "publishedId": "18131567539668912",
       "confirmedPublished": true
+    },
+    "comment:18147020221482557": {
+      "creationId": "17889364893614054",
+      "createdAt": "2026-09-14T23:43:02.583Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "The beta testing nobody signed up for. At least the range of motion specs are honest.",
+        "reply_to_id": "18147020221482557"
+      }
     }
   },
   "repliedCommentIds": [
@@ -12681,6 +12690,6 @@
   },
   "spend": {
     "date": "2026-09-14",
-    "usd": 0.8878081999999997
+    "usd": 0.9399078
   }
 }
