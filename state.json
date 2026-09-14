@@ -3104,6 +3104,15 @@
       },
       "publishedId": "17944721727311702",
       "confirmedPublished": true
+    },
+    "comment:17900668254579143": {
+      "creationId": "17889237651614054",
+      "createdAt": "2026-09-14T04:19:47.466Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Right? The toddler logic of \"pointy metal V-shape goes in mouth\" will never make sense to the rest of us.",
+        "reply_to_id": "17900668254579143"
+      }
     }
   },
   "repliedCommentIds": [
@@ -12323,6 +12332,6 @@
   },
   "spend": {
     "date": "2026-09-13",
-    "usd": 0.6382891
+    "usd": 0.6414705
   }
 }
