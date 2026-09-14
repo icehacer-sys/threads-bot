@@ -3394,6 +3394,15 @@
       },
       "publishedId": "17936194971363781",
       "confirmedPublished": true
+    },
+    "comment:18429412846177063": {
+      "creationId": "17889355455614054",
+      "createdAt": "2026-09-14T21:16:42.311Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Abby Normal's arm was always going to have its own ideas about healing.",
+        "reply_to_id": "18429412846177063"
+      }
     }
   },
   "repliedCommentIds": [
@@ -12641,6 +12650,6 @@
   },
   "spend": {
     "date": "2026-09-14",
-    "usd": 0.39942580000000005
+    "usd": 0.4325656000000001
   }
 }
