@@ -3406,6 +3406,15 @@
       },
       "publishedId": "18109577786155992",
       "confirmedPublished": true
+    },
+    "comment:18390894037204710": {
+      "creationId": "17889361860614054",
+      "createdAt": "2026-09-14T22:37:25.106Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "That's the setup that should have worked. Missing all three checkpoints over a year is puzzling when the pathway was that clear and the access was there.",
+        "reply_to_id": "18390894037204710"
+      }
     }
   },
   "repliedCommentIds": [
@@ -12655,6 +12664,6 @@
   },
   "spend": {
     "date": "2026-09-14",
-    "usd": 0.6884935000000001
+    "usd": 0.6920116000000001
   }
 }
