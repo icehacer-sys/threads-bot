@@ -3418,6 +3418,15 @@
       },
       "publishedId": "18029642714893043",
       "confirmedPublished": true
+    },
+    "comment:18091246682160635": {
+      "creationId": "17889363708614054",
+      "createdAt": "2026-09-14T23:11:20.072Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "At least Napoleon got the pose on purpose.",
+        "reply_to_id": "18091246682160635"
+      }
     }
   },
   "repliedCommentIds": [
@@ -12669,6 +12678,6 @@
   },
   "spend": {
     "date": "2026-09-14",
-    "usd": 0.8199218999999999
+    "usd": 0.8737765999999997
   }
 }
