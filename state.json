@@ -3361,6 +3361,15 @@
       },
       "publishedId": "18153034210522069",
       "confirmedPublished": true
+    },
+    "comment:18621671254007487": {
+      "creationId": "17889354231614054",
+      "createdAt": "2026-09-14T20:59:21.958Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Some patients don't loop back in until something stops working or starts hurting worse. A year of hoping it'll fuse on its own is a long game to lose though.",
+        "reply_to_id": "18621671254007487"
+      }
     }
   },
   "repliedCommentIds": [
@@ -12605,6 +12614,6 @@
   },
   "spend": {
     "date": "2026-09-14",
-    "usd": 0.3497436000000001
+    "usd": 0.3570349000000001
   }
 }
