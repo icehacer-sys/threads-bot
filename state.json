@@ -3280,7 +3280,9 @@
         "media_type": "TEXT",
         "text": "That's a rough way to spend a year.",
         "reply_to_id": "17979071352105200"
-      }
+      },
+      "publishedId": "18194360257387589",
+      "confirmedPublished": true
     }
   },
   "repliedCommentIds": [
