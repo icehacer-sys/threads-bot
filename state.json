@@ -3391,7 +3391,9 @@
         "media_type": "TEXT",
         "text": "The only appropriate response to an arm that's decided to go rogue.",
         "reply_to_id": "17991698976018871"
-      }
+      },
+      "publishedId": "17936194971363781",
+      "confirmedPublished": true
     }
   },
   "repliedCommentIds": [
