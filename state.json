@@ -3170,7 +3170,9 @@
         "media_type": "TEXT",
         "text": "Thanks for flagging that detail.",
         "reply_to_id": "18142096432588199"
-      }
+      },
+      "publishedId": "18124127464883304",
+      "confirmedPublished": true
     }
   },
   "repliedCommentIds": [
