@@ -3328,6 +3328,15 @@
       },
       "publishedId": "18098910161632184",
       "confirmedPublished": true
+    },
+    "comment:18140563585589787": {
+      "creationId": "17889353793614054",
+      "createdAt": "2026-09-14T20:56:47.027Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "That's a lot to have witnessed alongside everything else with your dad.",
+        "reply_to_id": "18140563585589787"
+      }
     }
   },
   "repliedCommentIds": [
@@ -12569,6 +12578,6 @@
   },
   "spend": {
     "date": "2026-09-14",
-    "usd": 0.25241720000000006
+    "usd": 0.2591374000000001
   }
 }
