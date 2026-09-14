@@ -11,8 +11,15 @@ export function followupSignal(texts: string[]): Signal {
 }
 export function validateNotes(text: string, stop: string | null): void {
   const bullets = text.split("\n").filter(l => /^- /.test(l));
-  if (stop !== "end_turn" || text.length < 120 || text.length > 6000 || bullets.length < 1 || bullets.length > 16 || bullets.some(l => l.length > 500) ||
-      !text.startsWith("# Learned voice notes") || !["## Do more", "## Do less", "## Retire"].every(h => text.includes(h))) throw new Error("Invalid or truncated learned notes; active notes retained");
+  const issues: string[] = [];
+  if (stop !== "end_turn") issues.push(`stop_reason=${stop ?? 'null'} (expected end_turn)`);
+  if (text.length < 120 || text.length > 6000) issues.push(`characters=${text.length} (expected 120-6000)`);
+  if (bullets.length < 1 || bullets.length > 16) issues.push(`bullets=${bullets.length} (expected 1-16)`);
+  const longest = Math.max(0, ...bullets.map(l => l.length));
+  if (longest > 500) issues.push(`longest bullet=${longest} characters (maximum 500)`);
+  if (!text.startsWith("# Learned voice notes")) issues.push('missing title');
+  for (const heading of ["## Do more", "## Do less", "## Retire"]) if (!text.includes(heading)) issues.push(`missing heading: ${heading}`);
+  if (issues.length) throw new Error(`Invalid or truncated learned notes; active notes retained: ${issues.join('; ')}`);
 }
 export function balancedSample<T>(items: T[], key: (item: T) => string, limit: number): T[] {
   const buckets = new Map<string, T[]>();
