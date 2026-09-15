@@ -30,7 +30,11 @@
     "17879342019690024": "that safety pin ain’t so safe",
     "17905325733487216": "Dracunculiasis, also called Guinea-worm disease?",
     "18018886631867613": "A parasite of some sort in the tissue?",
-    "18088640237221928": "Guinea worm?"
+    "18088640237221928": "Guinea worm?",
+    "18335198104274182": "🎼\"Da knee bone, connecting to da, ankle bone\"🎶",
+    "18129542378495141": "Yikes! That worm has been there long enough to calcify.",
+    "18178376524429555": "PARASITE!!",
+    "18029895680893475": "Guinea Worm"
   },
   "ownerReviews": {
     "17937444630360450": "{\"postId\":\"18103023326210157\",\"reason\":\"owner review: personal medical concern\",\"commentText\":\"Little sister of my friend swalloved a coin of 1 fim. At hospital the family was advised to thoroughly keep an eye on her poops. So, the next day they found two 50 penny coins😀.\",\"username\":\"velitapiof\",\"queuedAt\":\"2026-09-10T20:21:59.741Z\",\"resolvedAt\":\"2026-09-10T20:36:02.929Z\",\"resolution\":\"Owner confirmed this is a completed personal story and deleted the inappropriate boundary reply. No clinical review is needed.\"}",
@@ -50,7 +54,8 @@
     "18142096432588199": "{\"postId\":\"18121475662898455\",\"reason\":\"owner review: image/anatomy inconsistency\",\"commentText\":\"old fracture that never healed properly, called hypertrophic nonunion or pseudoarthrosis, where the body made a lot of extra callus but the bone stayed mobile.\\nBenign bone disease, such as a bone cyst or fibrous dysplasia, which weakens the bone.\\n Bone tumor, benign or malignant, which can also weaken the bone\",\"username\":\"berit069\",\"queuedAt\":\"2026-09-14T19:15:55.903Z\"}",
     "18098875649169661": "{\"postId\":\"18121475662898455\",\"reason\":\"Substantive question about healing mechanisms and differential diagnosis (autoimmune, malnutrition, cancer, osteoporosis). Answer would expose or hint at the diagnosis while the reveal is private. Hold for owner response after reveal.\",\"commentText\":\"I’ve heard of bones not healing due to malnutrition and osteoporosis but it’s odd because it looks like it tried but missed the broken area? I don’t know? Some odd autoimmune disease? Cancer?\",\"username\":\"jenarturo212\",\"queuedAt\":\"2026-09-14T20:40:10.825Z\"}",
     "18128766832768985": "{\"postId\":\"18121475662898455\",\"reason\":\"owner review: image/anatomy concern. Commenter raises a specific anatomical question about absent cortical bone that requires verification against the case image before any reply about diagnosis or differential. This must not be answered as a diagnostic guess or teaching point.\",\"commentText\":\"Yikes! Where’s the cortical bone? If that was a Great Dane I’d say that’s an osteosarcoma or chondrosarcoma.\",\"username\":\"michelle_dvm99\",\"queuedAt\":\"2026-09-14T22:21:20.368Z\"}",
-    "17953846029251553": "{\"postId\":\"18121475662898455\",\"reason\":\"Owner review: possible image or anatomy inconsistency. Commenter reports duplicate anatomy (two right elbows). Cannot confirm or invent an explanation without verified facts about the imaging projection and patient anatomy. Holds all diagnosis and medical replies pending review.\",\"commentText\":\"Mfer’s got two right elbows.\",\"username\":\"mahoneyland_usa\",\"queuedAt\":\"2026-09-14T22:54:49.917Z\"}"
+    "17953846029251553": "{\"postId\":\"18121475662898455\",\"reason\":\"Owner review: possible image or anatomy inconsistency. Commenter reports duplicate anatomy (two right elbows). Cannot confirm or invent an explanation without verified facts about the imaging projection and patient anatomy. Holds all diagnosis and medical replies pending review.\",\"commentText\":\"Mfer’s got two right elbows.\",\"username\":\"mahoneyland_usa\",\"queuedAt\":\"2026-09-14T22:54:49.917Z\"}",
+    "18129542378495141": "{\"postId\":\"18115279912989977\",\"reason\":\"Diagnosis guess made before reveal is public. Hold for owner review after the answer is disclosed.\",\"commentText\":\"Yikes! That worm has been there long enough to calcify.\",\"username\":\"kronanfla\",\"queuedAt\":\"2026-09-15T19:17:26.789Z\"}"
   },
   "concernAcknowledgments": {
     "[\"18121475662898455\",\"berit069\",\"image\"]": "18142096432588199"
@@ -11759,7 +11764,8 @@
     "18091246682160635",
     "18147020221482557",
     "18071717600752249",
-    "17928645096166808"
+    "17928645096166808",
+    "17907011451501937"
   ],
   "answeredPostIds": [
     "18395606890093068"
@@ -11869,11 +11875,11 @@
     "18151028044531026": 53,
     "17984836785119873": 71,
     "18121475662898455": 27,
-    "18115279912989977": 2
+    "18115279912989977": 3
   },
   "daily": {
     "date": "2026-09-15",
-    "count": 2
+    "count": 3
   },
   "pinnedResolved": {
     "DaTTCIwoAw7": "18014812820883466"
@@ -12652,7 +12658,8 @@
     "18114683821970109",
     "18337187770286388",
     "18128766832768985",
-    "17953846029251553"
+    "17953846029251553",
+    "18082910570316607"
   ],
   "skipStrikes": {
     "17895266316520842": 1,
@@ -12732,6 +12739,6 @@
   },
   "spend": {
     "date": "2026-09-15",
-    "usd": 0.025245
+    "usd": 0.08115639999999999
   }
 }
