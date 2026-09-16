@@ -4235,6 +4235,15 @@
       },
       "publishedId": "17988297360111217",
       "confirmedPublished": true
+    },
+    "comment:18003182801791151": {
+      "creationId": "17889644346614054",
+      "createdAt": "2026-09-16T20:37:49.697Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Spot on. This AP view alone can't tell us the rod's depth or exact trajectory so the full extent of damage needs surgical assessment. Given the path across the lower chest the lungs are almost certainly in the picture but this image doesn't confirm heart or spinal involvement specifically.",
+        "reply_to_id": "18003182801791151"
+      }
     }
   },
   "repliedCommentIds": [
@@ -13581,6 +13590,6 @@
   },
   "spend": {
     "date": "2026-09-16",
-    "usd": 0.1696298
+    "usd": 0.2337068
   }
 }
