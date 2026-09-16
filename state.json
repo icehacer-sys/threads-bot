@@ -3621,7 +3621,9 @@
         "media_type": "TEXT",
         "text": "That's the one.",
         "reply_to_id": "17905325733487216"
-      }
+      },
+      "publishedId": "18089049662285320",
+      "confirmedPublished": true
     }
   },
   "repliedCommentIds": [
