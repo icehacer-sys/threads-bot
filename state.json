@@ -4268,6 +4268,15 @@
       },
       "publishedId": "18151041319548247",
       "confirmedPublished": true
+    },
+    "comment:18095368508428758": {
+      "creationId": "17889644379614054",
+      "createdAt": "2026-09-16T20:39:05.622Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "The AP view does have its limits but the knitting needle hypothesis really does explain the whole thing if you're willing to commit to it.",
+        "reply_to_id": "18095368508428758"
+      }
     }
   },
   "repliedCommentIds": [
@@ -12620,7 +12629,8 @@
     "18108705881228357",
     "18122455118510489",
     "18003182801791151",
-    "18025726040857489"
+    "18025726040857489",
+    "17922962859203055"
   ],
   "answeredPostIds": [
     "18395606890093068"
@@ -12731,11 +12741,11 @@
     "17984836785119873": 71,
     "18121475662898455": 27,
     "18115279912989977": 54,
-    "18146529700504840": 17
+    "18146529700504840": 18
   },
   "daily": {
     "date": "2026-09-16",
-    "count": 68
+    "count": 69
   },
   "pinnedResolved": {
     "DaTTCIwoAw7": "18014812820883466"
@@ -13617,6 +13627,6 @@
   },
   "spend": {
     "date": "2026-09-16",
-    "usd": 0.24522539999999998
+    "usd": 0.2567338
   }
 }
