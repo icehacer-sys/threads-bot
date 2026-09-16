@@ -37,7 +37,12 @@
     "18029895680893475": "Guinea Worm",
     "18003182801791151": "Penetrating chest wound with foreign object going through the ribcage. I can't tell what other organs are damaged though but it would be a miracle if there's no involvement with the heart, lungs or spine?",
     "17883823203686062": "The X-ray was taken in the supine position. By all appearances, the visible foreign body passed through the soft tissues of the front chest wall, outside the thoracic cavity.",
-    "18126537622807433": "Death? 🫣"
+    "18126537622807433": "Death? 🫣",
+    "18023421791883394": "Must be a muscular guy because I think it went through his back.",
+    "18101964743005847": "Collector syndrome",
+    "18114282521074904": "Fell on a piece of rebar and it’s clear through",
+    "18125471086853805": "scoliosis looks light to moderate, refer to PT",
+    "18089477021210604": "If it's a woman it's probably just anxiety"
   },
   "ownerReviews": {
     "17937444630360450": "{\"postId\":\"18103023326210157\",\"reason\":\"owner review: personal medical concern\",\"commentText\":\"Little sister of my friend swalloved a coin of 1 fim. At hospital the family was advised to thoroughly keep an eye on her poops. So, the next day they found two 50 penny coins😀.\",\"username\":\"velitapiof\",\"queuedAt\":\"2026-09-10T20:21:59.741Z\",\"resolvedAt\":\"2026-09-10T20:36:02.929Z\",\"resolution\":\"Owner confirmed this is a completed personal story and deleted the inappropriate boundary reply. No clinical review is needed.\"}",
@@ -59,7 +64,8 @@
     "18128766832768985": "{\"postId\":\"18121475662898455\",\"reason\":\"owner review: image/anatomy concern. Commenter raises a specific anatomical question about absent cortical bone that requires verification against the case image before any reply about diagnosis or differential. This must not be answered as a diagnostic guess or teaching point.\",\"commentText\":\"Yikes! Where’s the cortical bone? If that was a Great Dane I’d say that’s an osteosarcoma or chondrosarcoma.\",\"username\":\"michelle_dvm99\",\"queuedAt\":\"2026-09-14T22:21:20.368Z\"}",
     "17953846029251553": "{\"postId\":\"18121475662898455\",\"reason\":\"Owner review: possible image or anatomy inconsistency. Commenter reports duplicate anatomy (two right elbows). Cannot confirm or invent an explanation without verified facts about the imaging projection and patient anatomy. Holds all diagnosis and medical replies pending review.\",\"commentText\":\"Mfer’s got two right elbows.\",\"username\":\"mahoneyland_usa\",\"queuedAt\":\"2026-09-14T22:54:49.917Z\"}",
     "18129542378495141": "{\"postId\":\"18115279912989977\",\"reason\":\"Diagnosis guess made before reveal is public. Hold for owner review after the answer is disclosed.\",\"commentText\":\"Yikes! That worm has been there long enough to calcify.\",\"username\":\"kronanfla\",\"queuedAt\":\"2026-09-15T19:17:26.789Z\"}",
-    "17883823203686062": "{\"postId\":\"18146529700504840\",\"reason\":\"The commenter is making detailed anatomical claims about foreign body trajectory and cavity involvement before the reveal is public. Confirming, correcting or elaborating on these observations could expose or hint at the diagnosis. Hold for owner review.\",\"commentText\":\"The X-ray was taken in the supine position. By all appearances, the visible foreign body passed through the soft tissues of the front chest wall, outside the thoracic cavity.\",\"username\":\"mihailoas2000\",\"queuedAt\":\"2026-09-16T19:16:38.084Z\"}"
+    "17883823203686062": "{\"postId\":\"18146529700504840\",\"reason\":\"The commenter is making detailed anatomical claims about foreign body trajectory and cavity involvement before the reveal is public. Confirming, correcting or elaborating on these observations could expose or hint at the diagnosis. Hold for owner review.\",\"commentText\":\"The X-ray was taken in the supine position. By all appearances, the visible foreign body passed through the soft tissues of the front chest wall, outside the thoracic cavity.\",\"username\":\"mihailoas2000\",\"queuedAt\":\"2026-09-16T19:16:38.084Z\"}",
+    "17873419818635101": "{\"postId\":\"18146529700504840\",\"reason\":\"Medical question that could expose the diagnosis. Held for owner review until reveal is public.\",\"commentText\":\"The lack of apparent rib traum (not even displacement/deflection) and clarity of the lung parenchyma w/o ptx has me really wanting a lateral\",\"username\":\"doc.cadence\",\"queuedAt\":\"2026-09-16T19:17:03.498Z\"}"
   },
   "concernAcknowledgments": {
     "[\"18121475662898455\",\"berit069\",\"image\"]": "18142096432588199"
@@ -4090,6 +4096,15 @@
       },
       "publishedId": "18014877410745767",
       "confirmedPublished": true
+    },
+    "comment:17969330514171148": {
+      "creationId": "17889636903614054",
+      "createdAt": "2026-09-16T19:17:21.815Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Career-ending mistake either way.",
+        "reply_to_id": "17969330514171148"
+      }
     }
   },
   "repliedCommentIds": [
@@ -12428,7 +12443,8 @@
     "18102487547571061",
     "17958003129213438",
     "18404370955089717",
-    "17952787248032813"
+    "17952787248032813",
+    "18030075707903392"
   ],
   "answeredPostIds": [
     "18395606890093068"
@@ -12539,11 +12555,11 @@
     "17984836785119873": 71,
     "18121475662898455": 27,
     "18115279912989977": 54,
-    "18146529700504840": 3
+    "18146529700504840": 4
   },
   "daily": {
     "date": "2026-09-16",
-    "count": 54
+    "count": 55
   },
   "pinnedResolved": {
     "DaTTCIwoAw7": "18014812820883466"
@@ -13329,7 +13345,8 @@
     "17878518993691784",
     "18024632543699123",
     "18087811007679363",
-    "18232968694321155"
+    "18232968694321155",
+    "17873419818635101"
   ],
   "skipStrikes": {
     "17895266316520842": 1,
@@ -13417,6 +13434,6 @@
   },
   "spend": {
     "date": "2026-09-16",
-    "usd": 0.030369800000000002
+    "usd": 0.04583860000000001
   }
 }
