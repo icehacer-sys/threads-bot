@@ -4760,7 +4760,9 @@
         "media_type": "TEXT",
         "text": "Yep.",
         "reply_to_id": "17866273764659213"
-      }
+      },
+      "publishedId": "17984273238112935",
+      "confirmedPublished": true
     }
   },
   "repliedCommentIds": [
