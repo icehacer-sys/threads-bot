@@ -4928,6 +4928,15 @@
       },
       "publishedId": "17909804568495106",
       "confirmedPublished": true
+    },
+    "comment:18013519907747114": {
+      "creationId": "17889655317614054",
+      "createdAt": "2026-09-16T23:35:40.570Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Two separate questions and the facts answer both only partially. A fall at a construction site could mean almost anything before imaging so the mechanism alone wouldn't confirm impalement without seeing the wound or the rod externally.",
+        "reply_to_id": "18013519907747114"
+      }
     }
   },
   "repliedCommentIds": [
@@ -14358,6 +14367,6 @@
   },
   "spend": {
     "date": "2026-09-16",
-    "usd": 0.8015244000000001
+    "usd": 0.8647253000000001
   }
 }
