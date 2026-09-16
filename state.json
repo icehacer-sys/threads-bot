@@ -48,7 +48,8 @@
     "17922962859203055": "Vlad the Impaler’s syndrome, also know as Draculitis. \n\nHopefully it is a Maxwell Smart “Missed it [the vital organs] by that much.”\n\nIs there also a secondary (very secondary) fractured clavicle?",
     "18114852184786582": "Impaled by rebar?",
     "18147967789549783": "Construction accident with penetration of foreign body. Fortunately, appears to have missed vital pathways.",
-    "18107494391227717": "It looks like a miracle that it *apparently* only penetrated soft tissue."
+    "18107494391227717": "It looks like a miracle that it *apparently* only penetrated soft tissue.",
+    "18069128735747200": "Pulmonary edema due to extrinsic etiology?"
   },
   "ownerReviews": {
     "17937444630360450": "{\"postId\":\"18103023326210157\",\"reason\":\"owner review: personal medical concern\",\"commentText\":\"Little sister of my friend swalloved a coin of 1 fim. At hospital the family was advised to thoroughly keep an eye on her poops. So, the next day they found two 50 penny coins😀.\",\"username\":\"velitapiof\",\"queuedAt\":\"2026-09-10T20:21:59.741Z\",\"resolvedAt\":\"2026-09-10T20:36:02.929Z\",\"resolution\":\"Owner confirmed this is a completed personal story and deleted the inappropriate boundary reply. No clinical review is needed.\"}",
@@ -4179,6 +4180,15 @@
       },
       "publishedId": "17908222803542886",
       "confirmedPublished": true
+    },
+    "comment:18106431989618480": {
+      "creationId": "17889640692614054",
+      "createdAt": "2026-09-16T19:50:12.263Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Yeah that loading screen had no right to go that hard.",
+        "reply_to_id": "18106431989618480"
+      }
     }
   },
   "repliedCommentIds": [
@@ -13516,6 +13526,6 @@
   },
   "spend": {
     "date": "2026-09-16",
-    "usd": 0.07570980000000002
+    "usd": 0.12750820000000002
   }
 }
