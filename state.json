@@ -4738,7 +4738,9 @@
         "media_type": "TEXT",
         "text": "Straight to it.",
         "reply_to_id": "18126863251822888"
-      }
+      },
+      "publishedId": "17988284085058536",
+      "confirmedPublished": true
     }
   },
   "repliedCommentIds": [
