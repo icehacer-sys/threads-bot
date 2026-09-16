@@ -4664,6 +4664,15 @@
       },
       "publishedId": "18344532253269538",
       "confirmedPublished": true
+    },
+    "comment:18088231055242455": {
+      "creationId": "17889650076614054",
+      "createdAt": "2026-09-16T22:09:35.052Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Yep it's for learners seeing it on film for the first time not people standing next to the rebar. Different skill entirely.",
+        "reply_to_id": "18088231055242455"
+      }
     }
   },
   "repliedCommentIds": [
@@ -14065,6 +14074,6 @@
   },
   "spend": {
     "date": "2026-09-16",
-    "usd": 0.6551537000000003
+    "usd": 0.6620405000000003
   }
 }
