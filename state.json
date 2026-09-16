@@ -4518,7 +4518,9 @@
         "media_type": "TEXT",
         "text": "One needle won decisively.",
         "reply_to_id": "18142278583572561"
-      }
+      },
+      "publishedId": "18129648046674822",
+      "confirmedPublished": true
     }
   },
   "repliedCommentIds": [
