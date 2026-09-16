@@ -4573,7 +4573,9 @@
         "media_type": "TEXT",
         "text": "That'd be the one.",
         "reply_to_id": "18022496216919816"
-      }
+      },
+      "publishedId": "18115007443786534",
+      "confirmedPublished": true
     }
   },
   "repliedCommentIds": [
