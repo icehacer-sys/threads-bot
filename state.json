@@ -44,7 +44,10 @@
     "18125471086853805": "scoliosis looks light to moderate, refer to PT",
     "18089477021210604": "If it's a woman it's probably just anxiety",
     "17920411539220052": "MRI will get that right out",
-    "17994257211037954": "Nailed it."
+    "17994257211037954": "Nailed it.",
+    "17922962859203055": "Vlad the Impaler’s syndrome, also know as Draculitis. \n\nHopefully it is a Maxwell Smart “Missed it [the vital organs] by that much.”\n\nIs there also a secondary (very secondary) fractured clavicle?",
+    "18114852184786582": "Impaled by rebar?",
+    "18147967789549783": "Construction accident with penetration of foreign body. Fortunately, appears to have missed vital pathways."
   },
   "ownerReviews": {
     "17937444630360450": "{\"postId\":\"18103023326210157\",\"reason\":\"owner review: personal medical concern\",\"commentText\":\"Little sister of my friend swalloved a coin of 1 fim. At hospital the family was advised to thoroughly keep an eye on her poops. So, the next day they found two 50 penny coins😀.\",\"username\":\"velitapiof\",\"queuedAt\":\"2026-09-10T20:21:59.741Z\",\"resolvedAt\":\"2026-09-10T20:36:02.929Z\",\"resolution\":\"Owner confirmed this is a completed personal story and deleted the inappropriate boundary reply. No clinical review is needed.\"}",
@@ -4153,6 +4156,15 @@
       },
       "publishedId": "18116442935065305",
       "confirmedPublished": true
+    },
+    "comment:18114220910325050": {
+      "creationId": "17889638718614054",
+      "createdAt": "2026-09-16T19:34:13.766Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Medium rare by the time they got to the hospital.",
+        "reply_to_id": "18114220910325050"
+      }
     }
   },
   "repliedCommentIds": [
@@ -12496,7 +12508,8 @@
     "17969330514171148",
     "17894710713606998",
     "18148704070549407",
-    "18022619711925747"
+    "18022619711925747",
+    "17892497133427719"
   ],
   "answeredPostIds": [
     "18395606890093068"
@@ -12607,11 +12620,11 @@
     "17984836785119873": 71,
     "18121475662898455": 27,
     "18115279912989977": 54,
-    "18146529700504840": 8
+    "18146529700504840": 9
   },
   "daily": {
     "date": "2026-09-16",
-    "count": 59
+    "count": 60
   },
   "pinnedResolved": {
     "DaTTCIwoAw7": "18014812820883466"
@@ -13487,6 +13500,6 @@
   },
   "spend": {
     "date": "2026-09-16",
-    "usd": 0.061946400000000006
+    "usd": 0.07102300000000002
   }
 }
