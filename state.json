@@ -3841,7 +3841,9 @@
         "media_type": "TEXT",
         "text": "This one at least has the decency to show up on film.",
         "reply_to_id": "18083307926331200"
-      }
+      },
+      "publishedId": "18101730277992500",
+      "confirmedPublished": true
     }
   },
   "repliedCommentIds": [
