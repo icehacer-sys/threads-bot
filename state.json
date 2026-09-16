@@ -3720,7 +3720,9 @@
         "media_type": "TEXT",
         "text": "Taxonomy officially updated.",
         "reply_to_id": "18039284996824185"
-      }
+      },
+      "publishedId": "18098535887525550",
+      "confirmedPublished": true
     }
   },
   "repliedCommentIds": [
