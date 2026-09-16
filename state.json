@@ -4087,7 +4087,9 @@
         "media_type": "TEXT",
         "text": "Maureen's really outdone herself this time.",
         "reply_to_id": "18030075707903392"
-      }
+      },
+      "publishedId": "18014877410745767",
+      "confirmedPublished": true
     }
   },
   "repliedCommentIds": [
