@@ -4342,7 +4342,9 @@
         "media_type": "TEXT",
         "text": "This AP view alone can't establish depth or trajectory so we can't confirm the rod stayed outside the thoracic cavity from this image.",
         "reply_to_id": "17883823203686062"
-      }
+      },
+      "publishedId": "17944504077299390",
+      "confirmedPublished": true
     }
   },
   "repliedCommentIds": [
