@@ -4859,7 +4859,9 @@
         "media_type": "TEXT",
         "text": "Straight read.",
         "reply_to_id": "18093695864386016"
-      }
+      },
+      "publishedId": "18433535218183006",
+      "confirmedPublished": true
     }
   },
   "repliedCommentIds": [
