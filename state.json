@@ -4176,7 +4176,9 @@
         "media_type": "TEXT",
         "text": "Therapeutic window narrower than expected.",
         "reply_to_id": "17913198816463574"
-      }
+      },
+      "publishedId": "17908222803542886",
+      "confirmedPublished": true
     }
   },
   "repliedCommentIds": [
