@@ -4298,7 +4298,9 @@
         "media_type": "TEXT",
         "text": "Yep. That's the one.",
         "reply_to_id": "18114852184786582"
-      }
+      },
+      "publishedId": "17967609951171653",
+      "confirmedPublished": true
     }
   },
   "repliedCommentIds": [
