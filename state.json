@@ -4017,7 +4017,9 @@
         "media_type": "TEXT",
         "text": "Best two-word case summary yet.",
         "reply_to_id": "18407928595085402"
-      }
+      },
+      "publishedId": "17874604752573092",
+      "confirmedPublished": true
     }
   },
   "repliedCommentIds": [
