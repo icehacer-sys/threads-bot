@@ -3580,6 +3580,15 @@
       },
       "publishedId": "18128682193690963",
       "confirmedPublished": true
+    },
+    "comment:18142931725539405": {
+      "creationId": "17889576699614054",
+      "createdAt": "2026-09-16T10:36:31.283Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "The snake guess would've been a wild curveball but honestly kind of poetic after you see what actually took up residence down there.",
+        "reply_to_id": "18142931725539405"
+      }
     }
   },
   "repliedCommentIds": [
@@ -11872,7 +11881,8 @@
     "18106948637181376",
     "17901364395575430",
     "18093802496441571",
-    "18124891262496231"
+    "18124891262496231",
+    "18110877313854517"
   ],
   "answeredPostIds": [
     "18395606890093068"
@@ -11982,11 +11992,11 @@
     "18151028044531026": 53,
     "17984836785119873": 71,
     "18121475662898455": 27,
-    "18115279912989977": 11
+    "18115279912989977": 12
   },
   "daily": {
     "date": "2026-09-16",
-    "count": 8
+    "count": 9
   },
   "pinnedResolved": {
     "DaTTCIwoAw7": "18014812820883466"
@@ -12849,6 +12859,6 @@
   },
   "spend": {
     "date": "2026-09-16",
-    "usd": 0.2136375
+    "usd": 0.2164752
   }
 }
