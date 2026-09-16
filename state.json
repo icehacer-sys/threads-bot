@@ -4576,6 +4576,15 @@
       },
       "publishedId": "18115007443786534",
       "confirmedPublished": true
+    },
+    "comment:18105339194093229": {
+      "creationId": "17889647916614054",
+      "createdAt": "2026-09-16T21:36:20.775Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "The marinating step was definitely skipped here.",
+        "reply_to_id": "18105339194093229"
+      }
     }
   },
   "repliedCommentIds": [
@@ -13968,6 +13977,6 @@
   },
   "spend": {
     "date": "2026-09-16",
-    "usd": 0.5485140000000002
+    "usd": 0.5514669000000002
   }
 }
