@@ -54,7 +54,10 @@
     "18141863137510823": "Impaled by rebar. Someone didn't cap off the rebar.",
     "18459283498184787": "Rebar inserted in the wrong location. Instructions on site were unclear.",
     "18103801565193817": "Oof he got pierced by a something in his chest and he’s dead. 🪦",
-    "18133031026638936": "Diagnosed with lucky to be alive"
+    "18133031026638936": "Diagnosed with lucky to be alive",
+    "18491858776101141": "No. 2 pencil-itis?",
+    "18134419951711130": "Not a doctor, but that looks like a piece of rebar through the side. Recommend rebarectomy.",
+    "18080301248370515": "I believe an MRI for further work up is contraindicated."
   },
   "ownerReviews": {
     "17937444630360450": "{\"postId\":\"18103023326210157\",\"reason\":\"owner review: personal medical concern\",\"commentText\":\"Little sister of my friend swalloved a coin of 1 fim. At hospital the family was advised to thoroughly keep an eye on her poops. So, the next day they found two 50 penny coins😀.\",\"username\":\"velitapiof\",\"queuedAt\":\"2026-09-10T20:21:59.741Z\",\"resolvedAt\":\"2026-09-10T20:36:02.929Z\",\"resolution\":\"Owner confirmed this is a completed personal story and deleted the inappropriate boundary reply. No clinical review is needed.\"}",
@@ -13448,7 +13451,9 @@
     "17873419818635101",
     "18096904268226427",
     "17903102229568213",
-    "17945014167069805"
+    "17945014167069805",
+    "18091777904164811",
+    "18096244487386455"
   ],
   "skipStrikes": {
     "17895266316520842": 1,
@@ -13536,6 +13541,6 @@
   },
   "spend": {
     "date": "2026-09-16",
-    "usd": 0.14283
+    "usd": 0.153952
   }
 }
