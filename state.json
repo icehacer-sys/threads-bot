@@ -4466,6 +4466,15 @@
       },
       "publishedId": "18116452099748949",
       "confirmedPublished": true
+    },
+    "comment:18133031026638936": {
+      "creationId": "17889644994614054",
+      "createdAt": "2026-09-16T20:46:20.030Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "That one's not wrong. The imaging tells the trauma story but survival with a rod that close to everything vital is the real finding.",
+        "reply_to_id": "18133031026638936"
+      }
     }
   },
   "repliedCommentIds": [
@@ -12836,7 +12845,8 @@
     "18101964743005847",
     "18114282521074904",
     "18125471086853805",
-    "18089477021210604"
+    "18089477021210604",
+    "18164819428485298"
   ],
   "answeredPostIds": [
     "18395606890093068"
@@ -12947,11 +12957,11 @@
     "17984836785119873": 71,
     "18121475662898455": 27,
     "18115279912989977": 54,
-    "18146529700504840": 35
+    "18146529700504840": 36
   },
   "daily": {
     "date": "2026-09-16",
-    "count": 86
+    "count": 87
   },
   "pinnedResolved": {
     "DaTTCIwoAw7": "18014812820883466"
@@ -13838,6 +13848,6 @@
   },
   "spend": {
     "date": "2026-09-16",
-    "usd": 0.4154084
+    "usd": 0.4183663
   }
 }
