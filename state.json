@@ -57,7 +57,10 @@
     "18133031026638936": "Diagnosed with lucky to be alive",
     "18491858776101141": "No. 2 pencil-itis?",
     "18134419951711130": "Not a doctor, but that looks like a piece of rebar through the side. Recommend rebarectomy.",
-    "18080301248370515": "I believe an MRI for further work up is contraindicated."
+    "18080301248370515": "I believe an MRI for further work up is contraindicated.",
+    "18025726040857489": "I'm no medical professional, but I'm gonna take a wild guess and say... uh... a really deep sliver?",
+    "18095368508428758": "From this view, this looks like an artifact. I would normally guess that this was an autopsy case where someone tossed a foreign object found with the body in the body bag, but usually the quality would be worse, and we’d see zippers. So I think this is a simple case where the patient is supine and forgot she was holding a knitting needle.",
+    "18113261264050602": "This person is lucky AF. Lungs fully inflated, heart and spine appear intact  in this single view. I see lots of antibiotics and a couple of penrose drains in his future"
   },
   "ownerReviews": {
     "17937444630360450": "{\"postId\":\"18103023326210157\",\"reason\":\"owner review: personal medical concern\",\"commentText\":\"Little sister of my friend swalloved a coin of 1 fim. At hospital the family was advised to thoroughly keep an eye on her poops. So, the next day they found two 50 penny coins😀.\",\"username\":\"velitapiof\",\"queuedAt\":\"2026-09-10T20:21:59.741Z\",\"resolvedAt\":\"2026-09-10T20:36:02.929Z\",\"resolution\":\"Owner confirmed this is a completed personal story and deleted the inappropriate boundary reply. No clinical review is needed.\"}",
@@ -4199,6 +4202,15 @@
       },
       "publishedId": "18475448488119883",
       "confirmedPublished": true
+    },
+    "comment:17914104237261749": {
+      "creationId": "17889642900614054",
+      "createdAt": "2026-09-16T20:21:29.062Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Safety briefing suddenly makes a lot more sense in retrospect.",
+        "reply_to_id": "17914104237261749"
+      }
     }
   },
   "repliedCommentIds": [
@@ -13541,6 +13553,6 @@
   },
   "spend": {
     "date": "2026-09-16",
-    "usd": 0.153952
+    "usd": 0.1630726
   }
 }
