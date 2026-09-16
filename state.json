@@ -34,7 +34,8 @@
     "18335198104274182": "🎼\"Da knee bone, connecting to da, ankle bone\"🎶",
     "18129542378495141": "Yikes! That worm has been there long enough to calcify.",
     "18178376524429555": "PARASITE!!",
-    "18029895680893475": "Guinea Worm"
+    "18029895680893475": "Guinea Worm",
+    "18003182801791151": "Penetrating chest wound with foreign object going through the ribcage. I can't tell what other organs are damaged though but it would be a miracle if there's no involvement with the heart, lungs or spine?"
   },
   "ownerReviews": {
     "17937444630360450": "{\"postId\":\"18103023326210157\",\"reason\":\"owner review: personal medical concern\",\"commentText\":\"Little sister of my friend swalloved a coin of 1 fim. At hospital the family was advised to thoroughly keep an eye on her poops. So, the next day they found two 50 penny coins😀.\",\"username\":\"velitapiof\",\"queuedAt\":\"2026-09-10T20:21:59.741Z\",\"resolvedAt\":\"2026-09-10T20:36:02.929Z\",\"resolution\":\"Owner confirmed this is a completed personal story and deleted the inappropriate boundary reply. No clinical review is needed.\"}",
@@ -4042,6 +4043,15 @@
       },
       "publishedId": "18113107946092413",
       "confirmedPublished": true
+    },
+    "comment:17958003129213438": {
+      "creationId": "17889636657614054",
+      "createdAt": "2026-09-16T19:15:46.850Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Silver would've been the deluxe package anyway.",
+        "reply_to_id": "17958003129213438"
+      }
     }
   },
   "repliedCommentIds": [
@@ -13276,7 +13286,8 @@
     "18115668940900379",
     "17878518993691784",
     "18024632543699123",
-    "18087811007679363"
+    "18087811007679363",
+    "18232968694321155"
   ],
   "skipStrikes": {
     "17895266316520842": 1,
@@ -13364,6 +13375,6 @@
   },
   "spend": {
     "date": "2026-09-16",
-    "usd": 0
+    "usd": 0.0187228
   }
 }
