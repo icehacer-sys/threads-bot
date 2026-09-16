@@ -4488,6 +4488,15 @@
       },
       "publishedId": "18143867461603146",
       "confirmedPublished": true
+    },
+    "comment:18159084847494314": {
+      "creationId": "17889645996614054",
+      "createdAt": "2026-09-16T21:02:29.597Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Right? That lateral would've told us the depth and whether it cleared the mediastinum or not. AP alone leaves a lot of the story untold once they get in there.",
+        "reply_to_id": "18159084847494314"
+      }
     }
   },
   "repliedCommentIds": [
@@ -13775,7 +13784,8 @@
     "18113261264050602",
     "18080301248370515",
     "18107494391227717",
-    "18009187379972904"
+    "18009187379972904",
+    "18159577165435959"
   ],
   "skipStrikes": {
     "17895266316520842": 1,
@@ -13864,6 +13874,6 @@
   },
   "spend": {
     "date": "2026-09-16",
-    "usd": 0.4360265
+    "usd": 0.44720519999999997
   }
 }
