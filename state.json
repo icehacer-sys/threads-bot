@@ -3863,7 +3863,9 @@
         "media_type": "TEXT",
         "text": "That's one way to shorten the consent form.",
         "reply_to_id": "18223620415336865"
-      }
+      },
+      "publishedId": "18129508465677558",
+      "confirmedPublished": true
     }
   },
   "repliedCommentIds": [
