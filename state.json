@@ -4785,6 +4785,15 @@
       },
       "publishedId": "18010500926760665",
       "confirmedPublished": true
+    },
+    "comment:17925726423186203": {
+      "creationId": "17889651399614054",
+      "createdAt": "2026-09-16T22:28:48.811Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Accidentally got the organ they were aiming for.",
+        "reply_to_id": "17925726423186203"
+      }
     }
   },
   "repliedCommentIds": [
@@ -14198,6 +14207,6 @@
   },
   "spend": {
     "date": "2026-09-16",
-    "usd": 0.7324473000000002
+    "usd": 0.7353422000000003
   }
 }
