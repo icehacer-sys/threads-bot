@@ -4862,6 +4862,15 @@
       },
       "publishedId": "18433535218183006",
       "confirmedPublished": true
+    },
+    "comment:18104773379209408": {
+      "creationId": "17889651486614054",
+      "createdAt": "2026-09-16T22:32:03.975Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "At that point it's a souvenir with a story that absolutely does not end at the grill.",
+        "reply_to_id": "18104773379209408"
+      }
     }
   },
   "repliedCommentIds": [
@@ -14284,6 +14293,6 @@
   },
   "spend": {
     "date": "2026-09-16",
-    "usd": 0.7770563000000003
+    "usd": 0.7799452000000002
   }
 }
