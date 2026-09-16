@@ -4683,7 +4683,9 @@
         "media_type": "TEXT",
         "text": "That's the one where \"yikes\" doesn't nearly cover it.",
         "reply_to_id": "18142225921579925"
-      }
+      },
+      "publishedId": "17908130472308706",
+      "confirmedPublished": true
     }
   },
   "repliedCommentIds": [
