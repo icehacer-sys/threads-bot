@@ -31,7 +31,8 @@
     "repetition:verify": "tsx tools/verify-reply-repetition.mts",
     "audit:verify": "tsx tools/verify-audit.mts",
     "runtime:summary": "tsx tools/runtime-summary.mts",
-    "voice:evaluate": "tsx tools/evaluate-voice.mts --live"
+    "voice:evaluate": "tsx tools/evaluate-voice.mts --live",
+    "specifics:verify": "tsx tools/verify-invented-specifics.mts"
   },
   "dependencies": {
     "@anthropic-ai/sdk": "^0.104.1",

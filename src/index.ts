@@ -222,8 +222,9 @@ function selectCandidates(replies: ThreadsReply[], committed?: Set<string>): Thr
 
 // Strip "genuinely" used as an intensifier — the stickiest verbal tic. Removing it always leaves
 // valid text ("genuinely wild" -> "wild"); restore a leading capital if it was sentence-initial.
+// "honestly" joined it after the 2026-09-15 audit ("would honestly be the least weird finding").
 function stripTics(text: string): string {
-  let t = text.replace(/\bgenuinely\s+/gi, "").replace(/[ \t]{2,}/g, " ").trim();
+  let t = text.replace(/\b(?:genuinely|honestly)\s+/gi, "").replace(/[ \t]{2,}/g, " ").trim();
   const first = text.trim().charAt(0);
   if (t && first && first === first.toUpperCase() && /[a-z]/.test(t.charAt(0))) {
     t = t.charAt(0).toUpperCase() + t.slice(1);

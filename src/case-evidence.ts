@@ -36,3 +36,16 @@ export function rejectsAcceptedDifferential(text: string, comment: string, conte
 export function overstatesImagingLimit(text: string): boolean {
   return /\bimaging(?: alone)? (?:cannot|can't|can not) (?:separate|distinguish|differentiate)\b/i.test(text);
 }
+
+// Time spans, sizes and dates the reply states as fact. Added after the 2026-09-15 Guinea worm
+// night: with no life-cycle facts supplied, the bot improvised "worked its way out through the
+// skin over weeks" about fifteen times (a CALCIFIED worm died before it could emerge), plus
+// "centuries of eradication work" and "metres" of worm. Every one carried a unit like these.
+const SPECIFIC_UNIT = /\b(?:\d+(?:\.\d+)?\s*)?(days?|weeks?|months?|years?|decades?|centur(?:y|ies)|met(?:re|er)s?|feet|foot|inch(?:es)?|cm|mm|centimet(?:re|er)s?|millimet(?:re|er)s?|(?:1[89]|20)\d\d)\b/gi;
+const unitRoot = (u: string) => u.toLowerCase().replace(/^centur.*/, 'centur').replace(/^met(?:re|er)s?$/, 'metre').replace(/^(?:feet|foot)$/, 'foot').replace(/^inch(?:es)?$/, 'inch').replace(/^(centi|milli)met(?:re|er)s?$/, '$1metre').replace(/s$/, '');
+
+/** A timeline, size or date that neither the supplied facts nor the conversation mention. */
+export function unsupportedSpecifics(text: string, support: string): string[] {
+  const supported = new Set([...support.matchAll(SPECIFIC_UNIT)].map(m => unitRoot(m[1])));
+  return [...new Set([...text.matchAll(SPECIFIC_UNIT)].map(m => unitRoot(m[1])))].filter(u => !supported.has(u));
+}

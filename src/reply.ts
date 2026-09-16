@@ -8,8 +8,8 @@ import { fileURLToPath } from "node:url";
 import { dirname, join } from "node:path";
 import { config, requireEnv } from "./config";
 import { SYSTEM_PROMPT } from "./voice";
-import { diagnosticContext, unsupportedConfirmation, rejectsAcceptedDifferential, overstatesImagingLimit, type DiagnosticContext } from './case-evidence';
-import { varietyNote, restrainEmoji } from './reply-variety';
+import { diagnosticContext, unsupportedConfirmation, rejectsAcceptedDifferential, overstatesImagingLimit, unsupportedSpecifics, type DiagnosticContext } from './case-evidence';
+import { varietyNote, restrainEmoji, repeatedPhrasing } from './reply-variety';
 import { GIF_SYSTEM_PROMPT, MEDIA_FIELDS, MEDIA_REPLY_NOTE, mediaReplyIssue, mediaVarietyNote, type MediaRead } from './media-reply';
 import { isWordingReaction, WORDING_NOTE, wordingReplyIssue } from './wording-reply';
 import { replyStyleIssue, needsClinicalReview, clinicalClaimIssue } from './reply-style';
@@ -229,6 +229,8 @@ export interface ClassifyInput {
   styleRecheck?: boolean;
   mediaRecheck?: boolean;
   wordingRecheck?: boolean;
+  /** Phrases the previous draft reused from replies already on the post (one bounded redraft). */
+  varietyRecheck?: string[];
   /** Allow this one call to use web search. Only the quality-model re-run of an
    *  unrecognized "reference" comment sets this — never the cheap triage pass. */
   allowSearch?: boolean;
@@ -271,7 +273,7 @@ export async function classifyAndDraft(input: ClassifyInput): Promise<Decision> 
   const concern = directConcern(commentText, priorExchange?.bot);
   if (concern) return concern;
   const wordingReaction = isWordingReaction(postText, commentText);
-  const rechecked = input.storyRecheck || input.evidenceRecheck || input.styleRecheck || input.mediaRecheck || input.wordingRecheck;
+  const rechecked = input.storyRecheck || input.evidenceRecheck || input.styleRecheck || input.mediaRecheck || input.wordingRecheck || !!input.varietyRecheck?.length;
   if ((commentMediaKind === 'video' || commentMediaKind === 'video-frame') && !commentImages?.length && !commentText.trim()) {
     return { decision: 'skip', category: 'other', reply_text: '', reason: 'GIF unavailable and no text to answer | guard:forced-skip' };
   }
@@ -286,15 +288,25 @@ export async function classifyAndDraft(input: ClassifyInput): Promise<Decision> 
       return { decision: 'skip', category: 'other', reply_text: '', reason: 'No explicit advice request; ambiguous story classification after one recheck. Never substitute a medical boundary.' };
     }
     const context = diagnosticContext(input.diagnosticContext, input.diagnosticContext?.certainty === 'illustrative');
-    if (d.decision === 'reply' && (unsupportedConfirmation(d.reply_text, context) || rejectsAcceptedDifferential(d.reply_text, commentText, context) || overstatesImagingLimit(d.reply_text))) {
+    // A time span, size or date must come from the facts or the conversation, never be improvised.
+    const support = [...(facts ?? []), answer ?? '', commentText, priorExchange ? `${priorExchange.commenter} ${priorExchange.bot}` : ''].join(' ');
+    const invented = d.decision === 'reply' && !bareMedia ? unsupportedSpecifics(d.reply_text, support) : [];
+    if (d.decision === 'reply' && (unsupportedConfirmation(d.reply_text, context) || rejectsAcceptedDifferential(d.reply_text, commentText, context) || overstatesImagingLimit(d.reply_text) || invented.length)) {
       if (!rechecked) return classifyAndDraft({ ...input, evidenceRecheck: true, allowSearch: false });
-      return { ...d, decision: 'skip', category: 'other', reply_text: '', reason: 'owner review: unsupported confirmation or dismissal of an accepted differential | guard:forced-skip' };
+      return { ...d, decision: 'skip', category: 'other', reply_text: '', reason: `owner review: unsupported confirmation, specifics (${invented.join(', ') || 'none'}) or dismissal of an accepted differential | guard:forced-skip` };
     }
     const clean = sanitize({ ...d, reply_text: restrainEmoji(d.reply_text, recentReplies ?? []) }, { isPublic, terms: spoilerTerms }, isBotQuestion(commentText));
     if (clean.reason.includes('punctuation guard') && !rechecked) {
       return classifyAndDraft({ ...input, styleRecheck: true, allowSearch: false });
     }
     if (clean.reason.includes('punctuation guard')) return { ...clean, category: 'other' }; // cache the final failure instead of paying again next poll
+    // Reused phrasing gets one fresh draft. A banter or affirm line that still repeats is dropped,
+    // but a genuine teach/correct answer is posted: a repeated topic never justifies silence.
+    const repeats = clean.decision === 'reply' && !bareMedia ? repeatedPhrasing(clean.reply_text, recentReplies ?? [], [answer ?? '', ...(facts ?? [])].join(' ')) : [];
+    if (repeats.length && !rechecked) return classifyAndDraft({ ...input, varietyRecheck: repeats, allowSearch: false });
+    if (repeats.length && !['teach', 'correct'].includes(clean.category)) {
+      return { ...clean, decision: 'skip', category: 'other', reply_text: '', reason: `variety guard: reused ${repeats.join(', ')} | guard:forced-skip` };
+    }
     if (withMedia && clean.decision === 'reply') {
       const normalizeReply = (text: string) => text.toLowerCase().replace(/[^\p{L}\p{N}]+/gu, ' ').trim();
       const repeated = bareMedia && recentReplies?.some(text => normalizeReply(text) === normalizeReply(clean.reply_text));
@@ -456,9 +468,10 @@ export async function classifyAndDraft(input: ClassifyInput): Promise<Decision> 
   }
   content.push({ type: "text", text: varText });
   if (input.storyRecheck) content.push({ type: 'text', text: 'CLASSIFICATION RECHECK: No explicit request for personal medical advice was found in this comment. Re-read the actual comment. A completed anecdote, reported hospital advice or a joke is not a current symptom assessment. Use empathize for a sincere story or banter for its light punchline. Do not send a medical disclaimer or invent current symptoms. If the intent is still uncertain or describes current danger, skip. All spoiler, accuracy and image-review rules still apply.' });
-  if (input.evidenceRecheck) content.push({ type: 'text', text: 'EVIDENCE RECHECK (one attempt): Your draft invented a confirmation/result, dismissed an accepted differential or overstated an imaging limitation. Write a fresh reply using only recorded evidence. Do not say came back as, biopsy confirmed or invent surgery, recovery or duration. Recognize a supported differential without replacing it with certainty. When THIS image is insufficient, say so without claiming that imaging in general cannot distinguish conditions. If the question cannot be answered from the supplied evidence, skip for owner review. Keep every reveal and punctuation rule.' });
+  if (input.evidenceRecheck) content.push({ type: 'text', text: 'EVIDENCE RECHECK (one attempt): Your draft invented a confirmation/result, dismissed an accepted differential, overstated an imaging limitation or stated a time span, size, date, life cycle or history that the supplied facts and the comment do not contain. Write a fresh reply using only recorded evidence. Do not say came back as, biopsy confirmed or invent surgery, recovery or duration. Recognize a supported differential without replacing it with certainty. When THIS image is insufficient, say so without claiming that imaging in general cannot distinguish conditions. If the question cannot be answered from the supplied evidence, skip for owner review. Keep every reveal and punctuation rule.' });
   if (input.styleRecheck) content.push({ type: 'text', text: 'STYLE RECHECK (only attempt): Draft a simpler reply to the original comment. Prefer one complete sentence with no comma at all. Commas are allowed only in a short explicit list of three or more items. No semicolons or em dashes. No sentence starting And or Which after punctuation. Use ordinary conjunctions within a sentence or write complete separate sentences. No repeated praise about the right fear or instinct. Keep every accuracy, personal-story and reveal rule. Do not add facts to fill space.' });
   if (input.mediaRecheck) content.push({ type: 'text', text: 'MEDIA RECHECK (only attempt): The previous draft repeated an earlier reply, used generic reaction commentary or repeated the medical case unnecessarily. Re-read the visible action and on-screen words. Write a fresh brief response to their meaning without narrating the GIF or explaining its connection to the X-ray. Skip if that meaning is unclear. Do not use a synonym for the rejected template.' });
+  if (input.varietyRecheck?.length) content.push({ type: 'text', text: `VARIETY RECHECK (only attempt): Your draft reused ${input.varietyRecheck.join(', ')} from replies already on this post. Build a reply from THIS comment's own words and premise with a different construction. Do not swap in a synonym for the reused phrase. Keep every accuracy, reveal and punctuation rule. Skip if nothing fresh fits.` });
   if (input.wordingRecheck) content.push({ type: 'text', text: 'WORDING RECHECK (only attempt): The draft missed the caption criticism or overexplained it. Respond to the awkward or overcomplicated phrasing itself in at most 12 plain words. No clinical recap, second sentence, elaborate analogy, diagnosis affirmation, defensive explanation or generic shock. If you cannot establish the intended meaning, skip.' });
 
   // The submit_reply tool gives guaranteed-structured output; web_search (optional)
