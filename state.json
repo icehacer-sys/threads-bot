@@ -4609,6 +4609,15 @@
       },
       "publishedId": "18089218841397630",
       "confirmedPublished": true
+    },
+    "comment:17907689715509461": {
+      "creationId": "17889648897614054",
+      "createdAt": "2026-09-16T21:52:39.083Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Fair clinical reasoning. Those absent findings do support a soft-tissue trajectory and the lungs look clear.",
+        "reply_to_id": "17907689715509461"
+      }
     }
   },
   "repliedCommentIds": [
@@ -14004,6 +14013,6 @@
   },
   "spend": {
     "date": "2026-09-16",
-    "usd": 0.5572207000000002
+    "usd": 0.5833014000000003
   }
 }
