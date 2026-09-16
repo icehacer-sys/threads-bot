@@ -4584,7 +4584,9 @@
         "media_type": "TEXT",
         "text": "The marinating step was definitely skipped here.",
         "reply_to_id": "18105339194093229"
-      }
+      },
+      "publishedId": "18094427186550268",
+      "confirmedPublished": true
     }
   },
   "repliedCommentIds": [
