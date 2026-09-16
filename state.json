@@ -4397,7 +4397,9 @@
         "media_type": "TEXT",
         "text": "That rod really committed to the bit.",
         "reply_to_id": "18103801565193817"
-      }
+      },
+      "publishedId": "18099798143571875",
+      "confirmedPublished": true
     }
   },
   "repliedCommentIds": [
