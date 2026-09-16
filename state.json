@@ -4320,7 +4320,9 @@
         "media_type": "TEXT",
         "text": "That's the one.",
         "reply_to_id": "18112994338965688"
-      }
+      },
+      "publishedId": "18007375163776006",
+      "confirmedPublished": true
     }
   },
   "repliedCommentIds": [
