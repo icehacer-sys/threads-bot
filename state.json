@@ -4232,7 +4232,9 @@
         "media_type": "TEXT",
         "text": "Wrong kind of heart attack entirely.",
         "reply_to_id": "18122455118510489"
-      }
+      },
+      "publishedId": "17988297360111217",
+      "confirmedPublished": true
     }
   },
   "repliedCommentIds": [
