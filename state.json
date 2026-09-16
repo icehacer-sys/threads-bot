@@ -3522,7 +3522,9 @@
         "media_type": "TEXT",
         "text": "Herman's been dead for years but still making an appearance.",
         "reply_to_id": "18117141697979540"
-      }
+      },
+      "publishedId": "18150126532541875",
+      "confirmedPublished": true
     }
   },
   "repliedCommentIds": [
