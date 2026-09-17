@@ -5265,6 +5265,15 @@
       },
       "publishedId": "18146763418505024",
       "confirmedPublished": true
+    },
+    "comment:17971873398139347": {
+      "creationId": "17889782523614054",
+      "createdAt": "2026-09-17T20:06:38.084Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Spot on. Duodenal atresia means the duodenum never formed properly so nothing gets through and both the stomach and proximal duodenum fill with gas.",
+        "reply_to_id": "17971873398139347"
+      }
     }
   },
   "repliedCommentIds": [
@@ -13707,7 +13716,8 @@
     "18122053531866303",
     "17868736860645139",
     "18176740624442536",
-    "18370141531300358"
+    "18370141531300358",
+    "18128283157757754"
   ],
   "answeredPostIds": [
     "18395606890093068"
@@ -13819,11 +13829,11 @@
     "18121475662898455": 27,
     "18115279912989977": 54,
     "18146529700504840": 95,
-    "18110480207174403": 12
+    "18110480207174403": 13
   },
   "daily": {
     "date": "2026-09-17",
-    "count": 12
+    "count": 13
   },
   "pinnedResolved": {
     "DaTTCIwoAw7": "18014812820883466"
@@ -14739,6 +14749,6 @@
   },
   "spend": {
     "date": "2026-09-17",
-    "usd": 0.1731311
+    "usd": 0.175606
   }
 }
