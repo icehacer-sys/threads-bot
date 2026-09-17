@@ -5049,6 +5049,15 @@
       },
       "publishedId": "17922944973200706",
       "confirmedPublished": true
+    },
+    "comment:18141202486581483": {
+      "creationId": "17889665889614054",
+      "createdAt": "2026-09-17T01:41:04.099Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "A rod traversing the chest will mess with a lot of landmarks on a flat AP view so \"unusual aortic arch or massive impalement\" is a reasonable diagnostic fork to be standing at.",
+        "reply_to_id": "18141202486581483"
+      }
     }
   },
   "repliedCommentIds": [
@@ -14495,6 +14504,6 @@
   },
   "spend": {
     "date": "2026-09-16",
-    "usd": 0.9973130000000002
+    "usd": 1.0588149000000002
   }
 }
