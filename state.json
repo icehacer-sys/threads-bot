@@ -5353,6 +5353,15 @@
       },
       "publishedId": "18111004007132257",
       "confirmedPublished": true
+    },
+    "comment:18226101493335166": {
+      "creationId": "17889786183614054",
+      "createdAt": "2026-09-17T20:55:23.165Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "That's it. Stomach and proximal duodenum trapped behind the obstruction.",
+        "reply_to_id": "18226101493335166"
+      }
     }
   },
   "repliedCommentIds": [
@@ -14837,6 +14846,6 @@
   },
   "spend": {
     "date": "2026-09-17",
-    "usd": 0.2488341
+    "usd": 0.25136200000000003
   }
 }
