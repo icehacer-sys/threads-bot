@@ -5082,6 +5082,15 @@
       },
       "publishedId": "18016271909927923",
       "confirmedPublished": true
+    },
+    "comment:17869051662641775": {
+      "creationId": "17889675600614054",
+      "createdAt": "2026-09-17T03:12:56.460Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Straight to surgical planning because the rod itself tells you enough and moving the patient into a gantry with it in situ is a non-starter.",
+        "reply_to_id": "17869051662641775"
+      }
     }
   },
   "repliedCommentIds": [
@@ -14440,7 +14449,8 @@
     "17946737892298427",
     "18460155721190350",
     "17957513565250268",
-    "17877964335554532"
+    "17877964335554532",
+    "18229039411324481"
   ],
   "skipStrikes": {
     "17895266316520842": 1,
@@ -14531,6 +14541,6 @@
   },
   "spend": {
     "date": "2026-09-16",
-    "usd": 1.0645997000000003
+    "usd": 1.1615132000000001
   }
 }
