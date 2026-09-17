@@ -5320,6 +5320,15 @@
       },
       "publishedId": "17896731717671934",
       "confirmedPublished": true
+    },
+    "comment:18280637356294813": {
+      "creationId": "17889784866614054",
+      "createdAt": "2026-09-17T20:38:52.555Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "That's the gap between \"maybe it sorts itself out\" and 30 minutes later realizing it absolutely did not.",
+        "reply_to_id": "18280637356294813"
+      }
     }
   },
   "repliedCommentIds": [
@@ -14800,6 +14809,6 @@
   },
   "spend": {
     "date": "2026-09-17",
-    "usd": 0.2171688
+    "usd": 0.2204287
   }
 }
