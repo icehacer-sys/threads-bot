@@ -5405,7 +5405,9 @@
         "media_type": "TEXT",
         "text": "The ears came out inflated and angry",
         "reply_to_id": "18123525865672253"
-      }
+      },
+      "publishedId": "17938431111362270",
+      "confirmedPublished": true
     }
   },
   "repliedCommentIds": [
