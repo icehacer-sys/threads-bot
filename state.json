@@ -5364,6 +5364,15 @@
       },
       "publishedId": "18104045567337891",
       "confirmedPublished": true
+    },
+    "comment:18493625836097835": {
+      "creationId": "17889787584614054",
+      "createdAt": "2026-09-17T21:11:09.870Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "The bubbles here are stomach and proximal duodenum backed up behind a fixed obstruction rather than a twisted loop so volvulus is less likely. Duodenal atresia fits the picture better.",
+        "reply_to_id": "18493625836097835"
+      }
     }
   },
   "repliedCommentIds": [
@@ -14757,7 +14766,9 @@
     "18106084733610588",
     "18226852129329946",
     "18039399581647758",
-    "18143009434602724"
+    "18143009434602724",
+    "17907265506510468",
+    "18112197614111057"
   ],
   "skipStrikes": {
     "17895266316520842": 1,
@@ -14849,6 +14860,6 @@
   },
   "spend": {
     "date": "2026-09-17",
-    "usd": 0.25136200000000003
+    "usd": 0.2740581
   }
 }
