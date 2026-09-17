@@ -4983,6 +4983,15 @@
       },
       "publishedId": "18095941553431593",
       "confirmedPublished": true
+    },
+    "comment:18124988675513211": {
+      "creationId": "17889658992614054",
+      "createdAt": "2026-09-17T00:07:59.449Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "It's a metal rod but that knitting circle just keeps coming up.",
+        "reply_to_id": "18124988675513211"
+      }
     }
   },
   "repliedCommentIds": [
@@ -14419,6 +14428,6 @@
   },
   "spend": {
     "date": "2026-09-16",
-    "usd": 0.8808827000000001
+    "usd": 0.9604682000000001
   }
 }
