@@ -60,7 +60,8 @@
     "18080301248370515": "I believe an MRI for further work up is contraindicated.",
     "18025726040857489": "I'm no medical professional, but I'm gonna take a wild guess and say... uh... a really deep sliver?",
     "18095368508428758": "From this view, this looks like an artifact. I would normally guess that this was an autopsy case where someone tossed a foreign object found with the body in the body bag, but usually the quality would be worse, and we’d see zippers. So I think this is a simple case where the patient is supine and forgot she was holding a knitting needle.",
-    "18113261264050602": "This person is lucky AF. Lungs fully inflated, heart and spine appear intact  in this single view. I see lots of antibiotics and a couple of penrose drains in his future"
+    "18113261264050602": "This person is lucky AF. Lungs fully inflated, heart and spine appear intact  in this single view. I see lots of antibiotics and a couple of penrose drains in his future",
+    "18106084733610588": "I literally can't see any internal organs other than the stomach and gallbladder/liver?? I might be being dense though"
   },
   "ownerReviews": {
     "17937444630360450": "{\"postId\":\"18103023326210157\",\"reason\":\"owner review: personal medical concern\",\"commentText\":\"Little sister of my friend swalloved a coin of 1 fim. At hospital the family was advised to thoroughly keep an eye on her poops. So, the next day they found two 50 penny coins😀.\",\"username\":\"velitapiof\",\"queuedAt\":\"2026-09-10T20:21:59.741Z\",\"resolvedAt\":\"2026-09-10T20:36:02.929Z\",\"resolution\":\"Owner confirmed this is a completed personal story and deleted the inappropriate boundary reply. No clinical review is needed.\"}",
@@ -5116,6 +5117,15 @@
       },
       "publishedId": "17989409922022799",
       "confirmedPublished": true
+    },
+    "comment:18022478903864816": {
+      "creationId": "17889778854614054",
+      "createdAt": "2026-09-17T19:16:10.670Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "That gravestone had no idea it was being literal the whole time.",
+        "reply_to_id": "18022478903864816"
+      }
     }
   },
   "repliedCommentIds": [
@@ -13660,8 +13670,8 @@
     "18146529700504840": 95
   },
   "daily": {
-    "date": "2026-09-16",
-    "count": 146
+    "date": "2026-09-17",
+    "count": 0
   },
   "pinnedResolved": {
     "DaTTCIwoAw7": "18014812820883466"
@@ -14555,7 +14565,7 @@
     "17865730374636613": 1
   },
   "gifDaily": {
-    "date": "2026-09-16",
+    "date": "2026-09-17",
     "count": 0
   },
   "recentGifIds": [
@@ -14566,11 +14576,11 @@
   ],
   "promoPostCounts": {},
   "promoDaily": {
-    "date": "2026-09-16",
+    "date": "2026-09-17",
     "count": 0
   },
   "spend": {
-    "date": "2026-09-16",
-    "usd": 1.1869329000000002
+    "date": "2026-09-17",
+    "usd": 0.018000799999999997
   }
 }
