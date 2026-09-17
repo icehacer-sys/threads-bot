@@ -5287,6 +5287,15 @@
       },
       "publishedId": "18026027078906186",
       "confirmedPublished": true
+    },
+    "comment:17931579132142505": {
+      "creationId": "17889784113614054",
+      "createdAt": "2026-09-17T20:22:42.915Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "The cropped view makes it hard to confirm the distal bowel is completely gasless but a gasless abdomen below the double bubble is a classic supportive finding in duodenal atresia.",
+        "reply_to_id": "17931579132142505"
+      }
     }
   },
   "repliedCommentIds": [
@@ -14764,6 +14773,6 @@
   },
   "spend": {
     "date": "2026-09-17",
-    "usd": 0.1780999
+    "usd": 0.2041965
   }
 }
