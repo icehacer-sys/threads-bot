@@ -5317,7 +5317,9 @@
         "media_type": "TEXT",
         "text": "Straight call.",
         "reply_to_id": "18392386987164588"
-      }
+      },
+      "publishedId": "17896731717671934",
+      "confirmedPublished": true
     }
   },
   "repliedCommentIds": [
