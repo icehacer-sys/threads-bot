@@ -5375,6 +5375,15 @@
       },
       "publishedId": "18121909670489050",
       "confirmedPublished": true
+    },
+    "comment:18006180950985489": {
+      "creationId": "17889788661614054",
+      "createdAt": "2026-09-17T21:26:49.284Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "That would definitely be a first for the urology conference.",
+        "reply_to_id": "18006180950985489"
+      }
     }
   },
   "repliedCommentIds": [
@@ -14771,7 +14780,8 @@
     "18039399581647758",
     "18143009434602724",
     "17907265506510468",
-    "18112197614111057"
+    "18112197614111057",
+    "18094698782378020"
   ],
   "skipStrikes": {
     "17895266316520842": 1,
@@ -14863,6 +14873,6 @@
   },
   "spend": {
     "date": "2026-09-17",
-    "usd": 0.2740581
+    "usd": 0.2837758
   }
 }
