@@ -5408,6 +5408,15 @@
       },
       "publishedId": "17938431111362270",
       "confirmedPublished": true
+    },
+    "comment:17914289568261587": {
+      "creationId": "17889794892614054",
+      "createdAt": "2026-09-17T22:59:25.589Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "A celebratory toast right before the regret. Solid setup.",
+        "reply_to_id": "17914289568261587"
+      }
     }
   },
   "repliedCommentIds": [
@@ -14903,6 +14912,6 @@
   },
   "spend": {
     "date": "2026-09-17",
-    "usd": 0.3042921
+    "usd": 0.307545
   }
 }
