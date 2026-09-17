@@ -5254,6 +5254,15 @@
       },
       "publishedId": "18099351452636761",
       "confirmedPublished": true
+    },
+    "comment:18128283157757754": {
+      "creationId": "17889782499614054",
+      "createdAt": "2026-09-17T20:06:19.832Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Vin Diesel's whole philosophy but make it duodenal.",
+        "reply_to_id": "18128283157757754"
+      }
     }
   },
   "repliedCommentIds": [
@@ -14728,6 +14737,6 @@
   },
   "spend": {
     "date": "2026-09-17",
-    "usd": 0.17033020000000001
+    "usd": 0.1731311
   }
 }
