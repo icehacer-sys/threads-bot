@@ -5298,6 +5298,15 @@
       },
       "publishedId": "18112738315840047",
       "confirmedPublished": true
+    },
+    "comment:18141383200611437": {
+      "creationId": "17889784152614054",
+      "createdAt": "2026-09-17T20:23:07.907Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Knowing what's coming before the history even loads must make for a heavy few seconds at the lightbox.",
+        "reply_to_id": "18141383200611437"
+      }
     }
   },
   "repliedCommentIds": [
@@ -13743,7 +13752,8 @@
     "18370141531300358",
     "18128283157757754",
     "17971873398139347",
-    "17900252751604895"
+    "17900252751604895",
+    "17931579132142505"
   ],
   "answeredPostIds": [
     "18395606890093068"
@@ -13855,11 +13865,11 @@
     "18121475662898455": 27,
     "18115279912989977": 54,
     "18146529700504840": 95,
-    "18110480207174403": 15
+    "18110480207174403": 16
   },
   "daily": {
     "date": "2026-09-17",
-    "count": 15
+    "count": 16
   },
   "pinnedResolved": {
     "DaTTCIwoAw7": "18014812820883466"
@@ -14775,6 +14785,6 @@
   },
   "spend": {
     "date": "2026-09-17",
-    "usd": 0.2041965
+    "usd": 0.2148369
   }
 }
