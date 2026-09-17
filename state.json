@@ -5013,7 +5013,9 @@
         "media_type": "TEXT",
         "text": "Not a whale but definitely a harpooning that nobody signed up for.",
         "reply_to_id": "17916528363451266"
-      }
+      },
+      "publishedId": "17885044995486263",
+      "confirmedPublished": true
     }
   },
   "repliedCommentIds": [
