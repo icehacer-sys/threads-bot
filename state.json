@@ -5104,6 +5104,15 @@
       },
       "publishedId": "18039180737831098",
       "confirmedPublished": true
+    },
+    "comment:18432453532177956": {
+      "creationId": "17889686679614054",
+      "createdAt": "2026-09-17T05:14:46.350Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Through the heart specifically is a very committed approach to patient care.",
+        "reply_to_id": "18432453532177956"
+      }
     }
   },
   "repliedCommentIds": [
@@ -14557,6 +14566,6 @@
   },
   "spend": {
     "date": "2026-09-16",
-    "usd": 1.1841110000000001
+    "usd": 1.1869329000000002
   }
 }
