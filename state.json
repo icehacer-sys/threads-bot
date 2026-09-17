@@ -5229,7 +5229,9 @@
         "media_type": "TEXT",
         "text": "That's one way to ruin a first meal.",
         "reply_to_id": "17868736860645139"
-      }
+      },
+      "publishedId": "18150239497536765",
+      "confirmedPublished": true
     }
   },
   "repliedCommentIds": [
