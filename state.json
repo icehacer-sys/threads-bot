@@ -5046,7 +5046,9 @@
         "media_type": "TEXT",
         "text": "That pun landed harder than the bucket did.",
         "reply_to_id": "18113821960817396"
-      }
+      },
+      "publishedId": "17922944973200706",
+      "confirmedPublished": true
     }
   },
   "repliedCommentIds": [
