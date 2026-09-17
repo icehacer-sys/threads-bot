@@ -5419,6 +5419,15 @@
       },
       "publishedId": "18131376103676078",
       "confirmedPublished": true
+    },
+    "comment:18110378870128522": {
+      "creationId": "17889798639614054",
+      "createdAt": "2026-09-17T23:45:16.308Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "More like the duodenum refused to open the bottle. First feed went straight into the trap and stayed there.",
+        "reply_to_id": "18110378870128522"
+      }
     }
   },
   "repliedCommentIds": [
@@ -14916,6 +14925,6 @@
   },
   "spend": {
     "date": "2026-09-17",
-    "usd": 0.3138898
+    "usd": 0.3201326
   }
 }
