@@ -5152,7 +5152,9 @@
         "media_type": "TEXT",
         "text": "The caption writes itself.",
         "reply_to_id": "18120319687936854"
-      }
+      },
+      "publishedId": "18117515767942503",
+      "confirmedPublished": true
     }
   },
   "repliedCommentIds": [
