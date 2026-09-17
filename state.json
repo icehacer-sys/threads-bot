@@ -5071,6 +5071,15 @@
       },
       "publishedId": "18081974906686595",
       "confirmedPublished": true
+    },
+    "comment:18132998671654807": {
+      "creationId": "17889668838614054",
+      "createdAt": "2026-09-17T02:11:50.730Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "The apprenticeship really fell through somewhere between the training montage and the actual performance.",
+        "reply_to_id": "18132998671654807"
+      }
     }
   },
   "repliedCommentIds": [
@@ -14519,6 +14528,6 @@
   },
   "spend": {
     "date": "2026-09-16",
-    "usd": 1.0617638000000003
+    "usd": 1.0645997000000003
   }
 }
