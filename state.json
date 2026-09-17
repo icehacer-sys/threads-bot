@@ -5232,6 +5232,15 @@
       },
       "publishedId": "18150239497536765",
       "confirmedPublished": true
+    },
+    "comment:18176740624442536": {
+      "creationId": "17889781188614054",
+      "createdAt": "2026-09-17T19:50:20.747Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "By the time you're scrubbing in it's a very different kind of read.",
+        "reply_to_id": "18176740624442536"
+      }
     }
   },
   "repliedCommentIds": [
@@ -14704,6 +14713,6 @@
   },
   "spend": {
     "date": "2026-09-17",
-    "usd": 0.15407
+    "usd": 0.1568449
   }
 }
