@@ -83,7 +83,8 @@
     "17953846029251553": "{\"postId\":\"18121475662898455\",\"reason\":\"Owner review: possible image or anatomy inconsistency. Commenter reports duplicate anatomy (two right elbows). Cannot confirm or invent an explanation without verified facts about the imaging projection and patient anatomy. Holds all diagnosis and medical replies pending review.\",\"commentText\":\"Mfer’s got two right elbows.\",\"username\":\"mahoneyland_usa\",\"queuedAt\":\"2026-09-14T22:54:49.917Z\"}",
     "18129542378495141": "{\"postId\":\"18115279912989977\",\"reason\":\"Diagnosis guess made before reveal is public. Hold for owner review after the answer is disclosed.\",\"commentText\":\"Yikes! That worm has been there long enough to calcify.\",\"username\":\"kronanfla\",\"queuedAt\":\"2026-09-15T19:17:26.789Z\"}",
     "17883823203686062": "{\"postId\":\"18146529700504840\",\"reason\":\"The commenter is making detailed anatomical claims about foreign body trajectory and cavity involvement before the reveal is public. Confirming, correcting or elaborating on these observations could expose or hint at the diagnosis. Hold for owner review.\",\"commentText\":\"The X-ray was taken in the supine position. By all appearances, the visible foreign body passed through the soft tissues of the front chest wall, outside the thoracic cavity.\",\"username\":\"mihailoas2000\",\"queuedAt\":\"2026-09-16T19:16:38.084Z\"}",
-    "17873419818635101": "{\"postId\":\"18146529700504840\",\"reason\":\"Medical question that could expose the diagnosis. Held for owner review until reveal is public.\",\"commentText\":\"The lack of apparent rib traum (not even displacement/deflection) and clarity of the lung parenchyma w/o ptx has me really wanting a lateral\",\"username\":\"doc.cadence\",\"queuedAt\":\"2026-09-16T19:17:03.498Z\"}"
+    "17873419818635101": "{\"postId\":\"18146529700504840\",\"reason\":\"Medical question that could expose the diagnosis. Held for owner review until reveal is public.\",\"commentText\":\"The lack of apparent rib traum (not even displacement/deflection) and clarity of the lung parenchyma w/o ptx has me really wanting a lateral\",\"username\":\"doc.cadence\",\"queuedAt\":\"2026-09-16T19:17:03.498Z\"}",
+    "18425341354146985": "{\"postId\":\"18146529700504840\",\"reason\":\"owner response: image provenance question\",\"commentText\":\"Is this an AI generated X-ray?\",\"username\":\"sebastian_roser\",\"queuedAt\":\"2026-09-17T06:45:31.563Z\"}"
   },
   "concernAcknowledgments": {
     "[\"18121475662898455\",\"berit069\",\"image\"]": "18142096432588199"
@@ -14478,7 +14479,8 @@
     "17957513565250268",
     "17877964335554532",
     "18229039411324481",
-    "18101613503255591"
+    "18101613503255591",
+    "18425341354146985"
   ],
   "skipStrikes": {
     "17895266316520842": 1,
