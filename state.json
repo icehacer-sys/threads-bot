@@ -5566,7 +5566,9 @@
         "media_type": "TEXT",
         "text": "The full-body maintenance plan.",
         "reply_to_id": "18128229136687805"
-      }
+      },
+      "publishedId": "18037251245836575",
+      "confirmedPublished": true
     }
   },
   "repliedCommentIds": [
