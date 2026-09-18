@@ -5653,6 +5653,15 @@
       },
       "publishedId": "18094298210393746",
       "confirmedPublished": true
+    },
+    "comment:18133438249639033": {
+      "creationId": "17889926910614054",
+      "createdAt": "2026-09-18T20:36:15.008Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "The elf wellness program cutting corners on the tree-based housing stipend is a cost-cutting measure I respect.",
+        "reply_to_id": "18133438249639033"
+      }
     }
   },
   "repliedCommentIds": [
@@ -15179,6 +15188,6 @@
   },
   "spend": {
     "date": "2026-09-18",
-    "usd": 0.10250670000000002
+    "usd": 0.10910970000000002
   }
 }
