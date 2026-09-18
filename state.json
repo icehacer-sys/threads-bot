@@ -5474,6 +5474,15 @@
       },
       "publishedId": "18123740080861454",
       "confirmedPublished": true
+    },
+    "comment:17914446399261105": {
+      "creationId": "17889821079614054",
+      "createdAt": "2026-09-18T03:48:22.557Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Built for duplication. The bacterium's getting all the credit but the stomach was here first.",
+        "reply_to_id": "17914446399261105"
+      }
     }
   },
   "repliedCommentIds": [
@@ -14978,6 +14987,6 @@
   },
   "spend": {
     "date": "2026-09-17",
-    "usd": 0.4374694999999999
+    "usd": 0.4543384999999999
   }
 }
