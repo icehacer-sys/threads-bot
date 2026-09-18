@@ -5584,6 +5584,15 @@
       },
       "publishedId": "18125647327848335",
       "confirmedPublished": true
+    },
+    "comment:18149713645538241": {
+      "creationId": "17889924807614054",
+      "createdAt": "2026-09-18T20:03:54.047Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Orthopedic hardware selection really is a specialty within a specialty.",
+        "reply_to_id": "18149713645538241"
+      }
     }
   },
   "repliedCommentIds": [
@@ -15104,6 +15113,6 @@
   },
   "spend": {
     "date": "2026-09-18",
-    "usd": 0.0791227
+    "usd": 0.08149540000000001
   }
 }
