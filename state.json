@@ -5664,6 +5664,15 @@
       },
       "publishedId": "18207551371371285",
       "confirmedPublished": true
+    },
+    "comment:18022138487935387": {
+      "creationId": "17889927009614054",
+      "createdAt": "2026-09-18T20:36:40.632Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "You've got the whole story there and nailed the crystals-shedding-and-flaring part that makes this one hurt so much.",
+        "reply_to_id": "18022138487935387"
+      }
     }
   },
   "repliedCommentIds": [
@@ -14141,7 +14150,8 @@
     "17896188960393974",
     "18141596707518187",
     "18134464186640982",
-    "18460828234141702"
+    "18460828234141702",
+    "18133438249639033"
   ],
   "answeredPostIds": [
     "18395606890093068"
@@ -14254,11 +14264,11 @@
     "18115279912989977": 54,
     "18146529700504840": 95,
     "18110480207174403": 35,
-    "17958262674213428": 12
+    "17958262674213428": 13
   },
   "daily": {
     "date": "2026-09-18",
-    "count": 12
+    "count": 13
   },
   "pinnedResolved": {
     "DaTTCIwoAw7": "18014812820883466"
@@ -15190,6 +15200,6 @@
   },
   "spend": {
     "date": "2026-09-18",
-    "usd": 0.10910970000000002
+    "usd": 0.11518310000000001
   }
 }
