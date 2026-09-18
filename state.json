@@ -5917,6 +5917,15 @@
       },
       "publishedId": "18207178135317844",
       "confirmedPublished": true
+    },
+    "comment:18136646242715899": {
+      "creationId": "17889931722614054",
+      "createdAt": "2026-09-18T21:46:51.835Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Unlike the calcium deposits that just invited themselves to stay.",
+        "reply_to_id": "18136646242715899"
+      }
     }
   },
   "repliedCommentIds": [
@@ -15381,7 +15390,8 @@
     "18072284024489887",
     "18628908058013039",
     "17948028261296317",
-    "17892809346610618"
+    "17892809346610618",
+    "18630233176063668"
   ],
   "skipStrikes": {
     "17895266316520842": 1,
@@ -15476,6 +15486,6 @@
   },
   "spend": {
     "date": "2026-09-18",
-    "usd": 0.37264709999999984
+    "usd": 0.38235569999999985
   }
 }
