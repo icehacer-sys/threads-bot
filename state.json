@@ -68,7 +68,8 @@
     "18122053531866303": "2 Fast 2 Stomach",
     "17868736860645139": "Wandering breast implant syndrome",
     "18147097432477202": "DJD or calicifed meniscus?",
-    "18077270741709301": "Patella disappeario?"
+    "18077270741709301": "Patella disappeario?",
+    "18124942255864729": "Calcium Pyrophosphate Deposition Disease... Make much ouch"
   },
   "ownerReviews": {
     "17937444630360450": "{\"postId\":\"18103023326210157\",\"reason\":\"owner review: personal medical concern\",\"commentText\":\"Little sister of my friend swalloved a coin of 1 fim. At hospital the family was advised to thoroughly keep an eye on her poops. So, the next day they found two 50 penny coins😀.\",\"username\":\"velitapiof\",\"queuedAt\":\"2026-09-10T20:21:59.741Z\",\"resolvedAt\":\"2026-09-10T20:36:02.929Z\",\"resolution\":\"Owner confirmed this is a completed personal story and deleted the inappropriate boundary reply. No clinical review is needed.\"}",
@@ -13997,7 +13998,8 @@
     "17914446399261105",
     "18175045939432291",
     "18127644829826853",
-    "18461339155139546"
+    "18461339155139546",
+    "17966065866174761"
   ],
   "answeredPostIds": [
     "18395606890093068"
@@ -14110,11 +14112,11 @@
     "18115279912989977": 54,
     "18146529700504840": 95,
     "18110480207174403": 35,
-    "17958262674213428": 1
+    "17958262674213428": 2
   },
   "daily": {
     "date": "2026-09-18",
-    "count": 1
+    "count": 2
   },
   "pinnedResolved": {
     "DaTTCIwoAw7": "18014812820883466"
@@ -14950,7 +14952,10 @@
     "18108491321183636",
     "18101916566252101",
     "18106601924582441",
-    "18047944838606260"
+    "18047944838606260",
+    "18072346769719644",
+    "18150220042557114",
+    "17907167358550100"
   ],
   "skipStrikes": {
     "17895266316520842": 1,
@@ -15042,6 +15047,6 @@
   },
   "spend": {
     "date": "2026-09-18",
-    "usd": 0.022945800000000002
+    "usd": 0.030957600000000002
   }
 }
