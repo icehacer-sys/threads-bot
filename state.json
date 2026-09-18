@@ -5975,6 +5975,15 @@
       },
       "publishedId": "17967493476173332",
       "confirmedPublished": true
+    },
+    "comment:18382575454231719": {
+      "creationId": "17889938577614054",
+      "createdAt": "2026-09-18T23:34:37.149Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Calcification is exactly what you're seeing and the spelling is fine too. Those white lines sitting between the bones are calcium deposits in the cartilage and menisci which is what pushed this toward CPPD rather than bursitis.",
+        "reply_to_id": "18382575454231719"
+      }
     }
   },
   "repliedCommentIds": [
@@ -14480,7 +14489,8 @@
     "18136646242715899",
     "18099016658455874",
     "18149026495531511",
-    "18360388201223030"
+    "18360388201223030",
+    "18434761864176635"
   ],
   "answeredPostIds": [
     "18395606890093068"
@@ -14593,11 +14603,11 @@
     "18115279912989977": 54,
     "18146529700504840": 95,
     "18110480207174403": 35,
-    "17958262674213428": 40
+    "17958262674213428": 41
   },
   "daily": {
     "date": "2026-09-18",
-    "count": 40
+    "count": 41
   },
   "pinnedResolved": {
     "DaTTCIwoAw7": "18014812820883466"
@@ -15541,6 +15551,6 @@
   },
   "spend": {
     "date": "2026-09-18",
-    "usd": 0.4976734999999999
+    "usd": 0.5215242999999998
   }
 }
