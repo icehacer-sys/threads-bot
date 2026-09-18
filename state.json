@@ -73,7 +73,9 @@
     "18121040327491559": "Wearing down of bones with the fragments collecting/ merging with meniscus. ? Arthritis caused.",
     "17911510200281698": "Worn out silent blocks",
     "18628908058013039": "Arthritis",
-    "18022138487935387": "??Acute Calcium Pyrophosphate aka CPP, Crystal Arthritis, aka Pseudogout-Xrays showing Chondrocalcinosis- is linear calcification of Meniscal Cartilage that is seen in pts with CPP. Knee is most common joint. When CPP crystals are deposited in cartilage for many years, they can suddenly shed into knee joint & cause a severe inflammatory response, causing a painful, swollen & hot knee.Tx:Relieve pain & inflammation thru use of NSAIDS,Corticosteroids, Colchicine, Joint Aspiration, Rest & Ice."
+    "18022138487935387": "??Acute Calcium Pyrophosphate aka CPP, Crystal Arthritis, aka Pseudogout-Xrays showing Chondrocalcinosis- is linear calcification of Meniscal Cartilage that is seen in pts with CPP. Knee is most common joint. When CPP crystals are deposited in cartilage for many years, they can suddenly shed into knee joint & cause a severe inflammatory response, causing a painful, swollen & hot knee.Tx:Relieve pain & inflammation thru use of NSAIDS,Corticosteroids, Colchicine, Joint Aspiration, Rest & Ice.",
+    "18555082552075009": "Smiley knee syndrome? 🙈🤷🏼‍♀️",
+    "17910258348537863": "Rheumatoid?"
   },
   "ownerReviews": {
     "17937444630360450": "{\"postId\":\"18103023326210157\",\"reason\":\"owner review: personal medical concern\",\"commentText\":\"Little sister of my friend swalloved a coin of 1 fim. At hospital the family was advised to thoroughly keep an eye on her poops. So, the next day they found two 50 penny coins😀.\",\"username\":\"velitapiof\",\"queuedAt\":\"2026-09-10T20:21:59.741Z\",\"resolvedAt\":\"2026-09-10T20:36:02.929Z\",\"resolution\":\"Owner confirmed this is a completed personal story and deleted the inappropriate boundary reply. No clinical review is needed.\"}",
@@ -5569,6 +5571,15 @@
       },
       "publishedId": "18037251245836575",
       "confirmedPublished": true
+    },
+    "comment:18338199490285951": {
+      "creationId": "17889923205614054",
+      "createdAt": "2026-09-18T19:48:25.552Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Still waiting on courage to guess this one.",
+        "reply_to_id": "18338199490285951"
+      }
     }
   },
   "repliedCommentIds": [
@@ -14038,7 +14049,8 @@
     "18461339155139546",
     "17966065866174761",
     "17914398210262564",
-    "18061780844785949"
+    "18061780844785949",
+    "18128229136687805"
   ],
   "answeredPostIds": [
     "18395606890093068"
@@ -14151,11 +14163,11 @@
     "18115279912989977": 54,
     "18146529700504840": 95,
     "18110480207174403": 35,
-    "17958262674213428": 4
+    "17958262674213428": 5
   },
   "daily": {
     "date": "2026-09-18",
-    "count": 4
+    "count": 5
   },
   "pinnedResolved": {
     "DaTTCIwoAw7": "18014812820883466"
@@ -15061,7 +15073,8 @@
     "18022496216919816": 1,
     "18153983578516947": 1,
     "17952318432254029": 1,
-    "18023478344871153": 1
+    "18023478344871153": 1,
+    "18491129545097823": 1
   },
   "gifPostCounts": {
     "18432085978123193": 1,
@@ -15086,6 +15099,6 @@
   },
   "spend": {
     "date": "2026-09-18",
-    "usd": 0.045819500000000006
+    "usd": 0.0752753
   }
 }
