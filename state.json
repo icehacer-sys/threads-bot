@@ -5719,6 +5719,15 @@
       },
       "publishedId": "18072073208554657",
       "confirmedPublished": true
+    },
+    "comment:17910258348537863": {
+      "creationId": "17889927330614054",
+      "createdAt": "2026-09-18T20:39:29.602Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "RA can definitely cause a hot swollen knee but it wouldn't give you those bright calcified lines in the cartilage. That pattern points to CPPD / chondrocalcinosis.",
+        "reply_to_id": "17910258348537863"
+      }
     }
   },
   "repliedCommentIds": [
@@ -14201,7 +14210,8 @@
     "18022138487935387",
     "18121040327491559",
     "18147097432477202",
-    "18077270741709301"
+    "18077270741709301",
+    "18332936506273398"
   ],
   "answeredPostIds": [
     "18395606890093068"
@@ -14314,11 +14324,11 @@
     "18115279912989977": 54,
     "18146529700504840": 95,
     "18110480207174403": 35,
-    "17958262674213428": 17
+    "17958262674213428": 18
   },
   "daily": {
     "date": "2026-09-18",
-    "count": 17
+    "count": 18
   },
   "pinnedResolved": {
     "DaTTCIwoAw7": "18014812820883466"
@@ -15252,6 +15262,6 @@
   },
   "spend": {
     "date": "2026-09-18",
-    "usd": 0.24322549999999996
+    "usd": 0.25805729999999993
   }
 }
