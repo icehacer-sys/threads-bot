@@ -78,7 +78,9 @@
     "17910258348537863": "Rheumatoid?",
     "18141892717590515": "Calcified menisci",
     "17881652814689399": "Arthritis",
-    "17863511571677627": "Pseudogout"
+    "17863511571677627": "Pseudogout",
+    "18158466550508823": "Inflamed cartilage",
+    "18072284024489887": "Inflamed cartilage"
   },
   "ownerReviews": {
     "17937444630360450": "{\"postId\":\"18103023326210157\",\"reason\":\"owner review: personal medical concern\",\"commentText\":\"Little sister of my friend swalloved a coin of 1 fim. At hospital the family was advised to thoroughly keep an eye on her poops. So, the next day they found two 50 penny coins😀.\",\"username\":\"velitapiof\",\"queuedAt\":\"2026-09-10T20:21:59.741Z\",\"resolvedAt\":\"2026-09-10T20:36:02.929Z\",\"resolution\":\"Owner confirmed this is a completed personal story and deleted the inappropriate boundary reply. No clinical review is needed.\"}",
@@ -14127,7 +14129,8 @@
     "18491129545097823",
     "17896188960393974",
     "18141596707518187",
-    "18134464186640982"
+    "18134464186640982",
+    "18460828234141702"
   ],
   "answeredPostIds": [
     "18395606890093068"
@@ -14240,11 +14243,11 @@
     "18115279912989977": 54,
     "18146529700504840": 95,
     "18110480207174403": 35,
-    "17958262674213428": 11
+    "17958262674213428": 12
   },
   "daily": {
     "date": "2026-09-18",
-    "count": 11
+    "count": 12
   },
   "pinnedResolved": {
     "DaTTCIwoAw7": "18014812820883466"
@@ -15176,6 +15179,6 @@
   },
   "spend": {
     "date": "2026-09-18",
-    "usd": 0.09838730000000001
+    "usd": 0.10250670000000002
   }
 }
