@@ -5637,7 +5637,9 @@
         "media_type": "TEXT",
         "text": "Now it's just a game of hot and cold with the radiologist.",
         "reply_to_id": "18134464186640982"
-      }
+      },
+      "publishedId": "17959868862232650",
+      "confirmedPublished": true
     }
   },
   "repliedCommentIds": [
