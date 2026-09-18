@@ -5686,6 +5686,15 @@
       },
       "publishedId": "18114014309007177",
       "confirmedPublished": true
+    },
+    "comment:18147097432477202": {
+      "creationId": "17889927153614054",
+      "createdAt": "2026-09-18T20:38:14.743Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Those bright lines are calcium crystal deposits in the cartilage and menisci so this fits chondrocalcinosis / CPPD rather than DJD which typically shows joint space narrowing and osteophytes without that calcification pattern.",
+        "reply_to_id": "18147097432477202"
+      }
     }
   },
   "repliedCommentIds": [
@@ -14165,7 +14174,8 @@
     "18134464186640982",
     "18460828234141702",
     "18133438249639033",
-    "18022138487935387"
+    "18022138487935387",
+    "18121040327491559"
   ],
   "answeredPostIds": [
     "18395606890093068"
@@ -14278,11 +14288,11 @@
     "18115279912989977": 54,
     "18146529700504840": 95,
     "18110480207174403": 35,
-    "17958262674213428": 14
+    "17958262674213428": 15
   },
   "daily": {
     "date": "2026-09-18",
-    "count": 14
+    "count": 15
   },
   "pinnedResolved": {
     "DaTTCIwoAw7": "18014812820883466"
@@ -15121,7 +15131,9 @@
     "18047944838606260",
     "18072346769719644",
     "18150220042557114",
-    "17907167358550100"
+    "17907167358550100",
+    "18143738245541616",
+    "18555082552075009"
   ],
   "skipStrikes": {
     "17895266316520842": 1,
@@ -15214,6 +15226,6 @@
   },
   "spend": {
     "date": "2026-09-18",
-    "usd": 0.1987871
+    "usd": 0.23476789999999997
   }
 }
