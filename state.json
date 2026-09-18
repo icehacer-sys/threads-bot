@@ -5430,6 +5430,15 @@
       },
       "publishedId": "17909652489530589",
       "confirmedPublished": true
+    },
+    "comment:18116092387962293": {
+      "creationId": "17889801312614054",
+      "createdAt": "2026-09-18T00:15:51.688Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Fair warning. That particular spirit doesn't let anything pass through it either.",
+        "reply_to_id": "18116092387962293"
+      }
     }
   },
   "repliedCommentIds": [
@@ -14928,6 +14937,6 @@
   },
   "spend": {
     "date": "2026-09-17",
-    "usd": 0.3201326
+    "usd": 0.32344049999999996
   }
 }
