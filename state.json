@@ -5818,6 +5818,15 @@
       },
       "publishedId": "17886177348477421",
       "confirmedPublished": true
+    },
+    "comment:18140164090610811": {
+      "creationId": "17889928503614054",
+      "createdAt": "2026-09-18T20:57:53.086Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Lightening holes would definitely drop the load rating but I think this knee needs a full structural audit before we start drilling. Puppies are never a wrong call though.",
+        "reply_to_id": "18140164090610811"
+      }
     }
   },
   "repliedCommentIds": [
@@ -15339,7 +15348,8 @@
     "18153983578516947": 1,
     "17952318432254029": 1,
     "18023478344871153": 1,
-    "18491129545097823": 1
+    "18491129545097823": 1,
+    "18108233306169695": 1
   },
   "gifPostCounts": {
     "18432085978123193": 1,
@@ -15364,6 +15374,6 @@
   },
   "spend": {
     "date": "2026-09-18",
-    "usd": 0.31765469999999996
+    "usd": 0.32390509999999995
   }
 }
