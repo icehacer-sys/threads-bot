@@ -5452,6 +5452,15 @@
       },
       "publishedId": "18446928595125675",
       "confirmedPublished": true
+    },
+    "comment:18142990198600178": {
+      "creationId": "17889803667614054",
+      "createdAt": "2026-09-18T00:46:40.466Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "The Klingon constitution is no match for a duodenal atresia. That blockage doesn't care how many livers you brought to the fight.",
+        "reply_to_id": "18142990198600178"
+      }
     }
   },
   "repliedCommentIds": [
@@ -14952,6 +14961,6 @@
   },
   "spend": {
     "date": "2026-09-17",
-    "usd": 0.32641839999999994
+    "usd": 0.3293402999999999
   }
 }
