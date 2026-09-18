@@ -104,10 +104,12 @@
     "18129542378495141": "{\"postId\":\"18115279912989977\",\"reason\":\"Diagnosis guess made before reveal is public. Hold for owner review after the answer is disclosed.\",\"commentText\":\"Yikes! That worm has been there long enough to calcify.\",\"username\":\"kronanfla\",\"queuedAt\":\"2026-09-15T19:17:26.789Z\"}",
     "17883823203686062": "{\"postId\":\"18146529700504840\",\"reason\":\"The commenter is making detailed anatomical claims about foreign body trajectory and cavity involvement before the reveal is public. Confirming, correcting or elaborating on these observations could expose or hint at the diagnosis. Hold for owner review.\",\"commentText\":\"The X-ray was taken in the supine position. By all appearances, the visible foreign body passed through the soft tissues of the front chest wall, outside the thoracic cavity.\",\"username\":\"mihailoas2000\",\"queuedAt\":\"2026-09-16T19:16:38.084Z\"}",
     "17873419818635101": "{\"postId\":\"18146529700504840\",\"reason\":\"Medical question that could expose the diagnosis. Held for owner review until reveal is public.\",\"commentText\":\"The lack of apparent rib traum (not even displacement/deflection) and clarity of the lung parenchyma w/o ptx has me really wanting a lateral\",\"username\":\"doc.cadence\",\"queuedAt\":\"2026-09-16T19:17:03.498Z\"}",
-    "18425341354146985": "{\"postId\":\"18146529700504840\",\"reason\":\"owner response: image provenance question\",\"commentText\":\"Is this an AI generated X-ray?\",\"username\":\"sebastian_roser\",\"queuedAt\":\"2026-09-17T06:45:31.563Z\"}"
+    "18425341354146985": "{\"postId\":\"18146529700504840\",\"reason\":\"owner response: image provenance question\",\"commentText\":\"Is this an AI generated X-ray?\",\"username\":\"sebastian_roser\",\"queuedAt\":\"2026-09-17T06:45:31.563Z\"}",
+    "18099016658455874": "{\"postId\":\"17958262674213428\",\"reason\":\"owner review: personal medical concern\",\"commentText\":\"Can I share an image I own?\\nI think this is an osteophyte that broke from the spine and is sitting on top of the liver.\",\"username\":\"malatero1\",\"queuedAt\":\"2026-09-18T22:02:17.298Z\"}"
   },
   "concernAcknowledgments": {
-    "[\"18121475662898455\",\"berit069\",\"image\"]": "18142096432588199"
+    "[\"18121475662898455\",\"berit069\",\"image\"]": "18142096432588199",
+    "[\"17958262674213428\",\"malatero1\",\"personal\"]": "18099016658455874"
   },
   "publications": {
     "comment:18366808555245367": {
@@ -5928,6 +5930,15 @@
       },
       "publishedId": "17908822647537612",
       "confirmedPublished": true
+    },
+    "comment:18099016658455874": {
+      "creationId": "17889932916614054",
+      "createdAt": "2026-09-18T22:02:19.325Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Personal medical advice needs an assessment by a clinician who knows your history.",
+        "reply_to_id": "18099016658455874"
+      }
     }
   },
   "repliedCommentIds": [
@@ -15489,6 +15500,6 @@
   },
   "spend": {
     "date": "2026-09-18",
-    "usd": 0.3855398999999999
+    "usd": 0.3895320999999999
   }
 }
