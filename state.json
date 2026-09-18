@@ -105,7 +105,8 @@
     "17883823203686062": "{\"postId\":\"18146529700504840\",\"reason\":\"The commenter is making detailed anatomical claims about foreign body trajectory and cavity involvement before the reveal is public. Confirming, correcting or elaborating on these observations could expose or hint at the diagnosis. Hold for owner review.\",\"commentText\":\"The X-ray was taken in the supine position. By all appearances, the visible foreign body passed through the soft tissues of the front chest wall, outside the thoracic cavity.\",\"username\":\"mihailoas2000\",\"queuedAt\":\"2026-09-16T19:16:38.084Z\"}",
     "17873419818635101": "{\"postId\":\"18146529700504840\",\"reason\":\"Medical question that could expose the diagnosis. Held for owner review until reveal is public.\",\"commentText\":\"The lack of apparent rib traum (not even displacement/deflection) and clarity of the lung parenchyma w/o ptx has me really wanting a lateral\",\"username\":\"doc.cadence\",\"queuedAt\":\"2026-09-16T19:17:03.498Z\"}",
     "18425341354146985": "{\"postId\":\"18146529700504840\",\"reason\":\"owner response: image provenance question\",\"commentText\":\"Is this an AI generated X-ray?\",\"username\":\"sebastian_roser\",\"queuedAt\":\"2026-09-17T06:45:31.563Z\"}",
-    "18099016658455874": "{\"postId\":\"17958262674213428\",\"reason\":\"owner review: personal medical concern\",\"commentText\":\"Can I share an image I own?\\nI think this is an osteophyte that broke from the spine and is sitting on top of the liver.\",\"username\":\"malatero1\",\"queuedAt\":\"2026-09-18T22:02:17.298Z\"}"
+    "18099016658455874": "{\"postId\":\"17958262674213428\",\"reason\":\"owner review: personal medical concern\",\"commentText\":\"Can I share an image I own?\\nI think this is an osteophyte that broke from the spine and is sitting on top of the liver.\",\"username\":\"malatero1\",\"queuedAt\":\"2026-09-18T22:02:17.298Z\"}",
+    "17877897498545639": "{\"postId\":\"17958262674213428\",\"reason\":\"No substantive comment to reply to; instruction-only input requires owner review.\",\"commentText\":\"Bonitis\",\"username\":\"rocketcheddar\",\"queuedAt\":\"2026-09-18T22:48:50.602Z\"}"
   },
   "concernAcknowledgments": {
     "[\"18121475662898455\",\"berit069\",\"image\"]": "18142096432588199",
@@ -14467,7 +14468,8 @@
     "18121355279301990",
     "18136646242715899",
     "18099016658455874",
-    "18149026495531511"
+    "18149026495531511",
+    "18360388201223030"
   ],
   "answeredPostIds": [
     "18395606890093068"
@@ -14580,11 +14582,11 @@
     "18115279912989977": 54,
     "18146529700504840": 95,
     "18110480207174403": 35,
-    "17958262674213428": 39
+    "17958262674213428": 40
   },
   "daily": {
     "date": "2026-09-18",
-    "count": 39
+    "count": 40
   },
   "pinnedResolved": {
     "DaTTCIwoAw7": "18014812820883466"
@@ -15433,7 +15435,8 @@
     "17892809346610618",
     "18630233176063668",
     "17921602887424209",
-    "18164399788485497"
+    "18164399788485497",
+    "17877897498545639"
   ],
   "skipStrikes": {
     "17895266316520842": 1,
@@ -15527,6 +15530,6 @@
   },
   "spend": {
     "date": "2026-09-18",
-    "usd": 0.4884928999999999
+    "usd": 0.4942362999999999
   }
 }
