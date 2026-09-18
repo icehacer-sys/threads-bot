@@ -5471,7 +5471,9 @@
         "media_type": "TEXT",
         "text": "That's a medical marvel nobody signed up for.",
         "reply_to_id": "17893939227418269"
-      }
+      },
+      "publishedId": "18123740080861454",
+      "confirmedPublished": true
     }
   },
   "repliedCommentIds": [
