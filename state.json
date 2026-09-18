@@ -5675,6 +5675,15 @@
       },
       "publishedId": "17907287544550225",
       "confirmedPublished": true
+    },
+    "comment:18121040327491559": {
+      "creationId": "17889927105614054",
+      "createdAt": "2026-09-18T20:37:21.042Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "The bright lines here are actually calcium crystal deposits in the cartilage rather than bone fragments so this one is CPPD / chondrocalcinosis rather than a mechanical wear picture.",
+        "reply_to_id": "18121040327491559"
+      }
     }
   },
   "repliedCommentIds": [
@@ -14153,7 +14162,8 @@
     "18141596707518187",
     "18134464186640982",
     "18460828234141702",
-    "18133438249639033"
+    "18133438249639033",
+    "18022138487935387"
   ],
   "answeredPostIds": [
     "18395606890093068"
@@ -14266,11 +14276,11 @@
     "18115279912989977": 54,
     "18146529700504840": 95,
     "18110480207174403": 35,
-    "17958262674213428": 13
+    "17958262674213428": 14
   },
   "daily": {
     "date": "2026-09-18",
-    "count": 13
+    "count": 14
   },
   "pinnedResolved": {
     "DaTTCIwoAw7": "18014812820883466"
@@ -15202,6 +15212,6 @@
   },
   "spend": {
     "date": "2026-09-18",
-    "usd": 0.11518310000000001
+    "usd": 0.1987871
   }
 }
