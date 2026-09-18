@@ -5952,6 +5952,15 @@
       },
       "publishedId": "18164908756463779",
       "confirmedPublished": true
+    },
+    "comment:18360388201223030": {
+      "creationId": "17889935376614054",
+      "createdAt": "2026-09-18T22:48:34.112Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Those bright lines are calcium crystal deposits sitting in the cartilage and menisci so this one is CPPD rather than cysts.",
+        "reply_to_id": "18360388201223030"
+      }
     }
   },
   "repliedCommentIds": [
@@ -15421,7 +15430,8 @@
     "17948028261296317",
     "17892809346610618",
     "18630233176063668",
-    "17921602887424209"
+    "17921602887424209",
+    "18164399788485497"
   ],
   "skipStrikes": {
     "17895266316520842": 1,
@@ -15515,6 +15525,6 @@
   },
   "spend": {
     "date": "2026-09-18",
-    "usd": 0.39982469999999987
+    "usd": 0.4884928999999999
   }
 }
