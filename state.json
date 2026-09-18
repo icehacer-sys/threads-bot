@@ -66,7 +66,9 @@
     "18142411666596993": "Wow. Bile backup from gas filled intestines, at least they are BELOW the diaphragm. (I hope)..",
     "18226852129329946": "Liver cysts impinging on the gallbladder",
     "18122053531866303": "2 Fast 2 Stomach",
-    "17868736860645139": "Wandering breast implant syndrome"
+    "17868736860645139": "Wandering breast implant syndrome",
+    "18147097432477202": "DJD or calicifed meniscus?",
+    "18077270741709301": "Patella disappeario?"
   },
   "ownerReviews": {
     "17937444630360450": "{\"postId\":\"18103023326210157\",\"reason\":\"owner review: personal medical concern\",\"commentText\":\"Little sister of my friend swalloved a coin of 1 fim. At hospital the family was advised to thoroughly keep an eye on her poops. So, the next day they found two 50 penny coins😀.\",\"username\":\"velitapiof\",\"queuedAt\":\"2026-09-10T20:21:59.741Z\",\"resolvedAt\":\"2026-09-10T20:36:02.929Z\",\"resolution\":\"Owner confirmed this is a completed personal story and deleted the inappropriate boundary reply. No clinical review is needed.\"}",
@@ -5507,6 +5509,15 @@
       },
       "publishedId": "18069526505767195",
       "confirmedPublished": true
+    },
+    "comment:18461339155139546": {
+      "creationId": "17889920520614054",
+      "createdAt": "2026-09-18T19:15:57.602Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Knee's going through its awkward phase.",
+        "reply_to_id": "18461339155139546"
+      }
     }
   },
   "repliedCommentIds": [
@@ -14087,8 +14098,8 @@
     "18110480207174403": 35
   },
   "daily": {
-    "date": "2026-09-17",
-    "count": 35
+    "date": "2026-09-18",
+    "count": 0
   },
   "pinnedResolved": {
     "DaTTCIwoAw7": "18014812820883466"
@@ -14923,7 +14934,8 @@
     "18134652226724850",
     "18108491321183636",
     "18101916566252101",
-    "18106601924582441"
+    "18106601924582441",
+    "18047944838606260"
   ],
   "skipStrikes": {
     "17895266316520842": 1,
@@ -14999,7 +15011,7 @@
     "17865730374636613": 1
   },
   "gifDaily": {
-    "date": "2026-09-17",
+    "date": "2026-09-18",
     "count": 0
   },
   "recentGifIds": [
@@ -15010,11 +15022,11 @@
   ],
   "promoPostCounts": {},
   "promoDaily": {
-    "date": "2026-09-17",
+    "date": "2026-09-18",
     "count": 0
   },
   "spend": {
-    "date": "2026-09-17",
-    "usd": 0.4671560999999999
+    "date": "2026-09-18",
+    "usd": 0.0207331
   }
 }
