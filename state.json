@@ -5873,6 +5873,15 @@
       },
       "publishedId": "17958216471252596",
       "confirmedPublished": true
+    },
+    "comment:18068077352755588": {
+      "creationId": "17889930774614054",
+      "createdAt": "2026-09-18T21:30:17.852Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Waist not but calcium absolutely wanted to show up. That's the deposit program with no early withdrawal option.",
+        "reply_to_id": "18068077352755588"
+      }
     }
   },
   "repliedCommentIds": [
@@ -15427,6 +15436,6 @@
   },
   "spend": {
     "date": "2026-09-18",
-    "usd": 0.3496976999999999
+    "usd": 0.35646109999999986
   }
 }
