@@ -5870,7 +5870,9 @@
         "media_type": "TEXT",
         "text": "The deposit box no one asked for and nobody can withdraw from.",
         "reply_to_id": "18395088772203042"
-      }
+      },
+      "publishedId": "17958216471252596",
+      "confirmedPublished": true
     }
   },
   "repliedCommentIds": [
