@@ -5938,7 +5938,9 @@
         "media_type": "TEXT",
         "text": "Personal medical advice needs an assessment by a clinician who knows your history.",
         "reply_to_id": "18099016658455874"
-      }
+      },
+      "publishedId": "18124569793885873",
+      "confirmedPublished": true
     }
   },
   "repliedCommentIds": [
