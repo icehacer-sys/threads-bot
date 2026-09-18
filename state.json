@@ -5840,6 +5840,15 @@
       },
       "publishedId": "18137946388719941",
       "confirmedPublished": true
+    },
+    "comment:18108233306169695": {
+      "creationId": "17889928737614054",
+      "createdAt": "2026-09-18T20:58:57.466Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "That's it. Those calcium deposits in the cartilage are the giveaway.",
+        "reply_to_id": "18108233306169695"
+      }
     }
   },
   "repliedCommentIds": [
@@ -15389,6 +15398,6 @@
   },
   "spend": {
     "date": "2026-09-18",
-    "usd": 0.3268752999999999
+    "usd": 0.3299154999999999
   }
 }
