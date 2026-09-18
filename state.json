@@ -72,7 +72,8 @@
     "18124942255864729": "Calcium Pyrophosphate Deposition Disease... Make much ouch",
     "18121040327491559": "Wearing down of bones with the fragments collecting/ merging with meniscus. ? Arthritis caused.",
     "17911510200281698": "Worn out silent blocks",
-    "18628908058013039": "Arthritis"
+    "18628908058013039": "Arthritis",
+    "18022138487935387": "??Acute Calcium Pyrophosphate aka CPP, Crystal Arthritis, aka Pseudogout-Xrays showing Chondrocalcinosis- is linear calcification of Meniscal Cartilage that is seen in pts with CPP. Knee is most common joint. When CPP crystals are deposited in cartilage for many years, they can suddenly shed into knee joint & cause a severe inflammatory response, causing a painful, swollen & hot knee.Tx:Relieve pain & inflammation thru use of NSAIDS,Corticosteroids, Colchicine, Joint Aspiration, Rest & Ice."
   },
   "ownerReviews": {
     "17937444630360450": "{\"postId\":\"18103023326210157\",\"reason\":\"owner review: personal medical concern\",\"commentText\":\"Little sister of my friend swalloved a coin of 1 fim. At hospital the family was advised to thoroughly keep an eye on her poops. So, the next day they found two 50 penny coins😀.\",\"username\":\"velitapiof\",\"queuedAt\":\"2026-09-10T20:21:59.741Z\",\"resolvedAt\":\"2026-09-10T20:36:02.929Z\",\"resolution\":\"Owner confirmed this is a completed personal story and deleted the inappropriate boundary reply. No clinical review is needed.\"}",
@@ -5557,6 +5558,15 @@
       },
       "publishedId": "18101606546366454",
       "confirmedPublished": true
+    },
+    "comment:18128229136687805": {
+      "creationId": "17889923175614054",
+      "createdAt": "2026-09-18T19:47:49.116Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "The full-body maintenance plan.",
+        "reply_to_id": "18128229136687805"
+      }
     }
   },
   "repliedCommentIds": [
@@ -15074,6 +15084,6 @@
   },
   "spend": {
     "date": "2026-09-18",
-    "usd": 0.041298100000000004
+    "usd": 0.045819500000000006
   }
 }
