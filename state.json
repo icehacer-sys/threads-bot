@@ -5804,7 +5804,9 @@
         "media_type": "TEXT",
         "text": "That's the one.",
         "reply_to_id": "17863511571677627"
-      }
+      },
+      "publishedId": "17933431167390132",
+      "confirmedPublished": true
     }
   },
   "repliedCommentIds": [
