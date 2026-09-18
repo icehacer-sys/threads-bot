@@ -5579,7 +5579,9 @@
         "media_type": "TEXT",
         "text": "Still waiting on courage to guess this one.",
         "reply_to_id": "18338199490285951"
-      }
+      },
+      "publishedId": "18125647327848335",
+      "confirmedPublished": true
     }
   },
   "repliedCommentIds": [
