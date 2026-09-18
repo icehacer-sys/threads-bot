@@ -69,7 +69,8 @@
     "17868736860645139": "Wandering breast implant syndrome",
     "18147097432477202": "DJD or calicifed meniscus?",
     "18077270741709301": "Patella disappeario?",
-    "18124942255864729": "Calcium Pyrophosphate Deposition Disease... Make much ouch"
+    "18124942255864729": "Calcium Pyrophosphate Deposition Disease... Make much ouch",
+    "18121040327491559": "Wearing down of bones with the fragments collecting/ merging with meniscus. ? Arthritis caused."
   },
   "ownerReviews": {
     "17937444630360450": "{\"postId\":\"18103023326210157\",\"reason\":\"owner review: personal medical concern\",\"commentText\":\"Little sister of my friend swalloved a coin of 1 fim. At hospital the family was advised to thoroughly keep an eye on her poops. So, the next day they found two 50 penny coins😀.\",\"username\":\"velitapiof\",\"queuedAt\":\"2026-09-10T20:21:59.741Z\",\"resolvedAt\":\"2026-09-10T20:36:02.929Z\",\"resolution\":\"Owner confirmed this is a completed personal story and deleted the inappropriate boundary reply. No clinical review is needed.\"}",
@@ -5532,6 +5533,15 @@
       },
       "publishedId": "18149187652527478",
       "confirmedPublished": true
+    },
+    "comment:17914398210262564": {
+      "creationId": "17889921864614054",
+      "createdAt": "2026-09-18T19:31:55.691Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Bacon grease as a preventive care strategy is a choice I hadn't considered.",
+        "reply_to_id": "17914398210262564"
+      }
     }
   },
   "repliedCommentIds": [
@@ -15047,6 +15057,6 @@
   },
   "spend": {
     "date": "2026-09-18",
-    "usd": 0.030957600000000002
+    "usd": 0.035043000000000005
   }
 }
