@@ -5697,6 +5697,15 @@
       },
       "publishedId": "18072153866481430",
       "confirmedPublished": true
+    },
+    "comment:18077270741709301": {
+      "creationId": "17889927276614054",
+      "createdAt": "2026-09-18T20:38:35.742Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Patella's right there in the center but yeah those bright lines definitely make the whole joint look like it's in witness protection.",
+        "reply_to_id": "18077270741709301"
+      }
     }
   },
   "repliedCommentIds": [
@@ -14177,7 +14186,8 @@
     "18460828234141702",
     "18133438249639033",
     "18022138487935387",
-    "18121040327491559"
+    "18121040327491559",
+    "18147097432477202"
   ],
   "answeredPostIds": [
     "18395606890093068"
@@ -14290,11 +14300,11 @@
     "18115279912989977": 54,
     "18146529700504840": 95,
     "18110480207174403": 35,
-    "17958262674213428": 15
+    "17958262674213428": 16
   },
   "daily": {
     "date": "2026-09-18",
-    "count": 15
+    "count": 16
   },
   "pinnedResolved": {
     "DaTTCIwoAw7": "18014812820883466"
@@ -15228,6 +15238,6 @@
   },
   "spend": {
     "date": "2026-09-18",
-    "usd": 0.23476789999999997
+    "usd": 0.23763609999999996
   }
 }
