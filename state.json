@@ -5614,7 +5614,9 @@
         "media_type": "TEXT",
         "text": "The knee's got more expression than expected.",
         "reply_to_id": "17896188960393974"
-      }
+      },
+      "publishedId": "18631780897006385",
+      "confirmedPublished": true
     }
   },
   "repliedCommentIds": [
