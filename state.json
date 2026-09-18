@@ -5859,7 +5859,9 @@
         "media_type": "TEXT",
         "text": "A horse with more working knees than this one.",
         "reply_to_id": "18367378993213554"
-      }
+      },
+      "publishedId": "17996075339824506",
+      "confirmedPublished": true
     }
   },
   "repliedCommentIds": [
