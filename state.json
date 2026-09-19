@@ -6030,6 +6030,15 @@
       },
       "publishedId": "17991713351848110",
       "confirmedPublished": true
+    },
+    "comment:18041686856818684": {
+      "creationId": "17889945585614054",
+      "createdAt": "2026-09-19T01:07:01.959Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "That's a devastating thing to hear when you're already struggling. Glad you found someone who actually treated the pain instead.",
+        "reply_to_id": "18041686856818684"
+      }
     }
   },
   "repliedCommentIds": [
@@ -15604,6 +15613,6 @@
   },
   "spend": {
     "date": "2026-09-18",
-    "usd": 0.5536842999999999
+    "usd": 0.5574075
   }
 }
