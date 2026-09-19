@@ -6542,6 +6542,15 @@
       },
       "publishedId": "17931979377402420",
       "confirmedPublished": true
+    },
+    "comment:17906031894327205": {
+      "creationId": "17890081635614054",
+      "createdAt": "2026-09-19T21:29:08.061Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Yeah swallowing it in reverse is definitely where the risk-benefit math falls apart.",
+        "reply_to_id": "17906031894327205"
+      }
     }
   },
   "repliedCommentIds": [
@@ -16171,6 +16180,6 @@
   },
   "spend": {
     "date": "2026-09-19",
-    "usd": 0.2928371000000001
+    "usd": 0.29601370000000005
   }
 }
