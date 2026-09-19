@@ -6473,7 +6473,9 @@
         "media_type": "TEXT",
         "text": "There probably should be one at this point.",
         "reply_to_id": "17871049296639398"
-      }
+      },
+      "publishedId": "18084199223313443",
+      "confirmedPublished": true
     }
   },
   "repliedCommentIds": [
