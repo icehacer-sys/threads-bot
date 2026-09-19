@@ -82,7 +82,8 @@
     "18158466550508823": "Inflamed cartilage",
     "18072284024489887": "Inflamed cartilage",
     "18197515726379165": "The prescription said take one spoonful?",
-    "18144112132580005": "Inhaled the coke and the spoon?  Extreme case of Pica?"
+    "18144112132580005": "Inhaled the coke and the spoon?  Extreme case of Pica?",
+    "17960441307243738": "🎵 Surgeons!\nCome together with your hands\nSave me (Endoscopic preferably)\nSave me 🎶"
   },
   "ownerReviews": {
     "17937444630360450": "{\"postId\":\"18103023326210157\",\"reason\":\"owner review: personal medical concern\",\"commentText\":\"Little sister of my friend swalloved a coin of 1 fim. At hospital the family was advised to thoroughly keep an eye on her poops. So, the next day they found two 50 penny coins😀.\",\"username\":\"velitapiof\",\"queuedAt\":\"2026-09-10T20:21:59.741Z\",\"resolvedAt\":\"2026-09-10T20:36:02.929Z\",\"resolution\":\"Owner confirmed this is a completed personal story and deleted the inappropriate boundary reply. No clinical review is needed.\"}",
@@ -6187,6 +6188,15 @@
       },
       "publishedId": "17976163017128999",
       "confirmedPublished": true
+    },
+    "comment:18097159121421399": {
+      "creationId": "17890072383614054",
+      "createdAt": "2026-09-19T19:15:40.756Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "That's one way to commit to the bit.",
+        "reply_to_id": "18097159121421399"
+      }
     }
   },
   "repliedCommentIds": [
@@ -14711,7 +14721,8 @@
     "18128822581703757",
     "18281558581288571",
     "18095391566648834",
-    "18127719961799986"
+    "18127719961799986",
+    "18026076464856553"
   ],
   "answeredPostIds": [
     "18395606890093068"
@@ -14824,11 +14835,12 @@
     "18115279912989977": 54,
     "18146529700504840": 95,
     "18110480207174403": 35,
-    "17958262674213428": 59
+    "17958262674213428": 59,
+    "17988527066861715": 1
   },
   "daily": {
     "date": "2026-09-19",
-    "count": 0
+    "count": 1
   },
   "pinnedResolved": {
     "DaTTCIwoAw7": "18014812820883466"
@@ -15774,6 +15786,6 @@
   },
   "spend": {
     "date": "2026-09-19",
-    "usd": 0.019253600000000003
+    "usd": 0.026071500000000004
   }
 }
