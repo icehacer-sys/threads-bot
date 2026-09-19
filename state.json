@@ -6162,6 +6162,15 @@
       },
       "publishedId": "17966582784186932",
       "confirmedPublished": true
+    },
+    "comment:18127719961799986": {
+      "creationId": "17889976206614054",
+      "createdAt": "2026-09-19T06:42:56.172Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Right up there with gout but with a permanent residency permit.",
+        "reply_to_id": "18127719961799986"
+      }
     }
   },
   "repliedCommentIds": [
@@ -15748,6 +15757,6 @@
   },
   "spend": {
     "date": "2026-09-18",
-    "usd": 0.6908407
+    "usd": 0.7072746999999999
   }
 }
