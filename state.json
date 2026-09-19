@@ -6151,6 +6151,15 @@
       },
       "publishedId": "18107319248179754",
       "confirmedPublished": true
+    },
+    "comment:18095391566648834": {
+      "creationId": "17889969228614054",
+      "createdAt": "2026-09-19T05:12:21.585Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Those bright lines are calcium crystal deposits in the cartilage so this one points to CPPD rather than bone density loss.",
+        "reply_to_id": "18095391566648834"
+      }
     }
   },
   "repliedCommentIds": [
@@ -15736,6 +15745,6 @@
   },
   "spend": {
     "date": "2026-09-18",
-    "usd": 0.6060097
+    "usd": 0.6908407
   }
 }
