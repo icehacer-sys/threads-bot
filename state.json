@@ -80,7 +80,9 @@
     "17881652814689399": "Arthritis",
     "17863511571677627": "Pseudogout",
     "18158466550508823": "Inflamed cartilage",
-    "18072284024489887": "Inflamed cartilage"
+    "18072284024489887": "Inflamed cartilage",
+    "18197515726379165": "The prescription said take one spoonful?",
+    "18144112132580005": "Inhaled the coke and the spoon?  Extreme case of Pica?"
   },
   "ownerReviews": {
     "17937444630360450": "{\"postId\":\"18103023326210157\",\"reason\":\"owner review: personal medical concern\",\"commentText\":\"Little sister of my friend swalloved a coin of 1 fim. At hospital the family was advised to thoroughly keep an eye on her poops. So, the next day they found two 50 penny coins😀.\",\"username\":\"velitapiof\",\"queuedAt\":\"2026-09-10T20:21:59.741Z\",\"resolvedAt\":\"2026-09-10T20:36:02.929Z\",\"resolution\":\"Owner confirmed this is a completed personal story and deleted the inappropriate boundary reply. No clinical review is needed.\"}",
@@ -106,7 +108,8 @@
     "17873419818635101": "{\"postId\":\"18146529700504840\",\"reason\":\"Medical question that could expose the diagnosis. Held for owner review until reveal is public.\",\"commentText\":\"The lack of apparent rib traum (not even displacement/deflection) and clarity of the lung parenchyma w/o ptx has me really wanting a lateral\",\"username\":\"doc.cadence\",\"queuedAt\":\"2026-09-16T19:17:03.498Z\"}",
     "18425341354146985": "{\"postId\":\"18146529700504840\",\"reason\":\"owner response: image provenance question\",\"commentText\":\"Is this an AI generated X-ray?\",\"username\":\"sebastian_roser\",\"queuedAt\":\"2026-09-17T06:45:31.563Z\"}",
     "18099016658455874": "{\"postId\":\"17958262674213428\",\"reason\":\"owner review: personal medical concern\",\"commentText\":\"Can I share an image I own?\\nI think this is an osteophyte that broke from the spine and is sitting on top of the liver.\",\"username\":\"malatero1\",\"queuedAt\":\"2026-09-18T22:02:17.298Z\"}",
-    "17877897498545639": "{\"postId\":\"17958262674213428\",\"reason\":\"No substantive comment to reply to; instruction-only input requires owner review.\",\"commentText\":\"Bonitis\",\"username\":\"rocketcheddar\",\"queuedAt\":\"2026-09-18T22:48:50.602Z\"}"
+    "17877897498545639": "{\"postId\":\"17958262674213428\",\"reason\":\"No substantive comment to reply to; instruction-only input requires owner review.\",\"commentText\":\"Bonitis\",\"username\":\"rocketcheddar\",\"queuedAt\":\"2026-09-18T22:48:50.602Z\"}",
+    "18144112132580005": "{\"postId\":\"17988527066861715\",\"reason\":\"Diagnosis guess before reveal: skip. Edgy drug-reference wordplay is better held for owner review on tone grounds.\",\"commentText\":\"Inhaled the coke and the spoon?  Extreme case of Pica?\",\"username\":\"friedrichkristina\",\"queuedAt\":\"2026-09-19T19:15:13.798Z\"}"
   },
   "concernAcknowledgments": {
     "[\"18121475662898455\",\"berit069\",\"image\"]": "18142096432588199",
@@ -6173,6 +6176,15 @@
       },
       "publishedId": "17966651238191148",
       "confirmedPublished": true
+    },
+    "comment:18026076464856553": {
+      "creationId": "17890072338614054",
+      "createdAt": "2026-09-19T19:15:18.673Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "A whole drawer full and they've run through all of them.",
+        "reply_to_id": "18026076464856553"
+      }
     }
   },
   "repliedCommentIds": [
@@ -14813,8 +14825,8 @@
     "17958262674213428": 59
   },
   "daily": {
-    "date": "2026-09-18",
-    "count": 59
+    "date": "2026-09-19",
+    "count": 0
   },
   "pinnedResolved": {
     "DaTTCIwoAw7": "18014812820883466"
@@ -15744,7 +15756,7 @@
     "17865730374636613": 1
   },
   "gifDaily": {
-    "date": "2026-09-18",
+    "date": "2026-09-19",
     "count": 0
   },
   "recentGifIds": [
@@ -15755,11 +15767,11 @@
   ],
   "promoPostCounts": {},
   "promoDaily": {
-    "date": "2026-09-18",
+    "date": "2026-09-19",
     "count": 0
   },
   "spend": {
-    "date": "2026-09-18",
-    "usd": 0.7072746999999999
+    "date": "2026-09-19",
+    "usd": 0.019253600000000003
   }
 }
