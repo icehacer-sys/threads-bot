@@ -6564,6 +6564,15 @@
       },
       "publishedId": "18341118490249231",
       "confirmedPublished": true
+    },
+    "comment:18125220427879527": {
+      "creationId": "17890083450614054",
+      "createdAt": "2026-09-19T22:00:14.413Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "That's the abstract that writes itself. \"Methods: Patient presented. Results: Spoon. Conclusion: Oops.\"",
+        "reply_to_id": "18125220427879527"
+      }
     }
   },
   "repliedCommentIds": [
@@ -16195,6 +16204,6 @@
   },
   "spend": {
     "date": "2026-09-19",
-    "usd": 0.29879230000000007
+    "usd": 0.3021579000000001
   }
 }
