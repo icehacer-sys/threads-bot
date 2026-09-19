@@ -83,7 +83,8 @@
     "18072284024489887": "Inflamed cartilage",
     "18197515726379165": "The prescription said take one spoonful?",
     "18144112132580005": "Inhaled the coke and the spoon?  Extreme case of Pica?",
-    "17960441307243738": "🎵 Surgeons!\nCome together with your hands\nSave me (Endoscopic preferably)\nSave me 🎶"
+    "17960441307243738": "🎵 Surgeons!\nCome together with your hands\nSave me (Endoscopic preferably)\nSave me 🎶",
+    "18122419607488344": "Didn’t know spoons doubled as weapons"
   },
   "ownerReviews": {
     "17937444630360450": "{\"postId\":\"18103023326210157\",\"reason\":\"owner review: personal medical concern\",\"commentText\":\"Little sister of my friend swalloved a coin of 1 fim. At hospital the family was advised to thoroughly keep an eye on her poops. So, the next day they found two 50 penny coins😀.\",\"username\":\"velitapiof\",\"queuedAt\":\"2026-09-10T20:21:59.741Z\",\"resolvedAt\":\"2026-09-10T20:36:02.929Z\",\"resolution\":\"Owner confirmed this is a completed personal story and deleted the inappropriate boundary reply. No clinical review is needed.\"}",
@@ -6221,6 +6222,15 @@
       },
       "publishedId": "18115400897094891",
       "confirmedPublished": true
+    },
+    "comment:17945293326318039": {
+      "creationId": "17890072428614054",
+      "createdAt": "2026-09-19T19:16:39.085Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Now that's investigative reporting that hits different.",
+        "reply_to_id": "17945293326318039"
+      }
     }
   },
   "repliedCommentIds": [
@@ -14748,7 +14758,8 @@
     "18127719961799986",
     "18026076464856553",
     "18097159121421399",
-    "18181429651426817"
+    "18181429651426817",
+    "18126047926866930"
   ],
   "answeredPostIds": [
     "18395606890093068"
@@ -14862,11 +14873,11 @@
     "18146529700504840": 95,
     "18110480207174403": 35,
     "17958262674213428": 59,
-    "17988527066861715": 3
+    "17988527066861715": 4
   },
   "daily": {
     "date": "2026-09-19",
-    "count": 3
+    "count": 4
   },
   "pinnedResolved": {
     "DaTTCIwoAw7": "18014812820883466"
@@ -15718,7 +15729,8 @@
     "18164399788485497",
     "17877897498545639",
     "18092190860157495",
-    "17902815939349055"
+    "17902815939349055",
+    "17908280961505695"
   ],
   "skipStrikes": {
     "17895266316520842": 1,
@@ -15812,6 +15824,6 @@
   },
   "spend": {
     "date": "2026-09-19",
-    "usd": 0.030523100000000004
+    "usd": 0.054549700000000007
   }
 }
