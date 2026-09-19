@@ -6462,7 +6462,9 @@
         "media_type": "TEXT",
         "text": "That's the kind of wake-up call nobody orders with their coffee.",
         "reply_to_id": "18064778816665360"
-      }
+      },
+      "publishedId": "18037705094657627",
+      "confirmedPublished": true
     }
   },
   "repliedCommentIds": [
