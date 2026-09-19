@@ -6476,6 +6476,15 @@
       },
       "publishedId": "18084199223313443",
       "confirmedPublished": true
+    },
+    "comment:18345140845270737": {
+      "creationId": "17890078197614054",
+      "createdAt": "2026-09-19T20:25:33.100Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "The eating-disorder pathway is one of the more overlooked routes and worth calling out alongside pica and altered gag reflex.",
+        "reply_to_id": "18345140845270737"
+      }
     }
   },
   "repliedCommentIds": [
@@ -15026,7 +15035,8 @@
     "18075880205710249",
     "18127803835754950",
     "18355530601217484",
-    "18064778816665360"
+    "18064778816665360",
+    "17871049296639398"
   ],
   "answeredPostIds": [
     "18395606890093068"
@@ -15140,11 +15150,11 @@
     "18146529700504840": 95,
     "18110480207174403": 35,
     "17958262674213428": 59,
-    "17988527066861715": 26
+    "17988527066861715": 27
   },
   "daily": {
     "date": "2026-09-19",
-    "count": 26
+    "count": 27
   },
   "pinnedResolved": {
     "DaTTCIwoAw7": "18014812820883466"
@@ -16095,6 +16105,6 @@
   },
   "spend": {
     "date": "2026-09-19",
-    "usd": 0.20327670000000003
+    "usd": 0.23725650000000004
   }
 }
