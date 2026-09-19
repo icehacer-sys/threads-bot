@@ -6019,6 +6019,15 @@
       },
       "publishedId": "18265146946306346",
       "confirmedPublished": true
+    },
+    "comment:18446769184130436": {
+      "creationId": "17889942684614054",
+      "createdAt": "2026-09-19T00:36:16.810Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "That's rough handling from a first doctor. Glad the biologic's actually working for you instead of getting told to just breathe through it.",
+        "reply_to_id": "18446769184130436"
+      }
     }
   },
   "repliedCommentIds": [
@@ -15592,6 +15601,6 @@
   },
   "spend": {
     "date": "2026-09-18",
-    "usd": 0.5502320999999999
+    "usd": 0.5536842999999999
   }
 }
