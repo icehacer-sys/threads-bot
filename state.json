@@ -6583,7 +6583,9 @@
         "media_type": "TEXT",
         "text": "That would be a first. At least this one is just the spoon itself.",
         "reply_to_id": "18072344222476323"
-      }
+      },
+      "publishedId": "18220414075337413",
+      "confirmedPublished": true
     }
   },
   "repliedCommentIds": [
