@@ -6063,6 +6063,15 @@
       },
       "publishedId": "18625891660035658",
       "confirmedPublished": true
+    },
+    "comment:18628058674028487": {
+      "creationId": "17889948906614054",
+      "createdAt": "2026-09-19T01:37:58.611Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Backwards moonwalk straight into orthopedics.",
+        "reply_to_id": "18628058674028487"
+      }
     }
   },
   "repliedCommentIds": [
@@ -15640,6 +15649,6 @@
   },
   "spend": {
     "date": "2026-09-18",
-    "usd": 0.5632839
+    "usd": 0.5662001
   }
 }
