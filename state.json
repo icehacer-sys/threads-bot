@@ -6385,7 +6385,9 @@
         "media_type": "TEXT",
         "text": "At least they're collecting a full set.",
         "reply_to_id": "18128306398775215"
-      }
+      },
+      "publishedId": "18126667663891391",
+      "confirmedPublished": true
     }
   },
   "repliedCommentIds": [
