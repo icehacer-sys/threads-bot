@@ -6410,6 +6410,15 @@
       },
       "publishedId": "18092022260429997",
       "confirmedPublished": true
+    },
+    "comment:18145365490495656": {
+      "creationId": "17890075686614054",
+      "createdAt": "2026-09-19T19:52:19.274Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Fair move. Better on a shelf than on a surgical tray.",
+        "reply_to_id": "18145365490495656"
+      }
     }
   },
   "repliedCommentIds": [
@@ -16022,6 +16031,6 @@
   },
   "spend": {
     "date": "2026-09-19",
-    "usd": 0.17082910000000004
+    "usd": 0.17378570000000004
   }
 }
