@@ -6572,7 +6572,9 @@
         "media_type": "TEXT",
         "text": "That's the abstract that writes itself. \"Methods: Patient presented. Results: Spoon. Conclusion: Oops.\"",
         "reply_to_id": "18125220427879527"
-      }
+      },
+      "publishedId": "18094452386663309",
+      "confirmedPublished": true
     }
   },
   "repliedCommentIds": [
