@@ -6432,6 +6432,15 @@
       },
       "publishedId": "18265767136305466",
       "confirmedPublished": true
+    },
+    "comment:18127803835754950": {
+      "creationId": "17890076496614054",
+      "createdAt": "2026-09-19T20:08:45.445Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "The most common answer is just not noticing it went down with the bite. Speed eating and distraction are a powerful combo.",
+        "reply_to_id": "18127803835754950"
+      }
     }
   },
   "repliedCommentIds": [
@@ -16048,6 +16057,6 @@
   },
   "spend": {
     "date": "2026-09-19",
-    "usd": 0.18608910000000004
+    "usd": 0.18874470000000004
   }
 }
