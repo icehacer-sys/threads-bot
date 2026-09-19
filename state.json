@@ -6241,7 +6241,9 @@
         "media_type": "TEXT",
         "text": "Apparently that memo didn't get through.",
         "reply_to_id": "17899673403598118"
-      }
+      },
+      "publishedId": "17899948563596198",
+      "confirmedPublished": true
     }
   },
   "repliedCommentIds": [
