@@ -6451,7 +6451,9 @@
         "media_type": "TEXT",
         "text": "That's the official title they're writing into the case file.",
         "reply_to_id": "18355530601217484"
-      }
+      },
+      "publishedId": "18122772968492492",
+      "confirmedPublished": true
     }
   },
   "repliedCommentIds": [
