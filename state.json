@@ -6218,7 +6218,9 @@
         "media_type": "TEXT",
         "text": "Mary Poppins would not approve of this interpretation.",
         "reply_to_id": "18126047926866930"
-      }
+      },
+      "publishedId": "18115400897094891",
+      "confirmedPublished": true
     }
   },
   "repliedCommentIds": [
