@@ -6107,6 +6107,15 @@
       },
       "publishedId": "17908393857499561",
       "confirmedPublished": true
+    },
+    "comment:18144669280570276": {
+      "creationId": "17889957780614054",
+      "createdAt": "2026-09-19T03:10:13.131Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Exactly. The calcium deposits line up in both the cartilage and the menisci which is the classic CPPD signature.",
+        "reply_to_id": "18144669280570276"
+      }
     }
   },
   "repliedCommentIds": [
@@ -15688,6 +15697,6 @@
   },
   "spend": {
     "date": "2026-09-18",
-    "usd": 0.5776159
+    "usd": 0.5966861
   }
 }
