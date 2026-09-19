@@ -6561,7 +6561,9 @@
         "media_type": "TEXT",
         "text": "Now that's a disease nobody's getting published for discovering.",
         "reply_to_id": "18397145146164778"
-      }
+      },
+      "publishedId": "18341118490249231",
+      "confirmedPublished": true
     }
   },
   "repliedCommentIds": [
