@@ -6096,6 +6096,15 @@
       },
       "publishedId": "18110922938032317",
       "confirmedPublished": true
+    },
+    "comment:17982750978071346": {
+      "creationId": "17889951900614054",
+      "createdAt": "2026-09-19T02:08:56.500Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Both names fit. Chondrocalcinosis is what the X-ray shows and pseudogout is the acute attack it can trigger.",
+        "reply_to_id": "17982750978071346"
+      }
     }
   },
   "repliedCommentIds": [
@@ -14612,7 +14621,8 @@
     "18029433383894363",
     "18096932870541659",
     "18628058674028487",
-    "18157528201509177"
+    "18157528201509177",
+    "18217961758354543"
   ],
   "answeredPostIds": [
     "18395606890093068"
@@ -14725,11 +14735,11 @@
     "18115279912989977": 54,
     "18146529700504840": 95,
     "18110480207174403": 35,
-    "17958262674213428": 51
+    "17958262674213428": 52
   },
   "daily": {
     "date": "2026-09-18",
-    "count": 51
+    "count": 52
   },
   "pinnedResolved": {
     "DaTTCIwoAw7": "18014812820883466"
@@ -15675,6 +15685,6 @@
   },
   "spend": {
     "date": "2026-09-18",
-    "usd": 0.5716935
+    "usd": 0.5776159
   }
 }
