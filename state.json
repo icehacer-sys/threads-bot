@@ -6388,6 +6388,15 @@
       },
       "publishedId": "18126667663891391",
       "confirmedPublished": true
+    },
+    "comment:18122419607488344": {
+      "creationId": "17890074267614054",
+      "createdAt": "2026-09-19T19:36:37.829Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "A rigid edge can absolutely cut or perforate the gut wall on its way through or if it gets stuck. So technically this one is both a utensil and a hazard.",
+        "reply_to_id": "18122419607488344"
+      }
     }
   },
   "repliedCommentIds": [
@@ -14930,7 +14939,8 @@
     "18115255748473216",
     "17960441307243738",
     "17932354593399542",
-    "18191167834397147"
+    "18191167834397147",
+    "18128306398775215"
   ],
   "answeredPostIds": [
     "18395606890093068"
@@ -15044,11 +15054,11 @@
     "18146529700504840": 95,
     "18110480207174403": 35,
     "17958262674213428": 59,
-    "17988527066861715": 18
+    "17988527066861715": 19
   },
   "daily": {
     "date": "2026-09-19",
-    "count": 18
+    "count": 19
   },
   "pinnedResolved": {
     "DaTTCIwoAw7": "18014812820883466"
@@ -15997,6 +16007,6 @@
   },
   "spend": {
     "date": "2026-09-19",
-    "usd": 0.16598790000000002
+    "usd": 0.16856550000000003
   }
 }
