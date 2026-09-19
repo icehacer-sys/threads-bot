@@ -6539,7 +6539,9 @@
         "media_type": "TEXT",
         "text": "Perhaps to catch a bug on the way down.",
         "reply_to_id": "17985804852084899"
-      }
+      },
+      "publishedId": "17931979377402420",
+      "confirmedPublished": true
     }
   },
   "repliedCommentIds": [
