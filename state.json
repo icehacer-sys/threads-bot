@@ -7044,7 +7044,9 @@
         "media_type": "TEXT",
         "text": "Red alert energy is fully justified here.",
         "reply_to_id": "18040343525826577"
-      }
+      },
+      "publishedId": "18030949127887546",
+      "confirmedPublished": true
     }
   },
   "repliedCommentIds": [
