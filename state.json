@@ -6674,6 +6674,15 @@
       },
       "publishedId": "18021049454871775",
       "confirmedPublished": true
+    },
+    "comment:17894172312611707": {
+      "creationId": "17890115016614054",
+      "createdAt": "2026-09-20T04:08:04.605Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Ceramic dreams and stomach seams",
+        "reply_to_id": "17894172312611707"
+      }
     }
   },
   "repliedCommentIds": [
@@ -16320,6 +16329,6 @@
   },
   "spend": {
     "date": "2026-09-19",
-    "usd": 0.5456253000000003
+    "usd": 0.5615993000000004
   }
 }
