@@ -142,7 +142,8 @@
     "18127612222699079": "{\"postId\":\"18094319267645737\",\"reason\":\"owner review: unsupported confirmation, specifics (decade) or dismissal of an accepted differential | guard:forced-skip\",\"commentText\":\"TB ?\",\"username\":\"pointreyesshorty\",\"queuedAt\":\"2026-09-20T20:43:22.192Z\"}",
     "18093836765648328": "{\"postId\":\"18094319267645737\",\"reason\":\"Unclear referent. The commenter's intent cannot be confidently placed without knowing whether they meant 'mesothelioma' and whether they are guessing a diagnosis, questioning the posted answer, or critiquing the caption. A reply risks misinterpreting the comment. Requires owner review.\",\"commentText\":\"Mestomlia (spelling ugh)\",\"username\":\"lairdbearly\",\"queuedAt\":\"2026-09-20T20:43:47.228Z\"}",
     "17901847410587950": "{\"postId\":\"18094319267645737\",\"reason\":\"owner review: unsupported confirmation, specifics (decade) or dismissal of an accepted differential | guard:forced-skip\",\"commentText\":\"Looks like every breath hurts.\",\"username\":\"marybee16\",\"queuedAt\":\"2026-09-20T20:44:14.145Z\"}",
-    "17995563311823613": "{\"postId\":\"18094319267645737\",\"reason\":\"owner review: unsupported confirmation, specifics (decade) or dismissal of an accepted differential | guard:forced-skip\",\"commentText\":\"Lung cancer\",\"username\":\"ranlom25\",\"queuedAt\":\"2026-09-20T20:44:31.397Z\"}"
+    "17995563311823613": "{\"postId\":\"18094319267645737\",\"reason\":\"owner review: unsupported confirmation, specifics (decade) or dismissal of an accepted differential | guard:forced-skip\",\"commentText\":\"Lung cancer\",\"username\":\"ranlom25\",\"queuedAt\":\"2026-09-20T20:44:31.397Z\"}",
+    "18099403385635059": "{\"postId\":\"18094319267645737\",\"reason\":\"owner review: unsupported confirmation, specifics (decade) or dismissal of an accepted differential | guard:forced-skip\",\"commentText\":\"Tuberculosis\",\"username\":\"jomesinjanna\",\"queuedAt\":\"2026-09-20T20:45:02.759Z\"}"
   },
   "concernAcknowledgments": {
     "[\"18121475662898455\",\"berit069\",\"image\"]": "18142096432588199",
@@ -6990,6 +6991,15 @@
       },
       "publishedId": "18087843461690869",
       "confirmedPublished": true
+    },
+    "comment:17920351443224686": {
+      "creationId": "17890228350614054",
+      "createdAt": "2026-09-20T20:45:25.410Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Dust exposure is the right territory but the conglomerate upper-lobe masses and calcified hilar nodes point toward silica rather than asbestos.",
+        "reply_to_id": "17920351443224686"
+      }
     }
   },
   "repliedCommentIds": [
@@ -15584,7 +15594,8 @@
     "17911536507283812",
     "18051033119802373",
     "18092529812444987",
-    "18125935297867241"
+    "18125935297867241",
+    "18134001079709697"
   ],
   "answeredPostIds": [
     "18395606890093068"
@@ -15699,11 +15710,11 @@
     "18110480207174403": 35,
     "17958262674213428": 59,
     "17988527066861715": 48,
-    "18094319267645737": 22
+    "18094319267645737": 23
   },
   "daily": {
     "date": "2026-09-20",
-    "count": 22
+    "count": 23
   },
   "pinnedResolved": {
     "DaTTCIwoAw7": "18014812820883466"
@@ -16592,7 +16603,8 @@
     "18127612222699079",
     "18093836765648328",
     "17901847410587950",
-    "17995563311823613"
+    "17995563311823613",
+    "18099403385635059"
   ],
   "skipStrikes": {
     "17895266316520842": 1,
@@ -16686,6 +16698,6 @@
   },
   "spend": {
     "date": "2026-09-20",
-    "usd": 0.5937061000000002
+    "usd": 0.6228144000000003
   }
 }
