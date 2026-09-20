@@ -85,7 +85,13 @@
     "18144112132580005": "Inhaled the coke and the spoon?  Extreme case of Pica?",
     "17960441307243738": "🎵 Surgeons!\nCome together with your hands\nSave me (Endoscopic preferably)\nSave me 🎶",
     "18122419607488344": "Didn’t know spoons doubled as weapons",
-    "18441188377131954": "Forein body ingestion"
+    "18441188377131954": "Forein body ingestion",
+    "18102695030573606": "Mycelia?  TB?  Aspirgillis? \nI could hear the xray tech gulp.",
+    "17874298578650950": "Fungal infection?",
+    "17951942496035505": "Fibrosis of the lungs?",
+    "17982828690083099": "I’m guessing Aspergillosis with chronic fibrosis due to working in a barn or something similar as second guess",
+    "18051033119802373": "TB or Histo?",
+    "18127612222699079": "TB ?"
   },
   "ownerReviews": {
     "17937444630360450": "{\"postId\":\"18103023326210157\",\"reason\":\"owner review: personal medical concern\",\"commentText\":\"Little sister of my friend swalloved a coin of 1 fim. At hospital the family was advised to thoroughly keep an eye on her poops. So, the next day they found two 50 penny coins😀.\",\"username\":\"velitapiof\",\"queuedAt\":\"2026-09-10T20:21:59.741Z\",\"resolvedAt\":\"2026-09-10T20:36:02.929Z\",\"resolution\":\"Owner confirmed this is a completed personal story and deleted the inappropriate boundary reply. No clinical review is needed.\"}",
@@ -6707,6 +6713,15 @@
       },
       "publishedId": "17910666735524582",
       "confirmedPublished": true
+    },
+    "comment:17976793712917106": {
+      "creationId": "17890221339614054",
+      "createdAt": "2026-09-20T19:16:01.268Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "That would explain why the room stopped.",
+        "reply_to_id": "17976793712917106"
+      }
     }
   },
   "repliedCommentIds": [
@@ -15396,8 +15411,8 @@
     "17988527066861715": 48
   },
   "daily": {
-    "date": "2026-09-19",
-    "count": 48
+    "date": "2026-09-20",
+    "count": 0
   },
   "pinnedResolved": {
     "DaTTCIwoAw7": "18014812820883466"
@@ -16262,7 +16277,10 @@
     "18135303706632157",
     "18158556223451164",
     "18393268189166855",
-    "18023282888879515"
+    "18023282888879515",
+    "17917751739245145",
+    "18148343950557124",
+    "18121106335728774"
   ],
   "skipStrikes": {
     "17895266316520842": 1,
@@ -16340,7 +16358,7 @@
     "17865730374636613": 1
   },
   "gifDaily": {
-    "date": "2026-09-19",
+    "date": "2026-09-20",
     "count": 0
   },
   "recentGifIds": [
@@ -16351,11 +16369,11 @@
   ],
   "promoPostCounts": {},
   "promoDaily": {
-    "date": "2026-09-19",
+    "date": "2026-09-20",
     "count": 0
   },
   "spend": {
-    "date": "2026-09-19",
-    "usd": 0.6258715000000005
+    "date": "2026-09-20",
+    "usd": 0.031411
   }
 }
