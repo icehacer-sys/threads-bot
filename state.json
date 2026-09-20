@@ -6897,6 +6897,15 @@
       },
       "publishedId": "17980521984093910",
       "confirmedPublished": true
+    },
+    "comment:18353590264172361": {
+      "creationId": "17890227819614054",
+      "createdAt": "2026-09-20T20:40:03.644Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "PAM is a fair thought given the miliary nodules but the upper-lobe conglomerate masses with rim-calcified hilar nodes and hilar retraction point toward progressive massive fibrosis from dust exposure instead.",
+        "reply_to_id": "18353590264172361"
+      }
     }
   },
   "repliedCommentIds": [
@@ -15483,7 +15492,8 @@
     "18102695030573606",
     "18116286635060458",
     "17956154808214927",
-    "17874298578650950"
+    "17874298578650950",
+    "18103563359203294"
   ],
   "answeredPostIds": [
     "18395606890093068"
@@ -15598,11 +15608,11 @@
     "18110480207174403": 35,
     "17958262674213428": 59,
     "17988527066861715": 48,
-    "18094319267645737": 14
+    "18094319267645737": 15
   },
   "daily": {
     "date": "2026-09-20",
-    "count": 14
+    "count": 15
   },
   "pinnedResolved": {
     "DaTTCIwoAw7": "18014812820883466"
@@ -16577,6 +16587,6 @@
   },
   "spend": {
     "date": "2026-09-20",
-    "usd": 0.37991520000000006
+    "usd": 0.4055484000000001
   }
 }
