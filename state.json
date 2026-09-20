@@ -139,7 +139,8 @@
     "18125935297867241": "{\"postId\":\"18094319267645737\",\"reason\":\"Diagnosis guess before reveal. Hold for owner review.\",\"commentText\":\"Inhaled talcum powder as a baby.\",\"username\":\"nidiaqcq\",\"queuedAt\":\"2026-09-20T19:49:16.356Z\"}",
     "18369322597242554": "{\"postId\":\"18094319267645737\",\"reason\":\"owner review: unsupported confirmation, specifics (decade) or dismissal of an accepted differential | guard:forced-skip\",\"commentText\":\"Gotta be fungal. Aspergillosis ?\",\"username\":\"ruth.werner.9\",\"queuedAt\":\"2026-09-20T20:38:23.879Z\"}",
     "17978262987121326": "{\"postId\":\"18094319267645737\",\"reason\":\"owner review: unsupported confirmation, specifics (decade) or dismissal of an accepted differential | guard:forced-skip\",\"commentText\":\"Tb or fungi. Or someone who misunderstood balloon inflation on a really fundamental level.\",\"username\":\"crowgirl42\",\"queuedAt\":\"2026-09-20T20:40:37.432Z\"}",
-    "18127612222699079": "{\"postId\":\"18094319267645737\",\"reason\":\"owner review: unsupported confirmation, specifics (decade) or dismissal of an accepted differential | guard:forced-skip\",\"commentText\":\"TB ?\",\"username\":\"pointreyesshorty\",\"queuedAt\":\"2026-09-20T20:43:22.192Z\"}"
+    "18127612222699079": "{\"postId\":\"18094319267645737\",\"reason\":\"owner review: unsupported confirmation, specifics (decade) or dismissal of an accepted differential | guard:forced-skip\",\"commentText\":\"TB ?\",\"username\":\"pointreyesshorty\",\"queuedAt\":\"2026-09-20T20:43:22.192Z\"}",
+    "18093836765648328": "{\"postId\":\"18094319267645737\",\"reason\":\"Unclear referent. The commenter's intent cannot be confidently placed without knowing whether they meant 'mesothelioma' and whether they are guessing a diagnosis, questioning the posted answer, or critiquing the caption. A reply risks misinterpreting the comment. Requires owner review.\",\"commentText\":\"Mestomlia (spelling ugh)\",\"username\":\"lairdbearly\",\"queuedAt\":\"2026-09-20T20:43:47.228Z\"}"
   },
   "concernAcknowledgments": {
     "[\"18121475662898455\",\"berit069\",\"image\"]": "18142096432588199",
@@ -6965,6 +6966,15 @@
       },
       "publishedId": "18107338829243979",
       "confirmedPublished": true
+    },
+    "comment:18125935297867241": {
+      "creationId": "17890228308614054",
+      "createdAt": "2026-09-20T20:43:54.209Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "That's a worrying start for your lungs. Talc-exposed workers do face real fibrosis risk down the road even from childhood exposure.",
+        "reply_to_id": "18125935297867241"
+      }
     }
   },
   "repliedCommentIds": [
@@ -15557,7 +15567,8 @@
     "18106430723247017",
     "18094574048412075",
     "17911536507283812",
-    "18051033119802373"
+    "18051033119802373",
+    "18092529812444987"
   ],
   "answeredPostIds": [
     "18395606890093068"
@@ -15672,11 +15683,11 @@
     "18110480207174403": 35,
     "17958262674213428": 59,
     "17988527066861715": 48,
-    "18094319267645737": 20
+    "18094319267645737": 21
   },
   "daily": {
     "date": "2026-09-20",
-    "count": 20
+    "count": 21
   },
   "pinnedResolved": {
     "DaTTCIwoAw7": "18014812820883466"
@@ -16562,7 +16573,8 @@
     "18112802261081507",
     "18389455480203142",
     "17982828690083099",
-    "18127612222699079"
+    "18127612222699079",
+    "18093836765648328"
   ],
   "skipStrikes": {
     "17895266316520842": 1,
@@ -16656,6 +16668,6 @@
   },
   "spend": {
     "date": "2026-09-20",
-    "usd": 0.5446663000000002
+    "usd": 0.5509445000000002
   }
 }
