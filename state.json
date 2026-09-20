@@ -144,7 +144,8 @@
     "17901847410587950": "{\"postId\":\"18094319267645737\",\"reason\":\"owner review: unsupported confirmation, specifics (decade) or dismissal of an accepted differential | guard:forced-skip\",\"commentText\":\"Looks like every breath hurts.\",\"username\":\"marybee16\",\"queuedAt\":\"2026-09-20T20:44:14.145Z\"}",
     "17995563311823613": "{\"postId\":\"18094319267645737\",\"reason\":\"owner review: unsupported confirmation, specifics (decade) or dismissal of an accepted differential | guard:forced-skip\",\"commentText\":\"Lung cancer\",\"username\":\"ranlom25\",\"queuedAt\":\"2026-09-20T20:44:31.397Z\"}",
     "18099403385635059": "{\"postId\":\"18094319267645737\",\"reason\":\"owner review: unsupported confirmation, specifics (decade) or dismissal of an accepted differential | guard:forced-skip\",\"commentText\":\"Tuberculosis\",\"username\":\"jomesinjanna\",\"queuedAt\":\"2026-09-20T20:45:02.759Z\"}",
-    "18110547293332396": "{\"postId\":\"18094319267645737\",\"reason\":\"owner review: unsupported confirmation, specifics (year) or dismissal of an accepted differential | guard:forced-skip\",\"commentText\":\"OK doc, and this is personal. My dad died 19rs ago from bronchogenic carcinoma aged 48. Was a lifelong smoker but worked in coal mines for 6-7yrs in the 70s-80s. Lung cancer wasn't picked up until he started breaking bones, and died 9wks after diagnosis. Is this a similar film screen, or would there be differentials on diagnosis by film that makes you go \\\"oh f**&\\\"?\",\"username\":\"jordankingsford\",\"queuedAt\":\"2026-09-20T21:02:43.826Z\"}"
+    "18110547293332396": "{\"postId\":\"18094319267645737\",\"reason\":\"owner review: unsupported confirmation, specifics (year) or dismissal of an accepted differential | guard:forced-skip\",\"commentText\":\"OK doc, and this is personal. My dad died 19rs ago from bronchogenic carcinoma aged 48. Was a lifelong smoker but worked in coal mines for 6-7yrs in the 70s-80s. Lung cancer wasn't picked up until he started breaking bones, and died 9wks after diagnosis. Is this a similar film screen, or would there be differentials on diagnosis by film that makes you go \\\"oh f**&\\\"?\",\"username\":\"jordankingsford\",\"queuedAt\":\"2026-09-20T21:02:43.826Z\"}",
+    "18071427875487353": "{\"postId\":\"18094319267645737\",\"reason\":\"The case facts do not record the patient's age. The post mentions decades of worsening breathlessness but does not establish when exposure began or the patient's current age. This detail requires owner response.\",\"commentText\":\"Out of curiosity, how old was the patient?\",\"username\":\"syclone601\",\"queuedAt\":\"2026-09-20T21:52:18.652Z\"}"
   },
   "concernAcknowledgments": {
     "[\"18121475662898455\",\"berit069\",\"image\"]": "18142096432588199",
@@ -7113,6 +7114,15 @@
       },
       "publishedId": "18445512751126730",
       "confirmedPublished": true
+    },
+    "comment:18118095736945708": {
+      "creationId": "17890232250614054",
+      "createdAt": "2026-09-20T21:52:36.548Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Next time just buy a Roomba.",
+        "reply_to_id": "18118095736945708"
+      }
     }
   },
   "repliedCommentIds": [
@@ -16726,7 +16736,8 @@
     "17914220028460648",
     "18110547293332396",
     "17887547454617102",
-    "17995698582043737"
+    "17995698582043737",
+    "18071427875487353"
   ],
   "skipStrikes": {
     "17895266316520842": 1,
@@ -16821,6 +16832,6 @@
   },
   "spend": {
     "date": "2026-09-20",
-    "usd": 1.1191401000000003
+    "usd": 1.1407923000000004
   }
 }
