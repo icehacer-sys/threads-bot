@@ -7158,6 +7158,15 @@
       },
       "publishedId": "18103412249195269",
       "confirmedPublished": true
+    },
+    "comment:18095085434123467": {
+      "creationId": "17890233783614054",
+      "createdAt": "2026-09-20T22:09:21.711Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Dogs declaring a home invasion over a Roomba is somehow worse than the dust situation. At least the Roomba knows what it's doing.",
+        "reply_to_id": "18095085434123467"
+      }
     }
   },
   "repliedCommentIds": [
@@ -15767,7 +15776,8 @@
     "18215524843346277",
     "18118095736945708",
     "18436326259180925",
-    "18627340513049602"
+    "18627340513049602",
+    "18162529336493641"
   ],
   "answeredPostIds": [
     "18395606890093068"
@@ -15882,11 +15892,11 @@
     "18110480207174403": 35,
     "17958262674213428": 59,
     "17988527066861715": 48,
-    "18094319267645737": 37
+    "18094319267645737": 38
   },
   "daily": {
     "date": "2026-09-20",
-    "count": 37
+    "count": 38
   },
   "pinnedResolved": {
     "DaTTCIwoAw7": "18014812820883466"
@@ -16870,6 +16880,6 @@
   },
   "spend": {
     "date": "2026-09-20",
-    "usd": 1.1822051000000005
+    "usd": 1.1861325000000005
   }
 }
