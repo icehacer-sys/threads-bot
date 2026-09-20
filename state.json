@@ -6760,6 +6760,15 @@
       },
       "publishedId": "18000421943809579",
       "confirmedPublished": true
+    },
+    "comment:18003747846154785": {
+      "creationId": "17890222557614054",
+      "createdAt": "2026-09-20T19:32:52.591Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Denial and adaptation are powerful. People get used to feeling worse and worse until something tips them over or they finally can't ignore it anymore.",
+        "reply_to_id": "18003747846154785"
+      }
     }
   },
   "repliedCommentIds": [
@@ -16419,6 +16428,6 @@
   },
   "spend": {
     "date": "2026-09-20",
-    "usd": 0.07844380000000001
+    "usd": 0.08344280000000001
   }
 }
