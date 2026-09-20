@@ -96,7 +96,10 @@
     "17920351443224686": "Asbestos",
     "18100036403571515": "Mold",
     "17911536507283812": "Im waiting for correct answer, cuz for sure ain't the fungi that I thought...\nOn another note, I have to finally cook my tree shrooms...",
-    "18389455480203142": "Silicosis/pneumoconiosis/ coal worker's pneumoxoniosis.\nNeed occupational exposure history,  HRCT thorax, PFT for further evaluation."
+    "18389455480203142": "Silicosis/pneumoconiosis/ coal worker's pneumoxoniosis.\nNeed occupational exposure history,  HRCT thorax, PFT for further evaluation.",
+    "18369322597242554": "Gotta be fungal. Aspergillosis ?",
+    "18106430723247017": "Asbestos ?",
+    "18094574048412075": "Legionella?"
   },
   "ownerReviews": {
     "17937444630360450": "{\"postId\":\"18103023326210157\",\"reason\":\"owner review: personal medical concern\",\"commentText\":\"Little sister of my friend swalloved a coin of 1 fim. At hospital the family was advised to thoroughly keep an eye on her poops. So, the next day they found two 50 penny coins😀.\",\"username\":\"velitapiof\",\"queuedAt\":\"2026-09-10T20:21:59.741Z\",\"resolvedAt\":\"2026-09-10T20:36:02.929Z\",\"resolution\":\"Owner confirmed this is a completed personal story and deleted the inappropriate boundary reply. No clinical review is needed.\"}",
@@ -6784,6 +6787,15 @@
       },
       "publishedId": "17907004737516000",
       "confirmedPublished": true
+    },
+    "comment:17894513172608068": {
+      "creationId": "17890223637614054",
+      "createdAt": "2026-09-20T19:49:01.377Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Samuel L. Jackson voice: \"I have had it with these organisms in this thorax.\"",
+        "reply_to_id": "17894513172608068"
+      }
     }
   },
   "repliedCommentIds": [
@@ -16352,7 +16364,9 @@
     "18121106335728774",
     "17960630628198313",
     "18411474286081855",
-    "18046462463818695"
+    "18046462463818695",
+    "17988490989113182",
+    "18169463434456905"
   ],
   "skipStrikes": {
     "17895266316520842": 1,
@@ -16446,6 +16460,6 @@
   },
   "spend": {
     "date": "2026-09-20",
-    "usd": 0.1648834
+    "usd": 0.1750684
   }
 }
