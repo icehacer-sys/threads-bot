@@ -7013,6 +7013,15 @@
       },
       "publishedId": "18022842296922532",
       "confirmedPublished": true
+    },
+    "comment:18369322597242554": {
+      "creationId": "17890229814614054",
+      "createdAt": "2026-09-20T21:02:18.341Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Close call but the conglomerate upper-lobe masses and calcified hilar nodes land it in progressive massive fibrosis from silica exposure.",
+        "reply_to_id": "18369322597242554"
+      }
     }
   },
   "repliedCommentIds": [
@@ -16712,6 +16721,6 @@
   },
   "spend": {
     "date": "2026-09-20",
-    "usd": 0.6449855000000003
+    "usd": 0.7472872000000004
   }
 }
