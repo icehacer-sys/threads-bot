@@ -7069,6 +7069,15 @@
       },
       "publishedId": "18106314623237974",
       "confirmedPublished": true
+    },
+    "comment:18121106335728774": {
+      "creationId": "17890230093614054",
+      "createdAt": "2026-09-20T21:10:04.419Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Asbestos does cause similar scarring but silica fits this pattern better. The upper-lobe masses with those rim-calcified nodes are the classic silicosis picture.",
+        "reply_to_id": "18121106335728774"
+      }
     }
   },
   "repliedCommentIds": [
@@ -15670,7 +15679,8 @@
     "18369322597242554",
     "18412781956156189",
     "18040343525826577",
-    "17895074358672763"
+    "17895074358672763",
+    "18389455480203142"
   ],
   "answeredPostIds": [
     "18395606890093068"
@@ -15785,11 +15795,11 @@
     "18110480207174403": 35,
     "17958262674213428": 59,
     "17988527066861715": 48,
-    "18094319267645737": 29
+    "18094319267645737": 30
   },
   "daily": {
     "date": "2026-09-20",
-    "count": 29
+    "count": 30
   },
   "pinnedResolved": {
     "DaTTCIwoAw7": "18014812820883466"
@@ -16767,6 +16777,6 @@
   },
   "spend": {
     "date": "2026-09-20",
-    "usd": 0.8942056000000004
+    "usd": 0.9011128000000004
   }
 }
