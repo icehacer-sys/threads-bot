@@ -6942,6 +6942,15 @@
       },
       "publishedId": "18558162880078542",
       "confirmedPublished": true
+    },
+    "comment:18051033119802373": {
+      "creationId": "17890227978614054",
+      "createdAt": "2026-09-20T20:42:59.395Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Both are real contenders with this pattern but the rim-calcified hilar nodes and upward hilar retraction in a dust-exposed worker land it in progressive massive fibrosis rather than either infection.",
+        "reply_to_id": "18051033119802373"
+      }
     }
   },
   "repliedCommentIds": [
@@ -15532,7 +15541,8 @@
     "18103563359203294",
     "18353590264172361",
     "18106430723247017",
-    "18094574048412075"
+    "18094574048412075",
+    "17911536507283812"
   ],
   "answeredPostIds": [
     "18395606890093068"
@@ -15647,11 +15657,11 @@
     "18110480207174403": 35,
     "17958262674213428": 59,
     "17988527066861715": 48,
-    "18094319267645737": 18
+    "18094319267645737": 19
   },
   "daily": {
     "date": "2026-09-20",
-    "count": 18
+    "count": 19
   },
   "pinnedResolved": {
     "DaTTCIwoAw7": "18014812820883466"
@@ -16534,7 +16544,9 @@
     "18369322597242554",
     "17951942496035505",
     "17978262987121326",
-    "18112802261081507"
+    "18112802261081507",
+    "18389455480203142",
+    "17982828690083099"
   ],
   "skipStrikes": {
     "17895266316520842": 1,
@@ -16628,6 +16640,6 @@
   },
   "spend": {
     "date": "2026-09-20",
-    "usd": 0.4771534000000001
+    "usd": 0.5349420000000001
   }
 }
