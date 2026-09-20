@@ -7091,6 +7091,15 @@
       },
       "publishedId": "17945865597322785",
       "confirmedPublished": true
+    },
+    "comment:18469809181116613": {
+      "creationId": "17890231056614054",
+      "createdAt": "2026-09-20T21:26:33.341Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Exactly. Zonal distribution is the imaging fingerprint that separates them. That lower-lung blanking in PAM versus the upper-lobe convergence here is textbook silicosis territory.",
+        "reply_to_id": "18469809181116613"
+      }
     }
   },
   "repliedCommentIds": [
@@ -16700,7 +16709,8 @@
     "17988490989113182",
     "17982828690083099",
     "18127612222699079",
-    "18046462463818695"
+    "18046462463818695",
+    "18155060260514116"
   ],
   "skipStrikes": {
     "17895266316520842": 1,
@@ -16795,6 +16805,6 @@
   },
   "spend": {
     "date": "2026-09-20",
-    "usd": 0.9439184000000005
+    "usd": 0.9572322000000004
   }
 }
