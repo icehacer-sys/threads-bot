@@ -6830,6 +6830,15 @@
       },
       "publishedId": "18135674122730623",
       "confirmedPublished": true
+    },
+    "comment:17904333330581742": {
+      "creationId": "17890227645614054",
+      "createdAt": "2026-09-20T20:36:24.213Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "The decades of worsening breathlessness does fit PAM's slow timeline but the imaging pattern pulls in a different direction.",
+        "reply_to_id": "17904333330581742"
+      }
     }
   },
   "repliedCommentIds": [
@@ -15410,7 +15419,8 @@
     "18003747846154785",
     "18104982209063768",
     "17894513172608068",
-    "17935311357127409"
+    "17935311357127409",
+    "18039279479637185"
   ],
   "answeredPostIds": [
     "18395606890093068"
@@ -15525,11 +15535,11 @@
     "18110480207174403": 35,
     "17958262674213428": 59,
     "17988527066861715": 48,
-    "18094319267645737": 8
+    "18094319267645737": 9
   },
   "daily": {
     "date": "2026-09-20",
-    "count": 8
+    "count": 9
   },
   "pinnedResolved": {
     "DaTTCIwoAw7": "18014812820883466"
@@ -16501,6 +16511,6 @@
   },
   "spend": {
     "date": "2026-09-20",
-    "usd": 0.21844280000000005
+    "usd": 0.2812989000000001
   }
 }
