@@ -6852,6 +6852,15 @@
       },
       "publishedId": "17935696791367728",
       "confirmedPublished": true
+    },
+    "comment:18116286635060458": {
+      "creationId": "17890227708614054",
+      "createdAt": "2026-09-20T20:37:30.069Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "The teaching answer here is progressive massive fibrosis from dust exposure. The upper-lobe conglomerate masses with rim-calcified hilar nodes and hilar retraction point that way rather than a primary lung malignancy.",
+        "reply_to_id": "18116286635060458"
+      }
     }
   },
   "repliedCommentIds": [
@@ -15434,7 +15443,8 @@
     "17894513172608068",
     "17935311357127409",
     "18039279479637185",
-    "17904333330581742"
+    "17904333330581742",
+    "18102695030573606"
   ],
   "answeredPostIds": [
     "18395606890093068"
@@ -15549,11 +15559,11 @@
     "18110480207174403": 35,
     "17958262674213428": 59,
     "17988527066861715": 48,
-    "18094319267645737": 10
+    "18094319267645737": 11
   },
   "daily": {
     "date": "2026-09-20",
-    "count": 10
+    "count": 11
   },
   "pinnedResolved": {
     "DaTTCIwoAw7": "18014812820883466"
@@ -16525,6 +16535,6 @@
   },
   "spend": {
     "date": "2026-09-20",
-    "usd": 0.28694510000000006
+    "usd": 0.3205300000000001
   }
 }
