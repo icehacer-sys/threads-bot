@@ -91,7 +91,8 @@
     "17951942496035505": "Fibrosis of the lungs?",
     "17982828690083099": "I’m guessing Aspergillosis with chronic fibrosis due to working in a barn or something similar as second guess",
     "18051033119802373": "TB or Histo?",
-    "18127612222699079": "TB ?"
+    "18127612222699079": "TB ?",
+    "17901847410587950": "Looks like every breath hurts."
   },
   "ownerReviews": {
     "17937444630360450": "{\"postId\":\"18103023326210157\",\"reason\":\"owner review: personal medical concern\",\"commentText\":\"Little sister of my friend swalloved a coin of 1 fim. At hospital the family was advised to thoroughly keep an eye on her poops. So, the next day they found two 50 penny coins😀.\",\"username\":\"velitapiof\",\"queuedAt\":\"2026-09-10T20:21:59.741Z\",\"resolvedAt\":\"2026-09-10T20:36:02.929Z\",\"resolution\":\"Owner confirmed this is a completed personal story and deleted the inappropriate boundary reply. No clinical review is needed.\"}",
@@ -6735,6 +6736,15 @@
       },
       "publishedId": "17950541949268476",
       "confirmedPublished": true
+    },
+    "comment:17868863625644086": {
+      "creationId": "17890221504614054",
+      "createdAt": "2026-09-20T19:16:55.010Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Settled in and ready for whatever comes next.",
+        "reply_to_id": "17868863625644086"
+      }
     }
   },
   "repliedCommentIds": [
@@ -15308,7 +15318,8 @@
     "17894172312611707",
     "18010134851959659",
     "18076678277706941",
-    "17976793712917106"
+    "17976793712917106",
+    "18429908740196600"
   ],
   "answeredPostIds": [
     "18395606890093068"
@@ -15423,11 +15434,11 @@
     "18110480207174403": 35,
     "17958262674213428": 59,
     "17988527066861715": 48,
-    "18094319267645737": 1
+    "18094319267645737": 2
   },
   "daily": {
     "date": "2026-09-20",
-    "count": 1
+    "count": 2
   },
   "pinnedResolved": {
     "DaTTCIwoAw7": "18014812820883466"
@@ -16295,7 +16306,8 @@
     "18023282888879515",
     "17917751739245145",
     "18148343950557124",
-    "18121106335728774"
+    "18121106335728774",
+    "17960630628198313"
   ],
   "skipStrikes": {
     "17895266316520842": 1,
@@ -16389,6 +16401,6 @@
   },
   "spend": {
     "date": "2026-09-20",
-    "usd": 0.033534
+    "usd": 0.0649754
   }
 }
