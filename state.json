@@ -7002,6 +7002,15 @@
       },
       "publishedId": "17905543452558935",
       "confirmedPublished": true
+    },
+    "comment:18100036403571515": {
+      "creationId": "17890228476614054",
+      "createdAt": "2026-09-20T20:45:55.991Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Fungal infections can produce nodular patterns but the upper-lobe conglomerate masses and calcified hilar nodes here point toward progressive massive fibrosis from long-term dust exposure rather than mold.",
+        "reply_to_id": "18100036403571515"
+      }
     }
   },
   "repliedCommentIds": [
@@ -15597,7 +15606,8 @@
     "18051033119802373",
     "18092529812444987",
     "18125935297867241",
-    "18134001079709697"
+    "18134001079709697",
+    "17920351443224686"
   ],
   "answeredPostIds": [
     "18395606890093068"
@@ -15712,11 +15722,11 @@
     "18110480207174403": 35,
     "17958262674213428": 59,
     "17988527066861715": 48,
-    "18094319267645737": 23
+    "18094319267645737": 24
   },
   "daily": {
     "date": "2026-09-20",
-    "count": 23
+    "count": 24
   },
   "pinnedResolved": {
     "DaTTCIwoAw7": "18014812820883466"
@@ -16700,6 +16710,6 @@
   },
   "spend": {
     "date": "2026-09-20",
-    "usd": 0.6228144000000003
+    "usd": 0.6449855000000003
   }
 }
