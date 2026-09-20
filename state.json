@@ -7147,6 +7147,15 @@
       },
       "publishedId": "18178765150433230",
       "confirmedPublished": true
+    },
+    "comment:18162529336493641": {
+      "creationId": "17890233768614054",
+      "createdAt": "2026-09-20T22:08:59.901Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Fiberglass can irritate the airways but it's not strongly linked to the progressive massive fibrosis pattern here. Silica and coal dust are the classic culprits behind these conglomerate upper-lobe masses and calcified hilar nodes.",
+        "reply_to_id": "18162529336493641"
+      }
     }
   },
   "repliedCommentIds": [
@@ -16859,6 +16868,6 @@
   },
   "spend": {
     "date": "2026-09-20",
-    "usd": 1.1510245000000003
+    "usd": 1.1822051000000005
   }
 }
