@@ -6693,7 +6693,9 @@
         "media_type": "TEXT",
         "text": "Tell that to the patient.",
         "reply_to_id": "18010134851959659"
-      }
+      },
+      "publishedId": "18226424554336650",
+      "confirmedPublished": true
     }
   },
   "repliedCommentIds": [
