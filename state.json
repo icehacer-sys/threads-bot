@@ -6660,7 +6660,9 @@
         "media_type": "TEXT",
         "text": "This time the spoon took the dish with it.",
         "reply_to_id": "18124354436489111"
-      }
+      },
+      "publishedId": "18122390677687319",
+      "confirmedPublished": true
     }
   },
   "repliedCommentIds": [
