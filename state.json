@@ -7191,6 +7191,15 @@
       },
       "publishedId": "18135238225639694",
       "confirmedPublished": true
+    },
+    "comment:18086445311286825": {
+      "creationId": "17890235343614054",
+      "createdAt": "2026-09-20T22:41:06.013Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Unfortunately no. The scarring is permanent and the masses can keep growing even after dust exposure stops. Care focuses on slowing progression and managing symptoms.",
+        "reply_to_id": "18086445311286825"
+      }
     }
   },
   "repliedCommentIds": [
@@ -16908,6 +16917,6 @@
   },
   "spend": {
     "date": "2026-09-20",
-    "usd": 1.2293677000000005
+    "usd": 1.2474605000000005
   }
 }
