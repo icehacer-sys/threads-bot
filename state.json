@@ -7102,6 +7102,15 @@
       },
       "publishedId": "18106912151235669",
       "confirmedPublished": true
+    },
+    "comment:18215524843346277": {
+      "creationId": "17890231500614054",
+      "createdAt": "2026-09-20T21:36:42.608Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "The weirdest part here is that nothing's growing at all. This one's inert dust just piling up and fusing into bigger clumps over decades. Still feels worse somehow.",
+        "reply_to_id": "18215524843346277"
+      }
     }
   },
   "repliedCommentIds": [
@@ -16711,7 +16720,10 @@
     "18127612222699079",
     "18046462463818695",
     "18155060260514116",
-    "17914220028460648"
+    "17914220028460648",
+    "18110547293332396",
+    "17887547454617102",
+    "17995698582043737"
   ],
   "skipStrikes": {
     "17895266316520842": 1,
@@ -16806,6 +16818,6 @@
   },
   "spend": {
     "date": "2026-09-20",
-    "usd": 0.9649494000000004
+    "usd": 1.1191401000000003
   }
 }
