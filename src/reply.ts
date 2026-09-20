@@ -262,6 +262,12 @@ export function isNonEnglishScript(text: string | undefined): boolean {
 }
 
 export function isImageConcern(text: string): boolean { return imageConcernKind(text) !== undefined; }
+export function isPreRevealHold(d: Decision, answerPublic: boolean): boolean {
+  if (answerPublic || d.decision !== 'skip' || /^(?:error|fatal):/.test(d.reason)) return false;
+  const context = `${d.intent ?? ''} ${d.reason}`;
+  return /spoiler guard/i.test(context) ||
+    (/\b(?:before|until|private|withheld|not (?:yet )?public|not yet|held)\b/i.test(context) && /\b(?:reveal\w*|answer|diagnosis guess\w*)\b/i.test(context));
+}
 export async function classifyAndDraft(input: ClassifyInput): Promise<Decision> {
   const withMedia = input.commentMediaKind === 'video-frame' && !!input.commentImages?.length;
   const bareMedia = withMedia && !input.commentText.trim();
@@ -298,7 +304,7 @@ export async function classifyAndDraft(input: ClassifyInput): Promise<Decision> 
     }
     const context = diagnosticContext(input.diagnosticContext, input.diagnosticContext?.certainty === 'illustrative');
     // A time span, size or date must come from the facts or the conversation, never be improvised.
-    const support = [...(facts ?? []), answer ?? '', commentText, priorExchange ? `${priorExchange.commenter} ${priorExchange.bot}` : ''].join(' ');
+    const support = [postText, ...(facts ?? []), answer ?? '', commentText, priorExchange ? `${priorExchange.commenter} ${priorExchange.bot}` : ''].join(' ');
     const invented = d.decision === 'reply' && !bareMedia ? unsupportedSpecifics(d.reply_text, support) : [];
     if (d.decision === 'reply' && (unsupportedConfirmation(d.reply_text, context) || rejectsAcceptedDifferential(d.reply_text, commentText, context) || overstatesImagingLimit(d.reply_text) || invented.length)) {
       if (!rechecked) return classifyAndDraft({ ...input, evidenceRecheck: true, allowSearch: false });

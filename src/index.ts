@@ -18,7 +18,7 @@ import { PersistenceError } from "./persistence";
 import { isLossStory, replyStyleIssue } from './reply-style';
 import { mediaModelRoute } from './media-reply';
 import { isPriorityCommenter } from './supporter-replies';
-import { classifyAndDraft, isBotQuestion, firstSentences, type Decision, type InlineImage, type ImageMediaType } from "./reply";
+import { classifyAndDraft, isBotQuestion, isPreRevealHold, firstSentences, type Decision, type InlineImage, type ImageMediaType } from "./reply";
 import { pickGif } from "./gifs";
 import { drainSpend, usd } from "./spend";
 import { acknowledgmentKind, holdForImageReview, imageConcernKind, isRetiredMedicalBoundary } from "./concerns";
@@ -992,7 +992,7 @@ async function runLiveOrDry(mode: Mode, target: string | null): Promise<void> {
         // (reply.ts already retries it once with a forced tool) — leaving it re-checkable made an
         // escalation that never submits re-run its pricey Sonnet+search call every poll all night.
         const transient = /^error:/.test(d.reason) || d.reason.includes('image-dependent reply paused') || ((imageReviewHeld || state.hasImageReview(post.id)) && !['spam','complaint','personal_medical'].includes(d.category));
-        const spoilerHeld = d.reason.includes("spoiler guard") || (!answerPublic && /before.{0,20}reveal|answer.{0,20}(?:private|not public)|diagnosis.{0,20}withheld/i.test(d.reason));
+        const spoilerHeld = isPreRevealHold(d, answerPublic);
         if (posting && !transient && spoilerHeld && !answerPublic) state.holdUntilReveal(c.id, c.text ?? "");
         const final = ["spam", "complaint", "personal_medical", "other"].includes(d.category);
         // Follow-ups + answer-thread subs are the owner's engagement threads. A clearly-final

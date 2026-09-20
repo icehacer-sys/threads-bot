@@ -33,3 +33,13 @@ New checks reject the observed blame phrases and assumed second-person medical h
 TypeScript plus supporter, concern, GIF, wording, publishing and invented-specifics regression checks passed. Runtime configuration documentation was regenerated. Draft-only API checks used six model calls with estimated usage of $0.116586. Test drafts were not published. The normal live bot remains responsible for actual replies after deployment.
 
 The existing public replies and case caption were not edited or deleted. Local snapshot and draft evidence are in the session artifact directory as `replies-audit-2026-09-20.json` and `supporter-draft-check*.json`.
+
+## Follow-up: why comments were unanswered
+
+The completed production run's first post-reveal pass posted 17 replies and skipped 13 at a cumulative estimated spend of $0.6449855, below the $1.25 daily cap. Six failed the unsupported-specifics guard on `decade`, three failed punctuation checks, two failed repetition checks, one had an uncertain misspelled diagnosis and one had an API media request error. Earlier guesses were held before the answer appeared at 23:33 Cairo; the post had appeared at 22:02.
+
+The six duration failures exposed a real bug: the specificity guard included reference facts and commenter text but omitted the published caption, which explicitly stated decades of worsening breathlessness. The guard now includes that caption. Regression tests prove that supported decades pass in one call while an invented duration is still rejected. This validates the presence of a duration, not the stronger claim that a patient delayed seeking care for that entire period.
+
+Pre-reveal hold detection now recognizes wording such as `The reveal is private` and `before the answer is publicly revealed` rather than permanently caching those as generic skips. The runner also explicitly installs and verifies ffmpeg/ffprobe after logs showed the tools were missing. The separate API `no low surrogate in string` error was observed but its precise cause was not established; installing frame tools is not claimed to prove that JSON error resolved.
+
+After the first deployment, Ruth received a live reply at 00:02 Cairo on September 21, reply ID `18144284290598621`. The follow-up deployment reconsiders the specific remaining duration, punctuation and repetition failures once under the corrected rules. Ordinary hard limits and safety checks still apply, so reconsideration is not a guarantee that every draft will be published.

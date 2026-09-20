@@ -3,7 +3,7 @@ process.env.ANTHROPIC_API_KEY='offline-fixture';
 process.env.BOT_WEB_SEARCH='off';
 process.env.BOT_USAGE_LOG='off';
 const {isPriorityCommenter,isLowEngagementSkip,conversationReplyIssue}=await import('../src/supporter-replies');
-const {classifyAndDraft}=await import('../src/reply');
+const {classifyAndDraft,isPreRevealHold}=await import('../src/reply');
 const {config}=await import('../src/config');
 for(const name of ['tgeorgekoshy','ruth.werner.9','@RUTH.WERNER.9']) assert.equal(isPriorityCommenter(name,config.priorityUsernames),true);
 for(const name of [undefined,'ruth.werner.9.fake','other']) assert.equal(isPriorityCommenter(name,config.priorityUsernames),false);
@@ -25,6 +25,11 @@ queue=[base];calls=0;
 assert.equal((await classifyAndDraft(input)).decision,'reply');assert.equal(calls,1);
 assert.match(JSON.stringify(body),/OWNER REPLY PRIORITY/);
 const low={...base,decision:'skip',category:'other',reply_text:'',reason:'A lone emoji with no substantive content'};
+for(const reason of ['The reveal is private. All diagnosis guesses are held.', 'Diagnosis guess made before the answer is publicly revealed.', 'Diagnosis guess submitted before public reveal.']) {
+ assert.equal(isPreRevealHold({...low,reason} as any,false),true);
+ assert.equal(isPreRevealHold({...low,reason} as any,true),false);
+}
+assert.equal(isPreRevealHold(low as any,false),false);
 queue=[low,base];calls=0;assert.equal((await classifyAndDraft(input)).decision,'reply');assert.equal(calls,2);
 queue=[low,low];calls=0;const held=await classifyAndDraft(input);assert.equal(held.decision,'skip');assert.equal(held.category,'other');assert.equal(calls,2);
 queue=[low];calls=0;await classifyAndDraft({...input,priorityCommenter:false});assert.equal(calls,1);assert.ok(!JSON.stringify(body).includes('OWNER REPLY PRIORITY'));
@@ -38,3 +43,11 @@ assert.equal((await classifyAndDraft({...input,commentText:'Inhaled talcum powde
 queue=[{...base,reply_text:'This was self-inflicted.'},{...base,reply_text:'This was self-inflicted.'}];calls=0;
 assert.equal((await classifyAndDraft({...input,commentText:'It almost looks parasitic'})).decision,'skip');assert.equal(calls,2);
 console.log('PASS exact supporter matching, priority prompt, one shared repair, cached failures, reveal/advice/operator safeguards and September 20 reply regressions');
+const timeline={...base,category:'teach',reply_text:'The caption describes decades of worsening breathlessness.'};
+queue=[timeline];calls=0;
+assert.equal((await classifyAndDraft({...input,postText:'A patient came in with decades of worsening breathlessness.',commentText:'How long had the symptoms been worsening?'})).decision,'reply');
+assert.equal(calls,1,'the public caption is evidence for its own timeline');
+queue=[timeline,timeline];calls=0;
+assert.equal((await classifyAndDraft({...input,commentText:'How long had the symptoms been worsening?'})).decision,'skip');
+assert.equal(calls,2,'an unsupported duration is still blocked');
+console.log('PASS caption-supported duration accepted without retries; invented duration remains blocked');
