@@ -43,9 +43,11 @@ export function overstatesImagingLimit(text: string): boolean {
 // "centuries of eradication work" and "metres" of worm. Every one carried a unit like these.
 const SPECIFIC_UNIT = /\b(?:\d+(?:\.\d+)?\s*)?(days?|weeks?|months?|years?|decades?|centur(?:y|ies)|met(?:re|er)s?|feet|foot|inch(?:es)?|cm|mm|centimet(?:re|er)s?|millimet(?:re|er)s?|(?:1[89]|20)\d\d)\b/gi;
 const unitRoot = (u: string) => u.toLowerCase().replace(/^centur.*/, 'centur').replace(/^met(?:re|er)s?$/, 'metre').replace(/^(?:feet|foot)$/, 'foot').replace(/^inch(?:es)?$/, 'inch').replace(/^(centi|milli)met(?:re|er)s?$/, '$1metre').replace(/s$/, '');
+// Common numeric abbreviations in personal stories are evidence, not invented units.
+const expandTimeUnits = (text: string) => text.replace(/(\d)\s*(yrs?|wks?|mos?)\b/gi, (_match, number: string, unit: string) => `${number} ${/^yr/i.test(unit) ? 'years' : /^wk/i.test(unit) ? 'weeks' : 'months'}`);
 
 /** A timeline, size or date that neither the supplied facts nor the conversation mention. */
 export function unsupportedSpecifics(text: string, support: string): string[] {
-  const supported = new Set([...support.matchAll(SPECIFIC_UNIT)].map(m => unitRoot(m[1])));
-  return [...new Set([...text.matchAll(SPECIFIC_UNIT)].map(m => unitRoot(m[1])))].filter(u => !supported.has(u));
+  const supported = new Set([...expandTimeUnits(support).matchAll(SPECIFIC_UNIT)].map(m => unitRoot(m[1])));
+  return [...new Set([...expandTimeUnits(text).matchAll(SPECIFIC_UNIT)].map(m => unitRoot(m[1])))].filter(u => !supported.has(u));
 }

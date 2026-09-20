@@ -17,6 +17,10 @@ assert.deepEqual(unsupportedSpecifics("That's one way to describe a months-long 
 const newFacts = 'About a year after infection the female worm which can reach about 1 metre moves toward the skin.';
 assert.deepEqual(unsupportedSpecifics('The female can reach about a metre and it takes about a year.', newFacts), []);
 assert.deepEqual(unsupportedSpecifics('Four days to get that euro back.', 'It took four days to find the euro'), []);
+assert.deepEqual(unsupportedSpecifics('He worked in mining for years and died weeks after diagnosis.', 'Worked in coal mines for 6-7yrs and died 9wks after diagnosis.'), []);
+assert.deepEqual(unsupportedSpecifics('He died weeks after diagnosis.', 'He worked in coal mines for 6-7yrs.'), ['week']);
+assert.deepEqual(unsupportedSpecifics('It took 4wks.', 'No duration supplied.'), ['week']);
+assert.deepEqual(unsupportedSpecifics('Symptoms lasted months.', 'Symptoms lasted 2mos.'), []);
 // No specifics at all.
 assert.deepEqual(unsupportedSpecifics('Taxonomy officially updated.', oldFacts), []);
 
