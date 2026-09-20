@@ -6630,6 +6630,15 @@
       },
       "publishedId": "18090333419678045",
       "confirmedPublished": true
+    },
+    "comment:17910166449522111": {
+      "creationId": "17890094220614054",
+      "createdAt": "2026-09-20T00:34:10.877Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Right? Most people have no idea it happened until something hurts. One moment you're eating and the next you're in the ER getting told a spoon is lodged in your stomach.",
+        "reply_to_id": "17910166449522111"
+      }
     }
   },
   "repliedCommentIds": [
@@ -16271,6 +16280,6 @@
   },
   "spend": {
     "date": "2026-09-19",
-    "usd": 0.42371290000000017
+    "usd": 0.43018710000000016
   }
 }
