@@ -94,7 +94,9 @@
     "18127612222699079": "TB ?",
     "17901847410587950": "Looks like every breath hurts.",
     "17920351443224686": "Asbestos",
-    "18100036403571515": "Mold"
+    "18100036403571515": "Mold",
+    "17911536507283812": "Im waiting for correct answer, cuz for sure ain't the fungi that I thought...\nOn another note, I have to finally cook my tree shrooms...",
+    "18389455480203142": "Silicosis/pneumoconiosis/ coal worker's pneumoxoniosis.\nNeed occupational exposure history,  HRCT thorax, PFT for further evaluation."
   },
   "ownerReviews": {
     "17937444630360450": "{\"postId\":\"18103023326210157\",\"reason\":\"owner review: personal medical concern\",\"commentText\":\"Little sister of my friend swalloved a coin of 1 fim. At hospital the family was advised to thoroughly keep an eye on her poops. So, the next day they found two 50 penny coins😀.\",\"username\":\"velitapiof\",\"queuedAt\":\"2026-09-10T20:21:59.741Z\",\"resolvedAt\":\"2026-09-10T20:36:02.929Z\",\"resolution\":\"Owner confirmed this is a completed personal story and deleted the inappropriate boundary reply. No clinical review is needed.\"}",
@@ -15359,7 +15361,8 @@
     "18429908740196600",
     "17868863625644086",
     "18154551292512860",
-    "18003747846154785"
+    "18003747846154785",
+    "18104982209063768"
   ],
   "answeredPostIds": [
     "18395606890093068"
@@ -15474,11 +15477,11 @@
     "18110480207174403": 35,
     "17958262674213428": 59,
     "17988527066861715": 48,
-    "18094319267645737": 5
+    "18094319267645737": 6
   },
   "daily": {
     "date": "2026-09-20",
-    "count": 5
+    "count": 6
   },
   "pinnedResolved": {
     "DaTTCIwoAw7": "18014812820883466"
@@ -16348,7 +16351,8 @@
     "18148343950557124",
     "18121106335728774",
     "17960630628198313",
-    "18411474286081855"
+    "18411474286081855",
+    "18046462463818695"
   ],
   "skipStrikes": {
     "17895266316520842": 1,
@@ -16442,6 +16446,6 @@
   },
   "spend": {
     "date": "2026-09-20",
-    "usd": 0.15833940000000002
+    "usd": 0.1648834
   }
 }
