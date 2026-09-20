@@ -92,7 +92,9 @@
     "17982828690083099": "I’m guessing Aspergillosis with chronic fibrosis due to working in a barn or something similar as second guess",
     "18051033119802373": "TB or Histo?",
     "18127612222699079": "TB ?",
-    "17901847410587950": "Looks like every breath hurts."
+    "17901847410587950": "Looks like every breath hurts.",
+    "17920351443224686": "Asbestos",
+    "18100036403571515": "Mold"
   },
   "ownerReviews": {
     "17937444630360450": "{\"postId\":\"18103023326210157\",\"reason\":\"owner review: personal medical concern\",\"commentText\":\"Little sister of my friend swalloved a coin of 1 fim. At hospital the family was advised to thoroughly keep an eye on her poops. So, the next day they found two 50 penny coins😀.\",\"username\":\"velitapiof\",\"queuedAt\":\"2026-09-10T20:21:59.741Z\",\"resolvedAt\":\"2026-09-10T20:36:02.929Z\",\"resolution\":\"Owner confirmed this is a completed personal story and deleted the inappropriate boundary reply. No clinical review is needed.\"}",
@@ -15333,7 +15335,8 @@
     "18076678277706941",
     "17976793712917106",
     "18429908740196600",
-    "17868863625644086"
+    "17868863625644086",
+    "18154551292512860"
   ],
   "answeredPostIds": [
     "18395606890093068"
@@ -15448,11 +15451,11 @@
     "18110480207174403": 35,
     "17958262674213428": 59,
     "17988527066861715": 48,
-    "18094319267645737": 3
+    "18094319267645737": 4
   },
   "daily": {
     "date": "2026-09-20",
-    "count": 3
+    "count": 4
   },
   "pinnedResolved": {
     "DaTTCIwoAw7": "18014812820883466"
@@ -16321,7 +16324,8 @@
     "17917751739245145",
     "18148343950557124",
     "18121106335728774",
-    "17960630628198313"
+    "17960630628198313",
+    "18411474286081855"
   ],
   "skipStrikes": {
     "17895266316520842": 1,
@@ -16415,6 +16419,6 @@
   },
   "spend": {
     "date": "2026-09-20",
-    "usd": 0.0729248
+    "usd": 0.07844380000000001
   }
 }
