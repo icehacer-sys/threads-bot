@@ -101,7 +101,12 @@
     "18106430723247017": "Asbestos ?",
     "18094574048412075": "Legionella?",
     "18125935297867241": "Inhaled talcum powder as a baby.",
-    "18099403385635059": "Tuberculosis"
+    "18099403385635059": "Tuberculosis",
+    "17904333330581742": "??Pulmonary Alveolar Microlithiasis-is rare genetic condition that doesn't allow proper clearance of Phosphorus from Alveoli in Lungs. This leads to an accumulation of Calcium Phosphate Stones,aka Microliths, in lungs, causing Sandstone Pattern on Xray. This condition progresses very slowly, sometimes over several decades.These dense, calcified areas  cause more lung stiffness,which causes  increased breathlessness. \nTx: CAT/Pulm Funct Test/GeneticTesting/Bronchoscopy.",
+    "17867473104635712": "Mets? Or fungal ball?",
+    "17978262987121326": "Tb or fungi. Or someone who misunderstood balloon inflation on a really fundamental level.",
+    "18112802261081507": "Miners lung?",
+    "18134001079709697": "Ants."
   },
   "ownerReviews": {
     "17937444630360450": "{\"postId\":\"18103023326210157\",\"reason\":\"owner review: personal medical concern\",\"commentText\":\"Little sister of my friend swalloved a coin of 1 fim. At hospital the family was advised to thoroughly keep an eye on her poops. So, the next day they found two 50 penny coins😀.\",\"username\":\"velitapiof\",\"queuedAt\":\"2026-09-10T20:21:59.741Z\",\"resolvedAt\":\"2026-09-10T20:36:02.929Z\",\"resolution\":\"Owner confirmed this is a completed personal story and deleted the inappropriate boundary reply. No clinical review is needed.\"}",
@@ -16373,7 +16378,10 @@
     "18046462463818695",
     "17988490989113182",
     "18169463434456905",
-    "17958528438217100"
+    "17958528438217100",
+    "18283252759293370",
+    "17908812852556683",
+    "18126044335842933"
   ],
   "skipStrikes": {
     "17895266316520842": 1,
@@ -16467,6 +16475,6 @@
   },
   "spend": {
     "date": "2026-09-20",
-    "usd": 0.18104540000000002
+    "usd": 0.20369580000000004
   }
 }
