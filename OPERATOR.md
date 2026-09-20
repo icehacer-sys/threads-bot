@@ -4,6 +4,8 @@ The active service reads Threads comments and drafts replies in the account's wr
 
 ## Reply policy
 
+Regular supporters `tgeorgekoshy` and `ruth.werner.9` receive first priority within the normal 22:00-10:00 Cairo hours. `BOT_PRIORITY_USERNAMES` overrides this exact, case-insensitive list. Their short reactions are eligible even below the usual minimum length and they bypass the low-value reserve filter and soft per-post cap. Friendly low-engagement model skips receive one bounded reconsideration. Daily/API limits, deduplication, reveal holds, owner-review holds and medical safeguards remain active. No 24-hour scanning was added. Verify with `npm run supporters:verify`.
+
 Interpret the target of a comment before its tone. Caption criticism and rhetorical questions should receive a short acknowledgment of the writing rather than a reaction to the scan. Narrow quoted-caption cues have a 12-word backstop and share the existing single-repair allowance; genuine clarification questions keep their normal handling. See the [September 14 sarcasm audit](docs/wording-sarcasm-audit-2026-09-14.md). Offline regression command: `npm run wording:verify`.
 
 All diagnosis guesses are held before the answer is public, whether right or wrong. Private answers are not sent to the drafting prompt in that state. After reveal, supported guesses can be affirmed and genuine new questions answered. Prior replies to another reader do not suppress a useful answer to this reader.

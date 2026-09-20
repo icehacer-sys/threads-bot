@@ -12,6 +12,7 @@ import { diagnosticContext, unsupportedConfirmation, rejectsAcceptedDifferential
 import { varietyNote, restrainEmoji, repeatedPhrasing } from './reply-variety';
 import { GIF_SYSTEM_PROMPT, MEDIA_FIELDS, MEDIA_REPLY_NOTE, mediaReplyIssue, mediaVarietyNote, type MediaRead } from './media-reply';
 import { isWordingReaction, WORDING_NOTE, wordingReplyIssue } from './wording-reply';
+import { SUPPORTER_NOTE, isLowEngagementSkip, conversationReplyIssue } from './supporter-replies';
 import { replyStyleIssue, needsClinicalReview, clinicalClaimIssue } from './reply-style';
 import { GIF_TAGS } from "./gifs";
 import { PROMO_TAGS, PRODUCTS_BLOCK } from "./products";
@@ -229,6 +230,8 @@ export interface ClassifyInput {
   styleRecheck?: boolean;
   mediaRecheck?: boolean;
   wordingRecheck?: boolean;
+  priorityCommenter?: boolean;
+  conversationRecheck?: string;
   /** Phrases the previous draft reused from replies already on the post (one bounded redraft). */
   varietyRecheck?: string[];
   /** Allow this one call to use web search. Only the quality-model re-run of an
@@ -273,11 +276,17 @@ export async function classifyAndDraft(input: ClassifyInput): Promise<Decision> 
   const concern = directConcern(commentText, priorExchange?.bot);
   if (concern) return concern;
   const wordingReaction = isWordingReaction(postText, commentText);
-  const rechecked = input.storyRecheck || input.evidenceRecheck || input.styleRecheck || input.mediaRecheck || input.wordingRecheck || !!input.varietyRecheck?.length;
+  const rechecked = input.storyRecheck || input.evidenceRecheck || input.styleRecheck || input.mediaRecheck || input.wordingRecheck || !!input.varietyRecheck?.length || !!input.conversationRecheck;
   if ((commentMediaKind === 'video' || commentMediaKind === 'video-frame') && !commentImages?.length && !commentText.trim()) {
     return { decision: 'skip', category: 'other', reply_text: '', reason: 'GIF unavailable and no text to answer | guard:forced-skip' };
   }
   const finalize = async (d: Decision): Promise<Decision> => {
+    const conversationIssue = d.decision === 'reply' ? conversationReplyIssue(commentText, d.category, d.reply_text, !isPersonalPost) : undefined;
+    const prioritySkip = input.priorityCommenter && isLowEngagementSkip(d.decision, d.category, d.reason);
+    if (conversationIssue || prioritySkip) {
+      if (!rechecked) return classifyAndDraft({ ...input, conversationRecheck: conversationIssue ?? 'harmless supporter comment wrongly skipped as low engagement', allowSearch: false });
+      return { ...d, decision: 'skip', category: 'other', reply_text: '', reason: `conversation guard: ${conversationIssue ?? 'supporter draft unresolved'} | guard:forced-skip` };
+    }
     if (wordingReaction && d.decision === 'reply' && wordingReplyIssue(d.category, d.reply_text)) {
       if (!rechecked) return classifyAndDraft({ ...input, wordingRecheck: true, allowSearch: false });
       return { ...d, decision: 'skip', category: 'other', reply_text: '', reason: 'wording guard: draft misses the caption or overexplains the reaction | guard:forced-skip' };
@@ -405,6 +414,8 @@ export async function classifyAndDraft(input: ClassifyInput): Promise<Decision> 
     mediaNote,
     withMedia ? MEDIA_REPLY_NOTE : '',
     wordingReaction ? WORDING_NOTE : '',
+    input.priorityCommenter ? SUPPORTER_NOTE : '',
+    !isPersonalPost && commentText.length <= 80 ? 'SHORT COMMENT: If this is a diagnosis guess, use at most 24 words after reveal with the supported answer and at most one useful clue. No stock praise of the guess or speculative risks from alternate exposures. A genuine why/how question may receive the explanation it needs. Before reveal hold every diagnosis guess.' : '',
     isPersonalPost ? 'CURRENT POST TYPE: personal post. No diagnosis guessing rules apply.' : `CURRENT REVEAL STATE: ${isPublic ? 'PUBLIC. The answer has already been published. Do not skip a diagnosis discussion for being before the reveal.' : 'PRIVATE. Skip all diagnosis guesses.'}`,
     `COMMENT:\n${commentText || "(no text — just the attached image)"}`,
   ]
@@ -473,6 +484,7 @@ export async function classifyAndDraft(input: ClassifyInput): Promise<Decision> 
   if (input.mediaRecheck) content.push({ type: 'text', text: 'MEDIA RECHECK (only attempt): The previous draft repeated an earlier reply, used generic reaction commentary or repeated the medical case unnecessarily. Re-read the visible action and on-screen words. Write a fresh brief response to their meaning without narrating the GIF or explaining its connection to the X-ray. Skip if that meaning is unclear. Do not use a synonym for the rejected template.' });
   if (input.varietyRecheck?.length) content.push({ type: 'text', text: `VARIETY RECHECK (only attempt): Your draft reused ${input.varietyRecheck.join(', ')} from replies already on this post. Build a reply from THIS comment's own words and premise with a different construction. Do not swap in a synonym for the reused phrase. Keep every accuracy, reveal and punctuation rule. Skip if nothing fresh fits.` });
   if (input.wordingRecheck) content.push({ type: 'text', text: 'WORDING RECHECK (only attempt): The draft missed the caption criticism or overexplained it. Respond to the awkward or overcomplicated phrasing itself in at most 12 plain words. No clinical recap, second sentence, elaborate analogy, diagnosis affirmation, defensive explanation or generic shock. If you cannot establish the intended meaning, skip.' });
+  if (input.conversationRecheck) content.push({ type: 'text', text: `CONVERSATION RECHECK (only attempt): ${input.conversationRecheck}. Respond to the actual comment without assuming it describes the commenter's health, blaming a patient or inventing reasons for delayed care. A short guess needs at most 24 words with at most one supported distinguishing clue, not a repeated full case summary. Harmless supporter reactions deserve a short response. Keep every reveal and medical boundary.` });
 
   // The submit_reply tool gives guaranteed-structured output; web_search (optional)
   // lets the model look up references it does not recognize. With web search off we

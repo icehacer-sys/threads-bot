@@ -17,6 +17,7 @@ import { config } from "./config";
 import { PersistenceError } from "./persistence";
 import { isLossStory, replyStyleIssue } from './reply-style';
 import { mediaModelRoute } from './media-reply';
+import { isPriorityCommenter } from './supporter-replies';
 import { classifyAndDraft, isBotQuestion, firstSentences, type Decision, type InlineImage, type ImageMediaType } from "./reply";
 import { pickGif } from "./gifs";
 import { drainSpend, usd } from "./spend";
@@ -208,6 +209,8 @@ function selectCandidates(replies: ThreadsReply[], committed?: Set<string>): Thr
   // (Per-reply like counts are not reliably exposed by the replies edge, so we score
   // the text itself rather than engagement.)
   sorted.sort((a, b) => {
+    const priority = Number(isPriorityCommenter(b.username, config.priorityUsernames)) - Number(isPriorityCommenter(a.username, config.priorityUsernames));
+    if (priority) return priority;
     const dv = valueOf(b) - valueOf(a);
     if (dv !== 0) return dv;
     return (b.timestamp ?? "").localeCompare(a.timestamp ?? "");
@@ -712,6 +715,7 @@ async function runLiveOrDry(mode: Mode, target: string | null): Promise<void> {
       c.username !== me &&
       isVisible(c) &&
       ((c.text ?? "").trim().length >= config.minCommentLength ||
+        (isPriorityCommenter(c.username, config.priorityUsernames) && !!(c.text ?? '').trim()) ||
         ((c.media_type === "IMAGE" || c.media_type === "VIDEO") && !!c.media_url) ||
         !!c.gif_url) && // a bare GIF (no text) is still worth reacting to
       !state.hasReplied(c.id) && // local record — never post twice, even if our reply is pending/lagging
@@ -817,7 +821,8 @@ async function runLiveOrDry(mode: Mode, target: string | null): Promise<void> {
     const eligible = pool.filter(c => !state.isWaitingForReveal(c.id, c.text ?? "", answerPublic));
     const waitingForReveal = pool.length - eligible.length;
     if (waitingForReveal) console.log(`  ${waitingForReveal} comment(s) waiting for reveal; no model calls for these.`);
-    const candidates = selectCandidates(eligible, committed).slice(0, perPostRemaining);
+    // Supporters can exceed the soft per-post cap, but the daily/platform and USD caps still apply.
+    const candidates = selectCandidates(eligible, committed).filter((c, index) => index < perPostRemaining || isPriorityCommenter(c.username, config.priorityUsernames));
 
     console.log(
       `Post ${clip(post.text ?? post.id, 40)} [answer: ${resolved.answer ?? "unknown"}${postImages.length ? ", image ✓" : ""}] — ${candidates.length} to reply (${pinnedIds.has(post.id) ? "pinned" : `${state.repliedToPost(post.id)}/${config.perPostCap}`} done):`,
@@ -834,7 +839,7 @@ async function runLiveOrDry(mode: Mode, target: string | null): Promise<void> {
       // model call (so this costs nothing) and left un-cached, so it is simply re-considered for
       // free on the next poll or on a fresh budget day. Questions and substantive comments still
       // get through — that is exactly what commentValue() ranks for.
-      if (reserveActive() && commentValue(c) < config.reserveMinValue) {
+      if (reserveActive() && commentValue(c) < config.reserveMinValue && !isPriorityCommenter(c.username, config.priorityUsernames)) {
         reserveDeferred += 1;
         continue;
       }
@@ -862,6 +867,7 @@ async function runLiveOrDry(mode: Mode, target: string | null): Promise<void> {
         commentMediaKind = commentImages.length ? "video-frame" : "video";
       }
       const baseInput = {
+        priorityCommenter: isPriorityCommenter(c.username, config.priorityUsernames),
         postText: post.text ?? "",
         commentText: c.text ?? "",
         answer: imageReviewHeld || state.hasImageReview(post.id) ? undefined : knownAnswer,

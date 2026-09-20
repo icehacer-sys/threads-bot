@@ -89,6 +89,8 @@ export const config = {
   // How many of our recent replies to feed back in as the "don't repeat these" list.
   // Sent uncached on every call, so smaller = cheaper; 15 is plenty for variety.
   antiRepeatWindow: num("BOT_ANTIREPEAT", 30),
+  // Owner-selected regular supporters. Priority does not bypass safety, dedup or hard caps.
+  priorityUsernames: (process.env.BOT_PRIORITY_USERNAMES ?? "tgeorgekoshy,ruth.werner.9").split(',').map(s => s.trim().replace(/^@/, '').toLowerCase()).filter(Boolean),
 
   // Let the model web-search a reference it doesn't recognize (it decides when;
   // most comments won't trigger one). Adds a small per-search cost. Off by default.
