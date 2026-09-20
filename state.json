@@ -6649,7 +6649,9 @@
         "media_type": "TEXT",
         "text": "That one actually landed.",
         "reply_to_id": "18095994743641005"
-      }
+      },
+      "publishedId": "18029832110888933",
+      "confirmedPublished": true
     }
   },
   "repliedCommentIds": [
