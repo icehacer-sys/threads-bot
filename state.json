@@ -6779,7 +6779,9 @@
         "media_type": "TEXT",
         "text": "The answer goes up in a follow-up post so stick around and it'll land soon.",
         "reply_to_id": "18104982209063768"
-      }
+      },
+      "publishedId": "17907004737516000",
+      "confirmedPublished": true
     }
   },
   "repliedCommentIds": [
