@@ -106,7 +106,9 @@
     "17867473104635712": "Mets? Or fungal ball?",
     "17978262987121326": "Tb or fungi. Or someone who misunderstood balloon inflation on a really fundamental level.",
     "18112802261081507": "Miners lung?",
-    "18134001079709697": "Ants."
+    "18134001079709697": "Ants.",
+    "18116286635060458": "Lung cancer? Something affecting the bronchioles...",
+    "18353590264172361": "This chest X-ray shows pulmonary alveolar microlithiasis (PAM), a rare, chronic lung disease characterized by the widespread accumulation of tiny calcium phosphate stones (microliths) inside the air sacs of the lungs."
   },
   "ownerReviews": {
     "17937444630360450": "{\"postId\":\"18103023326210157\",\"reason\":\"owner review: personal medical concern\",\"commentText\":\"Little sister of my friend swalloved a coin of 1 fim. At hospital the family was advised to thoroughly keep an eye on her poops. So, the next day they found two 50 penny coins😀.\",\"username\":\"velitapiof\",\"queuedAt\":\"2026-09-10T20:21:59.741Z\",\"resolvedAt\":\"2026-09-10T20:36:02.929Z\",\"resolution\":\"Owner confirmed this is a completed personal story and deleted the inappropriate boundary reply. No clinical review is needed.\"}",
@@ -6806,6 +6808,15 @@
       },
       "publishedId": "18330258643263869",
       "confirmedPublished": true
+    },
+    "comment:17935311357127409": {
+      "creationId": "17890225644614054",
+      "createdAt": "2026-09-20T20:20:16.398Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "In this case the X-ray beats Maverick to it.",
+        "reply_to_id": "17935311357127409"
+      }
     }
   },
   "repliedCommentIds": [
@@ -16475,6 +16486,6 @@
   },
   "spend": {
     "date": "2026-09-20",
-    "usd": 0.20369580000000004
+    "usd": 0.21015580000000006
   }
 }
