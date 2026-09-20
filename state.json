@@ -6663,6 +6663,15 @@
       },
       "publishedId": "18122390677687319",
       "confirmedPublished": true
+    },
+    "comment:17923230048203174": {
+      "creationId": "17890105860614054",
+      "createdAt": "2026-09-20T02:36:47.273Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "The flared end was probably the only reason it didn't slide down like a dagger. Doesn't help much once it's already there though.",
+        "reply_to_id": "17923230048203174"
+      }
     }
   },
   "repliedCommentIds": [
@@ -16308,6 +16317,6 @@
   },
   "spend": {
     "date": "2026-09-19",
-    "usd": 0.5294813000000003
+    "usd": 0.5456253000000003
   }
 }
