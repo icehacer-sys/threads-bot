@@ -20,7 +20,7 @@ The occupational exposure context and relationship between silica and tuberculos
 
 The owner requested consistent replies to `tgeorgekoshy` and `ruth.werner.9` and explicitly selected normal hours rather than 24/7 operation.
 
-Ruth's `Gotta be fungal. Aspergillosis ?` comment, ID `18369322597242554`, was unanswered and present in the persisted skip list at inspection. No comment from `tgeorgekoshy` appeared in the initial snapshot. Release Ruth's specific skip for a fresh assessment during deployment, subject to duplicate checks and the already-public answer.
+Ruth's `Gotta be fungal. Aspergillosis ?` comment, ID `18369322597242554`, was unanswered and present in the persisted skip list at inspection. No comment from `tgeorgekoshy` appeared in the initial snapshot. Ruth's specific skip was released for a fresh assessment during deployment. Reply receipts and the reveal hold were preserved; ordinary duplicate checks still apply.
 
 Both exact usernames now rank first. Short comments and emoji are eligible. They bypass the low-value reserve filter and soft per-post cap. A harmless model skip based only on low engagement gets one reconsideration, shared with all other repair limits. Persistent failed drafts remain cached rather than billed on every poll. The bot is instructed to respond naturally without announcing priority, inventing familiarity or upselling.
 
@@ -30,6 +30,6 @@ Daily/API caps, medical advice boundaries, unrevealed-answer holds, image-review
 
 New checks reject the observed blame phrases and assumed second-person medical history without first-person context. Short guess affirmations/corrections over 24 words get one redraft. Voice instructions address unsupported motivation, invented dialogue, stock correction praise and unsolicited alternate-exposure risk claims. Broader semantic accuracy still depends on model judgment and supplied evidence.
 
-TypeScript plus supporter, concern, GIF, wording, publishing and invented-specifics regression checks passed. Runtime configuration documentation was regenerated. Draft-only API checks were performed; test drafts were not published. The normal live bot remains responsible for actual replies after deployment.
+TypeScript plus supporter, concern, GIF, wording, publishing and invented-specifics regression checks passed. Runtime configuration documentation was regenerated. Draft-only API checks used six model calls with estimated usage of $0.116586. Test drafts were not published. The normal live bot remains responsible for actual replies after deployment.
 
 The existing public replies and case caption were not edited or deleted. Local snapshot and draft evidence are in the session artifact directory as `replies-audit-2026-09-20.json` and `supporter-draft-check*.json`.
