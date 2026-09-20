@@ -6721,7 +6721,9 @@
         "media_type": "TEXT",
         "text": "That would explain why the room stopped.",
         "reply_to_id": "17976793712917106"
-      }
+      },
+      "publishedId": "18190490122399265",
+      "confirmedPublished": true
     }
   },
   "repliedCommentIds": [
