@@ -136,7 +136,8 @@
     "18099016658455874": "{\"postId\":\"17958262674213428\",\"reason\":\"owner review: personal medical concern\",\"commentText\":\"Can I share an image I own?\\nI think this is an osteophyte that broke from the spine and is sitting on top of the liver.\",\"username\":\"malatero1\",\"queuedAt\":\"2026-09-18T22:02:17.298Z\"}",
     "17877897498545639": "{\"postId\":\"17958262674213428\",\"reason\":\"No substantive comment to reply to; instruction-only input requires owner review.\",\"commentText\":\"Bonitis\",\"username\":\"rocketcheddar\",\"queuedAt\":\"2026-09-18T22:48:50.602Z\"}",
     "18144112132580005": "{\"postId\":\"17988527066861715\",\"reason\":\"Diagnosis guess before reveal: skip. Edgy drug-reference wordplay is better held for owner review on tone grounds.\",\"commentText\":\"Inhaled the coke and the spoon?  Extreme case of Pica?\",\"username\":\"friedrichkristina\",\"queuedAt\":\"2026-09-19T19:15:13.798Z\"}",
-    "18125935297867241": "{\"postId\":\"18094319267645737\",\"reason\":\"Diagnosis guess before reveal. Hold for owner review.\",\"commentText\":\"Inhaled talcum powder as a baby.\",\"username\":\"nidiaqcq\",\"queuedAt\":\"2026-09-20T19:49:16.356Z\"}"
+    "18125935297867241": "{\"postId\":\"18094319267645737\",\"reason\":\"Diagnosis guess before reveal. Hold for owner review.\",\"commentText\":\"Inhaled talcum powder as a baby.\",\"username\":\"nidiaqcq\",\"queuedAt\":\"2026-09-20T19:49:16.356Z\"}",
+    "18369322597242554": "{\"postId\":\"18094319267645737\",\"reason\":\"owner review: unsupported confirmation, specifics (decade) or dismissal of an accepted differential | guard:forced-skip\",\"commentText\":\"Gotta be fungal. Aspergillosis ?\",\"username\":\"ruth.werner.9\",\"queuedAt\":\"2026-09-20T20:38:23.879Z\"}"
   },
   "concernAcknowledgments": {
     "[\"18121475662898455\",\"berit069\",\"image\"]": "18142096432588199",
@@ -6874,6 +6875,15 @@
       },
       "publishedId": "17958389619246289",
       "confirmedPublished": true
+    },
+    "comment:17874298578650950": {
+      "creationId": "17890227756614054",
+      "createdAt": "2026-09-20T20:38:43.046Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "The teaching answer here is progressive massive fibrosis from long-term dust exposure with upper-lobe conglomerate masses and rim-calcified hilar nodes pulling it away from fungal infection.",
+        "reply_to_id": "17874298578650950"
+      }
     }
   },
   "repliedCommentIds": [
@@ -15458,7 +15468,8 @@
     "18039279479637185",
     "17904333330581742",
     "18102695030573606",
-    "18116286635060458"
+    "18116286635060458",
+    "17956154808214927"
   ],
   "answeredPostIds": [
     "18395606890093068"
@@ -15573,11 +15584,11 @@
     "18110480207174403": 35,
     "17958262674213428": 59,
     "17988527066861715": 48,
-    "18094319267645737": 12
+    "18094319267645737": 13
   },
   "daily": {
     "date": "2026-09-20",
-    "count": 12
+    "count": 13
   },
   "pinnedResolved": {
     "DaTTCIwoAw7": "18014812820883466"
@@ -16455,7 +16466,9 @@
     "18283252759293370",
     "17908812852556683",
     "18126044335842933",
-    "17987553921077710"
+    "17987553921077710",
+    "17867473104635712",
+    "18369322597242554"
   ],
   "skipStrikes": {
     "17895266316520842": 1,
@@ -16549,6 +16562,6 @@
   },
   "spend": {
     "date": "2026-09-20",
-    "usd": 0.3256522000000001
+    "usd": 0.35819670000000003
   }
 }
