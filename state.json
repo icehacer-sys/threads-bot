@@ -7671,6 +7671,15 @@
       },
       "publishedId": "18094944431539729",
       "confirmedPublished": true
+    },
+    "comment:18144537694500023": {
+      "creationId": "17890363587614054",
+      "createdAt": "2026-09-21T21:38:34.635Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Mycetoma here. Myeloma punches out cleaner \"punched-out\" lesions without the periosteal new bone you see running through this foot.",
+        "reply_to_id": "18144537694500023"
+      }
     }
   },
   "repliedCommentIds": [
@@ -16325,7 +16334,8 @@
     "17950712223273847",
     "18214929874359309",
     "18110476511129414",
-    "18405890788093795"
+    "18405890788093795",
+    "17980386669083843"
   ],
   "answeredPostIds": [
     "18395606890093068"
@@ -16441,11 +16451,11 @@
     "17958262674213428": 59,
     "17988527066861715": 48,
     "18094319267645737": 42,
-    "18115960969977269": 40
+    "18115960969977269": 41
   },
   "daily": {
     "date": "2026-09-21",
-    "count": 40
+    "count": 41
   },
   "pinnedResolved": {
     "DaTTCIwoAw7": "18014812820883466"
@@ -17469,6 +17479,6 @@
   },
   "spend": {
     "date": "2026-09-21",
-    "usd": 0.8262788499999996
+    "usd": 0.8485768499999996
   }
 }
