@@ -7704,6 +7704,15 @@
       },
       "publishedId": "18431351251181367",
       "confirmedPublished": true
+    },
+    "comment:18113035217043555": {
+      "creationId": "17890364574614054",
+      "createdAt": "2026-09-21T21:55:04.577Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "It really does hit different when you're flipping through conditions that doctors used to dismiss as stress",
+        "reply_to_id": "18113035217043555"
+      }
     }
   },
   "repliedCommentIds": [
@@ -17411,7 +17420,8 @@
     "18109629739890008",
     "18126604681791304",
     "17945919651312718",
-    "18596417836066769"
+    "18596417836066769",
+    "18113502038124315"
   ],
   "skipStrikes": {
     "17895266316520842": 1,
@@ -17507,6 +17517,6 @@
   },
   "spend": {
     "date": "2026-09-21",
-    "usd": 0.8635940499999996
+    "usd": 0.8958696499999996
   }
 }
