@@ -7792,6 +7792,15 @@
       },
       "publishedId": "18117254636072203",
       "confirmedPublished": true
+    },
+    "comment:18233663569319583": {
+      "creationId": "17890366500614054",
+      "createdAt": "2026-09-21T22:28:34.502Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Interdental care's not gonna help once the fungus has tunneled through the midfoot like this.",
+        "reply_to_id": "18233663569319583"
+      }
     }
   },
   "repliedCommentIds": [
@@ -17606,6 +17615,6 @@
   },
   "spend": {
     "date": "2026-09-21",
-    "usd": 0.9628566499999996
+    "usd": 0.9698002499999997
   }
 }
