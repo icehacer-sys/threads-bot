@@ -158,7 +158,8 @@
     "17995563311823613": "{\"postId\":\"18094319267645737\",\"reason\":\"owner review: unsupported confirmation, specifics (decade) or dismissal of an accepted differential | guard:forced-skip\",\"commentText\":\"Lung cancer\",\"username\":\"ranlom25\",\"queuedAt\":\"2026-09-20T20:44:31.397Z\"}",
     "18099403385635059": "{\"postId\":\"18094319267645737\",\"reason\":\"owner review: unsupported confirmation, specifics (decade) or dismissal of an accepted differential | guard:forced-skip\",\"commentText\":\"Tuberculosis\",\"username\":\"jomesinjanna\",\"queuedAt\":\"2026-09-20T20:45:02.759Z\"}",
     "18110547293332396": "{\"postId\":\"18094319267645737\",\"reason\":\"owner review: unsupported confirmation, specifics (year) or dismissal of an accepted differential | guard:forced-skip\",\"commentText\":\"OK doc, and this is personal. My dad died 19rs ago from bronchogenic carcinoma aged 48. Was a lifelong smoker but worked in coal mines for 6-7yrs in the 70s-80s. Lung cancer wasn't picked up until he started breaking bones, and died 9wks after diagnosis. Is this a similar film screen, or would there be differentials on diagnosis by film that makes you go \\\"oh f**&\\\"?\",\"username\":\"jordankingsford\",\"queuedAt\":\"2026-09-20T21:02:43.826Z\"}",
-    "18071427875487353": "{\"postId\":\"18094319267645737\",\"reason\":\"The case facts do not record the patient's age. The post mentions decades of worsening breathlessness but does not establish when exposure began or the patient's current age. This detail requires owner response.\",\"commentText\":\"Out of curiosity, how old was the patient?\",\"username\":\"syclone601\",\"queuedAt\":\"2026-09-20T21:52:18.652Z\"}"
+    "18071427875487353": "{\"postId\":\"18094319267645737\",\"reason\":\"The case facts do not record the patient's age. The post mentions decades of worsening breathlessness but does not establish when exposure began or the patient's current age. This detail requires owner response.\",\"commentText\":\"Out of curiosity, how old was the patient?\",\"username\":\"syclone601\",\"queuedAt\":\"2026-09-20T21:52:18.652Z\"}",
+    "17909176701307007": "{\"postId\":\"18115960969977269\",\"reason\":\"Unclear reference: 'Silverback syndrome' does not appear to be a recognized medical diagnosis, and without knowing whether this is a named condition, meme, or private joke, a reply risks missing or misrepresenting the commenter's intent. Needs lookup or owner review to confirm the source and meaning.\",\"commentText\":\"Silverback syndrome\",\"username\":\"nors.tudoubob\",\"queuedAt\":\"2026-09-21T19:35:28.673Z\"}"
   },
   "concernAcknowledgments": {
     "[\"18121475662898455\",\"berit069\",\"image\"]": "18142096432588199",
@@ -7281,6 +7282,15 @@
       },
       "publishedId": "18032326943891607",
       "confirmedPublished": true
+    },
+    "comment:18010112147768503": {
+      "creationId": "17890354065614054",
+      "createdAt": "2026-09-21T19:35:34.012Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Perfect way to describe it. Mycetoma ate clean holes through the bone and left nothing but cavities.",
+        "reply_to_id": "18010112147768503"
+      }
     }
   },
   "repliedCommentIds": [
@@ -15900,7 +15910,8 @@
     "17973291438130516",
     "18625703230060514",
     "17997864090043020",
-    "17906842242551290"
+    "17906842242551290",
+    "18087257129681812"
   ],
   "answeredPostIds": [
     "18395606890093068"
@@ -16016,11 +16027,11 @@
     "17958262674213428": 59,
     "17988527066861715": 48,
     "18094319267645737": 42,
-    "18115960969977269": 5
+    "18115960969977269": 6
   },
   "daily": {
     "date": "2026-09-21",
-    "count": 5
+    "count": 6
   },
   "pinnedResolved": {
     "DaTTCIwoAw7": "18014812820883466"
@@ -16921,7 +16932,9 @@
     "18116529260471985",
     "17987389626076792",
     "18006040259995927",
-    "17866728999661501"
+    "17866728999661501",
+    "18109593761219038",
+    "17909176701307007"
   ],
   "skipStrikes": {
     "17895266316520842": 1,
@@ -17016,6 +17029,6 @@
   },
   "spend": {
     "date": "2026-09-21",
-    "usd": 0.3104984
+    "usd": 0.3212916
   }
 }
