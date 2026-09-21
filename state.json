@@ -7660,6 +7660,15 @@
       },
       "publishedId": "17973993251934263",
       "confirmedPublished": true
+    },
+    "comment:17980386669083843": {
+      "creationId": "17890363563614054",
+      "createdAt": "2026-09-21T21:38:05.657Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "It really is. Mycetoma's one of those diseases that strips away almost everything and gives almost nothing back.",
+        "reply_to_id": "17980386669083843"
+      }
     }
   },
   "repliedCommentIds": [
@@ -16313,7 +16322,8 @@
     "18632251912029714",
     "17950712223273847",
     "18214929874359309",
-    "18110476511129414"
+    "18110476511129414",
+    "18405890788093795"
   ],
   "answeredPostIds": [
     "18395606890093068"
@@ -16429,11 +16439,11 @@
     "17958262674213428": 59,
     "17988527066861715": 48,
     "18094319267645737": 42,
-    "18115960969977269": 39
+    "18115960969977269": 40
   },
   "daily": {
     "date": "2026-09-21",
-    "count": 39
+    "count": 40
   },
   "pinnedResolved": {
     "DaTTCIwoAw7": "18014812820883466"
@@ -17457,6 +17467,6 @@
   },
   "spend": {
     "date": "2026-09-21",
-    "usd": 0.8228790499999996
+    "usd": 0.8262788499999996
   }
 }
