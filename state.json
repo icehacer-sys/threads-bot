@@ -7825,6 +7825,15 @@
       },
       "publishedId": "18007523799003509",
       "confirmedPublished": true
+    },
+    "comment:18217186594356708": {
+      "creationId": "17890368777614054",
+      "createdAt": "2026-09-21T22:59:44.976Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "The dental hygiene callback is inspired but this foot paid enough already.",
+        "reply_to_id": "18217186594356708"
+      }
     }
   },
   "repliedCommentIds": [
@@ -17642,6 +17651,6 @@
   },
   "spend": {
     "date": "2026-09-21",
-    "usd": 0.9762598499999997
+    "usd": 0.9794876499999997
   }
 }
