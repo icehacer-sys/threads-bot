@@ -7370,6 +7370,15 @@
       },
       "publishedId": "18431462812195537",
       "confirmedPublished": true
+    },
+    "comment:18128279782756514": {
+      "creationId": "17890356732614054",
+      "createdAt": "2026-09-21T20:10:10.336Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "That physics shortcut nails it. Those cavities meant the infection had already won.",
+        "reply_to_id": "18128279782756514"
+      }
     }
   },
   "repliedCommentIds": [
@@ -17027,7 +17036,9 @@
     "18177109222449973",
     "18074516690451012",
     "17869249845644344",
-    "18126035899850084"
+    "18126035899850084",
+    "18110672693179425",
+    "18094283102129479"
   ],
   "skipStrikes": {
     "17895266316520842": 1,
@@ -17123,6 +17134,6 @@
   },
   "spend": {
     "date": "2026-09-21",
-    "usd": 0.45828165
+    "usd": 0.50883725
   }
 }
