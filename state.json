@@ -7770,6 +7770,15 @@
       },
       "publishedId": "18470498869117549",
       "confirmedPublished": true
+    },
+    "comment:18096333410383911": {
+      "creationId": "17890365306614054",
+      "createdAt": "2026-09-21T22:12:19.112Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Exactly. Stress doesn't carve cavities through bone. That takes an actual invader like mycetoma.",
+        "reply_to_id": "18096333410383911"
+      }
     }
   },
   "repliedCommentIds": [
@@ -17581,6 +17590,6 @@
   },
   "spend": {
     "date": "2026-09-21",
-    "usd": 0.9276924499999997
+    "usd": 0.9309902499999997
   }
 }
