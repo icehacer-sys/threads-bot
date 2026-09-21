@@ -7202,6 +7202,15 @@
       },
       "publishedId": "17970222912160958",
       "confirmedPublished": true
+    },
+    "comment:17992573088843801": {
+      "creationId": "17890352898614054",
+      "createdAt": "2026-09-21T19:16:02.163Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "That's the King of the Dead summoning the Army of the Ghosts so you're not far off.",
+        "reply_to_id": "17992573088843801"
+      }
     }
   },
   "repliedCommentIds": [
@@ -15934,8 +15943,8 @@
     "18094319267645737": 42
   },
   "daily": {
-    "date": "2026-09-20",
-    "count": 42
+    "date": "2026-09-21",
+    "count": 0
   },
   "pinnedResolved": {
     "DaTTCIwoAw7": "18014812820883466"
@@ -16905,7 +16914,7 @@
     "17865730374636613": 1
   },
   "gifDaily": {
-    "date": "2026-09-20",
+    "date": "2026-09-21",
     "count": 0
   },
   "recentGifIds": [
@@ -16916,11 +16925,11 @@
   ],
   "promoPostCounts": {},
   "promoDaily": {
-    "date": "2026-09-20",
+    "date": "2026-09-21",
     "count": 0
   },
   "spend": {
-    "date": "2026-09-20",
-    "usd": 1.2549083000000005
+    "date": "2026-09-21",
+    "usd": 0.0626151
   }
 }
