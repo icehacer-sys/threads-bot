@@ -108,7 +108,14 @@
     "18112802261081507": "Miners lung?",
     "18134001079709697": "Ants.",
     "18116286635060458": "Lung cancer? Something affecting the bronchioles...",
-    "18353590264172361": "This chest X-ray shows pulmonary alveolar microlithiasis (PAM), a rare, chronic lung disease characterized by the widespread accumulation of tiny calcium phosphate stones (microliths) inside the air sacs of the lungs."
+    "18353590264172361": "This chest X-ray shows pulmonary alveolar microlithiasis (PAM), a rare, chronic lung disease characterized by the widespread accumulation of tiny calcium phosphate stones (microliths) inside the air sacs of the lungs.",
+    "18625703230060514": "Radium ingestion rotted the bones from inside? \n\n(shot nn the dark but also real)",
+    "17997214497032588": "Autolysis of bone? \nLike a severe osteoporosis, bone tuberculosis?",
+    "18129409933748648": "Some sort of bone disease? Cancer?",
+    "18373314685242998": "Schistosomiasis?",
+    "17987389626076792": "Pagets?",
+    "18006040259995927": "Osteosarcoma?",
+    "17866728999661501": "Charcot foot?"
   },
   "ownerReviews": {
     "17937444630360450": "{\"postId\":\"18103023326210157\",\"reason\":\"owner review: personal medical concern\",\"commentText\":\"Little sister of my friend swalloved a coin of 1 fim. At hospital the family was advised to thoroughly keep an eye on her poops. So, the next day they found two 50 penny coins😀.\",\"username\":\"velitapiof\",\"queuedAt\":\"2026-09-10T20:21:59.741Z\",\"resolvedAt\":\"2026-09-10T20:36:02.929Z\",\"resolution\":\"Owner confirmed this is a completed personal story and deleted the inappropriate boundary reply. No clinical review is needed.\"}",
@@ -7213,6 +7220,15 @@
       },
       "publishedId": "18190247596404556",
       "confirmedPublished": true
+    },
+    "comment:17973291438130516": {
+      "creationId": "17890352928614054",
+      "createdAt": "2026-09-21T19:16:37.398Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Sometimes swelling is a liar and the skeleton's got a whole other story.",
+        "reply_to_id": "17973291438130516"
+      }
     }
   },
   "repliedCommentIds": [
@@ -15827,7 +15843,8 @@
     "18095085434123467",
     "17976517727918625",
     "18128228680694782",
-    "18086445311286825"
+    "18086445311286825",
+    "17992573088843801"
   ],
   "answeredPostIds": [
     "18395606890093068"
@@ -15942,11 +15959,12 @@
     "18110480207174403": 35,
     "17958262674213428": 59,
     "17988527066861715": 48,
-    "18094319267645737": 42
+    "18094319267645737": 42,
+    "18115960969977269": 1
   },
   "daily": {
     "date": "2026-09-21",
-    "count": 0
+    "count": 1
   },
   "pinnedResolved": {
     "DaTTCIwoAw7": "18014812820883466"
@@ -16932,6 +16950,6 @@
   },
   "spend": {
     "date": "2026-09-21",
-    "usd": 0.0626151
+    "usd": 0.0949159
   }
 }
