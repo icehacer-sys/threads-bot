@@ -7483,6 +7483,15 @@
       },
       "publishedId": "18125859302506680",
       "confirmedPublished": true
+    },
+    "comment:17910722220494664": {
+      "creationId": "17890358778614054",
+      "createdAt": "2026-09-21T20:30:15.645Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Mycetoma's basically the geological forces version of bone destruction. Those cavities look exactly like that.",
+        "reply_to_id": "17910722220494664"
+      }
     }
   },
   "repliedCommentIds": [
@@ -16120,7 +16129,8 @@
     "18632894047049647",
     "17969785071153544",
     "17902082337579707",
-    "18122544106927210"
+    "18122544106927210",
+    "18627504691044895"
   ],
   "answeredPostIds": [
     "18395606890093068"
@@ -16236,11 +16246,11 @@
     "17958262674213428": 59,
     "17988527066861715": 48,
     "18094319267645737": 42,
-    "18115960969977269": 23
+    "18115960969977269": 24
   },
   "daily": {
     "date": "2026-09-21",
-    "count": 23
+    "count": 24
   },
   "pinnedResolved": {
     "DaTTCIwoAw7": "18014812820883466"
@@ -17254,6 +17264,6 @@
   },
   "spend": {
     "date": "2026-09-21",
-    "usd": 0.6612314499999999
+    "usd": 0.6642312499999999
   }
 }
