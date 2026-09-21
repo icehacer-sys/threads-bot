@@ -7301,7 +7301,9 @@
         "media_type": "TEXT",
         "text": "Bone popcorn nobody wanted to pop.",
         "reply_to_id": "18101273318382669"
-      }
+      },
+      "publishedId": "18009268058976665",
+      "confirmedPublished": true
     }
   },
   "repliedCommentIds": [
