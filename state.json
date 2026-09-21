@@ -7480,7 +7480,9 @@
         "media_type": "TEXT",
         "text": "That's the most unappetizing popcorn ever served.",
         "reply_to_id": "18627504691044895"
-      }
+      },
+      "publishedId": "18125859302506680",
+      "confirmedPublished": true
     }
   },
   "repliedCommentIds": [
