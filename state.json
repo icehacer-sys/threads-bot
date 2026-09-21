@@ -160,7 +160,8 @@
     "18110547293332396": "{\"postId\":\"18094319267645737\",\"reason\":\"owner review: unsupported confirmation, specifics (year) or dismissal of an accepted differential | guard:forced-skip\",\"commentText\":\"OK doc, and this is personal. My dad died 19rs ago from bronchogenic carcinoma aged 48. Was a lifelong smoker but worked in coal mines for 6-7yrs in the 70s-80s. Lung cancer wasn't picked up until he started breaking bones, and died 9wks after diagnosis. Is this a similar film screen, or would there be differentials on diagnosis by film that makes you go \\\"oh f**&\\\"?\",\"username\":\"jordankingsford\",\"queuedAt\":\"2026-09-20T21:02:43.826Z\"}",
     "18071427875487353": "{\"postId\":\"18094319267645737\",\"reason\":\"The case facts do not record the patient's age. The post mentions decades of worsening breathlessness but does not establish when exposure began or the patient's current age. This detail requires owner response.\",\"commentText\":\"Out of curiosity, how old was the patient?\",\"username\":\"syclone601\",\"queuedAt\":\"2026-09-20T21:52:18.652Z\"}",
     "17909176701307007": "{\"postId\":\"18115960969977269\",\"reason\":\"Unclear reference: 'Silverback syndrome' does not appear to be a recognized medical diagnosis, and without knowing whether this is a named condition, meme, or private joke, a reply risks missing or misrepresenting the commenter's intent. Needs lookup or owner review to confirm the source and meaning.\",\"commentText\":\"Silverback syndrome\",\"username\":\"nors.tudoubob\",\"queuedAt\":\"2026-09-21T19:35:28.673Z\"}",
-    "18109373375597947": "{\"postId\":\"18115960969977269\",\"reason\":\"Patient privacy and consent for educational X-ray use requires owner response. This is a valid concern that belongs with the account operator, not a reply from the teaching voice. Do not invent a privacy policy, patient de-identification claim, or reassurance about consent practices.\",\"commentText\":\"I don’t know, but as someone with abnormal feet - I would be pissed if I saw my X-rays posted without my consent.\",\"username\":\"rockthisrobot\",\"queuedAt\":\"2026-09-21T20:10:45.475Z\"}"
+    "18109373375597947": "{\"postId\":\"18115960969977269\",\"reason\":\"Patient privacy and consent for educational X-ray use requires owner response. This is a valid concern that belongs with the account operator, not a reply from the teaching voice. Do not invent a privacy policy, patient de-identification claim, or reassurance about consent practices.\",\"commentText\":\"I don’t know, but as someone with abnormal feet - I would be pissed if I saw my X-rays posted without my consent.\",\"username\":\"rockthisrobot\",\"queuedAt\":\"2026-09-21T20:10:45.475Z\"}",
+    "18092937740554591": "{\"postId\":\"18115960969977269\",\"reason\":\"owner review: unsupported confirmation, specifics (year) or dismissal of an accepted differential | guard:forced-skip\",\"commentText\":\"Sincere question: if they eliminate a causal factor, can the bone be reconstituted using something like tamoxifen or other calcium depositing drug?  I walk about 5 miles a day doing animal care so this one for some reason made me a lot sadder than some of the ones that were worse prognosis\",\"username\":\"fureyous13\",\"queuedAt\":\"2026-09-21T20:28:08.225Z\"}"
   },
   "concernAcknowledgments": {
     "[\"18121475662898455\",\"berit069\",\"image\"]": "18142096432588199",
@@ -7437,6 +7438,15 @@
       },
       "publishedId": "17869499637641216",
       "confirmedPublished": true
+    },
+    "comment:17969785071153544": {
+      "creationId": "17890358517614054",
+      "createdAt": "2026-09-21T20:28:38.342Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Mycetoma's the actual demolition crew here but moths eating bone sounds like a horror pitch someone should greenlight.",
+        "reply_to_id": "17969785071153544"
+      }
     }
   },
   "repliedCommentIds": [
@@ -17106,7 +17116,9 @@
     "18127571839701158",
     "18109373375597947",
     "17932287555399645",
-    "18115889750470001"
+    "18115889750470001",
+    "18092937740554591",
+    "17866839681659094"
   ],
   "skipStrikes": {
     "17895266316520842": 1,
@@ -17202,6 +17214,6 @@
   },
   "spend": {
     "date": "2026-09-21",
-    "usd": 0.56289305
+    "usd": 0.62472045
   }
 }
