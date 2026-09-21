@@ -7359,6 +7359,15 @@
       },
       "publishedId": "18044901428818160",
       "confirmedPublished": true
+    },
+    "comment:17946723030299005": {
+      "creationId": "17890355211614054",
+      "createdAt": "2026-09-21T19:53:58.790Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "That's a fair visual but yeah mycetoma is rough and those cavities mean the foot's structural integrity is basically gone.",
+        "reply_to_id": "17946723030299005"
+      }
     }
   },
   "repliedCommentIds": [
@@ -15985,7 +15994,8 @@
     "18076470098718764",
     "18192045361401804",
     "17941830684090604",
-    "17922683490430645"
+    "17922683490430645",
+    "18340112782286190"
   ],
   "answeredPostIds": [
     "18395606890093068"
@@ -16101,11 +16111,11 @@
     "17958262674213428": 59,
     "17988527066861715": 48,
     "18094319267645737": 42,
-    "18115960969977269": 12
+    "18115960969977269": 13
   },
   "daily": {
     "date": "2026-09-21",
-    "count": 12
+    "count": 13
   },
   "pinnedResolved": {
     "DaTTCIwoAw7": "18014812820883466"
@@ -17108,6 +17118,6 @@
   },
   "spend": {
     "date": "2026-09-21",
-    "usd": 0.44033585
+    "usd": 0.44638245
   }
 }
