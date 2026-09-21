@@ -7237,6 +7237,15 @@
       },
       "publishedId": "18439464643123179",
       "confirmedPublished": true
+    },
+    "comment:18625703230060514": {
+      "creationId": "17890353873614054",
+      "createdAt": "2026-09-21T19:32:26.724Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Radium necrosis is real but tends to hit the jaw and axial skeleton hard rather than producing these rounded cavities throughout the foot.",
+        "reply_to_id": "18625703230060514"
+      }
     }
   },
   "repliedCommentIds": [
@@ -16960,6 +16969,6 @@
   },
   "spend": {
     "date": "2026-09-21",
-    "usd": 0.10766650000000001
+    "usd": 0.1756406
   }
 }
