@@ -7326,6 +7326,15 @@
       },
       "publishedId": "18151209523527277",
       "confirmedPublished": true
+    },
+    "comment:17941830684090604": {
+      "creationId": "17890355133614054",
+      "createdAt": "2026-09-21T19:52:33.354Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Right? The swelling gives no warning about what's actually happening inside. Those cavities just keep multiplying once the infection gets going.",
+        "reply_to_id": "17941830684090604"
+      }
     }
   },
   "repliedCommentIds": [
@@ -15949,7 +15958,8 @@
     "18087257129681812",
     "18010112147768503",
     "18101273318382669",
-    "18076470098718764"
+    "18076470098718764",
+    "18192045361401804"
   ],
   "answeredPostIds": [
     "18395606890093068"
@@ -16065,11 +16075,11 @@
     "17958262674213428": 59,
     "17988527066861715": 48,
     "18094319267645737": 42,
-    "18115960969977269": 9
+    "18115960969977269": 10
   },
   "daily": {
     "date": "2026-09-21",
-    "count": 9
+    "count": 10
   },
   "pinnedResolved": {
     "DaTTCIwoAw7": "18014812820883466"
@@ -17070,6 +17080,6 @@
   },
   "spend": {
     "date": "2026-09-21",
-    "usd": 0.40530485
+    "usd": 0.40816865
   }
 }
