@@ -7315,6 +7315,15 @@
       },
       "publishedId": "18144829621568114",
       "confirmedPublished": true
+    },
+    "comment:18192045361401804": {
+      "creationId": "17890355127614054",
+      "createdAt": "2026-09-21T19:52:16.353Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "The fungal form (eumycetoma) is most often caused by Madurella mycetomatis but there are actually over 70 different fungi and bacteria that can do this. Transmission usually happens when the organism enters through a minor wound like a thorn prick and it mostly hits people who work barefoot in soil or vegetation.",
+        "reply_to_id": "18192045361401804"
+      }
     }
   },
   "repliedCommentIds": [
@@ -16963,7 +16972,8 @@
     "18109593761219038",
     "17909176701307007",
     "18627874606060554",
-    "18128120047761950"
+    "18128120047761950",
+    "18177109222449973"
   ],
   "skipStrikes": {
     "17895266316520842": 1,
@@ -17058,6 +17068,6 @@
   },
   "spend": {
     "date": "2026-09-21",
-    "usd": 0.343221
+    "usd": 0.40530485
   }
 }
