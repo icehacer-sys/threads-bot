@@ -7844,7 +7844,9 @@
         "media_type": "TEXT",
         "text": "ICD-11 is really missing a code for that one.",
         "reply_to_id": "17894134326416272"
-      }
+      },
+      "publishedId": "18093722333124592",
+      "confirmedPublished": true
     }
   },
   "repliedCommentIds": [
