@@ -7572,6 +7572,15 @@
       },
       "publishedId": "18634892353039520",
       "confirmedPublished": true
+    },
+    "comment:18444105505127443": {
+      "creationId": "17890360509614054",
+      "createdAt": "2026-09-21T21:04:31.929Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Holey and not in the fun way. Mycetoma turned that foot into a Swiss cheese skeleton.",
+        "reply_to_id": "18444105505127443"
+      }
     }
   },
   "repliedCommentIds": [
@@ -17358,6 +17367,6 @@
   },
   "spend": {
     "date": "2026-09-21",
-    "usd": 0.7431540499999997
+    "usd": 0.7461628499999997
   }
 }
