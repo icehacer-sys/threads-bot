@@ -7506,6 +7506,15 @@
       },
       "publishedId": "17946561810293487",
       "confirmedPublished": true
+    },
+    "comment:18184104460418286": {
+      "creationId": "17890359735614054",
+      "createdAt": "2026-09-21T20:46:08.795Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Oof running a half marathon on tendinitis is a special kind of self-sabotage. At least you had the scans to check.",
+        "reply_to_id": "18184104460418286"
+      }
     }
   },
   "repliedCommentIds": [
@@ -17282,6 +17291,6 @@
   },
   "spend": {
     "date": "2026-09-21",
-    "usd": 0.6766684499999999
+    "usd": 0.6802572499999998
   }
 }
