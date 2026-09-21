@@ -115,7 +115,13 @@
     "18373314685242998": "Schistosomiasis?",
     "17987389626076792": "Pagets?",
     "18006040259995927": "Osteosarcoma?",
-    "17866728999661501": "Charcot foot?"
+    "17866728999661501": "Charcot foot?",
+    "18109593761219038": "Spongiform osteoclastitis.",
+    "17909176701307007": "Silverback syndrome",
+    "18010112147768503": "Swiss cheese foot.",
+    "18101273318382669": "Popcorn Bones",
+    "18128120047761950": "Torn tendon!",
+    "18076470098718764": "Bone holes"
   },
   "ownerReviews": {
     "17937444630360450": "{\"postId\":\"18103023326210157\",\"reason\":\"owner review: personal medical concern\",\"commentText\":\"Little sister of my friend swalloved a coin of 1 fim. At hospital the family was advised to thoroughly keep an eye on her poops. So, the next day they found two 50 penny coins😀.\",\"username\":\"velitapiof\",\"queuedAt\":\"2026-09-10T20:21:59.741Z\",\"resolvedAt\":\"2026-09-10T20:36:02.929Z\",\"resolution\":\"Owner confirmed this is a completed personal story and deleted the inappropriate boundary reply. No clinical review is needed.\"}",
@@ -15846,7 +15852,8 @@
     "17976517727918625",
     "18128228680694782",
     "18086445311286825",
-    "17992573088843801"
+    "17992573088843801",
+    "17973291438130516"
   ],
   "answeredPostIds": [
     "18395606890093068"
@@ -15962,11 +15969,11 @@
     "17958262674213428": 59,
     "17988527066861715": 48,
     "18094319267645737": 42,
-    "18115960969977269": 1
+    "18115960969977269": 2
   },
   "daily": {
     "date": "2026-09-21",
-    "count": 1
+    "count": 2
   },
   "pinnedResolved": {
     "DaTTCIwoAw7": "18014812820883466"
@@ -16857,7 +16864,8 @@
     "17995698582043737",
     "18071427875487353",
     "18147140770489948",
-    "18142477537571820"
+    "18142477537571820",
+    "18215011255348440"
   ],
   "skipStrikes": {
     "17895266316520842": 1,
@@ -16952,6 +16960,6 @@
   },
   "spend": {
     "date": "2026-09-21",
-    "usd": 0.0949159
+    "usd": 0.10766650000000001
   }
 }
