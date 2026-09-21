@@ -7627,6 +7627,15 @@
       },
       "publishedId": "18075459854749274",
       "confirmedPublished": true
+    },
+    "comment:18214929874359309": {
+      "creationId": "17890361964614054",
+      "createdAt": "2026-09-21T21:21:31.333Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Right? Mycetoma starts as something the size of a splinter puncture and ends up reshaping bone structure. Nature's got some seriously overachieving architects.",
+        "reply_to_id": "18214929874359309"
+      }
     }
   },
   "repliedCommentIds": [
@@ -16277,7 +16286,8 @@
     "18444105505127443",
     "18103500629067280",
     "18031236857898645",
-    "18632251912029714"
+    "18632251912029714",
+    "17950712223273847"
   ],
   "answeredPostIds": [
     "18395606890093068"
@@ -16393,11 +16403,11 @@
     "17958262674213428": 59,
     "17988527066861715": 48,
     "18094319267645737": 42,
-    "18115960969977269": 36
+    "18115960969977269": 37
   },
   "daily": {
     "date": "2026-09-21",
-    "count": 36
+    "count": 37
   },
   "pinnedResolved": {
     "DaTTCIwoAw7": "18014812820883466"
@@ -17419,6 +17429,6 @@
   },
   "spend": {
     "date": "2026-09-21",
-    "usd": 0.7857782499999996
+    "usd": 0.7889070499999996
   }
 }
