@@ -7649,6 +7649,15 @@
       },
       "publishedId": "18132950863661400",
       "confirmedPublished": true
+    },
+    "comment:18405890788093795": {
+      "creationId": "17890363539614054",
+      "createdAt": "2026-09-21T21:37:48.673Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Neuropathic arthropathy would be a legitimate concern with that degree of bone remodeling and the question of weight bearing.",
+        "reply_to_id": "18405890788093795"
+      }
     }
   },
   "repliedCommentIds": [
@@ -17446,6 +17455,6 @@
   },
   "spend": {
     "date": "2026-09-21",
-    "usd": 0.8023342499999996
+    "usd": 0.8228790499999996
   }
 }
