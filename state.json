@@ -7561,6 +7561,15 @@
       },
       "publishedId": "18054980093780824",
       "confirmedPublished": true
+    },
+    "comment:17907366249481327": {
+      "creationId": "17890359888614054",
+      "createdAt": "2026-09-21T20:49:07.767Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "That's exactly what mycetoma does to bone. Those cavities are the calling card.",
+        "reply_to_id": "17907366249481327"
+      }
     }
   },
   "repliedCommentIds": [
@@ -17346,6 +17355,6 @@
   },
   "spend": {
     "date": "2026-09-21",
-    "usd": 0.7402822499999997
+    "usd": 0.7431540499999997
   }
 }
