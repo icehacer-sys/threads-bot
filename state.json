@@ -7814,6 +7814,15 @@
       },
       "publishedId": "18088943651215661",
       "confirmedPublished": true
+    },
+    "comment:18133328791647098": {
+      "creationId": "17890367751614054",
+      "createdAt": "2026-09-21T22:44:17.256Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "That's exactly what it is. Puncture wound to bone destruction to potential amputation is a stark line most people don't see until something forces them to look.",
+        "reply_to_id": "18133328791647098"
+      }
     }
   },
   "repliedCommentIds": [
@@ -17630,6 +17639,6 @@
   },
   "spend": {
     "date": "2026-09-21",
-    "usd": 0.9729250499999997
+    "usd": 0.9762598499999997
   }
 }
