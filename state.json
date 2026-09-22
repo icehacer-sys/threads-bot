@@ -8090,6 +8090,15 @@
       },
       "publishedId": "18106279796233605",
       "confirmedPublished": true
+    },
+    "comment:18088607900474039": {
+      "creationId": "17890493544614054",
+      "createdAt": "2026-09-22T20:37:49.101Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "TQWXBC Co really went with zero quality assurance and a prayer on this one.",
+        "reply_to_id": "18088607900474039"
+      }
     }
   },
   "repliedCommentIds": [
@@ -17940,6 +17949,6 @@
   },
   "spend": {
     "date": "2026-09-22",
-    "usd": 0.11139860000000001
+    "usd": 0.12120840000000002
   }
 }
