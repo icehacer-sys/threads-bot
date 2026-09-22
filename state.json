@@ -7882,6 +7882,15 @@
       },
       "publishedId": "18020746949707059",
       "confirmedPublished": true
+    },
+    "comment:18127847710866473": {
+      "creationId": "17890374747614054",
+      "createdAt": "2026-09-22T00:32:52.996Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "That's a difficult case to carry. Diabetes and prolonged exposure are a relentless combination and the fact that trauma was in the picture makes it heavier.",
+        "reply_to_id": "18127847710866473"
+      }
     }
   },
   "repliedCommentIds": [
@@ -17708,6 +17717,6 @@
   },
   "spend": {
     "date": "2026-09-21",
-    "usd": 1.1015563499999994
+    "usd": 1.1049951499999995
   }
 }
