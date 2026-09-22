@@ -8012,7 +8012,9 @@
         "media_type": "TEXT",
         "text": "The parts list was definitely incomplete.",
         "reply_to_id": "18095906888417663"
-      }
+      },
+      "publishedId": "18071339786759672",
+      "confirmedPublished": true
     }
   },
   "repliedCommentIds": [
