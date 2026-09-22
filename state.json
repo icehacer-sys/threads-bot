@@ -7948,7 +7948,9 @@
         "media_type": "TEXT",
         "text": "The manufacturer really dropped the ball on quality control here.",
         "reply_to_id": "18085560662291008"
-      }
+      },
+      "publishedId": "18003450801004895",
+      "confirmedPublished": true
     }
   },
   "repliedCommentIds": [
