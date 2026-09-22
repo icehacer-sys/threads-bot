@@ -129,7 +129,8 @@
     "18071955551572671": "It looks wrong because it is wrong. It’s missing the patella. Since that’s the hinge of the knee door, I assume that’s why the heads of the femur and tibia also look wrong since the joint has deformed to accommodate?",
     "18444765421126141": "I’ve said where’s the patella before but I mean it this time.",
     "18103031597614438": "Congenital absence of a patella",
-    "18109564529143589": "AWOL kneecap"
+    "18109564529143589": "AWOL kneecap",
+    "18088607900474039": "It’s like buying from one of those suspect companies on Amazon.  The TQWXBC Co.  Could be good, could be incomprehensibly bad."
   },
   "ownerReviews": {
     "17937444630360450": "{\"postId\":\"18103023326210157\",\"reason\":\"owner review: personal medical concern\",\"commentText\":\"Little sister of my friend swalloved a coin of 1 fim. At hospital the family was advised to thoroughly keep an eye on her poops. So, the next day they found two 50 penny coins😀.\",\"username\":\"velitapiof\",\"queuedAt\":\"2026-09-10T20:21:59.741Z\",\"resolvedAt\":\"2026-09-10T20:36:02.929Z\",\"resolution\":\"Owner confirmed this is a completed personal story and deleted the inappropriate boundary reply. No clinical review is needed.\"}",
@@ -7991,6 +7992,15 @@
       },
       "publishedId": "17953039188034876",
       "confirmedPublished": true
+    },
+    "comment:17908048794488678": {
+      "creationId": "17890490535614054",
+      "createdAt": "2026-09-22T19:48:23.792Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Somebody definitely skipped that chapter of anatomy class.",
+        "reply_to_id": "17908048794488678"
+      }
     }
   },
   "repliedCommentIds": [
@@ -17832,6 +17842,6 @@
   },
   "spend": {
     "date": "2026-09-22",
-    "usd": 0.06770540000000001
+    "usd": 0.07249600000000002
   }
 }
