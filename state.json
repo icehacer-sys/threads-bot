@@ -133,7 +133,8 @@
     "18088607900474039": "It’s like buying from one of those suspect companies on Amazon.  The TQWXBC Co.  Could be good, could be incomprehensibly bad.",
     "17970468423170813": "John Cena patella. U can't C it.",
     "18408459847092514": "How is this corrected? And how did this person walk without?",
-    "18130558792664000": "did the proto-kneecap cartilage never form, or did it fold under? my google residency didn't cover child development and radiology"
+    "18130558792664000": "did the proto-kneecap cartilage never form, or did it fold under? my google residency didn't cover child development and radiology",
+    "18103472996257810": "No kneecap"
   },
   "ownerReviews": {
     "17937444630360450": "{\"postId\":\"18103023326210157\",\"reason\":\"owner review: personal medical concern\",\"commentText\":\"Little sister of my friend swalloved a coin of 1 fim. At hospital the family was advised to thoroughly keep an eye on her poops. So, the next day they found two 50 penny coins😀.\",\"username\":\"velitapiof\",\"queuedAt\":\"2026-09-10T20:21:59.741Z\",\"resolvedAt\":\"2026-09-10T20:36:02.929Z\",\"resolution\":\"Owner confirmed this is a completed personal story and deleted the inappropriate boundary reply. No clinical review is needed.\"}",
@@ -16750,7 +16751,8 @@
     "18095906888417663",
     "18129600613801687",
     "17910237723496137",
-    "17943667326304652"
+    "17943667326304652",
+    "18106586021221566"
   ],
   "answeredPostIds": [
     "18395606890093068"
@@ -16867,11 +16869,11 @@
     "17988527066861715": 48,
     "18094319267645737": 42,
     "18115960969977269": 64,
-    "18184997560424523": 10
+    "18184997560424523": 11
   },
   "daily": {
     "date": "2026-09-22",
-    "count": 10
+    "count": 11
   },
   "pinnedResolved": {
     "DaTTCIwoAw7": "18014812820883466"
@@ -17908,6 +17910,6 @@
   },
   "spend": {
     "date": "2026-09-22",
-    "usd": 0.09309820000000002
+    "usd": 0.09536900000000002
   }
 }
