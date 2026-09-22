@@ -137,7 +137,8 @@
     "18103472996257810": "No kneecap",
     "18131730508675697": "Missing patella? How does that go unnoticed??",
     "18113833652086234": "???Stage 3 Congenital True Dislocation of Knee\n-Xrays show pt having severe anterior displacement of tibia in relation to distal femur, with total loss of contact between tibia & femur, causing significant hyperextention/dislocation of knee aka  Stage 3 Genu Recurvatum. Possible Larsen Syndrome- rare genetic disorder that most often causes Cong Jt Dislocations in legs, including knees. Tx:Genetic Testing/ Serial Casting & Ortho Manipulation/Bracing/Ortho Surgery/PT",
-    "18104778368575110": "Where’s the kneecap?"
+    "18104778368575110": "Where’s the kneecap?",
+    "18099125021530315": "Patella absent"
   },
   "ownerReviews": {
     "17937444630360450": "{\"postId\":\"18103023326210157\",\"reason\":\"owner review: personal medical concern\",\"commentText\":\"Little sister of my friend swalloved a coin of 1 fim. At hospital the family was advised to thoroughly keep an eye on her poops. So, the next day they found two 50 penny coins😀.\",\"username\":\"velitapiof\",\"queuedAt\":\"2026-09-10T20:21:59.741Z\",\"resolvedAt\":\"2026-09-10T20:36:02.929Z\",\"resolution\":\"Owner confirmed this is a completed personal story and deleted the inappropriate boundary reply. No clinical review is needed.\"}",
@@ -16779,7 +16780,8 @@
     "17910237723496137",
     "17943667326304652",
     "18106586021221566",
-    "18353410663168194"
+    "18353410663168194",
+    "18410537383091489"
   ],
   "answeredPostIds": [
     "18395606890093068"
@@ -16896,11 +16898,11 @@
     "17988527066861715": 48,
     "18094319267645737": 42,
     "18115960969977269": 64,
-    "18184997560424523": 12
+    "18184997560424523": 13
   },
   "daily": {
     "date": "2026-09-22",
-    "count": 12
+    "count": 13
   },
   "pinnedResolved": {
     "DaTTCIwoAw7": "18014812820883466"
@@ -17841,7 +17843,8 @@
     "17904900399560619",
     "18089827619475205",
     "18036416987836150",
-    "18136622644712090"
+    "18136622644712090",
+    "17879212299626850"
   ],
   "skipStrikes": {
     "17895266316520842": 1,
@@ -17937,6 +17940,6 @@
   },
   "spend": {
     "date": "2026-09-22",
-    "usd": 0.10709800000000001
+    "usd": 0.11139860000000001
   }
 }
