@@ -121,7 +121,8 @@
     "18010112147768503": "Swiss cheese foot.",
     "18101273318382669": "Popcorn Bones",
     "18128120047761950": "Torn tendon!",
-    "18076470098718764": "Bone holes"
+    "18076470098718764": "Bone holes",
+    "18080880530704172": "Where’s the patella?"
   },
   "ownerReviews": {
     "17937444630360450": "{\"postId\":\"18103023326210157\",\"reason\":\"owner review: personal medical concern\",\"commentText\":\"Little sister of my friend swalloved a coin of 1 fim. At hospital the family was advised to thoroughly keep an eye on her poops. So, the next day they found two 50 penny coins😀.\",\"username\":\"velitapiof\",\"queuedAt\":\"2026-09-10T20:21:59.741Z\",\"resolvedAt\":\"2026-09-10T20:36:02.929Z\",\"resolution\":\"Owner confirmed this is a completed personal story and deleted the inappropriate boundary reply. No clinical review is needed.\"}",
@@ -7927,6 +7928,15 @@
       },
       "publishedId": "18059586065717098",
       "confirmedPublished": true
+    },
+    "comment:18109923983331237": {
+      "creationId": "17890486926614054",
+      "createdAt": "2026-09-22T19:16:08.254Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Afraid this one's past the return window.",
+        "reply_to_id": "18109923983331237"
+      }
     }
   },
   "repliedCommentIds": [
@@ -16724,8 +16734,8 @@
     "18115960969977269": 64
   },
   "daily": {
-    "date": "2026-09-21",
-    "count": 64
+    "date": "2026-09-22",
+    "count": 0
   },
   "pinnedResolved": {
     "DaTTCIwoAw7": "18014812820883466"
@@ -17664,7 +17674,8 @@
     "18072527600482712",
     "18090523004670624",
     "17904900399560619",
-    "18089827619475205"
+    "18089827619475205",
+    "18036416987836150"
   ],
   "skipStrikes": {
     "17895266316520842": 1,
@@ -17744,7 +17755,7 @@
     "17865730374636613": 1
   },
   "gifDaily": {
-    "date": "2026-09-21",
+    "date": "2026-09-22",
     "count": 0
   },
   "recentGifIds": [
@@ -17755,11 +17766,11 @@
   ],
   "promoPostCounts": {},
   "promoDaily": {
-    "date": "2026-09-21",
+    "date": "2026-09-22",
     "count": 0
   },
   "spend": {
-    "date": "2026-09-21",
-    "usd": 1.2566822499999994
+    "date": "2026-09-22",
+    "usd": 0.0196676
   }
 }
