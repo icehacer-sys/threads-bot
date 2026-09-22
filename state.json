@@ -8156,6 +8156,15 @@
       },
       "publishedId": "18089211389226672",
       "confirmedPublished": true
+    },
+    "comment:18080880530704172": {
+      "creationId": "17890493715614054",
+      "createdAt": "2026-09-22T20:41:47.339Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Newborn kneecaps are pure cartilage at this stage so X-rays pass straight through them. It starts calcifying in early childhood and only then shows up on imaging.",
+        "reply_to_id": "18080880530704172"
+      }
     }
   },
   "repliedCommentIds": [
@@ -16852,7 +16861,8 @@
     "18138477127613388",
     "17902940265576116",
     "18131730508675697",
-    "18408459847092514"
+    "18408459847092514",
+    "18104778368575110"
   ],
   "answeredPostIds": [
     "18395606890093068"
@@ -16969,11 +16979,11 @@
     "17988527066861715": 48,
     "18094319267645737": 42,
     "18115960969977269": 64,
-    "18184997560424523": 18
+    "18184997560424523": 19
   },
   "daily": {
     "date": "2026-09-22",
-    "count": 18
+    "count": 19
   },
   "pinnedResolved": {
     "DaTTCIwoAw7": "18014812820883466"
@@ -18016,6 +18026,6 @@
   },
   "spend": {
     "date": "2026-09-22",
-    "usd": 0.3218165
+    "usd": 0.3456529
   }
 }
