@@ -7,6 +7,7 @@ import { config } from "./config";
 import { atomicJson, checkpointState, PersistenceError, validPublications, type Publication, type PublicationStore } from "./persistence.js";
 
 interface StateShape {
+  imageHeldComments?: Record<string, string>;
   revealHeldComments?: Record<string, string>;
   concernAcknowledgments?: Record<string, string>;
   ownerReviews?: Record<string, string>;
@@ -43,6 +44,7 @@ function today(): string {
 }
 
 export class State {
+  private imageHeldComments: Record<string, string>;
   private revealHeldComments: Record<string, string>;
   private ownerReviews: Record<string, string>;
   private concernAcknowledgments: Record<string, string>;
@@ -75,6 +77,7 @@ export class State {
         loaded = JSON.parse(readFileSync(this.file, "utf8")) as StateShape;
         const strings = (v: unknown) => Array.isArray(v) && v.every((s) => typeof s === "string");
         if (loaded?.revealHeldComments !== undefined && (!loaded.revealHeldComments || typeof loaded.revealHeldComments !== 'object' || Array.isArray(loaded.revealHeldComments) || !Object.values(loaded.revealHeldComments).every(v => typeof v === 'string'))) throw new Error('invalid reveal holds');
+        if (loaded?.imageHeldComments !== undefined && (!loaded.imageHeldComments || typeof loaded.imageHeldComments !== 'object' || Array.isArray(loaded.imageHeldComments) || !Object.values(loaded.imageHeldComments).every(v => typeof v === 'string'))) throw new Error('invalid image holds');
         if (loaded?.concernAcknowledgments !== undefined && (!loaded.concernAcknowledgments || typeof loaded.concernAcknowledgments !== 'object' || Array.isArray(loaded.concernAcknowledgments) || !Object.values(loaded.concernAcknowledgments).every(v => typeof v === 'string'))) throw new Error('invalid concern acknowledgments');
         if (loaded?.ownerReviews !== undefined && (!loaded.ownerReviews || typeof loaded.ownerReviews !== "object" || Array.isArray(loaded.ownerReviews) || !Object.values(loaded.ownerReviews).every(v => typeof v === "string"))) throw new Error("invalid owner review queue");
         const counts = (v: unknown) => !!v && typeof v === "object" && !Array.isArray(v) && Object.values(v).every((n) => Number.isInteger(n) && n >= 0);
@@ -100,6 +103,7 @@ export class State {
     }
     this.replied = new Set(loaded?.repliedCommentIds ?? []);
     this.revealHeldComments = loaded?.revealHeldComments ?? {};
+    this.imageHeldComments = loaded?.imageHeldComments ?? {};
     this.ownerReviews = loaded?.ownerReviews ?? {};
     this.concernAcknowledgments = loaded?.concernAcknowledgments ?? {};
     this.publications = loaded?.publications ?? {};
@@ -141,6 +145,15 @@ export class State {
   holdUntilReveal(commentId: string, commentText: string): void {
     this.revealHeldComments[commentId] = commentText;
     this.save();
+  }
+
+  holdUntilImageReview(commentId: string, postId: string): void {
+    this.imageHeldComments[commentId] = postId;
+    this.save();
+  }
+
+  isWaitingForImageReview(commentId: string, postId: string): boolean {
+    return this.imageHeldComments[commentId] === postId && this.hasImageReview(postId);
   }
 
   isWaitingForReveal(commentId: string, commentText: string, answerPublic: boolean): boolean {
@@ -286,6 +299,7 @@ export class State {
   private save(): void {
     const out: StateShape = {
       revealHeldComments: this.revealHeldComments,
+      imageHeldComments: this.imageHeldComments,
       ownerReviews: this.ownerReviews,
       concernAcknowledgments: this.concernAcknowledgments,
       publications: this.publications,

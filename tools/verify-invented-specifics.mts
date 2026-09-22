@@ -21,6 +21,9 @@ assert.deepEqual(unsupportedSpecifics('He worked in mining for years and died we
 assert.deepEqual(unsupportedSpecifics('He died weeks after diagnosis.', 'He worked in coal mines for 6-7yrs.'), ['week']);
 assert.deepEqual(unsupportedSpecifics('It took 4wks.', 'No duration supplied.'), ['week']);
 assert.deepEqual(unsupportedSpecifics('Symptoms lasted months.', 'Symptoms lasted 2mos.'), []);
+assert.deepEqual(unsupportedSpecifics('The foot is outside this image.', 'The ankle is shown.'), []);
+assert.deepEqual(unsupportedSpecifics('It was two feet long.', 'No length supplied.'), ['foot']);
+assert.deepEqual(unsupportedSpecifics('It was 2 feet long.', 'A foot view was provided.'), ['foot']);
 // No specifics at all.
 assert.deepEqual(unsupportedSpecifics('Taxonomy officially updated.', oldFacts), []);
 

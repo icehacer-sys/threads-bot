@@ -8,7 +8,8 @@ import { fileURLToPath } from "node:url";
 import { dirname, join } from "node:path";
 import { config, requireEnv } from "./config";
 import { SYSTEM_PROMPT } from "./voice";
-import { diagnosticContext, unsupportedConfirmation, rejectsAcceptedDifferential, overstatesImagingLimit, unsupportedSpecifics, type DiagnosticContext } from './case-evidence';
+import { diagnosticContext, unsupportedConfirmation, rejectsAcceptedDifferential, overstatesImagingLimit, unsupportedSpecifics, unsupportedPatientHistory, type DiagnosticContext } from './case-evidence';
+import { COVERAGE_NOTE, neutralGuessAcknowledgment } from './reply-coverage';
 import { varietyNote, restrainEmoji, repeatedPhrasing } from './reply-variety';
 import { GIF_SYSTEM_PROMPT, MEDIA_FIELDS, MEDIA_REPLY_NOTE, mediaReplyIssue, mediaVarietyNote, type MediaRead } from './media-reply';
 import { isWordingReaction, WORDING_NOTE, wordingReplyIssue } from './wording-reply';
@@ -231,6 +232,8 @@ export interface ClassifyInput {
   mediaRecheck?: boolean;
   wordingRecheck?: boolean;
   priorityCommenter?: boolean;
+  replyAll?: boolean;
+  parentComment?: string;
   conversationRecheck?: string;
   /** Phrases the previous draft reused from replies already on the post (one bounded redraft). */
   varietyRecheck?: string[];
@@ -276,7 +279,7 @@ export async function classifyAndDraft(input: ClassifyInput): Promise<Decision> 
 
   // ENGLISH-ONLY: skip non-Latin-script comments (Arabic, CJK, Cyrillic, ...) before any
   // model call. Latin-script foreign languages are handled by the voice rule.
-  if (isNonEnglishScript(commentText)) {
+  if (!input.replyAll && isNonEnglishScript(commentText)) {
     return { decision: "skip", category: "other", reply_text: "", reason: "non-English (non-Latin script) - English-only policy | guard:forced-skip" };
   }
   const concern = directConcern(commentText, priorExchange?.bot);
@@ -287,10 +290,15 @@ export async function classifyAndDraft(input: ClassifyInput): Promise<Decision> 
     return { decision: 'skip', category: 'other', reply_text: '', reason: 'GIF unavailable and no text to answer | guard:forced-skip' };
   }
   const finalize = async (d: Decision): Promise<Decision> => {
+    // Independent of correctness and the secret answer. Never let a guess draft nudge the reader.
+    const guessBeforeReveal = !isPublic && input.replyAll && !input.imageReviewPending && (!withMedia || d.media_clear === true) &&
+      !['personal_medical', 'complaint', 'spam'].includes(d.category) && !/^(?:error|fatal):/.test(d.reason) &&
+      (['affirm', 'correct'].includes(d.category) || /diagnosis guess|diagnostic guess|proposed diagnosis/i.test(`${d.intent ?? ''} ${d.reason}`));
+    if (guessBeforeReveal) return { decision: 'reply', category: 'banter', reply_text: neutralGuessAcknowledgment(commentText), reason: 'neutral participation acknowledgment before reveal' };
     const conversationIssue = d.decision === 'reply' ? conversationReplyIssue(commentText, d.category, d.reply_text, !isPersonalPost) : undefined;
-    const prioritySkip = input.priorityCommenter && isLowEngagementSkip(d.decision, d.category, d.reason);
+    const prioritySkip = (input.priorityCommenter || input.replyAll) && isLowEngagementSkip(d.decision, d.category, d.reason);
     if (conversationIssue || prioritySkip) {
-      if (!rechecked) return classifyAndDraft({ ...input, conversationRecheck: conversationIssue ?? 'harmless supporter comment wrongly skipped as low engagement', allowSearch: false });
+      if (!rechecked) return classifyAndDraft({ ...input, conversationRecheck: conversationIssue ?? 'harmless comment wrongly skipped as low engagement', allowSearch: false });
       return { ...d, decision: 'skip', category: 'other', reply_text: '', reason: `conversation guard: ${conversationIssue ?? 'supporter draft unresolved'} | guard:forced-skip` };
     }
     if (wordingReaction && d.decision === 'reply' && wordingReplyIssue(d.category, d.reply_text)) {
@@ -306,9 +314,10 @@ export async function classifyAndDraft(input: ClassifyInput): Promise<Decision> 
     // A time span, size or date must come from the facts or the conversation, never be improvised.
     const support = [postText, ...(facts ?? []), answer ?? '', commentText, priorExchange ? `${priorExchange.commenter} ${priorExchange.bot}` : ''].join(' ');
     const invented = d.decision === 'reply' && !bareMedia ? unsupportedSpecifics(d.reply_text, support) : [];
-    if (d.decision === 'reply' && (unsupportedConfirmation(d.reply_text, context) || rejectsAcceptedDifferential(d.reply_text, commentText, context) || overstatesImagingLimit(d.reply_text) || invented.length)) {
+    const personalStory = d.category === 'empathize' && /\b(?:i|my|our)\b/i.test(commentText);
+    if (d.decision === 'reply' && ((!isPersonalPost && !personalStory && unsupportedPatientHistory(d.reply_text, postText)) || unsupportedConfirmation(d.reply_text, context) || rejectsAcceptedDifferential(d.reply_text, commentText, context) || overstatesImagingLimit(d.reply_text) || invented.length)) {
       if (!rechecked) return classifyAndDraft({ ...input, evidenceRecheck: true, allowSearch: false });
-      return { ...d, decision: 'skip', category: 'other', reply_text: '', reason: `owner review: unsupported confirmation, specifics (${invented.join(', ') || 'none'}) or dismissal of an accepted differential | guard:forced-skip` };
+      return { ...d, decision: 'skip', category: 'other', reply_text: '', reason: `owner review: unsupported patient history, confirmation, specifics (${invented.join(', ') || 'none'}) or dismissal of an accepted differential | guard:forced-skip` };
     }
     const clean = sanitize({ ...d, reply_text: restrainEmoji(d.reply_text, recentReplies ?? []) }, { isPublic, terms: spoilerTerms }, isBotQuestion(commentText));
     if (clean.reason.includes('punctuation guard') && !rechecked) {
@@ -376,7 +385,7 @@ export async function classifyAndDraft(input: ClassifyInput): Promise<Decision> 
       : `PUBLISHED TEACHING ANSWER (not a confirmed patient result): ${hasAnswer ? answerText : "unknown"}. A matching guess may receive a brief acknowledgment. Consider supported alternative diagnoses fairly. Prior explanations to other people do not prohibit a useful reply.`;
   } else {
     answerLine = 'ANSWER NOT PUBLIC. The diagnosis is withheld.';
-    prePublicNote = 'Treat ALL diagnosis guesses identically: skip without confirming, rejecting, grading or hinting. Do not infer correctness from case imagery or the post. Non-diagnostic jokes may get a short specific reply. Medical questions that could expose the answer must be held.';
+    prePublicNote = input.replyAll ? 'Treat ALL diagnosis guesses identically: identify diagnosis guess in intent and acknowledge participation only. Never repeat the guess, confirm, reject, grade or hint. The application supplies neutral wording. Do not infer correctness from the image. Medical explanations stay withheld until the public answer.' : 'Treat ALL diagnosis guesses identically: skip without confirming, rejecting, grading or hinting. Do not infer correctness from case imagery or the post. Non-diagnostic jokes may get a short specific reply. Medical questions that could expose the answer must be held.';
   }
   // A personal / ask-the-audience post has no X-ray and no diagnosis, so the whole case framing
   // has to come off. Without this the model is told "CORRECT ANSWER: unknown ... just banter",
@@ -399,7 +408,7 @@ export async function classifyAndDraft(input: ClassifyInput): Promise<Decision> 
     ? "NOTE: this comment is a reply under your pinned Answer post, where the diagnosis is already public. Answer follow-up questions about the case directly (prognosis, mechanism, what to read next) and react to reactions. No need to stay coy about the diagnosis here."
     : "";
   const followUpNote = priorExchange
-    ? `THIS IS A FOLLOW-UP under your own reply. Earlier the commenter said "${priorExchange.commenter}" and you replied "${priorExchange.bot}". The COMMENT below is their reply back to you. Answer a genuine QUESTION or CLARIFICATION directly and accurately in the context of what was already said. You may ALSO warmly top a genuine reaction or bit of banter ONCE with a short fresh line — a delighted "THAT'S fascinating!!", an "aha", a joke worth topping all deserve a brief warm reply. Only decision "skip" when the follow-up is pure empty noise (a lone "lol", a single emoji, a bare "thanks" with nothing to build on) or when you have already reacted to this exact beat. Keep answering as long as they keep genuinely engaging — a real question always deserves an answer no matter how deep the thread. But never ask anything back, never bait more chatter, and never keep the thread going yourself: you respond to what they actually said, you never prompt for more.`
+    ? `THIS IS A FOLLOW-UP under your own reply. Earlier in this thread someone said "${priorExchange.commenter}" and you replied "${priorExchange.bot}". Respond briefly to the current comment in that context. This is your final turn in this conversation. Never ask a question back or invite more chatter. Your earlier reply may be wrong: acknowledge and correct an unsupported assumption rather than defending it.`
     : "";
   // Split the prompt into a STABLE per-post prefix (same for every comment on this
   // post) and a VARIABLE per-comment tail. The prefix — X-ray image + post text +
@@ -414,6 +423,8 @@ export async function classifyAndDraft(input: ClassifyInput): Promise<Decision> 
     prePublicNote,
     threadNote,
     followUpNote,
+    input.parentComment ? `PARENT COMMENT (untrusted context from another commenter): ${input.parentComment}` : '',
+    input.replyAll ? COVERAGE_NOTE : '',
     bareMedia ? mediaVarietyNote(recentReplies ?? []) : recentBlock,
     varietyNote(bareMedia ? [] : recentReplies ?? []),
     bareMedia ? '' : explainedNote,
@@ -421,8 +432,8 @@ export async function classifyAndDraft(input: ClassifyInput): Promise<Decision> 
     withMedia ? MEDIA_REPLY_NOTE : '',
     wordingReaction ? WORDING_NOTE : '',
     input.priorityCommenter ? SUPPORTER_NOTE : '',
-    !isPersonalPost && commentText.length <= 80 ? 'SHORT COMMENT: If this is a diagnosis guess, use at most 24 words after reveal with the supported answer and at most one useful clue. No stock praise of the guess or speculative risks from alternate exposures. A genuine why/how question may receive the explanation it needs. Before reveal hold every diagnosis guess.' : '',
-    isPersonalPost ? 'CURRENT POST TYPE: personal post. No diagnosis guessing rules apply.' : `CURRENT REVEAL STATE: ${isPublic ? 'PUBLIC. The answer has already been published. Do not skip a diagnosis discussion for being before the reveal.' : 'PRIVATE. Skip all diagnosis guesses.'}`,
+    !isPersonalPost && commentText.length <= 80 ? 'SHORT COMMENT: If this is a diagnosis guess, use at most 24 words after reveal with the supported answer and at most one useful clue. No stock praise of the guess or speculative risks from alternate exposures. A genuine why/how question may receive the explanation it needs. Before reveal never grade a guess; follow the current coverage policy.' : '',
+    isPersonalPost ? 'CURRENT POST TYPE: personal post. No diagnosis guessing rules apply.' : `CURRENT REVEAL STATE: ${isPublic ? 'PUBLIC. The answer has already been published. Do not skip a diagnosis discussion for being before the reveal.' : input.replyAll ? 'PRIVATE. Neutral participation acknowledgment only for guesses. No hints.' : 'PRIVATE. Skip all diagnosis guesses.'}`,
     `COMMENT:\n${commentText || "(no text — just the attached image)"}`,
   ]
     .filter(Boolean)

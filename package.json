@@ -29,6 +29,7 @@
     "media:verify": "tsx tools/verify-media-replies.mts",
     "wording:verify": "tsx tools/verify-wording-replies.mts",
     "supporters:verify": "tsx tools/verify-supporter-replies.mts",
+    "coverage:verify": "tsx tools/verify-reply-coverage.mts",
     "repetition:verify": "tsx tools/verify-reply-repetition.mts",
     "audit:verify": "tsx tools/verify-audit.mts",
     "runtime:summary": "tsx tools/runtime-summary.mts",

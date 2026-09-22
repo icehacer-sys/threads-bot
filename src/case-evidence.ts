@@ -37,6 +37,13 @@ export function overstatesImagingLimit(text: string): boolean {
   return /\bimaging(?: alone)? (?:cannot|can't|can not) (?:separate|distinguish|differentiate)\b/i.test(text);
 }
 
+/** Congenital onset does not establish age at presentation or a recorded functional outcome. */
+export function unsupportedPatientHistory(text: string, caption: string): boolean {
+  const neonatal = /\b(?:newborn|neonat\w*|infant|baby)\b/i;
+  if (!neonatal.test(caption) && (neonatal.test(text) || /\b(?:at this age|caught at birth|catching it at birth|detected at birth|diagnosed at birth)\b/i.test(text))) return true;
+  return /\b(?:they|he|she|the patient) (?:couldn't|could not|can't|cannot|was unable to|were unable to) walk\b|\bwalking wasn't on the table\b/i.test(text) && !/\b(?:couldn't|could not|can't|cannot|unable to) walk\b/i.test(caption);
+}
+
 // Time spans, sizes and dates the reply states as fact. Added after the 2026-09-15 Guinea worm
 // night: with no life-cycle facts supplied, the bot improvised "worked its way out through the
 // skin over weeks" about fifteen times (a CALCIFIED worm died before it could emerge), plus
@@ -45,9 +52,15 @@ const SPECIFIC_UNIT = /\b(?:\d+(?:\.\d+)?\s*)?(days?|weeks?|months?|years?|decad
 const unitRoot = (u: string) => u.toLowerCase().replace(/^centur.*/, 'centur').replace(/^met(?:re|er)s?$/, 'metre').replace(/^(?:feet|foot)$/, 'foot').replace(/^inch(?:es)?$/, 'inch').replace(/^(centi|milli)met(?:re|er)s?$/, '$1metre').replace(/s$/, '');
 // Common numeric abbreviations in personal stories are evidence, not invented units.
 const expandTimeUnits = (text: string) => text.replace(/(\d)\s*(yrs?|wks?|mos?)\b/gi, (_match, number: string, unit: string) => `${number} ${/^yr/i.test(unit) ? 'years' : /^wk/i.test(unit) ? 'weeks' : 'months'}`);
+const units = (text: string) => {
+  const expanded = expandTimeUnits(text);
+  return [...expanded.matchAll(SPECIFIC_UNIT)].filter(m =>
+    !/^(?:foot|feet)$/i.test(m[1]) || /\d/.test(m[0]) || /\b(?:one|two|three|four|five|six|several)\s*$/i.test(expanded.slice(0, m.index)) || /^[- ](?:long|wide|tall)\b/i.test(expanded.slice(m.index! + m[0].length))
+  ).map(m => unitRoot(m[1]));
+};
 
 /** A timeline, size or date that neither the supplied facts nor the conversation mention. */
 export function unsupportedSpecifics(text: string, support: string): string[] {
-  const supported = new Set([...expandTimeUnits(support).matchAll(SPECIFIC_UNIT)].map(m => unitRoot(m[1])));
-  return [...new Set([...expandTimeUnits(text).matchAll(SPECIFIC_UNIT)].map(m => unitRoot(m[1])))].filter(u => !supported.has(u));
+  const supported = new Set(units(support));
+  return [...new Set(units(text))].filter(u => !supported.has(u));
 }

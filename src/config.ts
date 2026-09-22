@@ -114,6 +114,8 @@ export const config = {
     .filter(Boolean),
 
   // Selection + budget
+  replyAll: (process.env.BOT_REPLY_ALL ?? 'on').toLowerCase() !== 'off',
+  maxThreadReplies: Math.max(1, Math.min(2, Math.floor(num('BOT_MAX_THREAD_REPLIES', 2)))),
   selection: (process.env.BOT_SELECTION as Selection) ?? "recent",
   dailyCap: num("BOT_DAILY_CAP", 250), // Threads' ~250/day ceiling is the hard backstop
   perPostCap: num("BOT_PER_POST_CAP", 220), // hard cap on total replies per post; sits below the daily cap

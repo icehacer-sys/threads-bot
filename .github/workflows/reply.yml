@@ -74,6 +74,8 @@ jobs:
       BOT_PER_POST_CAP: "220" # sits below the 250 daily cap, leaving headroom for the pinned-thread replies; still covers a viral hit (461-comment post)
       BOT_DAILY_CAP: "250" # Threads' ~250/day ceiling is the hard backstop
       BOT_VOICE: "lean" # consolidated brand voice (same rules, ~20% fewer prompt tokens). "full" reverts to the original voice-full.ts with no code change.
+      BOT_REPLY_ALL: "on" # include brief reactions and nested comments within the hard daily caps
+      BOT_MAX_THREAD_REPLIES: "2" # one initial response plus one follow-up per person per original thread
       # Raised 1.00 -> 1.25 (owner, 2026-08-24). Five nights of live data averaged $0.943, so a
       # $1.00 ceiling bound roughly one night in three — and it bound on the BUSY nights, which
       # are the ones you least want truncated. This is a runaway guard, not a nightly target.

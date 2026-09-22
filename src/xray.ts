@@ -65,6 +65,7 @@ export async function resolveXrayAnswer(postId: string): Promise<BridgedAnswer |
   if (!c?.diagnosis) return null;
 
   const answer = [c.diagnosis, ...(c.aliases ?? [])].filter(Boolean).join(" / ");
-  const facts = [c.whatYouSee, c.whyItMatters, c.treatment, c.takeaway].filter((x): x is string => !!x && x.trim().length > 0);
+  // A generic teaching mnemonic can describe a typical age, not this patient's age/history.
+  const facts = [c.whatYouSee, c.whyItMatters, c.treatment].filter((x): x is string => !!x && x.trim().length > 0);
   return { answer, facts, diagnosticContext: diagnosticContext(c.diagnosticContext, c.source === 'generated') };
 }

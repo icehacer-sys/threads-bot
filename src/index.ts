@@ -18,6 +18,8 @@ import { PersistenceError } from "./persistence";
 import { isLossStory, replyStyleIssue } from './reply-style';
 import { mediaModelRoute } from './media-reply';
 import { isPriorityCommenter } from './supporter-replies';
+import { replyCoverage, isNeutralGuessAcknowledgment } from './reply-coverage';
+import { unsupportedPatientHistory } from './case-evidence';
 import { classifyAndDraft, isBotQuestion, isPreRevealHold, firstSentences, type Decision, type InlineImage, type ImageMediaType } from "./reply";
 import { pickGif } from "./gifs";
 import { drainSpend, usd } from "./spend";
@@ -201,7 +203,7 @@ function commentValue(c: ThreadsReply): number {
 // a ranking bonus so a slow back-and-forth survives the per-post cap instead of being sliced
 // out behind fresh first-touch banter on a viral post (which would orphan a real conversation).
 const COMMITTED_BONUS = 5;
-function selectCandidates(replies: ThreadsReply[], committed?: Set<string>): ThreadsReply[] {
+function selectCandidates(replies: ThreadsReply[], committed?: Set<string>, priorReplyCount?: (id: string) => number): ThreadsReply[] {
   const sorted = [...replies];
   const valueOf = (c: ThreadsReply): number => commentValue(c) + (committed?.has(c.id) ? COMMITTED_BONUS : 0);
   // Rank by value first so questions/substantive comments win the limited budget;
@@ -209,8 +211,13 @@ function selectCandidates(replies: ThreadsReply[], committed?: Set<string>): Thr
   // (Per-reply like counts are not reliably exposed by the replies edge, so we score
   // the text itself rather than engagement.)
   sorted.sort((a, b) => {
+    if (config.replyAll && priorReplyCount) {
+      const first = Number(priorReplyCount(a.id) > 0) - Number(priorReplyCount(b.id) > 0);
+      if (first) return first;
+    }
     const priority = Number(isPriorityCommenter(b.username, config.priorityUsernames)) - Number(isPriorityCommenter(a.username, config.priorityUsernames));
     if (priority) return priority;
+    if (config.replyAll) return (a.timestamp ?? '').localeCompare(b.timestamp ?? '');
     const dv = valueOf(b) - valueOf(a);
     if (dv !== 0) return dv;
     return (b.timestamp ?? "").localeCompare(a.timestamp ?? "");
@@ -610,6 +617,7 @@ async function runLiveOrDry(mode: Mode, target: string | null): Promise<void> {
   // correct/teach are the accuracy-critical categories the reserve exists to protect; they may
   // spend right up to the hard cap. Everything else (reference, media lookups) yields earlier.
   const escalationAllowed = (medical: boolean) => {
+    if (config.replyAll) return !usdExhausted();
     if (config.escalateUsdCap <= 0) return true;
     if (medical) return !usdExhausted();
     return spentUsd() < config.escalateUsdCap && !reserveActive();
@@ -638,6 +646,7 @@ async function runLiveOrDry(mode: Mode, target: string | null): Promise<void> {
       continue;
     }
     convByPost.set(post.id, conversation);
+    const coverage = replyCoverage(post.id, me, [...replies, ...conversation], id => state.hasReplied(id), config.maxThreadReplies);
     // Register concerns before recovering containers or ranking new replies.
     const visibleConcerns = [...replies, ...conversation].filter(c => c.username !== me && isVisible(c) && imageConcernKind(c.text ?? '') === 'anatomy');
     if (posting) for (const concern of visibleConcerns) state.queueOwnerReview(concern.id, post.id, 'owner review: image/anatomy inconsistency', concern.text, concern.username);
@@ -650,6 +659,11 @@ async function runLiveOrDry(mode: Mode, target: string | null): Promise<void> {
         const publication = state.publication(`comment:${c.id}`);
         const pending = publication.get();
         if (!pending || resumed.has(c.id) || state.hasReplied(c.id)) continue;
+        if (!pending.publishedId && !coverage.canReply(c.id)) continue;
+        if (!pending.publishedId && unsupportedPatientHistory(pending.params.text, post.text ?? '')) {
+          state.queueOwnerReview(c.id, post.id, 'owner review: saved draft assumes unrecorded patient history', c.text, c.username);
+          continue;
+        }
         if (budgetLeft() <= 0) break;
         resumed.add(c.id);
         if (isRetiredMedicalBoundary(pending.params.text)) {
@@ -714,13 +728,14 @@ async function runLiveOrDry(mode: Mode, target: string | null): Promise<void> {
     const wantsReply = (c: ThreadsReply): boolean =>
       c.username !== me &&
       isVisible(c) &&
-      ((c.text ?? "").trim().length >= config.minCommentLength ||
+      ((c.text ?? "").trim().length >= (config.replyAll ? 1 : config.minCommentLength) ||
         (isPriorityCommenter(c.username, config.priorityUsernames) && !!(c.text ?? '').trim()) ||
         ((c.media_type === "IMAGE" || c.media_type === "VIDEO") && !!c.media_url) ||
         !!c.gif_url) && // a bare GIF (no text) is still worth reacting to
       !state.hasReplied(c.id) && // local record — never post twice, even if our reply is pending/lagging
       !resumed.has(c.id) &&
       !answeredByMe.has(c.id) &&
+      !state.isWaitingForImageReview(c.id, post.id) &&
       !state.hasSkipped(c.id); // already classified+skipped once — don't re-pay to re-classify it every poll
 
     const unanswered = replies.filter(wantsReply);
@@ -804,7 +819,7 @@ async function runLiveOrDry(mode: Mode, target: string | null): Promise<void> {
 
     // Merge top-level comments + answer-thread subs + one-level follow-ups, de-duped by id.
     const seenIds = new Set<string>();
-    const pool = [...unanswered, ...answerSubs, ...followUps].filter((c) =>
+    const pool = [...unanswered, ...answerSubs, ...followUps, ...(config.replyAll ? conversation.filter(wantsReply) : [])].filter((c) =>
       seenIds.has(c.id) ? false : (seenIds.add(c.id), true),
     );
     // Pinned posts are not subject to the cumulative per-post cap (it would permanently
@@ -818,11 +833,13 @@ async function runLiveOrDry(mode: Mode, target: string | null): Promise<void> {
     const committed = new Set<string>([...followUpContext.keys(), ...inAnswerThreadIds]);
     // Recheck held guesses only after the actual answer appears, or the comment is edited.
     // Filter before ranking so held comments cannot crowd out fresh engagement.
-    const eligible = pool.filter(c => !state.isWaitingForReveal(c.id, c.text ?? "", answerPublic));
-    const waitingForReveal = pool.length - eligible.length;
+    const withinThreadLimit = pool.filter(c => coverage.canReply(c.id));
+    const eligible = withinThreadLimit.filter(c => config.replyAll || !state.isWaitingForReveal(c.id, c.text ?? "", answerPublic));
+    const waitingForReveal = withinThreadLimit.length - eligible.length;
+    if (pool.length > withinThreadLimit.length) console.log(`  ${pool.length - withinThreadLimit.length} comment(s) excluded by thread limit or incomplete ancestry; no model calls.`);
     if (waitingForReveal) console.log(`  ${waitingForReveal} comment(s) waiting for reveal; no model calls for these.`);
     // Supporters can exceed the soft per-post cap, but the daily/platform and USD caps still apply.
-    const candidates = selectCandidates(eligible, committed).filter((c, index) => index < perPostRemaining || isPriorityCommenter(c.username, config.priorityUsernames));
+    const candidates = selectCandidates(eligible, committed, coverage.count).filter((c, index) => config.replyAll || index < perPostRemaining || isPriorityCommenter(c.username, config.priorityUsernames));
 
     console.log(
       `Post ${clip(post.text ?? post.id, 40)} [answer: ${resolved.answer ?? "unknown"}${postImages.length ? ", image ✓" : ""}] — ${candidates.length} to reply (${pinnedIds.has(post.id) ? "pinned" : `${state.repliedToPost(post.id)}/${config.perPostCap}`} done):`,
@@ -833,13 +850,14 @@ async function runLiveOrDry(mode: Mode, target: string | null): Promise<void> {
     }
 
     for (const c of candidates) {
+      if (!coverage.canReply(c.id)) continue; // Recheck after earlier siblings posted in this same poll.
       if (budgetLeft() <= 0) break;
       if (fatalStop) break;
       // Protect the medical reserve: once inside it, a low-value comment is dropped BEFORE any
       // model call (so this costs nothing) and left un-cached, so it is simply re-considered for
       // free on the next poll or on a fresh budget day. Questions and substantive comments still
       // get through — that is exactly what commentValue() ranks for.
-      if (reserveActive() && commentValue(c) < config.reserveMinValue && !isPriorityCommenter(c.username, config.priorityUsernames)) {
+      if (!config.replyAll && reserveActive() && commentValue(c) < config.reserveMinValue && !isPriorityCommenter(c.username, config.priorityUsernames)) {
         reserveDeferred += 1;
         continue;
       }
@@ -867,6 +885,8 @@ async function runLiveOrDry(mode: Mode, target: string | null): Promise<void> {
         commentMediaKind = commentImages.length ? "video-frame" : "video";
       }
       const baseInput = {
+        replyAll: config.replyAll,
+        parentComment: c.replied_to?.id && byId.get(c.replied_to.id)?.username !== me ? byId.get(c.replied_to.id)?.text : undefined,
         priorityCommenter: isPriorityCommenter(c.username, config.priorityUsernames),
         postText: post.text ?? "",
         commentText: c.text ?? "",
@@ -884,7 +904,7 @@ async function runLiveOrDry(mode: Mode, target: string | null): Promise<void> {
         commentMediaKind,
         inAnswerThread: inAnswerThreadIds.has(c.id),
         priorExchange: followUpContext.get(c.id),
-        answerPublic: imageReviewHeld || state.hasImageReview(post.id) ? false : answerPublic,
+        answerPublic,
         isPersonalPost,
       };
       // Motion media uses one quality read, avoiding a cheap draft that misses the action
@@ -980,6 +1000,10 @@ async function runLiveOrDry(mode: Mode, target: string | null): Promise<void> {
 
       if (d.decision === "skip") {
         skipCounts[d.category] = (skipCounts[d.category] ?? 0) + 1;
+        if (posting && !/^(?:error|fatal):/.test(d.reason) && (imageReviewHeld || state.hasImageReview(post.id)) && !['spam','complaint','personal_medical'].includes(d.category)) {
+          state.holdUntilImageReview(c.id, post.id);
+          continue;
+        }
         // Cache the skip so we don't re-classify this comment on every 10-min poll all night (the
         // main cost leak), with two carve-outs that MUST stay re-checkable: transient API-error
         // skips (retry later) and spoiler-guard skips (a correct guess held pre-reveal has to be
@@ -1045,7 +1069,7 @@ async function runLiveOrDry(mode: Mode, target: string | null): Promise<void> {
       // BARE stamps are exempt: dedupeStamp already rotates those, and on a post where many
       // people guess right, a second "Spot on ✅" beats ignoring a correct guesser.
       const normReply = (s: string) => s.toLowerCase().replace(/[^\p{L}\p{N} ]/gu, "").replace(/\s+/g, " ").trim();
-      if (!STAMP_RE.test(d.reply_text.trim()) && [...allOwnerReplies, ...postedThisRun].some((r) => normReply(r) === normReply(d.reply_text))) {
+      if (!isNeutralGuessAcknowledgment(d.reply_text) && !STAMP_RE.test(d.reply_text.trim()) && [...allOwnerReplies, ...postedThisRun].some((r) => normReply(r) === normReply(d.reply_text))) {
         console.log(`        (word-for-word repeat of a reply already on this post — dropped)`);
         if (posting) state.recordSoftSkip(c.id, 2);
         continue;
@@ -1119,6 +1143,7 @@ async function runLiveOrDry(mode: Mode, target: string | null): Promise<void> {
         if (promo) console.log(`        (+ would attach LINK ${promo.tag}: ${promo.url})`);
         else if (product) console.log(`        (+ would mention ${product.tag}, no link)`);
         replied += 1; // count intended replies for the dry-run summary
+        coverage.markReplied(c.id);
       }
     }
     console.log("");
