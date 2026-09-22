@@ -8123,6 +8123,15 @@
       },
       "publishedId": "18053284499583958",
       "confirmedPublished": true
+    },
+    "comment:18131730508675697": {
+      "creationId": "17890493652614054",
+      "createdAt": "2026-09-22T20:40:02.552Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "The patella doesn't ossify until early childhood so in a newborn it's cartilage and invisible on X-ray. The bigger structural problem tends to grab attention first anyway.",
+        "reply_to_id": "18131730508675697"
+      }
     }
   },
   "repliedCommentIds": [
@@ -16816,7 +16825,8 @@
     "18353410663168194",
     "18410537383091489",
     "18088607900474039",
-    "18138477127613388"
+    "18138477127613388",
+    "17902940265576116"
   ],
   "answeredPostIds": [
     "18395606890093068"
@@ -16933,11 +16943,11 @@
     "17988527066861715": 48,
     "18094319267645737": 42,
     "18115960969977269": 64,
-    "18184997560424523": 15
+    "18184997560424523": 16
   },
   "daily": {
     "date": "2026-09-22",
-    "count": 15
+    "count": 16
   },
   "pinnedResolved": {
     "DaTTCIwoAw7": "18014812820883466"
@@ -17979,6 +17989,6 @@
   },
   "spend": {
     "date": "2026-09-22",
-    "usd": 0.2623629
+    "usd": 0.2742457
   }
 }
