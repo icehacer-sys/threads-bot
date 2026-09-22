@@ -8023,7 +8023,9 @@
         "media_type": "TEXT",
         "text": "The instruction manual was definitely missing page two.",
         "reply_to_id": "18129600613801687"
-      }
+      },
+      "publishedId": "18055509677567375",
+      "confirmedPublished": true
     }
   },
   "repliedCommentIds": [
