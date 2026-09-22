@@ -126,7 +126,10 @@
     "18088704302216486": "Looks like a complete absence of kneecap",
     "18427324930181683": "Missing knee cap.",
     "18169673611460551": "He got a No Cap",
-    "18071955551572671": "It looks wrong because it is wrong. It’s missing the patella. Since that’s the hinge of the knee door, I assume that’s why the heads of the femur and tibia also look wrong since the joint has deformed to accommodate?"
+    "18071955551572671": "It looks wrong because it is wrong. It’s missing the patella. Since that’s the hinge of the knee door, I assume that’s why the heads of the femur and tibia also look wrong since the joint has deformed to accommodate?",
+    "18444765421126141": "I’ve said where’s the patella before but I mean it this time.",
+    "18103031597614438": "Congenital absence of a patella",
+    "18109564529143589": "AWOL kneecap"
   },
   "ownerReviews": {
     "17937444630360450": "{\"postId\":\"18103023326210157\",\"reason\":\"owner review: personal medical concern\",\"commentText\":\"Little sister of my friend swalloved a coin of 1 fim. At hospital the family was advised to thoroughly keep an eye on her poops. So, the next day they found two 50 penny coins😀.\",\"username\":\"velitapiof\",\"queuedAt\":\"2026-09-10T20:21:59.741Z\",\"resolvedAt\":\"2026-09-10T20:36:02.929Z\",\"resolution\":\"Owner confirmed this is a completed personal story and deleted the inappropriate boundary reply. No clinical review is needed.\"}",
@@ -171,7 +174,8 @@
     "18093836609142097": "{\"postId\":\"18115960969977269\",\"reason\":\"Comment is unclear or appears to be wordplay that does not connect to the foot/mycetoma case. No substantive question about the diagnosis or image. Owner review needed to clarify intent.\",\"commentText\":\"The heart is not pumping as it should.\",\"username\":\"anniew1457\",\"queuedAt\":\"2026-09-21T20:30:32.385Z\"}",
     "18490059970098719": "{\"postId\":\"18115960969977269\",\"reason\":\"The case facts do not specify whether one or both feet were affected. The post caption states a patient came in with swelling and the X-ray shows findings but does not record bilateral involvement. This detail is not in the supplied facts and owner review is needed to answer accurately.\",\"commentText\":\"Was it just the one foot or was it both feeth?\",\"username\":\"raaawb\",\"queuedAt\":\"2026-09-21T23:31:05.109Z\"}",
     "18355074922248558": "{\"postId\":\"18115960969977269\",\"reason\":\"Comment is a single name with no clear intent, question, or context. Cannot reliably determine whether it is a guess, reference, incomplete message, or typo. Requires clarification or owner review.\",\"commentText\":\"Patrick?\",\"username\":\"olmedomedo\",\"queuedAt\":\"2026-09-21T23:31:13.826Z\"}",
-    "18090523004670624": "{\"postId\":\"18115960969977269\",\"reason\":\"owner review: patient outcome not recorded in case facts. Cannot speculate on amputation or other treatment outcomes without confirming data.\",\"commentText\":\"Did the foot get amputated do you reckon?\",\"username\":\"twistedsister54321\",\"queuedAt\":\"2026-09-22T01:04:16.196Z\"}"
+    "18090523004670624": "{\"postId\":\"18115960969977269\",\"reason\":\"owner review: patient outcome not recorded in case facts. Cannot speculate on amputation or other treatment outcomes without confirming data.\",\"commentText\":\"Did the foot get amputated do you reckon?\",\"username\":\"twistedsister54321\",\"queuedAt\":\"2026-09-22T01:04:16.196Z\"}",
+    "18444765421126141": "{\"postId\":\"18184997560424523\",\"reason\":\"Diagnosis-adjacent observation that could expose the diagnosis before the reveal. Held for owner review post-reveal.\",\"commentText\":\"I’ve said where’s the patella before but I mean it this time.\",\"username\":\"max.newman.14\",\"queuedAt\":\"2026-09-22T19:33:02.101Z\"}"
   },
   "concernAcknowledgments": {
     "[\"18121475662898455\",\"berit069\",\"image\"]": "18142096432588199",
@@ -16669,7 +16673,8 @@
     "18109923983331237",
     "18085560662291008",
     "18128481787689269",
-    "17947629687292652"
+    "17947629687292652",
+    "18173141938443576"
   ],
   "answeredPostIds": [
     "18395606890093068"
@@ -16786,11 +16791,11 @@
     "17988527066861715": 48,
     "18094319267645737": 42,
     "18115960969977269": 64,
-    "18184997560424523": 4
+    "18184997560424523": 5
   },
   "daily": {
     "date": "2026-09-22",
-    "count": 4
+    "count": 5
   },
   "pinnedResolved": {
     "DaTTCIwoAw7": "18014812820883466"
@@ -17801,7 +17806,8 @@
     "18491129545097823": 1,
     "18108233306169695": 1,
     "17895074358672763": 1,
-    "17887057032683373": 1
+    "17887057032683373": 1,
+    "18136622644712090": 1
   },
   "gifPostCounts": {
     "18432085978123193": 1,
@@ -17826,6 +17832,6 @@
   },
   "spend": {
     "date": "2026-09-22",
-    "usd": 0.05931120000000001
+    "usd": 0.06770540000000001
   }
 }
