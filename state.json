@@ -7959,7 +7959,9 @@
         "media_type": "TEXT",
         "text": "Assembly instructions were definitely written in a different language.",
         "reply_to_id": "18128481787689269"
-      }
+      },
+      "publishedId": "18025848626700059",
+      "confirmedPublished": true
     }
   },
   "repliedCommentIds": [
