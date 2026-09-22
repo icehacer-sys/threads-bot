@@ -7893,6 +7893,15 @@
       },
       "publishedId": "18034556951848952",
       "confirmedPublished": true
+    },
+    "comment:18085254713282480": {
+      "creationId": "17890374768614054",
+      "createdAt": "2026-09-22T00:33:22.523Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Mycetoma actually. Osteoporosis thins bone uniformly whereas these are discrete cavities carved by infection.",
+        "reply_to_id": "18085254713282480"
+      }
     }
   },
   "repliedCommentIds": [
@@ -16567,7 +16576,8 @@
     "17894134326416272",
     "18488179735109589",
     "18280023232294030",
-    "17920955127439120"
+    "17920955127439120",
+    "18127847710866473"
   ],
   "answeredPostIds": [
     "18395606890093068"
@@ -16683,11 +16693,11 @@
     "17958262674213428": 59,
     "17988527066861715": 48,
     "18094319267645737": 42,
-    "18115960969977269": 60
+    "18115960969977269": 61
   },
   "daily": {
     "date": "2026-09-21",
-    "count": 60
+    "count": 61
   },
   "pinnedResolved": {
     "DaTTCIwoAw7": "18014812820883466"
@@ -17719,6 +17729,6 @@
   },
   "spend": {
     "date": "2026-09-21",
-    "usd": 1.1049951499999995
+    "usd": 1.1302159499999995
   }
 }
