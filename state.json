@@ -8324,6 +8324,15 @@
       },
       "publishedId": "17900261034372957",
       "confirmedPublished": true
+    },
+    "comment:18079163354356387": {
+      "creationId": "17890495932614054",
+      "createdAt": "2026-09-22T21:20:26.708Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Yeah it's rough to see. The good news is catching it at birth gives them the real shot at getting it corrected properly.",
+        "reply_to_id": "18079163354356387"
+      }
     }
   },
   "repliedCommentIds": [
@@ -17035,7 +17044,8 @@
     "18128236108834142",
     "18342665479251696",
     "18098712710633715",
-    "18169673611460551"
+    "18169673611460551",
+    "18086688377665586"
   ],
   "answeredPostIds": [
     "18395606890093068"
@@ -17152,11 +17162,11 @@
     "17988527066861715": 48,
     "18094319267645737": 42,
     "18115960969977269": 64,
-    "18184997560424523": 33
+    "18184997560424523": 34
   },
   "daily": {
     "date": "2026-09-22",
-    "count": 33
+    "count": 34
   },
   "pinnedResolved": {
     "DaTTCIwoAw7": "18014812820883466"
@@ -18208,6 +18218,6 @@
   },
   "spend": {
     "date": "2026-09-22",
-    "usd": 0.5518765999999999
+    "usd": 0.5626619999999999
   }
 }
