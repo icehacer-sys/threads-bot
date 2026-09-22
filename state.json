@@ -8134,6 +8134,15 @@
       },
       "publishedId": "17896356648397698",
       "confirmedPublished": true
+    },
+    "comment:18408459847092514": {
+      "creationId": "17890493679614054",
+      "createdAt": "2026-09-22T20:40:36.409Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "They couldn't walk on it which is part of why it gets caught at birth. Correction usually starts with gentle specialist manipulation and serial casting and more severe cases need surgery to get the alignment right.",
+        "reply_to_id": "18408459847092514"
+      }
     }
   },
   "repliedCommentIds": [
@@ -16828,7 +16837,8 @@
     "18410537383091489",
     "18088607900474039",
     "18138477127613388",
-    "17902940265576116"
+    "17902940265576116",
+    "18131730508675697"
   ],
   "answeredPostIds": [
     "18395606890093068"
@@ -16945,11 +16955,11 @@
     "17988527066861715": 48,
     "18094319267645737": 42,
     "18115960969977269": 64,
-    "18184997560424523": 16
+    "18184997560424523": 17
   },
   "daily": {
     "date": "2026-09-22",
-    "count": 16
+    "count": 17
   },
   "pinnedResolved": {
     "DaTTCIwoAw7": "18014812820883466"
@@ -17991,6 +18001,6 @@
   },
   "spend": {
     "date": "2026-09-22",
-    "usd": 0.2742457
+    "usd": 0.2950816
   }
 }
