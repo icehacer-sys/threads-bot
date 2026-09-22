@@ -7916,6 +7916,15 @@
       },
       "publishedId": "18417326731156625",
       "confirmedPublished": true
+    },
+    "comment:18077040335394113": {
+      "creationId": "17890379613614054",
+      "createdAt": "2026-09-22T01:35:26.504Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Veterinary radiology doesn't get enough credit. Seeing infection patterns across species really does sharpen that eye for what cancer leaves alone.",
+        "reply_to_id": "18077040335394113"
+      }
     }
   },
   "repliedCommentIds": [
@@ -17650,7 +17659,8 @@
     "18015977156948241",
     "18355074922248558",
     "18072527600482712",
-    "18090523004670624"
+    "18090523004670624",
+    "17904900399560619"
   ],
   "skipStrikes": {
     "17895266316520842": 1,
@@ -17746,6 +17756,6 @@
   },
   "spend": {
     "date": "2026-09-21",
-    "usd": 1.1368745499999995
+    "usd": 1.2309974499999994
   }
 }
