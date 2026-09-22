@@ -8222,6 +8222,15 @@
       },
       "publishedId": "18119594630319569",
       "confirmedPublished": true
+    },
+    "comment:18099125021530315": {
+      "creationId": "17890493964614054",
+      "createdAt": "2026-09-22T20:45:09.892Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Cartilage at this age so it's invisible here. It calcifies gradually through early childhood and only then registers on X-ray.",
+        "reply_to_id": "18099125021530315"
+      }
     }
   },
   "repliedCommentIds": [
@@ -16924,7 +16933,8 @@
     "18631550086020448",
     "17970468423170813",
     "17888706162682802",
-    "18427324930181683"
+    "18427324930181683",
+    "18343404232266442"
   ],
   "answeredPostIds": [
     "18395606890093068"
@@ -17041,11 +17051,11 @@
     "17988527066861715": 48,
     "18094319267645737": 42,
     "18115960969977269": 64,
-    "18184997560424523": 24
+    "18184997560424523": 25
   },
   "daily": {
     "date": "2026-09-22",
-    "count": 24
+    "count": 25
   },
   "pinnedResolved": {
     "DaTTCIwoAw7": "18014812820883466"
@@ -18093,6 +18103,6 @@
   },
   "spend": {
     "date": "2026-09-22",
-    "usd": 0.42471929999999997
+    "usd": 0.4494736999999999
   }
 }
