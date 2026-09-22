@@ -8167,6 +8167,15 @@
       },
       "publishedId": "18126002770847452",
       "confirmedPublished": true
+    },
+    "comment:18631550086020448": {
+      "creationId": "17890493727614054",
+      "createdAt": "2026-09-22T20:42:08.062Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "The femur definitely didn't make it through QA before shipping. But yeah the whole tibia sliding forward off the end of it is congenital knee dislocation doing exactly what it does best.",
+        "reply_to_id": "18631550086020448"
+      }
     }
   },
   "repliedCommentIds": [
@@ -16864,7 +16873,8 @@
     "17902940265576116",
     "18131730508675697",
     "18408459847092514",
-    "18104778368575110"
+    "18104778368575110",
+    "18080880530704172"
   ],
   "answeredPostIds": [
     "18395606890093068"
@@ -16981,11 +16991,11 @@
     "17988527066861715": 48,
     "18094319267645737": 42,
     "18115960969977269": 64,
-    "18184997560424523": 19
+    "18184997560424523": 20
   },
   "daily": {
     "date": "2026-09-22",
-    "count": 19
+    "count": 20
   },
   "pinnedResolved": {
     "DaTTCIwoAw7": "18014812820883466"
@@ -18028,6 +18038,6 @@
   },
   "spend": {
     "date": "2026-09-22",
-    "usd": 0.3456529
+    "usd": 0.3488114
   }
 }
