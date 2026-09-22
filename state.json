@@ -8101,6 +8101,15 @@
       },
       "publishedId": "18071807756737993",
       "confirmedPublished": true
+    },
+    "comment:18138477127613388": {
+      "creationId": "17890493595614054",
+      "createdAt": "2026-09-22T20:38:36.060Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Fibula hemi-amelia is a fair association to raise since congenital knee dislocation can occur alongside other limb abnormalities and a foot view would give a lot more to work with. The absent or unossified patella and thin quadriceps bulk fit what you'd expect with this degree of congenital dislocation though the case doesn't record what the foot showed.",
+        "reply_to_id": "18138477127613388"
+      }
     }
   },
   "repliedCommentIds": [
@@ -16792,7 +16801,8 @@
     "17943667326304652",
     "18106586021221566",
     "18353410663168194",
-    "18410537383091489"
+    "18410537383091489",
+    "18088607900474039"
   ],
   "answeredPostIds": [
     "18395606890093068"
@@ -16909,11 +16919,11 @@
     "17988527066861715": 48,
     "18094319267645737": 42,
     "18115960969977269": 64,
-    "18184997560424523": 13
+    "18184997560424523": 14
   },
   "daily": {
     "date": "2026-09-22",
-    "count": 13
+    "count": 14
   },
   "pinnedResolved": {
     "DaTTCIwoAw7": "18014812820883466"
@@ -17855,7 +17865,8 @@
     "18089827619475205",
     "18036416987836150",
     "18136622644712090",
-    "17879212299626850"
+    "17879212299626850",
+    "17981215961904051"
   ],
   "skipStrikes": {
     "17895266316520842": 1,
@@ -17951,6 +17962,6 @@
   },
   "spend": {
     "date": "2026-09-22",
-    "usd": 0.12120840000000002
+    "usd": 0.21646820000000006
   }
 }
