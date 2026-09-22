@@ -8321,7 +8321,9 @@
         "media_type": "TEXT",
         "text": "Thanks for flagging that detail.",
         "reply_to_id": "18086688377665586"
-      }
+      },
+      "publishedId": "17900261034372957",
+      "confirmedPublished": true
     }
   },
   "repliedCommentIds": [
