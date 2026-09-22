@@ -32,6 +32,8 @@ Initial typecheck failed with TS7022 for two unannotated traversal locals; expli
 
 ## Not changed or certified
 
+Deployment recovery released three cached comments for a fresh attempt: veveheart's "Flamingo Syndrome", bluecrab74's "Supplied by MFI" and purpleautist's assembly joke. Seven medical comments repeatedly blocked in the completed logs were explicitly marked waiting for image review, preserving their ability to be reconsidered after the review is resolved without paying to reassess them each poll. Existing reply receipts were preserved.
+
 - Existing public comments and the caption have not been edited or deleted.
 - The current image is not newly certified, regenerated or released from its review hold.
 - Anatomy-dependent cached skips are not mass-released while that hold is active.
