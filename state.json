@@ -8063,6 +8063,15 @@
       },
       "publishedId": "18115295741323044",
       "confirmedPublished": true
+    },
+    "comment:18353410663168194": {
+      "creationId": "17890492419614054",
+      "createdAt": "2026-09-22T20:21:48.416Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Patient clearly never got the memo that the song was binding legal documentation.",
+        "reply_to_id": "18353410663168194"
+      }
     }
   },
   "repliedCommentIds": [
@@ -17910,6 +17919,6 @@
   },
   "spend": {
     "date": "2026-09-22",
-    "usd": 0.09536900000000002
+    "usd": 0.09796380000000002
   }
 }
