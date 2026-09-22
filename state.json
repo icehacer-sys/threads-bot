@@ -165,7 +165,8 @@
     "17967407931164961": "{\"postId\":\"18115960969977269\",\"reason\":\"The comment asks a factual question about patient species that requires owner response. The case reference facts and teaching context do not specify whether this was human or veterinary radiology. The post narrative uses 'patient' and 'foot' consistently with human context but the X-ray image alone cannot establish species definitively and the case facts do not explicitly confirm it. This is a provenance/case-specificity question best answered by the post owner.\",\"commentText\":\"Was the patient human?\",\"username\":\"george.troxel.71\",\"queuedAt\":\"2026-09-21T20:28:53.285Z\"}",
     "18093836609142097": "{\"postId\":\"18115960969977269\",\"reason\":\"Comment is unclear or appears to be wordplay that does not connect to the foot/mycetoma case. No substantive question about the diagnosis or image. Owner review needed to clarify intent.\",\"commentText\":\"The heart is not pumping as it should.\",\"username\":\"anniew1457\",\"queuedAt\":\"2026-09-21T20:30:32.385Z\"}",
     "18490059970098719": "{\"postId\":\"18115960969977269\",\"reason\":\"The case facts do not specify whether one or both feet were affected. The post caption states a patient came in with swelling and the X-ray shows findings but does not record bilateral involvement. This detail is not in the supplied facts and owner review is needed to answer accurately.\",\"commentText\":\"Was it just the one foot or was it both feeth?\",\"username\":\"raaawb\",\"queuedAt\":\"2026-09-21T23:31:05.109Z\"}",
-    "18355074922248558": "{\"postId\":\"18115960969977269\",\"reason\":\"Comment is a single name with no clear intent, question, or context. Cannot reliably determine whether it is a guess, reference, incomplete message, or typo. Requires clarification or owner review.\",\"commentText\":\"Patrick?\",\"username\":\"olmedomedo\",\"queuedAt\":\"2026-09-21T23:31:13.826Z\"}"
+    "18355074922248558": "{\"postId\":\"18115960969977269\",\"reason\":\"Comment is a single name with no clear intent, question, or context. Cannot reliably determine whether it is a guess, reference, incomplete message, or typo. Requires clarification or owner review.\",\"commentText\":\"Patrick?\",\"username\":\"olmedomedo\",\"queuedAt\":\"2026-09-21T23:31:13.826Z\"}",
+    "18090523004670624": "{\"postId\":\"18115960969977269\",\"reason\":\"owner review: patient outcome not recorded in case facts. Cannot speculate on amputation or other treatment outcomes without confirming data.\",\"commentText\":\"Did the foot get amputated do you reckon?\",\"username\":\"twistedsister54321\",\"queuedAt\":\"2026-09-22T01:04:16.196Z\"}"
   },
   "concernAcknowledgments": {
     "[\"18121475662898455\",\"berit069\",\"image\"]": "18142096432588199",
@@ -7904,6 +7905,15 @@
       },
       "publishedId": "18123115144906595",
       "confirmedPublished": true
+    },
+    "comment:18095900222424166": {
+      "creationId": "17890377222614054",
+      "createdAt": "2026-09-22T01:04:22.260Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Mr. Snuffleupigitis would at least be fluffy on the outside.",
+        "reply_to_id": "18095900222424166"
+      }
     }
   },
   "repliedCommentIds": [
@@ -17636,7 +17646,8 @@
     "18490059970098719",
     "18015977156948241",
     "18355074922248558",
-    "18072527600482712"
+    "18072527600482712",
+    "18090523004670624"
   ],
   "skipStrikes": {
     "17895266316520842": 1,
@@ -17732,6 +17743,6 @@
   },
   "spend": {
     "date": "2026-09-21",
-    "usd": 1.1302159499999995
+    "usd": 1.1368745499999995
   }
 }
