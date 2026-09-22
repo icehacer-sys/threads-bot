@@ -132,7 +132,8 @@
     "18109564529143589": "AWOL kneecap",
     "18088607900474039": "It’s like buying from one of those suspect companies on Amazon.  The TQWXBC Co.  Could be good, could be incomprehensibly bad.",
     "17970468423170813": "John Cena patella. U can't C it.",
-    "18408459847092514": "How is this corrected? And how did this person walk without?"
+    "18408459847092514": "How is this corrected? And how did this person walk without?",
+    "18130558792664000": "did the proto-kneecap cartilage never form, or did it fold under? my google residency didn't cover child development and radiology"
   },
   "ownerReviews": {
     "17937444630360450": "{\"postId\":\"18103023326210157\",\"reason\":\"owner review: personal medical concern\",\"commentText\":\"Little sister of my friend swalloved a coin of 1 fim. At hospital the family was advised to thoroughly keep an eye on her poops. So, the next day they found two 50 penny coins😀.\",\"username\":\"velitapiof\",\"queuedAt\":\"2026-09-10T20:21:59.741Z\",\"resolvedAt\":\"2026-09-10T20:36:02.929Z\",\"resolution\":\"Owner confirmed this is a completed personal story and deleted the inappropriate boundary reply. No clinical review is needed.\"}",
@@ -178,7 +179,8 @@
     "18490059970098719": "{\"postId\":\"18115960969977269\",\"reason\":\"The case facts do not specify whether one or both feet were affected. The post caption states a patient came in with swelling and the X-ray shows findings but does not record bilateral involvement. This detail is not in the supplied facts and owner review is needed to answer accurately.\",\"commentText\":\"Was it just the one foot or was it both feeth?\",\"username\":\"raaawb\",\"queuedAt\":\"2026-09-21T23:31:05.109Z\"}",
     "18355074922248558": "{\"postId\":\"18115960969977269\",\"reason\":\"Comment is a single name with no clear intent, question, or context. Cannot reliably determine whether it is a guess, reference, incomplete message, or typo. Requires clarification or owner review.\",\"commentText\":\"Patrick?\",\"username\":\"olmedomedo\",\"queuedAt\":\"2026-09-21T23:31:13.826Z\"}",
     "18090523004670624": "{\"postId\":\"18115960969977269\",\"reason\":\"owner review: patient outcome not recorded in case facts. Cannot speculate on amputation or other treatment outcomes without confirming data.\",\"commentText\":\"Did the foot get amputated do you reckon?\",\"username\":\"twistedsister54321\",\"queuedAt\":\"2026-09-22T01:04:16.196Z\"}",
-    "18444765421126141": "{\"postId\":\"18184997560424523\",\"reason\":\"Diagnosis-adjacent observation that could expose the diagnosis before the reveal. Held for owner review post-reveal.\",\"commentText\":\"I’ve said where’s the patella before but I mean it this time.\",\"username\":\"max.newman.14\",\"queuedAt\":\"2026-09-22T19:33:02.101Z\"}"
+    "18444765421126141": "{\"postId\":\"18184997560424523\",\"reason\":\"Diagnosis-adjacent observation that could expose the diagnosis before the reveal. Held for owner review post-reveal.\",\"commentText\":\"I’ve said where’s the patella before but I mean it this time.\",\"username\":\"max.newman.14\",\"queuedAt\":\"2026-09-22T19:33:02.101Z\"}",
+    "18130558792664000": "{\"postId\":\"18184997560424523\",\"reason\":\"Medical question that would expose the diagnosis before public reveal. Hold for owner review once the answer is revealed.\",\"commentText\":\"did the proto-kneecap cartilage never form, or did it fold under? my google residency didn't cover child development and radiology\",\"username\":\"staringispolite\",\"queuedAt\":\"2026-09-22T20:05:50.058Z\"}"
   },
   "concernAcknowledgments": {
     "[\"18121475662898455\",\"berit069\",\"image\"]": "18142096432588199",
@@ -8038,6 +8040,15 @@
       },
       "publishedId": "17976861353918772",
       "confirmedPublished": true
+    },
+    "comment:17943667326304652": {
+      "creationId": "17890491759614054",
+      "createdAt": "2026-09-22T20:05:55.578Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Except this one shipped from the factory that way.",
+        "reply_to_id": "17943667326304652"
+      }
     }
   },
   "repliedCommentIds": [
@@ -17883,6 +17894,6 @@
   },
   "spend": {
     "date": "2026-09-22",
-    "usd": 0.08616180000000001
+    "usd": 0.09085740000000002
   }
 }
