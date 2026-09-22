@@ -130,7 +130,8 @@
     "18444765421126141": "I’ve said where’s the patella before but I mean it this time.",
     "18103031597614438": "Congenital absence of a patella",
     "18109564529143589": "AWOL kneecap",
-    "18088607900474039": "It’s like buying from one of those suspect companies on Amazon.  The TQWXBC Co.  Could be good, could be incomprehensibly bad."
+    "18088607900474039": "It’s like buying from one of those suspect companies on Amazon.  The TQWXBC Co.  Could be good, could be incomprehensibly bad.",
+    "17970468423170813": "John Cena patella. U can't C it."
   },
   "ownerReviews": {
     "17937444630360450": "{\"postId\":\"18103023326210157\",\"reason\":\"owner review: personal medical concern\",\"commentText\":\"Little sister of my friend swalloved a coin of 1 fim. At hospital the family was advised to thoroughly keep an eye on her poops. So, the next day they found two 50 penny coins😀.\",\"username\":\"velitapiof\",\"queuedAt\":\"2026-09-10T20:21:59.741Z\",\"resolvedAt\":\"2026-09-10T20:36:02.929Z\",\"resolution\":\"Owner confirmed this is a completed personal story and deleted the inappropriate boundary reply. No clinical review is needed.\"}",
@@ -8003,6 +8004,15 @@
       },
       "publishedId": "18423177616149664",
       "confirmedPublished": true
+    },
+    "comment:18095906888417663": {
+      "creationId": "17890490589614054",
+      "createdAt": "2026-09-22T19:48:48.708Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "The parts list was definitely incomplete.",
+        "reply_to_id": "18095906888417663"
+      }
     }
   },
   "repliedCommentIds": [
@@ -16686,7 +16696,8 @@
     "18085560662291008",
     "18128481787689269",
     "17947629687292652",
-    "18173141938443576"
+    "18173141938443576",
+    "17908048794488678"
   ],
   "answeredPostIds": [
     "18395606890093068"
@@ -16803,11 +16814,11 @@
     "17988527066861715": 48,
     "18094319267645737": 42,
     "18115960969977269": 64,
-    "18184997560424523": 5
+    "18184997560424523": 6
   },
   "daily": {
     "date": "2026-09-22",
-    "count": 5
+    "count": 6
   },
   "pinnedResolved": {
     "DaTTCIwoAw7": "18014812820883466"
@@ -17844,6 +17855,6 @@
   },
   "spend": {
     "date": "2026-09-22",
-    "usd": 0.07249600000000002
+    "usd": 0.07700560000000002
   }
 }
