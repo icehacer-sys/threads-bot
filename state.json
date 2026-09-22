@@ -123,7 +123,9 @@
     "18128120047761950": "Torn tendon!",
     "18076470098718764": "Bone holes",
     "18080880530704172": "Where’s the patella?",
-    "18088704302216486": "Looks like a complete absence of kneecap"
+    "18088704302216486": "Looks like a complete absence of kneecap",
+    "18427324930181683": "Missing knee cap.",
+    "18169673611460551": "He got a No Cap"
   },
   "ownerReviews": {
     "17937444630360450": "{\"postId\":\"18103023326210157\",\"reason\":\"owner review: personal medical concern\",\"commentText\":\"Little sister of my friend swalloved a coin of 1 fim. At hospital the family was advised to thoroughly keep an eye on her poops. So, the next day they found two 50 penny coins😀.\",\"username\":\"velitapiof\",\"queuedAt\":\"2026-09-10T20:21:59.741Z\",\"resolvedAt\":\"2026-09-10T20:36:02.929Z\",\"resolution\":\"Owner confirmed this is a completed personal story and deleted the inappropriate boundary reply. No clinical review is needed.\"}",
@@ -16642,7 +16644,8 @@
     "18095900222424166",
     "18077040335394113",
     "18109923983331237",
-    "18085560662291008"
+    "18085560662291008",
+    "18128481787689269"
   ],
   "answeredPostIds": [
     "18395606890093068"
@@ -16759,11 +16762,11 @@
     "17988527066861715": 48,
     "18094319267645737": 42,
     "18115960969977269": 64,
-    "18184997560424523": 2
+    "18184997560424523": 3
   },
   "daily": {
     "date": "2026-09-22",
-    "count": 2
+    "count": 3
   },
   "pinnedResolved": {
     "DaTTCIwoAw7": "18014812820883466"
@@ -17799,6 +17802,6 @@
   },
   "spend": {
     "date": "2026-09-22",
-    "usd": 0.025975
+    "usd": 0.029965600000000002
   }
 }
