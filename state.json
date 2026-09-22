@@ -8343,7 +8343,9 @@
         "media_type": "TEXT",
         "text": "Filed an insurance claim yet?",
         "reply_to_id": "18065140511786349"
-      }
+      },
+      "publishedId": "18189895438402846",
+      "confirmedPublished": true
     }
   },
   "repliedCommentIds": [
