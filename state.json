@@ -8255,6 +8255,15 @@
       },
       "publishedId": "18233122393325256",
       "confirmedPublished": true
+    },
+    "comment:18637853662000583": {
+      "creationId": "17890495233614054",
+      "createdAt": "2026-09-22T21:01:23.145Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "That's really kind of you to say. Caught at birth like this one was gives them the best chance though.",
+        "reply_to_id": "18637853662000583"
+      }
     }
   },
   "repliedCommentIds": [
@@ -18131,6 +18140,6 @@
   },
   "spend": {
     "date": "2026-09-22",
-    "usd": 0.4659961999999999
+    "usd": 0.4695086999999999
   }
 }
