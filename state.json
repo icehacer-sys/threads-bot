@@ -8382,7 +8382,9 @@
         "media_type": "TEXT",
         "text": "Welcome.",
         "reply_to_id": "17970665418149534"
-      }
+      },
+      "publishedId": "18124104986485270",
+      "confirmedPublished": true
     }
   },
   "repliedCommentIds": [
