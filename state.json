@@ -140,6 +140,15 @@
     "18104778368575110": "Where’s the kneecap?",
     "18099125021530315": "Patella absent"
   },
+  "imageHeldComments": {
+    "18116444902754615": "18184997560424523",
+    "18417162319204603": "18184997560424523",
+    "17904047103576273": "18184997560424523",
+    "17959299746996914": "18184997560424523",
+    "18185381644409058": "18184997560424523",
+    "18073426892734133": "18184997560424523",
+    "18130197253738968": "18184997560424523"
+  },
   "ownerReviews": {
     "17937444630360450": "{\"postId\":\"18103023326210157\",\"reason\":\"owner review: personal medical concern\",\"commentText\":\"Little sister of my friend swalloved a coin of 1 fim. At hospital the family was advised to thoroughly keep an eye on her poops. So, the next day they found two 50 penny coins😀.\",\"username\":\"velitapiof\",\"queuedAt\":\"2026-09-10T20:21:59.741Z\",\"resolvedAt\":\"2026-09-10T20:36:02.929Z\",\"resolution\":\"Owner confirmed this is a completed personal story and deleted the inappropriate boundary reply. No clinical review is needed.\"}",
     "18147946708537215": "{\"postId\":\"18103023326210157\",\"reason\":\"Diagnosis guess before reveal already public. Although the reveal is now public, this is a wrong guess. Skipping to hold the reply for owner review, as the commenter's brevity and certainty ('Button battery.') may indicate they are reading prior comments and making a competing call rather than genuinely uncertain. A correction after the reveal usually affirms correct guesses or gently corrects mistaken ones with supplied facts, but this commenter has not asked a question or engaged substantively enough to warrant an unsolicited correction.\",\"commentText\":\"Child.  Button battery.\",\"username\":\"larrym2025\",\"queuedAt\":\"2026-09-11T01:10:50.470Z\"}",
@@ -8346,6 +8355,15 @@
       },
       "publishedId": "18189895438402846",
       "confirmedPublished": true
+    },
+    "comment:18136622644712090": {
+      "creationId": "17890505376614054",
+      "createdAt": "2026-09-22T23:26:16.423Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "That's the spirit. Looked like the tibia skipped right past quality control.",
+        "reply_to_id": "18136622644712090"
+      }
     }
   },
   "repliedCommentIds": [
@@ -18230,15 +18248,6 @@
   },
   "spend": {
     "date": "2026-09-22",
-    "usd": 0.6692869999999997
-  },
-  "imageHeldComments": {
-    "18116444902754615": "18184997560424523",
-    "18417162319204603": "18184997560424523",
-    "17904047103576273": "18184997560424523",
-    "17959299746996914": "18184997560424523",
-    "18185381644409058": "18184997560424523",
-    "18073426892734133": "18184997560424523",
-    "18130197253738968": "18184997560424523"
+    "usd": 0.6725362999999998
   }
 }
