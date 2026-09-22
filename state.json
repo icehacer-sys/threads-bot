@@ -7964,6 +7964,15 @@
       },
       "publishedId": "18025848626700059",
       "confirmedPublished": true
+    },
+    "comment:17947629687292652": {
+      "creationId": "17890488297614054",
+      "createdAt": "2026-09-22T19:32:19.686Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Only if they got the deluxe model instead.",
+        "reply_to_id": "17947629687292652"
+      }
     }
   },
   "repliedCommentIds": [
@@ -17802,6 +17811,6 @@
   },
   "spend": {
     "date": "2026-09-22",
-    "usd": 0.029965600000000002
+    "usd": 0.0324194
   }
 }
