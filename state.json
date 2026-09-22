@@ -125,7 +125,8 @@
     "18080880530704172": "Where’s the patella?",
     "18088704302216486": "Looks like a complete absence of kneecap",
     "18427324930181683": "Missing knee cap.",
-    "18169673611460551": "He got a No Cap"
+    "18169673611460551": "He got a No Cap",
+    "18071955551572671": "It looks wrong because it is wrong. It’s missing the patella. Since that’s the hinge of the knee door, I assume that’s why the heads of the femur and tibia also look wrong since the joint has deformed to accommodate?"
   },
   "ownerReviews": {
     "17937444630360450": "{\"postId\":\"18103023326210157\",\"reason\":\"owner review: personal medical concern\",\"commentText\":\"Little sister of my friend swalloved a coin of 1 fim. At hospital the family was advised to thoroughly keep an eye on her poops. So, the next day they found two 50 penny coins😀.\",\"username\":\"velitapiof\",\"queuedAt\":\"2026-09-10T20:21:59.741Z\",\"resolvedAt\":\"2026-09-10T20:36:02.929Z\",\"resolution\":\"Owner confirmed this is a completed personal story and deleted the inappropriate boundary reply. No clinical review is needed.\"}",
@@ -7975,6 +7976,15 @@
       },
       "publishedId": "18111471755325033",
       "confirmedPublished": true
+    },
+    "comment:18173141938443576": {
+      "creationId": "17890488312614054",
+      "createdAt": "2026-09-22T19:32:45.509Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Sometimes starting over is the only option.",
+        "reply_to_id": "18173141938443576"
+      }
     }
   },
   "repliedCommentIds": [
@@ -16656,7 +16666,8 @@
     "18077040335394113",
     "18109923983331237",
     "18085560662291008",
-    "18128481787689269"
+    "18128481787689269",
+    "17947629687292652"
   ],
   "answeredPostIds": [
     "18395606890093068"
@@ -16773,11 +16784,11 @@
     "17988527066861715": 48,
     "18094319267645737": 42,
     "18115960969977269": 64,
-    "18184997560424523": 3
+    "18184997560424523": 4
   },
   "daily": {
     "date": "2026-09-22",
-    "count": 3
+    "count": 4
   },
   "pinnedResolved": {
     "DaTTCIwoAw7": "18014812820883466"
@@ -17813,6 +17824,6 @@
   },
   "spend": {
     "date": "2026-09-22",
-    "usd": 0.0324194
+    "usd": 0.05931120000000001
   }
 }
