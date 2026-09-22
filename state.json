@@ -7860,6 +7860,15 @@
       },
       "publishedId": "18095568689193356",
       "confirmedPublished": true
+    },
+    "comment:18280023232294030": {
+      "creationId": "17890372506614054",
+      "createdAt": "2026-09-22T00:01:57.994Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Treatment depends on the organism but can mean prolonged medication and surgery and in advanced cases like this one amputation may be the only option left.",
+        "reply_to_id": "18280023232294030"
+      }
     }
   },
   "repliedCommentIds": [
@@ -17587,7 +17596,8 @@
     "18130141747774298",
     "18490059970098719",
     "18015977156948241",
-    "18355074922248558"
+    "18355074922248558",
+    "18072527600482712"
   ],
   "skipStrikes": {
     "17895266316520842": 1,
@@ -17683,6 +17693,6 @@
   },
   "spend": {
     "date": "2026-09-21",
-    "usd": 1.0104964499999995
+    "usd": 1.0982495499999994
   }
 }
