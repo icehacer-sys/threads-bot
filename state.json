@@ -8335,6 +8335,15 @@
       },
       "publishedId": "18111999553841368",
       "confirmedPublished": true
+    },
+    "comment:18065140511786349": {
+      "creationId": "17890497666614054",
+      "createdAt": "2026-09-22T21:36:04.507Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Filed an insurance claim yet?",
+        "reply_to_id": "18065140511786349"
+      }
     }
   },
   "repliedCommentIds": [
@@ -18221,6 +18230,6 @@
   },
   "spend": {
     "date": "2026-09-22",
-    "usd": 0.5626619999999999
+    "usd": 0.5737713999999999
   }
 }
