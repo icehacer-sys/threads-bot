@@ -8533,7 +8533,9 @@
         "media_type": "TEXT",
         "text": "Thanks for having a go.",
         "reply_to_id": "18107512148239391"
-      }
+      },
+      "publishedId": "18341866324281832",
+      "confirmedPublished": true
     }
   },
   "repliedCommentIds": [
