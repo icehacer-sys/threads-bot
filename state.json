@@ -8977,6 +8977,15 @@
       },
       "publishedId": "18081582527705097",
       "confirmedPublished": true
+    },
+    "comment:17872809639593310": {
+      "creationId": "17890638057614054",
+      "createdAt": "2026-09-23T23:04:13.948Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Yeah that one lands different now that we know what we're looking at.",
+        "reply_to_id": "17872809639593310"
+      }
     }
   },
   "repliedCommentIds": [
@@ -18833,7 +18842,8 @@
     "18630570532050005",
     "18118357127290531",
     "18130351399740996",
-    "18016828259957078"
+    "18016828259957078",
+    "18097280849416022"
   ],
   "skipStrikes": {
     "17895266316520842": 1,
@@ -18932,6 +18942,6 @@
   },
   "spend": {
     "date": "2026-09-23",
-    "usd": 0.5578203000000002
+    "usd": 0.5687284000000002
   }
 }
