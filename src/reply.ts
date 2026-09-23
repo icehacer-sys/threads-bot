@@ -9,7 +9,7 @@ import { dirname, join } from "node:path";
 import { config, requireEnv } from "./config";
 import { SYSTEM_PROMPT } from "./voice";
 import { diagnosticContext, unsupportedConfirmation, rejectsAcceptedDifferential, overstatesImagingLimit, unsupportedSpecifics, unsupportedPatientHistory, type DiagnosticContext } from './case-evidence';
-import { COVERAGE_NOTE, neutralGuessAcknowledgment } from './reply-coverage';
+import { COVERAGE_NOTE, isRetiredGuessReceipt } from './reply-coverage';
 import { varietyNote, restrainEmoji, repeatedPhrasing } from './reply-variety';
 import { GIF_SYSTEM_PROMPT, MEDIA_FIELDS, MEDIA_REPLY_NOTE, mediaReplyIssue, mediaVarietyNote, type MediaRead } from './media-reply';
 import { isWordingReaction, WORDING_NOTE, wordingReplyIssue } from './wording-reply';
@@ -290,11 +290,15 @@ export async function classifyAndDraft(input: ClassifyInput): Promise<Decision> 
     return { decision: 'skip', category: 'other', reply_text: '', reason: 'GIF unavailable and no text to answer | guard:forced-skip' };
   }
   const finalize = async (d: Decision): Promise<Decision> => {
-    // Independent of correctness and the secret answer. Never let a guess draft nudge the reader.
+    // Preserve a tailored draft instead of replacing jokes and guesses with fixed receipts.
     const guessBeforeReveal = !isPublic && input.replyAll && !input.imageReviewPending && (!withMedia || d.media_clear === true) &&
       !['personal_medical', 'complaint', 'spam'].includes(d.category) && !/^(?:error|fatal):/.test(d.reason) &&
       (['affirm', 'correct'].includes(d.category) || /diagnosis guess|diagnostic guess|proposed diagnosis/i.test(`${d.intent ?? ''} ${d.reason}`));
-    if (guessBeforeReveal) return { decision: 'reply', category: 'banter', reply_text: neutralGuessAcknowledgment(commentText), reason: 'neutral participation acknowledgment before reveal' };
+    const receipt = isRetiredGuessReceipt(d.reply_text);
+    if (receipt || (guessBeforeReveal && (d.decision === 'skip' || ['affirm','correct','teach'].includes(d.category)))) {
+      if (!rechecked) return classifyAndDraft({ ...input, conversationRecheck: 'Write a fresh Mr. M response to the comment itself, not a participation receipt. Treat obvious fictional diagnoses and food comparisons as jokes. For a genuine guess before reveal use non-grading conversation or a general invitation to take another look without clues. After reveal explain one supported distinction. Do not thank them for guessing or announce that their guess was received.', allowSearch: false });
+      return { ...d, decision: 'skip', category: 'other', reply_text: '', reason: 'conversation guard: receipt or unrepaired pre-reveal grading | guard:forced-skip' };
+    }
     const conversationIssue = d.decision === 'reply' ? conversationReplyIssue(commentText, d.category, d.reply_text, !isPersonalPost) : undefined;
     const prioritySkip = (input.priorityCommenter || input.replyAll) && isLowEngagementSkip(d.decision, d.category, d.reason);
     if (conversationIssue || prioritySkip) {
@@ -320,6 +324,7 @@ export async function classifyAndDraft(input: ClassifyInput): Promise<Decision> 
       return { ...d, decision: 'skip', category: 'other', reply_text: '', reason: `owner review: unsupported patient history, confirmation, specifics (${invented.join(', ') || 'none'}) or dismissal of an accepted differential | guard:forced-skip` };
     }
     const clean = sanitize({ ...d, reply_text: restrainEmoji(d.reply_text, recentReplies ?? []) }, { isPublic, terms: spoilerTerms }, isBotQuestion(commentText));
+    if (input.replyAll && clean.reason.includes('spoiler guard') && !rechecked) return classifyAndDraft({ ...input, conversationRecheck: 'Remove all grading, diagnostic clues and verdicts. Reply to the comment in a playful non-grading way without a participation receipt.', allowSearch: false });
     if (clean.reason.includes('punctuation guard') && !rechecked) {
       return classifyAndDraft({ ...input, styleRecheck: true, allowSearch: false });
     }
@@ -385,7 +390,7 @@ export async function classifyAndDraft(input: ClassifyInput): Promise<Decision> 
       : `PUBLISHED TEACHING ANSWER (not a confirmed patient result): ${hasAnswer ? answerText : "unknown"}. A matching guess may receive a brief acknowledgment. Consider supported alternative diagnoses fairly. Prior explanations to other people do not prohibit a useful reply.`;
   } else {
     answerLine = 'ANSWER NOT PUBLIC. The diagnosis is withheld.';
-    prePublicNote = input.replyAll ? 'Treat ALL diagnosis guesses identically: identify diagnosis guess in intent and acknowledge participation only. Never repeat the guess, confirm, reject, grade or hint. The application supplies neutral wording. Do not infer correctness from the image. Medical explanations stay withheld until the public answer.' : 'Treat ALL diagnosis guesses identically: skip without confirming, rejecting, grading or hinting. Do not infer correctness from case imagery or the post. Non-diagnostic jokes may get a short specific reply. Medical questions that could expose the answer must be held.';
+    prePublicNote = input.replyAll ? 'Write your own brief Mr. M response without grading the guess. No participation receipts or thanks for guessing. A general invitation to take another look is allowed for any guess without naming a feature. Respond to fictional diagnoses and food comparisons as jokes. Never repeat a genuine diagnosis guess, confirm, reject or hint. Do not infer correctness from the image. Medical explanations stay withheld until the public answer.' : 'Treat ALL diagnosis guesses identically: skip without confirming, rejecting, grading or hinting. Do not infer correctness from case imagery or the post. Non-diagnostic jokes may get a short specific reply. Medical questions that could expose the answer must be held.';
   }
   // A personal / ask-the-audience post has no X-ray and no diagnosis, so the whole case framing
   // has to come off. Without this the model is told "CORRECT ANSWER: unknown ... just banter",
@@ -433,7 +438,7 @@ export async function classifyAndDraft(input: ClassifyInput): Promise<Decision> 
     wordingReaction ? WORDING_NOTE : '',
     input.priorityCommenter ? SUPPORTER_NOTE : '',
     !isPersonalPost && commentText.length <= 80 ? 'SHORT COMMENT: If this is a diagnosis guess, use at most 24 words after reveal with the supported answer and at most one useful clue. No stock praise of the guess or speculative risks from alternate exposures. A genuine why/how question may receive the explanation it needs. Before reveal never grade a guess; follow the current coverage policy.' : '',
-    isPersonalPost ? 'CURRENT POST TYPE: personal post. No diagnosis guessing rules apply.' : `CURRENT REVEAL STATE: ${isPublic ? 'PUBLIC. The answer has already been published. Do not skip a diagnosis discussion for being before the reveal.' : input.replyAll ? 'PRIVATE. Neutral participation acknowledgment only for guesses. No hints.' : 'PRIVATE. Skip all diagnosis guesses.'}`,
+    isPersonalPost ? 'CURRENT POST TYPE: personal post. No diagnosis guessing rules apply.' : `CURRENT REVEAL STATE: ${isPublic ? 'PUBLIC. The answer has already been published. Do not skip a diagnosis discussion for being before the reveal.' : input.replyAll ? 'PRIVATE. Conversational replies without grading or diagnostic hints. No participation receipts.' : 'PRIVATE. Skip all diagnosis guesses.'}`,
     `COMMENT:\n${commentText || "(no text — just the attached image)"}`,
   ]
     .filter(Boolean)
@@ -763,7 +768,7 @@ export function sanitize(d: Decision, spoiler?: { isPublic: boolean; terms: stri
   const confesses = CONFESSION.test(text) || /\billustrations?\b/i.test(text) || (isBotQ && BOT_ANSWER_LEAK.test(text));
   const personal = d.category === "personal_medical" && !acknowledgmentKind(text);
   // Whole reply is just a retired stock topper (ignore punctuation/emoji)?
-  const isRetired = RETIRED_LINES.test(text.replace(/[^\p{L} ]+/gu, "").trim()) || isRetiredMedicalBoundary(text);
+  const isRetired = RETIRED_LINES.test(text.replace(/[^\p{L} ]+/gu, "").trim()) || isRetiredMedicalBoundary(text) || isRetiredGuessReceipt(text);
 
   // Force skip: personal-medical, advice-like wording, an authenticity confession (AI/recreation),
   // a retired stock line, or an empty draft.

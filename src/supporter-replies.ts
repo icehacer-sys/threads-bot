@@ -12,6 +12,7 @@ export function isLowEngagementSkip(decision: string, category: string, reason: 
 
 /** Targeted failures found in the September 20 reply audit. */
 export function conversationReplyIssue(comment: string, category: string, draft: string, isCase: boolean): string | undefined {
+  if (/^nailed it[.!\s]*$/i.test(draft) || (category === 'banter' && /\bthat['’]s a new way to describe\b/i.test(draft))) return 'stock praise or commentary instead of responding to the comment';
   if (/\bself[- ]inflicted\b|\bdenial and adaptation\b/i.test(draft)) return 'unsupported blame or patient motivation';
   if (isCase && !/\b(?:i|i['’]m|my|me|we|our)\b/i.test(comment) && /\byour (?:lungs?|symptoms?|medical history|exposure|risk)\b/i.test(draft)) return 'assumed personal medical history';
   if (isCase && comment.length <= 80 && ['correct', 'affirm'].includes(category) && !/\b(?:why|how|explain|treat\w*|risk|mean\w*)\b/i.test(comment) && draft.trim().split(/\s+/).length > 24) return 'overlong response to a short guess';

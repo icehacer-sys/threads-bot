@@ -18,7 +18,7 @@ import { PersistenceError } from "./persistence";
 import { isLossStory, replyStyleIssue } from './reply-style';
 import { mediaModelRoute } from './media-reply';
 import { isPriorityCommenter } from './supporter-replies';
-import { replyCoverage, isNeutralGuessAcknowledgment } from './reply-coverage';
+import { replyCoverage, isRetiredGuessReceipt } from './reply-coverage';
 import { unsupportedPatientHistory } from './case-evidence';
 import { classifyAndDraft, isBotQuestion, isPreRevealHold, firstSentences, type Decision, type InlineImage, type ImageMediaType } from "./reply";
 import { pickGif } from "./gifs";
@@ -659,6 +659,11 @@ async function runLiveOrDry(mode: Mode, target: string | null): Promise<void> {
         const publication = state.publication(`comment:${c.id}`);
         const pending = publication.get();
         if (!pending || resumed.has(c.id) || state.hasReplied(c.id)) continue;
+        if (!pending.publishedId && isRetiredGuessReceipt(pending.params.text)) {
+          state.queueOwnerReview(c.id, post.id, 'owner review: retired guess receipt in saved publication', c.text, c.username);
+          resumed.add(c.id);
+          continue;
+        }
         if (!pending.publishedId && !coverage.canReply(c.id)) continue;
         if (!pending.publishedId && unsupportedPatientHistory(pending.params.text, post.text ?? '')) {
           state.queueOwnerReview(c.id, post.id, 'owner review: saved draft assumes unrecorded patient history', c.text, c.username);
@@ -1069,7 +1074,7 @@ async function runLiveOrDry(mode: Mode, target: string | null): Promise<void> {
       // BARE stamps are exempt: dedupeStamp already rotates those, and on a post where many
       // people guess right, a second "Spot on ✅" beats ignoring a correct guesser.
       const normReply = (s: string) => s.toLowerCase().replace(/[^\p{L}\p{N} ]/gu, "").replace(/\s+/g, " ").trim();
-      if (!isNeutralGuessAcknowledgment(d.reply_text) && !STAMP_RE.test(d.reply_text.trim()) && [...allOwnerReplies, ...postedThisRun].some((r) => normReply(r) === normReply(d.reply_text))) {
+      if (!STAMP_RE.test(d.reply_text.trim()) && [...allOwnerReplies, ...postedThisRun].some((r) => normReply(r) === normReply(d.reply_text))) {
         console.log(`        (word-for-word repeat of a reply already on this post — dropped)`);
         if (posting) state.recordSoftSkip(c.id, 2);
         continue;
