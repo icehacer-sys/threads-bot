@@ -8412,6 +8412,15 @@
       },
       "publishedId": "18120194929932637",
       "confirmedPublished": true
+    },
+    "comment:17976686717919114": {
+      "creationId": "17890528887614054",
+      "createdAt": "2026-09-23T03:59:43.645Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "That's the opposite of how the instruction manual should read. At least the remix is guaranteed to be unrecognizable.",
+        "reply_to_id": "17976686717919114"
+      }
     }
   },
   "repliedCommentIds": [
@@ -18301,6 +18310,6 @@
   },
   "spend": {
     "date": "2026-09-22",
-    "usd": 0.7979396999999998
+    "usd": 0.8047862999999998
   }
 }
