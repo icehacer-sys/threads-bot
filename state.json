@@ -8988,6 +8988,15 @@
       },
       "publishedId": "18142725184583119",
       "confirmedPublished": true
+    },
+    "comment:17933794536391754": {
+      "creationId": "17890639785614054",
+      "createdAt": "2026-09-23T23:34:52.740Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "The Code Red drip is bold but 48 hours of CoD might actually stress the other shoulder out too.",
+        "reply_to_id": "17933794536391754"
+      }
     }
   },
   "repliedCommentIds": [
@@ -18945,6 +18954,6 @@
   },
   "spend": {
     "date": "2026-09-23",
-    "usd": 0.5687284000000002
+    "usd": 0.6348711000000002
   }
 }
