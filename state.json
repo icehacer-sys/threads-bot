@@ -8500,7 +8500,9 @@
         "media_type": "TEXT",
         "text": "Thanks for putting a guess in.",
         "reply_to_id": "18006331832784063"
-      }
+      },
+      "publishedId": "18034323605846523",
+      "confirmedPublished": true
     }
   },
   "repliedCommentIds": [
