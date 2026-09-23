@@ -8602,6 +8602,15 @@
       },
       "publishedId": "17993807688012953",
       "confirmedPublished": true
+    },
+    "comment:18158652760500569": {
+      "creationId": "17890623978614054",
+      "createdAt": "2026-09-23T19:47:22.167Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "The squirrel went in through the window before we could rule it out.",
+        "reply_to_id": "18158652760500569"
+      }
     }
   },
   "repliedCommentIds": [
@@ -18512,6 +18521,6 @@
   },
   "spend": {
     "date": "2026-09-23",
-    "usd": 0.15178900000000004
+    "usd": 0.16915900000000003
   }
 }
