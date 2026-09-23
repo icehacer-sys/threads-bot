@@ -8522,7 +8522,9 @@
         "media_type": "TEXT",
         "text": "Your guess is in.",
         "reply_to_id": "18104630774581313"
-      }
+      },
+      "publishedId": "17916769335452369",
+      "confirmedPublished": true
     }
   },
   "repliedCommentIds": [
