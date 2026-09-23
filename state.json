@@ -8724,6 +8724,15 @@
       },
       "publishedId": "18619585585057187",
       "confirmedPublished": true
+    },
+    "comment:18126436288796738": {
+      "creationId": "17890629408614054",
+      "createdAt": "2026-09-23T20:52:41.624Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Chondrosarcoma is the call here and you're right that extent matters a lot. The rings and arcs pattern flags a cartilage-forming tumour but staging to check for spread is exactly the next step before any surgical planning.",
+        "reply_to_id": "18126436288796738"
+      }
     }
   },
   "repliedCommentIds": [
@@ -17469,7 +17478,8 @@
     "18102541874458267",
     "17937632274367402",
     "18145105855605982",
-    "18197700499388438"
+    "18197700499388438",
+    "18096778091545843"
   ],
   "answeredPostIds": [
     "18395606890093068"
@@ -17587,11 +17597,11 @@
     "18094319267645737": 42,
     "18115960969977269": 64,
     "18184997560424523": 41,
-    "17872204473638675": 25
+    "17872204473638675": 26
   },
   "daily": {
     "date": "2026-09-23",
-    "count": 25
+    "count": 26
   },
   "pinnedResolved": {
     "DaTTCIwoAw7": "18014812820883466"
@@ -18649,6 +18659,6 @@
   },
   "spend": {
     "date": "2026-09-23",
-    "usd": 0.32265080000000007
+    "usd": 0.3360254000000001
   }
 }
