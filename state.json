@@ -8845,6 +8845,15 @@
       },
       "publishedId": "18114491416818115",
       "confirmedPublished": true
+    },
+    "comment:17967605112168616": {
+      "creationId": "17890633893614054",
+      "createdAt": "2026-09-23T21:59:06.855Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Organ relocation would definitely explain the lump but the shoulder blade's got its own growth agenda here. This one's bone and cartilage throwing a tumour party inside the scapula.",
+        "reply_to_id": "17967605112168616"
+      }
     }
   },
   "repliedCommentIds": [
@@ -17601,7 +17610,8 @@
     "17908527996542863",
     "18101495996196855",
     "17974587573130077",
-    "18142267549578629"
+    "18142267549578629",
+    "18141873541505437"
   ],
   "answeredPostIds": [
     "18395606890093068"
@@ -17719,11 +17729,11 @@
     "18094319267645737": 42,
     "18115960969977269": 64,
     "18184997560424523": 41,
-    "17872204473638675": 36
+    "17872204473638675": 37
   },
   "daily": {
     "date": "2026-09-23",
-    "count": 36
+    "count": 37
   },
   "pinnedResolved": {
     "DaTTCIwoAw7": "18014812820883466"
@@ -18786,6 +18796,6 @@
   },
   "spend": {
     "date": "2026-09-23",
-    "usd": 0.5021911
+    "usd": 0.5056408
   }
 }
