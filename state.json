@@ -8746,6 +8746,15 @@
       },
       "publishedId": "17991744644844650",
       "confirmedPublished": true
+    },
+    "comment:17889517371681434": {
+      "creationId": "17890630587614054",
+      "createdAt": "2026-09-23T21:09:02.846Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "That's a wild entry vector but this mass is actually bone and cartilage growing from inside the shoulder blade itself rather than something lodged from outside. Chondrosarcoma is the culprit here.",
+        "reply_to_id": "17889517371681434"
+      }
     }
   },
   "repliedCommentIds": [
@@ -18675,6 +18684,6 @@
   },
   "spend": {
     "date": "2026-09-23",
-    "usd": 0.3717518000000001
+    "usd": 0.3756385000000001
   }
 }
