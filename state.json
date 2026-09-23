@@ -8426,6 +8426,15 @@
       },
       "publishedId": "18060698537528916",
       "confirmedPublished": true
+    },
+    "comment:18080611418705000": {
+      "creationId": "17890534368614054",
+      "createdAt": "2026-09-23T05:00:36.554Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Anatomically the most accurate version of that song ever recorded.",
+        "reply_to_id": "18080611418705000"
+      }
     }
   },
   "repliedCommentIds": [
@@ -18316,6 +18325,6 @@
   },
   "spend": {
     "date": "2026-09-22",
-    "usd": 0.8226528
+    "usd": 0.8256340999999999
   }
 }
