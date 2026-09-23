@@ -155,7 +155,8 @@
     "18131267719764312": "18184997560424523",
     "18028229915909865": "18184997560424523",
     "18031130543897042": "18184997560424523",
-    "18068026037764286": "18184997560424523"
+    "18068026037764286": "18184997560424523",
+    "17893317810427166": "18184997560424523"
   },
   "ownerReviews": {
     "17937444630360450": "{\"postId\":\"18103023326210157\",\"reason\":\"owner review: personal medical concern\",\"commentText\":\"Little sister of my friend swalloved a coin of 1 fim. At hospital the family was advised to thoroughly keep an eye on her poops. So, the next day they found two 50 penny coins😀.\",\"username\":\"velitapiof\",\"queuedAt\":\"2026-09-10T20:21:59.741Z\",\"resolvedAt\":\"2026-09-10T20:36:02.929Z\",\"resolution\":\"Owner confirmed this is a completed personal story and deleted the inappropriate boundary reply. No clinical review is needed.\"}",
@@ -8396,6 +8397,15 @@
       },
       "publishedId": "18112462426834990",
       "confirmedPublished": true
+    },
+    "comment:18094434110550833": {
+      "creationId": "17890512570614054",
+      "createdAt": "2026-09-23T00:58:15.246Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "The assembly line really skipped step one on this one.",
+        "reply_to_id": "18094434110550833"
+      }
     }
   },
   "repliedCommentIds": [
@@ -18284,6 +18294,6 @@
   },
   "spend": {
     "date": "2026-09-22",
-    "usd": 0.7328298999999998
+    "usd": 0.7505941999999998
   }
 }
