@@ -8599,7 +8599,9 @@
         "media_type": "TEXT",
         "text": "Nailed it.",
         "reply_to_id": "18023639159874145"
-      }
+      },
+      "publishedId": "17993807688012953",
+      "confirmedPublished": true
     }
   },
   "repliedCommentIds": [
