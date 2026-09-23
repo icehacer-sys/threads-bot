@@ -8765,7 +8765,9 @@
         "media_type": "TEXT",
         "text": "Straight definition. That's the one.",
         "reply_to_id": "18117661861754445"
-      }
+      },
+      "publishedId": "18079059860364562",
+      "confirmedPublished": true
     }
   },
   "repliedCommentIds": [
