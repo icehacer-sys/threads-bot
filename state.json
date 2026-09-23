@@ -8467,7 +8467,9 @@
         "media_type": "TEXT",
         "text": "Thanks for putting a guess in.",
         "reply_to_id": "17980997307089406"
-      }
+      },
+      "publishedId": "18557751871072368",
+      "confirmedPublished": true
     }
   },
   "repliedCommentIds": [
