@@ -8944,6 +8944,15 @@
       },
       "publishedId": "18074481266536867",
       "confirmedPublished": true
+    },
+    "comment:18397490860201265": {
+      "creationId": "17890637142614054",
+      "createdAt": "2026-09-23T22:47:46.765Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Definitely forbidden. Way too much calcium for breakfast.",
+        "reply_to_id": "18397490860201265"
+      }
     }
   },
   "repliedCommentIds": [
@@ -18895,6 +18904,6 @@
   },
   "spend": {
     "date": "2026-09-23",
-    "usd": 0.5327804
+    "usd": 0.5360301000000001
   }
 }
