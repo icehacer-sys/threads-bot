@@ -8966,6 +8966,15 @@
       },
       "publishedId": "18637654051014936",
       "confirmedPublished": true
+    },
+    "comment:18124955653868808": {
+      "creationId": "17890637181614054",
+      "createdAt": "2026-09-23T22:48:36.643Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Half right is solid on a tricky one. MRI does come next for staging and surgical planning before anything gets excised.",
+        "reply_to_id": "18124955653868808"
+      }
     }
   },
   "repliedCommentIds": [
@@ -17733,7 +17742,8 @@
     "17880221511534940",
     "17979685497094338",
     "18103919801458117",
-    "18397490860201265"
+    "18397490860201265",
+    "17915106468452682"
   ],
   "answeredPostIds": [
     "18395606890093068"
@@ -17851,11 +17861,11 @@
     "18094319267645737": 42,
     "18115960969977269": 64,
     "18184997560424523": 41,
-    "17872204473638675": 47
+    "17872204473638675": 48
   },
   "daily": {
     "date": "2026-09-23",
-    "count": 47
+    "count": 48
   },
   "pinnedResolved": {
     "DaTTCIwoAw7": "18014812820883466"
@@ -18919,6 +18929,6 @@
   },
   "spend": {
     "date": "2026-09-23",
-    "usd": 0.5508299000000001
+    "usd": 0.5545936000000001
   }
 }
