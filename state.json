@@ -8489,7 +8489,9 @@
         "media_type": "TEXT",
         "text": "Got your guess.",
         "reply_to_id": "18163759345487558"
-      }
+      },
+      "publishedId": "18070739846737622",
+      "confirmedPublished": true
     }
   },
   "repliedCommentIds": [
