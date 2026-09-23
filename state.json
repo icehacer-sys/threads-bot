@@ -8478,7 +8478,9 @@
         "media_type": "TEXT",
         "text": "Your guess is in.",
         "reply_to_id": "18340309522276308"
-      }
+      },
+      "publishedId": "17956422912017724",
+      "confirmedPublished": true
     }
   },
   "repliedCommentIds": [
