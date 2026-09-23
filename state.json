@@ -8445,7 +8445,9 @@
         "media_type": "TEXT",
         "text": "Thanks for putting a guess in.",
         "reply_to_id": "18017096039738763"
-      }
+      },
+      "publishedId": "17981132996898761",
+      "confirmedPublished": true
     }
   },
   "repliedCommentIds": [
