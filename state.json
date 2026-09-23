@@ -8610,7 +8610,9 @@
         "media_type": "TEXT",
         "text": "The squirrel went in through the window before we could rule it out.",
         "reply_to_id": "18158652760500569"
-      }
+      },
+      "publishedId": "18149690284543153",
+      "confirmedPublished": true
     }
   },
   "repliedCommentIds": [
