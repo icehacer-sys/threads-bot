@@ -169,7 +169,8 @@
     "18007736528979309": "18158870629500613",
     "18097417667633951": "18158870629500613",
     "18019181336728562": "18158870629500613",
-    "18410474182091010": "18158870629500613"
+    "18410474182091010": "18158870629500613",
+    "18110967349869172": "18158870629500613"
   },
   "ownerReviews": {
     "17937444630360450": "{\"postId\":\"18103023326210157\",\"reason\":\"owner review: personal medical concern\",\"commentText\":\"Little sister of my friend swalloved a coin of 1 fim. At hospital the family was advised to thoroughly keep an eye on her poops. So, the next day they found two 50 penny coins😀.\",\"username\":\"velitapiof\",\"queuedAt\":\"2026-09-10T20:21:59.741Z\",\"resolvedAt\":\"2026-09-10T20:36:02.929Z\",\"resolution\":\"Owner confirmed this is a completed personal story and deleted the inappropriate boundary reply. No clinical review is needed.\"}",
@@ -9722,6 +9723,15 @@
       },
       "publishedId": "18115240895004349",
       "confirmedPublished": true
+    },
+    "comment:18102758525627753": {
+      "creationId": "17890774647614054",
+      "createdAt": "2026-09-24T20:58:56.020Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Exactly how it feels seeing this on a scan.",
+        "reply_to_id": "18102758525627753"
+      }
     }
   },
   "repliedCommentIds": [
@@ -18557,7 +18567,8 @@
     "18028929377912500",
     "18014188751957949",
     "17899722516600976",
-    "18078233246376462"
+    "18078233246376462",
+    "18111053858146724"
   ],
   "answeredPostIds": [
     "18395606890093068"
@@ -18676,11 +18687,11 @@
     "18115960969977269": 64,
     "18184997560424523": 41,
     "17872204473638675": 76,
-    "18158870629500613": 39
+    "18158870629500613": 40
   },
   "daily": {
     "date": "2026-09-24",
-    "count": 39
+    "count": 40
   },
   "pinnedResolved": {
     "DaTTCIwoAw7": "18014812820883466"
@@ -19757,6 +19768,6 @@
   },
   "spend": {
     "date": "2026-09-24",
-    "usd": 0.27534990000000004
+    "usd": 0.30143470000000006
   }
 }
