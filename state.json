@@ -9230,6 +9230,15 @@
       },
       "publishedId": "18122029042925015",
       "confirmedPublished": true
+    },
+    "comment:18172026319459441": {
+      "creationId": "17890657233614054",
+      "createdAt": "2026-09-24T02:47:27.248Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Ah got it and that shape comparison works when the scapula's being carved up like a wedge from the inside.",
+        "reply_to_id": "18172026319459441"
+      }
     }
   },
   "repliedCommentIds": [
@@ -18021,7 +18030,8 @@
     "17910436587493434",
     "18384044335224081",
     "18152635135557816",
-    "18109438303881072"
+    "18109438303881072",
+    "17898183885670862"
   ],
   "answeredPostIds": [
     "18395606890093068"
@@ -18139,11 +18149,11 @@
     "18094319267645737": 42,
     "18115960969977269": 64,
     "18184997560424523": 41,
-    "17872204473638675": 71
+    "17872204473638675": 72
   },
   "daily": {
     "date": "2026-09-23",
-    "count": 71
+    "count": 72
   },
   "pinnedResolved": {
     "DaTTCIwoAw7": "18014812820883466"
@@ -19219,6 +19229,6 @@
   },
   "spend": {
     "date": "2026-09-23",
-    "usd": 1.1549235
+    "usd": 1.1622219
   }
 }
