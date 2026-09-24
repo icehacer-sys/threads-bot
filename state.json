@@ -171,7 +171,9 @@
     "18019181336728562": "18158870629500613",
     "18410474182091010": "18158870629500613",
     "18110967349869172": "18158870629500613",
-    "18066717536509704": "18158870629500613"
+    "18066717536509704": "18158870629500613",
+    "18333159805274024": "18158870629500613",
+    "17914126428455546": "18158870629500613"
   },
   "ownerReviews": {
     "17937444630360450": "{\"postId\":\"18103023326210157\",\"reason\":\"owner review: personal medical concern\",\"commentText\":\"Little sister of my friend swalloved a coin of 1 fim. At hospital the family was advised to thoroughly keep an eye on her poops. So, the next day they found two 50 penny coins😀.\",\"username\":\"velitapiof\",\"queuedAt\":\"2026-09-10T20:21:59.741Z\",\"resolvedAt\":\"2026-09-10T20:36:02.929Z\",\"resolution\":\"Owner confirmed this is a completed personal story and deleted the inappropriate boundary reply. No clinical review is needed.\"}",
@@ -9735,6 +9737,15 @@
       },
       "publishedId": "18029067374683168",
       "confirmedPublished": true
+    },
+    "comment:18106356346943151": {
+      "creationId": "17890775199614054",
+      "createdAt": "2026-09-24T21:14:39.053Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Thanks. That calf really was playing the long game.",
+        "reply_to_id": "18106356346943151"
+      }
     }
   },
   "repliedCommentIds": [
@@ -19772,6 +19783,6 @@
   },
   "spend": {
     "date": "2026-09-24",
-    "usd": 0.30848430000000004
+    "usd": 0.32155950000000005
   }
 }
