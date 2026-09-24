@@ -164,7 +164,8 @@
     "18150359764484402": "18184997560424523",
     "17922779448428269": "18184997560424523",
     "18077661659708702": "18184997560424523",
-    "18159245137451375": "18158870629500613"
+    "18159245137451375": "18158870629500613",
+    "17889254889456434": "18158870629500613"
   },
   "ownerReviews": {
     "17937444630360450": "{\"postId\":\"18103023326210157\",\"reason\":\"owner review: personal medical concern\",\"commentText\":\"Little sister of my friend swalloved a coin of 1 fim. At hospital the family was advised to thoroughly keep an eye on her poops. So, the next day they found two 50 penny coins😀.\",\"username\":\"velitapiof\",\"queuedAt\":\"2026-09-10T20:21:59.741Z\",\"resolvedAt\":\"2026-09-10T20:36:02.929Z\",\"resolution\":\"Owner confirmed this is a completed personal story and deleted the inappropriate boundary reply. No clinical review is needed.\"}",
@@ -9431,6 +9432,15 @@
       },
       "publishedId": "18127966981691265",
       "confirmedPublished": true
+    },
+    "comment:18087209885276983": {
+      "creationId": "17890768833614054",
+      "createdAt": "2026-09-24T19:48:24.253Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "The spelling alone got me but yeah that calf swelling has a way stranger backstory.",
+        "reply_to_id": "18087209885276983"
+      }
     }
   },
   "repliedCommentIds": [
@@ -18240,7 +18250,8 @@
     "18114779152981246",
     "18021532268715757",
     "18020084054933454",
-    "17964233868190494"
+    "17964233868190494",
+    "18115775203841177"
   ],
   "answeredPostIds": [
     "18395606890093068"
@@ -18359,11 +18370,11 @@
     "18115960969977269": 64,
     "18184997560424523": 41,
     "17872204473638675": 76,
-    "18158870629500613": 13
+    "18158870629500613": 14
   },
   "daily": {
     "date": "2026-09-24",
-    "count": 13
+    "count": 14
   },
   "pinnedResolved": {
     "DaTTCIwoAw7": "18014812820883466"
@@ -19440,6 +19451,6 @@
   },
   "spend": {
     "date": "2026-09-24",
-    "usd": 0.056879
+    "usd": 0.0663325
   }
 }
