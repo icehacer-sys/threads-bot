@@ -175,7 +175,8 @@
     "18333159805274024": "18158870629500613",
     "17914126428455546": "18158870629500613",
     "18181698202424775": "18158870629500613",
-    "18094503545408957": "18158870629500613"
+    "18094503545408957": "18158870629500613",
+    "17907906765550817": "18158870629500613"
   },
   "ownerReviews": {
     "17937444630360450": "{\"postId\":\"18103023326210157\",\"reason\":\"owner review: personal medical concern\",\"commentText\":\"Little sister of my friend swalloved a coin of 1 fim. At hospital the family was advised to thoroughly keep an eye on her poops. So, the next day they found two 50 penny coins😀.\",\"username\":\"velitapiof\",\"queuedAt\":\"2026-09-10T20:21:59.741Z\",\"resolvedAt\":\"2026-09-10T20:36:02.929Z\",\"resolution\":\"Owner confirmed this is a completed personal story and deleted the inappropriate boundary reply. No clinical review is needed.\"}",
@@ -9772,6 +9773,15 @@
       },
       "publishedId": "18116957239994799",
       "confirmedPublished": true
+    },
+    "comment:17959375989209429": {
+      "creationId": "17890779771614054",
+      "createdAt": "2026-09-24T22:16:21.192Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Leg juice doing overtime is definitely how it feels watching the years pile up on the scan.",
+        "reply_to_id": "17959375989209429"
+      }
     }
   },
   "repliedCommentIds": [
@@ -19812,6 +19822,6 @@
   },
   "spend": {
     "date": "2026-09-24",
-    "usd": 0.3347827
+    "usd": 0.34519409999999995
   }
 }
