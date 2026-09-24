@@ -9208,6 +9208,15 @@
       },
       "publishedId": "18032685440847731",
       "confirmedPublished": true
+    },
+    "comment:18109438303881072": {
+      "creationId": "17890657206614054",
+      "createdAt": "2026-09-24T02:46:07.176Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Bone tumours really do take the villain arc seriously.",
+        "reply_to_id": "18109438303881072"
+      }
     }
   },
   "repliedCommentIds": [
@@ -19194,6 +19203,6 @@
   },
   "spend": {
     "date": "2026-09-23",
-    "usd": 1.1158497
+    "usd": 1.1194024
   }
 }
