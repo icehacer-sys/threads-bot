@@ -9109,6 +9109,15 @@
       },
       "publishedId": "18109205102155033",
       "confirmedPublished": true
+    },
+    "comment:18121699117715469": {
+      "creationId": "17890644651614054",
+      "createdAt": "2026-09-24T00:40:10.551Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "The enchondroma logic is fair but the sheer size and aggressive expansion here pushes hard toward the malignant end. Enchondromas on flat bones tend to stay quiet rather than blow the whole scapula outward like this.",
+        "reply_to_id": "18121699117715469"
+      }
     }
   },
   "repliedCommentIds": [
@@ -17889,7 +17898,8 @@
     "18124793749843370",
     "17946248085313688",
     "17866838481660483",
-    "18643977595013851"
+    "18643977595013851",
+    "18125458294853194"
   ],
   "answeredPostIds": [
     "18395606890093068"
@@ -18007,11 +18017,11 @@
     "18094319267645737": 42,
     "18115960969977269": 64,
     "18184997560424523": 41,
-    "17872204473638675": 60
+    "17872204473638675": 61
   },
   "daily": {
     "date": "2026-09-23",
-    "count": 60
+    "count": 61
   },
   "pinnedResolved": {
     "DaTTCIwoAw7": "18014812820883466"
@@ -18978,7 +18988,8 @@
     "18130351399740996",
     "18016828259957078",
     "18097280849416022",
-    "18095213678433407"
+    "18095213678433407",
+    "17995372404037973"
   ],
   "skipStrikes": {
     "17895266316520842": 1,
@@ -19077,6 +19088,6 @@
   },
   "spend": {
     "date": "2026-09-23",
-    "usd": 0.7756260000000003
+    "usd": 0.8938179000000003
   }
 }
