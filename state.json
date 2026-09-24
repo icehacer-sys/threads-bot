@@ -9810,6 +9810,15 @@
       },
       "publishedId": "18429913534176820",
       "confirmedPublished": true
+    },
+    "comment:17960032710226740": {
+      "creationId": "17890782690614054",
+      "createdAt": "2026-09-24T23:03:16.542Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "That calf really did generate its own electrical system down there.",
+        "reply_to_id": "17960032710226740"
+      }
     }
   },
   "repliedCommentIds": [
@@ -19853,6 +19862,6 @@
   },
   "spend": {
     "date": "2026-09-24",
-    "usd": 0.3848908999999999
+    "usd": 0.3878076999999999
   }
 }
