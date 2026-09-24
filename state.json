@@ -9610,6 +9610,15 @@
       },
       "publishedId": "18123966529856777",
       "confirmedPublished": true
+    },
+    "comment:17926706769180065": {
+      "creationId": "17890770636614054",
+      "createdAt": "2026-09-24T20:09:51.473Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "The StairMaster propaganda was strong. At least this calf patient didn't have hype men weighing in on the strategy.",
+        "reply_to_id": "17926706769180065"
+      }
     }
   },
   "repliedCommentIds": [
@@ -18435,7 +18444,8 @@
     "18225844087329498",
     "18115510352318215",
     "18012999404756110",
-    "18112235840033011"
+    "18112235840033011",
+    "17881823463688315"
   ],
   "answeredPostIds": [
     "18395606890093068"
@@ -18554,11 +18564,11 @@
     "18115960969977269": 64,
     "18184997560424523": 41,
     "17872204473638675": 76,
-    "18158870629500613": 29
+    "18158870629500613": 30
   },
   "daily": {
     "date": "2026-09-24",
-    "count": 29
+    "count": 30
   },
   "pinnedResolved": {
     "DaTTCIwoAw7": "18014812820883466"
@@ -19635,6 +19645,6 @@
   },
   "spend": {
     "date": "2026-09-24",
-    "usd": 0.2185051
+    "usd": 0.2252271
   }
 }
