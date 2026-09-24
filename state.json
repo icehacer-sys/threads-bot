@@ -177,7 +177,9 @@
     "18181698202424775": "18158870629500613",
     "18094503545408957": "18158870629500613",
     "17907906765550817": "18158870629500613",
-    "17941098837357768": "18158870629500613"
+    "17941098837357768": "18158870629500613",
+    "17941554942350735": "18158870629500613",
+    "18128602436504262": "18158870629500613"
   },
   "ownerReviews": {
     "17937444630360450": "{\"postId\":\"18103023326210157\",\"reason\":\"owner review: personal medical concern\",\"commentText\":\"Little sister of my friend swalloved a coin of 1 fim. At hospital the family was advised to thoroughly keep an eye on her poops. So, the next day they found two 50 penny coins😀.\",\"username\":\"velitapiof\",\"queuedAt\":\"2026-09-10T20:21:59.741Z\",\"resolvedAt\":\"2026-09-10T20:36:02.929Z\",\"resolution\":\"Owner confirmed this is a completed personal story and deleted the inappropriate boundary reply. No clinical review is needed.\"}",
@@ -9796,6 +9798,15 @@
       },
       "publishedId": "17995937649031132",
       "confirmedPublished": true
+    },
+    "comment:18028673390688810": {
+      "creationId": "17890781784614054",
+      "createdAt": "2026-09-24T22:47:42.086Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "The calf expansion plan definitely didn't involve newborns.",
+        "reply_to_id": "18028673390688810"
+      }
     }
   },
   "repliedCommentIds": [
@@ -19838,6 +19849,6 @@
   },
   "spend": {
     "date": "2026-09-24",
-    "usd": 0.35916229999999993
+    "usd": 0.37686629999999993
   }
 }
