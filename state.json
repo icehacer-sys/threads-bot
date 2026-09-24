@@ -9175,6 +9175,15 @@
       },
       "publishedId": "18120745204899361",
       "confirmedPublished": true
+    },
+    "comment:17910436587493434": {
+      "creationId": "17890650603614054",
+      "createdAt": "2026-09-24T01:43:21.671Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "All you can eat and none of it gets delivered.",
+        "reply_to_id": "17910436587493434"
+      }
     }
   },
   "repliedCommentIds": [
@@ -19154,6 +19163,6 @@
   },
   "spend": {
     "date": "2026-09-23",
-    "usd": 0.9858544000000001
+    "usd": 0.9890401000000001
   }
 }
