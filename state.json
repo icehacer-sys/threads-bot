@@ -9227,7 +9227,9 @@
         "media_type": "TEXT",
         "text": "Age isn't recorded in the case so we can't confirm it but chondrosarcoma does skew toward adults rather than peds.",
         "reply_to_id": "17898183885670862"
-      }
+      },
+      "publishedId": "18122029042925015",
+      "confirmedPublished": true
     }
   },
   "repliedCommentIds": [
