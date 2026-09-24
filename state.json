@@ -165,7 +165,8 @@
     "17922779448428269": "18184997560424523",
     "18077661659708702": "18184997560424523",
     "18159245137451375": "18158870629500613",
-    "17889254889456434": "18158870629500613"
+    "17889254889456434": "18158870629500613",
+    "18007736528979309": "18158870629500613"
   },
   "ownerReviews": {
     "17937444630360450": "{\"postId\":\"18103023326210157\",\"reason\":\"owner review: personal medical concern\",\"commentText\":\"Little sister of my friend swalloved a coin of 1 fim. At hospital the family was advised to thoroughly keep an eye on her poops. So, the next day they found two 50 penny coins😀.\",\"username\":\"velitapiof\",\"queuedAt\":\"2026-09-10T20:21:59.741Z\",\"resolvedAt\":\"2026-09-10T20:36:02.929Z\",\"resolution\":\"Owner confirmed this is a completed personal story and deleted the inappropriate boundary reply. No clinical review is needed.\"}",
@@ -9542,6 +9543,15 @@
       },
       "publishedId": "18144447811565135",
       "confirmedPublished": true
+    },
+    "comment:18104971784620301": {
+      "creationId": "17890769301614054",
+      "createdAt": "2026-09-24T19:52:07.602Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "The name game got layered fast. This calf's got a different kind of heavyweight history though.",
+        "reply_to_id": "18104971784620301"
+      }
     }
   },
   "repliedCommentIds": [
@@ -18361,7 +18371,8 @@
     "18098395793431009",
     "18177497506436932",
     "18474337702118271",
-    "18130082311757432"
+    "18130082311757432",
+    "17940787539366902"
   ],
   "answeredPostIds": [
     "18395606890093068"
@@ -18480,11 +18491,11 @@
     "18115960969977269": 64,
     "18184997560424523": 41,
     "17872204473638675": 76,
-    "18158870629500613": 23
+    "18158870629500613": 24
   },
   "daily": {
     "date": "2026-09-24",
-    "count": 23
+    "count": 24
   },
   "pinnedResolved": {
     "DaTTCIwoAw7": "18014812820883466"
@@ -19561,6 +19572,6 @@
   },
   "spend": {
     "date": "2026-09-24",
-    "usd": 0.14765500000000004
+    "usd": 0.15745650000000003
   }
 }
