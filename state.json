@@ -9643,6 +9643,15 @@
       },
       "publishedId": "18130018804775925",
       "confirmedPublished": true
+    },
+    "comment:17900765790666714": {
+      "creationId": "17890771485614054",
+      "createdAt": "2026-09-24T20:26:01.600Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "That's a beautiful way to describe what years of calcification can do to a scan.",
+        "reply_to_id": "17900765790666714"
+      }
     }
   },
   "repliedCommentIds": [
@@ -19672,6 +19681,6 @@
   },
   "spend": {
     "date": "2026-09-24",
-    "usd": 0.23490160000000002
+    "usd": 0.24140660000000003
   }
 }
