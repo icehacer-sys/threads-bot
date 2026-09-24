@@ -167,7 +167,8 @@
     "18159245137451375": "18158870629500613",
     "17889254889456434": "18158870629500613",
     "18007736528979309": "18158870629500613",
-    "18097417667633951": "18158870629500613"
+    "18097417667633951": "18158870629500613",
+    "18019181336728562": "18158870629500613"
   },
   "ownerReviews": {
     "17937444630360450": "{\"postId\":\"18103023326210157\",\"reason\":\"owner review: personal medical concern\",\"commentText\":\"Little sister of my friend swalloved a coin of 1 fim. At hospital the family was advised to thoroughly keep an eye on her poops. So, the next day they found two 50 penny coins😀.\",\"username\":\"velitapiof\",\"queuedAt\":\"2026-09-10T20:21:59.741Z\",\"resolvedAt\":\"2026-09-10T20:36:02.929Z\",\"resolution\":\"Owner confirmed this is a completed personal story and deleted the inappropriate boundary reply. No clinical review is needed.\"}",
@@ -9665,6 +9666,15 @@
       },
       "publishedId": "18108465959595017",
       "confirmedPublished": true
+    },
+    "comment:18028929377912500": {
+      "creationId": "17890771743614054",
+      "createdAt": "2026-09-24T20:26:50.935Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "The dominoes really did start falling once this calf decided to commit.",
+        "reply_to_id": "18028929377912500"
+      }
     }
   },
   "repliedCommentIds": [
@@ -18495,7 +18505,8 @@
     "17926706769180065",
     "18129183067745321",
     "17929506177165498",
-    "17900765790666714"
+    "17900765790666714",
+    "17948015103338702"
   ],
   "answeredPostIds": [
     "18395606890093068"
@@ -18614,11 +18625,11 @@
     "18115960969977269": 64,
     "18184997560424523": 41,
     "17872204473638675": 76,
-    "18158870629500613": 34
+    "18158870629500613": 35
   },
   "daily": {
     "date": "2026-09-24",
-    "count": 34
+    "count": 35
   },
   "pinnedResolved": {
     "DaTTCIwoAw7": "18014812820883466"
@@ -19695,6 +19706,6 @@
   },
   "spend": {
     "date": "2026-09-24",
-    "usd": 0.24450910000000003
+    "usd": 0.25509360000000003
   }
 }
