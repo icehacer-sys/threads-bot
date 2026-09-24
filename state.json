@@ -9350,7 +9350,9 @@
         "media_type": "TEXT",
         "text": "This patient really committed to the bit.",
         "reply_to_id": "17954553567251520"
-      }
+      },
+      "publishedId": "18150114604531047",
+      "confirmedPublished": true
     }
   },
   "repliedCommentIds": [
