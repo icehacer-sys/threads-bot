@@ -174,7 +174,8 @@
     "18066717536509704": "18158870629500613",
     "18333159805274024": "18158870629500613",
     "17914126428455546": "18158870629500613",
-    "18181698202424775": "18158870629500613"
+    "18181698202424775": "18158870629500613",
+    "18094503545408957": "18158870629500613"
   },
   "ownerReviews": {
     "17937444630360450": "{\"postId\":\"18103023326210157\",\"reason\":\"owner review: personal medical concern\",\"commentText\":\"Little sister of my friend swalloved a coin of 1 fim. At hospital the family was advised to thoroughly keep an eye on her poops. So, the next day they found two 50 penny coins😀.\",\"username\":\"velitapiof\",\"queuedAt\":\"2026-09-10T20:21:59.741Z\",\"resolvedAt\":\"2026-09-10T20:36:02.929Z\",\"resolution\":\"Owner confirmed this is a completed personal story and deleted the inappropriate boundary reply. No clinical review is needed.\"}",
@@ -9760,6 +9761,15 @@
       },
       "publishedId": "18202700455375389",
       "confirmedPublished": true
+    },
+    "comment:18213912424345722": {
+      "creationId": "17890777833614054",
+      "createdAt": "2026-09-24T21:45:43.589Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "That's a rough way to end up with your own calcified souvenir. Capillary hit plus a remedy that was already dodgy is definitely the kind of story that makes radiologists do a double-take on the follow-up scan.",
+        "reply_to_id": "18213912424345722"
+      }
     }
   },
   "repliedCommentIds": [
@@ -19799,6 +19809,6 @@
   },
   "spend": {
     "date": "2026-09-24",
-    "usd": 0.3279151
+    "usd": 0.3347827
   }
 }
