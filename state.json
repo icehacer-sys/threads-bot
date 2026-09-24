@@ -9275,6 +9275,15 @@
       },
       "publishedId": "18089932595454269",
       "confirmedPublished": true
+    },
+    "comment:17904717015563322": {
+      "creationId": "17890768632614054",
+      "createdAt": "2026-09-24T19:43:43.353Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "That's a solid read of what's actually there. Take another look at what's been sitting in there and what shape it's in.",
+        "reply_to_id": "17904717015563322"
+      }
     }
   },
   "repliedCommentIds": [
@@ -19270,6 +19279,6 @@
   },
   "spend": {
     "date": "2026-09-24",
-    "usd": 0
+    "usd": 0.014438
   }
 }
