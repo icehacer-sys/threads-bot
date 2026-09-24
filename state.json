@@ -9397,6 +9397,15 @@
       },
       "publishedId": "17900664180666952",
       "confirmedPublished": true
+    },
+    "comment:18020084054933454": {
+      "creationId": "17890768776614054",
+      "createdAt": "2026-09-24T19:47:24.654Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "You're circling around something real here but the actual culprit is trickier than just a bruise settling in.",
+        "reply_to_id": "18020084054933454"
+      }
     }
   },
   "repliedCommentIds": [
@@ -18203,7 +18212,8 @@
     "17954553567251520",
     "18114940570792718",
     "18011781023983744",
-    "18114779152981246"
+    "18114779152981246",
+    "18021532268715757"
   ],
   "answeredPostIds": [
     "18395606890093068"
@@ -18322,11 +18332,11 @@
     "18115960969977269": 64,
     "18184997560424523": 41,
     "17872204473638675": 76,
-    "18158870629500613": 10
+    "18158870629500613": 11
   },
   "daily": {
     "date": "2026-09-24",
-    "count": 10
+    "count": 11
   },
   "pinnedResolved": {
     "DaTTCIwoAw7": "18014812820883466"
@@ -19403,6 +19413,6 @@
   },
   "spend": {
     "date": "2026-09-24",
-    "usd": 0.051156
+    "usd": 0.0540435
   }
 }
