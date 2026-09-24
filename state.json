@@ -9708,7 +9708,9 @@
         "media_type": "TEXT",
         "text": "That calf is out here creating its own event horizon.",
         "reply_to_id": "18078233246376462"
-      }
+      },
+      "publishedId": "17903560110574414",
+      "confirmedPublished": true
     }
   },
   "repliedCommentIds": [
