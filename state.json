@@ -9830,7 +9830,9 @@
         "media_type": "TEXT",
         "text": "Back at you!",
         "reply_to_id": "18149676961553270"
-      }
+      },
+      "publishedId": "18125723611856186",
+      "confirmedPublished": true
     }
   },
   "repliedCommentIds": [
