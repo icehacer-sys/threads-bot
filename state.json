@@ -9748,6 +9748,15 @@
       },
       "publishedId": "18125081812909440",
       "confirmedPublished": true
+    },
+    "comment:18385304986225938": {
+      "creationId": "17890777071614054",
+      "createdAt": "2026-09-24T21:30:03.313Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "If the sander had been at work for a few years it'd be the most patient power tool ever made.",
+        "reply_to_id": "18385304986225938"
+      }
     }
   },
   "repliedCommentIds": [
@@ -19786,6 +19795,6 @@
   },
   "spend": {
     "date": "2026-09-24",
-    "usd": 0.32155950000000005
+    "usd": 0.32502030000000004
   }
 }
