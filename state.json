@@ -9454,6 +9454,15 @@
       },
       "publishedId": "17935547781124981",
       "confirmedPublished": true
+    },
+    "comment:18100890698640451": {
+      "creationId": "17890768989614054",
+      "createdAt": "2026-09-24T19:49:05.466Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Right up there with 'swelling for years' as one of those clinical details that makes you squint at the scan.",
+        "reply_to_id": "18100890698640451"
+      }
     }
   },
   "repliedCommentIds": [
@@ -18265,7 +18274,8 @@
     "18020084054933454",
     "17964233868190494",
     "18115775203841177",
-    "18087209885276983"
+    "18087209885276983",
+    "18064107326512600"
   ],
   "answeredPostIds": [
     "18395606890093068"
@@ -18384,11 +18394,11 @@
     "18115960969977269": 64,
     "18184997560424523": 41,
     "17872204473638675": 76,
-    "18158870629500613": 15
+    "18158870629500613": 16
   },
   "daily": {
     "date": "2026-09-24",
-    "count": 15
+    "count": 16
   },
   "pinnedResolved": {
     "DaTTCIwoAw7": "18014812820883466"
@@ -19465,6 +19475,6 @@
   },
   "spend": {
     "date": "2026-09-24",
-    "usd": 0.069051
+    "usd": 0.0721305
   }
 }
