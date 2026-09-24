@@ -9785,6 +9785,15 @@
       },
       "publishedId": "17957597067239701",
       "confirmedPublished": true
+    },
+    "comment:17896518348399278": {
+      "creationId": "17890780680614054",
+      "createdAt": "2026-09-24T22:31:58.014Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "That's the risk of calling a mysterious calcified mass something too fun to say out loud. Now you've got a whole subgenre of concerned DMs trying to manage their hydration.",
+        "reply_to_id": "17896518348399278"
+      }
     }
   },
   "repliedCommentIds": [
@@ -19826,6 +19835,6 @@
   },
   "spend": {
     "date": "2026-09-24",
-    "usd": 0.35232369999999996
+    "usd": 0.35916229999999993
   }
 }
