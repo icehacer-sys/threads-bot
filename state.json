@@ -233,13 +233,15 @@
     "18100461023372596": "{\"postId\":\"18184997560424523\",\"reason\":\"owner review: unsupported confirmation, specifics (foot) or dismissal of an accepted differential | guard:forced-skip\",\"commentText\":\"I’m very confused here, because either the ankle or the knee seems to be backwards.\",\"username\":\"disneyprincesslost.inthewoods\",\"queuedAt\":\"2026-09-22T21:04:15.720Z\"}",
     "18086688377665586": "{\"postId\":\"18184997560424523\",\"reason\":\"owner review: image/anatomy inconsistency\",\"commentText\":\"The knee bone is missing from the leg bones.🦴\",\"username\":\"mightythorsmom\",\"queuedAt\":\"2026-09-22T21:19:52.960Z\"}",
     "18130376527757800": "{\"postId\":\"17872204473638675\",\"reason\":\"Unclear reference. The comment does not make a diagnosis guess, ask a question, or explain what connection it draws to the case. Without additional context it cannot be answered as banter, a guess, or a substantive remark. Requires clarification or owner review.\",\"commentText\":\"NY Jets quarterback\",\"username\":\"the_notorious_r.a.v\",\"queuedAt\":\"2026-09-23T20:03:38.319Z\"}",
-    "17964233868190494": "{\"postId\":\"18158870629500613\",\"reason\":\"owner review: image/anatomy inconsistency\",\"commentText\":\"Body thought his legs need extra bones or internal armor?\",\"username\":\"goldmargie\",\"queuedAt\":\"2026-09-24T19:16:03.696Z\"}"
+    "17964233868190494": "{\"postId\":\"18158870629500613\",\"reason\":\"owner review: image/anatomy inconsistency\",\"commentText\":\"Body thought his legs need extra bones or internal armor?\",\"username\":\"goldmargie\",\"queuedAt\":\"2026-09-24T19:16:03.696Z\"}",
+    "18423942733150347": "{\"postId\":\"18158870629500613\",\"reason\":\"owner review: image/anatomy inconsistency\",\"commentText\":\"Ey I did that and I've only got 3 extra fingers, I'm sure he'll be fine\",\"username\":\"daevid1337\",\"queuedAt\":\"2026-09-24T23:34:13.206Z\"}"
   },
   "concernAcknowledgments": {
     "[\"18121475662898455\",\"berit069\",\"image\"]": "18142096432588199",
     "[\"17958262674213428\",\"malatero1\",\"personal\"]": "18099016658455874",
     "[\"18184997560424523\",\"mightythorsmom\",\"image\"]": "18086688377665586",
-    "[\"18158870629500613\",\"goldmargie\",\"image\"]": "17964233868190494"
+    "[\"18158870629500613\",\"goldmargie\",\"image\"]": "17964233868190494",
+    "[\"18158870629500613\",\"daevid1337\",\"image\"]": "18423942733150347"
   },
   "publications": {
     "comment:18366808555245367": {
@@ -9844,6 +9846,15 @@
       },
       "publishedId": "17940083898366297",
       "confirmedPublished": true
+    },
+    "comment:18423942733150347": {
+      "creationId": "17890784250614054",
+      "createdAt": "2026-09-24T23:34:22.512Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Thanks for flagging that detail.",
+        "reply_to_id": "18423942733150347"
+      }
     }
   },
   "repliedCommentIds": [
