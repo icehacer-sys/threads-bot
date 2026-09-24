@@ -9252,6 +9252,15 @@
       },
       "publishedId": "18102328589629738",
       "confirmedPublished": true
+    },
+    "comment:17886662154477924": {
+      "creationId": "17890663434614054",
+      "createdAt": "2026-09-24T03:48:39.537Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "It really is. One that reshaped the whole shoulder blade from the inside out.",
+        "reply_to_id": "17886662154477924"
+      }
     }
   },
   "repliedCommentIds": [
@@ -19145,7 +19154,8 @@
     "17886513534621518",
     "17926154928420255",
     "17903749731591470",
-    "18030383456887726"
+    "18030383456887726",
+    "18010259063766483"
   ],
   "skipStrikes": {
     "17895266316520842": 1,
@@ -19244,6 +19254,6 @@
   },
   "spend": {
     "date": "2026-09-23",
-    "usd": 1.1654266
+    "usd": 1.172179
   }
 }
