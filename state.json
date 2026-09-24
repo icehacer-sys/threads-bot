@@ -9164,6 +9164,15 @@
       },
       "publishedId": "18014475116748024",
       "confirmedPublished": true
+    },
+    "comment:18359710312301102": {
+      "creationId": "17890647042614054",
+      "createdAt": "2026-09-24T01:12:54.910Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Thorough read and the right call. Size and flat-bone location are exactly what tip the scale toward chondrosarcoma over a quiet enchondroma.",
+        "reply_to_id": "18359710312301102"
+      }
     }
   },
   "repliedCommentIds": [
@@ -17949,7 +17958,8 @@
     "18121699117715469",
     "17906418405560007",
     "18087503543677967",
-    "18011288288988215"
+    "18011288288988215",
+    "17900119269378470"
   ],
   "answeredPostIds": [
     "18395606890093068"
@@ -18067,11 +18077,11 @@
     "18094319267645737": 42,
     "18115960969977269": 64,
     "18184997560424523": 41,
-    "17872204473638675": 65
+    "17872204473638675": 66
   },
   "daily": {
     "date": "2026-09-23",
-    "count": 65
+    "count": 66
   },
   "pinnedResolved": {
     "DaTTCIwoAw7": "18014812820883466"
@@ -19141,6 +19151,6 @@
   },
   "spend": {
     "date": "2026-09-23",
-    "usd": 0.9713478000000002
+    "usd": 0.9858544000000001
   }
 }
