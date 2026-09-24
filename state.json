@@ -9476,6 +9476,15 @@
       },
       "publishedId": "17875345287633150",
       "confirmedPublished": true
+    },
+    "comment:18142852486598218": {
+      "creationId": "17890769052614054",
+      "createdAt": "2026-09-24T19:49:48.369Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "A mini fruit tree in the calf instead of a full orchard is actually pretty optimistic given the space constraints.",
+        "reply_to_id": "18142852486598218"
+      }
     }
   },
   "repliedCommentIds": [
@@ -18289,7 +18298,8 @@
     "18115775203841177",
     "18087209885276983",
     "18064107326512600",
-    "18100890698640451"
+    "18100890698640451",
+    "17881509573523880"
   ],
   "answeredPostIds": [
     "18395606890093068"
@@ -18408,11 +18418,11 @@
     "18115960969977269": 64,
     "18184997560424523": 41,
     "17872204473638675": 76,
-    "18158870629500613": 17
+    "18158870629500613": 18
   },
   "daily": {
     "date": "2026-09-24",
-    "count": 17
+    "count": 18
   },
   "pinnedResolved": {
     "DaTTCIwoAw7": "18014812820883466"
@@ -19489,6 +19499,6 @@
   },
   "spend": {
     "date": "2026-09-24",
-    "usd": 0.1201755
+    "usd": 0.123017
   }
 }
