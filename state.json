@@ -9142,6 +9142,15 @@
       },
       "publishedId": "17866845567661770",
       "confirmedPublished": true
+    },
+    "comment:18011288288988215": {
+      "creationId": "17890646982614054",
+      "createdAt": "2026-09-24T01:11:51.416Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "At least pizza toppings don't blow the bone outward while they're baking.",
+        "reply_to_id": "18011288288988215"
+      }
     }
   },
   "repliedCommentIds": [
@@ -19016,7 +19025,8 @@
     "18016828259957078",
     "18097280849416022",
     "18095213678433407",
-    "17995372404037973"
+    "17995372404037973",
+    "18150515551550786"
   ],
   "skipStrikes": {
     "17895266316520842": 1,
@@ -19115,6 +19125,6 @@
   },
   "spend": {
     "date": "2026-09-23",
-    "usd": 0.9268646000000003
+    "usd": 0.9376607000000002
   }
 }
