@@ -9487,6 +9487,15 @@
       },
       "publishedId": "18151734736536426",
       "confirmedPublished": true
+    },
+    "comment:18098395793431009": {
+      "creationId": "17890769064614054",
+      "createdAt": "2026-09-24T19:50:12.904Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Clots showing up on an X-ray would definitely be the plot twist of all time. Muscle infection is in the ballpark but this one's got a much stranger timeline.",
+        "reply_to_id": "18098395793431009"
+      }
     }
   },
   "repliedCommentIds": [
@@ -18301,7 +18310,8 @@
     "18087209885276983",
     "18064107326512600",
     "18100890698640451",
-    "17881509573523880"
+    "17881509573523880",
+    "18142852486598218"
   ],
   "answeredPostIds": [
     "18395606890093068"
@@ -18420,11 +18430,11 @@
     "18115960969977269": 64,
     "18184997560424523": 41,
     "17872204473638675": 76,
-    "18158870629500613": 18
+    "18158870629500613": 19
   },
   "daily": {
     "date": "2026-09-24",
-    "count": 18
+    "count": 19
   },
   "pinnedResolved": {
     "DaTTCIwoAw7": "18014812820883466"
@@ -19501,6 +19511,6 @@
   },
   "spend": {
     "date": "2026-09-24",
-    "usd": 0.123017
+    "usd": 0.12959400000000001
   }
 }
