@@ -9183,7 +9183,9 @@
         "media_type": "TEXT",
         "text": "All you can eat and none of it gets delivered.",
         "reply_to_id": "17910436587493434"
-      }
+      },
+      "publishedId": "17991505680028305",
+      "confirmedPublished": true
     }
   },
   "repliedCommentIds": [
