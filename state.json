@@ -168,7 +168,8 @@
     "17889254889456434": "18158870629500613",
     "18007736528979309": "18158870629500613",
     "18097417667633951": "18158870629500613",
-    "18019181336728562": "18158870629500613"
+    "18019181336728562": "18158870629500613",
+    "18410474182091010": "18158870629500613"
   },
   "ownerReviews": {
     "17937444630360450": "{\"postId\":\"18103023326210157\",\"reason\":\"owner review: personal medical concern\",\"commentText\":\"Little sister of my friend swalloved a coin of 1 fim. At hospital the family was advised to thoroughly keep an eye on her poops. So, the next day they found two 50 penny coins😀.\",\"username\":\"velitapiof\",\"queuedAt\":\"2026-09-10T20:21:59.741Z\",\"resolvedAt\":\"2026-09-10T20:36:02.929Z\",\"resolution\":\"Owner confirmed this is a completed personal story and deleted the inappropriate boundary reply. No clinical review is needed.\"}",
@@ -9688,6 +9689,15 @@
       },
       "publishedId": "17883652938504104",
       "confirmedPublished": true
+    },
+    "comment:17899722516600976": {
+      "creationId": "17890773768614054",
+      "createdAt": "2026-09-24T20:42:42.647Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "The calf really did build its own universe down there.",
+        "reply_to_id": "17899722516600976"
+      }
     }
   },
   "repliedCommentIds": [
@@ -19721,6 +19731,6 @@
   },
   "spend": {
     "date": "2026-09-24",
-    "usd": 0.25864210000000004
+    "usd": 0.26920130000000003
   }
 }
