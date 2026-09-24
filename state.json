@@ -9506,7 +9506,9 @@
         "media_type": "TEXT",
         "text": "Now that's a bovine upgrade I wasn't expecting.",
         "reply_to_id": "18177497506436932"
-      }
+      },
+      "publishedId": "18119733301894250",
+      "confirmedPublished": true
     }
   },
   "repliedCommentIds": [
