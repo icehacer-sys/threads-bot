@@ -9473,7 +9473,9 @@
         "media_type": "TEXT",
         "text": "Dad's advice really did have lasting impact.",
         "reply_to_id": "17881509573523880"
-      }
+      },
+      "publishedId": "17875345287633150",
+      "confirmedPublished": true
     }
   },
   "repliedCommentIds": [
