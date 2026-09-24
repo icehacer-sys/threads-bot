@@ -9197,6 +9197,15 @@
       },
       "publishedId": "18139665526721647",
       "confirmedPublished": true
+    },
+    "comment:18152635135557816": {
+      "creationId": "17890650642614054",
+      "createdAt": "2026-09-24T01:44:10.893Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "That's a lot to go through with your dog. Bone tumours in that location can look strikingly similar across species.",
+        "reply_to_id": "18152635135557816"
+      }
     }
   },
   "repliedCommentIds": [
@@ -17985,7 +17994,8 @@
     "18011288288988215",
     "17900119269378470",
     "18359710312301102",
-    "17910436587493434"
+    "17910436587493434",
+    "18384044335224081"
   ],
   "answeredPostIds": [
     "18395606890093068"
@@ -18103,11 +18113,11 @@
     "18094319267645737": 42,
     "18115960969977269": 64,
     "18184997560424523": 41,
-    "17872204473638675": 68
+    "17872204473638675": 69
   },
   "daily": {
     "date": "2026-09-23",
-    "count": 68
+    "count": 69
   },
   "pinnedResolved": {
     "DaTTCIwoAw7": "18014812820883466"
@@ -19178,6 +19188,6 @@
   },
   "spend": {
     "date": "2026-09-23",
-    "usd": 0.9998302000000001
+    "usd": 1.0075796000000001
   }
 }
