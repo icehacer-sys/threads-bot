@@ -9629,7 +9629,9 @@
         "media_type": "TEXT",
         "text": "Got there faster than the reveal.",
         "reply_to_id": "18129183067745321"
-      }
+      },
+      "publishedId": "18126305788871552",
+      "confirmedPublished": true
     }
   },
   "repliedCommentIds": [
