@@ -10547,7 +10547,9 @@
         "media_type": "TEXT",
         "text": "That would explain the bulk but not the square footage.",
         "reply_to_id": "18117084683054289"
-      }
+      },
+      "publishedId": "18030928709913680",
+      "confirmedPublished": true
     }
   },
   "repliedCommentIds": [
