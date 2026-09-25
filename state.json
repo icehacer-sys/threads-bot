@@ -10998,7 +10998,9 @@
         "media_type": "TEXT",
         "text": "Down payment on the laundry bill.",
         "reply_to_id": "18129346765704619"
-      }
+      },
+      "publishedId": "18084168464703139",
+      "confirmedPublished": true
     }
   },
   "repliedCommentIds": [
