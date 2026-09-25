@@ -10968,6 +10968,15 @@
       },
       "publishedId": "18102187238368226",
       "confirmedPublished": true
+    },
+    "comment:18115070095954796": {
+      "creationId": "17890932615614054",
+      "createdAt": "2026-09-25T23:08:16.580Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "The worms show up because gas in the bowel outlines their curved tubular bodies rather than any calcium in the worms themselves.",
+        "reply_to_id": "18115070095954796"
+      }
     }
   },
   "repliedCommentIds": [
@@ -21135,6 +21144,6 @@
   },
   "spend": {
     "date": "2026-09-25",
-    "usd": 0.8756195
+    "usd": 0.9168712
   }
 }
