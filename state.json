@@ -10462,6 +10462,15 @@
       },
       "publishedId": "18137757607551045",
       "confirmedPublished": true
+    },
+    "comment:18152447827532672": {
+      "creationId": "17890922430614054",
+      "createdAt": "2026-09-25T20:47:12.955Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Spot on with the Latin name.",
+        "reply_to_id": "18152447827532672"
+      }
     }
   },
   "repliedCommentIds": [
@@ -20575,6 +20584,6 @@
   },
   "spend": {
     "date": "2026-09-25",
-    "usd": 0.44945609999999997
+    "usd": 0.45544209999999996
   }
 }
