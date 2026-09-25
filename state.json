@@ -10701,7 +10701,9 @@
         "media_type": "TEXT",
         "text": "Somebody call the MF exterminator.",
         "reply_to_id": "17977388339918075"
-      }
+      },
+      "publishedId": "17985044829098681",
+      "confirmedPublished": true
     }
   },
   "repliedCommentIds": [
