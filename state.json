@@ -10935,6 +10935,15 @@
       },
       "publishedId": "18036319433652471",
       "confirmedPublished": true
+    },
+    "comment:17968721045961052": {
+      "creationId": "17890929561614054",
+      "createdAt": "2026-09-25T22:35:58.843Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "The coiled tubular pattern strongly points to Ascaris but imaging alone can't confirm the species. Stool microscopy to identify eggs or direct visualization of the worm is what nails the parasitological diagnosis.",
+        "reply_to_id": "17968721045961052"
+      }
     }
   },
   "repliedCommentIds": [
@@ -19878,7 +19887,8 @@
     "18036951587649535",
     "17896586076396083",
     "17994625263046940",
-    "18025209521697178"
+    "18025209521697178",
+    "18122455928296523"
   ],
   "answeredPostIds": [
     "18395606890093068"
@@ -19998,11 +20008,11 @@
     "18184997560424523": 41,
     "17872204473638675": 76,
     "18158870629500613": 67,
-    "18108355154189422": 80
+    "18108355154189422": 81
   },
   "daily": {
     "date": "2026-09-25",
-    "count": 80
+    "count": 81
   },
   "pinnedResolved": {
     "DaTTCIwoAw7": "18014812820883466"
@@ -21098,6 +21108,6 @@
   },
   "spend": {
     "date": "2026-09-25",
-    "usd": 0.8536807
+    "usd": 0.8686254999999999
   }
 }
