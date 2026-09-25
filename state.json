@@ -11064,7 +11064,9 @@
         "media_type": "TEXT",
         "text": "Yep. That's the bolus right there.",
         "reply_to_id": "18221457472340141"
-      }
+      },
+      "publishedId": "18115523173812808",
+      "confirmedPublished": true
     }
   },
   "repliedCommentIds": [
