@@ -10613,7 +10613,9 @@
         "media_type": "TEXT",
         "text": "At least Silly String would dissolve on its own eventually.",
         "reply_to_id": "18353919154168141"
-      }
+      },
+      "publishedId": "17936477607372694",
+      "confirmedPublished": true
     }
   },
   "repliedCommentIds": [
