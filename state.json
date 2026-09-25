@@ -11045,6 +11045,15 @@
       },
       "publishedId": "17997609099008362",
       "confirmedPublished": true
+    },
+    "comment:18134544139563833": {
+      "creationId": "17890934571614054",
+      "createdAt": "2026-09-25T23:41:20.048Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "It really is. That's what a serious Ascaris bolus looks like when it's packed that tight in the bowel.",
+        "reply_to_id": "18134544139563833"
+      }
     }
   },
   "repliedCommentIds": [
@@ -21219,6 +21228,6 @@
   },
   "spend": {
     "date": "2026-09-25",
-    "usd": 0.951063
+    "usd": 0.957588
   }
 }
