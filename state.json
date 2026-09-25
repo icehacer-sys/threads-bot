@@ -181,7 +181,8 @@
     "17941554942350735": "18158870629500613",
     "18128602436504262": "18158870629500613",
     "18116405641908965": "18158870629500613",
-    "17905582227579360": "18158870629500613"
+    "17905582227579360": "18158870629500613",
+    "18096714848426983": "18158870629500613"
   },
   "ownerReviews": {
     "17937444630360450": "{\"postId\":\"18103023326210157\",\"reason\":\"owner review: personal medical concern\",\"commentText\":\"Little sister of my friend swalloved a coin of 1 fim. At hospital the family was advised to thoroughly keep an eye on her poops. So, the next day they found two 50 penny coins😀.\",\"username\":\"velitapiof\",\"queuedAt\":\"2026-09-10T20:21:59.741Z\",\"resolvedAt\":\"2026-09-10T20:36:02.929Z\",\"resolution\":\"Owner confirmed this is a completed personal story and deleted the inappropriate boundary reply. No clinical review is needed.\"}",
@@ -18727,7 +18728,8 @@
     "18149676961553270",
     "18119859082938239",
     "18423942733150347",
-    "18128952124760790"
+    "18128952124760790",
+    "18101496998305926"
   ],
   "answeredPostIds": [
     "18395606890093068"
@@ -18846,11 +18848,11 @@
     "18115960969977269": 64,
     "18184997560424523": 41,
     "17872204473638675": 76,
-    "18158870629500613": 52
+    "18158870629500613": 53
   },
   "daily": {
     "date": "2026-09-24",
-    "count": 52
+    "count": 53
   },
   "pinnedResolved": {
     "DaTTCIwoAw7": "18014812820883466"
@@ -19927,6 +19929,6 @@
   },
   "spend": {
     "date": "2026-09-24",
-    "usd": 0.4158318999999999
+    "usd": 0.4194896999999999
   }
 }
