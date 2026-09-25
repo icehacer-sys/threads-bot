@@ -9911,7 +9911,9 @@
         "media_type": "TEXT",
         "text": "That calf really did spin its own web down there.",
         "reply_to_id": "18624405658046838"
-      }
+      },
+      "publishedId": "18112186130120293",
+      "confirmedPublished": true
     }
   },
   "repliedCommentIds": [
