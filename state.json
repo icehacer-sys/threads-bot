@@ -10429,6 +10429,15 @@
       },
       "publishedId": "18064549511610721",
       "confirmedPublished": true
+    },
+    "comment:18128481958774635": {
+      "creationId": "17890920903614054",
+      "createdAt": "2026-09-25T20:30:59.175Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Ascaris eggs reach the mouth through contaminated soil or produce so washing hands and food thoroughly is the main defence.",
+        "reply_to_id": "18128481958774635"
+      }
     }
   },
   "repliedCommentIds": [
@@ -19326,7 +19335,8 @@
     "18055912058561897",
     "17873662944586323",
     "18333309217273473",
-    "18186921088410775"
+    "18186921088410775",
+    "18460884610141813"
   ],
   "answeredPostIds": [
     "18395606890093068"
@@ -19446,11 +19456,11 @@
     "18184997560424523": 41,
     "17872204473638675": 76,
     "18158870629500613": 67,
-    "18108355154189422": 34
+    "18108355154189422": 35
   },
   "daily": {
     "date": "2026-09-25",
-    "count": 34
+    "count": 35
   },
   "pinnedResolved": {
     "DaTTCIwoAw7": "18014812820883466"
@@ -20538,6 +20548,6 @@
   },
   "spend": {
     "date": "2026-09-25",
-    "usd": 0.4238183
+    "usd": 0.43993909999999997
   }
 }
