@@ -235,7 +235,8 @@
     "18086688377665586": "{\"postId\":\"18184997560424523\",\"reason\":\"owner review: image/anatomy inconsistency\",\"commentText\":\"The knee bone is missing from the leg bones.🦴\",\"username\":\"mightythorsmom\",\"queuedAt\":\"2026-09-22T21:19:52.960Z\"}",
     "18130376527757800": "{\"postId\":\"17872204473638675\",\"reason\":\"Unclear reference. The comment does not make a diagnosis guess, ask a question, or explain what connection it draws to the case. Without additional context it cannot be answered as banter, a guess, or a substantive remark. Requires clarification or owner review.\",\"commentText\":\"NY Jets quarterback\",\"username\":\"the_notorious_r.a.v\",\"queuedAt\":\"2026-09-23T20:03:38.319Z\"}",
     "17964233868190494": "{\"postId\":\"18158870629500613\",\"reason\":\"owner review: image/anatomy inconsistency\",\"commentText\":\"Body thought his legs need extra bones or internal armor?\",\"username\":\"goldmargie\",\"queuedAt\":\"2026-09-24T19:16:03.696Z\"}",
-    "18423942733150347": "{\"postId\":\"18158870629500613\",\"reason\":\"owner review: image/anatomy inconsistency\",\"commentText\":\"Ey I did that and I've only got 3 extra fingers, I'm sure he'll be fine\",\"username\":\"daevid1337\",\"queuedAt\":\"2026-09-24T23:34:13.206Z\"}"
+    "18423942733150347": "{\"postId\":\"18158870629500613\",\"reason\":\"owner review: image/anatomy inconsistency\",\"commentText\":\"Ey I did that and I've only got 3 extra fingers, I'm sure he'll be fine\",\"username\":\"daevid1337\",\"queuedAt\":\"2026-09-24T23:34:13.206Z\"}",
+    "17891482860612735": "{\"postId\":\"18158870629500613\",\"reason\":\"Owner review: image/anatomy inconsistency. Commenter flagging possible duplicated, impossible or unexplained bony anatomy on the scan that requires verification before any reply claiming normal findings or confirming the diagnosis.\",\"commentText\":\"Stop that guy RIGHT NOW!!! He's inventing NEW BONES!!!\",\"username\":\"sprigatitozz\",\"queuedAt\":\"2026-09-25T01:36:29.764Z\"}"
   },
   "concernAcknowledgments": {
     "[\"18121475662898455\",\"berit069\",\"image\"]": "18142096432588199",
@@ -9902,6 +9903,15 @@
       },
       "publishedId": "18399034798205111",
       "confirmedPublished": true
+    },
+    "comment:18624405658046838": {
+      "creationId": "17890792476614054",
+      "createdAt": "2026-09-25T01:36:35.684Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "That calf really did spin its own web down there.",
+        "reply_to_id": "18624405658046838"
+      }
     }
   },
   "repliedCommentIds": [
@@ -19854,7 +19864,8 @@
     "17926154928420255",
     "17903749731591470",
     "18030383456887726",
-    "18010259063766483"
+    "18010259063766483",
+    "17891482860612735"
   ],
   "skipStrikes": {
     "17895266316520842": 1,
@@ -19953,6 +19964,6 @@
   },
   "spend": {
     "date": "2026-09-24",
-    "usd": 0.4261552999999999
+    "usd": 0.4327448999999999
   }
 }
