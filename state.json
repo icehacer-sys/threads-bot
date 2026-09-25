@@ -10495,6 +10495,15 @@
       },
       "publishedId": "18095000042552627",
       "confirmedPublished": true
+    },
+    "comment:18076039337414401": {
+      "creationId": "17890922715614054",
+      "createdAt": "2026-09-25T20:48:15.537Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "That's the eye you only get from seeing them in bulk before. Ascaris hits different when you've already met the herd.",
+        "reply_to_id": "18076039337414401"
+      }
     }
   },
   "repliedCommentIds": [
@@ -19398,7 +19407,8 @@
     "18117264196976563",
     "17927100813421879",
     "18152447827532672",
-    "17917814418451987"
+    "17917814418451987",
+    "18089178110242078"
   ],
   "answeredPostIds": [
     "18395606890093068"
@@ -19518,11 +19528,11 @@
     "18184997560424523": 41,
     "17872204473638675": 76,
     "18158870629500613": 67,
-    "18108355154189422": 40
+    "18108355154189422": 41
   },
   "daily": {
     "date": "2026-09-25",
-    "count": 40
+    "count": 41
   },
   "pinnedResolved": {
     "DaTTCIwoAw7": "18014812820883466"
@@ -20610,6 +20620,6 @@
   },
   "spend": {
     "date": "2026-09-25",
-    "usd": 0.46906689999999995
+    "usd": 0.4724248999999999
   }
 }
