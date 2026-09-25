@@ -10558,7 +10558,9 @@
         "media_type": "TEXT",
         "text": "That X-ray definitely makes the point.",
         "reply_to_id": "18103023257568220"
-      }
+      },
+      "publishedId": "18178117267431260",
+      "confirmedPublished": true
     }
   },
   "repliedCommentIds": [
