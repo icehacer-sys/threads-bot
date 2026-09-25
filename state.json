@@ -10184,7 +10184,9 @@
         "media_type": "TEXT",
         "text": "A worm that somehow ended up exactly where it shouldn't be.",
         "reply_to_id": "18010011029768131"
-      }
+      },
+      "publishedId": "17867460399660720",
+      "confirmedPublished": true
     }
   },
   "repliedCommentIds": [
