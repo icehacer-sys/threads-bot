@@ -186,7 +186,8 @@
     "18132970777732765": "18158870629500613",
     "18145282009563422": "18158870629500613",
     "18141124972520473": "18158870629500613",
-    "17904084834595156": "18158870629500613"
+    "17904084834595156": "18158870629500613",
+    "18437074570182832": "18158870629500613"
   },
   "ownerReviews": {
     "17937444630360450": "{\"postId\":\"18103023326210157\",\"reason\":\"owner review: personal medical concern\",\"commentText\":\"Little sister of my friend swalloved a coin of 1 fim. At hospital the family was advised to thoroughly keep an eye on her poops. So, the next day they found two 50 penny coins😀.\",\"username\":\"velitapiof\",\"queuedAt\":\"2026-09-10T20:21:59.741Z\",\"resolvedAt\":\"2026-09-10T20:36:02.929Z\",\"resolution\":\"Owner confirmed this is a completed personal story and deleted the inappropriate boundary reply. No clinical review is needed.\"}",
@@ -10006,6 +10007,15 @@
       },
       "publishedId": "18418225855154762",
       "confirmedPublished": true
+    },
+    "comment:18166909879412499": {
+      "creationId": "17890814229614054",
+      "createdAt": "2026-09-25T05:11:56.975Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "That would explain the years of quiet preparation and the grand finale reveal.",
+        "reply_to_id": "18166909879412499"
+      }
     }
   },
   "repliedCommentIds": [
@@ -20067,6 +20077,6 @@
   },
   "spend": {
     "date": "2026-09-24",
-    "usd": 0.47439629999999977
+    "usd": 0.48534469999999974
   }
 }
