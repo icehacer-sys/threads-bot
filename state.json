@@ -10946,6 +10946,15 @@
       },
       "publishedId": "17949464427275470",
       "confirmedPublished": true
+    },
+    "comment:17921889219431746": {
+      "creationId": "17890930554614054",
+      "createdAt": "2026-09-25T22:51:36.466Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "That licorice comparison is not wrong for how these Ascaris pack into those loops. But yeah nobody's enjoying this snack.",
+        "reply_to_id": "17921889219431746"
+      }
     }
   },
   "repliedCommentIds": [
@@ -21111,6 +21120,6 @@
   },
   "spend": {
     "date": "2026-09-25",
-    "usd": 0.8686254999999999
+    "usd": 0.8723295
   }
 }
