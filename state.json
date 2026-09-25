@@ -10019,6 +10019,15 @@
       },
       "publishedId": "18115269499789686",
       "confirmedPublished": true
+    },
+    "comment:17995459272009560": {
+      "creationId": "17890817430614054",
+      "createdAt": "2026-09-25T05:42:41.487Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Years of it too. That calf really committed to the bit.",
+        "reply_to_id": "17995459272009560"
+      }
     }
   },
   "repliedCommentIds": [
@@ -20081,6 +20090,6 @@
   },
   "spend": {
     "date": "2026-09-24",
-    "usd": 0.49235229999999974
+    "usd": 0.4953280999999997
   }
 }
