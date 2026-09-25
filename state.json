@@ -10385,6 +10385,15 @@
       },
       "publishedId": "18136913359715242",
       "confirmedPublished": true
+    },
+    "comment:17873662944586323": {
+      "creationId": "17890918860614054",
+      "createdAt": "2026-09-25T20:13:36.728Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "They don't reproduce inside the human host. Eggs pass out and develop in soil before being ingested again so this bolus all came in through the mouth.",
+        "reply_to_id": "17873662944586323"
+      }
     }
   },
   "repliedCommentIds": [
@@ -19278,7 +19287,8 @@
     "18099374582637632",
     "18489303889097367",
     "18016887338929623",
-    "17959922928209571"
+    "17959922928209571",
+    "18055912058561897"
   ],
   "answeredPostIds": [
     "18395606890093068"
@@ -19398,11 +19408,11 @@
     "18184997560424523": 41,
     "17872204473638675": 76,
     "18158870629500613": 67,
-    "18108355154189422": 30
+    "18108355154189422": 31
   },
   "daily": {
     "date": "2026-09-25",
-    "count": 30
+    "count": 31
   },
   "pinnedResolved": {
     "DaTTCIwoAw7": "18014812820883466"
@@ -20486,6 +20496,6 @@
   },
   "spend": {
     "date": "2026-09-25",
-    "usd": 0.3375127
+    "usd": 0.35442850000000004
   }
 }
