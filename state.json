@@ -10583,6 +10583,15 @@
       },
       "publishedId": "18113327597591312",
       "confirmedPublished": true
+    },
+    "comment:18141191704589733": {
+      "creationId": "17890924710614054",
+      "createdAt": "2026-09-25T21:22:10.435Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Exactly the energy this one deserved.",
+        "reply_to_id": "18141191704589733"
+      }
     }
   },
   "repliedCommentIds": [
@@ -20710,6 +20719,6 @@
   },
   "spend": {
     "date": "2026-09-25",
-    "usd": 0.5462967
+    "usd": 0.5675433
   }
 }
