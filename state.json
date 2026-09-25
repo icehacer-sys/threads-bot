@@ -10858,6 +10858,15 @@
       },
       "publishedId": "17908054776504416",
       "confirmedPublished": true
+    },
+    "comment:18148405150549912": {
+      "creationId": "17890927425614054",
+      "createdAt": "2026-09-25T22:02:32.819Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Hookworms and Ascaris both make similar moves in the bowel but Ascaris throws that distinctive coil-pack that shows up on film like this. Your train's headed the right direction.",
+        "reply_to_id": "18148405150549912"
+      }
     }
   },
   "repliedCommentIds": [
@@ -19794,7 +19803,8 @@
     "18092316836176689",
     "18435533530197378",
     "17995980383830799",
-    "18028568960688166"
+    "18028568960688166",
+    "18238419865316575"
   ],
   "answeredPostIds": [
     "18395606890093068"
@@ -19914,11 +19924,11 @@
     "18184997560424523": 41,
     "17872204473638675": 76,
     "18158870629500613": 67,
-    "18108355154189422": 73
+    "18108355154189422": 74
   },
   "daily": {
     "date": "2026-09-25",
-    "count": 73
+    "count": 74
   },
   "pinnedResolved": {
     "DaTTCIwoAw7": "18014812820883466"
@@ -21012,6 +21022,6 @@
   },
   "spend": {
     "date": "2026-09-25",
-    "usd": 0.8012021
+    "usd": 0.8051101
   }
 }
