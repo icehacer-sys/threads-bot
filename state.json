@@ -10044,6 +10044,15 @@
       },
       "publishedId": "17979130896102990",
       "confirmedPublished": true
+    },
+    "comment:18105415651973604": {
+      "creationId": "17890913748614054",
+      "createdAt": "2026-09-25T19:15:36.675Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Whole pharmacy's worth at this point.",
+        "reply_to_id": "18105415651973604"
+      }
     }
   },
   "repliedCommentIds": [
@@ -19029,8 +19038,8 @@
     "18158870629500613": 67
   },
   "daily": {
-    "date": "2026-09-24",
-    "count": 67
+    "date": "2026-09-25",
+    "count": 0
   },
   "pinnedResolved": {
     "DaTTCIwoAw7": "18014812820883466"
@@ -20092,7 +20101,7 @@
     "17865730374636613": 1
   },
   "gifDaily": {
-    "date": "2026-09-24",
+    "date": "2026-09-25",
     "count": 0
   },
   "recentGifIds": [
@@ -20103,11 +20112,11 @@
   ],
   "promoPostCounts": {},
   "promoDaily": {
-    "date": "2026-09-24",
+    "date": "2026-09-25",
     "count": 0
   },
   "spend": {
-    "date": "2026-09-24",
-    "usd": 0.5177086999999997
+    "date": "2026-09-25",
+    "usd": 0.016291
   }
 }
