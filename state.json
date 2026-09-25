@@ -10032,6 +10032,15 @@
       },
       "publishedId": "18108972659594596",
       "confirmedPublished": true
+    },
+    "comment:18022765772869476": {
+      "creationId": "17890819770614054",
+      "createdAt": "2026-09-25T06:13:40.913Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Calf's been hitting the supplement aisle harder than the gym floor.",
+        "reply_to_id": "18022765772869476"
+      }
     }
   },
   "repliedCommentIds": [
@@ -20095,6 +20104,6 @@
   },
   "spend": {
     "date": "2026-09-24",
-    "usd": 0.5053574999999997
+    "usd": 0.5115100999999996
   }
 }
