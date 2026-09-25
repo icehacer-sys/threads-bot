@@ -11075,7 +11075,9 @@
         "media_type": "TEXT",
         "text": "Whoever filed the incident report really buried the lede.",
         "reply_to_id": "18142888534585777"
-      }
+      },
+      "publishedId": "18171684019456479",
+      "confirmedPublished": true
     }
   },
   "repliedCommentIds": [
