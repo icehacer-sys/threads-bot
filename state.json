@@ -9958,6 +9958,15 @@
       },
       "publishedId": "18093282023532201",
       "confirmedPublished": true
+    },
+    "comment:18227442358331863": {
+      "creationId": "17890802871614054",
+      "createdAt": "2026-09-25T03:09:29.258Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "The calf really did open a wormhole and forgot to close it.",
+        "reply_to_id": "18227442358331863"
+      }
     }
   },
   "repliedCommentIds": [
@@ -20015,6 +20024,6 @@
   },
   "spend": {
     "date": "2026-09-24",
-    "usd": 0.44527409999999984
+    "usd": 0.4483658999999998
   }
 }
