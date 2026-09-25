@@ -10261,7 +10261,9 @@
         "media_type": "TEXT",
         "text": "Right on it.",
         "reply_to_id": "18073559213735066"
-      }
+      },
+      "publishedId": "18559139320075461",
+      "confirmedPublished": true
     }
   },
   "repliedCommentIds": [
