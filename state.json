@@ -10162,7 +10162,9 @@
         "media_type": "TEXT",
         "text": "That's one dish nobody wants served up.",
         "reply_to_id": "18007412021782022"
-      }
+      },
+      "publishedId": "18025905374698431",
+      "confirmedPublished": true
     }
   },
   "repliedCommentIds": [
