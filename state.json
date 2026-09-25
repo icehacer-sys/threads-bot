@@ -10165,6 +10165,15 @@
       },
       "publishedId": "18025905374698431",
       "confirmedPublished": true
+    },
+    "comment:18336361177286173": {
+      "creationId": "17890914906614054",
+      "createdAt": "2026-09-25T19:34:51.633Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Close call on the parasite front but roundworms and tapeworms have very different shapes on film. These loops are classic ascaris.",
+        "reply_to_id": "18336361177286173"
+      }
     }
   },
   "repliedCommentIds": [
@@ -20241,6 +20250,6 @@
   },
   "spend": {
     "date": "2026-09-25",
-    "usd": 0.10058529999999999
+    "usd": 0.10708839999999999
   }
 }
