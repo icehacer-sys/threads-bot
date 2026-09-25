@@ -10624,7 +10624,9 @@
         "media_type": "TEXT",
         "text": "That pretty much sums it up.",
         "reply_to_id": "17957608596213016"
-      }
+      },
+      "publishedId": "17864906118675130",
+      "confirmedPublished": true
     }
   },
   "repliedCommentIds": [
