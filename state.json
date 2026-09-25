@@ -10822,7 +10822,9 @@
         "media_type": "TEXT",
         "text": "Check the X-ray first. Might not be what you thought.",
         "reply_to_id": "18435533530197378"
-      }
+      },
+      "publishedId": "18340406602286683",
+      "confirmedPublished": true
     }
   },
   "repliedCommentIds": [
