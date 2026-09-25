@@ -10536,7 +10536,9 @@
         "media_type": "TEXT",
         "text": "You're welcome.",
         "reply_to_id": "17946298713322334"
-      }
+      },
+      "publishedId": "18087854627261063",
+      "confirmedPublished": true
     }
   },
   "repliedCommentIds": [
