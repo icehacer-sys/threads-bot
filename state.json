@@ -245,7 +245,8 @@
     "18130376527757800": "{\"postId\":\"17872204473638675\",\"reason\":\"Unclear reference. The comment does not make a diagnosis guess, ask a question, or explain what connection it draws to the case. Without additional context it cannot be answered as banter, a guess, or a substantive remark. Requires clarification or owner review.\",\"commentText\":\"NY Jets quarterback\",\"username\":\"the_notorious_r.a.v\",\"queuedAt\":\"2026-09-23T20:03:38.319Z\"}",
     "17964233868190494": "{\"postId\":\"18158870629500613\",\"reason\":\"owner review: image/anatomy inconsistency\",\"commentText\":\"Body thought his legs need extra bones or internal armor?\",\"username\":\"goldmargie\",\"queuedAt\":\"2026-09-24T19:16:03.696Z\"}",
     "18423942733150347": "{\"postId\":\"18158870629500613\",\"reason\":\"owner review: image/anatomy inconsistency\",\"commentText\":\"Ey I did that and I've only got 3 extra fingers, I'm sure he'll be fine\",\"username\":\"daevid1337\",\"queuedAt\":\"2026-09-24T23:34:13.206Z\"}",
-    "17891482860612735": "{\"postId\":\"18158870629500613\",\"reason\":\"Owner review: image/anatomy inconsistency. Commenter flagging possible duplicated, impossible or unexplained bony anatomy on the scan that requires verification before any reply claiming normal findings or confirming the diagnosis.\",\"commentText\":\"Stop that guy RIGHT NOW!!! He's inventing NEW BONES!!!\",\"username\":\"sprigatitozz\",\"queuedAt\":\"2026-09-25T01:36:29.764Z\"}"
+    "17891482860612735": "{\"postId\":\"18158870629500613\",\"reason\":\"Owner review: image/anatomy inconsistency. Commenter flagging possible duplicated, impossible or unexplained bony anatomy on the scan that requires verification before any reply claiming normal findings or confirming the diagnosis.\",\"commentText\":\"Stop that guy RIGHT NOW!!! He's inventing NEW BONES!!!\",\"username\":\"sprigatitozz\",\"queuedAt\":\"2026-09-25T01:36:29.764Z\"}",
+    "17894564736417088": "{\"postId\":\"18108355154189422\",\"reason\":\"Owner response required: comment questions account identity and compares the profile image to a named individual.\",\"commentText\":\"Why does your caricature look like Luigi Mangione?\",\"username\":\"dcoolmom\",\"queuedAt\":\"2026-09-25T23:44:17.860Z\"}"
   },
   "concernAcknowledgments": {
     "[\"18121475662898455\",\"berit069\",\"image\"]": "18142096432588199",
@@ -11111,6 +11112,15 @@
       },
       "publishedId": "18053316746586470",
       "confirmedPublished": true
+    },
+    "comment:18341778826281547": {
+      "creationId": "17890934751614054",
+      "createdAt": "2026-09-25T23:44:25.090Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "That's a vivid memory to land on. Hope you get some peace tonight.",
+        "reply_to_id": "18341778826281547"
+      }
     }
   },
   "repliedCommentIds": [
@@ -20070,7 +20080,8 @@
     "18221457472340141",
     "18142888534585777",
     "18066026210772267",
-    "18116874211959513"
+    "18116874211959513",
+    "17959775520219034"
   ],
   "answeredPostIds": [
     "18395606890093068"
@@ -20190,11 +20201,11 @@
     "18184997560424523": 41,
     "17872204473638675": 76,
     "18158870629500613": 67,
-    "18108355154189422": 96
+    "18108355154189422": 97
   },
   "daily": {
     "date": "2026-09-25",
-    "count": 96
+    "count": 97
   },
   "pinnedResolved": {
     "DaTTCIwoAw7": "18014812820883466"
@@ -21193,7 +21204,8 @@
     "18132718282579694",
     "18108530432605091",
     "18095863940451335",
-    "18154392064515275"
+    "18154392064515275",
+    "17894564736417088"
   ],
   "skipStrikes": {
     "17895266316520842": 1,
@@ -21292,6 +21304,6 @@
   },
   "spend": {
     "date": "2026-09-25",
-    "usd": 1.0590936000000002
+    "usd": 1.0657356000000002
   }
 }
