@@ -9868,6 +9868,15 @@
       },
       "publishedId": "18124730167895728",
       "confirmedPublished": true
+    },
+    "comment:18101496998305926": {
+      "creationId": "17890788120614054",
+      "createdAt": "2026-09-25T00:35:17.205Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Leg decided to void its own warranty and install the premium package without permission.",
+        "reply_to_id": "18101496998305926"
+      }
     }
   },
   "repliedCommentIds": [
@@ -19916,6 +19925,6 @@
   },
   "spend": {
     "date": "2026-09-24",
-    "usd": 0.4125810999999999
+    "usd": 0.4158318999999999
   }
 }
