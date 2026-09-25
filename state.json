@@ -9994,6 +9994,15 @@
       },
       "publishedId": "18097258808533614",
       "confirmedPublished": true
+    },
+    "comment:18106111574189643": {
+      "creationId": "17890810713614054",
+      "createdAt": "2026-09-25T04:41:14.638Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Years of buildup tends to have that effect on film.",
+        "reply_to_id": "18106111574189643"
+      }
     }
   },
   "repliedCommentIds": [
@@ -20054,6 +20063,6 @@
   },
   "spend": {
     "date": "2026-09-24",
-    "usd": 0.46797169999999977
+    "usd": 0.4713154999999998
   }
 }
