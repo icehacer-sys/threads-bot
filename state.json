@@ -10371,7 +10371,9 @@
         "media_type": "TEXT",
         "text": "Straight call.",
         "reply_to_id": "17959922928209571"
-      }
+      },
+      "publishedId": "17954887104254312",
+      "confirmedPublished": true
     }
   },
   "repliedCommentIds": [
