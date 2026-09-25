@@ -9925,6 +9925,15 @@
       },
       "publishedId": "17919799314431478",
       "confirmedPublished": true
+    },
+    "comment:18099553625455478": {
+      "creationId": "17890795677614054",
+      "createdAt": "2026-09-25T02:08:08.638Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Absolutely wicked way to describe it.",
+        "reply_to_id": "18099553625455478"
+      }
     }
   },
   "repliedCommentIds": [
@@ -19979,6 +19988,6 @@
   },
   "spend": {
     "date": "2026-09-24",
-    "usd": 0.43583669999999985
+    "usd": 0.43887149999999986
   }
 }
