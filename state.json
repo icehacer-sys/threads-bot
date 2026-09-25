@@ -9966,7 +9966,9 @@
         "media_type": "TEXT",
         "text": "The calf really did open a wormhole and forgot to close it.",
         "reply_to_id": "18227442358331863"
-      }
+      },
+      "publishedId": "18078883832373267",
+      "confirmedPublished": true
     }
   },
   "repliedCommentIds": [
