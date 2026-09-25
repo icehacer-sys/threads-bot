@@ -10671,6 +10671,15 @@
       },
       "publishedId": "17973136121942661",
       "confirmedPublished": true
+    },
+    "comment:17960117072998780": {
+      "creationId": "17890925622614054",
+      "createdAt": "2026-09-25T21:40:39.101Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Yep. Those coiled roundworms packed tight in the bowel loops are unmistakable on the film.",
+        "reply_to_id": "17960117072998780"
+      }
     }
   },
   "repliedCommentIds": [
@@ -20807,6 +20816,6 @@
   },
   "spend": {
     "date": "2026-09-25",
-    "usd": 0.6311161
+    "usd": 0.6340771
   }
 }
