@@ -9944,7 +9944,9 @@
         "media_type": "TEXT",
         "text": "Well it definitely looked like something got installed without going through the proper channels.",
         "reply_to_id": "18095187980112806"
-      }
+      },
+      "publishedId": "18114341645470056",
+      "confirmedPublished": true
     }
   },
   "repliedCommentIds": [
