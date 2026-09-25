@@ -10932,7 +10932,9 @@
         "media_type": "TEXT",
         "text": "Going all in on this one.",
         "reply_to_id": "18122455928296523"
-      }
+      },
+      "publishedId": "18036319433652471",
+      "confirmedPublished": true
     }
   },
   "repliedCommentIds": [
