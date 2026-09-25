@@ -10319,6 +10319,15 @@
       },
       "publishedId": "18128137693696138",
       "confirmedPublished": true
+    },
+    "comment:18129820621761495": {
+      "creationId": "17890918527614054",
+      "createdAt": "2026-09-25T20:11:29.738Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Those loops would definitely hurt coming down sideways 😭",
+        "reply_to_id": "18129820621761495"
+      }
     }
   },
   "repliedCommentIds": [
@@ -20415,6 +20424,6 @@
   },
   "spend": {
     "date": "2026-09-25",
-    "usd": 0.31975469999999995
+    "usd": 0.32269369999999997
   }
 }
