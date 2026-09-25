@@ -11012,6 +11012,15 @@
       },
       "publishedId": "18011263592763867",
       "confirmedPublished": true
+    },
+    "comment:17994877169833550": {
+      "creationId": "17890932678614054",
+      "createdAt": "2026-09-25T23:09:57.819Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Not rubber bands unfortunately. Ascaris lumbricoides packed into those bowel loops causing exactly the parasitic ileus you named.",
+        "reply_to_id": "17994877169833550"
+      }
     }
   },
   "repliedCommentIds": [
@@ -19962,7 +19971,8 @@
     "18162294196490358",
     "18115070095954796",
     "18114789785088153",
-    "18129346765704619"
+    "18129346765704619",
+    "18105756970958028"
   ],
   "answeredPostIds": [
     "18395606890093068"
@@ -20082,11 +20092,11 @@
     "18184997560424523": 41,
     "17872204473638675": 76,
     "18158870629500613": 67,
-    "18108355154189422": 87
+    "18108355154189422": 88
   },
   "daily": {
     "date": "2026-09-25",
-    "count": 87
+    "count": 88
   },
   "pinnedResolved": {
     "DaTTCIwoAw7": "18014812820883466"
@@ -21182,6 +21192,6 @@
   },
   "spend": {
     "date": "2026-09-25",
-    "usd": 0.9304302
+    "usd": 0.944486
   }
 }
