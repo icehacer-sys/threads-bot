@@ -11167,6 +11167,15 @@
       },
       "publishedId": "17909372751493898",
       "confirmedPublished": true
+    },
+    "comment:17906521506333286": {
+      "creationId": "17890936824614054",
+      "createdAt": "2026-09-26T00:16:39.666Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "That's the texture match for sure but this one actually moves and the patient definitely knew about it.",
+        "reply_to_id": "17906521506333286"
+      }
     }
   },
   "repliedCommentIds": [
@@ -21356,6 +21365,6 @@
   },
   "spend": {
     "date": "2026-09-25",
-    "usd": 1.1061670000000003
+    "usd": 1.1096620000000004
   }
 }
