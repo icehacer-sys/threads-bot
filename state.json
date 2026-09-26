@@ -12153,6 +12153,15 @@
       },
       "publishedId": "17895047340418409",
       "confirmedPublished": true
+    },
+    "comment:18106112222214442": {
+      "creationId": "17891097624614054",
+      "createdAt": "2026-09-26T22:17:36.131Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "The round opacity here is inside the lung field itself and has that classic ball-in-cavity appearance with a crescent of air above it rather than the smooth dense disc a port would show sitting just under the skin.",
+        "reply_to_id": "18106112222214442"
+      }
     }
   },
   "repliedCommentIds": [
@@ -21206,7 +21215,8 @@
     "17909098191473683",
     "18208548841363818",
     "18137216647714844",
-    "18106403768251500"
+    "18106403768251500",
+    "18424767559149213"
   ],
   "answeredPostIds": [
     "18395606890093068"
@@ -21327,11 +21337,11 @@
     "17872204473638675": 76,
     "18158870629500613": 67,
     "18108355154189422": 115,
-    "18143133703596228": 74
+    "18143133703596228": 75
   },
   "daily": {
     "date": "2026-09-26",
-    "count": 75
+    "count": 76
   },
   "pinnedResolved": {
     "DaTTCIwoAw7": "18014812820883466"
@@ -22449,6 +22459,6 @@
   },
   "spend": {
     "date": "2026-09-26",
-    "usd": 0.7367035999999999
+    "usd": 0.7521559999999999
   }
 }
