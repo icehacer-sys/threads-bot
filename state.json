@@ -12062,7 +12062,9 @@
         "media_type": "TEXT",
         "text": "No biopsy result is recorded for this case so we can't say what happened next. Imaging and clinical context are often enough to diagnose aspergilloma without tissue sampling.",
         "reply_to_id": "18027651032907558"
-      }
+      },
+      "publishedId": "17956475067017569",
+      "confirmedPublished": true
     }
   },
   "repliedCommentIds": [
