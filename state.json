@@ -138,7 +138,8 @@
     "18131730508675697": "Missing patella? How does that go unnoticed??",
     "18113833652086234": "???Stage 3 Congenital True Dislocation of Knee\n-Xrays show pt having severe anterior displacement of tibia in relation to distal femur, with total loss of contact between tibia & femur, causing significant hyperextention/dislocation of knee aka  Stage 3 Genu Recurvatum. Possible Larsen Syndrome- rare genetic disorder that most often causes Cong Jt Dislocations in legs, including knees. Tx:Genetic Testing/ Serial Casting & Ortho Manipulation/Bracing/Ortho Surgery/PT",
     "18104778368575110": "Where’s the kneecap?",
-    "18099125021530315": "Patella absent"
+    "18099125021530315": "Patella absent",
+    "18119626063940185": "Is that Uranus? 🤭 Sorry. Worst/wildest guess always first.\nSome kind of tumor or cyst maybe, hard to see borders in the shot. And if not maybe an old bullet wound with scar tissue?"
   },
   "imageHeldComments": {
     "18116444902754615": "18184997560424523",
@@ -11354,6 +11355,15 @@
       },
       "publishedId": "18087086072678157",
       "confirmedPublished": true
+    },
+    "comment:18102975080004599": {
+      "creationId": "17891076798614054",
+      "createdAt": "2026-09-26T19:17:19.108Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Could be a lot of things living rent-free in there.",
+        "reply_to_id": "18102975080004599"
+      }
     }
   },
   "repliedCommentIds": [
@@ -20335,7 +20345,8 @@
     "18094515728644515",
     "18114932498008179",
     "18129552307689039",
-    "18473583712117773"
+    "18473583712117773",
+    "18124406533921597"
   ],
   "answeredPostIds": [
     "18395606890093068"
@@ -20456,11 +20467,11 @@
     "17872204473638675": 76,
     "18158870629500613": 67,
     "18108355154189422": 115,
-    "18143133703596228": 2
+    "18143133703596228": 3
   },
   "daily": {
     "date": "2026-09-26",
-    "count": 3
+    "count": 4
   },
   "pinnedResolved": {
     "DaTTCIwoAw7": "18014812820883466"
@@ -21563,6 +21574,6 @@
   },
   "spend": {
     "date": "2026-09-26",
-    "usd": 0.03150770000000001
+    "usd": 0.04011540000000001
   }
 }
