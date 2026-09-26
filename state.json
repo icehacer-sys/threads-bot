@@ -139,7 +139,8 @@
     "18113833652086234": "???Stage 3 Congenital True Dislocation of Knee\n-Xrays show pt having severe anterior displacement of tibia in relation to distal femur, with total loss of contact between tibia & femur, causing significant hyperextention/dislocation of knee aka  Stage 3 Genu Recurvatum. Possible Larsen Syndrome- rare genetic disorder that most often causes Cong Jt Dislocations in legs, including knees. Tx:Genetic Testing/ Serial Casting & Ortho Manipulation/Bracing/Ortho Surgery/PT",
     "18104778368575110": "Where’s the kneecap?",
     "18099125021530315": "Patella absent",
-    "18119626063940185": "Is that Uranus? 🤭 Sorry. Worst/wildest guess always first.\nSome kind of tumor or cyst maybe, hard to see borders in the shot. And if not maybe an old bullet wound with scar tissue?"
+    "18119626063940185": "Is that Uranus? 🤭 Sorry. Worst/wildest guess always first.\nSome kind of tumor or cyst maybe, hard to see borders in the shot. And if not maybe an old bullet wound with scar tissue?",
+    "18392404153165726": "Well what is it?"
   },
   "imageHeldComments": {
     "18116444902754615": "18184997560424523",
@@ -11465,6 +11466,15 @@
       },
       "publishedId": "17985905490064764",
       "confirmedPublished": true
+    },
+    "comment:18143312887583957": {
+      "creationId": "17891082996614054",
+      "createdAt": "2026-09-26T19:20:42.684Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "You've got the eye for spotting it. Now the real puzzle is what landed in there.",
+        "reply_to_id": "18143312887583957"
+      }
     }
   },
   "repliedCommentIds": [
@@ -20456,7 +20466,8 @@
     "18355136227174605",
     "18112872512116686",
     "17967891924214954",
-    "18092389094244313"
+    "18092389094244313",
+    "18211814236318799"
   ],
   "answeredPostIds": [
     "18395606890093068"
@@ -20577,11 +20588,11 @@
     "17872204473638675": 76,
     "18158870629500613": 67,
     "18108355154189422": 115,
-    "18143133703596228": 12
+    "18143133703596228": 13
   },
   "daily": {
     "date": "2026-09-26",
-    "count": 13
+    "count": 14
   },
   "pinnedResolved": {
     "DaTTCIwoAw7": "18014812820883466"
@@ -21684,6 +21695,6 @@
   },
   "spend": {
     "date": "2026-09-26",
-    "usd": 0.12151750000000003
+    "usd": 0.12697030000000004
   }
 }
