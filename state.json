@@ -11800,6 +11800,15 @@
       },
       "publishedId": "18351224245222900",
       "confirmedPublished": true
+    },
+    "comment:17896916799672775": {
+      "creationId": "17891091357614054",
+      "createdAt": "2026-09-26T20:48:52.527Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "That fungal ball's definitely got the density for a historical reenactment but it grew there on its own.",
+        "reply_to_id": "17896916799672775"
+      }
     }
   },
   "repliedCommentIds": [
@@ -21957,7 +21966,9 @@
     "18115239433973425",
     "17911747401494572",
     "18119626063940185",
-    "18116210122807961"
+    "18116210122807961",
+    "18127833470284604",
+    "18022101932937626"
   ],
   "skipStrikes": {
     "17895266316520842": 1,
@@ -22056,6 +22067,6 @@
   },
   "spend": {
     "date": "2026-09-26",
-    "usd": 0.34677160000000007
+    "usd": 0.3718567000000001
   }
 }
