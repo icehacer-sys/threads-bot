@@ -11888,6 +11888,15 @@
       },
       "publishedId": "18247860439311929",
       "confirmedPublished": true
+    },
+    "comment:18440200831133171": {
+      "creationId": "17891093940614054",
+      "createdAt": "2026-09-26T21:22:54.599Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "That's one way to lose a ball and a lung in one swing.",
+        "reply_to_id": "18440200831133171"
+      }
     }
   },
   "repliedCommentIds": [
@@ -22158,6 +22167,6 @@
   },
   "spend": {
     "date": "2026-09-26",
-    "usd": 0.5328148
+    "usd": 0.5360702
   }
 }
