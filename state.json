@@ -11833,6 +11833,15 @@
       },
       "publishedId": "18107875340336356",
       "confirmedPublished": true
+    },
+    "comment:18160824136495962": {
+      "creationId": "17891091534614054",
+      "createdAt": "2026-09-26T20:50:17.428Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Same organism and same ball-in-cavity appearance but the sinus version sits in a much smaller space so it tends to show up on CT rather than a chest film like this.",
+        "reply_to_id": "18160824136495962"
+      }
     }
   },
   "repliedCommentIds": [
@@ -20857,7 +20866,8 @@
     "18062478596535208",
     "18474221194117988",
     "17896916799672775",
-    "17984151332997242"
+    "17984151332997242",
+    "18093497198650133"
   ],
   "answeredPostIds": [
     "18395606890093068"
@@ -20978,11 +20988,11 @@
     "17872204473638675": 76,
     "18158870629500613": 67,
     "18108355154189422": 115,
-    "18143133703596228": 45
+    "18143133703596228": 46
   },
   "daily": {
     "date": "2026-09-26",
-    "count": 46
+    "count": 47
   },
   "pinnedResolved": {
     "DaTTCIwoAw7": "18014812820883466"
@@ -22094,6 +22104,6 @@
   },
   "spend": {
     "date": "2026-09-26",
-    "usd": 0.3882087000000001
+    "usd": 0.47666900000000006
   }
 }
