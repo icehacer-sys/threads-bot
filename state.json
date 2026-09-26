@@ -11718,7 +11718,9 @@
         "media_type": "TEXT",
         "text": "You came locked and loaded with the full playbook.",
         "reply_to_id": "18630839707022172"
-      }
+      },
+      "publishedId": "17991925221019777",
+      "confirmedPublished": true
     }
   },
   "repliedCommentIds": [
