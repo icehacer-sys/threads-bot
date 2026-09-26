@@ -11730,7 +11730,9 @@
         "media_type": "TEXT",
         "text": "Well that would definitely explain the headache.",
         "reply_to_id": "17892128973434857"
-      }
+      },
+      "publishedId": "18092114873178085",
+      "confirmedPublished": true
     }
   },
   "repliedCommentIds": [
