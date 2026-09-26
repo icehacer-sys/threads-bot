@@ -11429,7 +11429,9 @@
         "media_type": "TEXT",
         "text": "Incubation time is going to be rough on the patient.",
         "reply_to_id": "18112872512116686"
-      }
+      },
+      "publishedId": "18085000598702691",
+      "confirmedPublished": true
     }
   },
   "repliedCommentIds": [
