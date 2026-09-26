@@ -11318,7 +11318,9 @@
         "media_type": "TEXT",
         "text": "Welcome aboard. Things get weird fast.",
         "reply_to_id": "18114932498008179"
-      }
+      },
+      "publishedId": "17872994763594768",
+      "confirmedPublished": true
     }
   },
   "repliedCommentIds": [
