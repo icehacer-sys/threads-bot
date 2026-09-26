@@ -11178,6 +11178,15 @@
       },
       "publishedId": "17969124132183705",
       "confirmedPublished": true
+    },
+    "comment:18131375785758824": {
+      "creationId": "17890936851614054",
+      "createdAt": "2026-09-26T00:17:06.020Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "They really are a relentless problem. Once they've packed in like this they make everything so much harder on the patient.",
+        "reply_to_id": "18131375785758824"
+      }
     }
   },
   "repliedCommentIds": [
@@ -20143,7 +20152,8 @@
     "18627157591007903",
     "18073090127720789",
     "18175841470429017",
-    "18097421240432500"
+    "18097421240432500",
+    "17906521506333286"
   ],
   "answeredPostIds": [
     "18395606890093068"
@@ -20263,11 +20273,11 @@
     "18184997560424523": 41,
     "17872204473638675": 76,
     "18158870629500613": 67,
-    "18108355154189422": 102
+    "18108355154189422": 103
   },
   "daily": {
     "date": "2026-09-25",
-    "count": 102
+    "count": 103
   },
   "pinnedResolved": {
     "DaTTCIwoAw7": "18014812820883466"
@@ -21367,6 +21377,6 @@
   },
   "spend": {
     "date": "2026-09-25",
-    "usd": 1.1096620000000004
+    "usd": 1.1130750000000005
   }
 }
