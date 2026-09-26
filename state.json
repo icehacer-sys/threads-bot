@@ -11855,6 +11855,15 @@
       },
       "publishedId": "18013347131959545",
       "confirmedPublished": true
+    },
+    "comment:17862060129694216": {
+      "creationId": "17891093034614054",
+      "createdAt": "2026-09-26T21:06:25.323Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Landed a lot harder than one ever would on a paddle.",
+        "reply_to_id": "17862060129694216"
+      }
     }
   },
   "repliedCommentIds": [
@@ -22121,6 +22130,6 @@
   },
   "spend": {
     "date": "2026-09-26",
-    "usd": 0.4953640000000001
+    "usd": 0.49856040000000007
   }
 }
