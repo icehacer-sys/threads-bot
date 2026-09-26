@@ -11811,6 +11811,15 @@
       },
       "publishedId": "18144862702565460",
       "confirmedPublished": true
+    },
+    "comment:17984151332997242": {
+      "creationId": "17891091432614054",
+      "createdAt": "2026-09-26T20:49:15.425Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "That's got the dinner-table chaos energy but this dumpling grew from an old cavity doing a fungi colonization cosplay.",
+        "reply_to_id": "17984151332997242"
+      }
     }
   },
   "repliedCommentIds": [
@@ -20833,7 +20842,8 @@
     "17966294481192707",
     "18115629227471280",
     "18062478596535208",
-    "18474221194117988"
+    "18474221194117988",
+    "17896916799672775"
   ],
   "answeredPostIds": [
     "18395606890093068"
@@ -20954,11 +20964,11 @@
     "17872204473638675": 76,
     "18158870629500613": 67,
     "18108355154189422": 115,
-    "18143133703596228": 43
+    "18143133703596228": 44
   },
   "daily": {
     "date": "2026-09-26",
-    "count": 44
+    "count": 45
   },
   "pinnedResolved": {
     "DaTTCIwoAw7": "18014812820883466"
@@ -22069,6 +22079,6 @@
   },
   "spend": {
     "date": "2026-09-26",
-    "usd": 0.3718567000000001
+    "usd": 0.3753041000000001
   }
 }
