@@ -11340,7 +11340,9 @@
         "media_type": "TEXT",
         "text": "That's one way to get a hole in one.",
         "reply_to_id": "18473583712117773"
-      }
+      },
+      "publishedId": "17968816341177722",
+      "confirmedPublished": true
     }
   },
   "repliedCommentIds": [
