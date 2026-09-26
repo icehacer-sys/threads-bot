@@ -11321,6 +11321,15 @@
       },
       "publishedId": "17872994763594768",
       "confirmedPublished": true
+    },
+    "comment:18129552307689039": {
+      "creationId": "17891076552614054",
+      "createdAt": "2026-09-26T19:16:07.451Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Well that would certainly explain the urgency and the blood.",
+        "reply_to_id": "18129552307689039"
+      }
     }
   },
   "repliedCommentIds": [
@@ -21526,6 +21535,6 @@
   },
   "spend": {
     "date": "2026-09-26",
-    "usd": 0.014693000000000001
+    "usd": 0.020852100000000002
   }
 }
