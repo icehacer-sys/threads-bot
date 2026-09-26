@@ -11788,6 +11788,15 @@
       },
       "publishedId": "18156998374510921",
       "confirmedPublished": true
+    },
+    "comment:18474221194117988": {
+      "creationId": "17891090190614054",
+      "createdAt": "2026-09-26T20:32:47.078Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "That cavity's got plenty of drama without needing a bullet.",
+        "reply_to_id": "18474221194117988"
+      }
     }
   },
   "repliedCommentIds": [
@@ -22043,6 +22052,6 @@
   },
   "spend": {
     "date": "2026-09-26",
-    "usd": 0.3234003000000001
+    "usd": 0.3331410000000001
   }
 }
