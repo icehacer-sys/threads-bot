@@ -12020,6 +12020,15 @@
       },
       "publishedId": "18176784478449469",
       "confirmedPublished": true
+    },
+    "comment:17898419550390718": {
+      "creationId": "17891096337614054",
+      "createdAt": "2026-09-26T21:57:27.796Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "That ball-in-cavity combo is exactly what an aspergilloma looks like. The fungus colonizes an old cavity and grows into that dense spherical shape.",
+        "reply_to_id": "17898419550390718"
+      }
     }
   },
   "repliedCommentIds": [
@@ -22302,6 +22311,6 @@
   },
   "spend": {
     "date": "2026-09-26",
-    "usd": 0.6089207999999999
+    "usd": 0.6127632
   }
 }
