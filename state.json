@@ -11563,7 +11563,9 @@
         "media_type": "TEXT",
         "text": "That would definitely get someone's attention fast.",
         "reply_to_id": "18120273814941348"
-      }
+      },
+      "publishedId": "18101231615142162",
+      "confirmedPublished": true
     }
   },
   "repliedCommentIds": [
