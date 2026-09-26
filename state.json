@@ -12109,6 +12109,15 @@
       },
       "publishedId": "18143778904575805",
       "confirmedPublished": true
+    },
+    "comment:18208548841363818": {
+      "creationId": "17891097465614054",
+      "createdAt": "2026-09-26T22:16:06.681Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "TB itself doesn't typically form a ball like this but it commonly leaves behind the cavity that aspergillus later colonizes. The ball-in-cavity appearance is the fungus moving into TB's leftovers.",
+        "reply_to_id": "18208548841363818"
+      }
     }
   },
   "repliedCommentIds": [
@@ -21158,7 +21167,8 @@
     "18027651032907558",
     "17937405219376525",
     "18007036865783577",
-    "18628500343047242"
+    "18628500343047242",
+    "17909098191473683"
   ],
   "answeredPostIds": [
     "18395606890093068"
@@ -21279,11 +21289,11 @@
     "17872204473638675": 76,
     "18158870629500613": 67,
     "18108355154189422": 115,
-    "18143133703596228": 70
+    "18143133703596228": 71
   },
   "daily": {
     "date": "2026-09-26",
-    "count": 71
+    "count": 72
   },
   "pinnedResolved": {
     "DaTTCIwoAw7": "18014812820883466"
@@ -22401,6 +22411,6 @@
   },
   "spend": {
     "date": "2026-09-26",
-    "usd": 0.7106129999999999
+    "usd": 0.7261173999999999
   }
 }
