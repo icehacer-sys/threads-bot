@@ -11599,6 +11599,15 @@
       },
       "publishedId": "17960909649208367",
       "confirmedPublished": true
+    },
+    "comment:17990984811056962": {
+      "creationId": "17891084910614054",
+      "createdAt": "2026-09-26T19:40:28.855Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Now that's a pairing that knows how to settle in. Look close at what's sitting inside that cavity and see if the picture sharpens.",
+        "reply_to_id": "17990984811056962"
+      }
     }
   },
   "repliedCommentIds": [
@@ -20602,7 +20611,8 @@
     "18089509517220119",
     "18120273814941348",
     "18129141889705259",
-    "18139728916625701"
+    "18139728916625701",
+    "18123238975924742"
   ],
   "answeredPostIds": [
     "18395606890093068"
@@ -20723,11 +20733,11 @@
     "17872204473638675": 76,
     "18158870629500613": 67,
     "18108355154189422": 115,
-    "18143133703596228": 24
+    "18143133703596228": 25
   },
   "daily": {
     "date": "2026-09-26",
-    "count": 25
+    "count": 26
   },
   "pinnedResolved": {
     "DaTTCIwoAw7": "18014812820883466"
@@ -21833,6 +21843,6 @@
   },
   "spend": {
     "date": "2026-09-26",
-    "usd": 0.20277190000000006
+    "usd": 0.20607780000000006
   }
 }
