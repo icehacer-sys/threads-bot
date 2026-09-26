@@ -252,7 +252,8 @@
     "18423942733150347": "{\"postId\":\"18158870629500613\",\"reason\":\"owner review: image/anatomy inconsistency\",\"commentText\":\"Ey I did that and I've only got 3 extra fingers, I'm sure he'll be fine\",\"username\":\"daevid1337\",\"queuedAt\":\"2026-09-24T23:34:13.206Z\"}",
     "17891482860612735": "{\"postId\":\"18158870629500613\",\"reason\":\"Owner review: image/anatomy inconsistency. Commenter flagging possible duplicated, impossible or unexplained bony anatomy on the scan that requires verification before any reply claiming normal findings or confirming the diagnosis.\",\"commentText\":\"Stop that guy RIGHT NOW!!! He's inventing NEW BONES!!!\",\"username\":\"sprigatitozz\",\"queuedAt\":\"2026-09-25T01:36:29.764Z\"}",
     "17894564736417088": "{\"postId\":\"18108355154189422\",\"reason\":\"Owner response required: comment questions account identity and compares the profile image to a named individual.\",\"commentText\":\"Why does your caricature look like Luigi Mangione?\",\"username\":\"dcoolmom\",\"queuedAt\":\"2026-09-25T23:44:17.860Z\"}",
-    "18392404153165726": "{\"postId\":\"18143133703596228\",\"reason\":\"Reveal is private. This is a request for early disclosure. Owner response required on answer-sharing policy.\",\"commentText\":\"Well what is it?\",\"username\":\"pjp5982\",\"queuedAt\":\"2026-09-26T19:37:15.908Z\"}"
+    "18392404153165726": "{\"postId\":\"18143133703596228\",\"reason\":\"Reveal is private. This is a request for early disclosure. Owner response required on answer-sharing policy.\",\"commentText\":\"Well what is it?\",\"username\":\"pjp5982\",\"queuedAt\":\"2026-09-26T19:37:15.908Z\"}",
+    "18194742763385358": "{\"postId\":\"18143133703596228\",\"reason\":\"owner review: unsupported patient history, confirmation, specifics (year) or dismissal of an accepted differential | guard:forced-skip\",\"commentText\":\"19th century British novel disease aka consumption. \\n\\nTreatment is a chilly Swiss balcony, burning all the bloody rags, looking pale and interesting, and dying like a graceful swan.\\n\\n(Also, I cheated and read the answer. What do you mean “old lung cavity”? Do we have lung cavities just laying around empty? Can I use mine for storage?)\",\"username\":\"elea.nor1962\",\"queuedAt\":\"2026-09-26T21:58:44.708Z\"}"
   },
   "concernAcknowledgments": {
     "[\"18121475662898455\",\"berit069\",\"image\"]": "18142096432588199",
@@ -12053,6 +12054,15 @@
       },
       "publishedId": "17902994055588496",
       "confirmedPublished": true
+    },
+    "comment:18027651032907558": {
+      "creationId": "17891096544614054",
+      "createdAt": "2026-09-26T21:59:10.541Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "No biopsy result is recorded for this case so we can't say what happened next. Imaging and clinical context are often enough to diagnose aspergilloma without tissue sampling.",
+        "reply_to_id": "18027651032907558"
+      }
     }
   },
   "repliedCommentIds": [
@@ -21097,7 +21107,8 @@
     "17905884198579908",
     "18116894506979268",
     "17898419550390718",
-    "17959167030207258"
+    "17959167030207258",
+    "18077146778459284"
   ],
   "answeredPostIds": [
     "18395606890093068"
@@ -21218,11 +21229,11 @@
     "17872204473638675": 76,
     "18158870629500613": 67,
     "18108355154189422": 115,
-    "18143133703596228": 65
+    "18143133703596228": 66
   },
   "daily": {
     "date": "2026-09-26",
-    "count": 66
+    "count": 67
   },
   "pinnedResolved": {
     "DaTTCIwoAw7": "18014812820883466"
@@ -22238,7 +22249,9 @@
     "18099204773539452",
     "18125412175870304",
     "18630314653029374",
-    "18118005511979518"
+    "18118005511979518",
+    "18194742763385358",
+    "18443010856130238"
   ],
   "skipStrikes": {
     "17895266316520842": 1,
@@ -22337,6 +22350,6 @@
   },
   "spend": {
     "date": "2026-09-26",
-    "usd": 0.6511667999999999
+    "usd": 0.6852712
   }
 }
