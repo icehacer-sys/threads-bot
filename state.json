@@ -11288,6 +11288,15 @@
       },
       "publishedId": "18081409517374808",
       "confirmedPublished": true
+    },
+    "comment:18127476401501215": {
+      "creationId": "17890937166614054",
+      "createdAt": "2026-09-26T00:20:48.037Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Heavy infestations like this one absolutely take a toll. Whether symptoms built gradually or hit hard depends a lot on how fast the worms multiplied and how their movement affects each person's bowel differently.",
+        "reply_to_id": "18127476401501215"
+      }
     }
   },
   "repliedCommentIds": [
@@ -20263,7 +20272,8 @@
     "17908402566517946",
     "17864216811675441",
     "18109176596463942",
-    "18110351537117606"
+    "18110351537117606",
+    "18150689521559274"
   ],
   "answeredPostIds": [
     "18395606890093068"
@@ -20383,11 +20393,11 @@
     "18184997560424523": 41,
     "17872204473638675": 76,
     "18158870629500613": 67,
-    "18108355154189422": 112
+    "18108355154189422": 113
   },
   "daily": {
     "date": "2026-09-25",
-    "count": 112
+    "count": 113
   },
   "pinnedResolved": {
     "DaTTCIwoAw7": "18014812820883466"
@@ -21388,7 +21398,8 @@
     "18095863940451335",
     "18154392064515275",
     "17894564736417088",
-    "18031758668906594"
+    "18031758668906594",
+    "18135093157644963"
   ],
   "skipStrikes": {
     "17895266316520842": 1,
@@ -21487,6 +21498,6 @@
   },
   "spend": {
     "date": "2026-09-25",
-    "usd": 1.2293739000000004
+    "usd": 1.2406679000000003
   }
 }
