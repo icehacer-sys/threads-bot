@@ -11921,6 +11921,15 @@
       },
       "publishedId": "18121714730317830",
       "confirmedPublished": true
+    },
+    "comment:18153763780558810": {
+      "creationId": "17891093997614054",
+      "createdAt": "2026-09-26T21:24:05.142Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "The left lung looks clear here because the aspergilloma is sitting in a pre-existing cavity in the right upper lobe. The other side isn't involved in this case.",
+        "reply_to_id": "18153763780558810"
+      }
     }
   },
   "repliedCommentIds": [
@@ -20953,7 +20962,8 @@
     "18079974272705725",
     "18093437933156404",
     "18440200831133171",
-    "17965636440195354"
+    "17965636440195354",
+    "18104625023210864"
   ],
   "answeredPostIds": [
     "18395606890093068"
@@ -21074,11 +21084,11 @@
     "17872204473638675": 76,
     "18158870629500613": 67,
     "18108355154189422": 115,
-    "18143133703596228": 53
+    "18143133703596228": 54
   },
   "daily": {
     "date": "2026-09-26",
-    "count": 54
+    "count": 55
   },
   "pinnedResolved": {
     "DaTTCIwoAw7": "18014812820883466"
@@ -22193,6 +22203,6 @@
   },
   "spend": {
     "date": "2026-09-26",
-    "usd": 0.542803
+    "usd": 0.5568904
   }
 }
