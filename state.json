@@ -11222,6 +11222,15 @@
       },
       "publishedId": "18110303732151646",
       "confirmedPublished": true
+    },
+    "comment:18040862270832905": {
+      "creationId": "17890936980614054",
+      "createdAt": "2026-09-26T00:18:28.811Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Close but these are living worms packing themselves into the bowel rather than decay in progress. The Ascaris bolus is doing all the damage on its own.",
+        "reply_to_id": "18040862270832905"
+      }
     }
   },
   "repliedCommentIds": [
@@ -20191,7 +20200,8 @@
     "17906521506333286",
     "18131375785758824",
     "17935516134128536",
-    "18110097671183349"
+    "18110097671183349",
+    "18491529262096349"
   ],
   "answeredPostIds": [
     "18395606890093068"
@@ -20311,11 +20321,11 @@
     "18184997560424523": 41,
     "17872204473638675": 76,
     "18158870629500613": 67,
-    "18108355154189422": 106
+    "18108355154189422": 107
   },
   "daily": {
     "date": "2026-09-25",
-    "count": 106
+    "count": 107
   },
   "pinnedResolved": {
     "DaTTCIwoAw7": "18014812820883466"
@@ -21415,6 +21425,6 @@
   },
   "spend": {
     "date": "2026-09-25",
-    "usd": 1.1268400000000003
+    "usd": 1.1303520000000002
   }
 }
