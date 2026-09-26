@@ -11696,7 +11696,9 @@
         "media_type": "TEXT",
         "text": "Straight read.",
         "reply_to_id": "18619155160003222"
-      }
+      },
+      "publishedId": "18117224219062288",
+      "confirmedPublished": true
     }
   },
   "repliedCommentIds": [
