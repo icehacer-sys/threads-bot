@@ -11744,6 +11744,15 @@
       },
       "publishedId": "17942514918087306",
       "confirmedPublished": true
+    },
+    "comment:17896648947399070": {
+      "creationId": "17891088786614054",
+      "createdAt": "2026-09-26T20:15:54.142Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "TB's definitely a classic first thought with hemoptysis. Take another look at the density and shape in that cavity though.",
+        "reply_to_id": "17896648947399070"
+      }
     }
   },
   "repliedCommentIds": [
@@ -20760,7 +20769,8 @@
     "18619155160003222",
     "18055166426646474",
     "18630839707022172",
-    "17892128973434857"
+    "17892128973434857",
+    "17967929547176586"
   ],
   "answeredPostIds": [
     "18395606890093068"
@@ -20881,11 +20891,11 @@
     "17872204473638675": 76,
     "18158870629500613": 67,
     "18108355154189422": 115,
-    "18143133703596228": 37
+    "18143133703596228": 38
   },
   "daily": {
     "date": "2026-09-26",
-    "count": 38
+    "count": 39
   },
   "pinnedResolved": {
     "DaTTCIwoAw7": "18014812820883466"
@@ -21993,6 +22003,6 @@
   },
   "spend": {
     "date": "2026-09-26",
-    "usd": 0.28998430000000003
+    "usd": 0.2967751
   }
 }
