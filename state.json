@@ -12076,6 +12076,15 @@
       },
       "publishedId": "18104515736098130",
       "confirmedPublished": true
+    },
+    "comment:18007036865783577": {
+      "creationId": "17891096568614054",
+      "createdAt": "2026-09-26T21:59:47.704Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "That's one catastrophic sporting accident. This one grew from fungus colonizing an old cavity instead.",
+        "reply_to_id": "18007036865783577"
+      }
     }
   },
   "repliedCommentIds": [
@@ -21122,7 +21131,8 @@
     "17898419550390718",
     "17959167030207258",
     "18077146778459284",
-    "18027651032907558"
+    "18027651032907558",
+    "17937405219376525"
   ],
   "answeredPostIds": [
     "18395606890093068"
@@ -21243,11 +21253,11 @@
     "17872204473638675": 76,
     "18158870629500613": 67,
     "18108355154189422": 115,
-    "18143133703596228": 67
+    "18143133703596228": 68
   },
   "daily": {
     "date": "2026-09-26",
-    "count": 68
+    "count": 69
   },
   "pinnedResolved": {
     "DaTTCIwoAw7": "18014812820883466"
@@ -22364,6 +22374,6 @@
   },
   "spend": {
     "date": "2026-09-26",
-    "usd": 0.6885506
+    "usd": 0.692013
   }
 }
