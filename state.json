@@ -11866,6 +11866,15 @@
       },
       "publishedId": "17986703250070448",
       "confirmedPublished": true
+    },
+    "comment:18079974272705725": {
+      "creationId": "17891093121614054",
+      "createdAt": "2026-09-26T21:06:46.300Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "That's the optimistic take. In reality the cavity was already there from something older and aspergillus just moved in rent-free.",
+        "reply_to_id": "18079974272705725"
+      }
     }
   },
   "repliedCommentIds": [
@@ -20893,7 +20902,8 @@
     "17984151332997242",
     "18093497198650133",
     "18160824136495962",
-    "18124610851858454"
+    "18124610851858454",
+    "17862060129694216"
   ],
   "answeredPostIds": [
     "18395606890093068"
@@ -21014,11 +21024,11 @@
     "17872204473638675": 76,
     "18158870629500613": 67,
     "18108355154189422": 115,
-    "18143133703596228": 48
+    "18143133703596228": 49
   },
   "daily": {
     "date": "2026-09-26",
-    "count": 49
+    "count": 50
   },
   "pinnedResolved": {
     "DaTTCIwoAw7": "18014812820883466"
@@ -22132,6 +22142,6 @@
   },
   "spend": {
     "date": "2026-09-26",
-    "usd": 0.49856040000000007
+    "usd": 0.5018628
   }
 }
