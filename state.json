@@ -11954,6 +11954,15 @@
       },
       "publishedId": "18090348785455152",
       "confirmedPublished": true
+    },
+    "comment:17977168292918720": {
+      "creationId": "17891094957614054",
+      "createdAt": "2026-09-26T21:40:10.308Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "That must have been an incredibly hard time to navigate and hold at once. I'm glad you had those five months together.",
+        "reply_to_id": "17977168292918720"
+      }
     }
   },
   "repliedCommentIds": [
@@ -22230,6 +22239,6 @@
   },
   "spend": {
     "date": "2026-09-26",
-    "usd": 0.5638272
+    "usd": 0.5676026
   }
 }
