@@ -11722,6 +11722,15 @@
       },
       "publishedId": "17991925221019777",
       "confirmedPublished": true
+    },
+    "comment:17892128973434857": {
+      "creationId": "17891088528614054",
+      "createdAt": "2026-09-26T20:15:07.168Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Well that would definitely explain the headache.",
+        "reply_to_id": "17892128973434857"
+      }
     }
   },
   "repliedCommentIds": [
@@ -21970,6 +21979,6 @@
   },
   "spend": {
     "date": "2026-09-26",
-    "usd": 0.2773397000000001
+    "usd": 0.28666040000000004
   }
 }
