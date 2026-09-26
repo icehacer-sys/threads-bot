@@ -12230,6 +12230,15 @@
       },
       "publishedId": "18282475027289406",
       "confirmedPublished": true
+    },
+    "comment:18334242385278634": {
+      "creationId": "17891104626614054",
+      "createdAt": "2026-09-26T23:37:06.319Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Aspergillus spores are everywhere in the air and when a lung cavity already exists from something like TB or an abscess the fungus can settle in and grow into that dense ball over time.",
+        "reply_to_id": "18334242385278634"
+      }
     }
   },
   "repliedCommentIds": [
@@ -22442,7 +22451,9 @@
     "18110237018125738",
     "18115753369806188",
     "18133110961727924",
-    "18127582606805824"
+    "18127582606805824",
+    "18090675224656208",
+    "17973038382152386"
   ],
   "skipStrikes": {
     "17895266316520842": 1,
@@ -22541,6 +22552,6 @@
   },
   "spend": {
     "date": "2026-09-26",
-    "usd": 0.8711974
+    "usd": 0.934012
   }
 }
