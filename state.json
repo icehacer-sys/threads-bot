@@ -11774,7 +11774,9 @@
         "media_type": "TEXT",
         "text": "Here we go",
         "reply_to_id": "18115629227471280"
-      }
+      },
+      "publishedId": "17871496749649814",
+      "confirmedPublished": true
     }
   },
   "repliedCommentIds": [
