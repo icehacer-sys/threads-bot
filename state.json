@@ -11519,7 +11519,9 @@
         "media_type": "TEXT",
         "text": "Someone definitely didn't get the orientation memo before placement.",
         "reply_to_id": "18113663765605552"
-      }
+      },
+      "publishedId": "18622432807024755",
+      "confirmedPublished": true
     }
   },
   "repliedCommentIds": [
