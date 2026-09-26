@@ -11943,6 +11943,15 @@
       },
       "publishedId": "18149720086530665",
       "confirmedPublished": true
+    },
+    "comment:17885008278686321": {
+      "creationId": "17891094156614054",
+      "createdAt": "2026-09-26T21:24:43.447Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "That's a really important pattern you've lived through. Aspergilloma as a complication in post-TB cavities is exactly that kind of clinical reality that doesn't get the airtime it deserves in teaching.",
+        "reply_to_id": "17885008278686321"
+      }
     }
   },
   "repliedCommentIds": [
@@ -20977,7 +20986,8 @@
     "18440200831133171",
     "17965636440195354",
     "18104625023210864",
-    "18153763780558810"
+    "18153763780558810",
+    "18094748801430503"
   ],
   "answeredPostIds": [
     "18395606890093068"
@@ -21098,11 +21108,11 @@
     "17872204473638675": 76,
     "18158870629500613": 67,
     "18108355154189422": 115,
-    "18143133703596228": 55
+    "18143133703596228": 56
   },
   "daily": {
     "date": "2026-09-26",
-    "count": 56
+    "count": 57
   },
   "pinnedResolved": {
     "DaTTCIwoAw7": "18014812820883466"
@@ -22217,6 +22227,6 @@
   },
   "spend": {
     "date": "2026-09-26",
-    "usd": 0.5602408
+    "usd": 0.5638272
   }
 }
