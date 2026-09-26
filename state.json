@@ -11707,7 +11707,9 @@
         "media_type": "TEXT",
         "text": "That's got some serious vertical ambition.",
         "reply_to_id": "18055166426646474"
-      }
+      },
+      "publishedId": "17976253356134070",
+      "confirmedPublished": true
     }
   },
   "repliedCommentIds": [
