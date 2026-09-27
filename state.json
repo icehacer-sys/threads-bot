@@ -12993,6 +12993,15 @@
       },
       "publishedId": "18074800601560713",
       "confirmedPublished": true
+    },
+    "comment:18190752247401274": {
+      "creationId": "17891243787614054",
+      "createdAt": "2026-09-27T21:42:23.773Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Rattlesnake can carry it but mostly undercooked or raw snake meat from certain regions is where these larvae show up. If it was cooked through you're clean.",
+        "reply_to_id": "18190752247401274"
+      }
     }
   },
   "repliedCommentIds": [
@@ -22122,7 +22131,8 @@
     "18143818855601260",
     "18433846981177066",
     "18393620722201427",
-    "18114959611824864"
+    "18114959611824864",
+    "18637523620050716"
   ],
   "answeredPostIds": [
     "18395606890093068"
@@ -22244,11 +22254,11 @@
     "18158870629500613": 67,
     "18108355154189422": 115,
     "18143133703596228": 90,
-    "18097639436415272": 60
+    "18097639436415272": 61
   },
   "daily": {
     "date": "2026-09-27",
-    "count": 60
+    "count": 61
   },
   "pinnedResolved": {
     "DaTTCIwoAw7": "18014812820883466"
@@ -23408,6 +23418,6 @@
   },
   "spend": {
     "date": "2026-09-27",
-    "usd": 0.7144582000000004
+    "usd": 0.7179396000000003
   }
 }
