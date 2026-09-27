@@ -12960,6 +12960,15 @@
       },
       "publishedId": "18143213071580004",
       "confirmedPublished": true
+    },
+    "comment:18393620722201427": {
+      "creationId": "17891243667614054",
+      "createdAt": "2026-09-27T21:41:14.285Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Close but these are the calcified larvae from the actual meal choice rather than a psychiatric symptom.",
+        "reply_to_id": "18393620722201427"
+      }
     }
   },
   "repliedCommentIds": [
@@ -23371,6 +23380,6 @@
   },
   "spend": {
     "date": "2026-09-27",
-    "usd": 0.6937948000000003
+    "usd": 0.6972862000000003
   }
 }
