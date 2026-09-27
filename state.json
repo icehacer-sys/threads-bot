@@ -12308,6 +12308,15 @@
       },
       "publishedId": "17968243587174911",
       "confirmedPublished": true
+    },
+    "comment:18109404761617369": {
+      "creationId": "17891120739614054",
+      "createdAt": "2026-09-27T02:13:54.180Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Treatment depends on whether it's causing symptoms. Stable cases are often just monitored and significant bleeding usually points toward embolisation or surgery rather than antifungals as the primary option.",
+        "reply_to_id": "18109404761617369"
+      }
     }
   },
   "repliedCommentIds": [
@@ -22542,7 +22551,8 @@
     "17947610253301905",
     "18104607217966070",
     "18644336464028733",
-    "18489348358099498"
+    "18489348358099498",
+    "17956878999016523"
   ],
   "skipStrikes": {
     "17895266316520842": 1,
@@ -22641,6 +22651,6 @@
   },
   "spend": {
     "date": "2026-09-26",
-    "usd": 1.2019955
+    "usd": 1.2782647
   }
 }
