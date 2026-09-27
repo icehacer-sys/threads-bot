@@ -193,5 +193,14 @@
     "followersCount": 347624,
     "netChange": 27,
     "viewsThatDay": 525085
+  },
+  {
+    "intervalHours": 24.27184111111111,
+    "attribution": "Account-wide net change, not gross follows or attribution to a single case/reply",
+    "date": "2026-09-27",
+    "takenAt": "2026-09-27T21:04:33.102Z",
+    "followersCount": 347588,
+    "netChange": -36,
+    "viewsThatDay": 278432
   }
 ]
