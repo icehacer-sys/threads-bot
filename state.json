@@ -13223,7 +13223,9 @@
         "media_type": "TEXT",
         "text": "These bubbles came with a backstory and a dinner order.",
         "reply_to_id": "18117452396090064"
-      }
+      },
+      "publishedId": "18443407075120992",
+      "confirmedPublished": true
     }
   },
   "repliedCommentIds": [
