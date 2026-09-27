@@ -13103,6 +13103,15 @@
       },
       "publishedId": "17973174372131467",
       "confirmedPublished": true
+    },
+    "comment:17904364614570203": {
+      "creationId": "17891246481614054",
+      "createdAt": "2026-09-27T22:17:34.315Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Well if it hit the table properly cooked you dodged this particular gift. If it went rare or medium rare that's when the armillifer larvae wave hello.",
+        "reply_to_id": "17904364614570203"
+      }
     }
   },
   "repliedCommentIds": [
@@ -23533,6 +23542,6 @@
   },
   "spend": {
     "date": "2026-09-27",
-    "usd": 0.8512243000000002
+    "usd": 0.8586331000000001
   }
 }
