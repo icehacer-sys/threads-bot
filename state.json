@@ -12680,7 +12680,9 @@
         "media_type": "TEXT",
         "text": "That squint is fully earned here.",
         "reply_to_id": "18235234450320251"
-      }
+      },
+      "publishedId": "17999255861814216",
+      "confirmedPublished": true
     }
   },
   "repliedCommentIds": [
