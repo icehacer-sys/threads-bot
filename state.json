@@ -13278,7 +13278,9 @@
         "media_type": "TEXT",
         "text": "You're welcome.",
         "reply_to_id": "18138830158550071"
-      }
+      },
+      "publishedId": "18108728966335543",
+      "confirmedPublished": true
     }
   },
   "repliedCommentIds": [
