@@ -12772,6 +12772,15 @@
       },
       "publishedId": "18145290283567804",
       "confirmedPublished": true
+    },
+    "comment:18440241511178601": {
+      "creationId": "17891239767614054",
+      "createdAt": "2026-09-27T20:48:23.102Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Calcified larvae really do have that same \"impossible to fully remove\" energy.",
+        "reply_to_id": "18440241511178601"
+      }
     }
   },
   "repliedCommentIds": [
@@ -23161,6 +23170,6 @@
   },
   "spend": {
     "date": "2026-09-27",
-    "usd": 0.5388642
+    "usd": 0.5550702000000001
   }
 }
