@@ -12957,7 +12957,9 @@
         "media_type": "TEXT",
         "text": "One-star upgrade. Comes pre-installed and non-refundable.",
         "reply_to_id": "18433846981177066"
-      }
+      },
+      "publishedId": "18143213071580004",
+      "confirmedPublished": true
     }
   },
   "repliedCommentIds": [
