@@ -12580,7 +12580,9 @@
         "media_type": "TEXT",
         "text": "the saltiest case we've had in a while",
         "reply_to_id": "18114440645471220"
-      }
+      },
+      "publishedId": "17896753935403094",
+      "confirmedPublished": true
     }
   },
   "repliedCommentIds": [
