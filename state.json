@@ -12440,6 +12440,15 @@
       },
       "publishedId": "18029048549905271",
       "confirmedPublished": true
+    },
+    "comment:18141238687593491": {
+      "creationId": "17891233167614054",
+      "createdAt": "2026-09-27T19:34:23.344Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "These are actually calcified larvae from a tongue worm infection so the stomach itself was the innocent bystander here.",
+        "reply_to_id": "18141238687593491"
+      }
     }
   },
   "repliedCommentIds": [
@@ -22787,6 +22796,6 @@
   },
   "spend": {
     "date": "2026-09-27",
-    "usd": 0.0487066
+    "usd": 0.1341146
   }
 }
