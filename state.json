@@ -12503,7 +12503,9 @@
         "media_type": "TEXT",
         "text": "Well this took a turn nobody saw coming.",
         "reply_to_id": "18118576319282563"
-      }
+      },
+      "publishedId": "17990103132049418",
+      "confirmedPublished": true
     }
   },
   "repliedCommentIds": [
