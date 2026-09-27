@@ -12484,6 +12484,15 @@
       },
       "publishedId": "18113679008326599",
       "confirmedPublished": true
+    },
+    "comment:18025710299698842": {
+      "creationId": "17891233215614054",
+      "createdAt": "2026-09-27T19:35:52.768Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Popcorn lung would make sense visually but these are actually calcified tongue worm larvae from undercooked snake meat.",
+        "reply_to_id": "18025710299698842"
+      }
     }
   },
   "repliedCommentIds": [
@@ -21567,7 +21576,8 @@
     "18638770732059950",
     "18141238687593491",
     "18143390587589456",
-    "17981896313901499"
+    "17981896313901499",
+    "18025323455872217"
   ],
   "answeredPostIds": [
     "18395606890093068"
@@ -21689,11 +21699,11 @@
     "18158870629500613": 67,
     "18108355154189422": 115,
     "18143133703596228": 90,
-    "18097639436415272": 14
+    "18097639436415272": 15
   },
   "daily": {
     "date": "2026-09-27",
-    "count": 14
+    "count": 15
   },
   "pinnedResolved": {
     "DaTTCIwoAw7": "18014812820883466"
@@ -22834,6 +22844,6 @@
   },
   "spend": {
     "date": "2026-09-27",
-    "usd": 0.16339800000000002
+    "usd": 0.16647340000000002
   }
 }
