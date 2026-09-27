@@ -254,7 +254,8 @@
     "17894564736417088": "{\"postId\":\"18108355154189422\",\"reason\":\"Owner response required: comment questions account identity and compares the profile image to a named individual.\",\"commentText\":\"Why does your caricature look like Luigi Mangione?\",\"username\":\"dcoolmom\",\"queuedAt\":\"2026-09-25T23:44:17.860Z\"}",
     "18392404153165726": "{\"postId\":\"18143133703596228\",\"reason\":\"Reveal is private. This is a request for early disclosure. Owner response required on answer-sharing policy.\",\"commentText\":\"Well what is it?\",\"username\":\"pjp5982\",\"queuedAt\":\"2026-09-26T19:37:15.908Z\"}",
     "18194742763385358": "{\"postId\":\"18143133703596228\",\"reason\":\"owner review: unsupported patient history, confirmation, specifics (year) or dismissal of an accepted differential | guard:forced-skip\",\"commentText\":\"19th century British novel disease aka consumption. \\n\\nTreatment is a chilly Swiss balcony, burning all the bloody rags, looking pale and interesting, and dying like a graceful swan.\\n\\n(Also, I cheated and read the answer. What do you mean “old lung cavity”? Do we have lung cavities just laying around empty? Can I use mine for storage?)\",\"username\":\"elea.nor1962\",\"queuedAt\":\"2026-09-26T21:58:44.708Z\"}",
-    "18104607217966070": "{\"postId\":\"18143133703596228\",\"reason\":\"owner review: unsupported patient history, confirmation, specifics (year) or dismissal of an accepted differential | guard:forced-skip\",\"commentText\":\"“An old lung cavity” sounds like it’s been out of use and left in a closet somewhere\",\"username\":\"instaunagi\",\"queuedAt\":\"2026-09-27T01:42:59.241Z\"}"
+    "18104607217966070": "{\"postId\":\"18143133703596228\",\"reason\":\"owner review: unsupported patient history, confirmation, specifics (year) or dismissal of an accepted differential | guard:forced-skip\",\"commentText\":\"“An old lung cavity” sounds like it’s been out of use and left in a closet somewhere\",\"username\":\"instaunagi\",\"queuedAt\":\"2026-09-27T01:42:59.241Z\"}",
+    "17918458596243686": "{\"postId\":\"18097639436415272\",\"reason\":\"owner review: unsupported patient history, confirmation, specifics (day) or dismissal of an accepted differential | guard:forced-skip\",\"commentText\":\"My MIL used to burn every meal after growing up in the south pre-pinworm discovery (1920’s). You couldn’t tell what the food was.  Maybe I shouldn’t have laughed at this practice.\",\"username\":\"stripey777\",\"queuedAt\":\"2026-09-27T19:55:17.256Z\"}"
   },
   "concernAcknowledgments": {
     "[\"18121475662898455\",\"berit069\",\"image\"]": "18142096432588199",
@@ -12594,6 +12595,15 @@
       },
       "publishedId": "18213640054359698",
       "confirmedPublished": true
+    },
+    "comment:18102424646568450": {
+      "creationId": "17891236005614054",
+      "createdAt": "2026-09-27T19:55:23.188Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Turns out it had quite the journey after that twirl.",
+        "reply_to_id": "18102424646568450"
+      }
     }
   },
   "repliedCommentIds": [
@@ -21687,7 +21697,8 @@
     "18077562314395575",
     "18018996128930311",
     "18115602608017221",
-    "18114440645471220"
+    "18114440645471220",
+    "17993716172840180"
   ],
   "answeredPostIds": [
     "18395606890093068"
@@ -21809,11 +21820,11 @@
     "18158870629500613": 67,
     "18108355154189422": 115,
     "18143133703596228": 90,
-    "18097639436415272": 24
+    "18097639436415272": 25
   },
   "daily": {
     "date": "2026-09-27",
-    "count": 24
+    "count": 25
   },
   "pinnedResolved": {
     "DaTTCIwoAw7": "18014812820883466"
@@ -22857,7 +22868,11 @@
     "18489348358099498",
     "17956878999016523",
     "18108581966181378",
-    "18094528973440137"
+    "18094528973440137",
+    "18096502985196208",
+    "18131868790665913",
+    "18137786419722544",
+    "17918458596243686"
   ],
   "skipStrikes": {
     "17895266316520842": 1,
@@ -22956,6 +22971,6 @@
   },
   "spend": {
     "date": "2026-09-27",
-    "usd": 0.312875
+    "usd": 0.3423436
   }
 }
