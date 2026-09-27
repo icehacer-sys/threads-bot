@@ -12319,6 +12319,15 @@
       },
       "publishedId": "18499169470100367",
       "confirmedPublished": true
+    },
+    "comment:17908991526306715": {
+      "creationId": "17891231937614054",
+      "createdAt": "2026-09-27T19:15:18.922Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Straight to it.",
+        "reply_to_id": "17908991526306715"
+      }
     }
   },
   "repliedCommentIds": [
@@ -21512,8 +21521,8 @@
     "18143133703596228": 90
   },
   "daily": {
-    "date": "2026-09-26",
-    "count": 91
+    "date": "2026-09-27",
+    "count": 0
   },
   "pinnedResolved": {
     "DaTTCIwoAw7": "18014812820883466"
@@ -22638,7 +22647,7 @@
     "17865730374636613": 1
   },
   "gifDaily": {
-    "date": "2026-09-26",
+    "date": "2026-09-27",
     "count": 0
   },
   "recentGifIds": [
@@ -22649,11 +22658,11 @@
   ],
   "promoPostCounts": {},
   "promoDaily": {
-    "date": "2026-09-26",
+    "date": "2026-09-27",
     "count": 0
   },
   "spend": {
-    "date": "2026-09-26",
-    "usd": 1.2782647
+    "date": "2026-09-27",
+    "usd": 0.016068
   }
 }
