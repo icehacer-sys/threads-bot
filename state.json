@@ -12938,6 +12938,15 @@
       },
       "publishedId": "17986897518062024",
       "confirmedPublished": true
+    },
+    "comment:18143818855601260": {
+      "creationId": "17891242869614054",
+      "createdAt": "2026-09-27T21:25:09.464Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "There it is. The difference between \"I've read about this\" and \"I actually know what I'm talking about.\" Proper restaurant makes it way more plausible than the street-food version people imagine.",
+        "reply_to_id": "18143818855601260"
+      }
     }
   },
   "repliedCommentIds": [
@@ -22062,7 +22071,8 @@
     "18111673070168406",
     "17909883012514888",
     "18177962560445859",
-    "18115911547808913"
+    "18115911547808913",
+    "17972022165157891"
   ],
   "answeredPostIds": [
     "18395606890093068"
@@ -22184,11 +22194,11 @@
     "18158870629500613": 67,
     "18108355154189422": 115,
     "18143133703596228": 90,
-    "18097639436415272": 55
+    "18097639436415272": 56
   },
   "daily": {
     "date": "2026-09-27",
-    "count": 55
+    "count": 56
   },
   "pinnedResolved": {
     "DaTTCIwoAw7": "18014812820883466"
@@ -23345,6 +23355,6 @@
   },
   "spend": {
     "date": "2026-09-27",
-    "usd": 0.6682766000000002
+    "usd": 0.6718940000000002
   }
 }
