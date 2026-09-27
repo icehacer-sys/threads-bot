@@ -12426,7 +12426,9 @@
         "media_type": "TEXT",
         "text": "That's one victory lap that didn't go as planned.",
         "reply_to_id": "17926101198422649"
-      }
+      },
+      "publishedId": "18133982743730106",
+      "confirmedPublished": true
     }
   },
   "repliedCommentIds": [
