@@ -13125,6 +13125,15 @@
       },
       "publishedId": "18107528774060921",
       "confirmedPublished": true
+    },
+    "comment:18384080119235136": {
+      "creationId": "17891246511614054",
+      "createdAt": "2026-09-27T22:18:30.439Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "The immune system walled them off and killed them and the body then deposited calcium around the dead tissue which is the same thing it does with many dead parasites trapped in soft tissue.",
+        "reply_to_id": "18384080119235136"
+      }
     }
   },
   "repliedCommentIds": [
@@ -22266,7 +22275,8 @@
     "18045053909821899",
     "17960080944238330",
     "18093443144390952",
-    "17904364614570203"
+    "17904364614570203",
+    "18411365257083384"
   ],
   "answeredPostIds": [
     "18395606890093068"
@@ -22388,11 +22398,11 @@
     "18158870629500613": 67,
     "18108355154189422": 115,
     "18143133703596228": 90,
-    "18097639436415272": 72
+    "18097639436415272": 73
   },
   "daily": {
     "date": "2026-09-27",
-    "count": 72
+    "count": 73
   },
   "pinnedResolved": {
     "DaTTCIwoAw7": "18014812820883466"
@@ -23556,6 +23566,6 @@
   },
   "spend": {
     "date": "2026-09-27",
-    "usd": 0.8618925000000002
+    "usd": 0.8917351000000002
   }
 }
