@@ -13081,6 +13081,15 @@
       },
       "publishedId": "18144511381589688",
       "confirmedPublished": true
+    },
+    "comment:17960080944238330": {
+      "creationId": "17891244681614054",
+      "createdAt": "2026-09-27T22:01:28.699Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Armillifer is one of those parasites that feels like it should have made the syllabus but somehow sneaks past most training. The uniform crescents really do give it away once you've seen it though.",
+        "reply_to_id": "17960080944238330"
+      }
     }
   },
   "repliedCommentIds": [
@@ -22218,7 +22227,8 @@
     "18109747823269922",
     "18105656002959316",
     "18032100779672498",
-    "18101752643021063"
+    "18101752643021063",
+    "18045053909821899"
   ],
   "answeredPostIds": [
     "18395606890093068"
@@ -22340,11 +22350,11 @@
     "18158870629500613": 67,
     "18108355154189422": 115,
     "18143133703596228": 90,
-    "18097639436415272": 68
+    "18097639436415272": 69
   },
   "daily": {
     "date": "2026-09-27",
-    "count": 68
+    "count": 69
   },
   "pinnedResolved": {
     "DaTTCIwoAw7": "18014812820883466"
@@ -23508,6 +23518,6 @@
   },
   "spend": {
     "date": "2026-09-27",
-    "usd": 0.8403321000000001
+    "usd": 0.8440315000000002
   }
 }
