@@ -12536,7 +12536,9 @@
         "media_type": "TEXT",
         "text": "That's a pretty fair summary of the entire case.",
         "reply_to_id": "17939445312365174"
-      }
+      },
+      "publishedId": "18140837752607747",
+      "confirmedPublished": true
     }
   },
   "repliedCommentIds": [
