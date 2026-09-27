@@ -12714,7 +12714,9 @@
         "media_type": "TEXT",
         "text": "That's a lot to see pop up on a screen.",
         "reply_to_id": "17869428513648816"
-      }
+      },
+      "publishedId": "18355806853247815",
+      "confirmedPublished": true
     }
   },
   "repliedCommentIds": [
