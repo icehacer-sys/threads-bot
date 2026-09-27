@@ -12706,6 +12706,15 @@
       },
       "publishedId": "18169945072404765",
       "confirmedPublished": true
+    },
+    "comment:17869428513648816": {
+      "creationId": "17891238495614054",
+      "createdAt": "2026-09-27T20:30:17.427Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "That's a lot to see pop up on a screen.",
+        "reply_to_id": "17869428513648816"
+      }
     }
   },
   "repliedCommentIds": [
@@ -23086,6 +23095,6 @@
   },
   "spend": {
     "date": "2026-09-27",
-    "usd": 0.4813450000000001
+    "usd": 0.4847644000000001
   }
 }
