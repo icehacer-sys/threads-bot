@@ -12703,7 +12703,9 @@
         "media_type": "TEXT",
         "text": "some cases just do that to you.",
         "reply_to_id": "17956518240220313"
-      }
+      },
+      "publishedId": "18169945072404765",
+      "confirmedPublished": true
     }
   },
   "repliedCommentIds": [
