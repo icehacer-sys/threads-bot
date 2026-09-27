@@ -12628,6 +12628,15 @@
       },
       "publishedId": "17876455821566351",
       "confirmedPublished": true
+    },
+    "comment:18096478745104612": {
+      "creationId": "17891237463614054",
+      "createdAt": "2026-09-27T20:11:36.275Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Nobody told the tongue worm larvae that.",
+        "reply_to_id": "18096478745104612"
+      }
     }
   },
   "repliedCommentIds": [
@@ -22999,6 +23008,6 @@
   },
   "spend": {
     "date": "2026-09-27",
-    "usd": 0.35562220000000005
+    "usd": 0.35892560000000007
   }
 }
