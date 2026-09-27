@@ -13237,6 +13237,15 @@
       },
       "publishedId": "18131143861743294",
       "confirmedPublished": true
+    },
+    "comment:18076429073723990": {
+      "creationId": "17891251851614054",
+      "createdAt": "2026-09-27T23:39:45.258Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "You were dead on. Armillifer larvae that calcified in the liver and stayed put.",
+        "reply_to_id": "18076429073723990"
+      }
     }
   },
   "repliedCommentIds": [
@@ -23586,7 +23595,8 @@
     "18193444456399228",
     "18128254300823998",
     "18116178202785870",
-    "18182076340418194"
+    "18182076340418194",
+    "18071343083753598"
   ],
   "skipStrikes": {
     "17895266316520842": 1,
@@ -23685,6 +23695,6 @@
   },
   "spend": {
     "date": "2026-09-27",
-    "usd": 0.9751719000000003
+    "usd": 0.9859031000000003
   }
 }
