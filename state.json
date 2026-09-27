@@ -257,7 +257,8 @@
     "18104607217966070": "{\"postId\":\"18143133703596228\",\"reason\":\"owner review: unsupported patient history, confirmation, specifics (year) or dismissal of an accepted differential | guard:forced-skip\",\"commentText\":\"“An old lung cavity” sounds like it’s been out of use and left in a closet somewhere\",\"username\":\"instaunagi\",\"queuedAt\":\"2026-09-27T01:42:59.241Z\"}",
     "17918458596243686": "{\"postId\":\"18097639436415272\",\"reason\":\"owner review: unsupported patient history, confirmation, specifics (day) or dismissal of an accepted differential | guard:forced-skip\",\"commentText\":\"My MIL used to burn every meal after growing up in the south pre-pinworm discovery (1920’s). You couldn’t tell what the food was.  Maybe I shouldn’t have laughed at this practice.\",\"username\":\"stripey777\",\"queuedAt\":\"2026-09-27T19:55:17.256Z\"}",
     "18028747646857676": "{\"postId\":\"18097639436415272\",\"reason\":\"owner review: unsupported patient history, confirmation, specifics (none) or dismissal of an accepted differential | guard:forced-skip\",\"commentText\":\"Baby seahorse bowels. Next case.\",\"username\":\"screamingteabag\",\"queuedAt\":\"2026-09-27T20:13:59.970Z\"}",
-    "17894456031610842": "{\"postId\":\"18097639436415272\",\"reason\":\"owner review: unsupported patient history, confirmation, specifics (week) or dismissal of an accepted differential | guard:forced-skip\",\"commentText\":\"Stress eating?! I may never eat again!\",\"username\":\"elea.nor1962\",\"queuedAt\":\"2026-09-27T20:50:32.751Z\"}"
+    "17894456031610842": "{\"postId\":\"18097639436415272\",\"reason\":\"owner review: unsupported patient history, confirmation, specifics (week) or dismissal of an accepted differential | guard:forced-skip\",\"commentText\":\"Stress eating?! I may never eat again!\",\"username\":\"elea.nor1962\",\"queuedAt\":\"2026-09-27T20:50:32.751Z\"}",
+    "18198832360376765": "{\"postId\":\"18097639436415272\",\"reason\":\"owner response: image provenance question\",\"commentText\":\"Healthcare worker here in the field of Radiation Oncology.  This is 100% not a real X-ray.  This is an AI generated image\",\"username\":\"amar2321\",\"queuedAt\":\"2026-09-27T22:18:42.473Z\"}"
   },
   "concernAcknowledgments": {
     "[\"18121475662898455\",\"berit069\",\"image\"]": "18142096432588199",
@@ -13136,6 +13137,15 @@
       },
       "publishedId": "17964689334194660",
       "confirmedPublished": true
+    },
+    "comment:18136300393643111": {
+      "creationId": "17891246517614054",
+      "createdAt": "2026-09-27T22:18:50.136Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Yep. Specifically the calcified larvae of a tongue worm that set up shop in the liver.",
+        "reply_to_id": "18136300393643111"
+      }
     }
   },
   "repliedCommentIds": [
@@ -22278,7 +22288,8 @@
     "17960080944238330",
     "18093443144390952",
     "17904364614570203",
-    "18411365257083384"
+    "18411365257083384",
+    "18384080119235136"
   ],
   "answeredPostIds": [
     "18395606890093068"
@@ -22400,11 +22411,11 @@
     "18158870629500613": 67,
     "18108355154189422": 115,
     "18143133703596228": 90,
-    "18097639436415272": 73
+    "18097639436415272": 74
   },
   "daily": {
     "date": "2026-09-27",
-    "count": 73
+    "count": 74
   },
   "pinnedResolved": {
     "DaTTCIwoAw7": "18014812820883466"
@@ -23469,7 +23480,8 @@
     "18138098311626885",
     "18132761923661583",
     "18265724572306210",
-    "18074234873459415"
+    "18074234873459415",
+    "18198832360376765"
   ],
   "skipStrikes": {
     "17895266316520842": 1,
@@ -23568,6 +23580,6 @@
   },
   "spend": {
     "date": "2026-09-27",
-    "usd": 0.8917351000000002
+    "usd": 0.8951495000000003
   }
 }
