@@ -12828,6 +12828,15 @@
       },
       "publishedId": "17903487966579164",
       "confirmedPublished": true
+    },
+    "comment:17912442306525633": {
+      "creationId": "17891241264614054",
+      "createdAt": "2026-09-27T21:05:59.921Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "The radiologist probably wanted a ginger ale after this one loaded.",
+        "reply_to_id": "17912442306525633"
+      }
     }
   },
   "repliedCommentIds": [
@@ -23224,6 +23233,6 @@
   },
   "spend": {
     "date": "2026-09-27",
-    "usd": 0.5973794000000001
+    "usd": 0.6005548000000002
   }
 }
