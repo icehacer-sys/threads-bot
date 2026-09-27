@@ -12872,6 +12872,15 @@
       },
       "publishedId": "18121383631941307",
       "confirmedPublished": true
+    },
+    "comment:18104779940254100": {
+      "creationId": "17891241336614054",
+      "createdAt": "2026-09-27T21:07:51.319Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "The case facts don't note bowel dilation as a finding so that detail isn't something I can confirm from what's recorded here.",
+        "reply_to_id": "18104779940254100"
+      }
     }
   },
   "repliedCommentIds": [
@@ -21990,7 +21999,8 @@
     "18126104831490613",
     "17912442306525633",
     "17946172053341137",
-    "18131106682773129"
+    "18131106682773129",
+    "18100083350455934"
   ],
   "answeredPostIds": [
     "18395606890093068"
@@ -22112,11 +22122,11 @@
     "18158870629500613": 67,
     "18108355154189422": 115,
     "18143133703596228": 90,
-    "18097639436415272": 49
+    "18097639436415272": 50
   },
   "daily": {
     "date": "2026-09-27",
-    "count": 49
+    "count": 50
   },
   "pinnedResolved": {
     "DaTTCIwoAw7": "18014812820883466"
@@ -23273,6 +23283,6 @@
   },
   "spend": {
     "date": "2026-09-27",
-    "usd": 0.6281770000000002
+    "usd": 0.6448698000000002
   }
 }
