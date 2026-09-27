@@ -12285,6 +12285,15 @@
       },
       "publishedId": "18005328972004442",
       "confirmedPublished": true
+    },
+    "comment:18171105598456681": {
+      "creationId": "17891114499614054",
+      "createdAt": "2026-09-27T01:11:48.912Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Self-colonizing and utterly unwelcome.",
+        "reply_to_id": "18171105598456681"
+      }
     }
   },
   "repliedCommentIds": [
@@ -22611,6 +22620,6 @@
   },
   "spend": {
     "date": "2026-09-26",
-    "usd": 1.1343546999999996
+    "usd": 1.1380300999999997
   }
 }
