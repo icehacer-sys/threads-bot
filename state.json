@@ -13600,6 +13600,15 @@
       },
       "publishedId": "18111616649034697",
       "confirmedPublished": true
+    },
+    "comment:18154221442519543": {
+      "creationId": "17891384145614054",
+      "createdAt": "2026-09-28T19:52:43.978Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "That tech's gonna need more than a coffee break after this one. The X-ray definitely backed up your belly's complaint.",
+        "reply_to_id": "18154221442519543"
+      }
     }
   },
   "repliedCommentIds": [
@@ -22784,7 +22793,8 @@
     "18166214752486229",
     "18113614352110156",
     "17970886488157408",
-    "18098288414643172"
+    "18098288414643172",
+    "18106356764248133"
   ],
   "answeredPostIds": [
     "18395606890093068"
@@ -22907,11 +22917,11 @@
     "18108355154189422": 115,
     "18143133703596228": 90,
     "18097639436415272": 99,
-    "18133515574657616": 16
+    "18133515574657616": 17
   },
   "daily": {
     "date": "2026-09-28",
-    "count": 16
+    "count": 17
   },
   "pinnedResolved": {
     "DaTTCIwoAw7": "18014812820883466"
@@ -24089,6 +24099,6 @@
   },
   "spend": {
     "date": "2026-09-28",
-    "usd": 0.08037720000000001
+    "usd": 0.08660640000000001
   }
 }
