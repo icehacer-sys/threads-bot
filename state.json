@@ -13545,6 +13545,15 @@
       },
       "publishedId": "18412950889087691",
       "confirmedPublished": true
+    },
+    "comment:18166214752486229": {
+      "creationId": "17891383983614054",
+      "createdAt": "2026-09-28T19:50:42.072Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "That'd be one way to get fabric softener to work from the inside out.",
+        "reply_to_id": "18166214752486229"
+      }
     }
   },
   "repliedCommentIds": [
@@ -24030,6 +24039,6 @@
   },
   "spend": {
     "date": "2026-09-28",
-    "usd": 0.06195760000000001
+    "usd": 0.06479620000000001
   }
 }
