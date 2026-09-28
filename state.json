@@ -13634,6 +13634,15 @@
       },
       "publishedId": "17912940927281957",
       "confirmedPublished": true
+    },
+    "comment:17988276030113489": {
+      "creationId": "17891385405614054",
+      "createdAt": "2026-09-28T20:09:12.406Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Ovarian tumors definitely do make an appearance in these kinds of cases. Worth keeping that in your mind as you look.",
+        "reply_to_id": "17988276030113489"
+      }
     }
   },
   "repliedCommentIds": [
@@ -22821,7 +22830,8 @@
     "18098288414643172",
     "18106356764248133",
     "18154221442519543",
-    "18099460295564310"
+    "18099460295564310",
+    "18123587212683904"
   ],
   "answeredPostIds": [
     "18395606890093068"
@@ -22944,11 +22954,11 @@
     "18108355154189422": 115,
     "18143133703596228": 90,
     "18097639436415272": 99,
-    "18133515574657616": 19
+    "18133515574657616": 20
   },
   "daily": {
     "date": "2026-09-28",
-    "count": 19
+    "count": 20
   },
   "pinnedResolved": {
     "DaTTCIwoAw7": "18014812820883466"
@@ -24126,6 +24136,6 @@
   },
   "spend": {
     "date": "2026-09-28",
-    "usd": 0.0987718
+    "usd": 0.10500400000000001
   }
 }
