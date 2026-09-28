@@ -14005,7 +14005,9 @@
         "media_type": "TEXT",
         "text": "This one's earned the right to complain.",
         "reply_to_id": "18110978974873826"
-      }
+      },
+      "publishedId": "18085983734303921",
+      "confirmedPublished": true
     }
   },
   "repliedCommentIds": [
