@@ -13454,7 +13454,9 @@
         "media_type": "TEXT",
         "text": "That honeycomb does look like it came from another planet.",
         "reply_to_id": "17971652343150697"
-      }
+      },
+      "publishedId": "17947151328336927",
+      "confirmedPublished": true
     }
   },
   "repliedCommentIds": [
