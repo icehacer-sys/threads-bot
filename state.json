@@ -13509,7 +13509,9 @@
         "media_type": "TEXT",
         "text": "That belly's certainly making a statement.",
         "reply_to_id": "18148670848550116"
-      }
+      },
+      "publishedId": "18126939235869080",
+      "confirmedPublished": true
     }
   },
   "repliedCommentIds": [
