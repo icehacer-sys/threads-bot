@@ -13421,7 +13421,9 @@
         "media_type": "TEXT",
         "text": "The belly's definitely got something to say about gas but let's see what the X-ray is really showing here.",
         "reply_to_id": "17968126926191242"
-      }
+      },
+      "publishedId": "17910412119471938",
+      "confirmedPublished": true
     }
   },
   "repliedCommentIds": [
