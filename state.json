@@ -13898,6 +13898,15 @@
       },
       "publishedId": "18130982284783194",
       "confirmedPublished": true
+    },
+    "comment:18095239892544352": {
+      "creationId": "17891390952614054",
+      "createdAt": "2026-09-28T21:19:56.094Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Weeks of that belly getting worse and then seeing this on the screen. That's tough.",
+        "reply_to_id": "18095239892544352"
+      }
     }
   },
   "repliedCommentIds": [
@@ -24422,6 +24431,6 @@
   },
   "spend": {
     "date": "2026-09-28",
-    "usd": 0.36966299999999996
+    "usd": 0.37341339999999995
   }
 }
