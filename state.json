@@ -13675,7 +13675,9 @@
         "media_type": "TEXT",
         "text": "That's what the belly said too.",
         "reply_to_id": "18633907024016873"
-      }
+      },
+      "publishedId": "18113278271622807",
+      "confirmedPublished": true
     }
   },
   "repliedCommentIds": [
