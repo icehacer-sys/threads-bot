@@ -14063,6 +14063,15 @@
       },
       "publishedId": "18026148995881131",
       "confirmedPublished": true
+    },
+    "comment:18187633129406303": {
+      "creationId": "17891401956614054",
+      "createdAt": "2026-09-28T23:13:33.556Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "That's one you don't want to be right about.",
+        "reply_to_id": "18187633129406303"
+      }
     }
   },
   "repliedCommentIds": [
@@ -24606,6 +24615,6 @@
   },
   "spend": {
     "date": "2026-09-28",
-    "usd": 0.5380388
+    "usd": 0.5413932
   }
 }
