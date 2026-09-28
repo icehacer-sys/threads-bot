@@ -13468,6 +13468,15 @@
       },
       "publishedId": "18133259257586341",
       "confirmedPublished": true
+    },
+    "comment:18021333434707104": {
+      "creationId": "17891382555614054",
+      "createdAt": "2026-09-28T19:32:56.043Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Now that's a fancy wardrobe choice for an abdomen.",
+        "reply_to_id": "18021333434707104"
+      }
     }
   },
   "repliedCommentIds": [
@@ -23945,6 +23954,6 @@
   },
   "spend": {
     "date": "2026-09-28",
-    "usd": 0.0332536
+    "usd": 0.0357942
   }
 }
