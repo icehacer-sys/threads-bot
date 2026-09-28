@@ -13799,6 +13799,15 @@
       },
       "publishedId": "18477988153117896",
       "confirmedPublished": true
+    },
+    "comment:18380471569235759": {
+      "creationId": "17891388843614054",
+      "createdAt": "2026-09-28T20:45:57.093Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Three months is brutal. People often don't realize how serious it is until the belly reaches that extreme size or the pain becomes unbearable. By then the impaction's had weeks to harden and seal everything off.",
+        "reply_to_id": "18380471569235759"
+      }
     }
   },
   "repliedCommentIds": [
@@ -23001,7 +23010,8 @@
     "18178802053428354",
     "18140272810578324",
     "18132319237671800",
-    "18117045826853833"
+    "18117045826853833",
+    "17958539700231920"
   ],
   "answeredPostIds": [
     "18395606890093068"
@@ -23124,11 +23134,11 @@
     "18108355154189422": 115,
     "18143133703596228": 90,
     "18097639436415272": 99,
-    "18133515574657616": 34
+    "18133515574657616": 35
   },
   "daily": {
     "date": "2026-09-28",
-    "count": 34
+    "count": 35
   },
   "pinnedResolved": {
     "DaTTCIwoAw7": "18014812820883466"
@@ -24311,6 +24321,6 @@
   },
   "spend": {
     "date": "2026-09-28",
-    "usd": 0.29802360000000006
+    "usd": 0.30213900000000005
   }
 }
