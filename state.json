@@ -13413,6 +13413,15 @@
       },
       "publishedId": "18114657343824790",
       "confirmedPublished": true
+    },
+    "comment:17968126926191242": {
+      "creationId": "17891381253614054",
+      "createdAt": "2026-09-28T19:16:04.732Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "The belly's definitely got something to say about gas but let's see what the X-ray is really showing here.",
+        "reply_to_id": "17968126926191242"
+      }
     }
   },
   "repliedCommentIds": [
@@ -22706,8 +22715,8 @@
     "18097639436415272": 99
   },
   "daily": {
-    "date": "2026-09-27",
-    "count": 99
+    "date": "2026-09-28",
+    "count": 0
   },
   "pinnedResolved": {
     "DaTTCIwoAw7": "18014812820883466"
@@ -23867,7 +23876,7 @@
     "17865730374636613": 1
   },
   "gifDaily": {
-    "date": "2026-09-27",
+    "date": "2026-09-28",
     "count": 0
   },
   "recentGifIds": [
@@ -23878,11 +23887,11 @@
   ],
   "promoPostCounts": {},
   "promoDaily": {
-    "date": "2026-09-27",
+    "date": "2026-09-28",
     "count": 0
   },
   "spend": {
-    "date": "2026-09-27",
-    "usd": 1.2603597000000002
+    "date": "2026-09-28",
+    "usd": 0.016752
   }
 }
