@@ -13711,6 +13711,15 @@
       },
       "publishedId": "17968909644154347",
       "confirmedPublished": true
+    },
+    "comment:18114505526276355": {
+      "creationId": "17891386698614054",
+      "createdAt": "2026-09-28T20:26:59.997Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Definitely upgraded from temporary visitors to full-time tenants.",
+        "reply_to_id": "18114505526276355"
+      }
     }
   },
   "repliedCommentIds": [
@@ -24211,6 +24220,6 @@
   },
   "spend": {
     "date": "2026-09-28",
-    "usd": 0.14568760000000003
+    "usd": 0.15202980000000002
   }
 }
