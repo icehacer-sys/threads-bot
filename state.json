@@ -13534,6 +13534,15 @@
       },
       "publishedId": "18076774748431576",
       "confirmedPublished": true
+    },
+    "comment:18052752506799880": {
+      "creationId": "17891382684614054",
+      "createdAt": "2026-09-28T19:35:05.836Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "The spine's holding steady but yeah that calcification is real. Take another look at what all that density is doing to the whole picture.",
+        "reply_to_id": "18052752506799880"
+      }
     }
   },
   "repliedCommentIds": [
@@ -22712,7 +22721,8 @@
     "18394308253161533",
     "18106855697213083",
     "18148670848550116",
-    "18114435353585012"
+    "18114435353585012",
+    "18485762749105766"
   ],
   "answeredPostIds": [
     "18395606890093068"
@@ -22835,11 +22845,11 @@
     "18108355154189422": 115,
     "18143133703596228": 90,
     "18097639436415272": 99,
-    "18133515574657616": 10
+    "18133515574657616": 11
   },
   "daily": {
     "date": "2026-09-28",
-    "count": 10
+    "count": 11
   },
   "pinnedResolved": {
     "DaTTCIwoAw7": "18014812820883466"
@@ -24016,6 +24026,6 @@
   },
   "spend": {
     "date": "2026-09-28",
-    "usd": 0.052388800000000006
+    "usd": 0.055390400000000006
   }
 }
