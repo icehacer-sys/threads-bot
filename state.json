@@ -13810,6 +13810,15 @@
       },
       "publishedId": "17947402773315584",
       "confirmedPublished": true
+    },
+    "comment:18619696807054506": {
+      "creationId": "17891390121614054",
+      "createdAt": "2026-09-28T21:01:25.033Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Yep. Just way too much of it.",
+        "reply_to_id": "18619696807054506"
+      }
     }
   },
   "repliedCommentIds": [
@@ -24324,6 +24333,6 @@
   },
   "spend": {
     "date": "2026-09-28",
-    "usd": 0.30213900000000005
+    "usd": 0.30533340000000003
   }
 }
