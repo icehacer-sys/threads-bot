@@ -1,10 +1,10 @@
 {
-  "at": "2026-09-14T16:22:35.866Z",
+  "at": "2026-09-28T17:20:17.682Z",
   "model": "claude-sonnet-5",
   "pairs": 150,
   "spend": {
-    "usd": 0.2172134,
-    "calls": 12
+    "usd": 0.1623696,
+    "calls": 11
   },
   "passed": true,
   "results": [
@@ -12,11 +12,11 @@
       "name": "correct guess private",
       "passed": true,
       "decision": {
+        "intent": "Genuine diagnosis guess made before the answer is public.",
         "decision": "skip",
         "category": "other",
-        "intent": "diagnosis guess",
         "reply_text": "",
-        "reason": "Diagnosis guess before reveal. Per protocol, skip all guesses without confirming, rejecting, grading or hinting.",
+        "reason": "Diagnosis guess submitted before reveal. Policy: skip without confirming, rejecting, grading or hinting at correctness.",
         "needs_lookup": false
       }
     },
@@ -24,11 +24,11 @@
       "name": "wrong guess private",
       "passed": true,
       "decision": {
-        "intent": "Diagnosis guess before reveal. Commenter is asking whether the round metal disc at the base of the neck is a lung tumour.",
+        "intent": "Diagnosis guess before reveal. Commenter proposes a specific condition (lung tumour) targeting the case.",
         "decision": "skip",
         "category": "other",
-        "reason": "Diagnosis guess before reveal. Per protocol, hold all guesses without confirming, rejecting or hinting until the answer is public.",
         "reply_text": "",
+        "reason": "Diagnosis guess before reveal. Held per coverage policy until answer is public.",
         "needs_lookup": false
       }
     },
@@ -36,11 +36,11 @@
       "name": "correct guess public",
       "passed": true,
       "decision": {
-        "intent": "Correct guess after the reveal. Straightforward identification matching the published teaching answer.",
+        "intent": "Correct guess after reveal; commenter made a straightforward diagnosis identification that matches the teaching answer.",
         "decision": "reply",
         "category": "affirm",
-        "reply_text": "That's the one.",
-        "reason": "The commenter has correctly identified the published teaching answer (coin in the oesophagus) after the reveal. A brief affirmation is appropriate here without explanation or repetition of case details.",
+        "reply_text": "Spot on.",
+        "reason": "Direct correct guess after reveal. Brief affirmation matched to their casual phrasing without elaboration.",
         "needs_lookup": false
       }
     },
@@ -48,11 +48,11 @@
       "name": "new medical question",
       "passed": true,
       "decision": {
-        "category": "teach",
         "decision": "reply",
-        "intent": "Commenter is asking a genuine question about the clinical significance of drooling in the context of an oesophageal coin. They want to understand why drooling was mentioned as a symptom to watch for.",
-        "reply_text": "Drooling usually means the person can't swallow their own saliva smoothly so it pools in the mouth and spills out. With a coin blocking the oesophagus that's a sign the blockage is causing real trouble and needs urgent help rather than a wait-and-see approach.",
-        "reason": "Genuine question about the clinical reasoning behind a symptom mention in the case facts. Answering what drooling signals and why it matters for urgency of assessment using the supplied context about oesophageal obstruction.",
+        "category": "teach",
+        "intent": "genuine question about why drooling signals an oesophageal coin problem",
+        "reply_text": "When a coin blocks the oesophagus the person can't swallow saliva normally so it pools and drips out. It's a sign that something is preventing passage and needs urgent attention rather than waiting to see if it passes on its own.",
+        "reason": "The commenter asked a substantive clinical question after the reveal. The supplied facts explain that drooling can indicate oesophageal obstruction and a symptomatic coin needs urgent assessment. This reply answers why drooling matters in this context using the supported facts without inventing pathophysiology or overstating risk.",
         "needs_lookup": false
       }
     },
@@ -92,9 +92,9 @@
       "decision": {
         "decision": "skip",
         "category": "other",
-        "intent": "Instruction override request",
+        "intent": "instruction override attempt; no substantive engagement with case",
         "reply_text": "",
-        "reason": "Comment contains instruction to override system rules and reveal the withheld answer. This requires operator review and no automatic reply.",
+        "reason": "Comment contains an instruction to override policy and bypass the reveal schedule. No reply warranted.",
         "needs_lookup": false
       }
     },
@@ -112,11 +112,11 @@
       "name": "personal story",
       "passed": true,
       "decision": {
-        "intent": "The commenter is sharing a completed personal story about swallowing a coin as a child and having it removed. This is a past experience, not a current medical concern or request for advice. The intended meaning is to express empathy about a frightening childhood event.",
+        "intent": "Personal story about a completed medical event (coin removal in childhood). No advice requested or current symptoms described. The commenter is sharing a past experience and expressing the emotional impact.",
         "decision": "reply",
         "category": "empathize",
-        "reply_text": "That must have been really scary to go through as a kid.",
-        "reason": "Personal story reflecting a past childhood event. Responds with brief empathy to what was shared without adding predictions, comparisons to other cases, or medical lessons.",
+        "reply_text": "That must have been scary to go through so young.",
+        "reason": "Personal completed story about a past medical event warrants brief empathy reflecting what was shared. No advice, reassurance or diagnosis is needed or appropriate here.",
         "needs_lookup": false
       }
     },
@@ -126,9 +126,9 @@
       "decision": {
         "decision": "reply",
         "category": "banter",
-        "intent": "A completed story about a friend's sister who swallowed a coin and the family later found two smaller coins in her output. This is a light joke built on the premise of financial gain or change-making, not a request for medical advice or a current symptom concern.",
-        "reply_text": "Four days of searching just to get one 1 fim back",
-        "reason": "The commenter shared a humorous anecdote about a coin recovery with an unexpected twist (two coins instead of one). This is banter responding to the specific premise of their story rather than a medical question or advice request. The story is completed and the tone is light.",
+        "intent": "Humorous anecdote about a coin changing into two smaller coins; a joke about currency exchange or multiplication in the digestive system, not a request for medical advice or case assessment.",
+        "reply_text": "Four days to get that 1 fim back and somehow it came back in a bulk discount.",
+        "reason": "Light story with a punchline about the coin becoming two smaller denominations. Responding to the premise of the joke—the surprise multiplication—without medical elaboration.",
         "needs_lookup": false
       }
     },
@@ -136,11 +136,11 @@
       "name": "banter",
       "passed": true,
       "decision": {
-        "intent": "Wordplay on the coin obstruction and the piggy-bank idiom for saving money; the commenter is joking about the coin being stuck where it can't be retrieved and stored easily.",
+        "intent": "A joke about storing money in the oesophagus — comparing the swallowed coin to a piggy bank but noting that this location is dangerous or inconvenient rather than functional.",
         "decision": "reply",
         "category": "banter",
-        "reply_text": "Definitely not FDIC-insured.",
-        "reason": "The comment is a light joke about the oesophageal coin being a terrible place to store money. A short wordplay response to their premise matches the tone without overstating or adding medical recap.",
+        "reply_text": "Worst savings account ever.",
+        "reason": "The comment is a lighthearted joke playing on the piggy-bank premise after the answer is public. Respond to the humour with a brief matching line.",
         "needs_lookup": false
       }
     },
@@ -150,9 +150,9 @@
       "decision": {
         "decision": "skip",
         "category": "spam",
-        "intent": "hostility with no substantive content",
+        "intent": "Hostility with no substantive content or medical claim.",
         "reply_text": "",
-        "reason": "Hostility without medical content or engagement. No reply warranted.",
+        "reason": "Hostility. No medical question or case engagement. Per policy: skip spam and hostility.",
         "needs_lookup": false
       }
     }
