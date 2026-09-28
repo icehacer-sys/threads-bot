@@ -143,7 +143,8 @@
     "18392404153165726": "Well what is it?",
     "18127833470284604": "echinococcus?",
     "18630314653029374": "Pneumothorax? Maybe pleural erosion.",
-    "18022101932937626": "Bullet?"
+    "18022101932937626": "Bullet?",
+    "18123587212683904": "The mass in the stomach with that mottled, granular texture is most likely gastric bezoar."
   },
   "imageHeldComments": {
     "18116444902754615": "18184997560424523",
@@ -13611,6 +13612,15 @@
       },
       "publishedId": "18096687695629916",
       "confirmedPublished": true
+    },
+    "comment:18099460295564310": {
+      "creationId": "17891384160614054",
+      "createdAt": "2026-09-28T19:53:12.850Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "A very angry coiled one by the look of it.",
+        "reply_to_id": "18099460295564310"
+      }
     }
   },
   "repliedCommentIds": [
@@ -22796,7 +22806,8 @@
     "18113614352110156",
     "17970886488157408",
     "18098288414643172",
-    "18106356764248133"
+    "18106356764248133",
+    "18154221442519543"
   ],
   "answeredPostIds": [
     "18395606890093068"
@@ -22919,11 +22930,11 @@
     "18108355154189422": 115,
     "18143133703596228": 90,
     "18097639436415272": 99,
-    "18133515574657616": 17
+    "18133515574657616": 18
   },
   "daily": {
     "date": "2026-09-28",
-    "count": 17
+    "count": 18
   },
   "pinnedResolved": {
     "DaTTCIwoAw7": "18014812820883466"
@@ -24101,6 +24112,6 @@
   },
   "spend": {
     "date": "2026-09-28",
-    "usd": 0.08660640000000001
+    "usd": 0.09589320000000001
   }
 }
