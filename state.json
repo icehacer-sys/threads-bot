@@ -14085,6 +14085,15 @@
       },
       "publishedId": "18095436623408313",
       "confirmedPublished": true
+    },
+    "comment:18107976158337784": {
+      "creationId": "17891403339614054",
+      "createdAt": "2026-09-28T23:44:42.694Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Yeah if only. This one's way past the point of just needing to walk it off.",
+        "reply_to_id": "18107976158337784"
+      }
     }
   },
   "repliedCommentIds": [
@@ -24531,7 +24540,8 @@
     "18102847379004610",
     "18222880513338050",
     "17870100261646077",
-    "18185930863420873"
+    "18185930863420873",
+    "18128245726697357"
   ],
   "skipStrikes": {
     "17895266316520842": 1,
@@ -24630,6 +24640,6 @@
   },
   "spend": {
     "date": "2026-09-28",
-    "usd": 0.5446186000000001
+    "usd": 0.5550988000000001
   }
 }
