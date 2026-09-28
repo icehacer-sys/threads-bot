@@ -13953,6 +13953,15 @@
       },
       "publishedId": "18115934147049610",
       "confirmedPublished": true
+    },
+    "comment:18150446158575099": {
+      "creationId": "17891392512614054",
+      "createdAt": "2026-09-28T21:37:02.196Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "That must have been impossibly hard to witness at 19 and carry since. Your vigilance now makes complete sense.",
+        "reply_to_id": "18150446158575099"
+      }
     }
   },
   "repliedCommentIds": [
@@ -23169,7 +23178,8 @@
     "18095239892544352",
     "18190069522407307",
     "17981608623093975",
-    "18077712197401623"
+    "18077712197401623",
+    "18332089447279735"
   ],
   "answeredPostIds": [
     "18395606890093068"
@@ -23292,11 +23302,11 @@
     "18108355154189422": 115,
     "18143133703596228": 90,
     "18097639436415272": 99,
-    "18133515574657616": 48
+    "18133515574657616": 49
   },
   "daily": {
     "date": "2026-09-28",
-    "count": 48
+    "count": 49
   },
   "pinnedResolved": {
     "DaTTCIwoAw7": "18014812820883466"
@@ -24481,6 +24491,6 @@
   },
   "spend": {
     "date": "2026-09-28",
-    "usd": 0.386605
+    "usd": 0.3901824
   }
 }
