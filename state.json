@@ -13432,7 +13432,9 @@
         "media_type": "TEXT",
         "text": "That'd definitely fit the picture.",
         "reply_to_id": "18126194332885430"
-      }
+      },
+      "publishedId": "17957727879012329",
+      "confirmedPublished": true
     }
   },
   "repliedCommentIds": [
