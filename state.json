@@ -13741,7 +13741,9 @@
         "media_type": "TEXT",
         "text": "That X-ray just filed a formal complaint against the aspirin-and-yoga treatment plan.",
         "reply_to_id": "18106546778579858"
-      }
+      },
+      "publishedId": "18113848019113054",
+      "confirmedPublished": true
     }
   },
   "repliedCommentIds": [
