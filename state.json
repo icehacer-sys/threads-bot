@@ -14019,6 +14019,15 @@
       },
       "publishedId": "18032786306669864",
       "confirmedPublished": true
+    },
+    "comment:18628906963038080": {
+      "creationId": "17891395986614054",
+      "createdAt": "2026-09-28T22:26:07.745Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "This one is actually a giant mass of impacted stool packed inside the colon.",
+        "reply_to_id": "18628906963038080"
+      }
     }
   },
   "repliedCommentIds": [
@@ -24556,6 +24565,6 @@
   },
   "spend": {
     "date": "2026-09-28",
-    "usd": 0.42330700000000004
+    "usd": 0.5131340000000001
   }
 }
