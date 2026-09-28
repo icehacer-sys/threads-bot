@@ -13645,6 +13645,15 @@
       },
       "publishedId": "17961327363207052",
       "confirmedPublished": true
+    },
+    "comment:18111829682586603": {
+      "creationId": "17891385429614054",
+      "createdAt": "2026-09-28T20:09:38.845Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "The speckles are definitely doing something in there. H. Pylori would be a much tidier guest than what's making that pattern.",
+        "reply_to_id": "18111829682586603"
+      }
     }
   },
   "repliedCommentIds": [
@@ -22833,7 +22842,8 @@
     "18106356764248133",
     "18154221442519543",
     "18099460295564310",
-    "18123587212683904"
+    "18123587212683904",
+    "17988276030113489"
   ],
   "answeredPostIds": [
     "18395606890093068"
@@ -22956,11 +22966,11 @@
     "18108355154189422": 115,
     "18143133703596228": 90,
     "18097639436415272": 99,
-    "18133515574657616": 20
+    "18133515574657616": 21
   },
   "daily": {
     "date": "2026-09-28",
-    "count": 20
+    "count": 21
   },
   "pinnedResolved": {
     "DaTTCIwoAw7": "18014812820883466"
@@ -24138,6 +24148,6 @@
   },
   "spend": {
     "date": "2026-09-28",
-    "usd": 0.10500400000000001
+    "usd": 0.11175320000000001
   }
 }
