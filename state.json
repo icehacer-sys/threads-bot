@@ -14170,7 +14170,9 @@
         "media_type": "TEXT",
         "text": "The case doesn't record what this patient actually had done so I can't say for certain.",
         "reply_to_id": "18011930402762807"
-      }
+      },
+      "publishedId": "18142578334509659",
+      "confirmedPublished": true
     }
   },
   "repliedCommentIds": [
