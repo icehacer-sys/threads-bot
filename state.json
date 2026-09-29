@@ -144,7 +144,8 @@
     "18127833470284604": "echinococcus?",
     "18630314653029374": "Pneumothorax? Maybe pleural erosion.",
     "18022101932937626": "Bullet?",
-    "18123587212683904": "The mass in the stomach with that mottled, granular texture is most likely gastric bezoar."
+    "18123587212683904": "The mass in the stomach with that mottled, granular texture is most likely gastric bezoar.",
+    "17949060426317486": "Could you tell us if we’re looking at something\nIn the skull itself, or are those lines inside the patient’s brain? \n\nI swear, if these turn out to be worms…"
   },
   "imageHeldComments": {
     "18116444902754615": "18184997560424523",
@@ -14439,6 +14440,15 @@
       },
       "publishedId": "18117032734963613",
       "confirmedPublished": true
+    },
+    "comment:18191329225398345": {
+      "creationId": "17891516058614054",
+      "createdAt": "2026-09-29T19:17:51.570Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "That pattern is definitely worth a closer look. The key is figuring out what's actually causing those marks rather than what they're pressing on.",
+        "reply_to_id": "18191329225398345"
+      }
     }
   },
   "repliedCommentIds": [
@@ -23699,7 +23709,8 @@
     "18074590505741059",
     "18101257115188565",
     "18117621683050120",
-    "18113217868997469"
+    "18113217868997469",
+    "17947019946337756"
   ],
   "answeredPostIds": [
     "18395606890093068"
@@ -23823,11 +23834,11 @@
     "18143133703596228": 90,
     "18097639436415272": 99,
     "18133515574657616": 87,
-    "18205974196371350": 5
+    "18205974196371350": 6
   },
   "daily": {
     "date": "2026-09-29",
-    "count": 5
+    "count": 6
   },
   "pinnedResolved": {
     "DaTTCIwoAw7": "18014812820883466"
@@ -25030,6 +25041,6 @@
   },
   "spend": {
     "date": "2026-09-29",
-    "usd": 0.036381100000000006
+    "usd": 0.04539900000000001
   }
 }
