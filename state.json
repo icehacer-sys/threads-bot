@@ -14162,6 +14162,15 @@
       },
       "publishedId": "18357217990220281",
       "confirmedPublished": true
+    },
+    "comment:18011930402762807": {
+      "creationId": "17891413290614054",
+      "createdAt": "2026-09-29T01:49:36.142Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "The case doesn't record what this patient actually had done so I can't say for certain.",
+        "reply_to_id": "18011930402762807"
+      }
     }
   },
   "repliedCommentIds": [
@@ -24720,6 +24729,6 @@
   },
   "spend": {
     "date": "2026-09-28",
-    "usd": 0.7401956000000001
+    "usd": 0.8218496000000001
   }
 }
