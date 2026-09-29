@@ -14633,6 +14633,15 @@
       },
       "publishedId": "18185044480371371",
       "confirmedPublished": true
+    },
+    "comment:17984417817110326": {
+      "creationId": "17891520393614054",
+      "createdAt": "2026-09-29T20:26:46.652Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Cranial tempest energy right there.",
+        "reply_to_id": "17984417817110326"
+      }
     }
   },
   "repliedCommentIds": [
@@ -25250,6 +25259,6 @@
   },
   "spend": {
     "date": "2026-09-29",
-    "usd": 0.3427951000000001
+    "usd": 0.34581800000000007
   }
 }
