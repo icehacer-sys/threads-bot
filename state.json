@@ -14195,6 +14195,15 @@
       },
       "publishedId": "18121333309728770",
       "confirmedPublished": true
+    },
+    "comment:18116640484980384": {
+      "creationId": "17891415765614054",
+      "createdAt": "2026-09-29T02:21:24.218Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "That's the trouble it caused. The impacted stool created the obstruction that blocked everything.",
+        "reply_to_id": "18116640484980384"
+      }
     }
   },
   "repliedCommentIds": [
@@ -24757,6 +24766,6 @@
   },
   "spend": {
     "date": "2026-09-28",
-    "usd": 0.8668044
+    "usd": 0.8701518
   }
 }
