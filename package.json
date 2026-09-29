@@ -22,6 +22,7 @@
     "learn:backfill": "tsx src/voicelearn.ts --backfill",
     "typecheck": "tsc --noEmit",
     "publishing:verify": "tsx tools/verify-publishing.mts",
+    "checkpoint:verify": "tsx tools/verify-checkpoint.mts",
     "prompt:size": "tsx tools/measure-prompt.mts",
     "spend:verify": "tsx tools/verify-spend.mts",
     "budget:verify": "tsx tools/verify-budget.mts",
