@@ -14473,6 +14473,15 @@
       },
       "publishedId": "18092346695389633",
       "confirmedPublished": true
+    },
+    "comment:18038751089659741": {
+      "creationId": "17891516952614054",
+      "createdAt": "2026-09-29T19:34:09.374Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Straight to the pathophysiology. That chronic ischemia piece is exactly why those calcifications end up following the brain's surface instead of sitting elsewhere.",
+        "reply_to_id": "18038751089659741"
+      }
     }
   },
   "repliedCommentIds": [
@@ -24968,7 +24977,8 @@
     "18115538740812136",
     "18159376828498860",
     "17950802628278327",
-    "18017445380738805"
+    "18017445380738805",
+    "17949060426317486"
   ],
   "skipStrikes": {
     "17895266316520842": 1,
@@ -25068,6 +25078,6 @@
   },
   "spend": {
     "date": "2026-09-29",
-    "usd": 0.05392190000000001
+    "usd": 0.06728290000000002
   }
 }
