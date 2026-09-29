@@ -14273,6 +14273,15 @@
       },
       "publishedId": "18191960641398903",
       "confirmedPublished": true
+    },
+    "comment:18378038131234926": {
+      "creationId": "17891427948614054",
+      "createdAt": "2026-09-29T04:26:14.460Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "That's it. The gas pockets in the impacted stool create that mottled texture filling the whole colon.",
+        "reply_to_id": "18378038131234926"
+      }
     }
   },
   "repliedCommentIds": [
@@ -24822,7 +24831,8 @@
     "17887057032683373": 1,
     "18342665479251696": 1,
     "18169673611460551": 1,
-    "18103001237049687": 1
+    "18103001237049687": 1,
+    "18025166123703967": 1
   },
   "gifPostCounts": {
     "18432085978123193": 1,
@@ -24847,6 +24857,6 @@
   },
   "spend": {
     "date": "2026-09-28",
-    "usd": 1.0019015999999998
+    "usd": 1.0087034
   }
 }
