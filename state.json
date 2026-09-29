@@ -14683,6 +14683,15 @@
       },
       "publishedId": "18153391369523018",
       "confirmedPublished": true
+    },
+    "comment:18130782394770106": {
+      "creationId": "17891527026614054",
+      "createdAt": "2026-09-29T21:45:28.646Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "That's the pre-ambushed skull expression right there.",
+        "reply_to_id": "18130782394770106"
+      }
     }
   },
   "repliedCommentIds": [
@@ -25304,6 +25313,6 @@
   },
   "spend": {
     "date": "2026-09-29",
-    "usd": 0.4166646000000001
+    "usd": 0.4196955000000001
   }
 }
