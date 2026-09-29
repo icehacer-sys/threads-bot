@@ -14617,7 +14617,9 @@
         "media_type": "TEXT",
         "text": "Thanks for flagging that detail.",
         "reply_to_id": "17898039627603779"
-      }
+      },
+      "publishedId": "18121147679511436",
+      "confirmedPublished": true
     }
   },
   "repliedCommentIds": [
