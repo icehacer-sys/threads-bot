@@ -14306,6 +14306,15 @@
       },
       "publishedId": "18171683293459090",
       "confirmedPublished": true
+    },
+    "comment:18025166123703967": {
+      "creationId": "17891430897614054",
+      "createdAt": "2026-09-29T04:57:50.288Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "A massively impacted colon can stretch well beyond its normal diameter and the weight question is hard to pin down without knowing the full mass but we're talking kilograms not grams at this scale.",
+        "reply_to_id": "18025166123703967"
+      }
     }
   },
   "repliedCommentIds": [
@@ -24884,6 +24893,6 @@
   },
   "spend": {
     "date": "2026-09-28",
-    "usd": 1.0250531999999999
+    "usd": 1.0636252
   }
 }
