@@ -14425,7 +14425,9 @@
         "media_type": "TEXT",
         "text": "That branching is doing a lot of heavy lifting in one sentence.",
         "reply_to_id": "18113217868997469"
-      }
+      },
+      "publishedId": "18122406631900642",
+      "confirmedPublished": true
     }
   },
   "repliedCommentIds": [
