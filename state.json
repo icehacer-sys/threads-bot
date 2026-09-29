@@ -14539,6 +14539,15 @@
       },
       "publishedId": "18114120599089368",
       "confirmedPublished": true
+    },
+    "comment:18129097786744823": {
+      "creationId": "17891518128614054",
+      "createdAt": "2026-09-29T19:52:53.953Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "That one's got some serious voltage to it.",
+        "reply_to_id": "18129097786744823"
+      }
     }
   },
   "repliedCommentIds": [
@@ -25145,6 +25154,6 @@
   },
   "spend": {
     "date": "2026-09-29",
-    "usd": 0.24532610000000007
+    "usd": 0.2514009000000001
   }
 }
