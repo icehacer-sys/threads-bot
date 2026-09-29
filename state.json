@@ -14225,7 +14225,9 @@
         "media_type": "TEXT",
         "text": "Welcome. This one definitely makes the case for why imaging matters when things get that blocked.",
         "reply_to_id": "18638245075055016"
-      }
+      },
+      "publishedId": "18637550731049095",
+      "confirmedPublished": true
     }
   },
   "repliedCommentIds": [
