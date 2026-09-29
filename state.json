@@ -14604,7 +14604,9 @@
         "media_type": "TEXT",
         "text": "The world's most ominous atlas.",
         "reply_to_id": "18109909505133926"
-      }
+      },
+      "publishedId": "18028390112912894",
+      "confirmedPublished": true
     }
   },
   "repliedCommentIds": [
