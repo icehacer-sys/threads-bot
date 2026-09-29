@@ -14674,7 +14674,9 @@
         "media_type": "TEXT",
         "text": "Sauron's imaging report definitely got lost in the archive.",
         "reply_to_id": "17988192240113954"
-      }
+      },
+      "publishedId": "18153391369523018",
+      "confirmedPublished": true
     }
   },
   "repliedCommentIds": [
