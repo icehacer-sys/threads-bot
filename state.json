@@ -14743,6 +14743,15 @@
       },
       "publishedId": "17993564742013938",
       "confirmedPublished": true
+    },
+    "comment:18117859414750178": {
+      "creationId": "17891539569614054",
+      "createdAt": "2026-09-29T23:55:10.069Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Definitely got the haunted-map-of-the-psyche vibe going.",
+        "reply_to_id": "18117859414750178"
+      }
     }
   },
   "repliedCommentIds": [
@@ -25369,6 +25378,6 @@
   },
   "spend": {
     "date": "2026-09-29",
-    "usd": 0.4851170000000001
+    "usd": 0.48828790000000005
   }
 }
