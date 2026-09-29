@@ -14484,6 +14484,15 @@
       },
       "publishedId": "17962475691207598",
       "confirmedPublished": true
+    },
+    "comment:18085112093324123": {
+      "creationId": "17891516967614054",
+      "createdAt": "2026-09-29T19:34:32.258Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "You've got the full picture. The V1/V2 distribution and glaucoma risk are exactly the ones to flag alongside seizure control.",
+        "reply_to_id": "18085112093324123"
+      }
     }
   },
   "repliedCommentIds": [
@@ -23748,7 +23757,8 @@
     "17947019946337756",
     "18191329225398345",
     "18114180932127162",
-    "18121541651297493"
+    "18121541651297493",
+    "18038751089659741"
   ],
   "answeredPostIds": [
     "18395606890093068"
@@ -23872,11 +23882,11 @@
     "18143133703596228": 90,
     "18097639436415272": 99,
     "18133515574657616": 87,
-    "18205974196371350": 9
+    "18205974196371350": 10
   },
   "daily": {
     "date": "2026-09-29",
-    "count": 9
+    "count": 10
   },
   "pinnedResolved": {
     "DaTTCIwoAw7": "18014812820883466"
@@ -25080,6 +25090,6 @@
   },
   "spend": {
     "date": "2026-09-29",
-    "usd": 0.06728290000000002
+    "usd": 0.07026930000000002
   }
 }
