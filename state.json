@@ -14395,6 +14395,15 @@
       },
       "publishedId": "18226351123330981",
       "confirmedPublished": true
+    },
+    "comment:18101257115188565": {
+      "creationId": "17891515968614054",
+      "createdAt": "2026-09-29T19:16:21.991Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Those lines are definitely calling out for an explanation. Take another look at the exact pattern and where they're running.",
+        "reply_to_id": "18101257115188565"
+      }
     }
   },
   "repliedCommentIds": [
@@ -23651,7 +23660,8 @@
     "17907134241487945",
     "18091800734185356",
     "18339949750262168",
-    "18194836897348097"
+    "18194836897348097",
+    "18074590505741059"
   ],
   "answeredPostIds": [
     "18395606890093068"
@@ -23775,11 +23785,11 @@
     "18143133703596228": 90,
     "18097639436415272": 99,
     "18133515574657616": 87,
-    "18205974196371350": 1
+    "18205974196371350": 2
   },
   "daily": {
     "date": "2026-09-29",
-    "count": 1
+    "count": 2
   },
   "pinnedResolved": {
     "DaTTCIwoAw7": "18014812820883466"
@@ -24982,6 +24992,6 @@
   },
   "spend": {
     "date": "2026-09-29",
-    "usd": 0.0195293
+    "usd": 0.0254399
   }
 }
