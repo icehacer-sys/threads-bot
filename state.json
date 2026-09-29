@@ -14184,6 +14184,15 @@
       },
       "publishedId": "18117054263073135",
       "confirmedPublished": true
+    },
+    "comment:17921351448221638": {
+      "creationId": "17891413452614054",
+      "createdAt": "2026-09-29T01:50:42.414Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "A contrast scan really would show just how far that mass is pressing on the surrounding structures and whether the colon wall is holding up.",
+        "reply_to_id": "17921351448221638"
+      }
     }
   },
   "repliedCommentIds": [
@@ -23421,7 +23430,8 @@
     "18194289073388138",
     "17899912275605317",
     "18427640467150620",
-    "18011930402762807"
+    "18011930402762807",
+    "18120308257785442"
   ],
   "answeredPostIds": [
     "18395606890093068"
@@ -23544,11 +23554,11 @@
     "18108355154189422": 115,
     "18143133703596228": 90,
     "18097639436415272": 99,
-    "18133515574657616": 69
+    "18133515574657616": 70
   },
   "daily": {
     "date": "2026-09-28",
-    "count": 69
+    "count": 70
   },
   "pinnedResolved": {
     "DaTTCIwoAw7": "18014812820883466"
@@ -24744,6 +24754,6 @@
   },
   "spend": {
     "date": "2026-09-28",
-    "usd": 0.8282334
+    "usd": 0.8668044
   }
 }
