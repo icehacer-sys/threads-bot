@@ -14251,6 +14251,15 @@
       },
       "publishedId": "18073824302587997",
       "confirmedPublished": true
+    },
+    "comment:17906223576333422": {
+      "creationId": "17891421645614054",
+      "createdAt": "2026-09-29T03:24:03.897Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "That must have been devastating to lose her that way and then learn the signs were already there. A month of dismissal before the real picture emerged is a lot to carry.",
+        "reply_to_id": "17906223576333422"
+      }
     }
   },
   "repliedCommentIds": [
@@ -24820,6 +24829,6 @@
   },
   "spend": {
     "date": "2026-09-28",
-    "usd": 0.898071
+    "usd": 0.9019434
   }
 }
