@@ -208,7 +208,8 @@
     "18127640950824143": "18205974196371350",
     "18095201114330460": "18205974196371350",
     "17969971278154248": "18205974196371350",
-    "18137777392726831": "18205974196371350"
+    "18137777392726831": "18205974196371350",
+    "18094987424138220": "18205974196371350"
   },
   "ownerReviews": {
     "17937444630360450": "{\"postId\":\"18103023326210157\",\"reason\":\"owner review: personal medical concern\",\"commentText\":\"Little sister of my friend swalloved a coin of 1 fim. At hospital the family was advised to thoroughly keep an eye on her poops. So, the next day they found two 50 penny coins😀.\",\"username\":\"velitapiof\",\"queuedAt\":\"2026-09-10T20:21:59.741Z\",\"resolvedAt\":\"2026-09-10T20:36:02.929Z\",\"resolution\":\"Owner confirmed this is a completed personal story and deleted the inappropriate boundary reply. No clinical review is needed.\"}",
@@ -14706,6 +14707,15 @@
       },
       "publishedId": "18095879519204443",
       "confirmedPublished": true
+    },
+    "comment:18634008898028917": {
+      "creationId": "17891536590614054",
+      "createdAt": "2026-09-29T23:23:34.685Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Probably not. But this patient's brain definitely dodged tentacle duty.",
+        "reply_to_id": "18634008898028917"
+      }
     }
   },
   "repliedCommentIds": [
@@ -23989,7 +23999,8 @@
     "18135038185634249",
     "18117375097752547",
     "17988192240113954",
-    "18130782394770106"
+    "18130782394770106",
+    "18369229252212358"
   ],
   "answeredPostIds": [
     "18395606890093068"
@@ -24113,11 +24124,11 @@
     "18143133703596228": 90,
     "18097639436415272": 99,
     "18133515574657616": 87,
-    "18205974196371350": 28
+    "18205974196371350": 29
   },
   "daily": {
     "date": "2026-09-29",
-    "count": 28
+    "count": 29
   },
   "pinnedResolved": {
     "DaTTCIwoAw7": "18014812820883466"
@@ -25328,6 +25339,6 @@
   },
   "spend": {
     "date": "2026-09-29",
-    "usd": 0.4417143000000001
+    "usd": 0.4553179000000001
   }
 }
