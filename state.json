@@ -263,7 +263,8 @@
     "18198832360376765": "{\"postId\":\"18097639436415272\",\"reason\":\"owner response: image provenance question\",\"commentText\":\"Healthcare worker here in the field of Radiation Oncology.  This is 100% not a real X-ray.  This is an AI generated image\",\"username\":\"amar2321\",\"queuedAt\":\"2026-09-27T22:18:42.473Z\"}",
     "18193444456399228": "{\"postId\":\"18097639436415272\",\"reason\":\"owner review: unsupported patient history, confirmation, specifics (year) or dismissal of an accepted differential | guard:forced-skip\",\"commentText\":\"Not sure if that's a bacterium or calcification due to a mass top side . ??\",\"username\":\"patrick85435\",\"queuedAt\":\"2026-09-27T22:34:32.191Z\"}",
     "18053744690584864": "{\"postId\":\"18133515574657616\",\"reason\":\"owner review: unsupported patient history, confirmation, specifics (month) or dismissal of an accepted differential | guard:forced-skip\",\"commentText\":\"How long does that take to form, ie how long do you need to ignore the system before this xray?\",\"username\":\"heavyonthegs\",\"queuedAt\":\"2026-09-29T02:53:40.808Z\"}",
-    "18017445380738805": "{\"postId\":\"18133515574657616\",\"reason\":\"No actual user comment present — the input is a system/meta instruction about reply length, not a commenter's message. Owner review required.\",\"commentText\":\"Medication\",\"username\":\"rishik_1112\",\"queuedAt\":\"2026-09-29T05:28:25.059Z\"}"
+    "18017445380738805": "{\"postId\":\"18133515574657616\",\"reason\":\"No actual user comment present — the input is a system/meta instruction about reply length, not a commenter's message. Owner review required.\",\"commentText\":\"Medication\",\"username\":\"rishik_1112\",\"queuedAt\":\"2026-09-29T05:28:25.059Z\"}",
+    "18116883095076934": "{\"postId\":\"18205974196371350\",\"reason\":\"owner review: unsupported patient history, confirmation, specifics (centur) or dismissal of an accepted differential | guard:forced-skip\",\"commentText\":\"with a laudanum chaser\",\"username\":\"lkwinchester\",\"queuedAt\":\"2026-09-29T19:54:21.945Z\"}"
   },
   "concernAcknowledgments": {
     "[\"18121475662898455\",\"berit069\",\"image\"]": "18142096432588199",
@@ -14572,6 +14573,15 @@
       },
       "publishedId": "18114402466822635",
       "confirmedPublished": true
+    },
+    "comment:17939325729374636": {
+      "creationId": "17891518215614054",
+      "createdAt": "2026-09-29T19:54:28.658Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Assimilation by calcified cortex does hit different.",
+        "reply_to_id": "17939325729374636"
+      }
     }
   },
   "repliedCommentIds": [
@@ -23844,7 +23854,8 @@
     "18357403312220109",
     "18628483735056814",
     "18129097786744823",
-    "18143049625510207"
+    "18143049625510207",
+    "17921876064343963"
   ],
   "answeredPostIds": [
     "18395606890093068"
@@ -23968,11 +23979,11 @@
     "18143133703596228": 90,
     "18097639436415272": 99,
     "18133515574657616": 87,
-    "18205974196371350": 17
+    "18205974196371350": 18
   },
   "daily": {
     "date": "2026-09-29",
-    "count": 17
+    "count": 18
   },
   "pinnedResolved": {
     "DaTTCIwoAw7": "18014812820883466"
@@ -25080,7 +25091,9 @@
     "17961157059243729",
     "18125947850511448",
     "18116449250051759",
-    "18137272522713601"
+    "18137272522713601",
+    "18091133117447082",
+    "18116883095076934"
   ],
   "skipStrikes": {
     "17895266316520842": 1,
@@ -25180,6 +25193,6 @@
   },
   "spend": {
     "date": "2026-09-29",
-    "usd": 0.27893750000000006
+    "usd": 0.29691550000000005
   }
 }
