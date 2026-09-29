@@ -14303,7 +14303,9 @@
         "media_type": "TEXT",
         "text": "That would definitely explain the consistency.",
         "reply_to_id": "18423764824147243"
-      }
+      },
+      "publishedId": "18171683293459090",
+      "confirmedPublished": true
     }
   },
   "repliedCommentIds": [
