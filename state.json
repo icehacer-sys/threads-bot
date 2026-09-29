@@ -14340,6 +14340,15 @@
       },
       "publishedId": "17904958104574703",
       "confirmedPublished": true
+    },
+    "comment:17907134241487945": {
+      "creationId": "17891435445614054",
+      "createdAt": "2026-09-29T05:59:21.907Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "That mass is basically a pressure cooker with nowhere to go. Every bubble that shifts is just adding to the nightmare.",
+        "reply_to_id": "17907134241487945"
+      }
     }
   },
   "repliedCommentIds": [
@@ -24922,6 +24931,6 @@
   },
   "spend": {
     "date": "2026-09-28",
-    "usd": 1.0950031999999998
+    "usd": 1.1020439999999998
   }
 }
