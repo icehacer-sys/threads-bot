@@ -14129,6 +14129,15 @@
       },
       "publishedId": "18140507029611652",
       "confirmedPublished": true
+    },
+    "comment:18194289073388138": {
+      "creationId": "17891407755614054",
+      "createdAt": "2026-09-29T00:47:36.613Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "This one definitely sets the bar higher. If you spotted it there too you've got a solid eye for the dramatic ones.",
+        "reply_to_id": "18194289073388138"
+      }
     }
   },
   "repliedCommentIds": [
@@ -24684,6 +24693,6 @@
   },
   "spend": {
     "date": "2026-09-28",
-    "usd": 0.7267690000000001
+    "usd": 0.7301714000000001
   }
 }
