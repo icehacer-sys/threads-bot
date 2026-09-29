@@ -14561,6 +14561,15 @@
       },
       "publishedId": "18104003234630261",
       "confirmedPublished": true
+    },
+    "comment:17921876064343963": {
+      "creationId": "17891518182614054",
+      "createdAt": "2026-09-29T19:53:51.095Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "The calcified vessels really do haunt the film. Cocaine's off the menu but laser therapy for the port wine mark and seizure control are the actual moves.",
+        "reply_to_id": "17921876064343963"
+      }
     }
   },
   "repliedCommentIds": [
@@ -23832,7 +23841,8 @@
     "18116927017770908",
     "18357403312220109",
     "18628483735056814",
-    "18129097786744823"
+    "18129097786744823",
+    "18143049625510207"
   ],
   "answeredPostIds": [
     "18395606890093068"
@@ -23956,11 +23966,11 @@
     "18143133703596228": 90,
     "18097639436415272": 99,
     "18133515574657616": 87,
-    "18205974196371350": 16
+    "18205974196371350": 17
   },
   "daily": {
     "date": "2026-09-29",
-    "count": 16
+    "count": 17
   },
   "pinnedResolved": {
     "DaTTCIwoAw7": "18014812820883466"
@@ -25168,6 +25178,6 @@
   },
   "spend": {
     "date": "2026-09-29",
-    "usd": 0.2755541000000001
+    "usd": 0.27893750000000006
   }
 }
