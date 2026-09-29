@@ -14228,6 +14228,15 @@
       },
       "publishedId": "18637550731049095",
       "confirmedPublished": true
+    },
+    "comment:17910161925471779": {
+      "creationId": "17891419140614054",
+      "createdAt": "2026-09-29T02:52:57.467Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Also you clicked on a post that literally just asked for wild guesses so technically you volunteered yourself.",
+        "reply_to_id": "17910161925471779"
+      }
     }
   },
   "repliedCommentIds": [
@@ -24694,7 +24703,8 @@
     "17911327197539777",
     "18117145738985536",
     "18097840568385302",
-    "18105680870525021"
+    "18105680870525021",
+    "18091493645421117"
   ],
   "skipStrikes": {
     "17895266316520842": 1,
@@ -24793,6 +24803,6 @@
   },
   "spend": {
     "date": "2026-09-28",
-    "usd": 0.8766106
+    "usd": 0.8873878
   }
 }
