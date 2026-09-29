@@ -14107,6 +14107,15 @@
       },
       "publishedId": "18109951319152121",
       "confirmedPublished": true
+    },
+    "comment:18141960490606705": {
+      "creationId": "17891405793614054",
+      "createdAt": "2026-09-29T00:16:18.891Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Bezoar is close in spirit but this is faecal impaction packed inside the colon rather than a foreign-body mass in the stomach.",
+        "reply_to_id": "18141960490606705"
+      }
     }
   },
   "repliedCommentIds": [
@@ -24557,7 +24566,9 @@
     "17870100261646077",
     "18185930863420873",
     "18128245726697357",
-    "18112792157035897"
+    "18112792157035897",
+    "17929947975408551",
+    "17911327197539777"
   ],
   "skipStrikes": {
     "17895266316520842": 1,
@@ -24656,6 +24667,6 @@
   },
   "spend": {
     "date": "2026-09-28",
-    "usd": 0.6279040000000001
+    "usd": 0.7091090000000001
   }
 }
