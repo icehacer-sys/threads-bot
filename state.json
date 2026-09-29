@@ -14550,6 +14550,15 @@
       },
       "publishedId": "18130638940667326",
       "confirmedPublished": true
+    },
+    "comment:18143049625510207": {
+      "creationId": "17891518176614054",
+      "createdAt": "2026-09-29T19:53:28.739Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "It's congenital so the abnormal vessels are present from before birth even if the calcifications and seizures only become apparent over time.",
+        "reply_to_id": "18143049625510207"
+      }
     }
   },
   "repliedCommentIds": [
@@ -23820,7 +23829,8 @@
     "17864585106676590",
     "18116927017770908",
     "18357403312220109",
-    "18628483735056814"
+    "18628483735056814",
+    "18129097786744823"
   ],
   "answeredPostIds": [
     "18395606890093068"
@@ -23944,11 +23954,11 @@
     "18143133703596228": 90,
     "18097639436415272": 99,
     "18133515574657616": 87,
-    "18205974196371350": 15
+    "18205974196371350": 16
   },
   "daily": {
     "date": "2026-09-29",
-    "count": 15
+    "count": 16
   },
   "pinnedResolved": {
     "DaTTCIwoAw7": "18014812820883466"
@@ -25156,6 +25166,6 @@
   },
   "spend": {
     "date": "2026-09-29",
-    "usd": 0.2514009000000001
+    "usd": 0.2755541000000001
   }
 }
