@@ -1,0 +1,50 @@
+name: PR offline checks
+
+on:
+  pull_request:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: offline-pr-${{ github.event.pull_request.number }}
+  cancel-in-progress: true
+
+jobs:
+  offline-regressions:
+    name: Offline regressions (Node 20)
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: npm
+      - name: Install locked dependencies
+        run: npm ci
+      - name: Run required offline checks
+        shell: bash
+        env:
+          NODE_OPTIONS: --import=./tools/offline-guard.mjs
+        run: |
+          set -euo pipefail
+          node tools/verify-offline-guard.mjs
+          npm run concerns:verify
+          npm run wording:verify
+          npm run supporters:verify
+          npm run coverage:verify
+          npm run media:verify
+          npm run specifics:verify
+          npm run repetition:verify
+          npx --no-install tsx tools/verify-evidence.mts
+          npx --no-install tsx tools/verify-reveal-holds.mts
+          npx --no-install tsx tools/verify-reply-punctuation.mts
+          npx --no-install tsx tools/verify-style-recheck.mts
+          npm run typecheck
+          if ! git diff --quiet -- state.json fb-state.json data; then
+            echo "Offline checks changed tracked state or data"
+            exit 1
+          fi
