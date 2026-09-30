@@ -14790,6 +14790,15 @@
       },
       "publishedId": "18121622659898452",
       "confirmedPublished": true
+    },
+    "comment:18169226446461788": {
+      "creationId": "17891546925614054",
+      "createdAt": "2026-09-30T01:27:20.282Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Except these rivers are calcified and very much refusing to flow.",
+        "reply_to_id": "18169226446461788"
+      }
     }
   },
   "repliedCommentIds": [
@@ -25420,6 +25429,6 @@
   },
   "spend": {
     "date": "2026-09-29",
-    "usd": 0.5401881000000002
+    "usd": 0.5433210000000002
   }
 }
