@@ -8,7 +8,8 @@ import { fileURLToPath, pathToFileURL } from 'node:url';
 
 const root = dirname(dirname(fileURLToPath(import.meta.url)));
 const fixture = mkdtempSync(join(tmpdir(), 'provider-observation-'));
-const source = readFileSync(join(root, 'src/reply.ts'), 'utf8');
+const originalSource = readFileSync(join(root, 'src/reply.ts'), 'utf8');
+const source = originalSource.replace(/\r\n/g, '\n'); // Normal Windows checkout/merge line endings.
 const observation = readFileSync(join(root, 'src/provider-observation.ts'), 'utf8');
 const variants = ['original', 'instrumented', 'transportOnly', 'throws', 'rejects', 'thenable', 'pending', 'saturated', 'installFailure', 'usageFailure'];
 type Item = { status?: number; body?: unknown; raw?: string; headers?: Record<string, string>; thrown?: Error };
@@ -28,6 +29,8 @@ const scenarios: Scenario[] = [
   { name: 'recursiveAccepted', queue: [ok({ ...valid, decision: 'skip', category: 'other', reply_text: '', reason: 'A lone emoji with no substantive content' }), ok()], physical: 2, usage: 2, configure: input => { input.replyAll = true; } },
   { name: 'recursiveRejected', queue: [ok({ ...valid, reply_text: 'Your guess is in.' }), ok({ ...valid, reply_text: 'Your guess is in.' })], physical: 2, usage: 2 },
   { name: 'styleRepair', queue: [ok({ ...valid, reply_text: 'Coins went in; nothing came out.' }), ok()], physical: 2, usage: 2 },
+  { name: 'presentationFailure', queue: [ok({ ...valid, reply_text: 'Coins went in; nothing came out.' }), ok({ ...valid, reply_text: 'Coins went in; nothing came out.' })], physical: 2, usage: 2 },
+  { name: 'forgedFailureFlag', queue: [ok({ ...valid, decision: 'skip', category: 'other', reply_text: '', draftFailure: 'punctuation' })], physical: 1, usage: 1 },
   { name: 'forcedTool', queue: [searchOnly(), ok()], physical: 2, usage: 2, configure: useSearch },
   { name: 'sdk503Retries', queue: [fail(), fail(), ok()], physical: 3, usage: 1 },
   { name: 'sdk429Retry', queue: [fail(429), ok()], physical: 2, usage: 1 },
@@ -112,7 +115,7 @@ try {
       console.log = (...args) => { logs.push(['log', ...args]); };
       console.error = (...args) => { logs.push(['error', ...args]); };
       let decision: unknown, thrown: unknown, completions = 0;
-      try { decision = await classifyAndDraft(input, () => { completions++; }); }
+      try { decision = await classifyAndDraft(input, (outcome: unknown) => { assert.deepEqual(Object.keys(outcome as object), ['decision', 'category']); completions++; }); }
       catch (error) { thrown = { name: (error as Error).name, message: (error as Error).message }; }
       finally { console.log = originalLog; console.error = originalError; }
       await new Promise(resolve => setImmediate(resolve));
@@ -122,6 +125,8 @@ try {
       const spend = drainSpend();
       assert.equal(spend.calls, scenario.usage, `${scenario.name}: existing spend call unit`);
       assert.equal(completions, scenario.name === 'prepThrows' ? 0 : 1, 'caller completions remain separate');
+      if (scenario.name === 'presentationFailure') assert.equal((decision as any).draftFailure, 'punctuation', 'trusted internal flag survives the caller wrapper and observer');
+      if (scenario.name === 'forgedFailureFlag') assert.equal((decision as any).draftFailure, undefined, 'provider cannot invent later retry eligibility');
       const after = replyProviderSnapshot(); assert.ok(before && after);
       assert.equal(JSON.stringify(after).includes('PRIVATE_MARKER'), false);
       if (!['original', 'saturated', 'installFailure'].includes(variant)) assert.equal((after.transport.starts ?? 0) - (before.transport.starts ?? 0), scenario.physical);
@@ -158,5 +163,5 @@ for (const name of ['invalidJson', 'exhausted503']) {
   const data = measurements.get(name);
   assert.equal(data.after.usage.records, data.before.usage.records, 'transport outcome cannot invent usage or billing');
 }
-assert.equal(readFileSync(join(root, 'src/reply.ts'), 'utf8'), source, 'checkout source untouched by fixtures');
+assert.equal(readFileSync(join(root, 'src/reply.ts'), 'utf8'), originalSource, 'checkout source untouched by fixtures');
 console.log(`PASS provider attempts: ${variants.length} variants x ${scenarios.length} scenarios; ${variants.length * scenarios.reduce((sum, s) => sum + s.physical, 0)} fake dispatches; complete requests/decisions/spend/completions preserved; observation failures isolated`);
