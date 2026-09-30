@@ -1,4 +1,5 @@
 import { CoverageLedger, type CoverageEvent, type CoverageReason, type CoverageCategory } from './coverage-decisions';
+import { replyProviderSnapshot } from './provider-observation';
 
 type Eligibility = Extract<CoverageEvent, { stage: 'eligibility' }>['verdict'];
 type Admission = Extract<CoverageEvent, { stage: 'admission' }>['verdict'];
@@ -54,6 +55,8 @@ export function createCoverageObservation(ledger: Recorder | undefined, pollId: 
           failedRecorderCalls, limitedRecorderCalls, truncated: report?.measurement.truncated ?? null,
           // Completion counts do not measure physical provider/draft attempts.
           accountCoveragePercent: null,
+          // Cumulative process totals have a different scope from the per-poll counts above.
+          replyProvider: replyProviderSnapshot(),
         } }));
       } catch { /* Reporting must not affect successful work or surface unsanitized errors. */ }
     },
