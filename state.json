@@ -14824,6 +14824,15 @@
       },
       "publishedId": "18022998470870994",
       "confirmedPublished": true
+    },
+    "comment:18109812200136078": {
+      "creationId": "17891553078614054",
+      "createdAt": "2026-09-30T02:28:56.020Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "That's the hard call when seizures won't break with medication. Hemispherectomy's dramatic but when it works for these kids the difference in quality of life is real.",
+        "reply_to_id": "18109812200136078"
+      }
     }
   },
   "repliedCommentIds": [
@@ -24117,7 +24126,8 @@
     "18099894560217695",
     "18092457953693965",
     "18169226446461788",
-    "18112256798025483"
+    "18112256798025483",
+    "17874543861586133"
   ],
   "answeredPostIds": [
     "18395606890093068"
@@ -24241,11 +24251,11 @@
     "18143133703596228": 90,
     "18097639436415272": 99,
     "18133515574657616": 87,
-    "18205974196371350": 38
+    "18205974196371350": 39
   },
   "daily": {
     "date": "2026-09-29",
-    "count": 38
+    "count": 39
   },
   "pinnedResolved": {
     "DaTTCIwoAw7": "18014812820883466"
@@ -25456,6 +25466,6 @@
   },
   "spend": {
     "date": "2026-09-29",
-    "usd": 0.5760155000000001
+    "usd": 0.5796034000000001
   }
 }
