@@ -14878,7 +14878,9 @@
         "media_type": "TEXT",
         "text": "Already running on AC current with no off switch.",
         "reply_to_id": "18396910960167070"
-      }
+      },
+      "publishedId": "18124290145914603",
+      "confirmedPublished": true
     }
   },
   "repliedCommentIds": [
