@@ -1,4 +1,4 @@
-import { CoverageLedger, type CoverageEvent, type CoverageReason } from './coverage-decisions';
+import { CoverageLedger, type CoverageEvent, type CoverageReason, type CoverageCategory } from './coverage-decisions';
 
 type Eligibility = Extract<CoverageEvent, { stage: 'eligibility' }>['verdict'];
 type Admission = Extract<CoverageEvent, { stage: 'admission' }>['verdict'];
@@ -7,7 +7,7 @@ type Recorder = Pick<CoverageLedger, 'record' | 'report'>;
 /** Synchronous, bounded memory only. No callback result participates in a bot decision. */
 export function createCoverageObservation(ledger: Recorder | undefined, pollId: string, now = () => new Date().toISOString()) {
   let sequence = 0, failedRecorderCalls = 0, limitedRecorderCalls = 0;
-  const record = (postId: string, commentId: string, decision: { stage: 'discovery' } | { stage: 'eligibility'; verdict: Eligibility } | { stage: 'admission'; verdict: Admission }, reason: CoverageReason) => {
+  const record = (postId: string, commentId: string, decision: { stage: 'discovery' } | { stage: 'eligibility'; verdict: Eligibility } | { stage: 'admission'; verdict: Admission } | { stage: 'classification'; verdict: 'reply' | 'skip'; category: CoverageCategory }, reason: CoverageReason) => {
     try {
       if (!ledger) { failedRecorderCalls++; return; }
       const status = ledger.record({ platform: 'threads', postId, commentId, eventId: `${pollId}_${++sequence}`, pollId, at: now(), reason, ...decision });
@@ -24,6 +24,12 @@ export function createCoverageObservation(ledger: Recorder | undefined, pollId: 
     admission(postId: string, commentId: string, verdict: Admission, reason: CoverageReason) {
       record(postId, commentId, { stage: 'admission', verdict }, reason);
     },
+    classified(postId: string, commentId: string, outcome: { decision: 'reply' | 'skip'; category: CoverageCategory }) {
+      record(postId, commentId, { stage: 'classification', verdict: outcome.decision, category: outcome.category }, outcome.decision === 'reply' ? 'classified_reply' : 'classified_skip');
+      // A returned skip can be policy, a hold, a guard failure or provider error.
+      // Its free-text reason is never stored or used to invent an exclusion.
+      record(postId, commentId, { stage: 'eligibility', verdict: outcome.decision === 'reply' ? 'eligible' : 'UNKNOWN' }, outcome.decision === 'reply' ? 'policy_eligible' : 'unclassified');
+    },
     deferred(postId: string, comments: readonly { id: string }[], reason: CoverageReason) {
       for (const c of comments) record(postId, c.id, { stage: 'admission', verdict: 'deferred' }, reason);
     },
@@ -34,11 +40,13 @@ export function createCoverageObservation(ledger: Recorder | undefined, pollId: 
           scope: 'observed_this_poll', discovery: 'partial', persistence: 'none',
           uniqueObserved: report?.uniqueObserved ?? null, encounters: report?.encounters ?? null,
           unknownEligibility: report?.denominator.unknownEligibility ?? null,
+          classifierPositiveComments: report?.denominator.uniqueObservedEverEligible ?? null,
           intentionalExclusions: report?.denominator.intentionalExclusions ?? null,
           deferred: report?.outcomes.deferred ?? null,
+          classifierCompletions: report?.classifications ?? null,
           reasons: report?.reasons ?? null,
           failedRecorderCalls, limitedRecorderCalls, truncated: report?.measurement.truncated ?? null,
-          // Draft attempts, publication and durability are deliberately uninstrumented.
+          // Completion counts do not measure physical provider/draft attempts.
           accountCoveragePercent: null,
         } }));
       } catch { /* Reporting must not affect successful work or surface unsanitized errors. */ }

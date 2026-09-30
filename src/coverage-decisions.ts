@@ -10,13 +10,17 @@ export const COVERAGE_REASONS = [
   'resume', 'accepted', 'validation_rejected', 'provider_error',
   'publication_confirmed', 'publication_failed', 'publication_unknown',
   'durability_unknown', 'terminal_skip',
+  'classified_reply', 'classified_skip',
 ] as const;
 export type CoverageReason = typeof COVERAGE_REASONS[number];
+export const COVERAGE_CATEGORIES = ['banter', 'affirm', 'correct', 'teach', 'reference', 'empathize', 'personal_medical', 'complaint', 'spam', 'other'] as const;
+export type CoverageCategory = typeof COVERAGE_CATEGORIES[number];
 export type CoverageIdentity = { platform: 'threads'; postId: string; commentId: string };
 type BaseEvent = CoverageIdentity & { eventId: string; pollId: string; at: string; reason: CoverageReason };
 export type CoverageEvent = BaseEvent & (
   | { stage: 'discovery' }
   | { stage: 'eligibility'; verdict: 'eligible' | 'excluded' | 'UNKNOWN' }
+  | { stage: 'classification'; verdict: 'reply' | 'skip'; category: CoverageCategory }
   | { stage: 'admission'; verdict: 'admitted' | 'deferred' | 'excluded' | 'UNKNOWN' }
   | { stage: 'drafting'; attemptId: string; kind: 'initial' | 'repair' | 'escalation' | 'forced_tool' | 'retry'; verdict: 'started' | 'accepted' | 'rejected' | 'provider_error' | 'UNKNOWN' }
   | { stage: 'validation'; verdict: 'accepted' | 'rejected' | 'UNKNOWN' }
@@ -78,6 +82,8 @@ function event(value: unknown): CoverageEvent {
     case 'discovery': break;
     case 'eligibility':
       fields.push('verdict'); choice(value.verdict, ['eligible', 'excluded', 'UNKNOWN']); break;
+    case 'classification':
+      fields.push('verdict', 'category'); choice(value.verdict, ['reply', 'skip']); choice(value.category, COVERAGE_CATEGORIES); break;
     case 'admission':
       fields.push('verdict'); choice(value.verdict, ['admitted', 'deferred', 'excluded', 'UNKNOWN']); break;
     case 'drafting':
@@ -183,6 +189,7 @@ export class CoverageLedger {
     }
     let encounters = 0, eligible = 0, confirmedEligible = 0, excluded = 0, unknownEligibility = 0;
     let deferred = 0, draftRejected = 0, providerErrors = 0, publicationFailed = 0, unknownPublication = 0, unknownDurability = 0;
+    const classifications = { completedInvocations: 0, replies: 0, skips: 0, categories: {} as Partial<Record<CoverageCategory, number>> };
     const reasons: Partial<Record<CoverageReason, number>> = {};
     const draftAttempts = new Set<string>(), publicationAttempts = new Set<string>();
     const kinds: Record<string, number> = {};
@@ -194,7 +201,7 @@ export class CoverageLedger {
       const rowEncounters = new Set(discovered.map(e => e.pollId)).size;
       encounters += rowEncounters;
       const stages = {} as Record<CoverageEvent['stage'], string>;
-      for (const stage of ['discovery', 'eligibility', 'admission', 'drafting', 'validation', 'publication', 'durable_outcome'] as const) {
+      for (const stage of ['discovery', 'eligibility', 'classification', 'admission', 'drafting', 'validation', 'publication', 'durable_outcome'] as const) {
         const last = latest(stage);
         stages[stage] = last && 'verdict' in last ? last.verdict : stage === 'discovery' ? 'observed' : 'UNKNOWN';
       }
@@ -219,6 +226,11 @@ export class CoverageLedger {
       const rowReasons = new Set(list.map(e => e.reason));
       for (const reason of rowReasons) reasons[reason] = (reasons[reason] ?? 0) + 1;
       for (const e of list) {
+        if (e.stage === 'classification') {
+          classifications.completedInvocations++;
+          if (e.verdict === 'reply') classifications.replies++; else classifications.skips++;
+          classifications.categories[e.category] = (classifications.categories[e.category] ?? 0) + 1;
+        }
         if (e.stage !== 'drafting' && e.stage !== 'publication') continue;
         const attemptKey = JSON.stringify([key, e.attemptId]);
         const attempts = e.stage === 'drafting' ? draftAttempts : publicationAttempts;
@@ -236,6 +248,7 @@ export class CoverageLedger {
       numerator: { uniqueEligibleWithRecordedDurableConfirmation: confirmedEligible },
       outcomes: { deferred, draftRejected, providerErrors, publicationFailed, unknownPublication, unknownDurability },
       attempts: { drafting: draftAttempts.size, publication: publicationAttempts.size, kinds },
+      classifications,
       /** Each reason counts unique comments; these overlapping buckets do not sum to the denominator. */
       reasons,
       measurement: { liveHooksInstalled: 'UNKNOWN' as const, publicationDurability: 'unverified_caller_evidence', truncated: this.truncated, droppedRecorderCalls: this.droppedEvents, accountCoveragePercent: null },

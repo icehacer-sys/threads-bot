@@ -56,9 +56,9 @@ for (const limit of [0, 1, 2, Number.NaN]) {
 
 const root = dirname(dirname(fileURLToPath(import.meta.url)));
 const fixture = mkdtempSync(join(tmpdir(), 'coverage-observation-'));
-const noop = { discover() {}, eligibility() {}, admission() {}, deferred() {}, printSummary() {}, health: () => ({ failedRecorderCalls: 0, limitedRecorderCalls: 0 }) };
+const noop = { discover() {}, eligibility() {}, admission() {}, classified() {}, deferred() {}, printSummary() {}, health: () => ({ failedRecorderCalls: 0, limitedRecorderCalls: 0 }) };
 const baselines = process.argv.includes('--baseline-dir') ? [process.argv[process.argv.indexOf('--baseline-dir') + 1]] : [];
-const variants = ['disabled', 'recorded', 'throws', 'clock', 'limit', ...baselines.map(() => 'pr6')];
+const variants = ['disabled', 'recorded', 'throws', 'clock', 'limit', ...baselines.map(() => 'baseline')];
 const originalDate = Date, originalTimeout = globalThis.setTimeout;
 class FixtureDate extends Date { constructor(value?: string | number) { super(value ?? Date.parse(at)); } static now() { return Date.parse(at); } }
 globalThis.Date = FixtureDate as DateConstructor;
@@ -76,7 +76,7 @@ try {
     cpSync(join(root, 'src'), join(dir, 'src'), { recursive: true });
     writeFileSync(join(dir, 'package.json'), '{"type":"module"}');
     symlinkSync(join(root, 'node_modules'), join(dir, 'node_modules'), process.platform === 'win32' ? 'junction' : 'dir');
-    if (variant === 'pr6') for (const file of ['index.ts', 'reply-coverage.ts']) cpSync(join(baselines[0], file), join(dir, 'src', file));
+    if (variant === 'baseline') for (const file of ['index.ts', 'reply-coverage.ts', 'reply.ts']) cpSync(join(baselines[0], file), join(dir, 'src', file));
     const indexFile = join(dir, 'src/index.ts');
     const worker = readFileSync(indexFile, 'utf8');
     assert.equal(worker.split('main().catch(').length, 2, 'fixture must disable exactly one CLI entry');
@@ -85,11 +85,11 @@ try {
     const { runLiveOrDry } = await import(pathToFileURL(indexFile).href);
     Object.assign(config, { confirmLive: true, activeTz: '', activeWindows: [[0, 24]], pinnedPostIds: [], answerEnabled: false, newestOnly: false, windowHours: 0, xrayCasesRawBase: '', gifReplies: false, promoEnabled: false, dailyCap: 20, dailyUsdCap: 0, medicalReserveUsd: 0, perPostCap: 20, minCommentLength: 10, maxThreadReplies: 2, priorityUsernames: ['supporter'], webSearch: false, escalateCategories: [] });
     const results: unknown[] = [];
-    for (const scenario of ['gates', 'reveal', 'replyAll', 'cap', 'daily', 'usd', 'reserve', 'fetchFailure', 'outage']) {
-      Object.assign(config, { replyAll: scenario !== 'reveal' && scenario !== 'cap' && scenario !== 'reserve', perPostCap: scenario === 'cap' ? 2 : 20, dailyCap: scenario === 'daily' ? 1 : 20, dailyUsdCap: ['usd', 'reserve'].includes(scenario) ? 0.01 : 0, medicalReserveUsd: scenario === 'reserve' ? 0.005 : 0 });
+    for (const scenario of ['gates', 'reveal', 'replyAll', 'cap', 'daily', 'usd', 'reserve', 'fetchFailure', 'outage', 'escalation', 'workerHold']) {
+      Object.assign(config, { replyAll: scenario !== 'reveal' && scenario !== 'cap' && scenario !== 'reserve', perPostCap: scenario === 'cap' ? 2 : 20, dailyCap: scenario === 'daily' ? 1 : 20, dailyUsdCap: ['usd', 'reserve'].includes(scenario) ? 0.01 : 0, medicalReserveUsd: scenario === 'reserve' ? 0.005 : 0, escalateCategories: scenario === 'escalation' ? ['banter'] : [] });
       const stateFile = join(dir, `${scenario}-state.json`); config.stateFile = stateFile;
       const date = '2026-09-29'; // Existing cap-day rolls at noon, not midnight.
-      const state = { repliedCommentIds: ['done', 'second'], answeredPostIds: [], postCounts: scenario === 'cap' ? { post: 2 } : {}, daily: { date, count: 0 }, skippedCommentIds: ['skipped'], imageHeldComments: { imageheld: 'post' }, revealHeldComments: { revealheld: c('revealheld').text }, ownerReviews: scenario === 'gates' ? { concern: JSON.stringify({ postId: 'post', reason: 'image/anatomy fixture', queuedAt: at }) } : {}, spend: { date, usd: ['usd', 'reserve'].includes(scenario) ? 0.01 : 0 } };
+      const state = { repliedCommentIds: ['done', 'second'], answeredPostIds: [], postCounts: scenario === 'cap' ? { post: 2 } : {}, daily: { date, count: 0 }, skippedCommentIds: ['skipped'], imageHeldComments: { imageheld: 'post' }, revealHeldComments: { revealheld: c('revealheld').text }, ownerReviews: ['gates', 'workerHold'].includes(scenario) ? { concern: JSON.stringify({ postId: 'post', reason: 'image/anatomy fixture', queuedAt: at }) } : {}, spend: { date, usd: ['usd', 'reserve'].includes(scenario) ? 0.01 : 0 } };
       writeFileSync(stateFile, JSON.stringify(state));
       const comments = scenario === 'gates' ? [c('own', 'owner'), { ...c('hidden'), hide_status: 'HUSHED' }, c('empty', 'reader', 'post', ''), c('done'), c('skipped'), c('imageheld'), c('root'), c('first', 'owner', 'root'), c('second', 'reader', 'first'), c('third', 'owner', 'second'), c('turnlimited', 'reader', 'third'), c('orphan', 'reader', 'missing')]
         : scenario === 'reveal' ? [c('revealheld')]
@@ -101,7 +101,7 @@ try {
         calls.push({ path: address.pathname, query: address.search, method: init?.method ?? 'GET', body: init?.body ? String(init.body) : null });
         if (address.pathname === '/v1/messages') {
           if (scenario === 'outage') return response({ type: 'error', error: { type: 'authentication_error', message: 'synthetic auth failure' } }, 401);
-          return response({ id: 'fixture', type: 'message', role: 'assistant', model: config.triageModel, stop_reason: 'tool_use', usage: { input_tokens: 1, output_tokens: 1 }, content: [{ type: 'tool_use', id: 'tool', name: 'submit_reply', input: { intent: 'friendly reaction', decision: 'reply', category: 'banter', reply_text: 'That was a rough one.', reason: 'synthetic', needs_lookup: false, promo_product: 'none', promo_explicit: false } }] });
+          return response({ id: 'fixture', type: 'message', role: 'assistant', model: config.triageModel, stop_reason: 'tool_use', usage: { input_tokens: 1, output_tokens: 1 }, content: [{ type: 'tool_use', id: 'tool', name: 'submit_reply', input: { intent: 'friendly reaction', decision: 'reply', category: scenario === 'workerHold' ? 'teach' : 'banter', reply_text: scenario === 'workerHold' ? 'The caption does not state the age.' : 'That was a rough one.', reason: 'synthetic', needs_lookup: false, promo_product: 'none', promo_explicit: false } }] });
         }
         if (address.pathname.endsWith('/me')) return response({ id: 'owner', username: 'owner' });
         if (address.pathname.endsWith('/post/replies')) return response({ data: comments });
@@ -112,7 +112,7 @@ try {
       };
       const observed = new CoverageLedger({ ...scope, maxEvents: variant === 'limit' ? 1 : 1000 });
       const recorder = variant === 'throws' ? { record: (_: CoverageEvent): 'recorded' => { throw Error('private recorder failure'); }, report: observed.report.bind(observed) } : observed;
-      const o = variant === 'disabled' || variant === 'pr6' ? noop : createCoverageObservation(recorder, 'worker', () => { if (variant === 'clock') throw Error('private clock failure'); return at; });
+      const o = variant === 'disabled' || variant === 'baseline' ? noop : createCoverageObservation(recorder, 'worker', () => { if (variant === 'clock') throw Error('private clock failure'); return at; });
       const savedError = console.error, savedWarn = console.warn;
       console.log = (...args) => { if (!String(args[0]).startsWith('{"coverageObservation":')) logs.push(args.map(String).join(' ')); };
       console.error = console.warn = (...args) => logs.push(args.map(String).join(' '));
@@ -141,4 +141,10 @@ assert.equal(reports.get('recorded:fetchFailure')!.uniqueObserved, 2, 'successfu
 assert.equal(reports.get('recorded:replyAll')!.uniqueObserved, 2);
 assert.equal(reports.get('recorded:replyAll')!.encounters, 2, 'both edges in one poll are one encounter');
 assert.equal(reports.get('recorded:replyAll')!.numerator.uniqueEligibleWithRecordedDurableConfirmation, 0);
-console.log(`PASS observation: ${variants.length} worker variants x 9 scenarios preserve decisions, prompts, request/retry order, holds, state and exit codes; unique encounters, explicit reasons, UNKNOWN, limits, throwing recorder/clock/report/console; synthetic only`);
+assert.equal(reports.get('recorded:replyAll')!.classifications.completedInvocations, 2, 'internal repairs collapse to each completed caller invocation');
+assert.equal(reports.get('recorded:replyAll')!.denominator.uniqueObservedEverEligible, 1);
+assert.ok(reports.get('recorded:escalation')!.classifications.completedInvocations > 2, 'quality escalation completion is observed separately');
+assert.equal(reports.get('recorded:workerHold')!.denominator.uniqueObservedEverEligible, 2, 'classifier-positive eligibility remains distinct from downstream image holds');
+assert.equal(JSON.parse(disabled[10].state).daily.count, 0, 'downstream worker hold prevents publication despite classifier reply');
+assert.equal(reports.get('recorded:workerHold')!.numerator.uniqueEligibleWithRecordedDurableConfirmation, 0);
+console.log(`PASS observation: ${variants.length} worker variants x 11 scenarios preserve decisions, prompts, request/retry order, holds, state and exit codes; classifier completions, unique encounters, explicit reasons, UNKNOWN, limits, throwing recorder/clock/report/console; synthetic only`);

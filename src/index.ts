@@ -938,7 +938,7 @@ async function runLiveOrDry(mode: Mode, target: string | null, observation: Cove
       if (commentMediaKind) console.log(`        (comment media: ${commentMediaKind}; ${commentImages.length} frame(s); route=${mediaRoute})`);
       let d: Decision = mediaRoute === 'hold'
         ? { decision: 'skip', category: 'other', reply_text: '', reason: 'GIF quality budget unavailable; no draft purchased | guard:forced-skip' }
-        : await classifyAndDraft({ ...baseInput, modelOverride: mediaRoute === 'quality' ? config.model : config.triageModel, allowSearch: false });
+        : await classifyAndDraft({ ...baseInput, modelOverride: mediaRoute === 'quality' ? config.model : config.triageModel, allowSearch: false }, outcome => observation.classified(post.id, c.id, outcome));
       d = holdForImageReview(d, imageReviewHeld || state.hasImageReview(post.id));
       if (d.media_observation) console.log(JSON.stringify({ commentId: c.id, mediaObservation: d.media_observation, mediaText: d.media_text, mediaMeaning: d.media_meaning, mediaClear: d.media_clear }));
       const triageSpend = drainSpend();
@@ -977,7 +977,7 @@ async function runLiveOrDry(mode: Mode, target: string | null, observation: Cove
         // unrecognized movie/show/meme/person); medical correct/teach escalations rely on vetted facts.
         const allowSearch = config.webSearch && (d.category === "reference" || wantsLookup);
         console.log(`        (escalating ${d.category}${wantsLookup ? " +lookup" : ""} to ${config.model}${allowSearch ? " + web search" : ""})`);
-        d = await classifyAndDraft({ ...baseInput, modelOverride: config.model, allowSearch });
+        d = await classifyAndDraft({ ...baseInput, modelOverride: config.model, allowSearch }, outcome => observation.classified(post.id, c.id, outcome));
         escalated = true;
       } else if (wantsEscalation) {
         const limit = isMedical ? config.dailyUsdCap : config.escalateUsdCap;
