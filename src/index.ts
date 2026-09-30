@@ -1066,7 +1066,10 @@ async function runLiveOrDry(mode: Mode, target: string | null, observation: Cove
           // re-classified on EVERY poll for the rest of the night — up to ~48 model calls to
           // re-decide a lone "lol". It still gets more chances than a normal comment (a misread
           // must not permanently silence a thread the owner cares about), but a bounded number.
-          if (final || escalated) state.markSkipped(c.id);
+          // Only trusted final presentation failures get the shared two-strike
+          // allowance, including on committed/escalated threads. Never clear old skips.
+          if (d.draftFailure) state.recordSoftSkip(c.id, 2);
+          else if (final || escalated) state.markSkipped(c.id);
           else state.recordSoftSkip(c.id, committedThread ? 6 : 2);
         }
         continue;
