@@ -25,6 +25,9 @@ export function acknowledgmentKind(text: string): ConcernKind | undefined {
 export function imageConcernKind(text: string): 'anatomy' | 'provenance' | undefined {
   const personalWithoutImage = /\b(?:i have|i had|i was|my (?:child|baby|son|daughter|own))\b/i.test(text) && !/\b(?:this|the|your) (?:image|x.?ray|scan|picture)\b/i.test(text);
   if (!personalWithoutImage && /\b(?:is (?:this|it|that)|are these)\s+(?:an?\s+)?(?:ai|fake|real|generated)\b|(?:fake|ai[- ]generated|artificial|recreat).{0,35}(?:image|x.?ray|scan)|(?:image|x.?ray|scan).{0,35}(?:fake|ai[- ]generated|artificial|real patient)|\b(?:image|scan|x.?ray) provenance\b/i.test(text)) return 'provenance';
+  // A complete, unqualified denial is not an allegation. Keep this whole-comment
+  // only: questions, uncertainty, contrasts and "as normal" must retain review.
+  if (/^\s*(?:i|we)\s+(?:do not|don['\u2019]t)\s+see\s+any\s+(?:missing|extra|duplicated?)\s+(?:bones?|ribs?|clavicles?|scapula(?:e|s)?|teeth|tooth|fingers?|anatomy|vertebra(?:e|s)?|jaws?|limbs?)\s+(?:in|on)\s+(?:this|that|the|your)\s+(?:image|x[- ]?ray|scan|picture|radiograph)\.?\s*$/i.test(text)) return;
   // A general anatomy fact or personal story is not a defect in the posted image.
   // Match the allegation within one clause, including a concise/deictic complaint.
   const anatomy = /bone|rib|clavicle|scapula|scapulae|teeth|tooth|finger|anatom|vertebra|jaw|limb/i;
