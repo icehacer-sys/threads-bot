@@ -18,6 +18,7 @@ import { replyStyleIssue, needsClinicalReview, clinicalClaimIssue } from './repl
 import { GIF_TAGS } from "./gifs";
 import { PROMO_TAGS, PRODUCTS_BLOCK } from "./products";
 import { recordUsage, priceFor } from "./spend";
+import { observedReplyFetch, observeReplyUsage } from "./provider-observation";
 import { acknowledgmentKind, concernAcknowledgment, directConcern, imageConcernKind, requestsPersonalAdvice, isRetiredMedicalBoundary } from "./concerns";
 
 // Self-learned voice notes (maintained by the Fable 5 self-audit in voicelearn.ts). Loaded ONCE and
@@ -172,7 +173,7 @@ export function parseDecision(value: unknown, withMedia = false): Decision {
 
 let client: Anthropic | null = null;
 function getClient(): Anthropic {
-  if (!client) client = new Anthropic({ apiKey: requireEnv("ANTHROPIC_API_KEY") });
+  if (!client) client = new Anthropic({ apiKey: requireEnv("ANTHROPIC_API_KEY"), fetch: observedReplyFetch() });
   return client;
 }
 
@@ -581,6 +582,7 @@ async function classifyAndDraftCore(input: ClassifyInput): Promise<Decision> {
       tool_choice: toolChoice,
     } as unknown as Anthropic.MessageCreateParamsNonStreaming);
     recordUsage(model, res.usage);
+    try { observeReplyUsage(res.usage); } catch { /* Usage observation is optional. */ }
 
     if (res.content.some((b) => (b as { type: string }).type === "web_search_tool_result")) {
       console.log(`    (web search used for: "${commentText.slice(0, 40).replace(/\s+/g, " ")}")`);
@@ -609,6 +611,7 @@ async function classifyAndDraftCore(input: ClassifyInput): Promise<Decision> {
           tool_choice: { type: "tool", name: "submit_reply" },
         } as unknown as Anthropic.MessageCreateParamsNonStreaming);
         recordUsage(model, forced.usage);
+        try { observeReplyUsage(forced.usage); } catch { /* Usage observation is optional. */ }
         if (forced.stop_reason === "max_tokens") {
           throw new Error("Truncated reply verdict (max_tokens)");
         }
