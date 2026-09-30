@@ -14,7 +14,8 @@ try {
     const url = new URL('https://synthetic.invalid/v1/messages?token=PRIVATE_MARKER');
     const signal = new AbortController().signal;
     const init = { body: 'PRIVATE_MARKER prompt/comment/draft/media', method: 'POST', signal, headers: new Headers({ authorization: 'PRIVATE_MARKER', 'x-api-key': 'PRIVATE_MARKER', 'x-stainless-retry-count': '2' }) };
-    const response = new Response('PRIVATE_MARKER'); response.clone = () => { throw Error('No clone'); };
+    const response = new Response('PRIVATE_MARKER');
+    Object.defineProperty(response, 'clone', { value: () => { throw Error('No clone'); } });
     const owner = { marker: 'PRIVATE_MARKER' };
     const probe = createProviderObservation();
     const base: typeof fetch = function (this: unknown, input, options) {
@@ -48,9 +49,10 @@ try {
     assert.equal(await probe.wrapFetch(async () => response)('synthetic'), response);
   });
   await check(async () => {
-    class HostileHeaders extends Headers { get() { throw Error('PRIVATE_MARKER'); } }
+    const hostileHeaders = new Headers();
+    Object.defineProperty(hostileHeaders, 'get', { value: () => { throw Error('PRIVATE_MARKER'); } });
     const probe = createProviderObservation(); const response = new Response('safe'); let dispatches = 0;
-    assert.equal(await probe.wrapFetch(async () => { dispatches++; return response; })('synthetic', { headers: new HostileHeaders() }), response);
+    assert.equal(await probe.wrapFetch(async () => { dispatches++; return response; })('synthetic', { headers: hostileHeaders }), response);
     assert.equal(dispatches, 1); assert.ok(probe.snapshot().measurement.failedObservations > 0);
     probe.usage(new Proxy({}, { get() { throw Error('PRIVATE_MARKER'); } }));
     for (const [key, value] of Object.entries(probe.snapshot().usage)) if (key !== 'records') {
