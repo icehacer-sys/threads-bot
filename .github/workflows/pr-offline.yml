@@ -33,6 +33,7 @@ jobs:
           set -euo pipefail
           node tools/verify-offline-guard.mjs
           npm run workflow:verify
+          npm run deepseek:verify
           npm run concerns:verify
           npm run wording:verify
           npm run supporters:verify

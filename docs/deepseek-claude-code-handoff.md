@@ -58,6 +58,12 @@ remaining high-risk findings in the focused adapter scope. No evaluator API was 
 Default-off classifier comparison against byte-exact pinned main also passed (10 variants
 by 12 scenarios): complete request bodies, decisions, physical counts/order and spend match.
 
+## Latest verification
+
+See [the full workflow checkpoint](deepseek-full-workflow-verification.md) for the
+subsequent four native media tests, exact costs, quality failures and offline search
+contract checks. Full switch remains NO-GO; the default-off hybrid is not full parity.
+
 ## Blocked before activation
 
 Both ANTHROPIC_API_KEY and DEEPSEEK_API_KEY GitHub Actions secret names are present. Values
@@ -65,12 +71,14 @@ were not read or changed. The new GitHub key's validity is untested; the success
 smoke used the previously authorized local benchmark key. Parent must approve workflow secret
 wiring, activation and the disclosed Claude search fallback. Do not activate merely by merging.
 
-One native bare-GIF smoke correctly read SURE -> WAIT -> NOPE -> NOPE and confidence turning
+The initial native bare-GIF smoke correctly read SURE -> WAIT -> NOPE -> NOPE and confidence turning
 into withdrawal, returned valid media fields and passed current guards without repair. It
 invented that the final NOPE grows larger. Guarded reply: "Take one more look whenever you like."
-This is safe but generic. No publication occurred. Remaining media acceptance tests: written
-comment plus GIF/context; dependence on later frames and order; contradictory/unreadable text;
-missing frames; instruction-like on-screen text; repair and truncation handling.
+This is safe but generic. No publication occurred. Subsequent written-GIF, explicit still
+control, unreadable and contradictory/on-screen-instruction tests ran natively. Their
+visual-grounding and intent errors prevent a broad media-quality claim. Missing frames,
+real media repair and native truncation still require acceptance; offline repair/truncation
+contracts pass.
 
 Native DeepSeek search through its Anthropic-compatible endpoint is documented, but MNL's exact
 `web_search_20250305`, `max_uses:3`, fresh sources/citations, error objects versus empty results,
@@ -79,10 +87,11 @@ summarization billing has no proven test ceiling. Do not run paid search without
 bounded plan and parent approval. Full replacement requires truthful acceptance of these gaps.
 
 Benchmark caps are still $0.50 each. Cumulative conservative usage-derived ledger totals:
-Claude $0.030497 (remaining $0.469503); DeepSeek $0.005638 (remaining $0.494362). No further paid
-calls are approved. Ledgers/paid evidence remain in the separate benchmark checkout with its
+Claude $0.030497 (remaining $0.469503); DeepSeek $0.009748 (remaining $0.490252). No further paid
+calls are planned; native search remains blocked pending a bounded test plan. Ledgers/paid evidence remain in the separate benchmark checkout with its
 source pin frozen. The committed GIF fixture is synthetic; it contains no private comment payloads.
 
 Runtime files: src/reply-provider.ts, src/reply-provider-plan.ts, src/deepseek-reply-client.ts;
 small integrations in src/config.ts, src/reply.ts, src/spend.ts, src/coverage-observation.ts.
-The existing PR13 observation module, frame extractor, prompts, state and workflows are unchanged.
+The existing PR13 observation module, frame extractor, prompts and state are unchanged.
+Only the PR offline-check workflow gains `deepseek:verify`; the live worker workflow is unchanged.
