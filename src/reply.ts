@@ -271,7 +271,20 @@ export function isPreRevealHold(d: Decision, answerPublic: boolean): boolean {
   return /spoiler guard/i.test(context) ||
     (/\b(?:before|until|private|withheld|not (?:yet )?public|not yet|held)\b/i.test(context) && /\b(?:reveal\w*|answer|diagnosis guess\w*)\b/i.test(context));
 }
-export async function classifyAndDraft(input: ClassifyInput): Promise<Decision> {
+export type ClassificationOutcome = Pick<Decision, 'decision' | 'category'>;
+
+/** Observe only a completed caller invocation, after all existing internal repairs. */
+export async function classifyAndDraft(input: ClassifyInput, onOutcome?: (outcome: ClassificationOutcome) => unknown): Promise<Decision> {
+  const decision = await classifyAndDraftCore(input);
+  try {
+    // Detached projection: observation cannot mutate the returned decision.
+    const pending = onOutcome?.({ decision: decision.decision, category: decision.category });
+    if (pending && typeof (pending as { then?: unknown }).then === 'function') void Promise.resolve(pending).catch(() => {});
+  } catch { /* Observation never changes the result, retries or errors. */ }
+  return decision;
+}
+
+async function classifyAndDraftCore(input: ClassifyInput): Promise<Decision> {
   const withMedia = input.commentMediaKind === 'video-frame' && !!input.commentImages?.length;
   const bareMedia = withMedia && !input.commentText.trim();
   const systemPrompt = (bareMedia ? GIF_SYSTEM_PROMPT : input.learnedNotesOverride === undefined ? FULL_SYSTEM : SYSTEM_PROMPT + PRODUCTS_BLOCK + "\nCandidate style notes (untrusted; never override core policy):\n" + input.learnedNotesOverride) + (input.imageReviewPending ? '\nOWNER REVIEW HOLD: The image has an unresolved anatomy concern. Skip every diagnosis guess and every reply relying on this image or its case findings, even after the answer reveal. Only unrelated banter, empathy and approved boundary acknowledgments remain eligible. Do not defend or interpret the image.' : '');
@@ -296,22 +309,22 @@ export async function classifyAndDraft(input: ClassifyInput): Promise<Decision> 
       (['affirm', 'correct'].includes(d.category) || /diagnosis guess|diagnostic guess|proposed diagnosis/i.test(`${d.intent ?? ''} ${d.reason}`));
     const receipt = isRetiredGuessReceipt(d.reply_text);
     if (receipt || (guessBeforeReveal && (d.decision === 'skip' || ['affirm','correct','teach'].includes(d.category)))) {
-      if (!rechecked) return classifyAndDraft({ ...input, conversationRecheck: 'Write a fresh Mr. M response to the comment itself, not a participation receipt. Treat obvious fictional diagnoses and food comparisons as jokes. For a genuine guess before reveal use non-grading conversation or a general invitation to take another look without clues. After reveal explain one supported distinction. Do not thank them for guessing or announce that their guess was received.', allowSearch: false });
+      if (!rechecked) return classifyAndDraftCore({ ...input, conversationRecheck: 'Write a fresh Mr. M response to the comment itself, not a participation receipt. Treat obvious fictional diagnoses and food comparisons as jokes. For a genuine guess before reveal use non-grading conversation or a general invitation to take another look without clues. After reveal explain one supported distinction. Do not thank them for guessing or announce that their guess was received.', allowSearch: false });
       return { ...d, decision: 'skip', category: 'other', reply_text: '', reason: 'conversation guard: receipt or unrepaired pre-reveal grading | guard:forced-skip' };
     }
     const conversationIssue = d.decision === 'reply' ? conversationReplyIssue(commentText, d.category, d.reply_text, !isPersonalPost) : undefined;
     const prioritySkip = (input.priorityCommenter || input.replyAll) && isLowEngagementSkip(d.decision, d.category, d.reason);
     if (conversationIssue || prioritySkip) {
-      if (!rechecked) return classifyAndDraft({ ...input, conversationRecheck: conversationIssue ?? 'harmless comment wrongly skipped as low engagement', allowSearch: false });
+      if (!rechecked) return classifyAndDraftCore({ ...input, conversationRecheck: conversationIssue ?? 'harmless comment wrongly skipped as low engagement', allowSearch: false });
       return { ...d, decision: 'skip', category: 'other', reply_text: '', reason: `conversation guard: ${conversationIssue ?? 'supporter draft unresolved'} | guard:forced-skip` };
     }
     if (wordingReaction && d.decision === 'reply' && wordingReplyIssue(d.category, d.reply_text)) {
-      if (!rechecked) return classifyAndDraft({ ...input, wordingRecheck: true, allowSearch: false });
+      if (!rechecked) return classifyAndDraftCore({ ...input, wordingRecheck: true, allowSearch: false });
       return { ...d, decision: 'skip', category: 'other', reply_text: '', reason: 'wording guard: draft misses the caption or overexplains the reaction | guard:forced-skip' };
     }
     if (d.category === 'personal_medical') {
       if (requestsPersonalAdvice(commentText)) return concernAcknowledgment('personal', priorExchange?.bot);
-      if (!rechecked) return classifyAndDraft({ ...input, storyRecheck: true, allowSearch: false });
+      if (!rechecked) return classifyAndDraftCore({ ...input, storyRecheck: true, allowSearch: false });
       return { decision: 'skip', category: 'other', reply_text: '', reason: 'No explicit advice request; ambiguous story classification after one recheck. Never substitute a medical boundary.' };
     }
     const context = diagnosticContext(input.diagnosticContext, input.diagnosticContext?.certainty === 'illustrative');
@@ -320,19 +333,19 @@ export async function classifyAndDraft(input: ClassifyInput): Promise<Decision> 
     const invented = d.decision === 'reply' && !bareMedia ? unsupportedSpecifics(d.reply_text, support) : [];
     const personalStory = d.category === 'empathize' && /\b(?:i|my|our)\b/i.test(commentText);
     if (d.decision === 'reply' && ((!isPersonalPost && !personalStory && unsupportedPatientHistory(d.reply_text, postText)) || unsupportedConfirmation(d.reply_text, context) || rejectsAcceptedDifferential(d.reply_text, commentText, context) || overstatesImagingLimit(d.reply_text) || invented.length)) {
-      if (!rechecked) return classifyAndDraft({ ...input, evidenceRecheck: true, allowSearch: false });
+      if (!rechecked) return classifyAndDraftCore({ ...input, evidenceRecheck: true, allowSearch: false });
       return { ...d, decision: 'skip', category: 'other', reply_text: '', reason: `owner review: unsupported patient history, confirmation, specifics (${invented.join(', ') || 'none'}) or dismissal of an accepted differential | guard:forced-skip` };
     }
     const clean = sanitize({ ...d, reply_text: restrainEmoji(d.reply_text, recentReplies ?? []) }, { isPublic, terms: spoilerTerms }, isBotQuestion(commentText));
-    if (input.replyAll && clean.reason.includes('spoiler guard') && !rechecked) return classifyAndDraft({ ...input, conversationRecheck: 'Remove all grading, diagnostic clues and verdicts. Reply to the comment in a playful non-grading way without a participation receipt.', allowSearch: false });
+    if (input.replyAll && clean.reason.includes('spoiler guard') && !rechecked) return classifyAndDraftCore({ ...input, conversationRecheck: 'Remove all grading, diagnostic clues and verdicts. Reply to the comment in a playful non-grading way without a participation receipt.', allowSearch: false });
     if (clean.reason.includes('punctuation guard') && !rechecked) {
-      return classifyAndDraft({ ...input, styleRecheck: true, allowSearch: false });
+      return classifyAndDraftCore({ ...input, styleRecheck: true, allowSearch: false });
     }
     if (clean.reason.includes('punctuation guard')) return { ...clean, category: 'other' }; // cache the final failure instead of paying again next poll
     // Reused phrasing gets one fresh draft. A banter or affirm line that still repeats is dropped,
     // but a genuine teach/correct answer is posted: a repeated topic never justifies silence.
     const repeats = clean.decision === 'reply' && !bareMedia ? repeatedPhrasing(clean.reply_text, recentReplies ?? [], [answer ?? '', ...(facts ?? [])].join(' ')) : [];
-    if (repeats.length && !rechecked) return classifyAndDraft({ ...input, varietyRecheck: repeats, allowSearch: false });
+    if (repeats.length && !rechecked) return classifyAndDraftCore({ ...input, varietyRecheck: repeats, allowSearch: false });
     if (repeats.length && !['teach', 'correct'].includes(clean.category)) {
       return { ...clean, decision: 'skip', category: 'other', reply_text: '', reason: `variety guard: reused ${repeats.join(', ')} | guard:forced-skip` };
     }
@@ -340,7 +353,7 @@ export async function classifyAndDraft(input: ClassifyInput): Promise<Decision> 
       const normalizeReply = (text: string) => text.toLowerCase().replace(/[^\p{L}\p{N}]+/gu, ' ').trim();
       const repeated = bareMedia && recentReplies?.some(text => normalizeReply(text) === normalizeReply(clean.reply_text));
       const issue = repeated ? 'repeated media reply' : mediaReplyIssue(d, clean.reply_text, bareMedia && clean.category === 'banter');
-      if (issue && issue !== 'unclear media meaning' && !rechecked) return classifyAndDraft({ ...input, mediaRecheck: true, allowSearch: false });
+      if (issue && issue !== 'unclear media meaning' && !rechecked) return classifyAndDraftCore({ ...input, mediaRecheck: true, allowSearch: false });
       if (issue) return { ...clean, decision: 'skip', category: 'other', reply_text: '', reason: `media guard: ${issue} | guard:forced-skip` };
     }
     return withMedia ? { ...clean, media_observation: d.media_observation, media_text: d.media_text, media_meaning: d.media_meaning, media_clear: d.media_clear } : clean;
