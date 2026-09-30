@@ -8,7 +8,7 @@ import { fileURLToPath, pathToFileURL } from 'node:url';
 
 const root = dirname(dirname(fileURLToPath(import.meta.url)));
 const fixture = mkdtempSync(join(tmpdir(), 'provider-observation-'));
-const originalSource = readFileSync(join(root, 'src/reply.ts'), 'utf8');
+const originalSource = readFileSync(join(root, 'src/reply-provider.ts'), 'utf8');
 const source = originalSource.replace(/\r\n/g, '\n'); // Normal Windows checkout/merge line endings.
 const observation = readFileSync(join(root, 'src/provider-observation.ts'), 'utf8');
 const variants = ['original', 'instrumented', 'transportOnly', 'throws', 'rejects', 'thenable', 'pending', 'saturated', 'installFailure', 'usageFailure'];
@@ -75,13 +75,11 @@ try {
     if (variant === 'original' || variant === 'transportOnly') {
       let copy = source;
       if (variant === 'original') {
-        copy = once(copy, 'import { observedReplyFetch, observeReplyUsage } from "./provider-observation";\n', '');
+        copy = once(copy, 'observedReplyFetch, observeReplyUsage, ', '');
         copy = once(copy, ', fetch: observedReplyFetch()', '');
       }
-      for (const [name, indent] of [['res', '    '], ['forced', '        ']]) {
-        copy = once(copy, `${indent}try { observeReplyUsage(${name}.usage); } catch { /* Usage observation is optional. */ }\n`, '');
-      }
-      writeFileSync(join(dir, 'src/reply.ts'), copy);
+      copy = once(copy, '    try { observeReplyUsage(response.usage); } catch { /* PR13 observation is optional. */ }\n', '');
+      writeFileSync(join(dir, 'src/reply-provider.ts'), copy);
     }
     let module = observation;
     const callback = variant === 'throws' ? '() => { throw Error("PRIVATE_MARKER"); }'
@@ -96,7 +94,7 @@ try {
     const { classifyAndDraft } = await import(pathToFileURL(join(dir, 'src/reply.ts')).href);
     const { drainSpend } = await import(pathToFileURL(join(dir, 'src/spend.ts')).href);
     const { replyProviderSnapshot } = await import(pathToFileURL(join(dir, 'src/provider-observation.ts')).href);
-    Object.assign(config, { webSearch: true, gifReplies: false });
+    Object.assign(config, { webSearch: true, gifReplies: false, deepSeekTrial: false });
     const results: unknown[] = [];
     for (const scenario of scenarios) {
       const before = replyProviderSnapshot();
@@ -163,5 +161,5 @@ for (const name of ['invalidJson', 'exhausted503']) {
   const data = measurements.get(name);
   assert.equal(data.after.usage.records, data.before.usage.records, 'transport outcome cannot invent usage or billing');
 }
-assert.equal(readFileSync(join(root, 'src/reply.ts'), 'utf8'), originalSource, 'checkout source untouched by fixtures');
+assert.equal(readFileSync(join(root, 'src/reply-provider.ts'), 'utf8'), originalSource, 'checkout source untouched by fixtures');
 console.log(`PASS provider attempts: ${variants.length} variants x ${scenarios.length} scenarios; ${variants.length * scenarios.reduce((sum, s) => sum + s.physical, 0)} fake dispatches; complete requests/decisions/spend/completions preserved; observation failures isolated`);

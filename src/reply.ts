@@ -6,7 +6,7 @@ import Anthropic from "@anthropic-ai/sdk";
 import { readFileSync } from "node:fs";
 import { fileURLToPath } from "node:url";
 import { dirname, join } from "node:path";
-import { config, requireEnv } from "./config";
+import { config } from "./config";
 import { SYSTEM_PROMPT } from "./voice";
 import { diagnosticContext, unsupportedConfirmation, rejectsAcceptedDifferential, overstatesImagingLimit, unsupportedSpecifics, unsupportedPatientHistory, type DiagnosticContext } from './case-evidence';
 import { COVERAGE_NOTE, isRetiredGuessReceipt } from './reply-coverage';
@@ -17,8 +17,8 @@ import { SUPPORTER_NOTE, isLowEngagementSkip, conversationReplyIssue } from './s
 import { replyStyleIssue, needsClinicalReview, clinicalClaimIssue } from './reply-style';
 import { GIF_TAGS } from "./gifs";
 import { PROMO_TAGS, PRODUCTS_BLOCK } from "./products";
-import { recordUsage, priceFor } from "./spend";
-import { observedReplyFetch, observeReplyUsage } from "./provider-observation";
+import { priceFor } from "./spend";
+import { createReplyMessage } from './reply-provider';
 import { acknowledgmentKind, concernAcknowledgment, directConcern, imageConcernKind, requestsPersonalAdvice, isRetiredMedicalBoundary } from "./concerns";
 
 // Self-learned voice notes (maintained by the Fable 5 self-audit in voicelearn.ts). Loaded ONCE and
@@ -169,12 +169,6 @@ export function parseDecision(value: unknown, withMedia = false): Decision {
   if (record.decision === "reply" && !(record.reply_text as string).trim()) throw new Error("Invalid reply verdict: empty reply");
   if (record.promo_explicit === true && record.promo_product === "none") throw new Error("Invalid reply verdict: link requested without a product");
   return value as Decision;
-}
-
-let client: Anthropic | null = null;
-function getClient(): Anthropic {
-  if (!client) client = new Anthropic({ apiKey: requireEnv("ANTHROPIC_API_KEY"), fetch: observedReplyFetch() });
-  return client;
 }
 
 /**
@@ -571,7 +565,7 @@ async function classifyAndDraftCore(input: ClassifyInput): Promise<Decision> {
     : {};
 
   try {
-    const res = await getClient().messages.create({
+    const res = await createReplyMessage({
       model,
       max_tokens: 1024,
       ...effortParam,
@@ -581,8 +575,6 @@ async function classifyAndDraftCore(input: ClassifyInput): Promise<Decision> {
       tools,
       tool_choice: toolChoice,
     } as unknown as Anthropic.MessageCreateParamsNonStreaming);
-    recordUsage(model, res.usage);
-    try { observeReplyUsage(res.usage); } catch { /* Usage observation is optional. */ }
 
     if (res.content.some((b) => (b as { type: string }).type === "web_search_tool_result")) {
       console.log(`    (web search used for: "${commentText.slice(0, 40).replace(/\s+/g, " ")}")`);
@@ -601,7 +593,7 @@ async function classifyAndDraftCore(input: ClassifyInput): Promise<Decision> {
       // ever emitting submit_reply. Retry ONCE forcing the tool so the comment gets a real reply
       // instead of being dropped AND re-paid on every 10-min poll for the rest of the night.
       if ((toolChoice as { type?: string }).type === "auto") {
-        const forced = await getClient().messages.create({
+        const forced = await createReplyMessage({
           model,
           max_tokens: 1024,
           ...effortParam,
@@ -610,8 +602,6 @@ async function classifyAndDraftCore(input: ClassifyInput): Promise<Decision> {
           tools,
           tool_choice: { type: "tool", name: "submit_reply" },
         } as unknown as Anthropic.MessageCreateParamsNonStreaming);
-        recordUsage(model, forced.usage);
-        try { observeReplyUsage(forced.usage); } catch { /* Usage observation is optional. */ }
         if (forced.stop_reason === "max_tokens") {
           throw new Error("Truncated reply verdict (max_tokens)");
         }
