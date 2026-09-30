@@ -14917,6 +14917,15 @@
       },
       "publishedId": "18207667618370590",
       "confirmedPublished": true
+    },
+    "comment:18103824437634362": {
+      "creationId": "17891570283614054",
+      "createdAt": "2026-09-30T06:04:05.503Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Hopital has to cover something",
+        "reply_to_id": "18103824437634362"
+      }
     }
   },
   "repliedCommentIds": [
@@ -25558,6 +25567,6 @@
   },
   "spend": {
     "date": "2026-09-29",
-    "usd": 0.6594278000000002
+    "usd": 0.6624847000000003
   }
 }
