@@ -14847,6 +14847,15 @@
       },
       "publishedId": "18171573814454802",
       "confirmedPublished": true
+    },
+    "comment:18175224475451492": {
+      "creationId": "17891560650614054",
+      "createdAt": "2026-09-30T04:00:05.680Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "That's the one. Brain's been conducting experiments without filing the patent application.",
+        "reply_to_id": "18175224475451492"
+      }
     }
   },
   "repliedCommentIds": [
@@ -25482,6 +25491,6 @@
   },
   "spend": {
     "date": "2026-09-29",
-    "usd": 0.5862262
+    "usd": 0.5926990000000001
   }
 }
