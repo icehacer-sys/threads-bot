@@ -32,6 +32,12 @@ const r01 = `Force Lightning scarring. The Emperor REALLY didn't like this guy a
 On another note, it's always so peculiar to see children's X-rays with all of those extra teeth. The fact that they're already there at the start: evolution is an amazing thing - except for when our jaws get shorter and our wisdom teeth get horribly impacted (speaking from experience). Bet you've got a few doozies of those in your collection?`;
 const benignAnatomyComments = [
   r01,
+  'I do not see any missing bones in this image.',
+  "I don't see any missing ribs in this scan.",
+  'We do not see any extra fingers in the picture.',
+  'I don\u2019t see any duplicated clavicles on this radiograph.',
+  "We don't see any extra teeth in that X-ray",
+  '  I DO NOT SEE ANY MISSING BONES IN THIS IMAGE.  ',
   "Children's X-rays with all those extra teeth look peculiar.",
   'Extra teeth can look fascinating.',
   'Extra teeth are fascinating.',
@@ -55,6 +61,21 @@ for (const text of benignAnatomyComments) {
 }
 assert.equal(requestsPersonalAdvice(r01), false, 'a past experience and a collection question are not a request for personal advice');
 const genuineAnatomyComments = [
+  'This image has two left clavicles.',
+  'I do not see any missing bones in this image, but the clavicles are duplicated.',
+  'I do not see any missing bones in this image but perhaps the ribs are duplicated.',
+  'I do not see any missing bones in this image. Could the clavicles be duplicated?',
+  'I do not see any missing bones in this image as normal.',
+  'This image is not normal: it has two left clavicles.',
+  'It is not normal for this image to have two left clavicles.',
+  'I am not sure whether there are any missing bones in this image.',
+  'I do not see any missing bones in this image?',
+  'I do not see any missing bones in this image...',
+  'I do not see any missing bones in this image, do you?',
+  'I do not see any missing bones in this image unless the left rib is missing.',
+  'I cannot see the ribs in this image.',
+  'The clavicles in this image are not duplicated but there are extra fingers.',
+  'No missing ribs in this image but two left clavicles?',
   'This image has duplicated clavicles.',
   'This image has duplicated clavicles in this syndrome.',
   'This picture is missing a rib.',
