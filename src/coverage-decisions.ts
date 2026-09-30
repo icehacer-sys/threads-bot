@@ -1,4 +1,4 @@
-// Offline lifecycle contract. Deliberately not imported by the live worker.
+// Pure lifecycle contract. Hook installation belongs to callers, not this ledger.
 // No I/O, timers, configuration, provider calls or reply-policy decisions here.
 
 export const COVERAGE_REASONS = [
@@ -238,7 +238,7 @@ export class CoverageLedger {
       attempts: { drafting: draftAttempts.size, publication: publicationAttempts.size, kinds },
       /** Each reason counts unique comments; these overlapping buckets do not sum to the denominator. */
       reasons,
-      measurement: { liveHooksInstalled: false, publicationDurability: 'unverified_caller_evidence', truncated: this.truncated, droppedRecorderCalls: this.droppedEvents, accountCoveragePercent: null },
+      measurement: { liveHooksInstalled: 'UNKNOWN' as const, publicationDurability: 'unverified_caller_evidence', truncated: this.truncated, droppedRecorderCalls: this.droppedEvents, accountCoveragePercent: null },
     };
   }
 }
