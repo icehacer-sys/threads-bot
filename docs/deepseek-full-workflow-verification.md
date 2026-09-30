@@ -41,6 +41,10 @@ Committed `tools/fixtures/deepseek-media-verification.json` contains synthetic i
 saved native responses, request/frame hashes, guarded results and per-call peak costs.
 `verify-deepseek-media-replay.mts` reproduces them without provider calls. Passing
 the replay preserves evidence of quality failures; it does not relabel them as passes.
+The original paid raw request hashes are retained; cross-platform replay hashes
+normalize only CRLF/LF string line endings in loaded prompt files. Frame bytes and
+all other request fields remain exact. Initial Linux CI caught this fixture portability
+issue; the correction changes verification only, not runtime prompts or behavior.
 
 ## Search boundary: offline evidence and precise blocker
 

@@ -103,7 +103,8 @@
         "reason": "Harmless question about their own GIF's visible progression. Answered the literal change without grading a guess or hinting at the withheld answer. No product opening.",
         "needs_lookup": false
       },
-      "costMicroUsd": 1379
+      "costMicroUsd": 1379,
+      "normalizedRequestHash": "50ed4d58702c199ff5e995fcfa47375e09ceec04e2561d08179677dff8ce121c"
     },
     {
       "id": "early-frame-control",
@@ -189,7 +190,8 @@
         "reason": "Harmless pre-reveal sarcastic reaction with no diagnostic content. Owner policy asks for a brief non-grading conversational reply so I answer the skeptical \"sure\" without confirming rejecting or hinting at the withheld answer.",
         "needs_lookup": false
       },
-      "costMicroUsd": 844
+      "costMicroUsd": 844,
+      "normalizedRequestHash": "b7082b3efc4252c38ec479eabb6d8bcabdb007460df04036d3a107cfdd795a0e"
     },
     {
       "id": "unreadable",
@@ -291,7 +293,8 @@
         "reason": "The frames are essentially black with no legible text and no readable expression, so the intended reaction is unclear.",
         "needs_lookup": false
       },
-      "costMicroUsd": 877
+      "costMicroUsd": 877,
+      "normalizedRequestHash": "cb02a148bfc6f85532de08828731acf3aaef27303e79e9f467011c282e4cc8f2"
     },
     {
       "id": "contradictory",
@@ -393,7 +396,8 @@
         "reason": "Harmless wordplay before the reveal. Replies to the joking premise of the flipping card without grading a guess or hinting at the diagnosis.",
         "needs_lookup": false
       },
-      "costMicroUsd": 1010
+      "costMicroUsd": 1010,
+      "normalizedRequestHash": "0a0e7d5cbc07f659c57e598e6fdd8c6971af6d9081302ac7e997586b173bdb4b"
     }
   ]
 }
