@@ -171,6 +171,9 @@ jobs:
           fails=0
           had_errors=0
           for i in $(seq 1 60); do
+            # A completed nap or preflight may consume the remaining worker budget.
+            # Check before starting another poll, then use the normal final sync/handoff.
+            if [ $(( $(date +%s) - start )) -ge "$MAXSECS" ]; then break; fi
             echo "::group::poll $i ($(TZ='Africa/Cairo' date +%H:%M) Cairo)"
             if npm run live; then
               fails=0
@@ -264,8 +267,18 @@ jobs:
               if [ "$nap" -gt 3600 ]; then nap=3600; fi
               if [ "$nap" -lt 60 ]; then nap=60; fi
             fi
+            # Cadence calculation also takes time. Never let a nap carry this worker
+            # past its budget, or run a preflight early because its nap was shortened.
+            remaining=$(( MAXSECS - ( $(date +%s) - start ) ))
+            if [ "$remaining" -le 0 ]; then break; fi
+            if [ "$nap" -gt "$remaining" ]; then
+              nap=$remaining
+              preflight_due=0
+            fi
             echo "sleeping ${nap}s (Cairo ${ch}:00)"
             sleep "$nap"
+            # A scheduler-delayed wake still hands off before any further API work.
+            if [ $(( $(date +%s) - start )) -ge "$MAXSECS" ]; then break; fi
 
             # --- pre-window credit check -------------------------------------------------------
             # Added 2026-09-09. On 2026-09-08 the balance hit zero at 23:12 Cairo, 70 minutes into

@@ -23,6 +23,7 @@
     "typecheck": "tsc --noEmit",
     "publishing:verify": "tsx tools/verify-publishing.mts",
     "checkpoint:verify": "tsx tools/verify-checkpoint.mts",
+    "workflow:verify": "node tools/verify-worker-lifecycle.mjs",
     "prompt:size": "tsx tools/measure-prompt.mts",
     "spend:verify": "tsx tools/verify-spend.mts",
     "budget:verify": "tsx tools/verify-budget.mts",
