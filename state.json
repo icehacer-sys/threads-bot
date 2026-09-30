@@ -14881,6 +14881,15 @@
       },
       "publishedId": "18124290145914603",
       "confirmedPublished": true
+    },
+    "comment:18106223747462263": {
+      "creationId": "17891564778614054",
+      "createdAt": "2026-09-30T05:01:29.392Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Sturge-Weber's got the Hydra energy but keeps all its original heads.",
+        "reply_to_id": "18106223747462263"
+      }
     }
   },
   "repliedCommentIds": [
@@ -25519,6 +25528,6 @@
   },
   "spend": {
     "date": "2026-09-29",
-    "usd": 0.6284667000000002
+    "usd": 0.6321226000000002
   }
 }
