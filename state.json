@@ -14951,6 +14951,15 @@
       },
       "publishedId": "17954589456270346",
       "confirmedPublished": true
+    },
+    "comment:18110436908143108": {
+      "creationId": "17891573163614054",
+      "createdAt": "2026-09-30T06:35:37.501Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Yeah same energy when I first saw it.",
+        "reply_to_id": "18110436908143108"
+      }
     }
   },
   "repliedCommentIds": [
@@ -25595,6 +25604,6 @@
   },
   "spend": {
     "date": "2026-09-29",
-    "usd": 0.7346290000000003
+    "usd": 0.7680973000000003
   }
 }
