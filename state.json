@@ -14925,7 +14925,9 @@
         "media_type": "TEXT",
         "text": "Hopital has to cover something",
         "reply_to_id": "18103824437634362"
-      }
+      },
+      "publishedId": "18122862298919673",
+      "confirmedPublished": true
     }
   },
   "repliedCommentIds": [
