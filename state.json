@@ -14895,6 +14895,15 @@
       },
       "publishedId": "18114748883089371",
       "confirmedPublished": true
+    },
+    "comment:18012069185760607": {
+      "creationId": "17891567145614054",
+      "createdAt": "2026-09-30T05:33:19.007Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Hope they enjoy the haunted-skull tour 😭",
+        "reply_to_id": "18012069185760607"
+      }
     }
   },
   "repliedCommentIds": [
@@ -25534,6 +25543,6 @@
   },
   "spend": {
     "date": "2026-09-29",
-    "usd": 0.6529040000000003
+    "usd": 0.6560259000000003
   }
 }
