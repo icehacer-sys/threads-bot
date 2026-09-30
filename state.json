@@ -14835,6 +14835,15 @@
       },
       "publishedId": "18208218616369056",
       "confirmedPublished": true
+    },
+    "comment:17953334214033253": {
+      "creationId": "17891555451614054",
+      "createdAt": "2026-09-30T02:59:25.797Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "That's the geography of it. Except this river's calcified and feeding seizures instead of crops.",
+        "reply_to_id": "17953334214033253"
+      }
     }
   },
   "repliedCommentIds": [
@@ -25469,6 +25478,6 @@
   },
   "spend": {
     "date": "2026-09-29",
-    "usd": 0.5796034000000001
+    "usd": 0.5829633000000001
   }
 }
