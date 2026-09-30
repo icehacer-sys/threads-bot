@@ -49,6 +49,8 @@ export interface Decision extends Partial<MediaRead> {
   category: Category;
   reply_text: string;
   reason: string;
+  /** Internal only; never accepted from the provider's reply schema. */
+  draftFailure?: 'punctuation' | 'wording' | 'variety';
   /** Mood tag for a curated reaction GIF. Only ever honored on a live "banter" reply. */
   gif_tag?: string;
   /** Set by the cheap triage pass when it sees a reference (in text or an attached image/GIF) it
@@ -61,6 +63,9 @@ export interface Decision extends Partial<MediaRead> {
    *  whether the raw URL is attached (ask-only links, to minimise spam/reach risk). */
   promo_explicit?: boolean;
 }
+
+// Evidence that the sanitizer itself rejected punctuation, not a model-written reason.
+const punctuationRejections = new WeakSet<Decision>();
 
 // JSON schema for structured outputs. additionalProperties:false is required.
 // Resolve the comment's target and intended meaning before choosing a category.
@@ -302,6 +307,24 @@ async function classifyAndDraftCore(input: ClassifyInput): Promise<Decision> {
   if ((commentMediaKind === 'video' || commentMediaKind === 'video-frame') && !commentImages?.length && !commentText.trim()) {
     return { decision: 'skip', category: 'other', reply_text: '', reason: 'GIF unavailable and no text to answer | guard:forced-skip' };
   }
+  const evidenceFailure = (d: Decision) => {
+    const context = diagnosticContext(input.diagnosticContext, input.diagnosticContext?.certainty === 'illustrative');
+    const support = [postText, ...(facts ?? []), answer ?? '', commentText, priorExchange ? `${priorExchange.commenter} ${priorExchange.bot}` : ''].join(' ');
+    const invented = d.decision === 'reply' && !bareMedia ? unsupportedSpecifics(d.reply_text, support) : [];
+    const personalStory = d.category === 'empathize' && /\b(?:i|my|our)\b/i.test(commentText);
+    const blocked = d.decision === 'reply' && ((!isPersonalPost && !personalStory && unsupportedPatientHistory(d.reply_text, postText)) || unsupportedConfirmation(d.reply_text, context) || rejectsAcceptedDifferential(d.reply_text, commentText, context) || overstatesImagingLimit(d.reply_text) || invented.length > 0);
+    return { invented, blocked };
+  };
+  const presentationFailure = (original: Decision, failed: Decision, kind: NonNullable<Decision['draftFailure']>): Decision => {
+    // Only nonmedical text replies in already-public/personal contexts may gain a
+    // later attempt. Preserve the original failure if any other guard would reject it.
+    if (original.decision !== 'reply' || !['banter', 'affirm', 'empathize'].includes(original.category) ||
+        !isPublic || input.imageReviewPending || commentMediaKind || commentImages?.length ||
+        needsClinicalReview(original.reply_text) || evidenceFailure(original).blocked) return failed;
+    const safe = sanitizeCore({ ...original, reply_text: restrainEmoji(original.reply_text, recentReplies ?? []) }, { isPublic, terms: spoilerTerms }, isBotQuestion(commentText), false);
+    if (safe.decision !== 'reply' || !['banter', 'affirm', 'empathize'].includes(safe.category)) return failed;
+    return { ...failed, draftFailure: kind };
+  };
   const finalize = async (d: Decision): Promise<Decision> => {
     // Preserve a tailored draft instead of replacing jokes and guesses with fixed receipts.
     const guessBeforeReveal = !isPublic && input.replyAll && !input.imageReviewPending && (!withMedia || d.media_clear === true) &&
@@ -320,19 +343,16 @@ async function classifyAndDraftCore(input: ClassifyInput): Promise<Decision> {
     }
     if (wordingReaction && d.decision === 'reply' && wordingReplyIssue(d.category, d.reply_text)) {
       if (!rechecked) return classifyAndDraftCore({ ...input, wordingRecheck: true, allowSearch: false });
-      return { ...d, decision: 'skip', category: 'other', reply_text: '', reason: 'wording guard: draft misses the caption or overexplains the reaction | guard:forced-skip' };
+      return presentationFailure(d, { ...d, decision: 'skip', category: 'other', reply_text: '', reason: 'wording guard: draft misses the caption or overexplains the reaction | guard:forced-skip' }, 'wording');
     }
     if (d.category === 'personal_medical') {
       if (requestsPersonalAdvice(commentText)) return concernAcknowledgment('personal', priorExchange?.bot);
       if (!rechecked) return classifyAndDraftCore({ ...input, storyRecheck: true, allowSearch: false });
       return { decision: 'skip', category: 'other', reply_text: '', reason: 'No explicit advice request; ambiguous story classification after one recheck. Never substitute a medical boundary.' };
     }
-    const context = diagnosticContext(input.diagnosticContext, input.diagnosticContext?.certainty === 'illustrative');
     // A time span, size or date must come from the facts or the conversation, never be improvised.
-    const support = [postText, ...(facts ?? []), answer ?? '', commentText, priorExchange ? `${priorExchange.commenter} ${priorExchange.bot}` : ''].join(' ');
-    const invented = d.decision === 'reply' && !bareMedia ? unsupportedSpecifics(d.reply_text, support) : [];
-    const personalStory = d.category === 'empathize' && /\b(?:i|my|our)\b/i.test(commentText);
-    if (d.decision === 'reply' && ((!isPersonalPost && !personalStory && unsupportedPatientHistory(d.reply_text, postText)) || unsupportedConfirmation(d.reply_text, context) || rejectsAcceptedDifferential(d.reply_text, commentText, context) || overstatesImagingLimit(d.reply_text) || invented.length)) {
+    const { invented, blocked } = evidenceFailure(d);
+    if (blocked) {
       if (!rechecked) return classifyAndDraftCore({ ...input, evidenceRecheck: true, allowSearch: false });
       return { ...d, decision: 'skip', category: 'other', reply_text: '', reason: `owner review: unsupported patient history, confirmation, specifics (${invented.join(', ') || 'none'}) or dismissal of an accepted differential | guard:forced-skip` };
     }
@@ -341,13 +361,16 @@ async function classifyAndDraftCore(input: ClassifyInput): Promise<Decision> {
     if (clean.reason.includes('punctuation guard') && !rechecked) {
       return classifyAndDraftCore({ ...input, styleRecheck: true, allowSearch: false });
     }
-    if (clean.reason.includes('punctuation guard')) return { ...clean, category: 'other' }; // cache the final failure instead of paying again next poll
+    if (clean.reason.includes('punctuation guard')) {
+      const failed: Decision = { ...clean, category: 'other' };
+      return punctuationRejections.has(clean) ? presentationFailure(d, failed, 'punctuation') : failed;
+    }
     // Reused phrasing gets one fresh draft. A banter or affirm line that still repeats is dropped,
     // but a genuine teach/correct answer is posted: a repeated topic never justifies silence.
     const repeats = clean.decision === 'reply' && !bareMedia ? repeatedPhrasing(clean.reply_text, recentReplies ?? [], [answer ?? '', ...(facts ?? [])].join(' ')) : [];
     if (repeats.length && !rechecked) return classifyAndDraftCore({ ...input, varietyRecheck: repeats, allowSearch: false });
     if (repeats.length && !['teach', 'correct'].includes(clean.category)) {
-      return { ...clean, decision: 'skip', category: 'other', reply_text: '', reason: `variety guard: reused ${repeats.join(', ')} | guard:forced-skip` };
+      return presentationFailure(d, { ...clean, decision: 'skip', category: 'other', reply_text: '', reason: `variety guard: reused ${repeats.join(', ')} | guard:forced-skip` }, 'variety');
     }
     if (withMedia && clean.decision === 'reply') {
       const normalizeReply = (text: string) => text.toLowerCase().replace(/[^\p{L}\p{N}]+/gu, ' ').trim();
@@ -713,6 +736,11 @@ export function firstSentences(s: string, n: number, maxChars = 240): string {
 }
 
 export function sanitize(d: Decision, spoiler?: { isPublic: boolean; terms: string[] }, isBotQ = false): Decision {
+  return sanitizeCore(d, spoiler, isBotQ, true);
+}
+
+// checkPunctuation=false is only an internal eligibility probe; its output is never posted.
+function sanitizeCore(d: Decision, spoiler: { isPublic: boolean; terms: string[] } | undefined, isBotQ: boolean, checkPunctuation: boolean): Decision {
   // Strip hashtags, links, mentions; collapse whitespace; cap length.
   let text = (d.reply_text || "")
     .replace(/<\/?[a-zA-Z][^>]*>/g, "") // strip any HTML/citation tags (e.g. web-search <cite>)
@@ -772,7 +800,11 @@ export function sanitize(d: Decision, spoiler?: { isPublic: boolean; terms: stri
 
   const styleIssue = replyStyleIssue(text);
   if (d.decision === 'reply' && clinicalClaimIssue(text)) return { ...d, decision: 'skip', reply_text: '', reason: 'owner review: unsupported airway or battery imaging claim' };
-  if (d.decision === 'reply' && styleIssue) return { ...d, decision: 'skip', reply_text: '', reason: `punctuation guard: ${styleIssue}` };
+  if (d.decision === 'reply' && styleIssue && checkPunctuation) {
+    const failed: Decision = { ...d, decision: 'skip', reply_text: '', reason: `punctuation guard: ${styleIssue}` };
+    punctuationRejections.add(failed);
+    return failed;
+  }
   if (d.decision === 'reply' && ['affirm', 'banter', 'empathize'].includes(d.category) && needsClinicalReview(text)) d = { ...d, category: 'teach' };
   const looksLikeAdvice = ADVICE_PATTERN.test(text) || IMAGE_SOLICIT.test(text);
   // Always screen the base confession terms; when the comment was an "are you a bot" question,
