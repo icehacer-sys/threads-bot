@@ -72,6 +72,7 @@ const fixture = mkdtempSync(join(tmpdir(), 'coverage-observation-'));
 const noop = { discover() {}, eligibility() {}, admission() {}, classified() {}, deferred() {}, printSummary() {}, health: () => ({ failedRecorderCalls: 0, limitedRecorderCalls: 0 }) };
 const baselines = process.argv.includes('--baseline-dir') ? [process.argv[process.argv.indexOf('--baseline-dir') + 1]] : [];
 const variants = ['disabled', 'recorded', 'throws', 'hookThrows', 'hookRejects', 'clock', 'limit', ...baselines.map(() => 'baseline')];
+const publicationScenarios = ['published', 'providerFailure', 'createFailure', 'publishFailure', 'mixedFailure', 'publishRetry', 'alreadyPublished', 'resumeFailure', 'resumeSuccess', 'resumeConfirmed', 'dryCap', 'duplicateAfterFailure'];
 const originalDate = Date, originalTimeout = globalThis.setTimeout;
 class FixtureDate extends Date { constructor(value?: string | number) { super(value ?? Date.parse(at)); } static now() { return Date.parse(at); } }
 globalThis.Date = FixtureDate as DateConstructor;
@@ -98,30 +99,52 @@ try {
     const { runLiveOrDry } = await import(pathToFileURL(indexFile).href);
     Object.assign(config, { confirmLive: true, activeTz: '', activeWindows: [[0, 24]], pinnedPostIds: [], answerEnabled: false, newestOnly: false, windowHours: 0, xrayCasesRawBase: '', gifReplies: false, promoEnabled: false, dailyCap: 20, dailyUsdCap: 0, medicalReserveUsd: 0, perPostCap: 20, minCommentLength: 10, maxThreadReplies: 2, priorityUsernames: ['supporter'], webSearch: false, escalateCategories: [] });
     const results: unknown[] = [];
-    for (const scenario of ['gates', 'reveal', 'replyAll', 'cap', 'daily', 'usd', 'reserve', 'fetchFailure', 'outage', 'escalation', 'workerHold', 'malformed']) {
+    for (const scenario of ['gates', 'reveal', 'replyAll', 'cap', 'daily', 'usd', 'reserve', 'fetchFailure', 'outage', 'escalation', 'workerHold', 'malformed', ...publicationScenarios]) {
       Object.assign(config, { replyAll: scenario !== 'reveal' && scenario !== 'cap' && scenario !== 'reserve', perPostCap: scenario === 'cap' ? 2 : 20, dailyCap: scenario === 'daily' ? 1 : 20, dailyUsdCap: ['usd', 'reserve'].includes(scenario) ? 0.01 : 0, medicalReserveUsd: scenario === 'reserve' ? 0.005 : 0, escalateCategories: scenario === 'escalation' ? ['banter'] : [] });
       const stateFile = join(dir, `${scenario}-state.json`); config.stateFile = stateFile;
       const date = '2026-09-29'; // Existing cap-day rolls at noon, not midnight.
       const state = { repliedCommentIds: ['done', 'second'], answeredPostIds: [], postCounts: scenario === 'cap' ? { post: 2 } : {}, daily: { date, count: 0 }, skippedCommentIds: ['skipped'], imageHeldComments: { imageheld: 'post' }, revealHeldComments: { revealheld: c('revealheld').text }, ownerReviews: ['gates', 'workerHold'].includes(scenario) ? { concern: JSON.stringify({ postId: 'post', reason: 'image/anatomy fixture', queuedAt: at }) } : {}, spend: { date, usd: ['usd', 'reserve'].includes(scenario) ? 0.01 : 0 } };
       writeFileSync(stateFile, JSON.stringify(state));
+      if (scenario === 'dryCap') config.dailyCap = 1;
+      if (scenario.startsWith('resume')) writeFileSync(stateFile, JSON.stringify({ ...state, publications: {
+        'comment:one': { creationId: 'container-one', createdAt: at, params: { media_type: 'TEXT', text: 'That was a rough one.', reply_to_id: 'one' }, ...(scenario === 'resumeConfirmed' ? { confirmedPublished: true, publishedId: 'published-one' } : {}) },
+      } }));
       const comments = scenario === 'gates' ? [c('own', 'owner'), { ...c('hidden'), hide_status: 'HUSHED' }, c('empty', 'reader', 'post', ''), c('done'), c('skipped'), c('imageheld'), c('root'), c('first', 'owner', 'root'), c('second', 'reader', 'first'), c('third', 'owner', 'second'), c('turnlimited', 'reader', 'third'), c('orphan', 'reader', 'missing')]
         : scenario === 'reveal' ? [c('revealheld')]
         : scenario === 'cap' ? [c('low', 'reader', 'post', 'A friendly fixture reaction.'), c('high', 'reader', 'post', 'What is a fixture question?'), c('support', 'supporter', 'post', 'hi')]
-        : scenario === 'malformed' ? [null] : [c('one', 'alice'), c('two', 'bob')];
+        : scenario === 'malformed' ? [null] : scenario.startsWith('resume') ? [c('one', 'alice')] : [c('one', 'alice'), c('two', 'bob')];
       const calls: unknown[] = [], logs: string[] = [];
+      let providerCalls = 0;
+      const publishCalls = new Map<string, number>();
+      const confirmations = new Set<string>(scenario === 'resumeConfirmed' ? ['one'] : []);
       fixtureFetch = async (url, init) => {
         const address = new URL(String(url));
         calls.push({ path: address.pathname, query: address.search, method: init?.method ?? 'GET', body: init?.body ? String(init.body) : null });
         if (address.pathname === '/v1/messages') {
+          providerCalls++;
           if (scenario === 'outage') return response({ type: 'error', error: { type: 'authentication_error', message: 'synthetic auth failure' } }, 401);
-          return response({ id: 'fixture', type: 'message', role: 'assistant', model: config.triageModel, stop_reason: 'tool_use', usage: { input_tokens: 1, output_tokens: 1 }, content: [{ type: 'tool_use', id: 'tool', name: 'submit_reply', input: { intent: 'friendly reaction', decision: 'reply', category: scenario === 'workerHold' ? 'teach' : 'banter', reply_text: scenario === 'workerHold' ? 'The caption does not state the age.' : 'That was a rough one.', reason: 'synthetic', needs_lookup: false, promo_product: 'none', promo_explicit: false } }] });
+          if (scenario === 'providerFailure') return response({ type: 'error', error: { type: 'overloaded_error', message: 'synthetic provider failure' } }, 503);
+          const reply = publicationScenarios.includes(scenario) && scenario !== 'duplicateAfterFailure' && providerCalls > 1 ? 'The suspense is doing all the work.' : 'That was a rough one.';
+          return response({ id: 'fixture', type: 'message', role: 'assistant', model: config.triageModel, stop_reason: 'tool_use', usage: { input_tokens: 1, output_tokens: 1 }, content: [{ type: 'tool_use', id: 'tool', name: 'submit_reply', input: { intent: 'friendly reaction', decision: 'reply', category: scenario === 'workerHold' ? 'teach' : 'banter', reply_text: scenario === 'workerHold' ? 'The caption does not state the age.' : reply, reason: 'synthetic', needs_lookup: false, promo_product: 'none', promo_explicit: false } }] });
         }
         if (address.pathname.endsWith('/me')) return response({ id: 'owner', username: 'owner' });
         if (address.pathname.endsWith('/post/replies')) return response({ data: comments });
         if (address.pathname.endsWith('/post/conversation')) return scenario === 'fetchFailure' ? response({ error: 'synthetic discovery failure' }, 400) : response({ data: comments });
         if (address.pathname.endsWith('/later/replies') || address.pathname.endsWith('/later/conversation')) return response({ data: [c('later-comment', 'reader', 'later')] });
-        if (address.pathname.endsWith('/threads_publish')) return response({ id: 'published' });
-        if (address.pathname.endsWith('/threads')) return init?.method === 'POST' ? response({ id: 'container' }) : response({ data: [{ id: 'post', text: 'A fixture post.', timestamp: at }, ...(scenario === 'malformed' ? [{ id: 'later', text: 'A later fixture post.', timestamp: at }] : [])] });
+        if (address.pathname.endsWith('/threads_publish')) {
+          if (!publicationScenarios.includes(scenario)) return response({ id: 'published' });
+          const id = new URLSearchParams(String(init?.body)).get('creation_id')!.replace(/^container-/, '');
+          const attempt = (publishCalls.get(id) ?? 0) + 1; publishCalls.set(id, attempt);
+          if (['publishFailure', 'resumeFailure', 'duplicateAfterFailure'].includes(scenario) || (scenario === 'mixedFailure' && id === 'one') || (scenario === 'publishRetry' && attempt === 1)) return response({ error: { message: 'synthetic publish failure' } }, 400);
+          confirmations.add(id);
+          return scenario === 'alreadyPublished' ? response({ error: { message: 'already published' } }, 400) : response({ id: `published-${id}` });
+        }
+        if (address.pathname.endsWith('/threads')) {
+          if (init?.method !== 'POST') return response({ data: [{ id: 'post', text: 'A fixture post.', timestamp: at }, ...(scenario === 'malformed' ? [{ id: 'later', text: 'A later fixture post.', timestamp: at }] : [])] });
+          if (scenario === 'createFailure') return response({ error: { message: 'synthetic creation failure' } }, 400);
+          const id = new URLSearchParams(String(init.body)).get('reply_to_id');
+          return response({ id: publicationScenarios.includes(scenario) ? `container-${id}` : 'container' });
+        }
         throw Error(`Unexpected synthetic endpoint: ${address.pathname}`);
       };
       const observed = new CoverageLedger({ ...scope, maxEvents: variant === 'limit' ? 1 : 1000 });
@@ -132,10 +155,45 @@ try {
       console.error = console.warn = (...args) => logs.push(args.map(String).join(' '));
       process.exitCode = 0;
       let thrown: { name: string; message: string } | undefined;
-      try { await runLiveOrDry('live', null, o); }
+      try { await runLiveOrDry(scenario === 'dryCap' ? 'dry-run' : 'live', null, o); }
       catch (err) { thrown = { name: (err as Error).name, message: (err as Error).message }; }
       finally { console.log = savedLog; console.error = savedError; console.warn = savedWarn; }
       assert.equal(!!thrown, scenario === 'malformed', 'only malformed payload exercises the original thrown worker path');
+      if (publicationScenarios.includes(scenario)) {
+        const after = JSON.parse(readFileSync(stateFile, 'utf8'));
+        const confirmed = Object.values(after.publications ?? {}).filter((p: any) => p.confirmedPublished || p.publishedId).length;
+        const summary = logs.find(line => line.startsWith('Summary:'))!;
+        const count = Number(summary.match(/(?:posted|would post) (\d+) repl/)?.[1]);
+        const expected = ['published', 'publishRetry', 'alreadyPublished'].includes(scenario) ? 2 : ['mixedFailure', 'resumeSuccess', 'resumeConfirmed'].includes(scenario) ? 1 : 0;
+        assert.equal(confirmations.size, expected, `${scenario}: synthetic provider confirmations`);
+        assert.equal(confirmed, expected, `${scenario}: durable confirmed receipts`);
+        assert.equal(count, scenario === 'dryCap' ? 1 : expected, `${scenario}: summary counts confirmations, not drafts or retries`);
+        assert.equal(after.daily.count, expected, `${scenario}: daily admission still counts completed replies`);
+        assert.equal(process.exitCode, ['providerFailure', 'createFailure', 'publishFailure', 'mixedFailure', 'resumeFailure', 'duplicateAfterFailure'].includes(scenario) ? 1 : 0, `${scenario}: failure visibility`);
+        if (scenario.startsWith('resume')) {
+          assert.equal(providerCalls, 0, 'saved receipts bypass drafting');
+          assert.equal(calls.filter((call: any) => call.path.endsWith('/threads') && call.method === 'POST').length, 0, 'saved receipts are never recreated');
+          assert.equal(publishCalls.get('one') ?? 0, scenario === 'resumeConfirmed' ? 0 : scenario === 'resumeFailure' ? 4 : 1);
+        }
+        if (['publishFailure', 'mixedFailure', 'duplicateAfterFailure'].includes(scenario)) {
+          assert.equal(publishCalls.get('one'), 4, 'existing publish retry allowance');
+          assert.equal(after.publications['comment:one'].creationId, 'container-one', 'unconfirmed receipt retained');
+          assert.equal(after.publications['comment:one'].confirmedPublished, undefined);
+          const requests = calls.filter((call: any) => call.path === '/v1/messages') as Array<{ body: string }>;
+          assert.ok(requests[1].body.includes('That was a rough one.'), 'failed draft remains in later repetition prompts');
+        }
+        if (scenario === 'publishRetry') assert.deepEqual([...publishCalls.values()], [2, 2], 'retries count once per confirmed comment');
+        if (scenario === 'providerFailure') assert.equal(providerCalls, 6, 'SDK retry policy remains three requests per comment');
+        if (scenario === 'duplicateAfterFailure') {
+          assert.equal(providerCalls, 3, 'unchanged bounded repetition repair');
+          assert.equal(after.publications['comment:two'], undefined, 'failed draft still prevents a duplicate later reply');
+        }
+        if (scenario === 'dryCap') {
+          assert.equal(providerCalls, 1, 'dry-run admission counts intended replies');
+          assert.equal(publishCalls.size, 0, 'dry-run has no publishing requests');
+          assert.ok(summary.startsWith('Summary: would post 1 reply.'));
+        }
+      }
       results.push({ calls, logs, state: readFileSync(stateFile, 'utf8'), exit: process.exitCode, thrown });
       reports.set(`${variant}:${scenario}`, observed.report());
       process.exitCode = 0;
@@ -168,4 +226,4 @@ assert.equal(reports.get('recorded:workerHold')!.numerator.uniqueEligibleWithRec
 assert.equal(disabled[11].thrown?.name, 'TypeError');
 assert.ok(!disabled[11].calls.some(call => call.path.includes('/later/')), 'malformed first post retains original abort before later-post processing');
 assert.equal(JSON.parse(disabled[11].state).daily.count, 0);
-console.log(`PASS observation: ${variants.length} worker variants x 12 scenarios preserve decisions, prompts, request/retry order, holds, state and exit codes; malformed input retains original abort; classifier completions, unique encounters, explicit reasons, UNKNOWN, limits, throwing recorder/clock/report/console; synthetic only`);
+console.log(`PASS observation: ${variants.length} worker variants x ${12 + publicationScenarios.length} scenarios preserve decisions, prompts, request/retry order, holds, state and exit codes; provider/publisher failures, confirmed receipts, recovery, dry-run counts and unpublished draft history; malformed input retains original abort; synthetic only`);

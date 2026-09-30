@@ -596,6 +596,7 @@ async function runLiveOrDry(mode: Mode, target: string | null, observation: Cove
 
   const convByPost = new Map<string, ThreadsReply[]>();
   const answers = loadAnswers();
+  // Successful live reply completions (including recovery), or intended dry-run replies.
   let replied = 0;
   let processed = 0; // comments we got a final decision for (a live model verdict, not a fetch skip)
   let errorSkips = 0; // of those, how many were API-error skips — used for the outage dead-man's-switch
@@ -727,14 +728,16 @@ async function runLiveOrDry(mode: Mode, target: string | null, observation: Cove
     );
 
     // Short replies we've already posted on this post, so the model can vary its
-    // wording instead of reusing the same shapes. Grows as this run posts more.
+    // wording instead of reusing the same shapes. Combined below with this run's draft history.
     const allOwnerReplies = conversation
       .filter((c) => c.username === me && (c.text ?? "").trim().length > 0 && (c.text ?? "").length <= 280)
       .sort((a, b) => (a.timestamp ?? "").localeCompare(b.timestamp ?? ""))
       .map((c) => c.text as string);
     // The anti-repeat PROMPT block is windowed (token cost); the bare-stamp dedup uses the FULL list.
     const recentOwnerReplies = allOwnerReplies.slice(-config.antiRepeatWindow);
-    const postedThisRun: string[] = [];
+    // Repetition/wording history includes accepted drafts even if publication later fails.
+    // Keep its timing: later prompts and guards depend on it. It is not a posted count.
+    const draftedThisRun: string[] = [];
 
     // Unanswered = we have NO local record of replying AND no live reply from us in the
     // thread. state.hasReplied is the hard backstop against double-posting: once we have
@@ -929,11 +932,11 @@ async function runLiveOrDry(mode: Mode, target: string | null, observation: Cove
         diagnosticContext: imageReviewHeld || state.hasImageReview(post.id) ? undefined : resolved.diagnosticContext,
         images: imageReviewHeld || state.hasImageReview(post.id) ? [] : postImages,
         imageReviewPending: imageReviewHeld || state.hasImageReview(post.id),
-        recentReplies: [...recentOwnerReplies, ...postedThisRun],
+        recentReplies: [...recentOwnerReplies, ...draftedThisRun],
         // A "full explanation" is a long reply — the ones that lay out the mechanism. Counting
         // them lets reply.ts tell the model plainly that the lesson is already on the post, which
         // the generic ALREADY POSTED list was not achieving.
-        priorExplanations: [...allOwnerReplies, ...postedThisRun].filter((r) => r.length >= 140).length,
+        priorExplanations: [...allOwnerReplies, ...draftedThisRun].filter((r) => r.length >= 140).length,
         commentImages,
         commentMediaKind,
         inAnswerThread: inAnswerThreadIds.has(c.id),
@@ -1072,7 +1075,7 @@ async function runLiveOrDry(mode: Mode, target: string | null, observation: Cove
       // own) — strip the "genuinely" tic, space the 🤣 laugh-track to ~1 in 6, and rotate a bare
       // check-mark stamp so the same one never posts twice on a post. stripTics/throttleLaugh only
       // remove characters and dedupeStamp only swaps a bare stamp, so the length/spoiler checks stay valid.
-      const recent = [...recentOwnerReplies, ...postedThisRun];
+      const recent = [...recentOwnerReplies, ...draftedThisRun];
       // Bare-stamp dedup checks the WHOLE post's replies (not just the anti-repeat window) so the
       // same check-mark never repeats even on a 100+ reply night (the "That's the one ✅ ×3" case);
       // the 🤣 throttle stays on the recent window since it is a recency-spacing thing.
@@ -1080,7 +1083,7 @@ async function runLiveOrDry(mode: Mode, target: string | null, observation: Cove
       // any further long reply is trimmed to its first two sentences: the prompt asks for this
       // and mostly complies, but the 2026-09-03 pectus post shows it still slips. firstSentences
       // cuts on a sentence boundary so a trimmed reply never ends mid-thought.
-      const explained = [...allOwnerReplies, ...postedThisRun].filter((r) => r.length >= 140).length;
+      const explained = [...allOwnerReplies, ...draftedThisRun].filter((r) => r.length >= 140).length;
       if (explained >= 2 && d.reply_text.length > 200) {
         const trimmed = firstSentences(d.reply_text, 2, 240);
         // NEVER let the backstop make the reply worse. Trimming "Close enough. Pectus excavatum
@@ -1092,7 +1095,7 @@ async function runLiveOrDry(mode: Mode, target: string | null, observation: Cove
           d = { ...d, reply_text: trimmed };
         }
       }
-      d = { ...d, reply_text: dedupeStamp(throttleLaugh(stripTics(d.reply_text), recent), [...allOwnerReplies, ...postedThisRun]) };
+      d = { ...d, reply_text: dedupeStamp(throttleLaugh(stripTics(d.reply_text), recent), [...allOwnerReplies, ...draftedThisRun]) };
 
       // EXACT-DUPLICATE BACKSTOP. The ALREADY POSTED prompt block is advisory and leaks: across
       // 2026-08-31..09-02 the bot posted four verbatim repeats on the SAME post — a 118-char
@@ -1103,7 +1106,7 @@ async function runLiveOrDry(mode: Mode, target: string | null, observation: Cove
       // BARE stamps are exempt: dedupeStamp already rotates those, and on a post where many
       // people guess right, a second "Spot on ✅" beats ignoring a correct guesser.
       const normReply = (s: string) => s.toLowerCase().replace(/[^\p{L}\p{N} ]/gu, "").replace(/\s+/g, " ").trim();
-      if (!STAMP_RE.test(d.reply_text.trim()) && [...allOwnerReplies, ...postedThisRun].some((r) => normReply(r) === normReply(d.reply_text))) {
+      if (!STAMP_RE.test(d.reply_text.trim()) && [...allOwnerReplies, ...draftedThisRun].some((r) => normReply(r) === normReply(d.reply_text))) {
         console.log(`        (word-for-word repeat of a reply already on this post — dropped)`);
         if (posting) state.recordSoftSkip(c.id, 2);
         continue;
@@ -1115,7 +1118,7 @@ async function runLiveOrDry(mode: Mode, target: string | null, observation: Cove
         console.log('        (this commenter already received an acknowledgment for this concern)');
         continue;
       }
-      postedThisRun.push(d.reply_text);
+      draftedThisRun.push(d.reply_text);
       // Curated GIF gate: banter-only (sanitize already enforced that), never on a bot-question or a
       // follow-up thread, probability + hard per-post/per-day caps. A reaction GIF is not a spoiler,
       // so it is allowed during the guessing window too (owner, 2026-07-04 — moderate loosening: the
