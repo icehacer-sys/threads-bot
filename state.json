@@ -217,7 +217,8 @@
     "17981580386897925": "18205974196371350",
     "17984386016892021": "18205974196371350",
     "18218810608356564": "18205974196371350",
-    "18103270133197951": "18205974196371350"
+    "18103270133197951": "18205974196371350",
+    "18462097729143136": "18205974196371350"
   },
   "ownerReviews": {
     "17937444630360450": "{\"postId\":\"18103023326210157\",\"reason\":\"owner review: personal medical concern\",\"commentText\":\"Little sister of my friend swalloved a coin of 1 fim. At hospital the family was advised to thoroughly keep an eye on her poops. So, the next day they found two 50 penny coins😀.\",\"username\":\"velitapiof\",\"queuedAt\":\"2026-09-10T20:21:59.741Z\",\"resolvedAt\":\"2026-09-10T20:36:02.929Z\",\"resolution\":\"Owner confirmed this is a completed personal story and deleted the inappropriate boundary reply. No clinical review is needed.\"}",
@@ -14858,6 +14859,15 @@
       },
       "publishedId": "18096172706425931",
       "confirmedPublished": true
+    },
+    "comment:18497861083109869": {
+      "creationId": "17891562300614054",
+      "createdAt": "2026-09-30T04:30:39.457Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "That's the vibe right there. Brain's getting all the shock without the dramatic sky show.",
+        "reply_to_id": "18497861083109869"
+      }
     }
   },
   "repliedCommentIds": [
@@ -25494,6 +25504,6 @@
   },
   "spend": {
     "date": "2026-09-29",
-    "usd": 0.5926990000000001
+    "usd": 0.6027477000000001
   }
 }
