@@ -14801,6 +14801,15 @@
       },
       "publishedId": "18003756107793781",
       "confirmedPublished": true
+    },
+    "comment:18112256798025483": {
+      "creationId": "17891553015614054",
+      "createdAt": "2026-09-30T02:28:00.752Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "The brain's weight loss plan nobody signed up for.",
+        "reply_to_id": "18112256798025483"
+      }
     }
   },
   "repliedCommentIds": [
@@ -25432,6 +25441,6 @@
   },
   "spend": {
     "date": "2026-09-29",
-    "usd": 0.5433210000000002
+    "usd": 0.5621449000000002
   }
 }
