@@ -89,8 +89,8 @@ response model was `deepseek-flash` on every call.
 | Contradictory | 1820 | 5376 | 359 | 1010 | 2815 |
 
 Per-call cost = ceiling(input × .30 + cache-read × .006 + output × 1.20) micro-USD.
-New total: $0.004110. Cumulative **Claude $0.030497, remaining $0.469503;
-DeepSeek $0.009748, remaining $0.490252**. Every reservation is settled; no interrupted
+First extension total: $0.004110. At that checkpoint cumulative **Claude $0.030497, remaining $0.469503;
+DeepSeek $0.009748, remaining $0.490252**. Every reservation was settled; no interrupted
 or unknown attempt exists. No paid call was in flight during the desktop outage.
 The independent evaluator used no additional paid API. Do not reset either budget.
 
@@ -112,3 +112,73 @@ regressions cover the retained code, not native provider parity for those live s
 Sources: [DeepSeek pricing](https://api-docs.deepseek.com/quick_start/pricing),
 [Anthropic compatibility](https://api-docs.deepseek.com/guides/anthropic_api/),
 [native Claude Code Web Search](https://api-docs.deepseek.com/quick_start/agent_integrations/claude_code/).
+
+## Follow-up: conservative media fix and unseen native controls
+
+The provider adapter now adds **generic DeepSeek-only media guidance**: preserve the
+literal written COMMENT intent, answer visible-detail questions directly, distinguish
+post images from commenter frames, separate observations from interpretations, and
+avoid unsupported motion/zoom/size/clinical claims. It includes no fixture-specific
+words, answers or visual descriptions. Original prompts, context, schema and frames
+remain intact; this addition is explicitly provider-specific, not prompt parity.
+
+Because instructions cannot certify grounding, the adapter conservatively stops every
+DeepSeek media `reply` proposal **after** native usage recording/pricing. The classifier
+returns an empty terminal result with `error: media-grounding: DeepSeek media reply held
+pending grounding and written-intent acceptance`. It triggers no SDK retry or repair.
+This is a per-response stop, not a change to persistent owner/case holds. Clear model
+skips still undergo existing validation. Claude default and search fallback requests
+are untouched. Logs and diagnostics disclose that DeepSeek media replies remain held.
+
+Three real no-search requests rechecked the same failure and two new independent
+geometric controls. Production extraction and inspected frame hashes were retained;
+each request used thinking disabled, output 1024, no retries/search/repairs, and a
+separate durable $0.35 reservation against the CURRENT ledger.
+
+| Case | Native proposal (not a completed reply) | Evidence |
+| --- | --- | --- |
+| Original written GIF | "Confidence goes to panic in three frames and you asked the one question the answer can't help with." | Intent now explicitly literal, but observation still invents a larger final face and reply adds irrelevant case commentary. Grounding fix NOT accepted. |
+| Unseen numeric GIF: 10/40/20/20; "Which number appears at the end?" | "20. The case number stays under wraps though." | Correct ordered evidence and direct answer, but irrelevant invented case-number framing remains. Partial intent improvement only. |
+| Unseen color GIF: green/green/purple/purple; "Is the circle purple in the last frame?" | "It is purple at the end and green at the start." | Correct literal intent, ordered visible facts and direct answer on this new control. One passing raw proposal does not certify broad grounding. |
+
+**All three proposed replies remain incomplete and unpublished under the conservative
+hold.** Do not score them as completed replies or lift the hold based on one control.
+`tools/fixtures/deepseek-media-recheck.json` preserves raw native proposals separately
+from final held results. The offline replay covers seven native trajectories: it rejects
+historical unsafe proposals, preserves the clear skip, and reproduces the new hold and
+known usage accounting. Independent policy regressions cover untouched text/Claude
+requests, immutable frame/schema objects, and absence of fixture words in the guidance.
+
+Served response model: `deepseek-flash` for all three rechecks. Cache writes explicitly
+zero. Peak-price settlement includes every reported cache read and rounds each call up:
+
+| Recheck | Ordinary input | Cache read | Output | Micro-USD |
+| --- | ---: | ---: | ---: | ---: |
+| Original written GIF | 3538 | 3840 | 394 | 1558 |
+| Unseen numbers | 1744 | 5632 | 358 | 987 |
+| Unseen colors | 1746 | 5632 | 340 | 966 |
+
+New recheck cost **$0.003511**. Current cumulative totals: **Claude $0.030497, remaining
+$0.469503; DeepSeek $0.013259, remaining $0.486741**. All reservations settled. No
+unknown spend, retries, new credentials, publication or provider activation occurred.
+
+### Search lane finished blocked under the existing cap
+
+Read-only primary-doc inspection covered native Claude Code search, Anthropic field
+compatibility, token usage and rate-limit/isolation documentation. Native search is
+documented with extra summarization LLM requests. `max_tokens` is supported for the
+outer message, but no inspected source specifies that it caps those internal requests,
+their number or total billed tokens. The documented account/user isolation limits
+control concurrent connections, not per-request spend. `max_uses:3` declares MNL's
+requested search count but its exact DeepSeek execution/internal-cost contract remains
+unverified. Neither concurrency limits nor outer output limits prove a search ceiling.
+
+No supported enforceable bound within the available benchmark balance was found in
+these sources; paid search therefore remains NOT RUN. This is a documented test-plan
+blocker, not a claim that native search is absent or impossible. The lane is finished
+blocked pending provider-backed bounds or an enforceable spend limit; no account limit,
+credential or security setting was installed. Keep the default-off trial and full-switch
+NO-GO recommendation. Do not activate a flag that silently loses media replies.
+
+Additional sources: [token usage](https://api-docs.deepseek.com/quick_start/token_usage/),
+[rate limit and isolation](https://api-docs.deepseek.com/quick_start/rate_limit/).

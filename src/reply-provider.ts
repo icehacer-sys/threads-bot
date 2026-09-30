@@ -4,6 +4,7 @@ import { createProviderObservation, observedReplyFetch, observeReplyUsage, reply
 import { recordPricedCall, recordUsage } from './spend';
 import { createDeepSeekReplyClient, deepSeekTokenCost } from './deepseek-reply-client';
 import { planReplyProvider, type ReplyRequest } from './reply-provider-plan';
+import { enforceDeepSeekMediaHold } from './deepseek-media-policy';
 
 let claude: Anthropic | null = null;
 let deepseek: Anthropic | null = null;
@@ -36,7 +37,7 @@ export async function createReplyMessage(request: ReplyRequest): Promise<Anthrop
   });
   if (config.deepSeekTrial && !disclosed) {
     disclosed = true;
-    console.log('    DeepSeek trial: no-search requests use deepseek-flash; search/unsupported contracts retain Claude. Full provider parity is unverified.');
+    console.log('    DeepSeek trial: no-search requests use deepseek-flash; search/unsupported contracts retain Claude. Media replies remain held pending grounding acceptance. Full provider parity is unverified.');
   }
   if (config.deepSeekTrial && halted) throw Error('billing: DeepSeek trial halted after uncertain usage; no further reply calls');
   if (plan.provider === 'anthropic') {
@@ -73,6 +74,7 @@ export async function createReplyMessage(request: ReplyRequest): Promise<Anthrop
     throw Error('billing: DeepSeek native usage unknown; conservative call charged and trial halted');
   }
   recordPricedCall(cost);
+  enforceDeepSeekMediaHold(plan.request, response);
   return response;
 }
 
@@ -81,6 +83,7 @@ export function replyTrialProviderSnapshot() {
   return {
     scope: 'reply_provider_process', persistence: 'none', trial: config.deepSeekTrial,
     fallback: 'Claude owns native search and unsupported contracts', halted,
+    mediaReplies: 'held pending grounding and written-intent acceptance',
     providers: {
       anthropic: { provider: 'anthropic', observation: replyProviderSnapshot() },
       deepseek: { provider: 'deepseek', requestedModel: 'deepseek-flash', observation: deepSeekObservation.snapshot() },

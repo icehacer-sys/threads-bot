@@ -1,7 +1,7 @@
 # MNL default-off DeepSeek adapter handoff
 
 Base: merged main `51a56a6805c5fb4e4d035025ea4ed3bf1b7bfab3` (PR13).
-Branch: `codex/mnl-deepseek-trial`. Local commit only; parent owns activation decisions.
+Branch: `codex/mnl-deepseek-trial`, draft PR14; parent owns activation decisions.
 
 ## Ready
 
@@ -14,6 +14,11 @@ frame requests use a separate `deepseek-flash` Anthropic-compatible client with 
 disabled, fixed endpoint, 1024 output cap and zero SDK retries. Prompts, tool schema, context,
 frame order, logical routing, validation, shared repair allowance and presentation retries
 are retained. Outgoing GIF behavior remains unchanged/default off. RE is untouched.
+DeepSeek media requests now receive generic grounding/intent clarification and any
+proposed reply is conservatively stopped after known usage accounting. This is a
+per-response stop, not a persistent case hold. Clear model skips retain their existing
+validation. This explicit limitation blocks full media parity; do not activate the flag
+expecting published DeepSeek media replies. Claude baseline requests are unchanged.
 
 Every search-enabled request, including repairs carrying the search tool and forced-submit
 continuations, stays on the existing Claude client with its exact payload. Unsupported blocks
@@ -87,7 +92,7 @@ summarization billing has no proven test ceiling. Do not run paid search without
 bounded plan and parent approval. Full replacement requires truthful acceptance of these gaps.
 
 Benchmark caps are still $0.50 each. Cumulative conservative usage-derived ledger totals:
-Claude $0.030497 (remaining $0.469503); DeepSeek $0.009748 (remaining $0.490252). No further paid
+Claude $0.030497 (remaining $0.469503); DeepSeek $0.013259 (remaining $0.486741). No further paid
 calls are planned; native search remains blocked pending a bounded test plan. Ledgers/paid evidence remain in the separate benchmark checkout with its
 source pin frozen. The committed GIF fixture is synthetic; it contains no private comment payloads.
 
