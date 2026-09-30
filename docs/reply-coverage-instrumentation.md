@@ -24,6 +24,8 @@ A returned classifier reply marks caller-policy eligibility as positive. This re
 
 Observer mutation cannot change the returned decision because the projection is separate. Synchronous throws, throwing thenables and rejected async observations are swallowed without awaiting the callback or altering provider retry decisions. The installed recorder remains synchronous and bounded. Failures and limits can omit retained classification or eligibility events; totals describe only retained observations. No new API calls, prompts, retries, hold changes or state writes are added.
 
+The worker also contains observation-only argument reads, collection batches and hook method failures, attaching a rejection handler to custom asynchronous hooks without awaiting them. Discovery/deferred iteration and classification projection failures stay inside the adapter and increment its sanitized failure count. This does not validate or repair API data: a malformed comment still reaches the original worker parser and retains its original error/abort behavior. A two-post fixture checks that a malformed first post cannot make a failing observer continue to the later post. Throwing injected hook lookups and rejected hooks are compared against disabled observation too.
+
 ## Metrics contract
 
 - A cohort has an explicit half-open UTC event window, an opaque identifier and a discovery declaration. `complete_in_scope` means only the declared observed scope; it never means account-wide coverage. The recorder cannot independently verify the declaration.

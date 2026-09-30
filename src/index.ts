@@ -545,6 +545,13 @@ async function runList(): Promise<void> {
 }
 
 async function runLiveOrDry(mode: Mode, target: string | null, observation: CoverageObservation = createPollObservation()): Promise<void> {
+  // Include observation-only argument reads and batches in the failure boundary.
+  const observe = (action: () => void): void => {
+    try {
+      const pending: unknown = action();
+      if (pending && typeof (pending as Promise<unknown>).then === 'function') void Promise.resolve(pending).catch(() => {});
+    } catch { /* Observation never selects behavior. */ }
+  };
   const posting = mode === "live";
   if (posting && !config.confirmLive) {
     console.error("\nLIVE mode refused: set BOT_CONFIRM_LIVE=yes in .env to allow posting.\n");
@@ -643,8 +650,8 @@ async function runLiveOrDry(mode: Mode, target: string | null, observation: Cove
       // Observe each successful edge even when the other fetch fails. Promise.all
       // and its existing failure/retry behavior are unchanged.
       [replies, conversation] = await Promise.all([
-        getReplies(post.id).then(items => { observation.discover(post.id, items); return items; }),
-        getConversation(post.id).then(items => { observation.discover(post.id, items); return items; }),
+        getReplies(post.id).then(items => { observe(() => observation.discover(post.id, items)); return items; }),
+        getConversation(post.id).then(items => { observe(() => observation.discover(post.id, items)); return items; }),
       ]);
     } catch (err) {
       recordFailure(err);
@@ -653,7 +660,7 @@ async function runLiveOrDry(mode: Mode, target: string | null, observation: Cove
     }
     convByPost.set(post.id, conversation);
     const coverage = replyCoverage(post.id, me, [...replies, ...conversation], id => state.hasReplied(id), config.maxThreadReplies,
-      (id, reason) => observation.admission(post.id, id, reason === 'already_replied' ? 'excluded' : 'deferred', reason));
+      (id, reason) => observe(() => observation.admission(post.id, id, reason === 'already_replied' ? 'excluded' : 'deferred', reason)));
     // Register concerns before recovering containers or ranking new replies.
     const visibleConcerns = [...replies, ...conversation].filter(c => c.username !== me && isVisible(c) && imageConcernKind(c.text ?? '') === 'anatomy');
     if (posting) for (const concern of visibleConcerns) state.queueOwnerReview(concern.id, post.id, 'owner review: image/anatomy inconsistency', concern.text, concern.username);
@@ -738,19 +745,19 @@ async function runLiveOrDry(mode: Mode, target: string | null, observation: Cove
     // bot reply it will not be re-answered automatically — clearing the comment id from
     // state.json's repliedCommentIds re-enables that, which is the right place for it.)
     const wantsReply = (c: ThreadsReply): boolean => {
-      if (c.username === me) { observation.eligibility(post.id, c.id, 'excluded', 'self'); return false; }
-      if (!isVisible(c)) { observation.eligibility(post.id, c.id, 'excluded', 'hidden'); return false; }
+      if (c.username === me) { observe(() => observation.eligibility(post.id, c.id, 'excluded', 'self')); return false; }
+      if (!isVisible(c)) { observe(() => observation.eligibility(post.id, c.id, 'excluded', 'hidden')); return false; }
       if (!((c.text ?? "").trim().length >= (config.replyAll ? 1 : config.minCommentLength) ||
         (isPriorityCommenter(c.username, config.priorityUsernames) && !!(c.text ?? '').trim()) ||
         ((c.media_type === "IMAGE" || c.media_type === "VIDEO") && !!c.media_url) ||
-        !!c.gif_url)) { observation.eligibility(post.id, c.id, 'excluded', 'insufficient_content'); return false; }
+        !!c.gif_url)) { observe(() => observation.eligibility(post.id, c.id, 'excluded', 'insufficient_content')); return false; }
       // These mechanical checks cannot establish the classifier's full policy verdict.
-      observation.eligibility(post.id, c.id, 'UNKNOWN', 'unclassified');
-      if (state.hasReplied(c.id)) { observation.admission(post.id, c.id, 'excluded', 'already_replied'); return false; }
-      if (resumed.has(c.id)) { observation.admission(post.id, c.id, 'deferred', 'resume'); return false; }
-      if (answeredByMe.has(c.id)) { observation.admission(post.id, c.id, 'excluded', 'already_replied'); return false; }
-      if (state.isWaitingForImageReview(c.id, post.id)) { observation.admission(post.id, c.id, 'deferred', 'image_review_hold'); return false; }
-      if (state.hasSkipped(c.id)) { observation.admission(post.id, c.id, 'excluded', 'already_skipped'); return false; }
+      observe(() => observation.eligibility(post.id, c.id, 'UNKNOWN', 'unclassified'));
+      if (state.hasReplied(c.id)) { observe(() => observation.admission(post.id, c.id, 'excluded', 'already_replied')); return false; }
+      if (resumed.has(c.id)) { observe(() => observation.admission(post.id, c.id, 'deferred', 'resume')); return false; }
+      if (answeredByMe.has(c.id)) { observe(() => observation.admission(post.id, c.id, 'excluded', 'already_replied')); return false; }
+      if (state.isWaitingForImageReview(c.id, post.id)) { observe(() => observation.admission(post.id, c.id, 'deferred', 'image_review_hold')); return false; }
+      if (state.hasSkipped(c.id)) { observe(() => observation.admission(post.id, c.id, 'excluded', 'already_skipped')); return false; }
       return true;
     };
 
@@ -852,7 +859,7 @@ async function runLiveOrDry(mode: Mode, target: string | null, observation: Cove
     const withinThreadLimit = pool.filter(c => coverage.canReply(c.id));
     const eligible = withinThreadLimit.filter(c => {
       const allowed = config.replyAll || !state.isWaitingForReveal(c.id, c.text ?? "", answerPublic);
-      if (!allowed) observation.admission(post.id, c.id, 'deferred', 'reveal_hold');
+      if (!allowed) observe(() => observation.admission(post.id, c.id, 'deferred', 'reveal_hold'));
       return allowed;
     });
     const waitingForReveal = withinThreadLimit.length - eligible.length;
@@ -860,8 +867,10 @@ async function runLiveOrDry(mode: Mode, target: string | null, observation: Cove
     if (waitingForReveal) console.log(`  ${waitingForReveal} comment(s) waiting for reveal; no model calls for these.`);
     // Supporters can exceed the soft per-post cap, but the daily/platform and USD caps still apply.
     const candidates = selectCandidates(eligible, committed, coverage.count).filter((c, index) => config.replyAll || index < perPostRemaining || isPriorityCommenter(c.username, config.priorityUsernames));
-    const candidateIds = new Set(candidates.map(c => c.id));
-    observation.deferred(post.id, eligible.filter(c => !candidateIds.has(c.id)), 'per_post_cap');
+    observe(() => {
+      const candidateIds = new Set(candidates.map(c => c.id));
+      return observation.deferred(post.id, eligible.filter(c => !candidateIds.has(c.id)), 'per_post_cap');
+    });
 
     console.log(
       `Post ${clip(post.text ?? post.id, 40)} [answer: ${resolved.answer ?? "unknown"}${postImages.length ? ", image ✓" : ""}] — ${candidates.length} to reply (${pinnedIds.has(post.id) ? "pinned" : `${state.repliedToPost(post.id)}/${config.perPostCap}`} done):`,
@@ -873,7 +882,7 @@ async function runLiveOrDry(mode: Mode, target: string | null, observation: Cove
 
     for (const c of candidates) {
       if (!coverage.canReply(c.id)) continue; // Recheck after earlier siblings posted in this same poll.
-      if (budgetLeft() <= 0) { observation.deferred(post.id, candidates.slice(candidates.indexOf(c)), 'budget'); break; }
+      if (budgetLeft() <= 0) { observe(() => observation.deferred(post.id, candidates.slice(candidates.indexOf(c)), 'budget')); break; }
       if (fatalStop) break;
       // Protect the medical reserve: once inside it, a low-value comment is dropped BEFORE any
       // model call (so this costs nothing) and left un-cached, so it is simply re-considered for
@@ -881,7 +890,7 @@ async function runLiveOrDry(mode: Mode, target: string | null, observation: Cove
       // get through — that is exactly what commentValue() ranks for.
       if (!config.replyAll && reserveActive() && commentValue(c) < config.reserveMinValue && !isPriorityCommenter(c.username, config.priorityUsernames)) {
         reserveDeferred += 1;
-        observation.admission(post.id, c.id, 'deferred', 'budget');
+        observe(() => observation.admission(post.id, c.id, 'deferred', 'budget'));
         continue;
       }
       if (usdExhausted()) {
@@ -889,10 +898,10 @@ async function runLiveOrDry(mode: Mode, target: string | null, observation: Cove
           `  Daily API budget reached (${usd(spentUsd())} of ${usd(config.dailyUsdCap)}) — stopping for this cap-day.`,
         );
         budgetStop = true;
-        observation.deferred(post.id, candidates.slice(candidates.indexOf(c)), 'budget');
+        observe(() => observation.deferred(post.id, candidates.slice(candidates.indexOf(c)), 'budget'));
         break;
       }
-      observation.admission(post.id, c.id, 'admitted', 'admitted');
+      observe(() => observation.admission(post.id, c.id, 'admitted', 'admitted'));
       let commentImages: InlineImage[] = [];
       let commentMediaKind: "image" | "video-frame" | "video" | undefined;
       if (c.media_type === "IMAGE") {
@@ -938,7 +947,7 @@ async function runLiveOrDry(mode: Mode, target: string | null, observation: Cove
       if (commentMediaKind) console.log(`        (comment media: ${commentMediaKind}; ${commentImages.length} frame(s); route=${mediaRoute})`);
       let d: Decision = mediaRoute === 'hold'
         ? { decision: 'skip', category: 'other', reply_text: '', reason: 'GIF quality budget unavailable; no draft purchased | guard:forced-skip' }
-        : await classifyAndDraft({ ...baseInput, modelOverride: mediaRoute === 'quality' ? config.model : config.triageModel, allowSearch: false }, outcome => observation.classified(post.id, c.id, outcome));
+        : await classifyAndDraft({ ...baseInput, modelOverride: mediaRoute === 'quality' ? config.model : config.triageModel, allowSearch: false }, outcome => observe(() => observation.classified(post.id, c.id, outcome)));
       d = holdForImageReview(d, imageReviewHeld || state.hasImageReview(post.id));
       if (d.media_observation) console.log(JSON.stringify({ commentId: c.id, mediaObservation: d.media_observation, mediaText: d.media_text, mediaMeaning: d.media_meaning, mediaClear: d.media_clear }));
       const triageSpend = drainSpend();
@@ -977,7 +986,7 @@ async function runLiveOrDry(mode: Mode, target: string | null, observation: Cove
         // unrecognized movie/show/meme/person); medical correct/teach escalations rely on vetted facts.
         const allowSearch = config.webSearch && (d.category === "reference" || wantsLookup);
         console.log(`        (escalating ${d.category}${wantsLookup ? " +lookup" : ""} to ${config.model}${allowSearch ? " + web search" : ""})`);
-        d = await classifyAndDraft({ ...baseInput, modelOverride: config.model, allowSearch }, outcome => observation.classified(post.id, c.id, outcome));
+        d = await classifyAndDraft({ ...baseInput, modelOverride: config.model, allowSearch }, outcome => observe(() => observation.classified(post.id, c.id, outcome)));
         escalated = true;
       } else if (wantsEscalation) {
         const limit = isMedical ? config.dailyUsdCap : config.escalateUsdCap;
@@ -1242,7 +1251,7 @@ async function runLiveOrDry(mode: Mode, target: string | null, observation: Cove
       "\n",
   );
 
-  observation.printSummary();
+  observe(() => observation.printSummary());
 
   // Outage dead-man's-switch: if EVERY comment we classified this run error-skipped (dead API key,
   // billing lapse, Anthropic outage) the bot posted nothing while every poll still exits 0 and the

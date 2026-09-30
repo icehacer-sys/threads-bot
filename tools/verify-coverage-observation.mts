@@ -31,6 +31,19 @@ const invalid = createCoverageObservation(ledger, 'invalid', () => at);
 invalid.discover('post', [c('private text with spaces')]);
 assert.equal(invalid.health().failedRecorderCalls, 1);
 assert.equal(JSON.stringify(ledger.snapshot()).includes('private'), false);
+// API payloads are not schema-validated. Malformed observer inputs must remain
+// invisible to the worker's existing parsing and error paths.
+const malformed = createCoverageObservation(ledger, 'malformed', () => at);
+const badEntry = { get id(): string { throw Error('private entry getter'); } };
+const badEntries = { [Symbol.iterator]() { throw Error('private iterator'); } } as unknown as readonly { id: string }[];
+for (const entries of [[null] as unknown as readonly { id: string }[], [badEntry], badEntries]) {
+  assert.doesNotThrow(() => malformed.discover('post', entries));
+  assert.doesNotThrow(() => malformed.deferred('post', entries, 'budget'));
+}
+assert.equal(malformed.health().failedRecorderCalls, 6);
+assert.doesNotThrow(() => malformed.classified('post', 'same', null as any));
+assert.doesNotThrow(() => malformed.classified('post', 'same', { decision: 'reply', get category(): never { throw Error('private outcome getter'); } }));
+assert.equal(malformed.health().failedRecorderCalls, 8);
 const small = new CoverageLedger({ ...scope, maxEvents: 1 });
 const limited = createCoverageObservation(small, 'limit', () => at);
 limited.discover('post', [c('limit')]); limited.admission('post', 'limit', 'admitted', 'admitted');
@@ -58,7 +71,7 @@ const root = dirname(dirname(fileURLToPath(import.meta.url)));
 const fixture = mkdtempSync(join(tmpdir(), 'coverage-observation-'));
 const noop = { discover() {}, eligibility() {}, admission() {}, classified() {}, deferred() {}, printSummary() {}, health: () => ({ failedRecorderCalls: 0, limitedRecorderCalls: 0 }) };
 const baselines = process.argv.includes('--baseline-dir') ? [process.argv[process.argv.indexOf('--baseline-dir') + 1]] : [];
-const variants = ['disabled', 'recorded', 'throws', 'clock', 'limit', ...baselines.map(() => 'baseline')];
+const variants = ['disabled', 'recorded', 'throws', 'hookThrows', 'hookRejects', 'clock', 'limit', ...baselines.map(() => 'baseline')];
 const originalDate = Date, originalTimeout = globalThis.setTimeout;
 class FixtureDate extends Date { constructor(value?: string | number) { super(value ?? Date.parse(at)); } static now() { return Date.parse(at); } }
 globalThis.Date = FixtureDate as DateConstructor;
@@ -85,7 +98,7 @@ try {
     const { runLiveOrDry } = await import(pathToFileURL(indexFile).href);
     Object.assign(config, { confirmLive: true, activeTz: '', activeWindows: [[0, 24]], pinnedPostIds: [], answerEnabled: false, newestOnly: false, windowHours: 0, xrayCasesRawBase: '', gifReplies: false, promoEnabled: false, dailyCap: 20, dailyUsdCap: 0, medicalReserveUsd: 0, perPostCap: 20, minCommentLength: 10, maxThreadReplies: 2, priorityUsernames: ['supporter'], webSearch: false, escalateCategories: [] });
     const results: unknown[] = [];
-    for (const scenario of ['gates', 'reveal', 'replyAll', 'cap', 'daily', 'usd', 'reserve', 'fetchFailure', 'outage', 'escalation', 'workerHold']) {
+    for (const scenario of ['gates', 'reveal', 'replyAll', 'cap', 'daily', 'usd', 'reserve', 'fetchFailure', 'outage', 'escalation', 'workerHold', 'malformed']) {
       Object.assign(config, { replyAll: scenario !== 'reveal' && scenario !== 'cap' && scenario !== 'reserve', perPostCap: scenario === 'cap' ? 2 : 20, dailyCap: scenario === 'daily' ? 1 : 20, dailyUsdCap: ['usd', 'reserve'].includes(scenario) ? 0.01 : 0, medicalReserveUsd: scenario === 'reserve' ? 0.005 : 0, escalateCategories: scenario === 'escalation' ? ['banter'] : [] });
       const stateFile = join(dir, `${scenario}-state.json`); config.stateFile = stateFile;
       const date = '2026-09-29'; // Existing cap-day rolls at noon, not midnight.
@@ -94,7 +107,7 @@ try {
       const comments = scenario === 'gates' ? [c('own', 'owner'), { ...c('hidden'), hide_status: 'HUSHED' }, c('empty', 'reader', 'post', ''), c('done'), c('skipped'), c('imageheld'), c('root'), c('first', 'owner', 'root'), c('second', 'reader', 'first'), c('third', 'owner', 'second'), c('turnlimited', 'reader', 'third'), c('orphan', 'reader', 'missing')]
         : scenario === 'reveal' ? [c('revealheld')]
         : scenario === 'cap' ? [c('low', 'reader', 'post', 'A friendly fixture reaction.'), c('high', 'reader', 'post', 'What is a fixture question?'), c('support', 'supporter', 'post', 'hi')]
-        : [c('one', 'alice'), c('two', 'bob')];
+        : scenario === 'malformed' ? [null] : [c('one', 'alice'), c('two', 'bob')];
       const calls: unknown[] = [], logs: string[] = [];
       fixtureFetch = async (url, init) => {
         const address = new URL(String(url));
@@ -106,19 +119,24 @@ try {
         if (address.pathname.endsWith('/me')) return response({ id: 'owner', username: 'owner' });
         if (address.pathname.endsWith('/post/replies')) return response({ data: comments });
         if (address.pathname.endsWith('/post/conversation')) return scenario === 'fetchFailure' ? response({ error: 'synthetic discovery failure' }, 400) : response({ data: comments });
+        if (address.pathname.endsWith('/later/replies') || address.pathname.endsWith('/later/conversation')) return response({ data: [c('later-comment', 'reader', 'later')] });
         if (address.pathname.endsWith('/threads_publish')) return response({ id: 'published' });
-        if (address.pathname.endsWith('/threads')) return init?.method === 'POST' ? response({ id: 'container' }) : response({ data: [{ id: 'post', text: 'A fixture post.', timestamp: at }] });
+        if (address.pathname.endsWith('/threads')) return init?.method === 'POST' ? response({ id: 'container' }) : response({ data: [{ id: 'post', text: 'A fixture post.', timestamp: at }, ...(scenario === 'malformed' ? [{ id: 'later', text: 'A later fixture post.', timestamp: at }] : [])] });
         throw Error(`Unexpected synthetic endpoint: ${address.pathname}`);
       };
       const observed = new CoverageLedger({ ...scope, maxEvents: variant === 'limit' ? 1 : 1000 });
       const recorder = variant === 'throws' ? { record: (_: CoverageEvent): 'recorded' => { throw Error('private recorder failure'); }, report: observed.report.bind(observed) } : observed;
-      const o = variant === 'disabled' || variant === 'baseline' ? noop : createCoverageObservation(recorder, 'worker', () => { if (variant === 'clock') throw Error('private clock failure'); return at; });
+      const o = variant === 'hookThrows' ? new Proxy(noop, { get() { throw Error('private hook lookup'); } }) : variant === 'hookRejects' ? new Proxy(noop, { get() { return async () => { throw Error('private hook rejection'); }; } }) : variant === 'disabled' || variant === 'baseline' ? noop : createCoverageObservation(recorder, 'worker', () => { if (variant === 'clock') throw Error('private clock failure'); return at; });
       const savedError = console.error, savedWarn = console.warn;
       console.log = (...args) => { if (!String(args[0]).startsWith('{"coverageObservation":')) logs.push(args.map(String).join(' ')); };
       console.error = console.warn = (...args) => logs.push(args.map(String).join(' '));
       process.exitCode = 0;
-      try { await runLiveOrDry('live', null, o); } finally { console.log = savedLog; console.error = savedError; console.warn = savedWarn; }
-      results.push({ calls, logs, state: readFileSync(stateFile, 'utf8'), exit: process.exitCode });
+      let thrown: { name: string; message: string } | undefined;
+      try { await runLiveOrDry('live', null, o); }
+      catch (err) { thrown = { name: (err as Error).name, message: (err as Error).message }; }
+      finally { console.log = savedLog; console.error = savedError; console.warn = savedWarn; }
+      assert.equal(!!thrown, scenario === 'malformed', 'only malformed payload exercises the original thrown worker path');
+      results.push({ calls, logs, state: readFileSync(stateFile, 'utf8'), exit: process.exitCode, thrown });
       reports.set(`${variant}:${scenario}`, observed.report());
       process.exitCode = 0;
     }
@@ -126,7 +144,7 @@ try {
   }
 } finally { globalThis.Date = originalDate; globalThis.setTimeout = originalTimeout; console.log = savedLog; globalThis.fetch = async () => { throw Error('Unexpected HTTP after synthetic fixtures'); }; }
 for (const variant of variants.filter(v => v !== 'disabled')) assert.deepEqual(outputs.get(variant), outputs.get('disabled'), `${variant}: decisions, prompts, retry calls, state bytes and exit status must match disabled observation`);
-const disabled = outputs.get('disabled') as Array<{ calls: Array<{ path: string }>; state: string; exit: number }>;
+const disabled = outputs.get('disabled') as Array<{ calls: Array<{ path: string }>; state: string; exit: number; thrown?: { name: string } }>;
 assert.ok(disabled[2].calls.some(call => call.path === '/v1/messages'), 'replyAll exercises real drafting through synthetic provider');
 assert.ok(JSON.parse(disabled[3].state).repliedCommentIds.includes('support'), 'supporter bypasses the existing soft post cap');
 assert.equal(JSON.parse(disabled[4].state).daily.count, 1, 'daily cap stops subsequent candidates');
@@ -147,4 +165,7 @@ assert.ok(reports.get('recorded:escalation')!.classifications.completedInvocatio
 assert.equal(reports.get('recorded:workerHold')!.denominator.uniqueObservedEverEligible, 2, 'classifier-positive eligibility remains distinct from downstream image holds');
 assert.equal(JSON.parse(disabled[10].state).daily.count, 0, 'downstream worker hold prevents publication despite classifier reply');
 assert.equal(reports.get('recorded:workerHold')!.numerator.uniqueEligibleWithRecordedDurableConfirmation, 0);
-console.log(`PASS observation: ${variants.length} worker variants x 11 scenarios preserve decisions, prompts, request/retry order, holds, state and exit codes; classifier completions, unique encounters, explicit reasons, UNKNOWN, limits, throwing recorder/clock/report/console; synthetic only`);
+assert.equal(disabled[11].thrown?.name, 'TypeError');
+assert.ok(!disabled[11].calls.some(call => call.path.includes('/later/')), 'malformed first post retains original abort before later-post processing');
+assert.equal(JSON.parse(disabled[11].state).daily.count, 0);
+console.log(`PASS observation: ${variants.length} worker variants x 12 scenarios preserve decisions, prompts, request/retry order, holds, state and exit codes; malformed input retains original abort; classifier completions, unique encounters, explicit reasons, UNKNOWN, limits, throwing recorder/clock/report/console; synthetic only`);
