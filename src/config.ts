@@ -35,6 +35,17 @@ function parseActiveWindows(): Array<[number, number]> {
 }
 
 export const config = {
+  // Candidate hybrid only. Activation requires separate media/search acceptance.
+  // Native search stays on the existing Claude boundary; unset/off is full rollback.
+  deepSeekTrial: (process.env.BOT_DEEPSEEK_TRIAL ?? 'off').toLowerCase() === 'on',
+  // Commenter GIF/image/video replies stay on Claude during the trial: DeepSeek media grounding
+  // is not accepted, and a held reply surfaces as an error skip that trips the outage alarms.
+  // 'held' is for the offline native-media replay only. Deliberately not read from env.
+  deepSeekCommentMedia: 'claude' as 'claude' | 'held',
+  // Dry-run evaluation only (ignored when posting): re-draft comments that were already answered
+  // and print the published reply beside the draft; optionally treat the answer as not yet pinned.
+  evalReplay: (process.env.BOT_EVAL_REPLAY ?? 'off').toLowerCase() === 'on',
+  evalPreReveal: (process.env.BOT_EVAL_PRE_REVEAL ?? 'off').toLowerCase() === 'on',
   // Two-tier models. The cheap triageModel drafts/classifies EVERY comment; only
   // accuracy-critical categories (escalateCategories) are re-drafted by the pricier,
   // higher-quality `model`. Set BOT_TRIAGE_MODEL=<same as model> to disable two-tier.

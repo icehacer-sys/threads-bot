@@ -1,0 +1,92 @@
+name: deepseek-eval
+
+# Owner-approved DeepSeek trial evaluation. DRY RUN ONLY: nothing is posted, no state is
+# committed (read-only token, no git push). Runs the full reply workflow on one recent case
+# post with BOT_DEEPSEEK_TRIAL=on, re-drafting comments that were already answered and printing
+# the published Claude reply beside each draft. Model spend is capped per run below.
+on:
+  workflow_dispatch:
+    inputs:
+      target:
+        description: "Case post media id or shortcode to evaluate"
+        type: string
+        required: true
+      pre_reveal:
+        description: "Simulate the pre-reveal phase (only comments and replies before the answer was pinned)"
+        type: choice
+        options: ["on", "off"]
+        default: "on"
+      usd_cap:
+        description: "Combined Claude + DeepSeek estimated spend cap for this run (USD)"
+        type: string
+        default: "0.15"
+
+permissions:
+  contents: read
+
+concurrency:
+  group: deepseek-eval
+  cancel-in-progress: false
+
+jobs:
+  eval:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    env:
+      ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+      DEEPSEEK_API_KEY: ${{ secrets.DEEPSEEK_API_KEY }}
+      THREADS_ACCESS_TOKEN: ${{ secrets.THREADS_ACCESS_TOKEN }}
+      THREADS_USER_ID: me
+      BOT_DEEPSEEK_TRIAL: "on"
+      BOT_EVAL_REPLAY: "on"
+      BOT_EVAL_PRE_REVEAL: ${{ github.event.inputs.pre_reveal }}
+      # Same reply settings as the live worker (reply.yml), except scope and budget.
+      BOT_EDUCATIONAL: "on"
+      BOT_PINNED_POSTS: ""
+      BOT_WINDOW_HOURS: "0"
+      BOT_MAX_POSTS: "25"
+      BOT_VISION: "on"
+      BOT_ANSWER: "on"
+      BOT_ANSWER_DELAY_HOURS: "1"
+      BOT_ANSWER_SPOILER: "on"
+      BOT_ACTIVE_TZ: "Africa/Cairo"
+      BOT_PER_POST_CAP: "220"
+      BOT_DAILY_CAP: "250"
+      BOT_VOICE: "lean"
+      BOT_REPLY_ALL: "on"
+      BOT_MAX_THREAD_REPLIES: "2"
+      BOT_DAILY_USD: ${{ github.event.inputs.usd_cap }}
+      BOT_ESCALATE_USD: ${{ github.event.inputs.usd_cap }}
+      BOT_MEDICAL_RESERVE_USD: "0"
+      BOT_RESERVE_MIN_VALUE: "2"
+      BOT_ESCALATE_MEDIA: "motion"
+      BOT_MODEL: "claude-sonnet-4-6"
+      BOT_TRIAGE_MODEL: "claude-haiku-4-5-20251001"
+      BOT_ESCALATE: "correct,teach,reference"
+      BOT_ANTIREPEAT: "30"
+      BOT_WEB_SEARCH: "on"
+      BOT_FACEBOOK_REPLY: "off"
+      BOT_GIF_REPLIES: "off"
+      BOT_PROMO: "on"
+      BOT_PROMO_PER_POST: "1"
+      BOT_PROMO_PER_DAY: "2"
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: "npm"
+      - name: Install dependencies
+        run: npm ci
+      - name: Install comment video frame tools
+        run: |
+          if ! command -v ffmpeg >/dev/null || ! command -v ffprobe >/dev/null; then
+            sudo apt-get update -qq
+            sudo apt-get install -y --no-install-recommends ffmpeg
+          fi
+      - name: Dry-run evaluation (posts nothing)
+        env:
+          TARGET: ${{ github.event.inputs.target }}
+        run: npx tsx src/index.ts --dry-run "$TARGET"

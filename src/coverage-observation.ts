@@ -1,5 +1,7 @@
 import { CoverageLedger, type CoverageEvent, type CoverageReason, type CoverageCategory } from './coverage-decisions';
 import { replyProviderSnapshot } from './provider-observation';
+import { config } from './config';
+import { replyTrialProviderSnapshot } from './reply-provider';
 
 type Eligibility = Extract<CoverageEvent, { stage: 'eligibility' }>['verdict'];
 type Admission = Extract<CoverageEvent, { stage: 'admission' }>['verdict'];
@@ -56,7 +58,7 @@ export function createCoverageObservation(ledger: Recorder | undefined, pollId: 
           // Completion counts do not measure physical provider/draft attempts.
           accountCoveragePercent: null,
           // Cumulative process totals have a different scope from the per-poll counts above.
-          replyProvider: replyProviderSnapshot(),
+          replyProvider: config.deepSeekTrial ? replyTrialProviderSnapshot() : replyProviderSnapshot(),
         } }));
       } catch { /* Reporting must not affect successful work or surface unsanitized errors. */ }
     },

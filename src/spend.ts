@@ -105,6 +105,13 @@ export function recordUsage(model: string, usage: CallUsage | null | undefined):
   calls += 1;
 }
 
+/** One selected-provider physical attempt, already priced with its native semantics. */
+export function recordPricedCall(costUsd: number): void {
+  if (!Number.isFinite(costUsd) || costUsd < 0) throw Error('Invalid selected-provider cost');
+  pending += costUsd;
+  calls += 1;
+}
+
 /** Take everything recorded since the last drain: { usd, calls }. Resets the accumulator. */
 export function drainSpend(): { usd: number; calls: number } {
   const out = { usd: pending, calls };
