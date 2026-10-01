@@ -3,7 +3,7 @@
 import type Anthropic from '@anthropic-ai/sdk';
 import { groundDeepSeekMediaRequest, isMediaReplyRequest } from './deepseek-media-policy';
 
-export type ReplyProviderMode = 'anthropic' | 'deepseek-text-trial' | 'deepseek-no-search-trial';
+export type ReplyProviderMode = 'anthropic' | 'deepseek-text-trial' | 'deepseek-no-search-trial' | 'deepseek-all';
 export type ReplyRequest = Anthropic.MessageCreateParamsNonStreaming;
 export interface ReplyProviderPolicy {
   mode: ReplyProviderMode;
@@ -16,7 +16,7 @@ export interface ReplyProviderPlan {
   provider: 'anthropic' | 'deepseek';
   logicalModel: string;
   requestedModel: string;
-  reason: 'default' | 'quality' | 'media-or-unsupported-block' | 'tool-contract' | 'comment-media' | 'text-triage' | 'no-search-trial';
+  reason: 'default' | 'quality' | 'media-or-unsupported-block' | 'tool-contract' | 'comment-media' | 'text-triage' | 'no-search-trial' | 'deepseek-all';
   baseURL: 'https://api.anthropic.com' | 'https://api.deepseek.com/anthropic';
   request: ReplyRequest;
 }
@@ -28,12 +28,22 @@ function textContent(content: unknown): boolean {
 
 /** Route the actual fully constructed request; never remove media or search tools. */
 export function planReplyProvider(request: ReplyRequest, policy: ReplyProviderPolicy): ReplyProviderPlan {
-  if (!['anthropic', 'deepseek-text-trial', 'deepseek-no-search-trial'].includes(policy.mode)) throw Error('Unknown reply provider mode');
+  if (!['anthropic', 'deepseek-text-trial', 'deepseek-no-search-trial', 'deepseek-all'].includes(policy.mode)) throw Error('Unknown reply provider mode');
   const original = (reason: ReplyProviderPlan['reason']): ReplyProviderPlan => ({
     provider: 'anthropic', logicalModel: request.model, requestedModel: request.model,
     baseURL: 'https://api.anthropic.com', reason, request,
   });
   if (policy.mode === 'anthropic') return original('default');
+  // Full-migration candidate (evaluation only for now): every request, including native search,
+  // search continuations and commenter media, goes to DeepSeek with the exact original body.
+  if (policy.mode === 'deepseek-all') {
+    const { output_config: _claudeEffort, ...body } = request;
+    return {
+      provider: 'deepseek', logicalModel: request.model, requestedModel: 'deepseek-flash',
+      baseURL: 'https://api.deepseek.com/anthropic', reason: 'deepseek-all',
+      request: groundDeepSeekMediaRequest({ ...body, model: 'deepseek-flash', thinking: { type: 'disabled' } }),
+    };
+  }
   // Retain logical tier routing even if an operator configured both tiers identically.
   if (policy.mode === 'deepseek-text-trial' && (request.model !== policy.triageModel || request.model === policy.qualityModel)) return original('quality');
   const contentSupported = (content: unknown) => textContent(content) || (policy.mode === 'deepseek-no-search-trial' && Array.isArray(content) && content.every(block =>

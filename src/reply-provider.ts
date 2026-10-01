@@ -2,7 +2,7 @@ import Anthropic from '@anthropic-ai/sdk';
 import { config, requireEnv } from './config';
 import { createProviderObservation, observedReplyFetch, observeReplyUsage, replyProviderSnapshot } from './provider-observation';
 import { recordPricedCall, recordUsage } from './spend';
-import { createDeepSeekReplyClient, deepSeekTokenCost } from './deepseek-reply-client';
+import { createDeepSeekReplyClient, deepSeekSearchCost, deepSeekTokenCost } from './deepseek-reply-client';
 import { planReplyProvider, type ReplyRequest } from './reply-provider-plan';
 import { enforceDeepSeekMediaHold } from './deepseek-media-policy';
 
@@ -10,6 +10,7 @@ let claude: Anthropic | null = null;
 let deepseek: Anthropic | null = null;
 let halted = false;
 let tripPending = false;
+let deepSeekAll = false;
 let disclosed = false;
 let fallbackDisclosed = false;
 const deepSeekObservation = createProviderObservation();
@@ -33,7 +34,7 @@ function getDeepSeek(): Anthropic {
 /** Exact existing server-search payload stays on Claude, including forced continuation. */
 export async function createReplyMessage(request: ReplyRequest): Promise<Anthropic.Message> {
   const plan = planReplyProvider(request, {
-    mode: config.deepSeekTrial ? 'deepseek-no-search-trial' : 'anthropic',
+    mode: config.deepSeekTrial ? (deepSeekAll ? 'deepseek-all' : 'deepseek-no-search-trial') : 'anthropic',
     triageModel: config.triageModel, qualityModel: config.model, commentMedia: config.deepSeekCommentMedia,
   });
   if (config.deepSeekTrial && !disclosed) {
@@ -72,10 +73,11 @@ async function tryDeepSeek(original: ReplyRequest, mapped: ReplyRequest): Promis
   let cost: number | null = null;
   // Even an HTTP-200 body can be null/malformed. Projection failure is billing
   // uncertainty, never free usage.
-  try { cost = deepSeekTokenCost(response?.model, response?.usage); } catch { /* Keep unknown. */ }
+  try { cost = deepSeekAll ? deepSeekSearchCost(response?.model, response?.usage) : deepSeekTokenCost(response?.model, response?.usage); } catch { /* Keep unknown. */ }
   if (cost === null) return disableDeepSeek('native usage unknown', UNCERTAIN_FLASH_CALL_USD);
   recordPricedCall(cost);
-  enforceDeepSeekMediaHold(mapped, response);
+  // The everything-on-DeepSeek evaluation must see real media replies to judge them.
+  if (!deepSeekAll) enforceDeepSeekMediaHold(mapped, response);
   return response;
 }
 
@@ -85,6 +87,12 @@ function disableDeepSeek(reason: string, chargeUsd: number): null {
   if (chargeUsd > 0) recordPricedCall(chargeUsd);
   console.log(`    DeepSeek trial disabled for this cap-day (${reason}); Claude handles the remaining replies.`);
   return null;
+}
+
+/** Dry-run evaluation only: route every request, including search and commenter media, to DeepSeek. */
+export function enableDeepSeekForEverything(): void {
+  deepSeekAll = true;
+  console.log('    DeepSeek-ONLY evaluation: search, search continuations and commenter media also use deepseek-flash. No Claude fallback for routing.');
 }
 
 /** Seed the process from the durable cap-day breaker before any reply call. */

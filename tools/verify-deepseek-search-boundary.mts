@@ -39,3 +39,11 @@ let nativeCalls=0;
 const client=createDeepSeekReplyClient('synthetic-only',async(url,init)=>{nativeCalls++;assert.equal(String(url),'https://api.deepseek.com/anthropic/v1/messages');assert.deepEqual(JSON.parse(String(init?.body)),expected);return new Response(JSON.stringify(submit('deepseek-flash')),{headers:{'content-type':'application/json'}});});
 await client.messages.create(expected);assert.equal(nativeCalls,1);
 console.log('PASS native-compatible SDK serialization boundary ONLY. Native fresh retrieval, citations, errors, max-use enforcement and internal billing NOT VERIFIED. No paid calls.');
+{
+  const { deepSeekSearchCost, DEEPSEEK_SEARCH_RESERVE_USD } = await import('../src/deepseek-reply-client');
+  const usage = { input_tokens: 1000, output_tokens: 100, cache_read_input_tokens: 0, server_tool_use: { web_search_requests: 2 } };
+  const expected = (1000 * 0.30 + 100 * 1.20) / 1_000_000 + 2 * DEEPSEEK_SEARCH_RESERVE_USD;
+  if (Math.abs(deepSeekSearchCost('deepseek-flash', usage)! - expected) > 1e-12) throw Error('search reserve pricing');
+  if (deepSeekSearchCost('deepseek-flash', { output_tokens: 1 }) !== null) throw Error('unknown input must stay unknown');
+  console.log('PASS DeepSeek search-mode pricing: reported tokens plus a conservative per-search reserve; unknown usage stays unknown.');
+}
