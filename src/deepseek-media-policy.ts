@@ -7,7 +7,7 @@ export const DEEPSEEK_MEDIA_GUIDANCE = 'DEEPSEEK MEDIA GROUNDING: Read the writt
 // Provider-specific discipline from the 2026-10-01 full-post evaluation, where deepseek-flash broke
 // existing voice rules more often than Claude: puns on political jabs, a stock answer sentence
 // repeated across many replies, invented commenter details and a mechanism not in the case facts.
-export const DEEPSEEK_REPLY_GUIDANCE = 'DEEPSEEK REPLY DISCIPLINE: Follow every voice rule above exactly. Skip political, partisan or politician jabs entirely. Never mention a detail the commenter did not state, such as a profession, object, place, event or gender; use they/them when gender is not stated. Explain a mechanism only when the supplied case facts state it; otherwise say less. Do not restate the case answer with the same wording used in earlier replies; build each reply from this comment\'s own premise with a fresh sentence shape. Write "an X-ray". Keep banter to one or two short sentences. A one- or two-word guess gets one sentence of at most 20 words. Use no commas except inside a list of three or more items.';
+export const DEEPSEEK_REPLY_GUIDANCE = 'DEEPSEEK REPLY DISCIPLINE: Follow every voice rule above exactly. Skip political, partisan or politician jabs entirely. Never mention a detail the commenter did not state, such as a profession, object, place, event or gender; use they/them when gender is not stated. Explain a mechanism only when the supplied case facts state it; otherwise say less. Do not restate the case answer with the same wording used in earlier replies; build each reply from this comment\'s own premise with a fresh sentence shape. Write "an X-ray". Keep banter to one or two short sentences. A one- or two-word guess gets one sentence of at most 20 words. Use no commas except inside a list of three or more items. Reply only in English even when the comment uses another language. Never contradict the supplied case facts; when a guess matches part of them, affirm that part. Never claim to have liked, followed, shared, messaged or done anything outside this reply.';
 
 /** Every DeepSeek reply request gets the discipline block, plus media guidance for commenter media. */
 export function groundDeepSeekRequest(request: ReplyRequest): ReplyRequest {
@@ -21,6 +21,20 @@ const POLITICAL = /\b(?:republicans?|democrats?|maga|trump|biden|harris|obama|li
 /** Deterministic backstop for the political-jab rule on DeepSeek drafts. */
 export function isPoliticalJab(commentText: string): boolean {
   return POLITICAL.test(commentText);
+}
+
+// Function words common in Malay/Indonesian, Spanish, French, German, Portuguese and Tagalog that are
+// not ordinary English words. Two distinct hits mark a Latin-script non-English reply.
+const FOREIGN = new Set(['itu','yang','dan','tidak','ini','ada','saya','kamu','dengan','untuk','sudah','juga','que','los','las','del','una','por','para','pero','muy','les','des','est','une','avec','pour','dans','nicht','und','ist','ein','eine','sehr','auch','nao','uma','mga','ang','hindi','naman']);
+export function isLatinNonEnglishReply(reply: string): boolean {
+  const hits = new Set((reply.toLowerCase().match(/\p{L}+/gu) ?? []).filter(word => FOREIGN.has(word)));
+  return hits.size >= 2;
+}
+
+const FALSE_ACTION = /\b(?:liked and followed|followed (?:you|back)|i(?:'ve| have)? (?:liked|followed|shared|messaged|dm'?d)|(?:just )?(?:liked|followed|shared) (?:it|this|your)\b)/i;
+/** The bot cannot like, follow, share or message; a draft claiming it did is false. */
+export function claimsOffPlatformAction(reply: string): boolean {
+  return FALSE_ACTION.test(reply) || /^(?:liked|followed)\b/i.test(reply.trim());
 }
 
 export const DEEPSEEK_MEDIA_HOLD = 'media-grounding: DeepSeek media reply held pending grounding and written-intent acceptance';

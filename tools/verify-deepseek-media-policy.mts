@@ -1,6 +1,6 @@
 // Conservative provider-only boundary tests, independent of the paid fixtures.
 import assert from 'node:assert/strict';
-import {groundDeepSeekMediaRequest,groundDeepSeekRequest,enforceDeepSeekMediaHold,isPoliticalJab,DEEPSEEK_MEDIA_GUIDANCE,DEEPSEEK_REPLY_GUIDANCE,DEEPSEEK_MEDIA_HOLD} from '../src/deepseek-media-policy';
+import {groundDeepSeekMediaRequest,groundDeepSeekRequest,enforceDeepSeekMediaHold,isPoliticalJab,isLatinNonEnglishReply,claimsOffPlatformAction,DEEPSEEK_MEDIA_GUIDANCE,DEEPSEEK_REPLY_GUIDANCE,DEEPSEEK_MEDIA_HOLD} from '../src/deepseek-media-policy';
 import {planReplyProvider,type ReplyRequest} from '../src/reply-provider-plan';
 const base:ReplyRequest={model:'claude-sonnet-4-6',max_tokens:1024,system:'Original safety rules.',messages:[{role:'user',content:[{type:'text',text:'A literal question about a newly drawn geometric symbol.'},{type:'image',source:{type:'base64',media_type:'image/png',data:'synthetic-unseen'}}]}],tools:[{name:'submit_reply',input_schema:{type:'object',properties:{media_observation:{type:'string'}}}}],tool_choice:{type:'tool',name:'submit_reply'}};
 const frozen=JSON.stringify(base);const mapped=groundDeepSeekMediaRequest(base);
@@ -31,4 +31,8 @@ assert.ok(!/SURE|NOPE|SAFE|DANGER|REVEAL ANSWER/.test(DEEPSEEK_MEDIA_GUIDANCE),'
 for(const c of ['I know! I know! It\u2019s a Republican','More full of shite than the 47th US President?','Covfefe Bigly'])assert.ok(isPoliticalJab(c),c);
 for(const c of ['Fatberg?','The patient is full of shit. Literally.','Party in the colon'])assert.ok(!isPoliticalJab(c),c);
 assert.ok(!/SURE|NOPE|faecal|fecal|colon|Republican/i.test(DEEPSEEK_REPLY_GUIDANCE),'Discipline block is generic, not case-specific');
+assert.ok(isLatinNonEnglishReply('Itu tahi yang tersekat dan membesar sampai usus besar diregangkan. A giant faecaloma.'));
+for(const r of ['A giant faecaloma packed the colon.','Una pregunta? Not here.','The bezoar and the colon disagree.','Die-hard fans of the film.'])assert.ok(!isLatinNonEnglishReply(r),r);
+for(const r of ['Liked and followed. Any page numbers?','I have shared it with the team.','Followed you back.'])assert.ok(claimsOffPlatformAction(r),r);
+for(const r of ['Nobody liked that belly.','That colon followed its own schedule.','Take the like on credit.'])assert.ok(!claimsOffPlatformAction(r),r);
 console.log('PASS DeepSeek-only generic media guidance and conservative no-publication boundary; commenter media routed to Claude unless benchmark-held; untouched original prompts/frames/tools, post-image text path and Claude default/search fallback. No paid calls.');
