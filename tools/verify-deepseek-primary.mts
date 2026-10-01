@@ -34,8 +34,12 @@ assert.deepEqual(lookup.calls.map(c => c.host), ['api.anthropic.com'], 'web-sear
 assert.ok(lookup.calls[0].tools.includes('web_search'));
 const fx = JSON.parse(fs.readFileSync(new URL('./fixtures/deepseek-gif-smoke.json', import.meta.url), 'utf8'));
 mediaResponse = fx.response;
-const media = await run(fx.input);
+const media = await run({ ...fx.input, answerPublic: true });
 assert.deepEqual(media.calls.map(c => c.host), ['api.deepseek.com'], 'commenter GIF on DeepSeek');
 assert.doesNotMatch(media.d.reason, /^(?:error|fatal):|media-grounding/, 'production media is never held');
 assert.equal(media.d.decision, 'reply');
+mediaResponse = null;
+const pre = await run({ modelOverride: config.triageModel, allowSearch: false, answerPublic: false });
+assert.equal(pre.calls.length, 1, 'pre-reveal hold costs exactly one DeepSeek call, no repair');
+assert.match(pre.d.reason, /^spoiler guard: DeepSeek pre-reveal reply held/);
 console.log('PASS BOT_REPLY_PROVIDER=deepseek: triage, escalations and commenter media on DeepSeek; only web-search lookups on Claude; media never held.');
