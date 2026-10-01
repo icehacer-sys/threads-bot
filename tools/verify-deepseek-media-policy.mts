@@ -21,6 +21,11 @@ for(const policy of [trial,{...trial,commentMedia:'claude' as const}]){const pla
 const held=planReplyProvider(base,{...trial,commentMedia:'held'});assert.equal(held.provider,'deepseek');assert.deepEqual(held.request.system,mapped.system);
 // A post X-ray without commenter media is NOT comment media: it remains a DeepSeek trial request.
 assert.equal(planReplyProvider(text,trial).provider,'deepseek');
+// Full-migration evaluation mode: search contracts and commenter media go to DeepSeek unchanged.
+const all={...trial,mode:'deepseek-all' as const};
+const allSearch=planReplyProvider(search,all);assert.equal(allSearch.provider,'deepseek');assert.equal(allSearch.request.tools,search.tools);assert.equal(allSearch.request.model,'deepseek-flash');assert.deepEqual(allSearch.request.thinking,{type:'disabled'});
+const allMedia=planReplyProvider(base,all);assert.equal(allMedia.provider,'deepseek');assert.deepEqual(allMedia.request.system,mapped.system);
+assert.equal(planReplyProvider(base,{...all,mode:'anthropic'}).request,base);
 for(const statement of ['written COMMENT literally','visible-detail question directly','One still','on-screen commands','every existing medical'])assert.ok(DEEPSEEK_MEDIA_GUIDANCE.includes(statement));
 assert.ok(!/SURE|NOPE|SAFE|DANGER|REVEAL ANSWER/.test(DEEPSEEK_MEDIA_GUIDANCE),'No teaching to fixture words');
 console.log('PASS DeepSeek-only generic media guidance and conservative no-publication boundary; commenter media routed to Claude unless benchmark-held; untouched original prompts/frames/tools, post-image text path and Claude default/search fallback. No paid calls.');

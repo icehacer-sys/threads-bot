@@ -24,7 +24,7 @@ import { unsupportedPatientHistory } from './case-evidence';
 import { classifyAndDraft, isBotQuestion, isPreRevealHold, firstSentences, type Decision, type InlineImage, type ImageMediaType } from "./reply";
 import { pickGif } from "./gifs";
 import { drainSpend, usd } from "./spend";
-import { seedDeepSeekHalt, takeDeepSeekTrip } from "./reply-provider";
+import { enableDeepSeekForEverything, seedDeepSeekHalt, takeDeepSeekTrip } from "./reply-provider";
 import { acknowledgmentKind, holdForImageReview, imageConcernKind, isRetiredMedicalBoundary } from "./concerns";
 import { getProduct } from "./products";
 import { resolveXrayAnswer } from "./xray";
@@ -603,6 +603,7 @@ async function runLiveOrDry(mode: Mode, target: string | null, observation: Cove
   // Evaluation switches can never affect a posting run.
   const evalReplay = !posting && config.evalReplay;
   const evalPreReveal = !posting && config.evalPreReveal;
+  if (!posting && config.deepSeekTrial && config.evalDeepSeekAll) enableDeepSeekForEverything();
   if (evalReplay || evalPreReveal) console.log(`EVALUATION dry run: replay=${evalReplay} preReveal=${evalPreReveal}. Nothing is posted or saved.`);
   // Newest post only: posts come back newest-first, so keep just the first.
   if (!target && config.newestOnly && posts.length > 1) posts = posts.slice(0, 1);

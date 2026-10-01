@@ -46,6 +46,7 @@ export const config = {
   // and print the published reply beside the draft; optionally treat the answer as not yet pinned.
   evalReplay: (process.env.BOT_EVAL_REPLAY ?? 'off').toLowerCase() === 'on',
   evalPreReveal: (process.env.BOT_EVAL_PRE_REVEAL ?? 'off').toLowerCase() === 'on',
+  evalDeepSeekAll: (process.env.BOT_EVAL_DEEPSEEK_ALL ?? 'off').toLowerCase() === 'on',
   // Two-tier models. The cheap triageModel drafts/classifies EVERY comment; only
   // accuracy-critical categories (escalateCategories) are re-drafted by the pricier,
   // higher-quality `model`. Set BOT_TRIAGE_MODEL=<same as model> to disable two-tier.

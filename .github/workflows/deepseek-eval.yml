@@ -22,6 +22,11 @@ on:
         type: choice
         options: ["replay", "search-smoke"]
         default: "replay"
+      deepseek_all:
+        description: "Route EVERYTHING to DeepSeek (corrections with search, commenter GIFs/images); replay mode only"
+        type: choice
+        options: ["off", "on"]
+        default: "off"
       usd_cap:
         description: "Combined Claude + DeepSeek estimated spend cap for this run (USD)"
         type: string
@@ -46,6 +51,7 @@ jobs:
       BOT_DEEPSEEK_TRIAL: "on"
       BOT_EVAL_REPLAY: "on"
       BOT_EVAL_PRE_REVEAL: ${{ github.event.inputs.pre_reveal }}
+      BOT_EVAL_DEEPSEEK_ALL: ${{ github.event.inputs.deepseek_all }}
       # Same reply settings as the live worker (reply.yml), except scope and budget.
       BOT_EDUCATIONAL: "on"
       BOT_PINNED_POSTS: ""
