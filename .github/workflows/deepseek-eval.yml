@@ -45,8 +45,9 @@ on:
 permissions:
   contents: read
 
+# Dry runs share no state and post nothing, so evaluations may run in parallel.
 concurrency:
-  group: deepseek-eval
+  group: deepseek-eval-${{ github.run_id }}
   cancel-in-progress: false
 
 jobs:
