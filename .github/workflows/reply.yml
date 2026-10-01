@@ -92,7 +92,7 @@ jobs:
       # web-search lookups (reference / needs_lookup escalations), which stay on Claude. A DeepSeek
       # failure is charged once, answered by Claude and disables DeepSeek for the cap-day.
       # ROLLBACK: set to "claude" (or delete this line) and the next run is Claude-only again.
-      BOT_REPLY_PROVIDER: "deepseek"
+      BOT_REPLY_PROVIDER: "hybrid" # tonight: DeepSeek for everyday replies; Claude keeps corrections, teaching, lookups and commenter media until DeepSeek passes the post-reveal accuracy review
       BOT_MODEL: "claude-sonnet-4-6" # quality model: corrections/teaching and direct GIF/video reads
       BOT_TRIAGE_MODEL: "claude-haiku-4-5-20251001" # cheap first pass outside direct motion-media routing
       BOT_ESCALATE: "correct,teach,reference" # categories the Haiku triage hands to Sonnet
