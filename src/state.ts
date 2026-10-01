@@ -168,6 +168,15 @@ export class State {
     this.save();
   }
 
+  isImageHeld(commentId: string, postId: string): boolean {
+    return this.imageHeldComments[commentId] === postId;
+  }
+
+  /** Posts whose image review is resolved but still have held comments waiting for a reply. */
+  releasedImageHoldPosts(): string[] {
+    return [...new Set(Object.values(this.imageHeldComments))].filter((postId) => !this.hasImageReview(postId));
+  }
+
   isWaitingForImageReview(commentId: string, postId: string): boolean {
     return this.imageHeldComments[commentId] === postId && this.hasImageReview(postId);
   }
@@ -178,6 +187,7 @@ export class State {
 
   markSkipped(commentId: string): void {
     this.skipped.add(commentId);
+    delete this.imageHeldComments[commentId];
     delete this.skipStrikes[commentId];
     this.save();
   }
@@ -286,6 +296,7 @@ export class State {
   markReplied(commentId: string, postId: string): void {
     if (this.replied.has(commentId)) return;
     this.replied.add(commentId);
+    delete this.imageHeldComments[commentId];
     this.postCounts[postId] = (this.postCounts[postId] ?? 0) + 1;
     this.daily.count += 1;
     this.save();

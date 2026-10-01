@@ -50,6 +50,25 @@ function parseMode(argv: string[]): Mode {
 }
 
 // Optional positional arg: a post URL or shortcode to target just that one post.
+/** Posts released from owner image review whose held comments would otherwise never be revisited. */
+async function resolveReleasedHoldPosts(state: { releasedImageHoldPosts(): string[] }, scanned: ThreadsPost[]): Promise<ThreadsPost[]> {
+  if (config.heldRevisitHours <= 0) return [];
+  const seen = new Set(scanned.map((p) => p.id));
+  const out: ThreadsPost[] = [];
+  for (const id of state.releasedImageHoldPosts()) {
+    if (seen.has(id) || out.length >= 2) continue;
+    try {
+      const post = await getPostById(id);
+      const ageHours = post.timestamp ? (Date.now() - new Date(post.timestamp).getTime()) / 3_600_000 : Infinity;
+      if (ageHours <= config.heldRevisitHours) out.push(post);
+    } catch (err) {
+      // Best effort: a deleted or unreadable old post must not fail every poll.
+      console.error(`  ! released image-hold post ${id} unavailable: ${(err as Error).message}`);
+    }
+  }
+  return out;
+}
+
 function targetShortcode(argv: string[]): string | null {
   const a = argv.find((x) => !x.startsWith("--"));
   if (!a) return null;
@@ -592,11 +611,13 @@ async function runLiveOrDry(mode: Mode, target: string | null, observation: Cove
   // unless a specific target was requested. They bypass the time window + per-post cap below.
   const pinnedPosts = target ? [] : await resolvePinnedPosts(state, posts, recordFailure);
   const pinnedIds = new Set(pinnedPosts.map((p) => p.id));
-  const scanPosts = [...posts, ...pinnedPosts];
+  const revisitPosts = target ? [] : await resolveReleasedHoldPosts(state, [...posts, ...pinnedPosts]);
+  const revisitIds = new Set(revisitPosts.map((p) => p.id));
+  const scanPosts = [...posts, ...pinnedPosts, ...revisitPosts];
 
   console.log(
     `\n${posting ? "LIVE" : "DRY-RUN"} — @${me}, model ${config.model}. ` +
-      `Scanning ${scanPosts.length} post(s)${pinnedPosts.length ? ` (incl. ${pinnedPosts.length} pinned)` : ""}${target ? ` (target ${target})` : ""}. ` +
+      `Scanning ${scanPosts.length} post(s)${pinnedPosts.length ? ` (incl. ${pinnedPosts.length} pinned)` : ""}${revisitPosts.length ? ` (incl. ${revisitPosts.length} released from image review)` : ""}${target ? ` (target ${target})` : ""}. ` +
       `Per-post cap ${config.perPostCap}, daily left ${state.remainingToday()}/${config.dailyCap}.` +
       (posting ? "" : " Nothing will be posted.") +
       "\n",
@@ -648,7 +669,7 @@ async function runLiveOrDry(mode: Mode, target: string | null, observation: Cove
     if (budgetStop || fatalStop) break;
     // Optional time window: only enforced when windowHours > 0 (0 = no limit).
     // Pinned posts are intentionally old, so they skip the age filter.
-    if (config.windowHours > 0 && !pinnedIds.has(post.id)) {
+    if (config.windowHours > 0 && !pinnedIds.has(post.id) && !revisitIds.has(post.id)) {
       const ageHours = post.timestamp ? (Date.now() - new Date(post.timestamp).getTime()) / 3_600_000 : 0;
       if (ageHours > config.windowHours) continue;
     }
@@ -679,9 +700,10 @@ async function runLiveOrDry(mode: Mode, target: string | null, observation: Cove
     if (posting) for (const concern of visibleConcerns) state.queueOwnerReview(concern.id, post.id, 'owner review: image/anatomy inconsistency', concern.text, concern.username);
     const imageReviewHeld = state.hasImageReview(post.id) || (!posting && visibleConcerns.length > 0);
 
-    // Resume saved containers before paying to classify the same comment again.
+    // Resume saved containers before paying to classify the same comment again. A revisited post
+    // never resumes: an unconfirmed old receipt there needs a separate duplicate-risk decision.
     const resumed = new Set<string>();
-    if (posting) {
+    if (posting && !revisitIds.has(post.id)) {
       for (const c of [...replies, ...conversation]) {
         const publication = state.publication(`comment:${c.id}`);
         const pending = publication.get();
@@ -767,6 +789,7 @@ async function runLiveOrDry(mode: Mode, target: string | null, observation: Cove
     const wantsReply = (c: ThreadsReply): boolean => {
       if (c.username === me) { observe(() => observation.eligibility(post.id, c.id, 'excluded', 'self')); return false; }
       if (!beforeReveal(c)) return false;
+      if (revisitIds.has(post.id) && !state.isImageHeld(c.id, post.id)) return false;
       if (!isVisible(c)) { observe(() => observation.eligibility(post.id, c.id, 'excluded', 'hidden')); return false; }
       if (!((c.text ?? "").trim().length >= (config.replyAll ? 1 : config.minCommentLength) ||
         (isPriorityCommenter(c.username, config.priorityUsernames) && !!(c.text ?? '').trim()) ||
@@ -1280,6 +1303,14 @@ async function runLiveOrDry(mode: Mode, target: string | null, observation: Cove
   );
 
   observe(() => observation.printSummary());
+  try {
+    const open = state.pendingOwnerReviews();
+    if (open.length) {
+      const oldest = open.map((r) => r.queuedAt).sort()[0]?.slice(0, 10);
+      const held = state.releasedImageHoldPosts().length;
+      console.log(`Owner reviews open: ${open.length} (oldest ${oldest}). Image-review holds stay paused until resolved; run npm run reviews.${held ? ` ${held} released post(s) await revisit.` : ''}`);
+    }
+  } catch { /* Reporting only. */ }
 
   // Outage dead-man's-switch: if EVERY comment we classified this run error-skipped (dead API key,
   // billing lapse, Anthropic outage) the bot posted nothing while every poll still exits 0 and the
