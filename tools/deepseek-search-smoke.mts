@@ -19,7 +19,7 @@ Object.assign(config, { deepSeekTrial: false, webSearch: true, gifReplies: false
 const { classifyAndDraft } = await import('../src/reply');
 await classifyAndDraft({
   postText: 'Synthetic teaching case: an abdominal X-ray with a large mottled mass.',
-  commentText: 'Is this related to the "Rapunzel syndrome" case that was in the news? What exactly is that?',
+  commentText: process.env.SMOKE_COMMENT || 'Is this related to the "Rapunzel syndrome" case that was in the news? What exactly is that?',
   answerPublic: true, replyAll: true, modelOverride: config.model, allowSearch: true,
 } as Parameters<typeof classifyAndDraft>[0]);
 globalThis.fetch = realFetch;
