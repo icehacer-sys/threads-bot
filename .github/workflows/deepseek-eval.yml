@@ -22,6 +22,11 @@ on:
         type: choice
         options: ["replay", "search-smoke", "learn-dry"]
         default: "replay"
+      provider:
+        description: "deepseek = production candidate (Claude only for web-search lookups); hybrid = earlier trial routing"
+        type: choice
+        options: ["deepseek", "hybrid"]
+        default: "deepseek"
       deepseek_all:
         description: "Route EVERYTHING to DeepSeek (corrections with search, commenter GIFs/images); replay mode only"
         type: choice
@@ -53,7 +58,7 @@ jobs:
       DEEPSEEK_API_KEY: ${{ secrets.DEEPSEEK_API_KEY }}
       THREADS_ACCESS_TOKEN: ${{ secrets.THREADS_ACCESS_TOKEN }}
       THREADS_USER_ID: me
-      BOT_DEEPSEEK_TRIAL: "on"
+      BOT_REPLY_PROVIDER: ${{ github.event.inputs.provider || 'deepseek' }}
       BOT_EVAL_REPLAY: "on"
       BOT_EVAL_PRE_REVEAL: ${{ github.event.inputs.pre_reveal }}
       BOT_EVAL_DEEPSEEK_ALL: ${{ github.event.inputs.deepseek_all }}

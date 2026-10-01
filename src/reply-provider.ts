@@ -34,12 +34,14 @@ function getDeepSeek(): Anthropic {
 /** Exact existing server-search payload stays on Claude, including forced continuation. */
 export async function createReplyMessage(request: ReplyRequest): Promise<Anthropic.Message> {
   const plan = planReplyProvider(request, {
-    mode: config.deepSeekTrial ? (deepSeekAll ? 'deepseek-all' : 'deepseek-no-search-trial') : 'anthropic',
+    mode: !config.deepSeekTrial ? 'anthropic' : deepSeekAll ? 'deepseek-all' : config.replyProvider === 'deepseek' ? 'deepseek-primary' : 'deepseek-no-search-trial',
     triageModel: config.triageModel, qualityModel: config.model, commentMedia: config.deepSeekCommentMedia,
   });
   if (config.deepSeekTrial && !disclosed) {
     disclosed = true;
-    console.log('    DeepSeek trial: no-search requests use deepseek-flash; search, commenter media and unsupported contracts retain Claude. Full provider parity is unverified.');
+    console.log(config.replyProvider === 'deepseek'
+      ? '    DeepSeek provider: deepseek-flash answers every reply except web-search lookups, which use Claude. A DeepSeek failure falls back to Claude for the cap-day.'
+      : '    DeepSeek trial: no-search requests use deepseek-flash; search, commenter media and unsupported contracts retain Claude. Full provider parity is unverified.');
   }
   if (plan.provider === 'deepseek') {
     const native = halted ? null : await tryDeepSeek(request, plan.request);
@@ -77,7 +79,8 @@ async function tryDeepSeek(original: ReplyRequest, mapped: ReplyRequest): Promis
   if (cost === null) return disableDeepSeek('native usage unknown', UNCERTAIN_FLASH_CALL_USD);
   recordPricedCall(cost);
   // The everything-on-DeepSeek evaluation must see real media replies to judge them.
-  if (!deepSeekAll) enforceDeepSeekMediaHold(mapped, response);
+  // The media hold is the offline replay's benchmark route only; production media is never held.
+  if (config.deepSeekCommentMedia === 'held') enforceDeepSeekMediaHold(mapped, response);
   return response;
 }
 
@@ -111,7 +114,8 @@ export function takeDeepSeekTrip(): boolean {
 export function replyTrialProviderSnapshot() {
   return {
     scope: 'reply_provider_process', persistence: 'none', trial: config.deepSeekTrial,
-    fallback: 'Claude owns native search, commenter media and unsupported contracts', halted,
+    provider: config.replyProvider,
+    fallback: config.replyProvider === 'deepseek' ? 'Claude owns native web-search lookups and DeepSeek failures' : 'Claude owns native search, commenter media and unsupported contracts', halted,
     mediaReplies: config.deepSeekCommentMedia === 'held' ? 'held pending grounding and written-intent acceptance' : 'Claude pending DeepSeek grounding acceptance',
     providers: {
       anthropic: { provider: 'anthropic', observation: replyProviderSnapshot() },

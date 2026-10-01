@@ -3,7 +3,7 @@
 import type Anthropic from '@anthropic-ai/sdk';
 import { groundDeepSeekRequest, isMediaReplyRequest } from './deepseek-media-policy';
 
-export type ReplyProviderMode = 'anthropic' | 'deepseek-text-trial' | 'deepseek-no-search-trial' | 'deepseek-all';
+export type ReplyProviderMode = 'anthropic' | 'deepseek-text-trial' | 'deepseek-no-search-trial' | 'deepseek-primary' | 'deepseek-all';
 export type ReplyRequest = Anthropic.MessageCreateParamsNonStreaming;
 export interface ReplyProviderPolicy {
   mode: ReplyProviderMode;
@@ -16,7 +16,7 @@ export interface ReplyProviderPlan {
   provider: 'anthropic' | 'deepseek';
   logicalModel: string;
   requestedModel: string;
-  reason: 'default' | 'quality' | 'media-or-unsupported-block' | 'tool-contract' | 'comment-media' | 'text-triage' | 'no-search-trial' | 'deepseek-all';
+  reason: 'default' | 'quality' | 'media-or-unsupported-block' | 'tool-contract' | 'comment-media' | 'search' | 'text-triage' | 'no-search-trial' | 'deepseek-primary' | 'deepseek-all';
   baseURL: 'https://api.anthropic.com' | 'https://api.deepseek.com/anthropic';
   request: ReplyRequest;
 }
@@ -28,7 +28,7 @@ function textContent(content: unknown): boolean {
 
 /** Route the actual fully constructed request; never remove media or search tools. */
 export function planReplyProvider(request: ReplyRequest, policy: ReplyProviderPolicy): ReplyProviderPlan {
-  if (!['anthropic', 'deepseek-text-trial', 'deepseek-no-search-trial', 'deepseek-all'].includes(policy.mode)) throw Error('Unknown reply provider mode');
+  if (!['anthropic', 'deepseek-text-trial', 'deepseek-no-search-trial', 'deepseek-primary', 'deepseek-all'].includes(policy.mode)) throw Error('Unknown reply provider mode');
   const original = (reason: ReplyProviderPlan['reason']): ReplyProviderPlan => ({
     provider: 'anthropic', logicalModel: request.model, requestedModel: request.model,
     baseURL: 'https://api.anthropic.com', reason, request,
@@ -36,6 +36,20 @@ export function planReplyProvider(request: ReplyRequest, policy: ReplyProviderPo
   if (policy.mode === 'anthropic') return original('default');
   // Full-migration candidate (evaluation only for now): every request, including native search,
   // search continuations and commenter media, goes to DeepSeek with the exact original body.
+  // Production DeepSeek mode: Claude keeps only native web search (DeepSeek accepts the tool but never
+  // runs it) and its continuations; everything else, commenter media included, goes to DeepSeek.
+  if (policy.mode === 'deepseek-primary') {
+    const searchTool = request.tools?.some(tool => 'type' in tool && typeof tool.type === 'string' && tool.type.startsWith('web_search'));
+    const searchHistory = request.messages.some(message => Array.isArray(message.content) &&
+      message.content.some(block => block?.type === 'server_tool_use' || block?.type === 'web_search_tool_result'));
+    if (searchTool || searchHistory) return original('search');
+    const { output_config: _claudeEffort, ...body } = request;
+    return {
+      provider: 'deepseek', logicalModel: request.model, requestedModel: 'deepseek-flash',
+      baseURL: 'https://api.deepseek.com/anthropic', reason: 'deepseek-primary',
+      request: groundDeepSeekRequest({ ...body, model: 'deepseek-flash', thinking: { type: 'disabled' } }),
+    };
+  }
   if (policy.mode === 'deepseek-all') {
     const { output_config: _claudeEffort, ...body } = request;
     return {

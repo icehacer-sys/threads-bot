@@ -34,10 +34,21 @@ function parseActiveWindows(): Array<[number, number]> {
   return [[num("BOT_ACTIVE_START", 0), num("BOT_ACTIVE_END", 24)]];
 }
 
+function replyProvider(): 'claude' | 'hybrid' | 'deepseek' {
+  const raw = (process.env.BOT_REPLY_PROVIDER ?? '').trim().toLowerCase();
+  if (raw === 'claude' || raw === 'hybrid' || raw === 'deepseek') return raw;
+  if (raw) throw new Error(`BOT_REPLY_PROVIDER must be claude, hybrid or deepseek (got "${raw}")`);
+  return (process.env.BOT_DEEPSEEK_TRIAL ?? 'off').toLowerCase() === 'on' ? 'hybrid' : 'claude';
+}
+
 export const config = {
   // Candidate hybrid only. Activation requires separate media/search acceptance.
   // Native search stays on the existing Claude boundary; unset/off is full rollback.
-  deepSeekTrial: (process.env.BOT_DEEPSEEK_TRIAL ?? 'off').toLowerCase() === 'on',
+  deepSeekTrial: replyProvider() !== 'claude',
+  // claude: Claude only (default, full rollback). hybrid: the BOT_DEEPSEEK_TRIAL routing, where search,
+  // commenter media and Sonnet escalations stay on Claude. deepseek: DeepSeek answers everything except
+  // web-search lookups, which keep Claude; a DeepSeek failure still falls back to Claude for the day.
+  replyProvider: replyProvider(),
   // Commenter GIF/image/video replies stay on Claude during the trial: DeepSeek media grounding
   // is not accepted, and a held reply surfaces as an error skip that trips the outage alarms.
   // 'held' is for the offline native-media replay only. Deliberately not read from env.

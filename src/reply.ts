@@ -557,7 +557,10 @@ async function classifyAndDraftCore(input: ClassifyInput): Promise<Decision> {
   // (tools -> system -> messages) — that was the main Sonnet cache leak. tool_choice:auto lets
   // the model search only when it actually needs to (the voice rules gate that); the cheap Haiku
   // triage stays deterministic (forced submit_reply, no search) for one clean call.
-  if (config.webSearch && (!isTriage || allowSearch) && (!withMedia || allowSearch === true)) {
+  // With BOT_REPLY_PROVIDER=deepseek only real lookups carry the search tool (and so go to Claude); the
+  // shared-cache reason for attaching it to every escalation is Claude-specific.
+  const searchEligible = config.replyProvider === 'deepseek' ? allowSearch === true : (!isTriage || allowSearch);
+  if (config.webSearch && searchEligible && (!withMedia || allowSearch === true)) {
     tools.unshift({ type: "web_search_20250305", name: "web_search", max_uses: 3 });
     toolChoice = { type: "auto" };
   }
