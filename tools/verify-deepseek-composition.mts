@@ -12,7 +12,7 @@ const { classifyAndDraft } = await import('../src/reply');
 const { drainSpend, costOf } = await import('../src/spend');
 const { replyTrialProviderSnapshot } = await import('../src/reply-provider');
 const { deepSeekTokenCost } = await import('../src/deepseek-reply-client');
-const { groundDeepSeekMediaRequest, DEEPSEEK_MEDIA_HOLD } = await import('../src/deepseek-media-policy');
+const { groundDeepSeekRequest, DEEPSEEK_MEDIA_HOLD } = await import('../src/deepseek-media-policy');
 Object.assign(config, { deepSeekTrial: false, gifReplies: false, voiceVariant: 'lean' });
 const nativeUsage = { input_tokens: 10, output_tokens: 20, cache_creation_input_tokens: 0, cache_read_input_tokens: 30 };
 const valid = { intent: 'friendly reaction', decision: 'reply', category: 'banter', reply_text: 'That was a rough one.', reason: 'synthetic friendly reaction', needs_lookup: false, promo_product: 'none', promo_explicit: false };
@@ -106,7 +106,7 @@ if (process.argv.includes('--unknown-usage') || process.argv.includes('--unknown
             if (index === 1) assert.deepEqual(original.messages[1].content, responses[0].content, 'HTTP-200 search error blocks retained in continuation');
           } else {
             const { output_config: _effort, ...rest } = original;
-            assert.deepEqual(request.body, groundDeepSeekMediaRequest({ ...rest, model: 'deepseek-flash', thinking: { type: 'disabled' } }), `${scenario}: original prompt/tool/context/frame parity plus explicit DeepSeek media guidance`);
+            assert.deepEqual(request.body, groundDeepSeekRequest({ ...rest, model: 'deepseek-flash', thinking: { type: 'disabled' } }), `${scenario}: original prompt/tool/context/frame parity plus explicit DeepSeek media guidance`);
             assert.equal(request.url, 'https://api.deepseek.com/anthropic/v1/messages');
           }
         }

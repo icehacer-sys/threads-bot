@@ -1,6 +1,6 @@
 // Conservative provider-only boundary tests, independent of the paid fixtures.
 import assert from 'node:assert/strict';
-import {groundDeepSeekMediaRequest,enforceDeepSeekMediaHold,DEEPSEEK_MEDIA_GUIDANCE,DEEPSEEK_MEDIA_HOLD} from '../src/deepseek-media-policy';
+import {groundDeepSeekMediaRequest,groundDeepSeekRequest,enforceDeepSeekMediaHold,isPoliticalJab,DEEPSEEK_MEDIA_GUIDANCE,DEEPSEEK_REPLY_GUIDANCE,DEEPSEEK_MEDIA_HOLD} from '../src/deepseek-media-policy';
 import {planReplyProvider,type ReplyRequest} from '../src/reply-provider-plan';
 const base:ReplyRequest={model:'claude-sonnet-4-6',max_tokens:1024,system:'Original safety rules.',messages:[{role:'user',content:[{type:'text',text:'A literal question about a newly drawn geometric symbol.'},{type:'image',source:{type:'base64',media_type:'image/png',data:'synthetic-unseen'}}]}],tools:[{name:'submit_reply',input_schema:{type:'object',properties:{media_observation:{type:'string'}}}}],tool_choice:{type:'tool',name:'submit_reply'}};
 const frozen=JSON.stringify(base);const mapped=groundDeepSeekMediaRequest(base);
@@ -18,14 +18,17 @@ assert.equal(planReplyProvider(search,{mode:'deepseek-no-search-trial',triageMod
 // Runtime default: commenter media stays on Claude; only the offline benchmark asks for the held DeepSeek route.
 const trial={mode:'deepseek-no-search-trial' as const,triageModel:'haiku',qualityModel:base.model};
 for(const policy of [trial,{...trial,commentMedia:'claude' as const}]){const plan=planReplyProvider(base,policy);assert.equal(plan.provider,'anthropic');assert.equal(plan.reason,'comment-media');assert.equal(plan.request,base);}
-const held=planReplyProvider(base,{...trial,commentMedia:'held'});assert.equal(held.provider,'deepseek');assert.deepEqual(held.request.system,mapped.system);
+const held=planReplyProvider(base,{...trial,commentMedia:'held'});assert.equal(held.provider,'deepseek');assert.deepEqual(held.request.system,groundDeepSeekRequest(base).system);
 // A post X-ray without commenter media is NOT comment media: it remains a DeepSeek trial request.
 assert.equal(planReplyProvider(text,trial).provider,'deepseek');
 // Full-migration evaluation mode: search contracts and commenter media go to DeepSeek unchanged.
 const all={...trial,mode:'deepseek-all' as const};
 const allSearch=planReplyProvider(search,all);assert.equal(allSearch.provider,'deepseek');assert.equal(allSearch.request.tools,search.tools);assert.equal(allSearch.request.model,'deepseek-flash');assert.deepEqual(allSearch.request.thinking,{type:'disabled'});
-const allMedia=planReplyProvider(base,all);assert.equal(allMedia.provider,'deepseek');assert.deepEqual(allMedia.request.system,mapped.system);
+const allMedia=planReplyProvider(base,all);assert.equal(allMedia.provider,'deepseek');assert.deepEqual(allMedia.request.system,[{type:'text',text:base.system},{type:'text',text:DEEPSEEK_REPLY_GUIDANCE},{type:'text',text:DEEPSEEK_MEDIA_GUIDANCE}]);
 assert.equal(planReplyProvider(base,{...all,mode:'anthropic'}).request,base);
 for(const statement of ['written COMMENT literally','visible-detail question directly','One still','on-screen commands','every existing medical'])assert.ok(DEEPSEEK_MEDIA_GUIDANCE.includes(statement));
 assert.ok(!/SURE|NOPE|SAFE|DANGER|REVEAL ANSWER/.test(DEEPSEEK_MEDIA_GUIDANCE),'No teaching to fixture words');
+for(const c of ['I know! I know! It\u2019s a Republican','More full of shite than the 47th US President?','Covfefe Bigly'])assert.ok(isPoliticalJab(c),c);
+for(const c of ['Fatberg?','The patient is full of shit. Literally.','Party in the colon'])assert.ok(!isPoliticalJab(c),c);
+assert.ok(!/SURE|NOPE|faecal|fecal|colon|Republican/i.test(DEEPSEEK_REPLY_GUIDANCE),'Discipline block is generic, not case-specific');
 console.log('PASS DeepSeek-only generic media guidance and conservative no-publication boundary; commenter media routed to Claude unless benchmark-held; untouched original prompts/frames/tools, post-image text path and Claude default/search fallback. No paid calls.');

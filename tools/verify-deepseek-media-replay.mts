@@ -14,15 +14,17 @@ globalThis.fetch=async(url,init)=>{
 const {config}=await import('../src/config');// Benchmark-only route: runtime keeps commenter media on Claude (deepSeekCommentMedia 'claude').
 Object.assign(config,{deepSeekTrial:true,deepSeekCommentMedia:'held',webSearch:true,model:'claude-sonnet-4-6',triageModel:'claude-haiku-4-5-20251001',voiceVariant:'lean',visionEnabled:true,gifReplies:false});
 const {classifyAndDraft}=await import('../src/reply');const {drainSpend}=await import('../src/spend');
-const {DEEPSEEK_MEDIA_GUIDANCE,DEEPSEEK_MEDIA_HOLD}=await import('../src/deepseek-media-policy');
+const {DEEPSEEK_MEDIA_GUIDANCE,DEEPSEEK_MEDIA_HOLD,DEEPSEEK_REPLY_GUIDANCE}=await import('../src/deepseek-media-policy');
 let roundedTotal=0;
 for(const c of [...pack.cases,...recheck.cases]){active=c;const before=attempts;const result=await classifyAndDraft(c.input);assert.equal(attempts-before,1);
  assert.equal(capturedUrl,'https://api.deepseek.com/anthropic/v1/messages');
  // Files loaded into system prompts use CRLF on Windows and LF in Linux checkout.
  // Preserve the paid raw hash in the fixture; normalize ONLY string line endings
  // for this cross-platform full-request hash. Every other field/byte is included.
- assert.equal(captured.system.at(-1).text,DEEPSEEK_MEDIA_GUIDANCE);
- const originalRequest=c.guidancePresentInNativeRequest?captured:{...captured,system:captured.system.slice(0,-1)};
+ assert.equal(captured.system.at(-1).text,DEEPSEEK_MEDIA_GUIDANCE);assert.equal(captured.system.at(-2).text,DEEPSEEK_REPLY_GUIDANCE);
+ // Saved paid requests predate the discipline block; compare them without it only.
+ const paid={...captured,system:captured.system.filter((b:any)=>b.text!==DEEPSEEK_REPLY_GUIDANCE)};
+ const originalRequest=c.guidancePresentInNativeRequest?paid:{...paid,system:paid.system.slice(0,-1)};
  const canonical=JSON.stringify(originalRequest,(_key,value)=>typeof value==='string'?value.replace(/\r\n/g,'\n'):value);
  assert.equal(hash(canonical),c.normalizedRequestHash,'Full native request parity apart from checkout line endings');
  assert.deepEqual(captured.messages.flatMap((m:any)=>m.content.filter((b:any)=>b.type==='image')).map((b:any)=>hash(Buffer.from(b.source.data,'base64') as any)),c.frameHashes);

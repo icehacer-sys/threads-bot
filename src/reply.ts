@@ -19,6 +19,7 @@ import { GIF_TAGS } from "./gifs";
 import { PROMO_TAGS, PRODUCTS_BLOCK } from "./products";
 import { priceFor } from "./spend";
 import { createReplyMessage } from './reply-provider';
+import { isPoliticalJab } from './deepseek-media-policy';
 import { acknowledgmentKind, concernAcknowledgment, directConcern, imageConcernKind, requestsPersonalAdvice, isRetiredMedicalBoundary } from "./concerns";
 
 // Self-learned voice notes (maintained by the Fable 5 self-audit in voicelearn.ts). Loaded ONCE and
@@ -320,6 +321,11 @@ async function classifyAndDraftCore(input: ClassifyInput): Promise<Decision> {
     if (safe.decision !== 'reply' || !['banter', 'affirm', 'empathize'].includes(safe.category)) return failed;
     return { ...failed, draftFailure: kind };
   };
+  // DeepSeek drafts broke the political-jab voice rule in evaluation; skip them deterministically.
+  const deepSeekPolicy = (servedModel: string | undefined, d: Decision): Decision =>
+    servedModel === 'deepseek-flash' && d.decision === 'reply' && isPoliticalJab(commentText)
+      ? { ...d, decision: 'skip', category: 'other', reply_text: '', reason: 'political jab: DeepSeek reply skipped | guard:forced-skip' }
+      : d;
   const finalize = async (d: Decision): Promise<Decision> => {
     // Preserve a tailored draft instead of replacing jokes and guesses with fixed receipts.
     const guessBeforeReveal = !isPublic && input.replyAll && !input.imageReviewPending && (!withMedia || d.media_clear === true) &&
@@ -608,13 +614,13 @@ async function classifyAndDraftCore(input: ClassifyInput): Promise<Decision> {
         const forcedSubmit = findSubmit(forced);
         if (forcedSubmit?.input) {
           const parsed = parseDecision(forcedSubmit.input, withMedia);
-          return finalize(parsed);
+          return finalize(deepSeekPolicy(forced.model, parsed));
         }
       }
       throw new Error("No submit_reply produced");
     }
     const parsed = parseDecision(submit.input, withMedia);
-    return finalize(parsed);
+    return finalize(deepSeekPolicy(res.model, parsed));
   } catch (err) {
     // Any failure (API error, bad output) -> stay silent. Never post on uncertainty.
     const msg = err instanceof Error ? err.message : String(err);
