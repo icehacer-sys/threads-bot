@@ -87,7 +87,9 @@ if (process.argv.includes('--unknown-usage') || process.argv.includes('--unknown
       drainSpend();
       const result = await classifyAndDraft(input);
       const spend = drainSpend();
-      assert.equal(requests.length, scenario === 'operator' ? 0 : scenario === 'repair' || scenario === 'search-error-continuation' ? 2 : 1, scenario);
+      // An unusable DeepSeek verdict (truncation, bad schema) is retried once on Claude with the original request.
+      const verdictFallback = enabled && (scenario === 'truncation' || scenario === 'bad-schema');
+      assert.equal(requests.length, (scenario === 'operator' ? 0 : scenario === 'repair' || scenario === 'search-error-continuation' ? 2 : 1) + (verdictFallback ? 1 : 0), scenario);
       if (!enabled) expected.set(scenario, { requests, result });
       else {
         const baseline = expected.get(scenario);
@@ -96,6 +98,10 @@ if (process.argv.includes('--unknown-usage') || process.argv.includes('--unknown
         if (claudeOwned.has(scenario)) assert.doesNotMatch(result.reason, /^(?:error|fatal):/, `${scenario}: commenter media is not an API-error skip`);
         assert.notEqual(result.reason, `error: ${DEEPSEEK_MEDIA_HOLD}`);
         for (const [index, request] of requests.entries()) {
+          if (verdictFallback && index === 1) {
+            assert.deepEqual(request, baseline.requests[0], `${scenario}: Claude retry is the exact original request`);
+            continue;
+          }
           const original = baseline.requests[index].body;
           if (scenario === 'media' || scenario === 'unclear-media') {
             assert.deepEqual(request, baseline.requests[index], `${scenario}: exact commenter-media payload stays Claude-owned`);
@@ -110,7 +116,7 @@ if (process.argv.includes('--unknown-usage') || process.argv.includes('--unknown
             assert.equal(request.url, 'https://api.deepseek.com/anthropic/v1/messages');
           }
         }
-        const expectedUsd = responses.reduce((sum, response, index) => sum + (claudeOwned.has(scenario) ? costOf(requests[index].body.model, response.usage) : deepSeekTokenCost(response.model, response.usage)!), 0);
+        const expectedUsd = responses.reduce((sum, response, index) => sum + (new URL(requests[index].url).hostname === 'api.deepseek.com' ? deepSeekTokenCost(response.model, response.usage)! : costOf(requests[index].body.model, response.usage)), 0);
         assert.ok(Math.abs(spend.usd - expectedUsd) < 1e-12, `${scenario}: selected native pricing`);
         assert.equal(spend.calls, requests.length);
       }
@@ -121,7 +127,7 @@ if (process.argv.includes('--unknown-usage') || process.argv.includes('--unknown
   const snapshot = replyTrialProviderSnapshot();
   assert.equal(snapshot.providers.deepseek.observation.transport.starts, deepPhysical);
   assert.equal(snapshot.providers.deepseek.observation.usage.records, deepPhysical);
-  assert.equal(claudeFallbackPhysical, 4, 'search continuation (2) plus commenter media and unclear media (1 each)');
+  assert.equal(claudeFallbackPhysical, 6, 'search continuation (2), commenter media and unclear media (1 each), truncation and bad-schema verdict retries (1 each)');
   assert.equal(snapshot.providers.deepseek.observation.usage.serverWebSearchRequests.reportedTotal, null);
   assert.equal(snapshot.providers.deepseek.observation.usage.serverWebSearchRequests.unknownRecords, deepPhysical);
   console.log(`PASS default-off/ON actual composition: 9 scenarios each, exact prompts/repairs, Claude-owned commenter media and search continuation, ${deepPhysical} DeepSeek physical mocks, ${claudeFallbackPhysical} explicit Claude fallback mocks, native pricing and scoped observers. No paid calls.`);
