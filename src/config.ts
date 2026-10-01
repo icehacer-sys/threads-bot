@@ -109,6 +109,9 @@ export const config = {
 
   // Reply to posts within this many hours. 0 = no time limit (rely on the per-post cap).
   windowHours: num("BOT_WINDOW_HOURS", 0),
+  // Comments held for an owner image review are stranded once their post leaves the window. After the
+  // review is resolved, the post is revisited for those held comments only, up to this age (0 = off).
+  heldRevisitHours: num("BOT_HELD_REVISIT_HOURS", 72),
   maxPostsScanned: num("BOT_MAX_POSTS", 5),
 
   // Only act on the single newest post (cleanest for a once-a-day challenge).
