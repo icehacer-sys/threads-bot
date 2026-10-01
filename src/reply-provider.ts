@@ -52,10 +52,24 @@ export async function createReplyMessage(request: ReplyRequest): Promise<Anthrop
     console.log('    DeepSeek trial uses explicit Claude fallback for search, commenter media, unsupported request blocks or a disabled trial.');
   }
   // A DeepSeek-planned request that falls back sends the exact original Claude request.
-  const response = await getClaude().messages.create(plan.provider === 'anthropic' ? plan.request : request);
+  return claudeMessage(plan.provider === 'anthropic' ? plan.request : request);
+}
+
+async function claudeMessage(request: ReplyRequest): Promise<Anthropic.Message> {
+  const response = await getClaude().messages.create(request);
   recordUsage(request.model, response.usage);
   try { observeReplyUsage(response.usage); } catch { /* PR13 observation is optional. */ }
   return response;
+}
+
+// A DeepSeek reply whose verdict cannot be used (extra or missing field, truncation, no submit_reply)
+// published nothing and was already priced, so Claude answers the same comment with the exact original
+// request. DeepSeek stays on: the cost is known, and one bad verdict is not an outage. Without this the
+// comment became an error: skip, which fails the poll and is re-billed on every later poll.
+export async function retryVerdictOnClaude(request: ReplyRequest, problem: string): Promise<Anthropic.Message | null> {
+  if (deepSeekAll) return null; // the everything-on-DeepSeek evaluation must see DeepSeek's own failures
+  console.log(`    DeepSeek verdict unusable (${problem.slice(0, 80)}); Claude answers this comment.`);
+  return claudeMessage(request);
 }
 
 // Nothing is published from a failed DeepSeek attempt, so the same request can safely go to Claude.

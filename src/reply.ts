@@ -18,7 +18,7 @@ import { replyStyleIssue, needsClinicalReview, clinicalClaimIssue } from './repl
 import { GIF_TAGS } from "./gifs";
 import { PROMO_TAGS, PRODUCTS_BLOCK } from "./products";
 import { priceFor } from "./spend";
-import { createReplyMessage } from './reply-provider';
+import { createReplyMessage, retryVerdictOnClaude } from './reply-provider';
 import { claimsOffPlatformAction, isLatinNonEnglishReply, isPoliticalJab, unsupportedDeepSeekClaim } from './deepseek-media-policy';
 import { acknowledgmentKind, concernAcknowledgment, directConcern, imageConcernKind, requestsPersonalAdvice, isRetiredMedicalBoundary } from "./concerns";
 
@@ -159,7 +159,8 @@ export function parseDecision(value: unknown, withMedia = false): Decision {
   const record = value as Record<string, unknown>;
   const schema = withMedia ? MEDIA_REPLY_SCHEMA : REPLY_SCHEMA;
   const properties = schema.properties as Record<string, { type: string; enum?: readonly string[] }>;
-  if (Object.keys(record).some((key) => !Object.hasOwn(properties, key))) throw new Error("Invalid reply verdict: unexpected field");
+  const extra = Object.keys(record).find((key) => !Object.hasOwn(properties, key));
+  if (extra !== undefined) throw new Error(`Invalid reply verdict: unexpected field ${extra.slice(0, 40)}`);
   for (const key of schema.required) {
     const field = properties[key];
     if (!Object.hasOwn(record, key) || typeof record[key] !== field.type ||
@@ -588,8 +589,12 @@ async function classifyAndDraftCore(input: ClassifyInput): Promise<Decision> {
     ? { output_config: { effort: "low" } }
     : {};
 
+  const findSubmit = (m: Anthropic.Message) =>
+    m.content.find(
+      (b) => (b as { type: string; name?: string }).type === "tool_use" && (b as { name?: string }).name === "submit_reply",
+    ) as { input?: unknown } | undefined;
   try {
-    const res = await createReplyMessage({
+    const request = {
       model,
       max_tokens: 1024,
       ...effortParam,
@@ -598,7 +603,14 @@ async function classifyAndDraftCore(input: ClassifyInput): Promise<Decision> {
       messages: [{ role: "user", content }],
       tools,
       tool_choice: toolChoice,
-    } as unknown as Anthropic.MessageCreateParamsNonStreaming);
+    } as unknown as Anthropic.MessageCreateParamsNonStreaming;
+    let res = await createReplyMessage(request);
+    if (res.model === "deepseek-flash" && (toolChoice as { type?: string }).type === "tool") {
+      const submitted = findSubmit(res);
+      let problem = res.stop_reason === "max_tokens" ? "truncated" : !submitted?.input ? "no submit_reply" : null;
+      if (!problem) try { parseDecision(submitted!.input, withMedia); } catch (err) { problem = err instanceof Error ? err.message : String(err); }
+      if (problem) res = (await retryVerdictOnClaude(request, problem)) ?? res;
+    }
 
     if (res.content.some((b) => (b as { type: string }).type === "web_search_tool_result")) {
       console.log(`    (web search used for: "${commentText.slice(0, 40).replace(/\s+/g, " ")}")`);
@@ -607,10 +619,6 @@ async function classifyAndDraftCore(input: ClassifyInput): Promise<Decision> {
     if (res.stop_reason === "max_tokens") {
       throw new Error("Truncated reply verdict (max_tokens)");
     }
-    const findSubmit = (m: Anthropic.Message) =>
-      m.content.find(
-        (b) => (b as { type: string; name?: string }).type === "tool_use" && (b as { name?: string }).name === "submit_reply",
-      ) as { input?: unknown } | undefined;
     const submit = findSubmit(res);
     if (!submit?.input) {
       // With auto tool choice (web search on) the model can end its turn after searching without
