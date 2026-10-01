@@ -27,6 +27,11 @@ on:
         type: choice
         options: ["off", "on"]
         default: "off"
+      smoke_comment:
+        description: "search-smoke only: synthetic comment text (blank = default)"
+        type: string
+        required: false
+        default: ""
       usd_cap:
         description: "Combined Claude + DeepSeek estimated spend cap for this run (USD)"
         type: string
@@ -100,6 +105,8 @@ jobs:
           fi
       - name: One-request DeepSeek search smoke (posts nothing)
         if: github.event.inputs.mode == 'search-smoke'
+        env:
+          SMOKE_COMMENT: ${{ github.event.inputs.smoke_comment }}
         run: npx tsx tools/deepseek-search-smoke.mts
       - name: Dry-run evaluation (posts nothing)
         if: github.event.inputs.mode != 'search-smoke'
