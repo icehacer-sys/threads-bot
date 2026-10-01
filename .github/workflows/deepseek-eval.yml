@@ -122,7 +122,7 @@ jobs:
         run: |
           npm run learn || echo "learner exited non-zero (candidate rejected or error)"
           echo "----- candidate notes -----"; cat data/voice-candidate.md
-          echo "----- evaluation -----"; node -e "const e=require('./data/voice-evaluation.json');console.log(JSON.stringify({at:e.at,model:e.model,pairs:e.pairs,stage:e.stage,passed:e.passed,spend:e.spend,results:(e.results||[]).map(r=>({name:r.name,passed:r.passed,decision:r.decision?.decision,reply:r.decision?.reply_text}))},null,1))"
+          echo "----- evaluation -----"; node -e "const e=require('./data/voice-evaluation.json');console.log(JSON.stringify({at:e.at,model:e.model,pairs:e.pairs,stage:e.stage,passed:e.passed,spend:e.spend,results:(e.results||[]).map(r=>({name:r.name,passed:r.passed,decision:r.decision?.decision,category:r.decision?.category,reason:r.decision?.reason,reply:r.decision?.reply_text}))},null,1))"
       - name: Dry-run evaluation (posts nothing)
         if: github.event.inputs.mode == 'replay'
         env:
