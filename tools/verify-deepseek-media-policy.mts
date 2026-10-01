@@ -15,6 +15,12 @@ assert.equal(groundDeepSeekMediaRequest(text),text);assert.doesNotThrow(()=>enfo
 const off=planReplyProvider(base,{mode:'anthropic',triageModel:'haiku',qualityModel:base.model});assert.equal(off.request,base);
 const search={...base,tools:[{name:'web_search',type:'web_search_20250305',max_uses:3},...base.tools!] } as ReplyRequest;
 assert.equal(planReplyProvider(search,{mode:'deepseek-no-search-trial',triageModel:'haiku',qualityModel:base.model}).request,search);
+// Runtime default: commenter media stays on Claude; only the offline benchmark asks for the held DeepSeek route.
+const trial={mode:'deepseek-no-search-trial' as const,triageModel:'haiku',qualityModel:base.model};
+for(const policy of [trial,{...trial,commentMedia:'claude' as const}]){const plan=planReplyProvider(base,policy);assert.equal(plan.provider,'anthropic');assert.equal(plan.reason,'comment-media');assert.equal(plan.request,base);}
+const held=planReplyProvider(base,{...trial,commentMedia:'held'});assert.equal(held.provider,'deepseek');assert.deepEqual(held.request.system,mapped.system);
+// A post X-ray without commenter media is NOT comment media: it remains a DeepSeek trial request.
+assert.equal(planReplyProvider(text,trial).provider,'deepseek');
 for(const statement of ['written COMMENT literally','visible-detail question directly','One still','on-screen commands','every existing medical'])assert.ok(DEEPSEEK_MEDIA_GUIDANCE.includes(statement));
 assert.ok(!/SURE|NOPE|SAFE|DANGER|REVEAL ANSWER/.test(DEEPSEEK_MEDIA_GUIDANCE),'No teaching to fixture words');
-console.log('PASS DeepSeek-only generic media guidance and conservative no-publication boundary; untouched original prompts/frames/tools, text path and Claude default/search fallback. No paid calls.');
+console.log('PASS DeepSeek-only generic media guidance and conservative no-publication boundary; commenter media routed to Claude unless benchmark-held; untouched original prompts/frames/tools, post-image text path and Claude default/search fallback. No paid calls.');

@@ -182,3 +182,45 @@ NO-GO recommendation. Do not activate a flag that silently loses media replies.
 
 Additional sources: [token usage](https://api-docs.deepseek.com/quick_start/token_usage/),
 [rate limit and isolation](https://api-docs.deepseek.com/quick_start/rate_limit/).
+
+## Takeover review — 2026-10-01
+
+Offline only. No paid calls, credentials, workflow, state or provider settings were used or changed.
+Cumulative ledgers stay at **Claude $0.030497, DeepSeek $0.013259**.
+
+### Fixed: commenter media no longer becomes an API-error skip
+
+Reproduced through the actual classifier with the committed synthetic GIF fixture. With the trial
+on, DeepSeek received the media request and the hold returned
+`error: media-grounding: ...`. `index.ts` treats any `^error:` skip as an API failure: the poll
+exits 1, five in a row abandon the poll before later text comments, the comment is re-billed on
+every poll because error skips are never cached, and six failing polls end the job through the
+`fails -ge 6` branch, which does not dispatch a successor. Commenter media now stays on Claude
+(`reason: comment-media`) and publishes exactly as with the trial off. The held route remains
+for the offline replay only. `verify-deepseek-composition.mts` and
+`verify-deepseek-media-policy.mts` fail if the routing line is removed.
+
+### Still blocking activation (not changed here; owner decisions)
+
+1. **One DeepSeek transport error stops the whole bot for 30 minutes and spends $0.35 of the
+   nightly meter.** Any thrown SDK error (including a single 429/503 or the 45 s timeout, with
+   SDK retries at zero) becomes `billing: ...`, which `isFatalApiError` classifies as fatal. The
+   poll exits 3, and the workflow commits state, dispatches a successor and sleeps
+   `FATAL_COOLDOWN` (1800 s). The $0.35 is persisted before the fatal check, and `halted` is
+   per process, so each later poll can repeat it. With `BOT_DAILY_USD` 1.25 and a 0.31 medical
+   reserve, three events activate the reserve and four exhaust the cap-day, stopping Claude
+   replies too. Fail-closed is safe for duplicates, but it turns a DeepSeek blip into a Claude
+   outage. Recommended: keep the conservative charge, make DeepSeek failure non-fatal and route
+   the rest of that poll to Claude, and add a durable once-per-cap-day DeepSeek breaker.
+2. **The case X-ray goes to DeepSeek on every written comment.** Case-post requests attach the
+   post image as base64, which the no-search trial accepts. No native DeepSeek test covered
+   X-ray-attached triage, while the GIF tests showed invented visual details. Existing guards
+   check claims against recorded case facts, not pixels. A bounded native evaluation of
+   X-ray-attached triage (no publication) should precede activation.
+3. **Native search remains unbounded and untested** (see above). Search requests stay on Claude.
+4. **The GitHub `DEEPSEEK_API_KEY` secret is untested and unwired.** A wrong key currently
+   charges $0.35 and halts per poll (item 1).
+5. **Served-model check is exact.** Any response `model` other than `deepseek-flash`
+   (for example a dated alias) is treated as unknown usage and halts per item 1.
+
+Full DeepSeek replacement: NO-GO. Hybrid activation: blocked by items 1, 2 and 4.

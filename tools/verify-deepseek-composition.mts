@@ -38,6 +38,7 @@ if (process.argv.includes('--unknown-usage') || process.argv.includes('--unknown
   const mediaResponse = mediaFixture.response;
   const expected = new Map<string, any>();
   let deepPhysical = 0, claudeFallbackPhysical = 0;
+  const claudeOwned = new Set(['media', 'unclear-media', 'search-error-continuation']);
   for (const enabled of [false, true]) {
     config.deepSeekTrial = enabled;
     for (const scenario of ['text', 'repair', 'quality', 'media', 'unclear-media', 'search-error-continuation', 'truncation', 'bad-schema', 'operator']) {
@@ -78,11 +79,15 @@ if (process.argv.includes('--unknown-usage') || process.argv.includes('--unknown
       if (!enabled) expected.set(scenario, { requests, result });
       else {
         const baseline = expected.get(scenario);
-        if (scenario === 'media') assert.deepEqual(result, { decision: 'skip', category: 'other', reply_text: '', reason: `error: ${DEEPSEEK_MEDIA_HOLD}` });
-        else assert.deepEqual(result, baseline.result, `${scenario}: identical final guard behavior`);
+        assert.deepEqual(result, baseline.result, `${scenario}: identical final guard behavior`);
+        // index.ts counts error:/fatal: skips as API failures (non-zero poll exit, poll abandonment).
+        if (claudeOwned.has(scenario)) assert.doesNotMatch(result.reason, /^(?:error|fatal):/, `${scenario}: commenter media is not an API-error skip`);
+        assert.notEqual(result.reason, `error: ${DEEPSEEK_MEDIA_HOLD}`);
         for (const [index, request] of requests.entries()) {
           const original = baseline.requests[index].body;
-          if (scenario === 'search-error-continuation') {
+          if (scenario === 'media' || scenario === 'unclear-media') {
+            assert.deepEqual(request, baseline.requests[index], `${scenario}: exact commenter-media payload stays Claude-owned`);
+          } else if (scenario === 'search-error-continuation') {
             assert.deepEqual(request, baseline.requests[index], 'exact native search payload and forced continuation stay Claude-owned');
             assert.equal(original.tools[0].type, 'web_search_20250305');
             assert.equal(original.tools[0].max_uses, 3);
@@ -93,19 +98,19 @@ if (process.argv.includes('--unknown-usage') || process.argv.includes('--unknown
             assert.equal(request.url, 'https://api.deepseek.com/anthropic/v1/messages');
           }
         }
-        const expectedUsd = responses.reduce((sum, response) => sum + (scenario === 'search-error-continuation' ? costOf(input.modelOverride, response.usage) : deepSeekTokenCost(response.model, response.usage)!), 0);
+        const expectedUsd = responses.reduce((sum, response, index) => sum + (claudeOwned.has(scenario) ? costOf(requests[index].body.model, response.usage) : deepSeekTokenCost(response.model, response.usage)!), 0);
         assert.ok(Math.abs(spend.usd - expectedUsd) < 1e-12, `${scenario}: selected native pricing`);
         assert.equal(spend.calls, requests.length);
       }
-      if (scenario === 'media') assert.equal(result.reply_text, enabled ? '' : 'Take one more look whenever you like.');
+      if (scenario === 'media') assert.equal(result.reply_text, 'Take one more look whenever you like.');
       if (scenario === 'truncation' || scenario === 'bad-schema' || scenario === 'operator' || scenario === 'unclear-media') assert.equal(result.decision, 'skip');
     }
   }
   const snapshot = replyTrialProviderSnapshot();
   assert.equal(snapshot.providers.deepseek.observation.transport.starts, deepPhysical);
   assert.equal(snapshot.providers.deepseek.observation.usage.records, deepPhysical);
-  assert.equal(claudeFallbackPhysical, 2);
+  assert.equal(claudeFallbackPhysical, 4, 'search continuation (2) plus commenter media and unclear media (1 each)');
   assert.equal(snapshot.providers.deepseek.observation.usage.serverWebSearchRequests.reportedTotal, null);
   assert.equal(snapshot.providers.deepseek.observation.usage.serverWebSearchRequests.unknownRecords, deepPhysical);
-  console.log(`PASS default-off/ON actual composition: 9 scenarios each, exact prompts/repairs/frames/search continuation, ${deepPhysical} DeepSeek physical mocks, ${claudeFallbackPhysical} explicit Claude fallback mocks, native pricing and scoped observers. No paid calls.`);
+  console.log(`PASS default-off/ON actual composition: 9 scenarios each, exact prompts/repairs, Claude-owned commenter media and search continuation, ${deepPhysical} DeepSeek physical mocks, ${claudeFallbackPhysical} explicit Claude fallback mocks, native pricing and scoped observers. No paid calls.`);
 }

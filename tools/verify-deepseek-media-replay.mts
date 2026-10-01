@@ -11,7 +11,8 @@ globalThis.fetch=async(url,init)=>{
  attempts++;capturedUrl=String(url);captured=JSON.parse(String(init?.body));
  return new Response(JSON.stringify(active.response),{headers:{'content-type':'application/json'}});
 };
-const {config}=await import('../src/config');Object.assign(config,{deepSeekTrial:true,webSearch:true,model:'claude-sonnet-4-6',triageModel:'claude-haiku-4-5-20251001',voiceVariant:'lean',visionEnabled:true,gifReplies:false});
+const {config}=await import('../src/config');// Benchmark-only route: runtime keeps commenter media on Claude (deepSeekCommentMedia 'claude').
+Object.assign(config,{deepSeekTrial:true,deepSeekCommentMedia:'held',webSearch:true,model:'claude-sonnet-4-6',triageModel:'claude-haiku-4-5-20251001',voiceVariant:'lean',visionEnabled:true,gifReplies:false});
 const {classifyAndDraft}=await import('../src/reply');const {drainSpend}=await import('../src/spend');
 const {DEEPSEEK_MEDIA_GUIDANCE,DEEPSEEK_MEDIA_HOLD}=await import('../src/deepseek-media-policy');
 let roundedTotal=0;

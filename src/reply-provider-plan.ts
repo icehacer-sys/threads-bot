@@ -1,7 +1,7 @@
 // Fully constructed request boundary; never discard media or search.
 // No credentials, transport, metering, fallback calls or runtime state live here.
 import type Anthropic from '@anthropic-ai/sdk';
-import { groundDeepSeekMediaRequest } from './deepseek-media-policy';
+import { groundDeepSeekMediaRequest, isMediaReplyRequest } from './deepseek-media-policy';
 
 export type ReplyProviderMode = 'anthropic' | 'deepseek-text-trial' | 'deepseek-no-search-trial';
 export type ReplyRequest = Anthropic.MessageCreateParamsNonStreaming;
@@ -9,12 +9,14 @@ export interface ReplyProviderPolicy {
   mode: ReplyProviderMode;
   triageModel: string;
   qualityModel: string;
+  /** Commenter media defaults to Claude; 'held' is the offline benchmark route. */
+  commentMedia?: 'claude' | 'held';
 }
 export interface ReplyProviderPlan {
   provider: 'anthropic' | 'deepseek';
   logicalModel: string;
   requestedModel: string;
-  reason: 'default' | 'quality' | 'media-or-unsupported-block' | 'tool-contract' | 'text-triage' | 'no-search-trial';
+  reason: 'default' | 'quality' | 'media-or-unsupported-block' | 'tool-contract' | 'comment-media' | 'text-triage' | 'no-search-trial';
   baseURL: 'https://api.anthropic.com' | 'https://api.deepseek.com/anthropic';
   request: ReplyRequest;
 }
@@ -46,6 +48,8 @@ export function planReplyProvider(request: ReplyRequest, policy: ReplyProviderPo
       request.tool_choice?.type !== 'tool' || request.tool_choice.name !== 'submit_reply') {
     return original('tool-contract');
   }
+  // Commenter media keeps the proven provider and its published replies. A post X-ray alone is not commenter media.
+  if (policy.commentMedia !== 'held' && isMediaReplyRequest(request)) return original('comment-media');
   // DeepSeek ignores cache_control; retain it so prompt/context blocks are untouched.
   // Do not send Claude's effort setting to a different model. Thinking is explicit.
   const { output_config: _claudeEffort, ...body } = request;

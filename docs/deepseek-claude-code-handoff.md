@@ -9,16 +9,21 @@ The runtime seam is wired at both existing reply request sites. `BOT_DEEPSEEK_TR
 to `off`; unset/off preserves the Claude path and is rollback. No workflow passes/enables the
 new flag or DeepSeek secret yet. No workflow, dispatch, state, holds or publisher changes.
 
-When enabled after approval, supported no-search text and chronological base64 JPEG/PNG/WebP
-frame requests use a separate `deepseek-flash` Anthropic-compatible client with thinking
-disabled, fixed endpoint, 1024 output cap and zero SDK retries. Prompts, tool schema, context,
-frame order, logical routing, validation, shared repair allowance and presentation retries
-are retained. Outgoing GIF behavior remains unchanged/default off. RE is untouched.
-DeepSeek media requests now receive generic grounding/intent clarification and any
-proposed reply is conservatively stopped after known usage accounting. This is a
-per-response stop, not a persistent case hold. Clear model skips retain their existing
-validation. This explicit limitation blocks full media parity; do not activate the flag
-expecting published DeepSeek media replies. Claude baseline requests are unchanged.
+When enabled after approval, supported no-search requests use a separate `deepseek-flash`
+Anthropic-compatible client with thinking disabled, fixed endpoint, 1024 output cap and zero
+SDK retries. This includes written comments on case posts, whose requests carry the post X-ray
+as a base64 image. Prompts, tool schema, context, logical routing, validation, shared repair
+allowance and presentation retries are retained. Outgoing GIF behavior remains unchanged/default
+off. RE is untouched.
+
+**Commenter media (GIF/image/video frames) stays on Claude** (2026-10-01). The earlier design
+sent it to DeepSeek and discarded every proposed reply. The classifier returned that discard as
+`error: media-grounding: ...`, which `index.ts` counts as an API failure: a non-zero poll exit,
+poll abandonment after five in a row, and re-billing every poll because error skips are never
+cached. Six failing polls end the job without a handoff. The held DeepSeek route is now
+reachable only through `config.deepSeekCommentMedia = 'held'`, which is not read from the
+environment and is used only by the offline native-media replay. DeepSeek media parity is
+still unaccepted; commenter media replies keep publishing through Claude exactly as before.
 
 Every search-enabled request, including repairs carrying the search tool and forced-submit
 continuations, stays on the existing Claude client with its exact payload. Unsupported blocks

@@ -33,17 +33,17 @@ function getDeepSeek(): Anthropic {
 export async function createReplyMessage(request: ReplyRequest): Promise<Anthropic.Message> {
   const plan = planReplyProvider(request, {
     mode: config.deepSeekTrial ? 'deepseek-no-search-trial' : 'anthropic',
-    triageModel: config.triageModel, qualityModel: config.model,
+    triageModel: config.triageModel, qualityModel: config.model, commentMedia: config.deepSeekCommentMedia,
   });
   if (config.deepSeekTrial && !disclosed) {
     disclosed = true;
-    console.log('    DeepSeek trial: no-search requests use deepseek-flash; search/unsupported contracts retain Claude. Media replies remain held pending grounding acceptance. Full provider parity is unverified.');
+    console.log('    DeepSeek trial: no-search requests use deepseek-flash; search, commenter media and unsupported contracts retain Claude. Full provider parity is unverified.');
   }
   if (config.deepSeekTrial && halted) throw Error('billing: DeepSeek trial halted after uncertain usage; no further reply calls');
   if (plan.provider === 'anthropic') {
     if (config.deepSeekTrial && !fallbackDisclosed) {
       fallbackDisclosed = true;
-      console.log('    DeepSeek trial uses explicit Claude fallback for search or unsupported request blocks.');
+      console.log('    DeepSeek trial uses explicit Claude fallback for search, commenter media or unsupported request blocks.');
     }
     const response = await getClaude().messages.create(plan.request);
     recordUsage(request.model, response.usage);
@@ -82,8 +82,8 @@ export async function createReplyMessage(request: ReplyRequest): Promise<Anthrop
 export function replyTrialProviderSnapshot() {
   return {
     scope: 'reply_provider_process', persistence: 'none', trial: config.deepSeekTrial,
-    fallback: 'Claude owns native search and unsupported contracts', halted,
-    mediaReplies: 'held pending grounding and written-intent acceptance',
+    fallback: 'Claude owns native search, commenter media and unsupported contracts', halted,
+    mediaReplies: config.deepSeekCommentMedia === 'held' ? 'held pending grounding and written-intent acceptance' : 'Claude pending DeepSeek grounding acceptance',
     providers: {
       anthropic: { provider: 'anthropic', observation: replyProviderSnapshot() },
       deepseek: { provider: 'deepseek', requestedModel: 'deepseek-flash', observation: deepSeekObservation.snapshot() },
