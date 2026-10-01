@@ -1,7 +1,7 @@
 // Fully constructed request boundary; never discard media or search.
 // No credentials, transport, metering, fallback calls or runtime state live here.
 import type Anthropic from '@anthropic-ai/sdk';
-import { groundDeepSeekMediaRequest, isMediaReplyRequest } from './deepseek-media-policy';
+import { groundDeepSeekRequest, isMediaReplyRequest } from './deepseek-media-policy';
 
 export type ReplyProviderMode = 'anthropic' | 'deepseek-text-trial' | 'deepseek-no-search-trial' | 'deepseek-all';
 export type ReplyRequest = Anthropic.MessageCreateParamsNonStreaming;
@@ -41,7 +41,7 @@ export function planReplyProvider(request: ReplyRequest, policy: ReplyProviderPo
     return {
       provider: 'deepseek', logicalModel: request.model, requestedModel: 'deepseek-flash',
       baseURL: 'https://api.deepseek.com/anthropic', reason: 'deepseek-all',
-      request: groundDeepSeekMediaRequest({ ...body, model: 'deepseek-flash', thinking: { type: 'disabled' } }),
+      request: groundDeepSeekRequest({ ...body, model: 'deepseek-flash', thinking: { type: 'disabled' } }),
     };
   }
   // Retain logical tier routing even if an operator configured both tiers identically.
@@ -63,7 +63,7 @@ export function planReplyProvider(request: ReplyRequest, policy: ReplyProviderPo
   // DeepSeek ignores cache_control; retain it so prompt/context blocks are untouched.
   // Do not send Claude's effort setting to a different model. Thinking is explicit.
   const { output_config: _claudeEffort, ...body } = request;
-  const mapped = groundDeepSeekMediaRequest({ ...body, model: 'deepseek-flash', thinking: { type: 'disabled' } });
+  const mapped = groundDeepSeekRequest({ ...body, model: 'deepseek-flash', thinking: { type: 'disabled' } });
   return {
     provider: 'deepseek', logicalModel: request.model, requestedModel: 'deepseek-flash',
     baseURL: 'https://api.deepseek.com/anthropic', reason: policy.mode === 'deepseek-text-trial' ? 'text-triage' : 'no-search-trial', request: mapped,

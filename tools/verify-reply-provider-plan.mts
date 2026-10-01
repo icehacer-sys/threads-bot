@@ -1,6 +1,7 @@
 // No network, no provider key, no paid inference, no state writes.
 import assert from 'node:assert/strict';
 import { planReplyProvider, projectDeepSeekUsage, type ReplyRequest } from '../src/reply-provider-plan';
+import { DEEPSEEK_REPLY_GUIDANCE, groundDeepSeekRequest } from '../src/deepseek-media-policy';
 
 const policy = { mode: 'deepseek-text-trial' as const, triageModel: 'claude-haiku-4-5-20251001', qualityModel: 'claude-sonnet-4-6' };
 const request: ReplyRequest = {
@@ -27,7 +28,9 @@ check(() => assert.equal(mapped.logicalModel, policy.triageModel));
 check(() => assert.equal(mapped.requestedModel, 'deepseek-flash'));
 check(() => assert.equal(mapped.baseURL, 'https://api.deepseek.com/anthropic'));
 check(() => assert.deepEqual(mapped.request.thinking, { type: 'disabled' }));
-for (const key of ['system', 'messages', 'tools', 'tool_choice'] as const) check(() => assert.equal(mapped.request[key], request[key]));
+for (const key of ['messages', 'tools', 'tool_choice'] as const) check(() => assert.equal(mapped.request[key], request[key]));
+// Original system blocks are kept in order; only the DeepSeek discipline block is appended.
+check(() => assert.deepEqual(mapped.request.system, [...(request.system as unknown[]), { type: 'text', text: DEEPSEEK_REPLY_GUIDANCE }]));
 check(() => assert.equal(mapped.request.max_tokens, 1024));
 check(() => assert.equal(JSON.stringify(request), original));
 check(() => assert.equal(planReplyProvider(request, { ...policy, mode: 'anthropic' }).request, request));
@@ -86,7 +89,7 @@ for (const scenario of ['text', 'style-repair', 'gif', 'search'] as const) {
   const plan = planReplyProvider(wire, policy);
   if (scenario === 'text' || scenario === 'style-repair') {
     check(() => assert.equal(plan.provider, 'deepseek'));
-    check(() => assert.deepEqual(plan.request, { ...wire, model: 'deepseek-flash', thinking: { type: 'disabled' } }));
+    check(() => assert.deepEqual(plan.request, groundDeepSeekRequest({ ...wire, model: 'deepseek-flash', thinking: { type: 'disabled' } })));
   } else {
     check(() => assert.equal(plan.provider, 'anthropic'));
     check(() => assert.equal(plan.request, wire));
