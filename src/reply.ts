@@ -19,7 +19,7 @@ import { GIF_TAGS } from "./gifs";
 import { PROMO_TAGS, PRODUCTS_BLOCK } from "./products";
 import { priceFor } from "./spend";
 import { createReplyMessage } from './reply-provider';
-import { claimsOffPlatformAction, isLatinNonEnglishReply, isPoliticalJab } from './deepseek-media-policy';
+import { claimsOffPlatformAction, isLatinNonEnglishReply, isPoliticalJab, unsupportedDeepSeekClaim } from './deepseek-media-policy';
 import { acknowledgmentKind, concernAcknowledgment, directConcern, imageConcernKind, requestsPersonalAdvice, isRetiredMedicalBoundary } from "./concerns";
 
 // Self-learned voice notes (maintained by the Fable 5 self-audit in voicelearn.ts). Loaded ONCE and
@@ -333,9 +333,12 @@ async function classifyAndDraftCore(input: ClassifyInput): Promise<Decision> {
     // that one"). On a case post every DeepSeek draft is held with the existing reveal hold and is
     // answered once the answer is public; the "spoiler guard" reason routes it to holdUntilReveal.
     if (!isPublic && !!answer) return { ...d, decision: 'skip', category: 'other', reply_text: '', reason: 'spoiler guard: DeepSeek pre-reveal reply held until the answer is public | guard:forced-skip' };
+    const support = [postText, ...(facts ?? []), answer ?? '', commentText, priorExchange ? `${priorExchange.commenter} ${priorExchange.bot}` : ''].join(' ');
+    const claim = unsupportedDeepSeekClaim(d.reply_text, support, d.category);
     const issue = isPoliticalJab(commentText) ? 'political jab'
       : isLatinNonEnglishReply(d.reply_text) ? 'non-English reply'
-      : claimsOffPlatformAction(d.reply_text) ? 'claims an off-platform action' : null;
+      : claimsOffPlatformAction(d.reply_text) ? 'claims an off-platform action'
+      : claim ? `unsupported ${claim}` : null;
     return issue ? { ...d, decision: 'skip', category: 'other', reply_text: '', reason: `${issue}: DeepSeek reply skipped | guard:forced-skip` } : d;
   };
   const finalize = async (d: Decision): Promise<Decision> => {

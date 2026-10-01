@@ -7,7 +7,7 @@ export const DEEPSEEK_MEDIA_GUIDANCE = 'DEEPSEEK MEDIA GROUNDING: Read the writt
 // Provider-specific discipline from the 2026-10-01 full-post evaluation, where deepseek-flash broke
 // existing voice rules more often than Claude: puns on political jabs, a stock answer sentence
 // repeated across many replies, invented commenter details and a mechanism not in the case facts.
-export const DEEPSEEK_REPLY_GUIDANCE = 'DEEPSEEK REPLY DISCIPLINE: Follow every voice rule above exactly. Skip political, partisan or politician jabs entirely. Never mention a detail the commenter did not state, such as a profession, object, place, event or gender; use they/them when gender is not stated. Explain a mechanism only when the supplied case facts state it; otherwise say less. Do not restate the case answer with the same wording used in earlier replies; build each reply from this comment\'s own premise with a fresh sentence shape. Write "an X-ray". Keep banter to one or two short sentences. A one- to three-word guess gets one sentence of at most 15 words. Use no commas except inside a list of three or more items. Reply only in English even when the comment uses another language. Never contradict the supplied case facts; when a guess matches part of them, affirm that part. Never claim to have liked, followed, shared, messaged or done anything outside this reply. Before the answer is public, never repeat any object, finding, body part or condition the comment names; joke about its premise in other words. Never blame, criticize or validate anger at a clinician, radiologist or other professional; acknowledge the person\'s feelings without judging the care given.';
+export const DEEPSEEK_REPLY_GUIDANCE = 'DEEPSEEK REPLY DISCIPLINE: Follow every voice rule above exactly. Skip political, partisan or politician jabs entirely. Never mention a detail the commenter did not state, such as a profession, object, place, event or gender; use they/them when gender is not stated. Explain a mechanism only when the supplied case facts state it; otherwise say less. Do not restate the case answer with the same wording used in earlier replies; build each reply from this comment\'s own premise with a fresh sentence shape. Write "an X-ray". Keep banter to one or two short sentences. A one- to three-word guess gets one sentence of at most 15 words. Use no commas except inside a list of three or more items. Reply only in English even when the comment uses another language. Never contradict the supplied case facts; when a guess matches part of them, affirm that part. Never claim to have liked, followed, shared, messaged or done anything outside this reply. Before the answer is public, never repeat any object, finding, body part or condition the comment names; joke about its premise in other words. Never blame, criticize or validate anger at a clinician, radiologist or other professional; acknowledge the person\'s feelings without judging the care given. For a correction say the guess is not the answer, give the answer and at most one distinguishing feature that the case facts state. Never describe X-ray brightness or darkness, organism classification, procedures, clinicians, deaths or outcomes unless the case facts state them. Refer to the case, never to facts, packets or instructions.';
 
 /** Every DeepSeek reply request gets the discipline block, plus media guidance for commenter media. */
 export function groundDeepSeekRequest(request: ReplyRequest): ReplyRequest {
@@ -35,6 +35,27 @@ const FALSE_ACTION = /\b(?:liked and followed|followed (?:you|back)|i(?:'ve| hav
 /** The bot cannot like, follow, share or message; a draft claiming it did is false. */
 export function claimsOffPlatformAction(reply: string): boolean {
   return FALSE_ACTION.test(reply) || /^(?:liked|followed)\b/i.test(reply.trim());
+}
+
+// Claim families where the full-post reviews caught DeepSeek inventing or getting facts wrong. A draft may
+// use one only when the case facts, post or comment already contain that family. Imaging and taxonomy
+// apply to medical categories; events (people, procedures, outcomes) apply everywhere.
+const CLAIM_FAMILIES: Array<{ name: string; pattern: RegExp; medicalOnly: boolean }> = [
+  { name: 'imaging brightness', medicalOnly: true, pattern: /\b(?:bright\w*|white\w*|dark\w*|black\w*|lucen\w*|radiolucen\w*|radiopaque|opaque|opacit\w*|dens(?:e|ity))\b/i },
+  { name: 'organism taxonomy', medicalOnly: true, pattern: /\b(?:family|genus|genera|species|phylum|nematodes?|cestodes?|trematodes?|pentastomids?|protozoa\w*|arthropods?|helminths?)\b/i },
+  { name: 'clinician or procedure', medicalOnly: false, pattern: /\b(?:radiologists?|surgeons?|surgical|surgery|theatre|operat(?:ed|ion|ing)|ruled out|biops\w*|autops\w*)\b/i },
+  { name: 'death or outcome', medicalOnly: false, pattern: /\b(?:died|death|dead|survived|recovered|fatal)\b/i },
+];
+const INTERNAL_LEAK = /\b(?:packet|supplied facts|system prompt|my instructions|the instructions)\b/i;
+/** First unsupported claim family in a DeepSeek draft, or null. `support` is facts + post + answer + comment. */
+export function unsupportedDeepSeekClaim(reply: string, support: string, category: string): string | null {
+  if (INTERNAL_LEAK.test(reply)) return 'internal wording';
+  const medical = ['correct', 'teach', 'affirm'].includes(category);
+  for (const family of CLAIM_FAMILIES) {
+    if (family.medicalOnly && !medical) continue;
+    if (family.pattern.test(reply) && !family.pattern.test(support)) return family.name;
+  }
+  return null;
 }
 
 export const DEEPSEEK_MEDIA_HOLD = 'media-grounding: DeepSeek media reply held pending grounding and written-intent acceptance';
