@@ -80,6 +80,24 @@ async function main(): Promise<void> {
   }
 
   console.log(`  PASS — the key can spend (${Date.now() - started}ms). Window is clear to open.`);
+  if (config.deepSeekTrial) await probeDeepSeek();
+}
+
+// DeepSeek reports an empty balance as HTTP 402 and a bad key as 401. While Claude still answers
+// every request DeepSeek cannot, a DeepSeek failure is a loud warning rather than a window-blocking
+// FAIL; the live path then charges once, falls back to Claude and disables DeepSeek for the day.
+async function probeDeepSeek(): Promise<void> {
+  const started = Date.now();
+  try {
+    await new Anthropic({ apiKey: requireEnv("DEEPSEEK_API_KEY"), authToken: null, baseURL: "https://api.deepseek.com/anthropic", maxRetries: 2 }).messages.create({
+      model: "deepseek-flash", max_tokens: 1, thinking: { type: "disabled" }, messages: [{ role: "user", content: "ok" }],
+    } as never);
+    console.log(`  PASS — DeepSeek key can spend (${Date.now() - started}ms).`);
+  } catch (err) {
+    const status = (err as { status?: number } | null)?.status;
+    const kind = status === 402 ? "balance exhausted" : status === 401 || status === 403 ? "key rejected" : "transient";
+    console.warn(`  WARN — DeepSeek ${kind}: ${describe(err).slice(0, 200)}. Replies fall back to Claude until fixed.`);
+  }
 }
 
 main().catch((err) => {
