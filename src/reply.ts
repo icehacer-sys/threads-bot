@@ -266,6 +266,10 @@ export function isNonEnglishScript(text: string | undefined): boolean {
 }
 
 export function isImageConcern(text: string): boolean { return imageConcernKind(text) !== undefined; }
+/** DeepSeek's pre-reveal hold is final for this poll: no repair call, straight to the reveal hold. */
+function isDeepSeekRevealHold(d: Decision): boolean {
+  return d.decision === 'skip' && d.reason.startsWith('spoiler guard: DeepSeek pre-reveal reply held');
+}
 export function isPreRevealHold(d: Decision, answerPublic: boolean): boolean {
   if (answerPublic || d.decision !== 'skip' || /^(?:error|fatal):/.test(d.reason)) return false;
   const context = `${d.intent ?? ''} ${d.reason}`;
@@ -325,6 +329,10 @@ async function classifyAndDraftCore(input: ClassifyInput): Promise<Decision> {
   // DeepSeek-only deterministic backstops for rules it broke in evaluation; never API-error skips.
   const deepSeekPolicy = (servedModel: string | undefined, d: Decision): Decision => {
     if (servedModel !== 'deepseek-flash' || d.decision !== 'reply') return d;
+    // Before the reveal DeepSeek labelled guesses as banter and hinted ("colony", "worth holding onto
+    // that one"). On a case post every DeepSeek draft is held with the existing reveal hold and is
+    // answered once the answer is public; the "spoiler guard" reason routes it to holdUntilReveal.
+    if (!isPublic && !!answer) return { ...d, decision: 'skip', category: 'other', reply_text: '', reason: 'spoiler guard: DeepSeek pre-reveal reply held until the answer is public | guard:forced-skip' };
     const issue = isPoliticalJab(commentText) ? 'political jab'
       : isLatinNonEnglishReply(d.reply_text) ? 'non-English reply'
       : claimsOffPlatformAction(d.reply_text) ? 'claims an off-platform action' : null;
@@ -621,13 +629,15 @@ async function classifyAndDraftCore(input: ClassifyInput): Promise<Decision> {
         const forcedSubmit = findSubmit(forced);
         if (forcedSubmit?.input) {
           const parsed = parseDecision(forcedSubmit.input, withMedia);
-          return finalize(deepSeekPolicy(forced.model, parsed));
+          const policed = deepSeekPolicy(forced.model, parsed);
+          return isDeepSeekRevealHold(policed) ? policed : finalize(policed);
         }
       }
       throw new Error("No submit_reply produced");
     }
     const parsed = parseDecision(submit.input, withMedia);
-    return finalize(deepSeekPolicy(res.model, parsed));
+    const policed = deepSeekPolicy(res.model, parsed);
+    return isDeepSeekRevealHold(policed) ? policed : finalize(policed);
   } catch (err) {
     // Any failure (API error, bad output) -> stay silent. Never post on uncertainty.
     const msg = err instanceof Error ? err.message : String(err);

@@ -904,7 +904,9 @@ async function runLiveOrDry(mode: Mode, target: string | null, observation: Cove
     // Filter before ranking so held comments cannot crowd out fresh engagement.
     const withinThreadLimit = pool.filter(c => coverage.canReply(c.id));
     const eligible = withinThreadLimit.filter(c => {
-      const allowed = config.replyAll || !state.isWaitingForReveal(c.id, c.text ?? "", answerPublic);
+      // DeepSeek mode holds every case-post draft until the reveal, so held comments must not be
+      // re-sent each poll even with BOT_REPLY_ALL; Claude mode keeps its existing behavior.
+      const allowed = (config.replyAll && config.replyProvider !== 'deepseek') || !state.isWaitingForReveal(c.id, c.text ?? "", answerPublic);
       if (!allowed) observe(() => observation.admission(post.id, c.id, 'deferred', 'reveal_hold'));
       return allowed;
     });
