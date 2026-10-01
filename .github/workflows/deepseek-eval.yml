@@ -20,7 +20,7 @@ on:
       mode:
         description: "replay = dry-run reply workflow; search-smoke = ONE DeepSeek native web search request"
         type: choice
-        options: ["replay", "search-smoke"]
+        options: ["replay", "search-smoke", "learn-dry"]
         default: "replay"
       deepseek_all:
         description: "Route EVERYTHING to DeepSeek (corrections with search, commenter GIFs/images); replay mode only"
@@ -108,8 +108,18 @@ jobs:
         env:
           SMOKE_COMMENT: ${{ github.event.inputs.smoke_comment }}
         run: npx tsx tools/deepseek-search-smoke.mts
+      - name: Weekly voice self-audit on DeepSeek (never committed; read-only token)
+        if: github.event.inputs.mode == 'learn-dry'
+        env:
+          BOT_LEARN_PROVIDER: deepseek
+          BOT_LEARN_DAYS: "7"
+          BOT_LEARN_MAX_PAIRS: "150"
+        run: |
+          npm run learn || echo "learner exited non-zero (candidate rejected or error)"
+          echo "----- candidate notes -----"; cat data/voice-candidate.md
+          echo "----- evaluation -----"; node -e "const e=require('./data/voice-evaluation.json');console.log(JSON.stringify({at:e.at,model:e.model,pairs:e.pairs,stage:e.stage,passed:e.passed,spend:e.spend,results:(e.results||[]).map(r=>({name:r.name,passed:r.passed,decision:r.decision?.decision,reply:r.decision?.reply_text}))},null,1))"
       - name: Dry-run evaluation (posts nothing)
-        if: github.event.inputs.mode != 'search-smoke'
+        if: github.event.inputs.mode == 'replay'
         env:
           TARGET: ${{ github.event.inputs.target }}
         run: npx tsx src/index.ts --dry-run "$TARGET"
