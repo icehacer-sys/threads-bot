@@ -31,6 +31,8 @@ interface StateShape {
   promoDaily?: { date: string; count: number };
   /** Anthropic spend for the current cap-day, so the bot can budget itself across a night. */
   spend?: { date: string; usd: number };
+  /** Cap-day on which the DeepSeek trial was disabled after uncertain usage or an unavailable key. */
+  deepSeekHalt?: { date: string; reason: string };
 }
 
 function today(): string {
@@ -62,6 +64,7 @@ export class State {
   private promoPostCounts: Record<string, number>;
   private promoDaily: { date: string; count: number };
   private spend: { date: string; usd: number };
+  private deepSeekHalt?: { date: string; reason: string };
   private file: string;
 
   // stateFile defaults to the Threads state; the Facebook reply loop passes its own path
@@ -89,6 +92,7 @@ export class State {
           if (v !== undefined && !daily(v)) throw new Error("invalid optional daily counters");
         }
         if (loaded?.spend !== undefined && (!loaded.spend || typeof loaded.spend.date !== "string" || !Number.isFinite(Date.parse(loaded.spend.date)) || typeof loaded.spend.usd !== "number" || !Number.isFinite(loaded.spend.usd) || loaded.spend.usd < 0)) throw new Error("invalid spend");
+        if (loaded?.deepSeekHalt !== undefined && (!loaded.deepSeekHalt || typeof loaded.deepSeekHalt.date !== "string" || typeof loaded.deepSeekHalt.reason !== "string")) throw new Error("invalid DeepSeek breaker");
         if (loaded?.recentGifIds !== undefined && !strings(loaded.recentGifIds)) throw new Error("invalid GIF history");
         if (loaded?.pinnedResolved !== undefined && (!loaded.pinnedResolved || typeof loaded.pinnedResolved !== "object" || Array.isArray(loaded.pinnedResolved) || !Object.values(loaded.pinnedResolved).every((v) => typeof v === "string"))) throw new Error("invalid pinned map");
         if (!loaded || !strings(loaded.repliedCommentIds) || !strings(loaded.answeredPostIds) ||
@@ -123,6 +127,18 @@ export class State {
       loaded?.daily && loaded.daily.date === today() ? loaded.daily : { date: today(), count: 0 };
     this.spend =
       loaded?.spend && loaded.spend.date === today() ? loaded.spend : { date: today(), usd: 0 };
+    this.deepSeekHalt = loaded?.deepSeekHalt?.date === today() ? loaded.deepSeekHalt : undefined;
+  }
+
+  // --- DeepSeek trial breaker: one uncertain attempt disables the trial for the cap-day ---
+  deepSeekHaltedToday(): boolean {
+    return this.deepSeekHalt?.date === today();
+  }
+
+  haltDeepSeek(reason: string): void {
+    if (this.deepSeekHaltedToday()) return;
+    this.deepSeekHalt = { date: today(), reason };
+    this.save();
   }
 
   // --- Anthropic spend for this cap-day ---
@@ -316,6 +332,7 @@ export class State {
       promoPostCounts: this.promoPostCounts,
       promoDaily: this.promoDaily,
       spend: this.spend,
+      ...(this.deepSeekHalt ? { deepSeekHalt: this.deepSeekHalt } : {}),
     };
     atomicJson(this.file, out);
   }

@@ -24,6 +24,7 @@ import { unsupportedPatientHistory } from './case-evidence';
 import { classifyAndDraft, isBotQuestion, isPreRevealHold, firstSentences, type Decision, type InlineImage, type ImageMediaType } from "./reply";
 import { pickGif } from "./gifs";
 import { drainSpend, usd } from "./spend";
+import { seedDeepSeekHalt, takeDeepSeekTrip } from "./reply-provider";
 import { acknowledgmentKind, holdForImageReview, imageConcernKind, isRetiredMedicalBoundary } from "./concerns";
 import { getProduct } from "./products";
 import { resolveXrayAnswer } from "./xray";
@@ -568,6 +569,9 @@ async function runLiveOrDry(mode: Mode, target: string | null, observation: Cove
   // Lazy import so demo mode never needs the state file or Threads token.
   const { State } = await import("./state");
   const state = new State();
+  if (config.deepSeekTrial) seedDeepSeekHalt(state.deepSeekHaltedToday());
+  // Dry runs read the breaker but never write state.
+  const persistDeepSeekTrip = () => { if (takeDeepSeekTrip() && posting) state.haltDeepSeek('uncertain DeepSeek attempt or unavailable key'); };
   let operationalFailures = 0;
   const recordFailure = (err: unknown) => {
     if (err instanceof PersistenceError) throw err;
@@ -576,7 +580,11 @@ async function runLiveOrDry(mode: Mode, target: string | null, observation: Cove
 
   const me = await getMyUsername();
   let posts = await getRecentPosts();
-  if (target) posts = posts.filter((p) => shortcodeFromPermalink(p.permalink) === target);
+  if (target) posts = posts.filter((p) => shortcodeFromPermalink(p.permalink) === target || p.id === target);
+  // Evaluation switches can never affect a posting run.
+  const evalReplay = !posting && config.evalReplay;
+  const evalPreReveal = !posting && config.evalPreReveal;
+  if (evalReplay || evalPreReveal) console.log(`EVALUATION dry run: replay=${evalReplay} preReveal=${evalPreReveal}. Nothing is posted or saved.`);
   // Newest post only: posts come back newest-first, so keep just the first.
   if (!target && config.newestOnly && posts.length > 1) posts = posts.slice(0, 1);
 
@@ -722,6 +730,11 @@ async function runLiveOrDry(mode: Mode, target: string | null, observation: Cove
     const resolved = bridged ?? resolveAnswer(post, conversation, me, answers);
     const postImages = await loadPostImages(post);
 
+    // Pre-reveal evaluation sees only what existed before the real answer was pinned.
+    const realAnswerId = evalPreReveal ? answerCommentId(conversation, me) : null;
+    const revealAt = realAnswerId ? conversation.find((c) => c.id === realAnswerId)?.timestamp ?? null : null;
+    const beforeReveal = (c: ThreadsReply) => !revealAt || (!!c.timestamp && c.timestamp < revealAt);
+
     // Comment ids we (the brand) have already replied to.
     const answeredByMe = new Set(
       conversation.filter((c) => c.username === me && c.replied_to?.id).map((c) => c.replied_to!.id),
@@ -730,7 +743,7 @@ async function runLiveOrDry(mode: Mode, target: string | null, observation: Cove
     // Short replies we've already posted on this post, so the model can vary its
     // wording instead of reusing the same shapes. Combined below with this run's draft history.
     const allOwnerReplies = conversation
-      .filter((c) => c.username === me && (c.text ?? "").trim().length > 0 && (c.text ?? "").length <= 280)
+      .filter((c) => c.username === me && (c.text ?? "").trim().length > 0 && (c.text ?? "").length <= 280 && beforeReveal(c))
       .sort((a, b) => (a.timestamp ?? "").localeCompare(b.timestamp ?? ""))
       .map((c) => c.text as string);
     // The anti-repeat PROMPT block is windowed (token cost); the bare-stamp dedup uses the FULL list.
@@ -749,6 +762,7 @@ async function runLiveOrDry(mode: Mode, target: string | null, observation: Cove
     // state.json's repliedCommentIds re-enables that, which is the right place for it.)
     const wantsReply = (c: ThreadsReply): boolean => {
       if (c.username === me) { observe(() => observation.eligibility(post.id, c.id, 'excluded', 'self')); return false; }
+      if (!beforeReveal(c)) return false;
       if (!isVisible(c)) { observe(() => observation.eligibility(post.id, c.id, 'excluded', 'hidden')); return false; }
       if (!((c.text ?? "").trim().length >= (config.replyAll ? 1 : config.minCommentLength) ||
         (isPriorityCommenter(c.username, config.priorityUsernames) && !!(c.text ?? '').trim()) ||
@@ -756,11 +770,11 @@ async function runLiveOrDry(mode: Mode, target: string | null, observation: Cove
         !!c.gif_url)) { observe(() => observation.eligibility(post.id, c.id, 'excluded', 'insufficient_content')); return false; }
       // These mechanical checks cannot establish the classifier's full policy verdict.
       observe(() => observation.eligibility(post.id, c.id, 'UNKNOWN', 'unclassified'));
-      if (state.hasReplied(c.id)) { observe(() => observation.admission(post.id, c.id, 'excluded', 'already_replied')); return false; }
+      if (!evalReplay && state.hasReplied(c.id)) { observe(() => observation.admission(post.id, c.id, 'excluded', 'already_replied')); return false; }
       if (resumed.has(c.id)) { observe(() => observation.admission(post.id, c.id, 'deferred', 'resume')); return false; }
-      if (answeredByMe.has(c.id)) { observe(() => observation.admission(post.id, c.id, 'excluded', 'already_replied')); return false; }
+      if (!evalReplay && answeredByMe.has(c.id)) { observe(() => observation.admission(post.id, c.id, 'excluded', 'already_replied')); return false; }
       if (state.isWaitingForImageReview(c.id, post.id)) { observe(() => observation.admission(post.id, c.id, 'deferred', 'image_review_hold')); return false; }
-      if (state.hasSkipped(c.id)) { observe(() => observation.admission(post.id, c.id, 'excluded', 'already_skipped')); return false; }
+      if (!evalReplay && state.hasSkipped(c.id)) { observe(() => observation.admission(post.id, c.id, 'excluded', 'already_skipped')); return false; }
       return true;
     };
 
@@ -770,7 +784,8 @@ async function runLiveOrDry(mode: Mode, target: string | null, observation: Cove
     // Those live in the flattened conversation (not the top-level replies edge), tied
     // to the answer comment via replied_to.id. The answer is public there, so the
     // model may discuss the diagnosis openly (inAnswerThread below).
-    const ansId = answerCommentId(conversation, me);
+    const ansId = evalPreReveal ? null : answerCommentId(conversation, me);
+    const publishedReplyTo = new Map(conversation.filter((c) => c.username === me && c.replied_to?.id).map((c) => [c.replied_to!.id, c.text ?? '']));
     const answerSubIds = new Set<string>(); // fresh user subs under the answer -> reply candidates
     const answerDirectIds = new Set<string>(); // ALL direct subs under the answer (answered or not) -> chain roots
     if (ansId) {
@@ -954,6 +969,7 @@ async function runLiveOrDry(mode: Mode, target: string | null, observation: Cove
       d = holdForImageReview(d, imageReviewHeld || state.hasImageReview(post.id));
       if (d.media_observation) console.log(JSON.stringify({ commentId: c.id, mediaObservation: d.media_observation, mediaText: d.media_text, mediaMeaning: d.media_meaning, mediaClear: d.media_clear }));
       const triageSpend = drainSpend();
+      persistDeepSeekTrip();
       spentThisRun += triageSpend.usd;
       if (posting) state.addSpend(triageSpend.usd);
       let escalated = mediaRoute === 'quality';
@@ -997,6 +1013,7 @@ async function runLiveOrDry(mode: Mode, target: string | null, observation: Cove
       }
       // Fold this comment's exact API cost into the budget before the next one is judged.
       const spent = drainSpend();
+      persistDeepSeekTrip();
       spentThisRun += spent.usd;
       if (posting) state.addSpend(spent.usd);
 
@@ -1018,6 +1035,7 @@ async function runLiveOrDry(mode: Mode, target: string | null, observation: Cove
       if (isErr) errorSkips += 1;
       consecutiveErrors = isErr ? consecutiveErrors + 1 : 0;
       printRow(c.text ?? "", d);
+      if (evalReplay) console.log(`        [published] ${publishedReplyTo.has(c.id) ? `"${publishedReplyTo.get(c.id)}"` : '(no published reply)'}`);
 
       // A billing/auth failure will not fix itself. Stop now instead of retrying it against every
       // remaining comment (which is what turned one credit lapse into 85 failed calls in a single

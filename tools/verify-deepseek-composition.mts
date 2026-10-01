@@ -20,18 +20,30 @@ const base = { postText: 'A synthetic teaching puzzle.', commentText: 'A friendl
 const tool = (model: string, decision: unknown = valid, usage: unknown = nativeUsage) => ({ id: 'synthetic', type: 'message', role: 'assistant', model, stop_reason: 'tool_use', usage, content: [{ type: 'tool_use', id: 'synthetic-submit', name: 'submit_reply', input: decision }] });
 if (process.argv.includes('--unknown-usage') || process.argv.includes('--unknown-transport') || process.argv.includes('--null-response')) {
   config.deepSeekTrial = true;
-  let attempts = 0;
-  handler = async () => { attempts++; if (process.argv.includes('--unknown-transport')) throw new TypeError('Synthetic transport failure'); return new Response(JSON.stringify(process.argv.includes('--null-response') ? null : tool('deepseek-flash', valid, { input_tokens: 10, output_tokens: 20 })), { status: 200, headers: { 'content-type': 'application/json' } }); };
+  let deepAttempts = 0, claudeAttempts = 0;
+  handler = async (url) => {
+    if (new URL(String(url)).hostname !== 'api.deepseek.com') { claudeAttempts++; return new Response(JSON.stringify(tool(config.triageModel)), { status: 200, headers: { 'content-type': 'application/json' } }); }
+    deepAttempts++;
+    if (process.argv.includes('--unknown-transport')) throw new TypeError('Synthetic transport failure');
+    return new Response(JSON.stringify(process.argv.includes('--null-response') ? null : tool('deepseek-flash', valid, { input_tokens: 10, output_tokens: 20 })), { status: 200, headers: { 'content-type': 'application/json' } });
+  };
+  const { takeDeepSeekTrip } = await import('../src/reply-provider');
   const first = await classifyAndDraft(base);
-  assert.match(first.reason, /^fatal:/);
-  assert.deepEqual(drainSpend(), { usd: 0.35, calls: 1 });
+  assert.doesNotMatch(first.reason, /^(?:error|fatal):/, 'a DeepSeek failure is not an API-error or fatal skip');
+  assert.equal(first.reply_text, valid.reply_text, 'the same request is answered by Claude');
+  assert.deepEqual([deepAttempts, claudeAttempts], [1, 1]);
+  const charged = drainSpend();
+  assert.ok(Math.abs(charged.usd - (0.35 + costOf(config.triageModel, nativeUsage))) < 1e-12, 'conservative DeepSeek charge plus the Claude fallback');
+  assert.equal(charged.calls, 2);
+  assert.equal(takeDeepSeekTrip(), true, 'trip reported for the durable cap-day breaker');
+  assert.equal(takeDeepSeekTrip(), false, 'trip reported once');
   config.webSearch = true;
-  const second = await classifyAndDraft({ ...base, modelOverride: config.model, allowSearch: true });
-  assert.match(second.reason, /^fatal:/);
-  assert.equal(attempts, 1, 'uncertain native attempt halts DeepSeek and Claude fallback without retry');
-  assert.deepEqual(drainSpend(), { usd: 0, calls: 0 });
+  const second = await classifyAndDraft(base);
+  assert.equal(second.reply_text, valid.reply_text);
+  assert.deepEqual([deepAttempts, claudeAttempts], [1, 2], 'DeepSeek stays off for the rest of the process');
+  assert.deepEqual(drainSpend(), { usd: costOf(config.triageModel, nativeUsage), calls: 1 });
   assert.equal(replyTrialProviderSnapshot().halted, true);
-  console.log('PASS uncertain trial: one physical attempt, conservative $0.35 charge, fatal halt of both providers, no extra requests.');
+  console.log('PASS uncertain trial: one DeepSeek attempt, conservative $0.35 charge, same request answered by Claude, DeepSeek disabled for the process and trip reported once.');
 } else {
   const mediaFixture = JSON.parse(fs.readFileSync(new URL('./fixtures/deepseek-gif-smoke.json', import.meta.url), 'utf8'));
   const mediaInput = mediaFixture.input;

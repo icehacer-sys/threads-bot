@@ -202,16 +202,14 @@ for the offline replay only. `verify-deepseek-composition.mts` and
 
 ### Still blocking activation (not changed here; owner decisions)
 
-1. **One DeepSeek transport error stops the whole bot for 30 minutes and spends $0.35 of the
-   nightly meter.** Any thrown SDK error (including a single 429/503 or the 45 s timeout, with
-   SDK retries at zero) becomes `billing: ...`, which `isFatalApiError` classifies as fatal. The
-   poll exits 3, and the workflow commits state, dispatches a successor and sleeps
-   `FATAL_COOLDOWN` (1800 s). The $0.35 is persisted before the fatal check, and `halted` is
-   per process, so each later poll can repeat it. With `BOT_DAILY_USD` 1.25 and a 0.31 medical
-   reserve, three events activate the reserve and four exhaust the cap-day, stopping Claude
-   replies too. Fail-closed is safe for duplicates, but it turns a DeepSeek blip into a Claude
-   outage. Recommended: keep the conservative charge, make DeepSeek failure non-fatal and route
-   the rest of that poll to Claude, and add a durable once-per-cap-day DeepSeek breaker.
+1. **Fixed (owner-approved, 2026-10-01): a DeepSeek failure no longer becomes a Claude outage.**
+   Previously any SDK error became a fatal `billing:` skip (exit 3, 30 min cooldown) and $0.35
+   was persisted per poll; four events exhausted the cap-day. Now an uncertain attempt is still
+   charged $0.35 once, the same request is answered by Claude (nothing was published from the
+   failed attempt), DeepSeek is disabled for the process, and `index.ts` persists
+   `state.deepSeekHalt` so it stays off for the rest of the cap-day. A missing key or a request
+   outside the accounting bound falls back without a charge. `verify-deepseek-breaker.mts` and the
+   uncertain composition variants cover this.
 2. **The case X-ray goes to DeepSeek on every written comment.** Case-post requests attach the
    post image as base64, which the no-search trial accepts. No native DeepSeek test covered
    X-ray-attached triage, while the GIF tests showed invented visual details. Existing guards
@@ -223,4 +221,9 @@ for the offline replay only. `verify-deepseek-composition.mts` and
 5. **Served-model check is exact.** Any response `model` other than `deepseek-flash`
    (for example a dated alias) is treated as unknown usage and halts per item 1.
 
-Full DeepSeek replacement: NO-GO. Hybrid activation: blocked by items 1, 2 and 4.
+Full DeepSeek replacement: NO-GO. Hybrid activation depends on items 2 and 4, which the
+owner-approved `deepseek-eval` workflow measures: a dry run of the full reply workflow on a
+recent case post with the trial on, the real X-ray and the GitHub key, printing each DeepSeek
+draft beside the reply Claude actually published. `BOT_EVAL_PRE_REVEAL=on` keeps only the
+comments and replies that existed before the answer was pinned. Both evaluation switches are
+ignored by posting runs, and the workflow has a read-only token.

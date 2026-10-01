@@ -1,0 +1,23 @@
+// Durable once-per-cap-day DeepSeek breaker. Temp state only; no network.
+import assert from 'node:assert/strict';
+import { mkdtempSync, readFileSync, writeFileSync } from 'node:fs';
+import { tmpdir } from 'node:os';
+import { join } from 'node:path';
+const { config } = await import('../src/config');
+const { State } = await import('../src/state');
+const dir = mkdtempSync(join(tmpdir(), 'deepseek-breaker-'));
+config.stateFile = join(dir, 'state.json');
+const base = { repliedCommentIds: ['kept'], answeredPostIds: [], postCounts: {}, daily: { date: '2020-01-01', count: 0 } };
+writeFileSync(config.stateFile, JSON.stringify(base));
+const first = new State();
+assert.equal(first.deepSeekHaltedToday(), false);
+first.haltDeepSeek('synthetic');
+const saved = JSON.parse(readFileSync(config.stateFile, 'utf8'));
+assert.equal(saved.deepSeekHalt.reason, 'synthetic');
+assert.deepEqual(saved.repliedCommentIds, ['kept'], 'existing history preserved');
+assert.equal(new State().deepSeekHaltedToday(), true, 'breaker survives a new process on the same cap-day');
+writeFileSync(config.stateFile, JSON.stringify({ ...saved, deepSeekHalt: { date: '2020-01-01', reason: 'old' } }));
+assert.equal(new State().deepSeekHaltedToday(), false, 'breaker resets on a new cap-day');
+writeFileSync(config.stateFile, JSON.stringify({ ...saved, deepSeekHalt: { date: 7 } }));
+assert.throws(() => new State(), /refusing to reset/, 'malformed breaker refuses to load rather than resetting history');
+console.log('PASS DeepSeek cap-day breaker: persisted, survives restart, resets next cap-day, malformed state refused.');

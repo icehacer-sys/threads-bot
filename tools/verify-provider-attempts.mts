@@ -78,7 +78,7 @@ try {
         copy = once(copy, 'observedReplyFetch, observeReplyUsage, ', '');
         copy = once(copy, ', fetch: observedReplyFetch()', '');
       }
-      copy = once(copy, '    try { observeReplyUsage(response.usage); } catch { /* PR13 observation is optional. */ }\n', '');
+      copy = once(copy, '  try { observeReplyUsage(response.usage); } catch { /* PR13 observation is optional. */ }\n', '');
       writeFileSync(join(dir, 'src/reply-provider.ts'), copy);
     }
     let module = observation;
