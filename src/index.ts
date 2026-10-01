@@ -668,7 +668,11 @@ async function runLiveOrDry(mode: Mode, target: string | null, observation: Cove
       continue;
     }
     convByPost.set(post.id, conversation);
-    const coverage = replyCoverage(post.id, me, [...replies, ...conversation], id => state.hasReplied(id), config.maxThreadReplies,
+    // Replay evaluation re-drafts first replies, so the bot's existing direct replies do not count.
+    const coverageComments = evalReplay
+      ? [...replies, ...conversation].filter((c) => !(c.username === me && c.replied_to?.id && c.replied_to.id !== post.id))
+      : [...replies, ...conversation];
+    const coverage = replyCoverage(post.id, me, coverageComments, id => !evalReplay && state.hasReplied(id), config.maxThreadReplies,
       (id, reason) => observe(() => observation.admission(post.id, id, reason === 'already_replied' ? 'excluded' : 'deferred', reason)));
     // Register concerns before recovering containers or ranking new replies.
     const visibleConcerns = [...replies, ...conversation].filter(c => c.username !== me && isVisible(c) && imageConcernKind(c.text ?? '') === 'anatomy');
