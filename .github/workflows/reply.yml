@@ -49,6 +49,7 @@ jobs:
     runs-on: ubuntu-latest
     env:
       ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+      DEEPSEEK_API_KEY: ${{ secrets.DEEPSEEK_API_KEY }}
       THREADS_ACCESS_TOKEN: ${{ secrets.THREADS_ACCESS_TOKEN }}
       FB_PAGE_ID: ${{ secrets.FB_PAGE_ID }}
       FB_PAGE_ACCESS_TOKEN: ${{ secrets.FB_PAGE_ACCESS_TOKEN }}
@@ -87,6 +88,11 @@ jobs:
       BOT_MEDICAL_RESERVE_USD: "0.31" # 25% of the cap, reserved for medical replies. Added 2026-08-24 after a night where the flat gate held 16 correct/teach comments unanswered from 00:15 Cairo while cheap banter kept posting on the rest of the budget.
       BOT_RESERVE_MIN_VALUE: "2" # inside the reserve, only comments scoring >=2 on the value heuristic are triaged at all (questions, long stories); one-word quips and guesses are dropped un-triaged, costing nothing.
       BOT_ESCALATE_MEDIA: "motion" # GIF/video frames go directly to one quality read; no cheap fallback when the quality budget is unavailable.
+      # DeepSeek provider (owner decision, 2026-10-01): deepseek-flash answers every reply except
+      # web-search lookups (reference / needs_lookup escalations), which stay on Claude. A DeepSeek
+      # failure is charged once, answered by Claude and disables DeepSeek for the cap-day.
+      # ROLLBACK: set to "claude" (or delete this line) and the next run is Claude-only again.
+      BOT_REPLY_PROVIDER: "deepseek"
       BOT_MODEL: "claude-sonnet-4-6" # quality model: corrections/teaching and direct GIF/video reads
       BOT_TRIAGE_MODEL: "claude-haiku-4-5-20251001" # cheap first pass outside direct motion-media routing
       BOT_ESCALATE: "correct,teach,reference" # categories the Haiku triage hands to Sonnet
