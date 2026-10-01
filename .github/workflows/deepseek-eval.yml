@@ -8,14 +8,20 @@ on:
   workflow_dispatch:
     inputs:
       target:
-        description: "Case post media id or shortcode to evaluate"
+        description: "Case post media id or shortcode to evaluate (replay mode)"
         type: string
-        required: true
+        required: false
+        default: ""
       pre_reveal:
         description: "Simulate the pre-reveal phase (only comments and replies before the answer was pinned)"
         type: choice
         options: ["on", "off"]
         default: "on"
+      mode:
+        description: "replay = dry-run reply workflow; search-smoke = ONE DeepSeek native web search request"
+        type: choice
+        options: ["replay", "search-smoke"]
+        default: "replay"
       usd_cap:
         description: "Combined Claude + DeepSeek estimated spend cap for this run (USD)"
         type: string
@@ -86,7 +92,11 @@ jobs:
             sudo apt-get update -qq
             sudo apt-get install -y --no-install-recommends ffmpeg
           fi
+      - name: One-request DeepSeek search smoke (posts nothing)
+        if: github.event.inputs.mode == 'search-smoke'
+        run: npx tsx tools/deepseek-search-smoke.mts
       - name: Dry-run evaluation (posts nothing)
+        if: github.event.inputs.mode != 'search-smoke'
         env:
           TARGET: ${{ github.event.inputs.target }}
         run: npx tsx src/index.ts --dry-run "$TARGET"
