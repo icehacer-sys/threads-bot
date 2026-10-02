@@ -154,7 +154,14 @@
     "18116868808959401": "Snowflakes in your kidneys mean you are possessed by the Spirit of Christmas!",
     "18087648317282996": "Kidney stars.",
     "18136881043651022": "Organs gone wild.",
-    "17977967897915314": "Why are the kidneys all calcified??"
+    "17977967897915314": "Why are the kidneys all calcified??",
+    "18436445089182123": "Frosted Kidney Flakes",
+    "17870598390644282": "Look, we've all thought it but you can't make YOURSELF the snowglobe. ...and maybe try some fiber.",
+    "18050303390606296": "Nephrocalcinosis",
+    "18086223356697973": "Everybody's mentioning the kidneys. Meanwhile I'm looking at all that gas and thinking the intestines have gone rogue in their placement. 😂",
+    "18091826309401574": "Snowflake kidneys and some backed up intestines to go with them. I know what he's asking Santa for this year",
+    "18069349010596529": "Those kidneys look like they might not work right.  However, they probably sparkle under the right lighting.",
+    "18106946243591763": "Calcified renals"
   },
   "imageHeldComments": {
     "18116444902754615": "18184997560424523",
@@ -14991,6 +14998,15 @@
       },
       "publishedId": "18635713735044218",
       "confirmedPublished": true
+    },
+    "comment:18103890038151068": {
+      "creationId": "17891951523614054",
+      "createdAt": "2026-10-02T19:16:32.586Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Checked in and never left by the looks of it.",
+        "reply_to_id": "18103890038151068"
+      }
     }
   },
   "repliedCommentIds": [
@@ -24297,7 +24313,8 @@
     "18103824437634362",
     "18095439983115563",
     "18116869300977563",
-    "18110436908143108"
+    "18110436908143108",
+    "18111368999466534"
   ],
   "answeredPostIds": [
     "18395606890093068"
@@ -24421,11 +24438,12 @@
     "18143133703596228": 90,
     "18097639436415272": 99,
     "18133515574657616": 87,
-    "18205974196371350": 51
+    "18205974196371350": 51,
+    "18102001628139439": 1
   },
   "daily": {
     "date": "2026-10-02",
-    "count": 0
+    "count": 1
   },
   "pinnedResolved": {
     "DaTTCIwoAw7": "18014812820883466"
@@ -25636,6 +25654,6 @@
   },
   "spend": {
     "date": "2026-10-02",
-    "usd": 0.037303668000000005
+    "usd": 0.096393912
   }
 }
