@@ -15754,6 +15754,15 @@
       },
       "publishedId": "18120941815778904",
       "confirmedPublished": true
+    },
+    "comment:18128099749667128": {
+      "creationId": "17891959194614054",
+      "createdAt": "2026-10-02T21:05:32.792Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Those bright white clusters are calcium deposited in the kidney tissue itself and the diagnosis is nephrocalcinosis.",
+        "reply_to_id": "18128099749667128"
+      }
     }
   },
   "repliedCommentIds": [
@@ -25122,7 +25131,8 @@
     "17948573913301316",
     "18132643474587416",
     "18118053842081807",
-    "18225679885331819"
+    "18225679885331819",
+    "18097105877638373"
   ],
   "answeredPostIds": [
     "18395606890093068"
@@ -25247,11 +25257,11 @@
     "18097639436415272": 99,
     "18133515574657616": 87,
     "18205974196371350": 51,
-    "18102001628139439": 62
+    "18102001628139439": 63
   },
   "daily": {
     "date": "2026-10-02",
-    "count": 62
+    "count": 63
   },
   "pinnedResolved": {
     "DaTTCIwoAw7": "18014812820883466"
@@ -26480,6 +26490,6 @@
   },
   "spend": {
     "date": "2026-10-02",
-    "usd": 0.8446229200000002
+    "usd": 0.8667114520000002
   }
 }
