@@ -145,7 +145,16 @@
     "18630314653029374": "Pneumothorax? Maybe pleural erosion.",
     "18022101932937626": "Bullet?",
     "18123587212683904": "The mass in the stomach with that mottled, granular texture is most likely gastric bezoar.",
-    "17949060426317486": "Could you tell us if we’re looking at something\nIn the skull itself, or are those lines inside the patient’s brain? \n\nI swear, if these turn out to be worms…"
+    "17949060426317486": "Could you tell us if we’re looking at something\nIn the skull itself, or are those lines inside the patient’s brain? \n\nI swear, if these turn out to be worms…",
+    "18068567735759773": "bilateral staghorns? They are beautiful and this person is in late stage renal failure.",
+    "18107251622352747": "It's bad, but very pretty.",
+    "17915983971263020": "Please tell me those aren’t all kidney stones 😖",
+    "18130190020796893": "Putty kidney? Renal calculis?",
+    "18108082469336761": "Calcified Kidneys",
+    "18116868808959401": "Snowflakes in your kidneys mean you are possessed by the Spirit of Christmas!",
+    "18087648317282996": "Kidney stars.",
+    "18136881043651022": "Organs gone wild.",
+    "17977967897915314": "Why are the kidneys all calcified??"
   },
   "imageHeldComments": {
     "18116444902754615": "18184997560424523",
@@ -14971,6 +14980,15 @@
         "text": "Telepath powers would definitely come in handy for this one.",
         "reply_to_id": "18137777392726831"
       }
+    },
+    "comment:18111368999466534": {
+      "creationId": "17891951370614054",
+      "createdAt": "2026-10-02T19:15:54.017Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Take another look and see if something else grows on you.",
+        "reply_to_id": "18111368999466534"
+      }
     }
   },
   "repliedCommentIds": [
@@ -24404,8 +24422,8 @@
     "18205974196371350": 51
   },
   "daily": {
-    "date": "2026-09-29",
-    "count": 51
+    "date": "2026-10-02",
+    "count": 0
   },
   "pinnedResolved": {
     "DaTTCIwoAw7": "18014812820883466"
@@ -25600,7 +25618,7 @@
     "17865730374636613": 1
   },
   "gifDaily": {
-    "date": "2026-09-29",
+    "date": "2026-10-02",
     "count": 0
   },
   "recentGifIds": [
@@ -25611,11 +25629,11 @@
   ],
   "promoPostCounts": {},
   "promoDaily": {
-    "date": "2026-09-29",
+    "date": "2026-10-02",
     "count": 0
   },
   "spend": {
-    "date": "2026-09-29",
-    "usd": 0.7680973000000003
+    "date": "2026-10-02",
+    "usd": 0.037303668000000005
   }
 }
