@@ -16989,7 +16989,9 @@
         "media_type": "TEXT",
         "text": "The shortest guess in the case file.",
         "reply_to_id": "18463702669139759"
-      }
+      },
+      "publishedId": "18148793185526922",
+      "confirmedPublished": true
     }
   },
   "repliedCommentIds": [
