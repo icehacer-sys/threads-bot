@@ -16907,7 +16907,9 @@
         "media_type": "TEXT",
         "text": "That laugh is doing a lot of heavy lifting tonight.",
         "reply_to_id": "18149424670557643"
-      }
+      },
+      "publishedId": "18119542783746013",
+      "confirmedPublished": true
     }
   },
   "repliedCommentIds": [
