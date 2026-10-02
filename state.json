@@ -319,7 +319,8 @@
     "18130363594703739": "18102001628139439",
     "17892630576439978": "18102001628139439",
     "18284999917288977": "18102001628139439",
-    "18106036298252625": "18102001628139439"
+    "18106036298252625": "18102001628139439",
+    "18035084249848342": "18102001628139439"
   },
   "ownerReviews": {
     "17937444630360450": "{\"postId\":\"18103023326210157\",\"reason\":\"owner review: personal medical concern\",\"commentText\":\"Little sister of my friend swalloved a coin of 1 fim. At hospital the family was advised to thoroughly keep an eye on her poops. So, the next day they found two 50 penny coins😀.\",\"username\":\"velitapiof\",\"queuedAt\":\"2026-09-10T20:21:59.741Z\",\"resolvedAt\":\"2026-09-10T20:36:02.929Z\",\"resolution\":\"Owner confirmed this is a completed personal story and deleted the inappropriate boundary reply. No clinical review is needed.\"}",
@@ -16096,6 +16097,15 @@
       },
       "publishedId": "18051250268806642",
       "confirmedPublished": true
+    },
+    "comment:18449651569127445": {
+      "creationId": "17891961528614054",
+      "createdAt": "2026-10-02T21:33:32.733Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Smarty-pants is a generous promotion for a caption and an X-ray.",
+        "reply_to_id": "18449651569127445"
+      }
     }
   },
   "repliedCommentIds": [
@@ -25494,7 +25504,8 @@
     "18132883762591710",
     "18116558521881722",
     "18108159406898251",
-    "18089487743690640"
+    "18089487743690640",
+    "18418693024152515"
   ],
   "answeredPostIds": [
     "18395606890093068"
@@ -25619,11 +25630,11 @@
     "18097639436415272": 99,
     "18133515574657616": 87,
     "18205974196371350": 51,
-    "18102001628139439": 92
+    "18102001628139439": 93
   },
   "daily": {
     "date": "2026-10-02",
-    "count": 92
+    "count": 93
   },
   "pinnedResolved": {
     "DaTTCIwoAw7": "18014812820883466"
@@ -26863,6 +26874,6 @@
   },
   "spend": {
     "date": "2026-10-02",
-    "usd": 1.2250774480000002
+    "usd": 1.226585932
   }
 }
