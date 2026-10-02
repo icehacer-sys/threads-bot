@@ -16529,6 +16529,15 @@
       },
       "publishedId": "18114642857102538",
       "confirmedPublished": true
+    },
+    "comment:18198782974379344": {
+      "creationId": "17891966037614054",
+      "createdAt": "2026-10-02T22:45:58.695Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Having been through stones yourself is enough to make this scan hit hard. The hydration lesson clearly stuck though.",
+        "reply_to_id": "18198782974379344"
+      }
     }
   },
   "repliedCommentIds": [
@@ -25963,7 +25972,8 @@
     "18103117184169956",
     "18116554412006582",
     "18116116754100592",
-    "18093935432244272"
+    "18093935432244272",
+    "18039784757827912"
   ],
   "answeredPostIds": [
     "18395606890093068"
@@ -26088,11 +26098,11 @@
     "18097639436415272": 99,
     "18133515574657616": 87,
     "18205974196371350": 51,
-    "18102001628139439": 128
+    "18102001628139439": 129
   },
   "daily": {
     "date": "2026-10-02",
-    "count": 128
+    "count": 129
   },
   "pinnedResolved": {
     "DaTTCIwoAw7": "18014812820883466"
@@ -27343,6 +27353,6 @@
   },
   "spend": {
     "date": "2026-10-02",
-    "usd": 1.292573308
+    "usd": 1.294246552
   }
 }
