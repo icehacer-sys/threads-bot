@@ -16486,7 +16486,9 @@
         "media_type": "TEXT",
         "text": "Deal. The bell gets rung again tomorrow.",
         "reply_to_id": "18116554412006582"
-      }
+      },
+      "publishedId": "18487207264104128",
+      "confirmedPublished": true
     }
   },
   "repliedCommentIds": [
