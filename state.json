@@ -335,7 +335,12 @@
     "17963914353194192": "18102001628139439",
     "18126801505895814": "18102001628139439",
     "17913769569471272": "18102001628139439",
-    "17912324922530905": "18102001628139439"
+    "17912324922530905": "18102001628139439",
+    "18129164044803631": "18102001628139439",
+    "18132457777716985": "18102001628139439",
+    "18114171323117702": "18102001628139439",
+    "18121852648935298": "18102001628139439",
+    "17966653347197579": "18102001628139439"
   },
   "ownerReviews": {
     "17937444630360450": "{\"postId\":\"18103023326210157\",\"reason\":\"owner review: personal medical concern\",\"commentText\":\"Little sister of my friend swalloved a coin of 1 fim. At hospital the family was advised to thoroughly keep an eye on her poops. So, the next day they found two 50 penny coins😀.\",\"username\":\"velitapiof\",\"queuedAt\":\"2026-09-10T20:21:59.741Z\",\"resolvedAt\":\"2026-09-10T20:36:02.929Z\",\"resolution\":\"Owner confirmed this is a completed personal story and deleted the inappropriate boundary reply. No clinical review is needed.\"}",
@@ -16461,6 +16466,15 @@
       },
       "publishedId": "17868007707663386",
       "confirmedPublished": true
+    },
+    "comment:18103117184169956": {
+      "creationId": "17891965995614054",
+      "createdAt": "2026-10-02T22:44:11.819Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "The kidneys went full glitter and never checked with anyone first.",
+        "reply_to_id": "18103117184169956"
+      }
     }
   },
   "repliedCommentIds": [
@@ -25890,7 +25904,8 @@
     "18179256835441131",
     "18012667151961098",
     "18034738250662758",
-    "18143086795596535"
+    "18143086795596535",
+    "18102763379307027"
   ],
   "answeredPostIds": [
     "18395606890093068"
@@ -26015,11 +26030,11 @@
     "18097639436415272": 99,
     "18133515574657616": 87,
     "18205974196371350": 51,
-    "18102001628139439": 123
+    "18102001628139439": 124
   },
   "daily": {
     "date": "2026-10-02",
-    "count": 123
+    "count": 124
   },
   "pinnedResolved": {
     "DaTTCIwoAw7": "18014812820883466"
@@ -27268,6 +27283,6 @@
   },
   "spend": {
     "date": "2026-10-02",
-    "usd": 1.282302052
+    "usd": 1.285311856
   }
 }
