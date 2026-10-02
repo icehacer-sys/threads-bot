@@ -15696,7 +15696,9 @@
         "media_type": "TEXT",
         "text": "The blur used to ride along in the first post. Now it shows up fashionably late.",
         "reply_to_id": "18116474774099207"
-      }
+      },
+      "publishedId": "18116128765791333",
+      "confirmedPublished": true
     }
   },
   "repliedCommentIds": [
