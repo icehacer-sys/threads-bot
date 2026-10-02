@@ -8,7 +8,7 @@
     "node": ">=18.17"
   },
   "scripts": {
-    "deepseek:verify": "tsx tools/verify-reply-provider-plan.mts && tsx tools/verify-deepseek-reply-client.mts && tsx tools/verify-deepseek-composition.mts && tsx tools/verify-deepseek-composition.mts --unknown-usage && tsx tools/verify-deepseek-composition.mts --unknown-transport && tsx tools/verify-deepseek-composition.mts --null-response && tsx tools/verify-deepseek-search-boundary.mts && tsx tools/verify-deepseek-media-policy.mts && tsx tools/verify-deepseek-media-replay.mts && tsx tools/verify-deepseek-breaker.mts && tsx tools/verify-deepseek-invalid-verdict.mts && tsx tools/verify-deepseek-political.mts && tsx tools/verify-deepseek-primary.mts",
+    "deepseek:verify": "tsx tools/verify-reply-provider-plan.mts && tsx tools/verify-deepseek-reply-client.mts && tsx tools/verify-deepseek-composition.mts && tsx tools/verify-deepseek-composition.mts --unknown-usage && tsx tools/verify-deepseek-composition.mts --unknown-transport && tsx tools/verify-deepseek-composition.mts --null-response && tsx tools/verify-deepseek-search-boundary.mts && tsx tools/verify-deepseek-media-policy.mts && tsx tools/verify-deepseek-media-replay.mts && tsx tools/verify-deepseek-breaker.mts && tsx tools/verify-deepseek-invalid-verdict.mts && tsx tools/verify-deepseek-invalid-verdict.mts --primary && tsx tools/verify-deepseek-political.mts && tsx tools/verify-deepseek-primary.mts",
     "reviews": "tsx tools/owner-reviews.mts",
     "concerns:verify": "tsx tools/verify-concerns.mts && tsx tools/verify-held-revisit.mts",
     "demo": "tsx src/index.ts --demo",
