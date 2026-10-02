@@ -83,9 +83,9 @@ jobs:
       # The three numbers must keep their order: escalate < (daily - reserve) < daily, so the bot
       # degrades in stages (discretionary escalations -> low-value triage -> stop) instead of
       # falling off a cliff. npm run budget:verify asserts that ordering against this config.
-      BOT_DAILY_USD: "1.25"
-      BOT_ESCALATE_USD: "0.875" # 70% of the cap: past this, DISCRETIONARY escalations (reference / media lookups) stop. correct+teach keep escalating up to BOT_DAILY_USD.
-      BOT_MEDICAL_RESERVE_USD: "0.31" # 25% of the cap, reserved for medical replies. Added 2026-08-24 after a night where the flat gate held 16 correct/teach comments unanswered from 00:15 Cairo while cheap banter kept posting on the rest of the budget.
+      BOT_DAILY_USD: "1.60" # raised from 1.25 on 2026-10-02 with the switch to full DeepSeek mode (about a tenth of the Claude cost per reply)
+      BOT_ESCALATE_USD: "1.12" # 70% of the cap: past this, DISCRETIONARY escalations (reference / media lookups) stop. correct+teach keep escalating up to BOT_DAILY_USD.
+      BOT_MEDICAL_RESERVE_USD: "0.31" # kept at 0.31 (about 19% of the 1.60 cap) so ordinary comments still get replies until 1.29; reserved for medical replies. Added 2026-08-24 after a night where the flat gate held 16 correct/teach comments unanswered from 00:15 Cairo while cheap banter kept posting on the rest of the budget.
       BOT_RESERVE_MIN_VALUE: "2" # inside the reserve, only comments scoring >=2 on the value heuristic are triaged at all (questions, long stories); one-word quips and guesses are dropped un-triaged, costing nothing.
       BOT_ESCALATE_MEDIA: "motion" # GIF/video frames go directly to one quality read; no cheap fallback when the quality budget is unavailable.
       # DeepSeek provider (owner decision, 2026-10-01): deepseek-flash answers every reply except
