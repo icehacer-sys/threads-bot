@@ -323,7 +323,8 @@
     "18035084249848342": "18102001628139439",
     "18051130487805023": "18102001628139439",
     "18090058526675377": "18102001628139439",
-    "18059260988547817": "18102001628139439"
+    "18059260988547817": "18102001628139439",
+    "18630256318040197": "18102001628139439"
   },
   "ownerReviews": {
     "17937444630360450": "{\"postId\":\"18103023326210157\",\"reason\":\"owner review: personal medical concern\",\"commentText\":\"Little sister of my friend swalloved a coin of 1 fim. At hospital the family was advised to thoroughly keep an eye on her poops. So, the next day they found two 50 penny coins😀.\",\"username\":\"velitapiof\",\"queuedAt\":\"2026-09-10T20:21:59.741Z\",\"resolvedAt\":\"2026-09-10T20:36:02.929Z\",\"resolution\":\"Owner confirmed this is a completed personal story and deleted the inappropriate boundary reply. No clinical review is needed.\"}",
@@ -16300,6 +16301,15 @@
       },
       "publishedId": "17895261480413995",
       "confirmedPublished": true
+    },
+    "comment:18427124281146606": {
+      "creationId": "17891965779614054",
+      "createdAt": "2026-10-02T22:39:34.138Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Then you get to keep the family title of the one who guesses and your sister keeps the one who knows. Fair split.",
+        "reply_to_id": "18427124281146606"
+      }
     }
   },
   "repliedCommentIds": [
@@ -25716,7 +25726,8 @@
     "17874455367586075",
     "18282353437289870",
     "18099525704426593",
-    "18196083466383607"
+    "18196083466383607",
+    "18151317001540739"
   ],
   "answeredPostIds": [
     "18395606890093068"
@@ -25841,11 +25852,11 @@
     "18097639436415272": 99,
     "18133515574657616": 87,
     "18205974196371350": 51,
-    "18102001628139439": 110
+    "18102001628139439": 111
   },
   "daily": {
     "date": "2026-10-02",
-    "count": 110
+    "count": 111
   },
   "pinnedResolved": {
     "DaTTCIwoAw7": "18014812820883466"
@@ -27088,6 +27099,6 @@
   },
   "spend": {
     "date": "2026-10-02",
-    "usd": 1.262411956
+    "usd": 1.2636506799999998
   }
 }
