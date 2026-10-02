@@ -433,7 +433,9 @@
     "18137356888729598": "{\"postId\":\"18102001628139439\",\"reason\":\"Owner review hold: unresolved anatomy concern on this image. Every diagnosis guess and any reply relying on the image or its case findings must be skipped even after reveal. This comment is a diagnosis guess about the case so no banter reply is safe to draft.\",\"commentText\":\"It looks like she’s got poo up to her back and her lungs are frozen. Am I right?\",\"username\":\"yoginijune\",\"queuedAt\":\"2026-10-02T22:43:16.803Z\"}",
     "18354244942218428": "{\"postId\":\"18102001628139439\",\"reason\":\"Owner review hold: the comment raises a specific anatomy concern about a structure appearing in the chest cavity. Policy requires hold for owner review: image/anatomy inconsistency. No interpretation or defense of the image.\",\"commentText\":\"Why is the colon in the chest cavity? This is NOT GOOD.\",\"username\":\"patrinamcbride\",\"queuedAt\":\"2026-10-02T22:45:16.741Z\"}",
     "18073465946478202": "{\"postId\":\"18102001628139439\",\"reason\":\"Commenter asserts specific anatomy findings (odd-looking spine, an unidentified object in the upper right corner) and names a worm diagnosis on an image that carries an unresolved anatomy concern under the owner review hold. Every diagnosis guess and every reply relying on this image or its case findings must be skipped, including after the reveal, so no supported correction or acknowledgment is possible here.\",\"commentText\":\"So my guesses are that those are possibly worms, something’s going on in the lungs, the spine looks a little weird as well, and then whatever the hell is up in the right hand corner\",\"username\":\"emxlaur\",\"queuedAt\":\"2026-10-02T22:46:46.936Z\"}",
-    "18377046475239630": "{\"postId\":\"18102001628139439\",\"reason\":\"Owner review hold: the image has an unresolved anatomy concern, so every diagnosis guess and any reply leaning on this image or its case findings must be skipped even after the reveal. Only unrelated banter, empathy and approved boundary wording remain eligible, and a plain one-word diagnosis guess gives no such opening.\",\"commentText\":\"Scoliosis\",\"username\":\"rasheda_redmond\",\"queuedAt\":\"2026-10-02T22:47:24.466Z\"}"
+    "18377046475239630": "{\"postId\":\"18102001628139439\",\"reason\":\"Owner review hold: the image has an unresolved anatomy concern, so every diagnosis guess and any reply leaning on this image or its case findings must be skipped even after the reveal. Only unrelated banter, empathy and approved boundary wording remain eligible, and a plain one-word diagnosis guess gives no such opening.\",\"commentText\":\"Scoliosis\",\"username\":\"rasheda_redmond\",\"queuedAt\":\"2026-10-02T22:47:24.466Z\"}",
+    "18132684829669658": "{\"postId\":\"18102001628139439\",\"reason\":\"Owner review hold is active: the image has an unresolved anatomy concern so all diagnosis guesses and any reply relying on this image or its case findings must be skipped even after the reveal. No unrelated banter or empathy hook here either since the comment is purely a diagnosis read on the held image.\",\"commentText\":\"Concrete kidneys\",\"username\":\"rgmcleod\",\"queuedAt\":\"2026-10-02T22:49:43.877Z\"}",
+    "17910382368544425": "{\"postId\":\"18102001628139439\",\"reason\":\"This is a question about spinal curvature and positioning on the image itself. The case facts do not state anything about the spine or positioning so no supported answer exists and the owner review hold requires skipping replies that rely on this image or its case findings. Classified as complaint with reason owner review: image/anatomy question requires owner response, no automatic reply.\",\"commentText\":\"The Hopital challenge got me here initially 😆 but now I'm also wondering, do they also have mild scoliosis or is it just from how they were positioned at the time\",\"username\":\"sarahanarna\",\"queuedAt\":\"2026-10-02T22:49:45.791Z\"}"
   },
   "concernAcknowledgments": {
     "[\"18121475662898455\",\"berit069\",\"image\"]": "18142096432588199",
@@ -16666,6 +16668,15 @@
       },
       "publishedId": "18014749082957607",
       "confirmedPublished": true
+    },
+    "comment:18064420631613976": {
+      "creationId": "17891966379614054",
+      "createdAt": "2026-10-02T22:49:50.820Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "A navel has one job and it is not a side door. Tell them the curfew still counts.",
+        "reply_to_id": "18064420631613976"
+      }
     }
   },
   "repliedCommentIds": [
@@ -26112,7 +26123,8 @@
     "18151112227558192",
     "18382481776239455",
     "18137881300725431",
-    "17947039500338958"
+    "17947039500338958",
+    "17922075279436401"
   ],
   "answeredPostIds": [
     "18395606890093068"
@@ -26237,11 +26249,11 @@
     "18097639436415272": 99,
     "18133515574657616": 87,
     "18205974196371350": 51,
-    "18102001628139439": 140
+    "18102001628139439": 141
   },
   "daily": {
     "date": "2026-10-02",
-    "count": 140
+    "count": 141
   },
   "pinnedResolved": {
     "DaTTCIwoAw7": "18014812820883466"
@@ -27388,7 +27400,9 @@
     "18077010005415586",
     "18354244942218428",
     "18073465946478202",
-    "18377046475239630"
+    "18377046475239630",
+    "18132684829669658",
+    "17910382368544425"
   ],
   "skipStrikes": {
     "17895266316520842": 1,
@@ -27494,6 +27508,6 @@
   },
   "spend": {
     "date": "2026-10-02",
-    "usd": 1.304414608
+    "usd": 1.306212028
   }
 }
