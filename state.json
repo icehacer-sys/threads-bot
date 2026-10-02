@@ -322,7 +322,8 @@
     "18106036298252625": "18102001628139439",
     "18035084249848342": "18102001628139439",
     "18051130487805023": "18102001628139439",
-    "18090058526675377": "18102001628139439"
+    "18090058526675377": "18102001628139439",
+    "18059260988547817": "18102001628139439"
   },
   "ownerReviews": {
     "17937444630360450": "{\"postId\":\"18103023326210157\",\"reason\":\"owner review: personal medical concern\",\"commentText\":\"Little sister of my friend swalloved a coin of 1 fim. At hospital the family was advised to thoroughly keep an eye on her poops. So, the next day they found two 50 penny coins😀.\",\"username\":\"velitapiof\",\"queuedAt\":\"2026-09-10T20:21:59.741Z\",\"resolvedAt\":\"2026-09-10T20:36:02.929Z\",\"resolution\":\"Owner confirmed this is a completed personal story and deleted the inappropriate boundary reply. No clinical review is needed.\"}",
@@ -16244,6 +16245,15 @@
       },
       "publishedId": "18188605489396720",
       "confirmedPublished": true
+    },
+    "comment:17874455367586075": {
+      "creationId": "17891965719614054",
+      "createdAt": "2026-10-02T22:38:07.932Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Snowflake kidneys is a solid ornament idea right up until you remember what made them sparkle.",
+        "reply_to_id": "17874455367586075"
+      }
     }
   },
   "repliedCommentIds": [
@@ -25655,7 +25665,8 @@
     "17932868343143501",
     "18105865619350197",
     "17948003976324954",
-    "18088293257671100"
+    "18088293257671100",
+    "18632125666048179"
   ],
   "answeredPostIds": [
     "18395606890093068"
@@ -25780,11 +25791,11 @@
     "18097639436415272": 99,
     "18133515574657616": 87,
     "18205974196371350": 51,
-    "18102001628139439": 105
+    "18102001628139439": 106
   },
   "daily": {
     "date": "2026-10-02",
-    "count": 105
+    "count": 106
   },
   "pinnedResolved": {
     "DaTTCIwoAw7": "18014812820883466"
@@ -27027,6 +27038,6 @@
   },
   "spend": {
     "date": "2026-10-02",
-    "usd": 1.2575676880000002
+    "usd": 1.259401948
   }
 }
