@@ -437,7 +437,8 @@
     "18073465946478202": "{\"postId\":\"18102001628139439\",\"reason\":\"Commenter asserts specific anatomy findings (odd-looking spine, an unidentified object in the upper right corner) and names a worm diagnosis on an image that carries an unresolved anatomy concern under the owner review hold. Every diagnosis guess and every reply relying on this image or its case findings must be skipped, including after the reveal, so no supported correction or acknowledgment is possible here.\",\"commentText\":\"So my guesses are that those are possibly worms, something’s going on in the lungs, the spine looks a little weird as well, and then whatever the hell is up in the right hand corner\",\"username\":\"emxlaur\",\"queuedAt\":\"2026-10-02T22:46:46.936Z\"}",
     "18377046475239630": "{\"postId\":\"18102001628139439\",\"reason\":\"Owner review hold: the image has an unresolved anatomy concern, so every diagnosis guess and any reply leaning on this image or its case findings must be skipped even after the reveal. Only unrelated banter, empathy and approved boundary wording remain eligible, and a plain one-word diagnosis guess gives no such opening.\",\"commentText\":\"Scoliosis\",\"username\":\"rasheda_redmond\",\"queuedAt\":\"2026-10-02T22:47:24.466Z\"}",
     "18132684829669658": "{\"postId\":\"18102001628139439\",\"reason\":\"Owner review hold is active: the image has an unresolved anatomy concern so all diagnosis guesses and any reply relying on this image or its case findings must be skipped even after the reveal. No unrelated banter or empathy hook here either since the comment is purely a diagnosis read on the held image.\",\"commentText\":\"Concrete kidneys\",\"username\":\"rgmcleod\",\"queuedAt\":\"2026-10-02T22:49:43.877Z\"}",
-    "17910382368544425": "{\"postId\":\"18102001628139439\",\"reason\":\"This is a question about spinal curvature and positioning on the image itself. The case facts do not state anything about the spine or positioning so no supported answer exists and the owner review hold requires skipping replies that rely on this image or its case findings. Classified as complaint with reason owner review: image/anatomy question requires owner response, no automatic reply.\",\"commentText\":\"The Hopital challenge got me here initially 😆 but now I'm also wondering, do they also have mild scoliosis or is it just from how they were positioned at the time\",\"username\":\"sarahanarna\",\"queuedAt\":\"2026-10-02T22:49:45.791Z\"}"
+    "17910382368544425": "{\"postId\":\"18102001628139439\",\"reason\":\"This is a question about spinal curvature and positioning on the image itself. The case facts do not state anything about the spine or positioning so no supported answer exists and the owner review hold requires skipping replies that rely on this image or its case findings. Classified as complaint with reason owner review: image/anatomy question requires owner response, no automatic reply.\",\"commentText\":\"The Hopital challenge got me here initially 😆 but now I'm also wondering, do they also have mild scoliosis or is it just from how they were positioned at the time\",\"username\":\"sarahanarna\",\"queuedAt\":\"2026-10-02T22:49:45.791Z\"}",
+    "17908732341514908": "{\"postId\":\"18102001628139439\",\"reason\":\"Owner review hold: the image has an unresolved anatomy concern, so any reply relying on this image or its case findings is skipped. The comment's anatomical observation about kidney position depends on the withheld image. No unrelated banter or empathy opening is present.\",\"commentText\":\"Didn’t realise the kidneys were so high up, always thought they were a bit lower. They look pretty though\",\"username\":\"claire_tattooed\",\"queuedAt\":\"2026-10-02T22:51:37.434Z\"}"
   },
   "concernAcknowledgments": {
     "[\"18121475662898455\",\"berit069\",\"image\"]": "18142096432588199",
@@ -16736,6 +16737,15 @@
       },
       "publishedId": "18068335313768919",
       "confirmedPublished": true
+    },
+    "comment:17877779739630154": {
+      "creationId": "17891966457614054",
+      "createdAt": "2026-10-02T22:51:41.318Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Any time. That buildup is the part of the case worth remembering.",
+        "reply_to_id": "17877779739630154"
+      }
     }
   },
   "repliedCommentIds": [
@@ -26188,7 +26198,8 @@
     "18103530383623266",
     "18090431435281368",
     "17908740420549586",
-    "18114463202017171"
+    "18114463202017171",
+    "18093727178446486"
   ],
   "answeredPostIds": [
     "18395606890093068"
@@ -26313,11 +26324,11 @@
     "18097639436415272": 99,
     "18133515574657616": 87,
     "18205974196371350": 51,
-    "18102001628139439": 146
+    "18102001628139439": 147
   },
   "daily": {
     "date": "2026-10-02",
-    "count": 146
+    "count": 147
   },
   "pinnedResolved": {
     "DaTTCIwoAw7": "18014812820883466"
@@ -27466,7 +27477,8 @@
     "18073465946478202",
     "18377046475239630",
     "18132684829669658",
-    "17910382368544425"
+    "17910382368544425",
+    "17908732341514908"
   ],
   "skipStrikes": {
     "17895266316520842": 1,
@@ -27545,7 +27557,6 @@
     "18050303390606296": 1,
     "18117760718074023": 1,
     "18128541370768851": 1,
-    "17908732341514908": 1,
     "18130363594703739": 1,
     "17892630576439978": 1
   },
@@ -27572,6 +27583,6 @@
   },
   "spend": {
     "date": "2026-10-02",
-    "usd": 1.310459704
+    "usd": 1.3117333239999998
   }
 }
