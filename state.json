@@ -320,7 +320,9 @@
     "17892630576439978": "18102001628139439",
     "18284999917288977": "18102001628139439",
     "18106036298252625": "18102001628139439",
-    "18035084249848342": "18102001628139439"
+    "18035084249848342": "18102001628139439",
+    "18051130487805023": "18102001628139439",
+    "18090058526675377": "18102001628139439"
   },
   "ownerReviews": {
     "17937444630360450": "{\"postId\":\"18103023326210157\",\"reason\":\"owner review: personal medical concern\",\"commentText\":\"Little sister of my friend swalloved a coin of 1 fim. At hospital the family was advised to thoroughly keep an eye on her poops. So, the next day they found two 50 penny coins😀.\",\"username\":\"velitapiof\",\"queuedAt\":\"2026-09-10T20:21:59.741Z\",\"resolvedAt\":\"2026-09-10T20:36:02.929Z\",\"resolution\":\"Owner confirmed this is a completed personal story and deleted the inappropriate boundary reply. No clinical review is needed.\"}",
@@ -392,7 +394,8 @@
     "17910576921541872": "{\"postId\":\"18102001628139439\",\"reason\":\"Commenter asks to add a spinal curvature finding that is not in the supplied case facts. Confirming or describing scoliosis would mean asserting image anatomy the facts do not record, so hold for owner review: image/anatomy finding outside the supplied facts.\",\"commentText\":\"Can we also mention the scoliosis?\",\"username\":\"amanda.aquino4ever\",\"queuedAt\":\"2026-10-02T21:15:59.181Z\"}",
     "18021252056926758": "{\"postId\":\"18102001628139439\",\"reason\":\"Political/dictator reference plus an implied anatomy-shape claim tied to the image, which falls under the owner review hold. Skip rather than force a pun or comment on a feature of the held image.\",\"commentText\":\"Are we not going to talk about Adolph hitler in the upper right?\",\"username\":\"warrior.of.justice\",\"queuedAt\":\"2026-10-02T21:16:00.937Z\"}",
     "18096884624551849": "{\"postId\":\"18102001628139439\",\"reason\":\"Owner review: the question asks for the kidneys' location in an image that carries an unresolved anatomy concern. Every reply relying on this image or its case findings is held, so no anatomical pointer can be given here.\",\"commentText\":\"Where are the kidneys?\",\"username\":\"dawndavies303\",\"queuedAt\":\"2026-10-02T21:16:02.626Z\"}",
-    "17985899684881731": "{\"postId\":\"18102001628139439\",\"reason\":\"OWNER REVIEW HOLD is active: the image has an unresolved anatomy concern so every diagnosis guess and every reply relying on this image or its case findings must be skipped. Even though this comment is playful banter about the frosty kidney appearance, that joke depends entirely on the held case findings so no reply can be drafted.\",\"commentText\":\"Man, look at all that gas in the bowels. Can’t imagine what is going on with the kidneys, frost??🤪\",\"username\":\"mzfire2\",\"queuedAt\":\"2026-10-02T21:31:37.275Z\"}"
+    "17985899684881731": "{\"postId\":\"18102001628139439\",\"reason\":\"OWNER REVIEW HOLD is active: the image has an unresolved anatomy concern so every diagnosis guess and every reply relying on this image or its case findings must be skipped. Even though this comment is playful banter about the frosty kidney appearance, that joke depends entirely on the held case findings so no reply can be drafted.\",\"commentText\":\"Man, look at all that gas in the bowels. Can’t imagine what is going on with the kidneys, frost??🤪\",\"username\":\"mzfire2\",\"queuedAt\":\"2026-10-02T21:31:37.275Z\"}",
+    "18118672318978514": "{\"postId\":\"18102001628139439\",\"reason\":\"Owner review hold is active on this post: the image has an unresolved anatomy concern, so every reply that depends on the image or its case findings is skipped even though the answer is public. This comment proposes causes for the case itself so it cannot be answered without leaning on the held image. Hold for owner review.\",\"commentText\":\"Inflammation of the kidneys causes by a structural blockage in the bladder? Or a muscular failure in the bladder caused by a connective tissue disorder.\",\"username\":\"makebadartstudios\",\"queuedAt\":\"2026-10-02T21:33:45.626Z\"}"
   },
   "concernAcknowledgments": {
     "[\"18121475662898455\",\"berit069\",\"image\"]": "18142096432588199",
@@ -16108,6 +16111,15 @@
       },
       "publishedId": "17951011140273820",
       "confirmedPublished": true
+    },
+    "comment:18463183939191992": {
+      "creationId": "17891961705614054",
+      "createdAt": "2026-10-02T21:34:01.364Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Filling was the wrong shelf. Calcium moves into the kidney and just moves in for good.",
+        "reply_to_id": "18463183939191992"
+      }
     }
   },
   "repliedCommentIds": [
@@ -25507,7 +25519,8 @@
     "18116558521881722",
     "18108159406898251",
     "18089487743690640",
-    "18418693024152515"
+    "18418693024152515",
+    "18449651569127445"
   ],
   "answeredPostIds": [
     "18395606890093068"
@@ -25632,11 +25645,11 @@
     "18097639436415272": 99,
     "18133515574657616": 87,
     "18205974196371350": 51,
-    "18102001628139439": 93
+    "18102001628139439": 94
   },
   "daily": {
     "date": "2026-10-02",
-    "count": 93
+    "count": 94
   },
   "pinnedResolved": {
     "DaTTCIwoAw7": "18014812820883466"
@@ -26770,7 +26783,8 @@
     "17984098095084479",
     "17910576921541872",
     "18096884624551849",
-    "17985899684881731"
+    "17985899684881731",
+    "18118672318978514"
   ],
   "skipStrikes": {
     "17895266316520842": 1,
@@ -26876,6 +26890,6 @@
   },
   "spend": {
     "date": "2026-10-02",
-    "usd": 1.226585932
+    "usd": 1.230478624
   }
 }
