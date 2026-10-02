@@ -15589,6 +15589,15 @@
       },
       "publishedId": "17993913266843989",
       "confirmedPublished": true
+    },
+    "comment:18110540597602991": {
+      "creationId": "17891958900614054",
+      "createdAt": "2026-10-02T21:00:06.588Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Both kidneys packed with calcium deposits points to nephrocalcinosis and RTA can actually be one of the causes rather than the diagnosis itself here.",
+        "reply_to_id": "18110540597602991"
+      }
     }
   },
   "repliedCommentIds": [
@@ -24942,7 +24951,8 @@
     "18069328811771877",
     "18120914675007232",
     "18076445732425380",
-    "18118214075084669"
+    "18118214075084669",
+    "17969372754168913"
   ],
   "answeredPostIds": [
     "18395606890093068"
@@ -25067,11 +25077,11 @@
     "18097639436415272": 99,
     "18133515574657616": 87,
     "18205974196371350": 51,
-    "18102001628139439": 47
+    "18102001628139439": 48
   },
   "daily": {
     "date": "2026-10-02",
-    "count": 47
+    "count": 48
   },
   "pinnedResolved": {
     "DaTTCIwoAw7": "18014812820883466"
@@ -26295,6 +26305,6 @@
   },
   "spend": {
     "date": "2026-10-02",
-    "usd": 0.7766133639999998
+    "usd": 0.7883964759999998
   }
 }
