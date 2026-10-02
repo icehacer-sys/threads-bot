@@ -16733,7 +16733,9 @@
         "media_type": "TEXT",
         "text": "Escalation accepted. Tomorrow's case gets the whole coastline.",
         "reply_to_id": "18093727178446486"
-      }
+      },
+      "publishedId": "18068335313768919",
+      "confirmedPublished": true
     }
   },
   "repliedCommentIds": [
