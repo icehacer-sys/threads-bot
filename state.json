@@ -15325,6 +15325,15 @@
       },
       "publishedId": "18141503074615277",
       "confirmedPublished": true
+    },
+    "comment:18330292651263610": {
+      "creationId": "17891957967614054",
+      "createdAt": "2026-10-02T20:49:14.056Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "The case doesn't record the labs unfortunately. With bilateral nephrocalcinosis that extensive those numbers would tell a very uncomfortable story.",
+        "reply_to_id": "18330292651263610"
+      }
     }
   },
   "repliedCommentIds": [
@@ -24654,7 +24663,8 @@
     "18129909997787112",
     "17982707928095783",
     "18033498524666195",
-    "17910895530550019"
+    "17910895530550019",
+    "18116374999794816"
   ],
   "answeredPostIds": [
     "18395606890093068"
@@ -24779,11 +24789,11 @@
     "18097639436415272": 99,
     "18133515574657616": 87,
     "18205974196371350": 51,
-    "18102001628139439": 23
+    "18102001628139439": 24
   },
   "daily": {
     "date": "2026-10-02",
-    "count": 23
+    "count": 24
   },
   "pinnedResolved": {
     "DaTTCIwoAw7": "18014812820883466"
@@ -26000,6 +26010,6 @@
   },
   "spend": {
     "date": "2026-10-02",
-    "usd": 0.4213013639999998
+    "usd": 0.4323223799999998
   }
 }
