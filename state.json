@@ -341,7 +341,13 @@
     "18114171323117702": "18102001628139439",
     "18121852648935298": "18102001628139439",
     "17966653347197579": "18102001628139439",
-    "18106171751257552": "18102001628139439"
+    "18106171751257552": "18102001628139439",
+    "18177673450449074": "18102001628139439",
+    "18453122929124235": "18102001628139439",
+    "18074029190728543": "18102001628139439",
+    "17885369319688390": "18102001628139439",
+    "18166342315483180": "18102001628139439",
+    "18052030346804000": "18102001628139439"
   },
   "ownerReviews": {
     "17937444630360450": "{\"postId\":\"18103023326210157\",\"reason\":\"owner review: personal medical concern\",\"commentText\":\"Little sister of my friend swalloved a coin of 1 fim. At hospital the family was advised to thoroughly keep an eye on her poops. So, the next day they found two 50 penny coins😀.\",\"username\":\"velitapiof\",\"queuedAt\":\"2026-09-10T20:21:59.741Z\",\"resolvedAt\":\"2026-09-10T20:36:02.929Z\",\"resolution\":\"Owner confirmed this is a completed personal story and deleted the inappropriate boundary reply. No clinical review is needed.\"}",
@@ -421,7 +427,8 @@
     "18020635052925681": "{\"postId\":\"18102001628139439\",\"reason\":\"Owner review hold on this image: commenter signals something in the anatomy looks wrong ('a lot just doesn't seem right'), so classifying as complaint to route for owner review rather than defending or interpreting the image. No automatic reply.\",\"commentText\":\"I was gonna say this. A lot just doesn’t seem right. But whadda I know about it. 😎\",\"username\":\"missty_misanthrope\",\"queuedAt\":\"2026-10-02T22:41:38.951Z\"}",
     "17889366642684302": "{\"postId\":\"18102001628139439\",\"reason\":\"Commenter questions bowel distribution and curvature on the image, which reads as a possible anatomy/projection inconsistency. Owner review hold applies: no diagnosis or image interpretation. Classified complaint, reason: image/anatomy inconsistency needs owner review. A single neutral acknowledgment may be sent by the application.\",\"commentText\":\"I’m no doctor but apart from the curvy spine (maybe lying awkwardly 🤷‍♂️) and the sparkly kidneys (😮) why’s the intestines all over the place?!\",\"username\":\"hamishroots\",\"queuedAt\":\"2026-10-02T22:43:07.054Z\"}",
     "18113979461084416": "{\"postId\":\"18102001628139439\",\"reason\":\"Owner review hold: the image has an unresolved anatomy concern and the comment is a diagnosis guess about that image's contents. No reply relying on the case findings or the image, including corrections, is eligible.\",\"commentText\":\"Damn I thought those were the lungs and maybe somehow they had pneumonia\",\"username\":\"skywardflight10\",\"queuedAt\":\"2026-10-02T22:43:14.989Z\"}",
-    "18137356888729598": "{\"postId\":\"18102001628139439\",\"reason\":\"Owner review hold: unresolved anatomy concern on this image. Every diagnosis guess and any reply relying on the image or its case findings must be skipped even after reveal. This comment is a diagnosis guess about the case so no banter reply is safe to draft.\",\"commentText\":\"It looks like she’s got poo up to her back and her lungs are frozen. Am I right?\",\"username\":\"yoginijune\",\"queuedAt\":\"2026-10-02T22:43:16.803Z\"}"
+    "18137356888729598": "{\"postId\":\"18102001628139439\",\"reason\":\"Owner review hold: unresolved anatomy concern on this image. Every diagnosis guess and any reply relying on the image or its case findings must be skipped even after reveal. This comment is a diagnosis guess about the case so no banter reply is safe to draft.\",\"commentText\":\"It looks like she’s got poo up to her back and her lungs are frozen. Am I right?\",\"username\":\"yoginijune\",\"queuedAt\":\"2026-10-02T22:43:16.803Z\"}",
+    "18354244942218428": "{\"postId\":\"18102001628139439\",\"reason\":\"Owner review hold: the comment raises a specific anatomy concern about a structure appearing in the chest cavity. Policy requires hold for owner review: image/anatomy inconsistency. No interpretation or defense of the image.\",\"commentText\":\"Why is the colon in the chest cavity? This is NOT GOOD.\",\"username\":\"patrinamcbride\",\"queuedAt\":\"2026-10-02T22:45:16.741Z\"}"
   },
   "concernAcknowledgments": {
     "[\"18121475662898455\",\"berit069\",\"image\"]": "18142096432588199",
@@ -16500,6 +16507,15 @@
       },
       "publishedId": "18135619393651030",
       "confirmedPublished": true
+    },
+    "comment:18093935432244272": {
+      "creationId": "17891966019614054",
+      "createdAt": "2026-10-02T22:45:21.619Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Sparkly kidney syndrome is now the only name I will accept for it.",
+        "reply_to_id": "18093935432244272"
+      }
     }
   },
   "repliedCommentIds": [
@@ -25932,7 +25948,8 @@
     "18143086795596535",
     "18102763379307027",
     "18103117184169956",
-    "18116554412006582"
+    "18116554412006582",
+    "18116116754100592"
   ],
   "answeredPostIds": [
     "18395606890093068"
@@ -26057,11 +26074,11 @@
     "18097639436415272": 99,
     "18133515574657616": 87,
     "18205974196371350": 51,
-    "18102001628139439": 126
+    "18102001628139439": 127
   },
   "daily": {
     "date": "2026-10-02",
-    "count": 126
+    "count": 127
   },
   "pinnedResolved": {
     "DaTTCIwoAw7": "18014812820883466"
@@ -27205,7 +27222,8 @@
     "17889366642684302",
     "18113979461084416",
     "18137356888729598",
-    "18077010005415586"
+    "18077010005415586",
+    "18354244942218428"
   ],
   "skipStrikes": {
     "17895266316520842": 1,
@@ -27311,6 +27329,6 @@
   },
   "spend": {
     "date": "2026-10-02",
-    "usd": 1.2877578159999998
+    "usd": 1.2919994799999999
   }
 }
