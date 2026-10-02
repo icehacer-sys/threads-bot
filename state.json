@@ -347,7 +347,8 @@
     "18074029190728543": "18102001628139439",
     "17885369319688390": "18102001628139439",
     "18166342315483180": "18102001628139439",
-    "18052030346804000": "18102001628139439"
+    "18052030346804000": "18102001628139439",
+    "18102971081455354": "18102001628139439"
   },
   "ownerReviews": {
     "17937444630360450": "{\"postId\":\"18103023326210157\",\"reason\":\"owner review: personal medical concern\",\"commentText\":\"Little sister of my friend swalloved a coin of 1 fim. At hospital the family was advised to thoroughly keep an eye on her poops. So, the next day they found two 50 penny coins😀.\",\"username\":\"velitapiof\",\"queuedAt\":\"2026-09-10T20:21:59.741Z\",\"resolvedAt\":\"2026-09-10T20:36:02.929Z\",\"resolution\":\"Owner confirmed this is a completed personal story and deleted the inappropriate boundary reply. No clinical review is needed.\"}",
@@ -429,7 +430,8 @@
     "18113979461084416": "{\"postId\":\"18102001628139439\",\"reason\":\"Owner review hold: the image has an unresolved anatomy concern and the comment is a diagnosis guess about that image's contents. No reply relying on the case findings or the image, including corrections, is eligible.\",\"commentText\":\"Damn I thought those were the lungs and maybe somehow they had pneumonia\",\"username\":\"skywardflight10\",\"queuedAt\":\"2026-10-02T22:43:14.989Z\"}",
     "18137356888729598": "{\"postId\":\"18102001628139439\",\"reason\":\"Owner review hold: unresolved anatomy concern on this image. Every diagnosis guess and any reply relying on the image or its case findings must be skipped even after reveal. This comment is a diagnosis guess about the case so no banter reply is safe to draft.\",\"commentText\":\"It looks like she’s got poo up to her back and her lungs are frozen. Am I right?\",\"username\":\"yoginijune\",\"queuedAt\":\"2026-10-02T22:43:16.803Z\"}",
     "18354244942218428": "{\"postId\":\"18102001628139439\",\"reason\":\"Owner review hold: the comment raises a specific anatomy concern about a structure appearing in the chest cavity. Policy requires hold for owner review: image/anatomy inconsistency. No interpretation or defense of the image.\",\"commentText\":\"Why is the colon in the chest cavity? This is NOT GOOD.\",\"username\":\"patrinamcbride\",\"queuedAt\":\"2026-10-02T22:45:16.741Z\"}",
-    "18073465946478202": "{\"postId\":\"18102001628139439\",\"reason\":\"Commenter asserts specific anatomy findings (odd-looking spine, an unidentified object in the upper right corner) and names a worm diagnosis on an image that carries an unresolved anatomy concern under the owner review hold. Every diagnosis guess and every reply relying on this image or its case findings must be skipped, including after the reveal, so no supported correction or acknowledgment is possible here.\",\"commentText\":\"So my guesses are that those are possibly worms, something’s going on in the lungs, the spine looks a little weird as well, and then whatever the hell is up in the right hand corner\",\"username\":\"emxlaur\",\"queuedAt\":\"2026-10-02T22:46:46.936Z\"}"
+    "18073465946478202": "{\"postId\":\"18102001628139439\",\"reason\":\"Commenter asserts specific anatomy findings (odd-looking spine, an unidentified object in the upper right corner) and names a worm diagnosis on an image that carries an unresolved anatomy concern under the owner review hold. Every diagnosis guess and every reply relying on this image or its case findings must be skipped, including after the reveal, so no supported correction or acknowledgment is possible here.\",\"commentText\":\"So my guesses are that those are possibly worms, something’s going on in the lungs, the spine looks a little weird as well, and then whatever the hell is up in the right hand corner\",\"username\":\"emxlaur\",\"queuedAt\":\"2026-10-02T22:46:46.936Z\"}",
+    "18377046475239630": "{\"postId\":\"18102001628139439\",\"reason\":\"Owner review hold: the image has an unresolved anatomy concern, so every diagnosis guess and any reply leaning on this image or its case findings must be skipped even after the reveal. Only unrelated banter, empathy and approved boundary wording remain eligible, and a plain one-word diagnosis guess gives no such opening.\",\"commentText\":\"Scoliosis\",\"username\":\"rasheda_redmond\",\"queuedAt\":\"2026-10-02T22:47:24.466Z\"}"
   },
   "concernAcknowledgments": {
     "[\"18121475662898455\",\"berit069\",\"image\"]": "18142096432588199",
@@ -16585,6 +16587,15 @@
       },
       "publishedId": "18138545521625525",
       "confirmedPublished": true
+    },
+    "comment:18071292119744331": {
+      "creationId": "17891966079614054",
+      "createdAt": "2026-10-02T22:47:28.702Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Tattoo twin. Yours at least came with a story you chose.",
+        "reply_to_id": "18071292119744331"
+      }
     }
   },
   "repliedCommentIds": [
@@ -26024,7 +26035,8 @@
     "18198782974379344",
     "18118023007951561",
     "17967749510964079",
-    "18412276366080119"
+    "18412276366080119",
+    "17871420333639356"
   ],
   "answeredPostIds": [
     "18395606890093068"
@@ -26149,11 +26161,11 @@
     "18097639436415272": 99,
     "18133515574657616": 87,
     "18205974196371350": 51,
-    "18102001628139439": 133
+    "18102001628139439": 134
   },
   "daily": {
     "date": "2026-10-02",
-    "count": 133
+    "count": 134
   },
   "pinnedResolved": {
     "DaTTCIwoAw7": "18014812820883466"
@@ -27299,7 +27311,8 @@
     "18137356888729598",
     "18077010005415586",
     "18354244942218428",
-    "18073465946478202"
+    "18073465946478202",
+    "18377046475239630"
   ],
   "skipStrikes": {
     "17895266316520842": 1,
@@ -27405,6 +27418,6 @@
   },
   "spend": {
     "date": "2026-10-02",
-    "usd": 1.29777286
+    "usd": 1.299388852
   }
 }
