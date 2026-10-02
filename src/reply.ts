@@ -466,7 +466,7 @@ async function classifyAndDraftCore(input: ClassifyInput): Promise<Decision> {
     ? "NOTE: this comment is a reply under your pinned Answer post, where the diagnosis is already public. Answer follow-up questions about the case directly (prognosis, mechanism, what to read next) and react to reactions. No need to stay coy about the diagnosis here."
     : "";
   const followUpNote = priorExchange
-    ? `THIS IS A FOLLOW-UP under your own reply. Earlier in this thread someone said "${priorExchange.commenter}" and you replied "${priorExchange.bot}". Respond briefly to the current comment in that context. This is your final turn in this conversation. Never ask a question back or invite more chatter. Your earlier reply may be wrong: acknowledge and correct an unsupported assumption rather than defending it.`
+    ? `THIS IS A FOLLOW-UP under your own reply. Earlier in this thread someone said "${priorExchange.commenter}" and you replied "${priorExchange.bot}". Respond briefly to the current comment in that context. Never ask a question back or invite more chatter. Your earlier reply may be wrong: acknowledge and correct an unsupported assumption rather than defending it.`
     : "";
   // Split the prompt into a STABLE per-post prefix (same for every comment on this
   // post) and a VARIABLE per-comment tail. The prefix — X-ray image + post text +

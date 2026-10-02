@@ -2,7 +2,10 @@ import assert from 'node:assert/strict';
 process.env.ANTHROPIC_API_KEY='offline-fixture';
 process.env.BOT_USAGE_LOG='off';
 process.env.BOT_WEB_SEARCH='off';
+process.env.BOT_MAX_THREAD_REPLIES='3';
 const {replyCoverage,isRetiredGuessReceipt}=await import('../src/reply-coverage');
+const {config}=await import('../src/config');
+assert.equal(config.maxThreadReplies,3,'owner limit of three bot turns is honoured, not clamped to two');
 const {unsupportedPatientHistory}=await import('../src/case-evidence');
 const {classifyAndDraft}=await import('../src/reply');
 const {resolveXrayAnswer}=await import('../src/xray');
@@ -21,6 +24,12 @@ assert.equal(coverage.canReply('nested'),true,'nested audience comment is includ
 assert.equal(coverage.count('under'),0,'pinned answer starts a separate audience thread');
 assert.equal(coverage.canReply('a-new'),true,'a separate original comment has its own allowance');
 coverage.markReplied('nested');assert.equal(coverage.canReply('nested'),false,'dry-run and live receipt dedup');
+// BOT_MAX_THREAD_REPLIES=3 (owner 2026-10-02): a second follow-up is allowed, a fourth bot turn is not.
+const deep=[...comments,c('a4','alice','b')];const done=new Set<string>(['a2']);
+const three=replyCoverage('post','me',deep,id=>done.has(id),3);
+assert.equal(three.canReply('thanks'),true,'third bot turn allowed at limit 3');
+done.add('thanks');
+assert.equal(three.canReply('a4'),false,'no fourth bot turn at limit 3');
 assert.equal(coverage.canReply('cycle1'),false);assert.equal(coverage.canReply('orphan'),false);
 for(const draft of ['Newborn kneecaps are cartilage.','Cartilage at this age so it is invisible here.','Caught at birth like this one was gives them the best chance.','They could not walk on it.']) assert.equal(unsupportedPatientHistory(draft,'A knee that looked wrong from birth.'),true);
 assert.equal(unsupportedPatientHistory('The patient is a newborn.','A newborn with a knee deformity.'),false);
