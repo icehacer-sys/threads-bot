@@ -330,7 +330,12 @@
     "18109310195181135": "18102001628139439",
     "17862577671694827": "18102001628139439",
     "17930511684164140": "18102001628139439",
-    "18105634427096569": "18102001628139439"
+    "18105634427096569": "18102001628139439",
+    "17994609639012722": "18102001628139439",
+    "17963914353194192": "18102001628139439",
+    "18126801505895814": "18102001628139439",
+    "17913769569471272": "18102001628139439",
+    "17912324922530905": "18102001628139439"
   },
   "ownerReviews": {
     "17937444630360450": "{\"postId\":\"18103023326210157\",\"reason\":\"owner review: personal medical concern\",\"commentText\":\"Little sister of my friend swalloved a coin of 1 fim. At hospital the family was advised to thoroughly keep an eye on her poops. So, the next day they found two 50 penny coins😀.\",\"username\":\"velitapiof\",\"queuedAt\":\"2026-09-10T20:21:59.741Z\",\"resolvedAt\":\"2026-09-10T20:36:02.929Z\",\"resolution\":\"Owner confirmed this is a completed personal story and deleted the inappropriate boundary reply. No clinical review is needed.\"}",
@@ -407,7 +412,10 @@
     "18172054219394156": "{\"postId\":\"18102001628139439\",\"reason\":\"Owner review hold is active: an unresolved anatomy concern on the image means every reply relying on this image or its case findings is skipped, including this anatomy/position claim about the same structures. Owner review: image/anatomy inconsistency.\",\"commentText\":\"They seem to be under the armpits.\",\"username\":\"mcconvillefelicity\",\"queuedAt\":\"2026-10-02T21:35:12.707Z\"}",
     "18190292065360185": "{\"postId\":\"18102001628139439\",\"reason\":\"Privacy and provenance question about the source of the image and how it was obtained. Requires an owner response rather than an automated reply, and the post contains no facts about de-identification or image sourcing. Owner review.\",\"commentText\":\"Is it a HIPPA violation?\",\"username\":\"freetacozinsta\",\"queuedAt\":\"2026-10-02T22:40:54.214Z\"}",
     "17904789300568981": "{\"postId\":\"18102001628139439\",\"reason\":\"Owner review hold: the case image has an unresolved anatomy concern so every reply relying on this case or its findings must be skipped even after reveal. This comment engages the case findings directly so no reply is sent.\",\"commentText\":\"Jolly Green Giant Kidneys\\n\\nGotta wonder about back pain….at night.\",\"username\":\"missty_misanthrope\",\"queuedAt\":\"2026-10-02T22:41:34.352Z\"}",
-    "18020635052925681": "{\"postId\":\"18102001628139439\",\"reason\":\"Owner review hold on this image: commenter signals something in the anatomy looks wrong ('a lot just doesn't seem right'), so classifying as complaint to route for owner review rather than defending or interpreting the image. No automatic reply.\",\"commentText\":\"I was gonna say this. A lot just doesn’t seem right. But whadda I know about it. 😎\",\"username\":\"missty_misanthrope\",\"queuedAt\":\"2026-10-02T22:41:38.951Z\"}"
+    "18020635052925681": "{\"postId\":\"18102001628139439\",\"reason\":\"Owner review hold on this image: commenter signals something in the anatomy looks wrong ('a lot just doesn't seem right'), so classifying as complaint to route for owner review rather than defending or interpreting the image. No automatic reply.\",\"commentText\":\"I was gonna say this. A lot just doesn’t seem right. But whadda I know about it. 😎\",\"username\":\"missty_misanthrope\",\"queuedAt\":\"2026-10-02T22:41:38.951Z\"}",
+    "17889366642684302": "{\"postId\":\"18102001628139439\",\"reason\":\"Commenter questions bowel distribution and curvature on the image, which reads as a possible anatomy/projection inconsistency. Owner review hold applies: no diagnosis or image interpretation. Classified complaint, reason: image/anatomy inconsistency needs owner review. A single neutral acknowledgment may be sent by the application.\",\"commentText\":\"I’m no doctor but apart from the curvy spine (maybe lying awkwardly 🤷‍♂️) and the sparkly kidneys (😮) why’s the intestines all over the place?!\",\"username\":\"hamishroots\",\"queuedAt\":\"2026-10-02T22:43:07.054Z\"}",
+    "18113979461084416": "{\"postId\":\"18102001628139439\",\"reason\":\"Owner review hold: the image has an unresolved anatomy concern and the comment is a diagnosis guess about that image's contents. No reply relying on the case findings or the image, including corrections, is eligible.\",\"commentText\":\"Damn I thought those were the lungs and maybe somehow they had pneumonia\",\"username\":\"skywardflight10\",\"queuedAt\":\"2026-10-02T22:43:14.989Z\"}",
+    "18137356888729598": "{\"postId\":\"18102001628139439\",\"reason\":\"Owner review hold: unresolved anatomy concern on this image. Every diagnosis guess and any reply relying on the image or its case findings must be skipped even after reveal. This comment is a diagnosis guess about the case so no banter reply is safe to draft.\",\"commentText\":\"It looks like she’s got poo up to her back and her lungs are frozen. Am I right?\",\"username\":\"yoginijune\",\"queuedAt\":\"2026-10-02T22:43:16.803Z\"}"
   },
   "concernAcknowledgments": {
     "[\"18121475662898455\",\"berit069\",\"image\"]": "18142096432588199",
@@ -16431,6 +16439,15 @@
       },
       "publishedId": "18131130919783567",
       "confirmedPublished": true
+    },
+    "comment:18143086795596535": {
+      "creationId": "17891965974614054",
+      "createdAt": "2026-10-02T22:43:26.458Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Correct spelling and everything. The night trips were just the warm-up act.",
+        "reply_to_id": "18143086795596535"
+      }
     }
   },
   "repliedCommentIds": [
@@ -25858,7 +25875,8 @@
     "17876560560567234",
     "18093162575444617",
     "18179256835441131",
-    "18012667151961098"
+    "18012667151961098",
+    "18034738250662758"
   ],
   "answeredPostIds": [
     "18395606890093068"
@@ -25983,11 +26001,11 @@
     "18097639436415272": 99,
     "18133515574657616": 87,
     "18205974196371350": 51,
-    "18102001628139439": 121
+    "18102001628139439": 122
   },
   "daily": {
     "date": "2026-10-02",
-    "count": 121
+    "count": 122
   },
   "pinnedResolved": {
     "DaTTCIwoAw7": "18014812820883466"
@@ -27127,7 +27145,10 @@
     "18223812175341155",
     "18106066190366085",
     "17904789300568981",
-    "18020635052925681"
+    "18020635052925681",
+    "17889366642684302",
+    "18113979461084416",
+    "18137356888729598"
   ],
   "skipStrikes": {
     "17895266316520842": 1,
@@ -27233,6 +27254,6 @@
   },
   "spend": {
     "date": "2026-10-02",
-    "usd": 1.2765015160000002
+    "usd": 1.281714724
   }
 }
