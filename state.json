@@ -325,7 +325,8 @@
     "18090058526675377": "18102001628139439",
     "18059260988547817": "18102001628139439",
     "18630256318040197": "18102001628139439",
-    "18190292065360185": "18102001628139439"
+    "18190292065360185": "18102001628139439",
+    "18075415622727774": "18102001628139439"
   },
   "ownerReviews": {
     "17937444630360450": "{\"postId\":\"18103023326210157\",\"reason\":\"owner review: personal medical concern\",\"commentText\":\"Little sister of my friend swalloved a coin of 1 fim. At hospital the family was advised to thoroughly keep an eye on her poops. So, the next day they found two 50 penny coins😀.\",\"username\":\"velitapiof\",\"queuedAt\":\"2026-09-10T20:21:59.741Z\",\"resolvedAt\":\"2026-09-10T20:36:02.929Z\",\"resolution\":\"Owner confirmed this is a completed personal story and deleted the inappropriate boundary reply. No clinical review is needed.\"}",
@@ -400,7 +401,9 @@
     "17985899684881731": "{\"postId\":\"18102001628139439\",\"reason\":\"OWNER REVIEW HOLD is active: the image has an unresolved anatomy concern so every diagnosis guess and every reply relying on this image or its case findings must be skipped. Even though this comment is playful banter about the frosty kidney appearance, that joke depends entirely on the held case findings so no reply can be drafted.\",\"commentText\":\"Man, look at all that gas in the bowels. Can’t imagine what is going on with the kidneys, frost??🤪\",\"username\":\"mzfire2\",\"queuedAt\":\"2026-10-02T21:31:37.275Z\"}",
     "18118672318978514": "{\"postId\":\"18102001628139439\",\"reason\":\"Owner review hold is active on this post: the image has an unresolved anatomy concern, so every reply that depends on the image or its case findings is skipped even though the answer is public. This comment proposes causes for the case itself so it cannot be answered without leaning on the held image. Hold for owner review.\",\"commentText\":\"Inflammation of the kidneys causes by a structural blockage in the bladder? Or a muscular failure in the bladder caused by a connective tissue disorder.\",\"username\":\"makebadartstudios\",\"queuedAt\":\"2026-10-02T21:33:45.626Z\"}",
     "18172054219394156": "{\"postId\":\"18102001628139439\",\"reason\":\"Owner review hold is active: an unresolved anatomy concern on the image means every reply relying on this image or its case findings is skipped, including this anatomy/position claim about the same structures. Owner review: image/anatomy inconsistency.\",\"commentText\":\"They seem to be under the armpits.\",\"username\":\"mcconvillefelicity\",\"queuedAt\":\"2026-10-02T21:35:12.707Z\"}",
-    "18190292065360185": "{\"postId\":\"18102001628139439\",\"reason\":\"Privacy and provenance question about the source of the image and how it was obtained. Requires an owner response rather than an automated reply, and the post contains no facts about de-identification or image sourcing. Owner review.\",\"commentText\":\"Is it a HIPPA violation?\",\"username\":\"freetacozinsta\",\"queuedAt\":\"2026-10-02T22:40:54.214Z\"}"
+    "18190292065360185": "{\"postId\":\"18102001628139439\",\"reason\":\"Privacy and provenance question about the source of the image and how it was obtained. Requires an owner response rather than an automated reply, and the post contains no facts about de-identification or image sourcing. Owner review.\",\"commentText\":\"Is it a HIPPA violation?\",\"username\":\"freetacozinsta\",\"queuedAt\":\"2026-10-02T22:40:54.214Z\"}",
+    "17904789300568981": "{\"postId\":\"18102001628139439\",\"reason\":\"Owner review hold: the case image has an unresolved anatomy concern so every reply relying on this case or its findings must be skipped even after reveal. This comment engages the case findings directly so no reply is sent.\",\"commentText\":\"Jolly Green Giant Kidneys\\n\\nGotta wonder about back pain….at night.\",\"username\":\"missty_misanthrope\",\"queuedAt\":\"2026-10-02T22:41:34.352Z\"}",
+    "18020635052925681": "{\"postId\":\"18102001628139439\",\"reason\":\"Owner review hold on this image: commenter signals something in the anatomy looks wrong ('a lot just doesn't seem right'), so classifying as complaint to route for owner review rather than defending or interpreting the image. No automatic reply.\",\"commentText\":\"I was gonna say this. A lot just doesn’t seem right. But whadda I know about it. 😎\",\"username\":\"missty_misanthrope\",\"queuedAt\":\"2026-10-02T22:41:38.951Z\"}"
   },
   "concernAcknowledgments": {
     "[\"18121475662898455\",\"berit069\",\"image\"]": "18142096432588199",
@@ -16380,6 +16383,15 @@
       },
       "publishedId": "18353604742218052",
       "confirmedPublished": true
+    },
+    "comment:18093162575444617": {
+      "creationId": "17891965920614054",
+      "createdAt": "2026-10-02T22:41:44.366Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Next you will tell me to drink more water. The kidneys have heard that one.",
+        "reply_to_id": "18093162575444617"
+      }
     }
   },
   "repliedCommentIds": [
@@ -25803,7 +25815,8 @@
     "17946197505343625",
     "18129661792787467",
     "18125500687840740",
-    "17884128507512058"
+    "17884128507512058",
+    "17876560560567234"
   ],
   "answeredPostIds": [
     "18395606890093068"
@@ -25928,11 +25941,11 @@
     "18097639436415272": 99,
     "18133515574657616": 87,
     "18205974196371350": 51,
-    "18102001628139439": 117
+    "18102001628139439": 118
   },
   "daily": {
     "date": "2026-10-02",
-    "count": 117
+    "count": 118
   },
   "pinnedResolved": {
     "DaTTCIwoAw7": "18014812820883466"
@@ -27069,7 +27082,10 @@
     "17985899684881731",
     "18118672318978514",
     "18172054219394156",
-    "18223812175341155"
+    "18223812175341155",
+    "18106066190366085",
+    "17904789300568981",
+    "18020635052925681"
   ],
   "skipStrikes": {
     "17895266316520842": 1,
@@ -27175,6 +27191,6 @@
   },
   "spend": {
     "date": "2026-10-02",
-    "usd": 1.26862024
+    "usd": 1.2714491920000002
   }
 }
