@@ -15424,6 +15424,15 @@
       },
       "publishedId": "18100821530431029",
       "confirmedPublished": true
+    },
+    "comment:18179707213428656": {
+      "creationId": "17891958336614054",
+      "createdAt": "2026-10-02T20:53:32.051Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Hypercalcaemia is the most common metabolic trigger for exactly this pattern so that mechanism is well reasoned.",
+        "reply_to_id": "18179707213428656"
+      }
     }
   },
   "repliedCommentIds": [
@@ -24762,7 +24771,8 @@
     "18117347224770335",
     "18222835735326592",
     "18117493715282209",
-    "18439945069183993"
+    "18439945069183993",
+    "18629036701051066"
   ],
   "answeredPostIds": [
     "18395606890093068"
@@ -24887,11 +24897,11 @@
     "18097639436415272": 99,
     "18133515574657616": 87,
     "18205974196371350": 51,
-    "18102001628139439": 32
+    "18102001628139439": 33
   },
   "daily": {
     "date": "2026-10-02",
-    "count": 32
+    "count": 33
   },
   "pinnedResolved": {
     "DaTTCIwoAw7": "18014812820883466"
@@ -26110,6 +26120,6 @@
   },
   "spend": {
     "date": "2026-10-02",
-    "usd": 0.5736151479999997
+    "usd": 0.5962742919999996
   }
 }
