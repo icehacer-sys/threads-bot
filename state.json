@@ -15523,6 +15523,15 @@
       },
       "publishedId": "18158840830502419",
       "confirmedPublished": true
+    },
+    "comment:18037699175649375": {
+      "creationId": "17891958510614054",
+      "createdAt": "2026-10-02T20:57:16.130Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Calcium in the kidney tissue rather than the urine is nephrocalcinosis and both kidneys are packed with it here.",
+        "reply_to_id": "18037699175649375"
+      }
     }
   },
   "repliedCommentIds": [
@@ -24870,7 +24879,8 @@
     "18144595669583564",
     "18097349531562033",
     "18063191084685951",
-    "18128679751870801"
+    "18128679751870801",
+    "18474457102118682"
   ],
   "answeredPostIds": [
     "18395606890093068"
@@ -24995,11 +25005,11 @@
     "18097639436415272": 99,
     "18133515574657616": 87,
     "18205974196371350": 51,
-    "18102001628139439": 41
+    "18102001628139439": 42
   },
   "daily": {
     "date": "2026-10-02",
-    "count": 41
+    "count": 42
   },
   "pinnedResolved": {
     "DaTTCIwoAw7": "18014812820883466"
@@ -26220,6 +26230,6 @@
   },
   "spend": {
     "date": "2026-10-02",
-    "usd": 0.6657778599999997
+    "usd": 0.6874695279999997
   }
 }
