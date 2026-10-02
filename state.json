@@ -16320,7 +16320,9 @@
         "media_type": "TEXT",
         "text": "That one only ever shows up between 2am and 4am and never knocks first.",
         "reply_to_id": "18135214663663404"
-      }
+      },
+      "publishedId": "18179917684391307",
+      "confirmedPublished": true
     }
   },
   "repliedCommentIds": [
