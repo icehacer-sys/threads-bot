@@ -15303,6 +15303,15 @@
       },
       "publishedId": "17958112275250240",
       "confirmedPublished": true
+    },
+    "comment:17910895530550019": {
+      "creationId": "17891957928614054",
+      "createdAt": "2026-10-02T20:48:30.757Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Linguine minus the sauce and the cranberry juice is not going to rinse that out. Fair plating observation though.",
+        "reply_to_id": "17910895530550019"
+      }
     }
   },
   "repliedCommentIds": [
@@ -24630,7 +24639,8 @@
     "18164959486486061",
     "18198313621383600",
     "18129909997787112",
-    "17982707928095783"
+    "17982707928095783",
+    "18033498524666195"
   ],
   "answeredPostIds": [
     "18395606890093068"
@@ -24755,11 +24765,11 @@
     "18097639436415272": 99,
     "18133515574657616": 87,
     "18205974196371350": 51,
-    "18102001628139439": 21
+    "18102001628139439": 22
   },
   "daily": {
     "date": "2026-10-02",
-    "count": 21
+    "count": 22
   },
   "pinnedResolved": {
     "DaTTCIwoAw7": "18014812820883466"
@@ -25976,6 +25986,6 @@
   },
   "spend": {
     "date": "2026-10-02",
-    "usd": 0.4199571119999998
+    "usd": 0.4208491919999998
   }
 }
