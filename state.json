@@ -16264,7 +16264,9 @@
         "media_type": "TEXT",
         "text": "The one test result that comes pre-filled on every chart.",
         "reply_to_id": "18282353437289870"
-      }
+      },
+      "publishedId": "18031990610675624",
+      "confirmedPublished": true
     }
   },
   "repliedCommentIds": [
