@@ -15930,6 +15930,15 @@
       },
       "publishedId": "18221533939340697",
       "confirmedPublished": true
+    },
+    "comment:18104238434311319": {
+      "creationId": "17891959833614054",
+      "createdAt": "2026-10-02T21:11:42.334Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "The imaging doesn't show polyuria directly but the calcium packed into both kidneys can impair the tubules' ability to concentrate urine and that's what sends you to the bathroom all night. Nephrocalcinosis is the diagnosis.",
+        "reply_to_id": "18104238434311319"
+      }
     }
   },
   "repliedCommentIds": [
@@ -25314,7 +25323,8 @@
     "18248235769310232",
     "17956441566294556",
     "17904680277569203",
-    "18447029617121464"
+    "18447029617121464",
+    "17994360033043132"
   ],
   "answeredPostIds": [
     "18395606890093068"
@@ -25439,11 +25449,11 @@
     "18097639436415272": 99,
     "18133515574657616": 87,
     "18205974196371350": 51,
-    "18102001628139439": 78
+    "18102001628139439": 79
   },
   "daily": {
     "date": "2026-10-02",
-    "count": 78
+    "count": 79
   },
   "pinnedResolved": {
     "DaTTCIwoAw7": "18014812820883466"
@@ -26677,6 +26687,6 @@
   },
   "spend": {
     "date": "2026-10-02",
-    "usd": 1.035306052
+    "usd": 1.047572884
   }
 }
