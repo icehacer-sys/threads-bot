@@ -16233,6 +16233,15 @@
       },
       "publishedId": "17994870312044377",
       "confirmedPublished": true
+    },
+    "comment:18632125666048179": {
+      "creationId": "17891965701614054",
+      "createdAt": "2026-10-02T22:37:48.371Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Cloudy with a chance of a bathroom trip. The brightness setting stays though because the calcium already maxed it out.",
+        "reply_to_id": "18632125666048179"
+      }
     }
   },
   "repliedCommentIds": [
@@ -25643,7 +25652,8 @@
     "18101700752271688",
     "17932868343143501",
     "18105865619350197",
-    "17948003976324954"
+    "17948003976324954",
+    "18088293257671100"
   ],
   "answeredPostIds": [
     "18395606890093068"
@@ -25768,11 +25778,11 @@
     "18097639436415272": 99,
     "18133515574657616": 87,
     "18205974196371350": 51,
-    "18102001628139439": 104
+    "18102001628139439": 105
   },
   "daily": {
     "date": "2026-10-02",
-    "count": 104
+    "count": 105
   },
   "pinnedResolved": {
     "DaTTCIwoAw7": "18014812820883466"
@@ -27015,6 +27025,6 @@
   },
   "spend": {
     "date": "2026-10-02",
-    "usd": 1.2568630960000002
+    "usd": 1.2575676880000002
   }
 }
