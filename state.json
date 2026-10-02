@@ -16007,6 +16007,15 @@
       },
       "publishedId": "18221345989337725",
       "confirmedPublished": true
+    },
+    "comment:17945444394338886": {
+      "creationId": "17891960409614054",
+      "createdAt": "2026-10-02T21:15:05.141Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "That is the exact link this case is about. Getting the calcium source sorted early is a good thing to have behind you.",
+        "reply_to_id": "17945444394338886"
+      }
     }
   },
   "repliedCommentIds": [
@@ -25398,7 +25407,8 @@
     "18200622994376442",
     "18144876625600782",
     "18100668617629871",
-    "17912131557535775"
+    "17912131557535775",
+    "18061502360632237"
   ],
   "answeredPostIds": [
     "18395606890093068"
@@ -25523,11 +25533,11 @@
     "18097639436415272": 99,
     "18133515574657616": 87,
     "18205974196371350": 51,
-    "18102001628139439": 85
+    "18102001628139439": 86
   },
   "daily": {
     "date": "2026-10-02",
-    "count": 85
+    "count": 86
   },
   "pinnedResolved": {
     "DaTTCIwoAw7": "18014812820883466"
@@ -26765,6 +26775,6 @@
   },
   "spend": {
     "date": "2026-10-02",
-    "usd": 1.1760133120000005
+    "usd": 1.1768120440000005
   }
 }
