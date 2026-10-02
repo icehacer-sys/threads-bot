@@ -340,7 +340,8 @@
     "18132457777716985": "18102001628139439",
     "18114171323117702": "18102001628139439",
     "18121852648935298": "18102001628139439",
-    "17966653347197579": "18102001628139439"
+    "17966653347197579": "18102001628139439",
+    "18106171751257552": "18102001628139439"
   },
   "ownerReviews": {
     "17937444630360450": "{\"postId\":\"18103023326210157\",\"reason\":\"owner review: personal medical concern\",\"commentText\":\"Little sister of my friend swalloved a coin of 1 fim. At hospital the family was advised to thoroughly keep an eye on her poops. So, the next day they found two 50 penny coins😀.\",\"username\":\"velitapiof\",\"queuedAt\":\"2026-09-10T20:21:59.741Z\",\"resolvedAt\":\"2026-09-10T20:36:02.929Z\",\"resolution\":\"Owner confirmed this is a completed personal story and deleted the inappropriate boundary reply. No clinical review is needed.\"}",
@@ -16477,6 +16478,15 @@
       },
       "publishedId": "18110076038153700",
       "confirmedPublished": true
+    },
+    "comment:18116554412006582": {
+      "creationId": "17891966001614054",
+      "createdAt": "2026-10-02T22:44:33.447Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Deal. The bell gets rung again tomorrow.",
+        "reply_to_id": "18116554412006582"
+      }
     }
   },
   "repliedCommentIds": [
@@ -25907,7 +25917,8 @@
     "18012667151961098",
     "18034738250662758",
     "18143086795596535",
-    "18102763379307027"
+    "18102763379307027",
+    "18103117184169956"
   ],
   "answeredPostIds": [
     "18395606890093068"
@@ -26032,11 +26043,11 @@
     "18097639436415272": 99,
     "18133515574657616": 87,
     "18205974196371350": 51,
-    "18102001628139439": 124
+    "18102001628139439": 125
   },
   "daily": {
     "date": "2026-10-02",
-    "count": 124
+    "count": 125
   },
   "pinnedResolved": {
     "DaTTCIwoAw7": "18014812820883466"
@@ -27179,7 +27190,8 @@
     "18020635052925681",
     "17889366642684302",
     "18113979461084416",
-    "18137356888729598"
+    "18137356888729598",
+    "18077010005415586"
   ],
   "skipStrikes": {
     "17895266316520842": 1,
@@ -27285,6 +27297,6 @@
   },
   "spend": {
     "date": "2026-10-02",
-    "usd": 1.285311856
+    "usd": 1.2871761879999999
   }
 }
