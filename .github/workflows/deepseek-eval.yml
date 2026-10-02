@@ -77,7 +77,7 @@ jobs:
       BOT_DAILY_CAP: "250"
       BOT_VOICE: "lean"
       BOT_REPLY_ALL: "on"
-      BOT_MAX_THREAD_REPLIES: "2"
+      BOT_MAX_THREAD_REPLIES: "3"
       BOT_DAILY_USD: ${{ github.event.inputs.usd_cap }}
       BOT_ESCALATE_USD: ${{ github.event.inputs.usd_cap }}
       BOT_MEDICAL_RESERVE_USD: "0"
