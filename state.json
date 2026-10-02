@@ -15743,6 +15743,15 @@
       },
       "publishedId": "18101910083528429",
       "confirmedPublished": true
+    },
+    "comment:18097105877638373": {
+      "creationId": "17891959176614054",
+      "createdAt": "2026-10-02T21:05:02.854Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Alcohol can wreck a lot of things but these bright clusters in the kidney tissue point to calcium buildup rather than inflammation and the diagnosis is nephrocalcinosis. High blood calcium is the most common driver.",
+        "reply_to_id": "18097105877638373"
+      }
     }
   },
   "repliedCommentIds": [
@@ -25110,7 +25119,8 @@
     "18116474774099207",
     "17948573913301316",
     "18132643474587416",
-    "18118053842081807"
+    "18118053842081807",
+    "18225679885331819"
   ],
   "answeredPostIds": [
     "18395606890093068"
@@ -25235,11 +25245,11 @@
     "18097639436415272": 99,
     "18133515574657616": 87,
     "18205974196371350": 51,
-    "18102001628139439": 61
+    "18102001628139439": 62
   },
   "daily": {
     "date": "2026-10-02",
-    "count": 61
+    "count": 62
   },
   "pinnedResolved": {
     "DaTTCIwoAw7": "18014812820883466"
@@ -26468,6 +26478,6 @@
   },
   "spend": {
     "date": "2026-10-02",
-    "usd": 0.8231142520000001
+    "usd": 0.8446229200000002
   }
 }
