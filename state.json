@@ -15160,6 +15160,15 @@
       },
       "publishedId": "17869547871648194",
       "confirmedPublished": true
+    },
+    "comment:17977967897915314": {
+      "creationId": "17891957688614054",
+      "createdAt": "2026-10-02T20:43:42.379Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "The calcium has deposited in the kidney tissue itself rather than passing through as a stone and that buildup is called nephrocalcinosis. High blood calcium is the most common metabolic trigger.",
+        "reply_to_id": "17977967897915314"
+      }
     }
   },
   "repliedCommentIds": [
@@ -24474,7 +24483,8 @@
     "18107251622352747",
     "18108082469336761",
     "18116868808959401",
-    "18087648317282996"
+    "18087648317282996",
+    "18136881043651022"
   ],
   "answeredPostIds": [
     "18395606890093068"
@@ -24599,11 +24609,11 @@
     "18097639436415272": 99,
     "18133515574657616": 87,
     "18205974196371350": 51,
-    "18102001628139439": 8
+    "18102001628139439": 9
   },
   "daily": {
     "date": "2026-10-02",
-    "count": 8
+    "count": 9
   },
   "pinnedResolved": {
     "DaTTCIwoAw7": "18014812820883466"
@@ -25817,6 +25827,6 @@
   },
   "spend": {
     "date": "2026-10-02",
-    "usd": 0.3283775879999998
+    "usd": 0.33867159599999974
   }
 }
