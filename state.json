@@ -355,7 +355,8 @@
     "18061587359547283": "18102001628139439",
     "18081187919338756": "18102001628139439",
     "17960868906011237": "18102001628139439",
-    "18092749562173064": "18102001628139439"
+    "18092749562173064": "18102001628139439",
+    "17969517375155873": "18102001628139439"
   },
   "ownerReviews": {
     "17937444630360450": "{\"postId\":\"18103023326210157\",\"reason\":\"owner review: personal medical concern\",\"commentText\":\"Little sister of my friend swalloved a coin of 1 fim. At hospital the family was advised to thoroughly keep an eye on her poops. So, the next day they found two 50 penny coins😀.\",\"username\":\"velitapiof\",\"queuedAt\":\"2026-09-10T20:21:59.741Z\",\"resolvedAt\":\"2026-09-10T20:36:02.929Z\",\"resolution\":\"Owner confirmed this is a completed personal story and deleted the inappropriate boundary reply. No clinical review is needed.\"}",
@@ -16795,6 +16796,15 @@
       },
       "publishedId": "18128739778808845",
       "confirmedPublished": true
+    },
+    "comment:17990944176101920": {
+      "creationId": "17891966523614054",
+      "createdAt": "2026-10-02T22:53:22.993Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "The like button and I have never been formally introduced senpai.",
+        "reply_to_id": "17990944176101920"
+      }
     }
   },
   "repliedCommentIds": [
@@ -26252,7 +26262,8 @@
     "17877779739630154",
     "18083821157704686",
     "17882756055688129",
-    "18106312600951172"
+    "18106312600951172",
+    "18096199949649243"
   ],
   "answeredPostIds": [
     "18395606890093068"
@@ -26377,11 +26388,11 @@
     "18097639436415272": 99,
     "18133515574657616": 87,
     "18205974196371350": 51,
-    "18102001628139439": 151
+    "18102001628139439": 152
   },
   "daily": {
     "date": "2026-10-02",
-    "count": 151
+    "count": 152
   },
   "pinnedResolved": {
     "DaTTCIwoAw7": "18014812820883466"
@@ -27636,6 +27647,6 @@
   },
   "spend": {
     "date": "2026-10-02",
-    "usd": 1.3182638439999999
+    "usd": 1.3197009279999998
   }
 }
