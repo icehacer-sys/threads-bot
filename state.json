@@ -354,7 +354,8 @@
     "18077570495409493": "18102001628139439",
     "18061587359547283": "18102001628139439",
     "18081187919338756": "18102001628139439",
-    "17960868906011237": "18102001628139439"
+    "17960868906011237": "18102001628139439",
+    "18092749562173064": "18102001628139439"
   },
   "ownerReviews": {
     "17937444630360450": "{\"postId\":\"18103023326210157\",\"reason\":\"owner review: personal medical concern\",\"commentText\":\"Little sister of my friend swalloved a coin of 1 fim. At hospital the family was advised to thoroughly keep an eye on her poops. So, the next day they found two 50 penny coins😀.\",\"username\":\"velitapiof\",\"queuedAt\":\"2026-09-10T20:21:59.741Z\",\"resolvedAt\":\"2026-09-10T20:36:02.929Z\",\"resolution\":\"Owner confirmed this is a completed personal story and deleted the inappropriate boundary reply. No clinical review is needed.\"}",
@@ -16772,6 +16773,15 @@
       },
       "publishedId": "18102842825458371",
       "confirmedPublished": true
+    },
+    "comment:18106312600951172": {
+      "creationId": "17891966508614054",
+      "createdAt": "2026-10-02T22:52:46.674Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Promising is one word for a caption that promises nothing and then delivers anyway.",
+        "reply_to_id": "18106312600951172"
+      }
     }
   },
   "repliedCommentIds": [
@@ -26227,7 +26237,8 @@
     "18114463202017171",
     "18093727178446486",
     "17877779739630154",
-    "18083821157704686"
+    "18083821157704686",
+    "17882756055688129"
   ],
   "answeredPostIds": [
     "18395606890093068"
@@ -26352,11 +26363,11 @@
     "18097639436415272": 99,
     "18133515574657616": 87,
     "18205974196371350": 51,
-    "18102001628139439": 149
+    "18102001628139439": 150
   },
   "daily": {
     "date": "2026-10-02",
-    "count": 149
+    "count": 150
   },
   "pinnedResolved": {
     "DaTTCIwoAw7": "18014812820883466"
@@ -27611,6 +27622,6 @@
   },
   "spend": {
     "date": "2026-10-02",
-    "usd": 1.315102528
+    "usd": 1.3175310519999999
   }
 }
