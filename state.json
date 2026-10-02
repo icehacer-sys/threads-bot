@@ -395,7 +395,8 @@
     "18021252056926758": "{\"postId\":\"18102001628139439\",\"reason\":\"Political/dictator reference plus an implied anatomy-shape claim tied to the image, which falls under the owner review hold. Skip rather than force a pun or comment on a feature of the held image.\",\"commentText\":\"Are we not going to talk about Adolph hitler in the upper right?\",\"username\":\"warrior.of.justice\",\"queuedAt\":\"2026-10-02T21:16:00.937Z\"}",
     "18096884624551849": "{\"postId\":\"18102001628139439\",\"reason\":\"Owner review: the question asks for the kidneys' location in an image that carries an unresolved anatomy concern. Every reply relying on this image or its case findings is held, so no anatomical pointer can be given here.\",\"commentText\":\"Where are the kidneys?\",\"username\":\"dawndavies303\",\"queuedAt\":\"2026-10-02T21:16:02.626Z\"}",
     "17985899684881731": "{\"postId\":\"18102001628139439\",\"reason\":\"OWNER REVIEW HOLD is active: the image has an unresolved anatomy concern so every diagnosis guess and every reply relying on this image or its case findings must be skipped. Even though this comment is playful banter about the frosty kidney appearance, that joke depends entirely on the held case findings so no reply can be drafted.\",\"commentText\":\"Man, look at all that gas in the bowels. Can’t imagine what is going on with the kidneys, frost??🤪\",\"username\":\"mzfire2\",\"queuedAt\":\"2026-10-02T21:31:37.275Z\"}",
-    "18118672318978514": "{\"postId\":\"18102001628139439\",\"reason\":\"Owner review hold is active on this post: the image has an unresolved anatomy concern, so every reply that depends on the image or its case findings is skipped even though the answer is public. This comment proposes causes for the case itself so it cannot be answered without leaning on the held image. Hold for owner review.\",\"commentText\":\"Inflammation of the kidneys causes by a structural blockage in the bladder? Or a muscular failure in the bladder caused by a connective tissue disorder.\",\"username\":\"makebadartstudios\",\"queuedAt\":\"2026-10-02T21:33:45.626Z\"}"
+    "18118672318978514": "{\"postId\":\"18102001628139439\",\"reason\":\"Owner review hold is active on this post: the image has an unresolved anatomy concern, so every reply that depends on the image or its case findings is skipped even though the answer is public. This comment proposes causes for the case itself so it cannot be answered without leaning on the held image. Hold for owner review.\",\"commentText\":\"Inflammation of the kidneys causes by a structural blockage in the bladder? Or a muscular failure in the bladder caused by a connective tissue disorder.\",\"username\":\"makebadartstudios\",\"queuedAt\":\"2026-10-02T21:33:45.626Z\"}",
+    "18172054219394156": "{\"postId\":\"18102001628139439\",\"reason\":\"Owner review hold is active: an unresolved anatomy concern on the image means every reply relying on this image or its case findings is skipped, including this anatomy/position claim about the same structures. Owner review: image/anatomy inconsistency.\",\"commentText\":\"They seem to be under the armpits.\",\"username\":\"mcconvillefelicity\",\"queuedAt\":\"2026-10-02T21:35:12.707Z\"}"
   },
   "concernAcknowledgments": {
     "[\"18121475662898455\",\"berit069\",\"image\"]": "18142096432588199",
@@ -16155,6 +16156,15 @@
       },
       "publishedId": "18128246192508915",
       "confirmedPublished": true
+    },
+    "comment:18152291845533224": {
+      "creationId": "17891961750614054",
+      "createdAt": "2026-10-02T21:35:17.552Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Four humors and one of them is calcium.",
+        "reply_to_id": "18152291845533224"
+      }
     }
   },
   "repliedCommentIds": [
@@ -25558,7 +25568,8 @@
     "18449651569127445",
     "18463183939191992",
     "18411825763084103",
-    "18044667566827143"
+    "18044667566827143",
+    "17966112243194172"
   ],
   "answeredPostIds": [
     "18395606890093068"
@@ -25683,11 +25694,11 @@
     "18097639436415272": 99,
     "18133515574657616": 87,
     "18205974196371350": 51,
-    "18102001628139439": 97
+    "18102001628139439": 98
   },
   "daily": {
     "date": "2026-10-02",
-    "count": 97
+    "count": 98
   },
   "pinnedResolved": {
     "DaTTCIwoAw7": "18014812820883466"
@@ -26822,7 +26833,8 @@
     "17910576921541872",
     "18096884624551849",
     "17985899684881731",
-    "18118672318978514"
+    "18118672318978514",
+    "18172054219394156"
   ],
   "skipStrikes": {
     "17895266316520842": 1,
@@ -26928,6 +26940,6 @@
   },
   "spend": {
     "date": "2026-10-02",
-    "usd": 1.2324407080000002
+    "usd": 1.2337518280000002
   }
 }
