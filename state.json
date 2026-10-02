@@ -15094,6 +15094,15 @@
       },
       "publishedId": "17977619096921906",
       "confirmedPublished": true
+    },
+    "comment:18068567735759773": {
+      "creationId": "17891957430614054",
+      "createdAt": "2026-10-02T20:41:21.662Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Staghorns fill the collecting system while these clusters are spread through the kidney tissue itself which points to nephrocalcinosis rather than staghorn calculi.",
+        "reply_to_id": "18068567735759773"
+      }
     }
   },
   "repliedCommentIds": [
@@ -25744,6 +25753,6 @@
   },
   "spend": {
     "date": "2026-10-02",
-    "usd": 0.20507399999999987
+    "usd": 0.28939899599999985
   }
 }
