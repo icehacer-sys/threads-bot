@@ -16571,7 +16571,9 @@
         "media_type": "TEXT",
         "text": "Glad it landed. Same deal tomorrow night.",
         "reply_to_id": "18412276366080119"
-      }
+      },
+      "publishedId": "18353260000220310",
+      "confirmedPublished": true
     }
   },
   "repliedCommentIds": [
