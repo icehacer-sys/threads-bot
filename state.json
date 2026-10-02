@@ -318,7 +318,8 @@
     "18128541370768851": "18102001628139439",
     "18130363594703739": "18102001628139439",
     "17892630576439978": "18102001628139439",
-    "18284999917288977": "18102001628139439"
+    "18284999917288977": "18102001628139439",
+    "18106036298252625": "18102001628139439"
   },
   "ownerReviews": {
     "17937444630360450": "{\"postId\":\"18103023326210157\",\"reason\":\"owner review: personal medical concern\",\"commentText\":\"Little sister of my friend swalloved a coin of 1 fim. At hospital the family was advised to thoroughly keep an eye on her poops. So, the next day they found two 50 penny coins😀.\",\"username\":\"velitapiof\",\"queuedAt\":\"2026-09-10T20:21:59.741Z\",\"resolvedAt\":\"2026-09-10T20:36:02.929Z\",\"resolution\":\"Owner confirmed this is a completed personal story and deleted the inappropriate boundary reply. No clinical review is needed.\"}",
@@ -16073,6 +16074,15 @@
       },
       "publishedId": "18070263425758559",
       "confirmedPublished": true
+    },
+    "comment:18089487743690640": {
+      "creationId": "17891961459614054",
+      "createdAt": "2026-10-02T21:32:41.689Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "The head is the one place the calcium didn't set up shop.",
+        "reply_to_id": "18089487743690640"
+      }
     }
   },
   "repliedCommentIds": [
@@ -25469,7 +25479,8 @@
     "17945444394338886",
     "18409565680094362",
     "18132883762591710",
-    "18116558521881722"
+    "18116558521881722",
+    "18108159406898251"
   ],
   "answeredPostIds": [
     "18395606890093068"
@@ -25594,11 +25605,11 @@
     "18097639436415272": 99,
     "18133515574657616": 87,
     "18205974196371350": 51,
-    "18102001628139439": 90
+    "18102001628139439": 91
   },
   "daily": {
     "date": "2026-10-02",
-    "count": 90
+    "count": 91
   },
   "pinnedResolved": {
     "DaTTCIwoAw7": "18014812820883466"
@@ -26838,6 +26849,6 @@
   },
   "spend": {
     "date": "2026-10-02",
-    "usd": 1.1873432560000001
+    "usd": 1.1897011480000002
   }
 }
