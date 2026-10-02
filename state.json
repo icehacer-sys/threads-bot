@@ -15941,6 +15941,15 @@
       },
       "publishedId": "18096628043663945",
       "confirmedPublished": true
+    },
+    "comment:17937367806382573": {
+      "creationId": "17891959863614054",
+      "createdAt": "2026-10-02T21:12:20.109Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "The frozen-window image is exactly right visually. These are calcium deposits in the kidney tissue itself rather than stones forming in the drainage system and the diagnosis is nephrocalcinosis.",
+        "reply_to_id": "17937367806382573"
+      }
     }
   },
   "repliedCommentIds": [
@@ -25326,7 +25335,8 @@
     "17956441566294556",
     "17904680277569203",
     "18447029617121464",
-    "17994360033043132"
+    "17994360033043132",
+    "18104238434311319"
   ],
   "answeredPostIds": [
     "18395606890093068"
@@ -25451,11 +25461,11 @@
     "18097639436415272": 99,
     "18133515574657616": 87,
     "18205974196371350": 51,
-    "18102001628139439": 79
+    "18102001628139439": 80
   },
   "daily": {
     "date": "2026-10-02",
-    "count": 79
+    "count": 80
   },
   "pinnedResolved": {
     "DaTTCIwoAw7": "18014812820883466"
@@ -26689,6 +26699,6 @@
   },
   "spend": {
     "date": "2026-10-02",
-    "usd": 1.047572884
+    "usd": 1.0704220960000002
   }
 }
