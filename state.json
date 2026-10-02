@@ -161,7 +161,18 @@
     "18086223356697973": "Everybody's mentioning the kidneys. Meanwhile I'm looking at all that gas and thinking the intestines have gone rogue in their placement. 😂",
     "18091826309401574": "Snowflake kidneys and some backed up intestines to go with them. I know what he's asking Santa for this year",
     "18069349010596529": "Those kidneys look like they might not work right.  However, they probably sparkle under the right lighting.",
-    "18106946243591763": "Calcified renals"
+    "18106946243591763": "Calcified renals",
+    "17910889026540555": "Whoa! Is that calcium on the kidneys?!",
+    "17993283120024164": "Gas?",
+    "18164959486486061": "What elk did he steal those from.?",
+    "18198313621383600": "Fluorescent kidneys",
+    "18129909997787112": "So like black light?",
+    "18008129441995462": "Renal calculi or severe calcification of kidneys. Stag horn.",
+    "17982707928095783": "Nephrocalcinosis",
+    "18033498524666195": "And, the answer is...👀",
+    "17910895530550019": "Patient may want to ease up on the linguine.....and maybe drink a little cranberry juice.",
+    "18116374999794816": "So their kidneys are growing herbs now?",
+    "18330292651263610": "Oy.  Transfer to higher level of care.  What was their Bun/Cr."
   },
   "imageHeldComments": {
     "18116444902754615": "18184997560424523",
@@ -15009,6 +15020,15 @@
       },
       "publishedId": "17873430009651099",
       "confirmedPublished": true
+    },
+    "comment:18123620527898238": {
+      "creationId": "17891952333614054",
+      "createdAt": "2026-10-02T19:33:00.117Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "At that point you evacuate the building not the bladder.",
+        "reply_to_id": "18123620527898238"
+      }
     }
   },
   "repliedCommentIds": [
@@ -25657,6 +25677,6 @@
   },
   "spend": {
     "date": "2026-10-02",
-    "usd": 0.096393912
+    "usd": 0.121487424
   }
 }
