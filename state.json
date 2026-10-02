@@ -16394,6 +16394,15 @@
       },
       "publishedId": "17940733881363621",
       "confirmedPublished": true
+    },
+    "comment:18179256835441131": {
+      "creationId": "17891965929614054",
+      "createdAt": "2026-10-02T22:42:00.736Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Yoga is a strong opener and the kidneys still brought their own scenery. Anxiety rarely leaves something behind on the film.",
+        "reply_to_id": "18179256835441131"
+      }
     }
   },
   "repliedCommentIds": [
@@ -25818,7 +25827,8 @@
     "18129661792787467",
     "18125500687840740",
     "17884128507512058",
-    "17876560560567234"
+    "17876560560567234",
+    "18093162575444617"
   ],
   "answeredPostIds": [
     "18395606890093068"
@@ -25943,11 +25953,11 @@
     "18097639436415272": 99,
     "18133515574657616": 87,
     "18205974196371350": 51,
-    "18102001628139439": 118
+    "18102001628139439": 119
   },
   "daily": {
     "date": "2026-10-02",
-    "count": 118
+    "count": 119
   },
   "pinnedResolved": {
     "DaTTCIwoAw7": "18014812820883466"
@@ -27193,6 +27203,6 @@
   },
   "spend": {
     "date": "2026-10-02",
-    "usd": 1.2714491920000002
+    "usd": 1.2720500200000002
   }
 }
