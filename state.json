@@ -428,7 +428,8 @@
     "17889366642684302": "{\"postId\":\"18102001628139439\",\"reason\":\"Commenter questions bowel distribution and curvature on the image, which reads as a possible anatomy/projection inconsistency. Owner review hold applies: no diagnosis or image interpretation. Classified complaint, reason: image/anatomy inconsistency needs owner review. A single neutral acknowledgment may be sent by the application.\",\"commentText\":\"I’m no doctor but apart from the curvy spine (maybe lying awkwardly 🤷‍♂️) and the sparkly kidneys (😮) why’s the intestines all over the place?!\",\"username\":\"hamishroots\",\"queuedAt\":\"2026-10-02T22:43:07.054Z\"}",
     "18113979461084416": "{\"postId\":\"18102001628139439\",\"reason\":\"Owner review hold: the image has an unresolved anatomy concern and the comment is a diagnosis guess about that image's contents. No reply relying on the case findings or the image, including corrections, is eligible.\",\"commentText\":\"Damn I thought those were the lungs and maybe somehow they had pneumonia\",\"username\":\"skywardflight10\",\"queuedAt\":\"2026-10-02T22:43:14.989Z\"}",
     "18137356888729598": "{\"postId\":\"18102001628139439\",\"reason\":\"Owner review hold: unresolved anatomy concern on this image. Every diagnosis guess and any reply relying on the image or its case findings must be skipped even after reveal. This comment is a diagnosis guess about the case so no banter reply is safe to draft.\",\"commentText\":\"It looks like she’s got poo up to her back and her lungs are frozen. Am I right?\",\"username\":\"yoginijune\",\"queuedAt\":\"2026-10-02T22:43:16.803Z\"}",
-    "18354244942218428": "{\"postId\":\"18102001628139439\",\"reason\":\"Owner review hold: the comment raises a specific anatomy concern about a structure appearing in the chest cavity. Policy requires hold for owner review: image/anatomy inconsistency. No interpretation or defense of the image.\",\"commentText\":\"Why is the colon in the chest cavity? This is NOT GOOD.\",\"username\":\"patrinamcbride\",\"queuedAt\":\"2026-10-02T22:45:16.741Z\"}"
+    "18354244942218428": "{\"postId\":\"18102001628139439\",\"reason\":\"Owner review hold: the comment raises a specific anatomy concern about a structure appearing in the chest cavity. Policy requires hold for owner review: image/anatomy inconsistency. No interpretation or defense of the image.\",\"commentText\":\"Why is the colon in the chest cavity? This is NOT GOOD.\",\"username\":\"patrinamcbride\",\"queuedAt\":\"2026-10-02T22:45:16.741Z\"}",
+    "18073465946478202": "{\"postId\":\"18102001628139439\",\"reason\":\"Commenter asserts specific anatomy findings (odd-looking spine, an unidentified object in the upper right corner) and names a worm diagnosis on an image that carries an unresolved anatomy concern under the owner review hold. Every diagnosis guess and every reply relying on this image or its case findings must be skipped, including after the reveal, so no supported correction or acknowledgment is possible here.\",\"commentText\":\"So my guesses are that those are possibly worms, something’s going on in the lungs, the spine looks a little weird as well, and then whatever the hell is up in the right hand corner\",\"username\":\"emxlaur\",\"queuedAt\":\"2026-10-02T22:46:46.936Z\"}"
   },
   "concernAcknowledgments": {
     "[\"18121475662898455\",\"berit069\",\"image\"]": "18142096432588199",
@@ -16562,6 +16563,15 @@
       },
       "publishedId": "17896936779407129",
       "confirmedPublished": true
+    },
+    "comment:18412276366080119": {
+      "creationId": "17891966061614054",
+      "createdAt": "2026-10-02T22:46:53.909Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Glad it landed. Same deal tomorrow night.",
+        "reply_to_id": "18412276366080119"
+      }
     }
   },
   "repliedCommentIds": [
@@ -25999,7 +26009,8 @@
     "18093935432244272",
     "18039784757827912",
     "18198782974379344",
-    "18118023007951561"
+    "18118023007951561",
+    "17967749510964079"
   ],
   "answeredPostIds": [
     "18395606890093068"
@@ -26124,11 +26135,11 @@
     "18097639436415272": 99,
     "18133515574657616": 87,
     "18205974196371350": 51,
-    "18102001628139439": 131
+    "18102001628139439": 132
   },
   "daily": {
     "date": "2026-10-02",
-    "count": 131
+    "count": 132
   },
   "pinnedResolved": {
     "DaTTCIwoAw7": "18014812820883466"
@@ -27273,7 +27284,8 @@
     "18113979461084416",
     "18137356888729598",
     "18077010005415586",
-    "18354244942218428"
+    "18354244942218428",
+    "18073465946478202"
   ],
   "skipStrikes": {
     "17895266316520842": 1,
@@ -27379,6 +27391,6 @@
   },
   "spend": {
     "date": "2026-10-02",
-    "usd": 1.295451808
+    "usd": 1.297205632
   }
 }
