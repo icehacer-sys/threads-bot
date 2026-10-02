@@ -16840,6 +16840,15 @@
       },
       "publishedId": "18130235485706190",
       "confirmedPublished": true
+    },
+    "comment:18128173657816479": {
+      "creationId": "17891966586614054",
+      "createdAt": "2026-10-02T22:54:39.892Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Two emergency surgeries and then a fresh set of unrelated ones is a lot to carry in one year. The never ending part is the part nobody warns you about.",
+        "reply_to_id": "18128173657816479"
+      }
     }
   },
   "repliedCommentIds": [
@@ -26301,7 +26310,8 @@
     "18096199949649243",
     "17990944176101920",
     "18167464723412643",
-    "18110505863151318"
+    "18110505863151318",
+    "18114683135101333"
   ],
   "answeredPostIds": [
     "18395606890093068"
@@ -26426,11 +26436,11 @@
     "18097639436415272": 99,
     "18133515574657616": 87,
     "18205974196371350": 51,
-    "18102001628139439": 155
+    "18102001628139439": 156
   },
   "daily": {
     "date": "2026-10-02",
-    "count": 155
+    "count": 156
   },
   "pinnedResolved": {
     "DaTTCIwoAw7": "18014812820883466"
@@ -27685,6 +27695,6 @@
   },
   "spend": {
     "date": "2026-10-02",
-    "usd": 1.3218198039999998
+    "usd": 1.3236094719999998
   }
 }
