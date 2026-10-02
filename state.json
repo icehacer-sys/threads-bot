@@ -16896,7 +16896,9 @@
         "media_type": "TEXT",
         "text": "Some films just take it out of you.",
         "reply_to_id": "18010102322972275"
-      }
+      },
+      "publishedId": "17974892472139353",
+      "confirmedPublished": true
     }
   },
   "repliedCommentIds": [
