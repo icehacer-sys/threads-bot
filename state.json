@@ -359,7 +359,10 @@
     "17969517375155873": "18102001628139439",
     "17972635779140693": "18102001628139439",
     "18127538950863320": "18102001628139439",
-    "17942317851350953": "18102001628139439"
+    "17942317851350953": "18102001628139439",
+    "18149443720504893": "18102001628139439",
+    "18116902823098974": "18102001628139439",
+    "18009010502975591": "18102001628139439"
   },
   "ownerReviews": {
     "17937444630360450": "{\"postId\":\"18103023326210157\",\"reason\":\"owner review: personal medical concern\",\"commentText\":\"Little sister of my friend swalloved a coin of 1 fim. At hospital the family was advised to thoroughly keep an eye on her poops. So, the next day they found two 50 penny coins😀.\",\"username\":\"velitapiof\",\"queuedAt\":\"2026-09-10T20:21:59.741Z\",\"resolvedAt\":\"2026-09-10T20:36:02.929Z\",\"resolution\":\"Owner confirmed this is a completed personal story and deleted the inappropriate boundary reply. No clinical review is needed.\"}",
@@ -446,7 +449,9 @@
     "18132684829669658": "{\"postId\":\"18102001628139439\",\"reason\":\"Owner review hold is active: the image has an unresolved anatomy concern so all diagnosis guesses and any reply relying on this image or its case findings must be skipped even after the reveal. No unrelated banter or empathy hook here either since the comment is purely a diagnosis read on the held image.\",\"commentText\":\"Concrete kidneys\",\"username\":\"rgmcleod\",\"queuedAt\":\"2026-10-02T22:49:43.877Z\"}",
     "17910382368544425": "{\"postId\":\"18102001628139439\",\"reason\":\"This is a question about spinal curvature and positioning on the image itself. The case facts do not state anything about the spine or positioning so no supported answer exists and the owner review hold requires skipping replies that rely on this image or its case findings. Classified as complaint with reason owner review: image/anatomy question requires owner response, no automatic reply.\",\"commentText\":\"The Hopital challenge got me here initially 😆 but now I'm also wondering, do they also have mild scoliosis or is it just from how they were positioned at the time\",\"username\":\"sarahanarna\",\"queuedAt\":\"2026-10-02T22:49:45.791Z\"}",
     "17908732341514908": "{\"postId\":\"18102001628139439\",\"reason\":\"Owner review hold: the image has an unresolved anatomy concern, so any reply relying on this image or its case findings is skipped. The comment's anatomical observation about kidney position depends on the withheld image. No unrelated banter or empathy opening is present.\",\"commentText\":\"Didn’t realise the kidneys were so high up, always thought they were a bit lower. They look pretty though\",\"username\":\"claire_tattooed\",\"queuedAt\":\"2026-10-02T22:51:37.434Z\"}",
-    "18191626084399139": "{\"postId\":\"18102001628139439\",\"reason\":\"Owner review hold: unresolved anatomy concern on this image. The comment reads the image's anatomy and disputes another commenter's claim. Any reply would require interpreting or defending the image, which the hold forbids. No eligible unrelated banter or empathy is present.\",\"commentText\":\"Arm pits aren’t even in the picture. Intestine under spleen and almost under liver.\",\"username\":\"contessafluffypants\",\"queuedAt\":\"2026-10-02T23:10:37.864Z\"}"
+    "18191626084399139": "{\"postId\":\"18102001628139439\",\"reason\":\"Owner review hold: unresolved anatomy concern on this image. The comment reads the image's anatomy and disputes another commenter's claim. Any reply would require interpreting or defending the image, which the hold forbids. No eligible unrelated banter or empathy is present.\",\"commentText\":\"Arm pits aren’t even in the picture. Intestine under spleen and almost under liver.\",\"username\":\"contessafluffypants\",\"queuedAt\":\"2026-10-02T23:10:37.864Z\"}",
+    "18092665382671504": "{\"postId\":\"18102001628139439\",\"reason\":\"Owner review hold on this image for an unresolved anatomy concern. Even after reveal the hold covers every diagnosis guess and any reply relying on the image or case findings, so no affirm, correction or explanation can be drafted here. Skipping rather than gauging how off the kidney appearance is.\",\"commentText\":\"Idk, but I don’t think the kidneys are supposed to look like that\",\"username\":\"josh_solinger\",\"queuedAt\":\"2026-10-02T23:43:29.158Z\"}",
+    "18133565188760776": "{\"postId\":\"18102001628139439\",\"reason\":\"Owner review hold: unresolved anatomy concern on this image, so every diagnosis guess and any reply leaning on this image or its findings must be skipped even after the reveal.\",\"commentText\":\"Scoliosis\",\"username\":\"dobay808\",\"queuedAt\":\"2026-10-02T23:43:32.718Z\"}"
   },
   "concernAcknowledgments": {
     "[\"18121475662898455\",\"berit069\",\"image\"]": "18142096432588199",
@@ -16954,6 +16959,15 @@
       },
       "publishedId": "18014756765952813",
       "confirmedPublished": true
+    },
+    "comment:18128823223836424": {
+      "creationId": "17891970822614054",
+      "createdAt": "2026-10-02T23:43:41.382Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Beautiful and unemployed is a tough combo to argue with.",
+        "reply_to_id": "18128823223836424"
+      }
     }
   },
   "repliedCommentIds": [
@@ -26425,7 +26439,8 @@
     "18149424670557643",
     "18110229251136068",
     "18148196401501841",
-    "18132926945498222"
+    "18132926945498222",
+    "18433739797176699"
   ],
   "answeredPostIds": [
     "18395606890093068"
@@ -26550,11 +26565,11 @@
     "18097639436415272": 99,
     "18133515574657616": 87,
     "18205974196371350": 51,
-    "18102001628139439": 164
+    "18102001628139439": 165
   },
   "daily": {
     "date": "2026-10-02",
-    "count": 165
+    "count": 166
   },
   "pinnedResolved": {
     "DaTTCIwoAw7": "18014812820883466"
@@ -27706,7 +27721,9 @@
     "17910382368544425",
     "17908732341514908",
     "18191626084399139",
-    "18026332328863362"
+    "18026332328863362",
+    "18092665382671504",
+    "18133565188760776"
   ],
   "skipStrikes": {
     "17895266316520842": 1,
@@ -27811,6 +27828,6 @@
   },
   "spend": {
     "date": "2026-10-02",
-    "usd": 1.349980344
+    "usd": 1.3528742400000002
   }
 }
