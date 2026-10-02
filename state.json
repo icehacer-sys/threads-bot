@@ -16122,6 +16122,15 @@
       },
       "publishedId": "18129473453495006",
       "confirmedPublished": true
+    },
+    "comment:18411825763084103": {
+      "creationId": "17891961720614054",
+      "createdAt": "2026-10-02T21:34:23.152Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "The bowel gets you in the door and the kidneys do the rest. Good to know the handle check didn't help you relax either.",
+        "reply_to_id": "18411825763084103"
+      }
     }
   },
   "repliedCommentIds": [
@@ -25522,7 +25531,8 @@
     "18108159406898251",
     "18089487743690640",
     "18418693024152515",
-    "18449651569127445"
+    "18449651569127445",
+    "18463183939191992"
   ],
   "answeredPostIds": [
     "18395606890093068"
@@ -25647,11 +25657,11 @@
     "18097639436415272": 99,
     "18133515574657616": 87,
     "18205974196371350": 51,
-    "18102001628139439": 94
+    "18102001628139439": 95
   },
   "daily": {
     "date": "2026-10-02",
-    "count": 94
+    "count": 95
   },
   "pinnedResolved": {
     "DaTTCIwoAw7": "18014812820883466"
@@ -26892,6 +26902,6 @@
   },
   "spend": {
     "date": "2026-10-02",
-    "usd": 1.230478624
+    "usd": 1.2311483200000002
   }
 }
