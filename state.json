@@ -18105,6 +18105,15 @@
       },
       "publishedId": "18116813216003944",
       "confirmedPublished": true
+    },
+    "comment:17910181845509250": {
+      "creationId": "17892119271614054",
+      "createdAt": "2026-10-03T22:35:14.148Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "His claws come out clean though. This hand left the adamantium at home and grew its own gravel.",
+        "reply_to_id": "17910181845509250"
+      }
     }
   },
   "repliedCommentIds": [
@@ -29099,6 +29108,6 @@
   },
   "spend": {
     "date": "2026-10-03",
-    "usd": 0.088746936
+    "usd": 0.089349672
   }
 }
