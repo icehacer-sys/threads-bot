@@ -368,7 +368,9 @@
     "17894043333681398": "18102001628139439",
     "18109717301336753": "18102001628139439",
     "17989345983029364": "18102001628139439",
-    "18139640086554276": "18102001628139439"
+    "18139640086554276": "18102001628139439",
+    "18014364965955856": "18102001628139439",
+    "18110162615237031": "18102001628139439"
   },
   "ownerReviews": {
     "17937444630360450": "{\"postId\":\"18103023326210157\",\"reason\":\"owner review: personal medical concern\",\"commentText\":\"Little sister of my friend swalloved a coin of 1 fim. At hospital the family was advised to thoroughly keep an eye on her poops. So, the next day they found two 50 penny coins😀.\",\"username\":\"velitapiof\",\"queuedAt\":\"2026-09-10T20:21:59.741Z\",\"resolvedAt\":\"2026-09-10T20:36:02.929Z\",\"resolution\":\"Owner confirmed this is a completed personal story and deleted the inappropriate boundary reply. No clinical review is needed.\"}",
@@ -458,7 +460,8 @@
     "18191626084399139": "{\"postId\":\"18102001628139439\",\"reason\":\"Owner review hold: unresolved anatomy concern on this image. The comment reads the image's anatomy and disputes another commenter's claim. Any reply would require interpreting or defending the image, which the hold forbids. No eligible unrelated banter or empathy is present.\",\"commentText\":\"Arm pits aren’t even in the picture. Intestine under spleen and almost under liver.\",\"username\":\"contessafluffypants\",\"queuedAt\":\"2026-10-02T23:10:37.864Z\"}",
     "18092665382671504": "{\"postId\":\"18102001628139439\",\"reason\":\"Owner review hold on this image for an unresolved anatomy concern. Even after reveal the hold covers every diagnosis guess and any reply relying on the image or case findings, so no affirm, correction or explanation can be drafted here. Skipping rather than gauging how off the kidney appearance is.\",\"commentText\":\"Idk, but I don’t think the kidneys are supposed to look like that\",\"username\":\"josh_solinger\",\"queuedAt\":\"2026-10-02T23:43:29.158Z\"}",
     "18133565188760776": "{\"postId\":\"18102001628139439\",\"reason\":\"Owner review hold: unresolved anatomy concern on this image, so every diagnosis guess and any reply leaning on this image or its findings must be skipped even after the reveal.\",\"commentText\":\"Scoliosis\",\"username\":\"dobay808\",\"queuedAt\":\"2026-10-02T23:43:32.718Z\"}",
-    "18115784266817313": "{\"postId\":\"18102001628139439\",\"reason\":\"Owner review hold: unresolved image/anatomy concern on this case. Diagnosis guesses and any reply relying on the image or case findings must be skipped. Comment is a two-word diagnosis guess so no unrelated banter or empathy hook exists.\",\"commentText\":\"Kidney freeze\",\"username\":\"8loodlvst\",\"queuedAt\":\"2026-10-02T23:44:32.768Z\"}"
+    "18115784266817313": "{\"postId\":\"18102001628139439\",\"reason\":\"Owner review hold: unresolved image/anatomy concern on this case. Diagnosis guesses and any reply relying on the image or case findings must be skipped. Comment is a two-word diagnosis guess so no unrelated banter or empathy hook exists.\",\"commentText\":\"Kidney freeze\",\"username\":\"8loodlvst\",\"queuedAt\":\"2026-10-02T23:44:32.768Z\"}",
+    "18074338781730701": "{\"postId\":\"18102001628139439\",\"reason\":\"Owner review hold: the image has an unresolved anatomy concern so every diagnosis guess and every reply relying on the image or the case findings is skipped even after the reveal. This comment is a diagnosis guess, so no reply and no grading.\",\"commentText\":\"Scoliosis and a shit ton of kidney stones\",\"username\":\"maraxon\",\"queuedAt\":\"2026-10-03T00:49:14.739Z\"}"
   },
   "concernAcknowledgments": {
     "[\"18121475662898455\",\"berit069\",\"image\"]": "18142096432588199",
@@ -17098,6 +17101,15 @@
       },
       "publishedId": "17914661409463437",
       "confirmedPublished": true
+    },
+    "comment:18623228170026634": {
+      "creationId": "17891978493614054",
+      "createdAt": "2026-10-03T00:49:20.059Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Weight loss advice is the one prescription every patient gets regardless of what the film shows.",
+        "reply_to_id": "18623228170026634"
+      }
     }
   },
   "repliedCommentIds": [
@@ -27868,7 +27880,8 @@
     "18133565188760776",
     "18115784266817313",
     "18096062192324872",
-    "17950262562051004"
+    "17950262562051004",
+    "18074338781730701"
   ],
   "skipStrikes": {
     "17895266316520842": 1,
@@ -27973,6 +27986,6 @@
   },
   "spend": {
     "date": "2026-10-02",
-    "usd": 1.365066636
+    "usd": 1.3668955680000003
   }
 }
