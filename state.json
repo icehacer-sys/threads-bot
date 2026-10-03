@@ -375,7 +375,11 @@
     "18110993153468675": "18102001628139439",
     "18107603042628108": "18102001628139439",
     "18145055029498892": "18102001628139439",
-    "18176711743444664": "18102001628139439"
+    "18176711743444664": "18102001628139439",
+    "17910284406509170": "18102001628139439",
+    "17971767387160530": "18102001628139439",
+    "18226653226329159": "18102001628139439",
+    "18072307346563365": "18102001628139439"
   },
   "ownerReviews": {
     "17937444630360450": "{\"postId\":\"18103023326210157\",\"reason\":\"owner review: personal medical concern\",\"commentText\":\"Little sister of my friend swalloved a coin of 1 fim. At hospital the family was advised to thoroughly keep an eye on her poops. So, the next day they found two 50 penny coins😀.\",\"username\":\"velitapiof\",\"queuedAt\":\"2026-09-10T20:21:59.741Z\",\"resolvedAt\":\"2026-09-10T20:36:02.929Z\",\"resolution\":\"Owner confirmed this is a completed personal story and deleted the inappropriate boundary reply. No clinical review is needed.\"}",
@@ -17184,6 +17188,15 @@
       },
       "publishedId": "18025739075880536",
       "confirmedPublished": true
+    },
+    "comment:18102268124021819": {
+      "creationId": "17891981304614054",
+      "createdAt": "2026-10-03T01:22:27.579Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Laughing is the correct clinical response here. The film earns it.",
+        "reply_to_id": "18102268124021819"
+      }
     }
   },
   "repliedCommentIds": [
@@ -26674,7 +26687,8 @@
     "18178990930431242",
     "17880941829627529",
     "18138018250541322",
-    "18144152950573997"
+    "18144152950573997",
+    "18115674356520797"
   ],
   "answeredPostIds": [
     "18395606890093068"
@@ -26799,11 +26813,11 @@
     "18097639436415272": 99,
     "18133515574657616": 87,
     "18205974196371350": 51,
-    "18102001628139439": 183
+    "18102001628139439": 184
   },
   "daily": {
     "date": "2026-10-02",
-    "count": 184
+    "count": 185
   },
   "pinnedResolved": {
     "DaTTCIwoAw7": "18014812820883466"
@@ -28067,6 +28081,6 @@
   },
   "spend": {
     "date": "2026-10-02",
-    "usd": 1.375039656
+    "usd": 1.3782408599999998
   }
 }
