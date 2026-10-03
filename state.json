@@ -18138,6 +18138,15 @@
       },
       "publishedId": "17919435882449541",
       "confirmedPublished": true
+    },
+    "comment:18284880565288642": {
+      "creationId": "17892120867614054",
+      "createdAt": "2026-10-03T23:06:37.302Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "That's the only diet where the florets come in around the knuckles. Steamed or raw?",
+        "reply_to_id": "18284880565288642"
+      }
     }
   },
   "repliedCommentIds": [
@@ -29136,6 +29145,6 @@
   },
   "spend": {
     "date": "2026-10-03",
-    "usd": 0.0915369
+    "usd": 0.092136336
   }
 }
