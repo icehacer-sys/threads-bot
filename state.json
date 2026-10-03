@@ -17971,6 +17971,15 @@
       },
       "publishedId": "17992496259020464",
       "confirmedPublished": true
+    },
+    "comment:18116911255998652": {
+      "creationId": "17892113115614054",
+      "createdAt": "2026-10-03T21:30:27.092Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "The serious half is the one that holds up. As for the snow globe theory the deposits really do sit there like flakes that already settled and never fall again.",
+        "reply_to_id": "18116911255998652"
+      }
     }
   },
   "repliedCommentIds": [
@@ -28841,7 +28850,8 @@
     "17953962573267024",
     "18107497021916561",
     "18107427470600300",
-    "18489471949109244"
+    "18489471949109244",
+    "17890060353458775"
   ],
   "skipStrikes": {
     "17895266316520842": 1,
@@ -28946,6 +28956,6 @@
   },
   "spend": {
     "date": "2026-10-03",
-    "usd": 0.07041431999999999
+    "usd": 0.073277244
   }
 }
