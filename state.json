@@ -17916,6 +17916,15 @@
       },
       "publishedId": "18118954013066431",
       "confirmedPublished": true
+    },
+    "comment:18114434318037351": {
+      "creationId": "17892109626614054",
+      "createdAt": "2026-10-03T20:58:07.341Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "The calcium is sitting in the skin and soft tissue rather than pinching anything shut. What those deposits mark is the calcinosis of systemic sclerosis and the white fingers were the Raynaud's side of the same condition.",
+        "reply_to_id": "18114434318037351"
+      }
     }
   },
   "repliedCommentIds": [
@@ -27468,7 +27477,8 @@
     "18113541449130929",
     "18418715617158761",
     "17869704315647743",
-    "18635039848047038"
+    "18635039848047038",
+    "18183182275425200"
   ],
   "answeredPostIds": [
     "18395606890093068"
@@ -27594,11 +27604,11 @@
     "18133515574657616": 87,
     "18205974196371350": 51,
     "18102001628139439": 209,
-    "17919320862444697": 35
+    "17919320862444697": 36
   },
   "daily": {
     "date": "2026-10-03",
-    "count": 35
+    "count": 36
   },
   "pinnedResolved": {
     "DaTTCIwoAw7": "18014812820883466"
@@ -28776,7 +28786,8 @@
     "17949111582295646",
     "18098666555412814",
     "18113205332281198",
-    "18485461255129646"
+    "18485461255129646",
+    "17953962573267024"
   ],
   "skipStrikes": {
     "17895266316520842": 1,
@@ -28881,6 +28892,6 @@
   },
   "spend": {
     "date": "2026-10-03",
-    "usd": 0.05879653200000001
+    "usd": 0.06300454800000001
   }
 }
