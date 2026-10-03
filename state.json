@@ -17351,6 +17351,15 @@
       },
       "publishedId": "18128898631838990",
       "confirmedPublished": true
+    },
+    "comment:18113909015108915": {
+      "creationId": "17891990601614054",
+      "createdAt": "2026-10-03T02:59:24.967Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Two and a half years of that and one wound left is a lot of ground covered. The living room turning into equipment storage is its own kind of milestone and I hope the chair gets him out of that bed soon.",
+        "reply_to_id": "18113909015108915"
+      }
     }
   },
   "repliedCommentIds": [
@@ -26855,7 +26864,8 @@
     "18338842822274503",
     "18114512825088381",
     "18412571833088123",
-    "18216533617358056"
+    "18216533617358056",
+    "18115772161806809"
   ],
   "answeredPostIds": [
     "18395606890093068"
@@ -26980,11 +26990,11 @@
     "18097639436415272": 99,
     "18133515574657616": 87,
     "18205974196371350": 51,
-    "18102001628139439": 196
+    "18102001628139439": 197
   },
   "daily": {
     "date": "2026-10-02",
-    "count": 198
+    "count": 199
   },
   "pinnedResolved": {
     "DaTTCIwoAw7": "18014812820883466"
@@ -28250,6 +28260,6 @@
   },
   "spend": {
     "date": "2026-10-02",
-    "usd": 1.4639558199999994
+    "usd": 1.4648677119999993
   }
 }
