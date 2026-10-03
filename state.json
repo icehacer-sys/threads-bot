@@ -363,7 +363,10 @@
     "18149443720504893": "18102001628139439",
     "18116902823098974": "18102001628139439",
     "18009010502975591": "18102001628139439",
-    "18013973852959987": "18102001628139439"
+    "18013973852959987": "18102001628139439",
+    "18120829924982579": "18102001628139439",
+    "17894043333681398": "18102001628139439",
+    "18109717301336753": "18102001628139439"
   },
   "ownerReviews": {
     "17937444630360450": "{\"postId\":\"18103023326210157\",\"reason\":\"owner review: personal medical concern\",\"commentText\":\"Little sister of my friend swalloved a coin of 1 fim. At hospital the family was advised to thoroughly keep an eye on her poops. So, the next day they found two 50 penny coins😀.\",\"username\":\"velitapiof\",\"queuedAt\":\"2026-09-10T20:21:59.741Z\",\"resolvedAt\":\"2026-09-10T20:36:02.929Z\",\"resolution\":\"Owner confirmed this is a completed personal story and deleted the inappropriate boundary reply. No clinical review is needed.\"}",
@@ -17038,6 +17041,15 @@
       },
       "publishedId": "18035155277891086",
       "confirmedPublished": true
+    },
+    "comment:18022037270712668": {
+      "creationId": "17891974614614054",
+      "createdAt": "2026-10-03T00:16:45.062Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "That phone never stood a chance. Seeing it from the inside is a different kind of rude.",
+        "reply_to_id": "18022037270712668"
+      }
     }
   },
   "repliedCommentIds": [
@@ -27801,7 +27813,9 @@
     "18026332328863362",
     "18092665382671504",
     "18133565188760776",
-    "18115784266817313"
+    "18115784266817313",
+    "18096062192324872",
+    "17950262562051004"
   ],
   "skipStrikes": {
     "17895266316520842": 1,
@@ -27906,6 +27920,6 @@
   },
   "spend": {
     "date": "2026-10-02",
-    "usd": 1.3581303360000003
+    "usd": 1.3610630280000002
   }
 }
