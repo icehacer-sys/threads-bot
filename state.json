@@ -17652,6 +17652,15 @@
       },
       "publishedId": "18146171230500170",
       "confirmedPublished": true
+    },
+    "comment:17897244459606999": {
+      "creationId": "17892105258614054",
+      "createdAt": "2026-10-03T19:50:44.355Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "The X-ray would like a word with whoever said it was all in her head. Those lumps were not going to budge for ibuprofen.",
+        "reply_to_id": "17897244459606999"
+      }
     }
   },
   "repliedCommentIds": [
@@ -28485,7 +28494,8 @@
     "18098365442087572",
     "18128615650844855",
     "18077439623417447",
-    "17956546815255271"
+    "17956546815255271",
+    "17949111582295646"
   ],
   "skipStrikes": {
     "17895266316520842": 1,
@@ -28590,6 +28600,6 @@
   },
   "spend": {
     "date": "2026-10-03",
-    "usd": 0.027872916
+    "usd": 0.030171648000000002
   }
 }
