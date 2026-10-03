@@ -17324,7 +17324,9 @@
         "media_type": "TEXT",
         "text": "Doc is generous but I will take it. Enjoy the next one tonight.",
         "reply_to_id": "18412571833088123"
-      }
+      },
+      "publishedId": "17953365921035651",
+      "confirmedPublished": true
     }
   },
   "repliedCommentIds": [
