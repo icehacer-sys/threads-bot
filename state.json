@@ -17252,7 +17252,9 @@
         "media_type": "TEXT",
         "text": "Someone get the lab on the phone. They will want to see this one.",
         "reply_to_id": "18132056537498487"
-      }
+      },
+      "publishedId": "18211479877360438",
+      "confirmedPublished": true
     }
   },
   "repliedCommentIds": [
