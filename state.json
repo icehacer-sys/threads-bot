@@ -384,7 +384,8 @@
     "18109034372596271": "18102001628139439",
     "18074492654734936": "18102001628139439",
     "18228217171335662": "18102001628139439",
-    "18354956167174452": "18102001628139439"
+    "18354956167174452": "18102001628139439",
+    "18029493626907228": "18102001628139439"
   },
   "ownerReviews": {
     "17937444630360450": "{\"postId\":\"18103023326210157\",\"reason\":\"owner review: personal medical concern\",\"commentText\":\"Little sister of my friend swalloved a coin of 1 fim. At hospital the family was advised to thoroughly keep an eye on her poops. So, the next day they found two 50 penny coins😀.\",\"username\":\"velitapiof\",\"queuedAt\":\"2026-09-10T20:21:59.741Z\",\"resolvedAt\":\"2026-09-10T20:36:02.929Z\",\"resolution\":\"Owner confirmed this is a completed personal story and deleted the inappropriate boundary reply. No clinical review is needed.\"}",
@@ -17327,6 +17328,15 @@
       },
       "publishedId": "17953365921035651",
       "confirmedPublished": true
+    },
+    "comment:18216533617358056": {
+      "creationId": "17891990565614054",
+      "createdAt": "2026-10-03T02:58:48.392Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Lungs would like to be left out of the delivery room please.",
+        "reply_to_id": "18216533617358056"
+      }
     }
   },
   "repliedCommentIds": [
@@ -28225,6 +28235,6 @@
   },
   "spend": {
     "date": "2026-10-02",
-    "usd": 1.4452228679999997
+    "usd": 1.4629450239999995
   }
 }
