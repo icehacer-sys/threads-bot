@@ -386,7 +386,8 @@
     "18228217171335662": "18102001628139439",
     "18354956167174452": "18102001628139439",
     "18029493626907228": "18102001628139439",
-    "17882002542688971": "18102001628139439"
+    "17882002542688971": "18102001628139439",
+    "18141649567615379": "18102001628139439"
   },
   "ownerReviews": {
     "17937444630360450": "{\"postId\":\"18103023326210157\",\"reason\":\"owner review: personal medical concern\",\"commentText\":\"Little sister of my friend swalloved a coin of 1 fim. At hospital the family was advised to thoroughly keep an eye on her poops. So, the next day they found two 50 penny coins😀.\",\"username\":\"velitapiof\",\"queuedAt\":\"2026-09-10T20:21:59.741Z\",\"resolvedAt\":\"2026-09-10T20:36:02.929Z\",\"resolution\":\"Owner confirmed this is a completed personal story and deleted the inappropriate boundary reply. No clinical review is needed.\"}",
@@ -17384,6 +17385,15 @@
       },
       "publishedId": "18104580170612466",
       "confirmedPublished": true
+    },
+    "comment:18113758996838911": {
+      "creationId": "17891993340614054",
+      "createdAt": "2026-10-03T03:30:59.743Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Nostalgia with a wet cough. The good old days are hard to leave behind.",
+        "reply_to_id": "18113758996838911"
+      }
     }
   },
   "repliedCommentIds": [
@@ -26891,7 +26901,8 @@
     "18216533617358056",
     "18115772161806809",
     "18113909015108915",
-    "18354661858216320"
+    "18354661858216320",
+    "18373615726242859"
   ],
   "answeredPostIds": [
     "18395606890093068"
@@ -27016,11 +27027,11 @@
     "18097639436415272": 99,
     "18133515574657616": 87,
     "18205974196371350": 51,
-    "18102001628139439": 199
+    "18102001628139439": 200
   },
   "daily": {
     "date": "2026-10-02",
-    "count": 201
+    "count": 202
   },
   "pinnedResolved": {
     "DaTTCIwoAw7": "18014812820883466"
@@ -28286,6 +28297,6 @@
   },
   "spend": {
     "date": "2026-10-02",
-    "usd": 1.4662670319999993
+    "usd": 1.4675973519999994
   }
 }
