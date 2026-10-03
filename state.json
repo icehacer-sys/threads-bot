@@ -17451,6 +17451,15 @@
       },
       "publishedId": "18129159022804601",
       "confirmedPublished": true
+    },
+    "comment:18097254659408047": {
+      "creationId": "17892002721614054",
+      "createdAt": "2026-10-03T05:10:06.701Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Then check the sparkle density before you claim it. Whoever lost this one went a lot further than a rhinestone.",
+        "reply_to_id": "18097254659408047"
+      }
     }
   },
   "repliedCommentIds": [
@@ -28361,6 +28370,6 @@
   },
   "spend": {
     "date": "2026-10-02",
-    "usd": 1.4786251119999996
+    "usd": 1.4794603839999996
   }
 }
