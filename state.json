@@ -17255,6 +17255,15 @@
       },
       "publishedId": "18211479877360438",
       "confirmedPublished": true
+    },
+    "comment:18229140241326439": {
+      "creationId": "17891986968614054",
+      "createdAt": "2026-10-03T02:25:49.182Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Hopital and Urchin care is the only referral this case would accept. Broccoli is a new one though so the produce aisle keeps expanding.",
+        "reply_to_id": "18229140241326439"
+      }
     }
   },
   "repliedCommentIds": [
@@ -26751,7 +26760,8 @@
     "17932667937148181",
     "18127517390492249",
     "18095782646413412",
-    "18122035658511256"
+    "18122035658511256",
+    "18132056537498487"
   ],
   "answeredPostIds": [
     "18395606890093068"
@@ -26876,11 +26886,11 @@
     "18097639436415272": 99,
     "18133515574657616": 87,
     "18205974196371350": 51,
-    "18102001628139439": 188
+    "18102001628139439": 189
   },
   "daily": {
     "date": "2026-10-02",
-    "count": 190
+    "count": 191
   },
   "pinnedResolved": {
     "DaTTCIwoAw7": "18014812820883466"
@@ -28144,6 +28154,6 @@
   },
   "spend": {
     "date": "2026-10-02",
-    "usd": 1.4371684919999996
+    "usd": 1.4378578199999996
   }
 }
