@@ -396,7 +396,8 @@
     "17976258840129645": "18102001628139439",
     "18122563667489576": "18102001628139439",
     "18396801790202120": "18102001628139439",
-    "18029819201684453": "18102001628139439"
+    "18029819201684453": "18102001628139439",
+    "18003271842005830": "18102001628139439"
   },
   "ownerReviews": {
     "17937444630360450": "{\"postId\":\"18103023326210157\",\"reason\":\"owner review: personal medical concern\",\"commentText\":\"Little sister of my friend swalloved a coin of 1 fim. At hospital the family was advised to thoroughly keep an eye on her poops. So, the next day they found two 50 penny coins😀.\",\"username\":\"velitapiof\",\"queuedAt\":\"2026-09-10T20:21:59.741Z\",\"resolvedAt\":\"2026-09-10T20:36:02.929Z\",\"resolution\":\"Owner confirmed this is a completed personal story and deleted the inappropriate boundary reply. No clinical review is needed.\"}",
@@ -492,7 +493,9 @@
     "18351009814269810": "{\"postId\":\"18102001628139439\",\"reason\":\"Owner review hold: the image has an unresolved anatomy concern so every diagnosis guess and any reply relying on the image or case findings must be skipped even after the public reveal. No unrelated banter, empathy or boundary wording is available for a bare diagnosis guess.\",\"commentText\":\"Mis alignment in the spine?\",\"username\":\"melanconluke\",\"queuedAt\":\"2026-10-03T02:26:01.533Z\"}",
     "18026253956909472": "{\"postId\":\"18102001628139439\",\"reason\":\"Owner review hold is active: unresolved anatomy concern on this image means every diagnosis discussion, guess evaluation and case-finding reply must be held, even though the answer is public. Held for owner review rather than graded.\",\"commentText\":\"Scarring of the airways of the lung with calcification likely . Could be from excessive oxygen use or other pulmonary disease.\",\"username\":\"patrick85435\",\"queuedAt\":\"2026-10-03T02:26:03.101Z\"}",
     "17973066048157423": "{\"postId\":\"18102001628139439\",\"reason\":\"OWNER REVIEW HOLD is active: the image has an unresolved anatomy concern so every diagnosis guess and every reply relying on the image or its case findings must be skipped even after the reveal. This comment is a clinical diagnosis guess with no eligible non-diagnostic premise to answer.\",\"commentText\":\"Oxalate toxicity.  Ethylene glycol or rhubarb leaves.\",\"username\":\"robertchristophert\",\"queuedAt\":\"2026-10-03T04:39:15.373Z\"}",
-    "18054064577799962": "{\"postId\":\"18102001628139439\",\"reason\":\"Owner review hold: the image carries an unresolved anatomy concern, so every diagnosis guess and any reply leaning on this image or its case findings must be skipped even though the reveal is public. The comment is a guess about what the structures are, so no correction or affirmation can be drafted without relying on the held image.\",\"commentText\":\"I’m guessing those are the kidneys and they are FUBAR\",\"username\":\"72_thebandito\",\"queuedAt\":\"2026-10-03T04:39:17.478Z\"}"
+    "18054064577799962": "{\"postId\":\"18102001628139439\",\"reason\":\"Owner review hold: the image carries an unresolved anatomy concern, so every diagnosis guess and any reply leaning on this image or its case findings must be skipped even though the reveal is public. The comment is a guess about what the structures are, so no correction or affirmation can be drafted without relying on the held image.\",\"commentText\":\"I’m guessing those are the kidneys and they are FUBAR\",\"username\":\"72_thebandito\",\"queuedAt\":\"2026-10-03T04:39:17.478Z\"}",
+    "18091858211472465": "{\"postId\":\"18102001628139439\",\"reason\":\"Owner review hold is active because of an unresolved anatomy concern on this image. Every diagnosis guess and every reply relying on this image or its case findings must be skipped even after the reveal. This comment is a detailed imaging-based diagnosis claim, so it cannot be answered or graded. Additionally the clinical claim (nephrocalcinosis as the sole explanation with medullary sponge kidney) would need owner-level review before any reply, and the comment also asserts image/anatomy details that are under the open concern.\",\"commentText\":\"That dense, fluffy white calcification in both kidney beds is classically taught as extensive nephrocalcinosis in medullary sponge kidney.\\nWhat you are seeing:\\nThe film is an abdominal X-ray. The bright clusters are calcium deposits in the inner part of the kidneys, called the medulla. Medullary sponge kidney is a congenital condition where the collecting ducts are dilated into small cysts.\",\"username\":\"edd56md\",\"queuedAt\":\"2026-10-03T05:10:23.362Z\"}",
+    "17989813185051504": "{\"postId\":\"18102001628139439\",\"reason\":\"Owner review hold is active: the image has an unresolved anatomy concern so every diagnosis discussion and reply relying on this image or its case findings must be skipped, even after the reveal. This comment is a clinical account of the case findings so it falls under the hold. No neutral acknowledgment needed since it is not a complaint from this commenter.\",\"commentText\":\"Those cysts trap calcium and form stones, so the kidneys can look like they are full of snowflakes or bunches of grapes.\",\"username\":\"edd56md\",\"queuedAt\":\"2026-10-03T05:10:25.196Z\"}"
   },
   "concernAcknowledgments": {
     "[\"18121475662898455\",\"berit069\",\"image\"]": "18142096432588199",
@@ -26975,7 +26978,8 @@
     "17910130995310171",
     "18093711269164373",
     "18129813583689285",
-    "18226865917329368"
+    "18226865917329368",
+    "18097254659408047"
   ],
   "answeredPostIds": [
     "18395606890093068"
@@ -27100,11 +27104,11 @@
     "18097639436415272": 99,
     "18133515574657616": 87,
     "18205974196371350": 51,
-    "18102001628139439": 205
+    "18102001628139439": 206
   },
   "daily": {
     "date": "2026-10-02",
-    "count": 207
+    "count": 208
   },
   "pinnedResolved": {
     "DaTTCIwoAw7": "18014812820883466"
@@ -28267,7 +28271,9 @@
     "18351009814269810",
     "18026253956909472",
     "17973066048157423",
-    "18054064577799962"
+    "18054064577799962",
+    "18091858211472465",
+    "17989813185051504"
   ],
   "skipStrikes": {
     "17895266316520842": 1,
@@ -28372,6 +28378,6 @@
   },
   "spend": {
     "date": "2026-10-02",
-    "usd": 1.4794603839999996
+    "usd": 1.4813191719999994
   }
 }
