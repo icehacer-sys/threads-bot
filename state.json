@@ -381,7 +381,8 @@
     "18226653226329159": "18102001628139439",
     "18072307346563365": "18102001628139439",
     "17930188971163215": "18102001628139439",
-    "18109034372596271": "18102001628139439"
+    "18109034372596271": "18102001628139439",
+    "18074492654734936": "18102001628139439"
   },
   "ownerReviews": {
     "17937444630360450": "{\"postId\":\"18103023326210157\",\"reason\":\"owner review: personal medical concern\",\"commentText\":\"Little sister of my friend swalloved a coin of 1 fim. At hospital the family was advised to thoroughly keep an eye on her poops. So, the next day they found two 50 penny coins😀.\",\"username\":\"velitapiof\",\"queuedAt\":\"2026-09-10T20:21:59.741Z\",\"resolvedAt\":\"2026-09-10T20:36:02.929Z\",\"resolution\":\"Owner confirmed this is a completed personal story and deleted the inappropriate boundary reply. No clinical review is needed.\"}",
@@ -17280,6 +17281,15 @@
       },
       "publishedId": "18105252521339006",
       "confirmedPublished": true
+    },
+    "comment:18099483659415889": {
+      "creationId": "17891987001614054",
+      "createdAt": "2026-10-03T02:26:39.009Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "The kidney cases do keep earning that reaction. There is a new one every night if you want to keep looking.",
+        "reply_to_id": "18099483659415889"
+      }
     }
   },
   "repliedCommentIds": [
@@ -26778,7 +26788,8 @@
     "18095782646413412",
     "18122035658511256",
     "18132056537498487",
-    "18229140241326439"
+    "18229140241326439",
+    "17956852512018593"
   ],
   "answeredPostIds": [
     "18395606890093068"
@@ -26903,11 +26914,11 @@
     "18097639436415272": 99,
     "18133515574657616": 87,
     "18205974196371350": 51,
-    "18102001628139439": 190
+    "18102001628139439": 191
   },
   "daily": {
     "date": "2026-10-02",
-    "count": 192
+    "count": 193
   },
   "pinnedResolved": {
     "DaTTCIwoAw7": "18014812820883466"
@@ -28173,6 +28184,6 @@
   },
   "spend": {
     "date": "2026-10-02",
-    "usd": 1.4403500159999996
+    "usd": 1.4419241999999997
   }
 }
