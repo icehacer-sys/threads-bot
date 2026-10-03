@@ -379,7 +379,8 @@
     "17910284406509170": "18102001628139439",
     "17971767387160530": "18102001628139439",
     "18226653226329159": "18102001628139439",
-    "18072307346563365": "18102001628139439"
+    "18072307346563365": "18102001628139439",
+    "17930188971163215": "18102001628139439"
   },
   "ownerReviews": {
     "17937444630360450": "{\"postId\":\"18103023326210157\",\"reason\":\"owner review: personal medical concern\",\"commentText\":\"Little sister of my friend swalloved a coin of 1 fim. At hospital the family was advised to thoroughly keep an eye on her poops. So, the next day they found two 50 penny coins😀.\",\"username\":\"velitapiof\",\"queuedAt\":\"2026-09-10T20:21:59.741Z\",\"resolvedAt\":\"2026-09-10T20:36:02.929Z\",\"resolution\":\"Owner confirmed this is a completed personal story and deleted the inappropriate boundary reply. No clinical review is needed.\"}",
@@ -17243,6 +17244,15 @@
       },
       "publishedId": "18394217410166359",
       "confirmedPublished": true
+    },
+    "comment:18132056537498487": {
+      "creationId": "17891986956614054",
+      "createdAt": "2026-10-03T02:25:32.465Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Someone get the lab on the phone. They will want to see this one.",
+        "reply_to_id": "18132056537498487"
+      }
     }
   },
   "repliedCommentIds": [
@@ -28132,6 +28142,6 @@
   },
   "spend": {
     "date": "2026-10-02",
-    "usd": 1.4359548359999996
+    "usd": 1.4371684919999996
   }
 }
