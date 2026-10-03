@@ -17685,6 +17685,15 @@
       },
       "publishedId": "17934954267392586",
       "confirmedPublished": true
+    },
+    "comment:18356332309173533": {
+      "creationId": "17892106251614054",
+      "createdAt": "2026-10-03T20:06:49.998Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Raynaud's is the symptom rather than this answer. Those deposits are calcinosis cutis in systemic sclerosis.",
+        "reply_to_id": "18356332309173533"
+      }
     }
   },
   "repliedCommentIds": [
@@ -28627,6 +28636,6 @@
   },
   "spend": {
     "date": "2026-10-03",
-    "usd": 0.03207282
+    "usd": 0.033931452
   }
 }
