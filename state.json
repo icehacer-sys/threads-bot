@@ -17520,6 +17520,15 @@
       },
       "publishedId": "17878818438549338",
       "confirmedPublished": true
+    },
+    "comment:18138878821623631": {
+      "creationId": "17892103053614054",
+      "createdAt": "2026-10-03T19:30:50.617Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Not chondrocalcinosis. The calcium here sits as lumps in the soft tissue around the joints which fits calcinosis cutis in systemic sclerosis.",
+        "reply_to_id": "18138878821623631"
+      }
     }
   },
   "repliedCommentIds": [
@@ -28438,6 +28447,6 @@
   },
   "spend": {
     "date": "2026-10-03",
-    "usd": 0.0055382999999999995
+    "usd": 0.006617099999999999
   }
 }
