@@ -17740,6 +17740,15 @@
       },
       "publishedId": "18076229183479943",
       "confirmedPublished": true
+    },
+    "comment:18120655339937116": {
+      "creationId": "17892107031614054",
+      "createdAt": "2026-10-03T20:23:49.846Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Every drawer full and none of it wanted. That hand is about to start naming the piles.",
+        "reply_to_id": "18120655339937116"
+      }
     }
   },
   "repliedCommentIds": [
@@ -28688,6 +28697,6 @@
   },
   "spend": {
     "date": "2026-10-03",
-    "usd": 0.03894871200000002
+    "usd": 0.040399572000000016
   }
 }
