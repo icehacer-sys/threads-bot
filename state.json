@@ -17994,6 +17994,15 @@
       },
       "publishedId": "18634584286009661",
       "confirmedPublished": true
+    },
+    "comment:18030694511851591": {
+      "creationId": "17892115185614054",
+      "createdAt": "2026-10-03T21:46:25.715Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Calcinosis cutis plus the Raynaud's is exactly the pairing. The underlying scleroderma is the teaching answer.",
+        "reply_to_id": "18030694511851591"
+      }
     }
   },
   "repliedCommentIds": [
@@ -28974,6 +28983,6 @@
   },
   "spend": {
     "date": "2026-10-03",
-    "usd": 0.077020176
+    "usd": 0.077711112
   }
 }
