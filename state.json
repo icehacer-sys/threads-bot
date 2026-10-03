@@ -17828,6 +17828,15 @@
       },
       "publishedId": "17975225316132194",
       "confirmedPublished": true
+    },
+    "comment:18112875746139379": {
+      "creationId": "17892108258614054",
+      "createdAt": "2026-10-03T20:39:49.085Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Raynaud's is the one with a name here. Those clumps of calcium in the soft tissue are calcinosis cutis in systemic sclerosis.",
+        "reply_to_id": "18112875746139379"
+      }
     }
   },
   "repliedCommentIds": [
@@ -28785,6 +28794,6 @@
   },
   "spend": {
     "date": "2026-10-03",
-    "usd": 0.04838452800000002
+    "usd": 0.05022980400000002
   }
 }
