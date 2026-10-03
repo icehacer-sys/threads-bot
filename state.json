@@ -390,7 +390,9 @@
     "18141649567615379": "18102001628139439",
     "18126634720879183": "18102001628139439",
     "18118485082986619": "18102001628139439",
-    "18471008866136694": "18102001628139439"
+    "18471008866136694": "18102001628139439",
+    "18150937738533866": "18102001628139439",
+    "18104307692576075": "18102001628139439"
   },
   "ownerReviews": {
     "17937444630360450": "{\"postId\":\"18103023326210157\",\"reason\":\"owner review: personal medical concern\",\"commentText\":\"Little sister of my friend swalloved a coin of 1 fim. At hospital the family was advised to thoroughly keep an eye on her poops. So, the next day they found two 50 penny coins😀.\",\"username\":\"velitapiof\",\"queuedAt\":\"2026-09-10T20:21:59.741Z\",\"resolvedAt\":\"2026-09-10T20:36:02.929Z\",\"resolution\":\"Owner confirmed this is a completed personal story and deleted the inappropriate boundary reply. No clinical review is needed.\"}",
@@ -17421,6 +17423,15 @@
       },
       "publishedId": "18174672001447220",
       "confirmedPublished": true
+    },
+    "comment:18129813583689285": {
+      "creationId": "17891996418614054",
+      "createdAt": "2026-10-03T04:03:02.243Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Loosely packed is the official term. Nothing in there is bolted down.",
+        "reply_to_id": "18129813583689285"
+      }
     }
   },
   "repliedCommentIds": [
@@ -26931,7 +26942,8 @@
     "18354661858216320",
     "18373615726242859",
     "18113758996838911",
-    "17910130995310171"
+    "17910130995310171",
+    "18093711269164373"
   ],
   "answeredPostIds": [
     "18395606890093068"
@@ -27056,11 +27068,11 @@
     "18097639436415272": 99,
     "18133515574657616": 87,
     "18205974196371350": 51,
-    "18102001628139439": 202
+    "18102001628139439": 203
   },
   "daily": {
     "date": "2026-10-02",
-    "count": 204
+    "count": 205
   },
   "pinnedResolved": {
     "DaTTCIwoAw7": "18014812820883466"
@@ -28326,6 +28338,6 @@
   },
   "spend": {
     "date": "2026-10-02",
-    "usd": 1.4722437519999994
+    "usd": 1.4743422999999993
   }
 }
