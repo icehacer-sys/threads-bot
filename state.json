@@ -366,7 +366,8 @@
     "18013973852959987": "18102001628139439",
     "18120829924982579": "18102001628139439",
     "17894043333681398": "18102001628139439",
-    "18109717301336753": "18102001628139439"
+    "18109717301336753": "18102001628139439",
+    "17989345983029364": "18102001628139439"
   },
   "ownerReviews": {
     "17937444630360450": "{\"postId\":\"18103023326210157\",\"reason\":\"owner review: personal medical concern\",\"commentText\":\"Little sister of my friend swalloved a coin of 1 fim. At hospital the family was advised to thoroughly keep an eye on her poops. So, the next day they found two 50 penny coins😀.\",\"username\":\"velitapiof\",\"queuedAt\":\"2026-09-10T20:21:59.741Z\",\"resolvedAt\":\"2026-09-10T20:36:02.929Z\",\"resolution\":\"Owner confirmed this is a completed personal story and deleted the inappropriate boundary reply. No clinical review is needed.\"}",
@@ -17085,6 +17086,15 @@
       },
       "publishedId": "18047900483630004",
       "confirmedPublished": true
+    },
+    "comment:18431253586178332": {
+      "creationId": "17891974851614054",
+      "createdAt": "2026-10-03T00:18:03.000Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "A bold read of the film and a fair one for a case about night trips.",
+        "reply_to_id": "18431253586178332"
+      }
     }
   },
   "repliedCommentIds": [
@@ -26567,7 +26577,8 @@
     "18146604655498485",
     "18022037270712668",
     "18131225422739401",
-    "17968078869191031"
+    "17968078869191031",
+    "18158594860502728"
   ],
   "answeredPostIds": [
     "18395606890093068"
@@ -26692,11 +26703,11 @@
     "18097639436415272": 99,
     "18133515574657616": 87,
     "18205974196371350": 51,
-    "18102001628139439": 175
+    "18102001628139439": 176
   },
   "daily": {
     "date": "2026-10-02",
-    "count": 176
+    "count": 177
   },
   "pinnedResolved": {
     "DaTTCIwoAw7": "18014812820883466"
@@ -27958,6 +27969,6 @@
   },
   "spend": {
     "date": "2026-10-02",
-    "usd": 1.3633713480000003
+    "usd": 1.3643548440000002
   }
 }
