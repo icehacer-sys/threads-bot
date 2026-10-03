@@ -17071,7 +17071,9 @@
         "media_type": "TEXT",
         "text": "Admitted for observation. Visiting hours are whenever the stones let you sleep.",
         "reply_to_id": "17968078869191031"
-      }
+      },
+      "publishedId": "17862664743694021",
+      "confirmedPublished": true
     }
   },
   "repliedCommentIds": [
