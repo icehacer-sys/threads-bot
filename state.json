@@ -17784,6 +17784,15 @@
       },
       "publishedId": "18124495258680664",
       "confirmedPublished": true
+    },
+    "comment:17902186455598575": {
+      "creationId": "17892107271614054",
+      "createdAt": "2026-10-03T20:25:10.596Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "That clamping is a good description of it. What the X-ray adds is separate: calcium deposits sitting in the soft tissue around the joints which is the calcinosis of systemic sclerosis.",
+        "reply_to_id": "17902186455598575"
+      }
     }
   },
   "repliedCommentIds": [
@@ -27324,7 +27333,8 @@
     "18137838322713806",
     "18120655339937116",
     "17968498503168983",
-    "18132414907674442"
+    "18132414907674442",
+    "17911682031539467"
   ],
   "answeredPostIds": [
     "18395606890093068"
@@ -27450,11 +27460,11 @@
     "18133515574657616": 87,
     "18205974196371350": 51,
     "18102001628139439": 209,
-    "17919320862444697": 23
+    "17919320862444697": 24
   },
   "daily": {
     "date": "2026-10-03",
-    "count": 23
+    "count": 24
   },
   "pinnedResolved": {
     "DaTTCIwoAw7": "18014812820883466"
@@ -28735,6 +28745,6 @@
   },
   "spend": {
     "date": "2026-10-03",
-    "usd": 0.04259436000000001
+    "usd": 0.044944956000000015
   }
 }
