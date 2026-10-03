@@ -385,7 +385,8 @@
     "18074492654734936": "18102001628139439",
     "18228217171335662": "18102001628139439",
     "18354956167174452": "18102001628139439",
-    "18029493626907228": "18102001628139439"
+    "18029493626907228": "18102001628139439",
+    "17882002542688971": "18102001628139439"
   },
   "ownerReviews": {
     "17937444630360450": "{\"postId\":\"18103023326210157\",\"reason\":\"owner review: personal medical concern\",\"commentText\":\"Little sister of my friend swalloved a coin of 1 fim. At hospital the family was advised to thoroughly keep an eye on her poops. So, the next day they found two 50 penny coins😀.\",\"username\":\"velitapiof\",\"queuedAt\":\"2026-09-10T20:21:59.741Z\",\"resolvedAt\":\"2026-09-10T20:36:02.929Z\",\"resolution\":\"Owner confirmed this is a completed personal story and deleted the inappropriate boundary reply. No clinical review is needed.\"}",
@@ -17339,6 +17340,15 @@
       },
       "publishedId": "17961098172214877",
       "confirmedPublished": true
+    },
+    "comment:18115772161806809": {
+      "creationId": "17891990583614054",
+      "createdAt": "2026-10-03T02:59:07.212Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "The film does have that effect on people. The object itself keeps a cleaner reputation.",
+        "reply_to_id": "18115772161806809"
+      }
     }
   },
   "repliedCommentIds": [
@@ -26842,7 +26852,8 @@
     "18099483659415889",
     "18338842822274503",
     "18114512825088381",
-    "18412571833088123"
+    "18412571833088123",
+    "18216533617358056"
   ],
   "answeredPostIds": [
     "18395606890093068"
@@ -26967,11 +26978,11 @@
     "18097639436415272": 99,
     "18133515574657616": 87,
     "18205974196371350": 51,
-    "18102001628139439": 195
+    "18102001628139439": 196
   },
   "daily": {
     "date": "2026-10-02",
-    "count": 197
+    "count": 198
   },
   "pinnedResolved": {
     "DaTTCIwoAw7": "18014812820883466"
@@ -28237,6 +28248,6 @@
   },
   "spend": {
     "date": "2026-10-02",
-    "usd": 1.4629450239999995
+    "usd": 1.4639558199999994
   }
 }
