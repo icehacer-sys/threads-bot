@@ -17586,6 +17586,15 @@
       },
       "publishedId": "18411505189081650",
       "confirmedPublished": true
+    },
+    "comment:18637650190003364": {
+      "creationId": "17892103839614054",
+      "createdAt": "2026-10-03T19:33:04.217Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Raynaud's fits the white fingers but gout does not. This is calcinosis cutis in systemic sclerosis where the calcium sits as soft tissue lumps.",
+        "reply_to_id": "18637650190003364"
+      }
     }
   },
   "repliedCommentIds": [
@@ -27108,7 +27117,8 @@
     "18134665432656912",
     "18134449297647583",
     "18096783035656408",
-    "18151174129546752"
+    "18151174129546752",
+    "18130338400771399"
   ],
   "answeredPostIds": [
     "18395606890093068"
@@ -27234,11 +27244,11 @@
     "18133515574657616": 87,
     "18205974196371350": 51,
     "18102001628139439": 209,
-    "17919320862444697": 5
+    "17919320862444697": 6
   },
   "daily": {
     "date": "2026-10-03",
-    "count": 5
+    "count": 6
   },
   "pinnedResolved": {
     "DaTTCIwoAw7": "18014812820883466"
@@ -28512,6 +28522,6 @@
   },
   "spend": {
     "date": "2026-10-03",
-    "usd": 0.014162195999999997
+    "usd": 0.016066883999999997
   }
 }
