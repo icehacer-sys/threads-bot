@@ -18193,6 +18193,15 @@
       },
       "publishedId": "17987137737063387",
       "confirmedPublished": true
+    },
+    "comment:18116311231800717": {
+      "creationId": "17892123120614054",
+      "createdAt": "2026-10-03T23:38:31.914Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Not pseudogout here. These deposits are calcium in the skin and soft tissue which is calcinosis cutis in systemic sclerosis.",
+        "reply_to_id": "18116311231800717"
+      }
     }
   },
   "repliedCommentIds": [
@@ -27770,7 +27779,8 @@
     "18284880565288642",
     "18109549238182500",
     "18488053894128350",
-    "18039999173828359"
+    "18039999173828359",
+    "17947195890067118"
   ],
   "answeredPostIds": [
     "18395606890093068"
@@ -27896,11 +27906,11 @@
     "18133515574657616": 87,
     "18205974196371350": 51,
     "18102001628139439": 209,
-    "17919320862444697": 60
+    "17919320862444697": 61
   },
   "daily": {
     "date": "2026-10-03",
-    "count": 60
+    "count": 61
   },
   "pinnedResolved": {
     "DaTTCIwoAw7": "18014812820883466"
@@ -29197,6 +29207,6 @@
   },
   "spend": {
     "date": "2026-10-03",
-    "usd": 0.09684343199999998
+    "usd": 0.09884039999999998
   }
 }
