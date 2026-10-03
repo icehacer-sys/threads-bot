@@ -17407,7 +17407,9 @@
         "media_type": "TEXT",
         "text": "George only does house calls if the bottle is still half full. Bring the bottle.",
         "reply_to_id": "17910130995310171"
-      }
+      },
+      "publishedId": "18106729607351397",
+      "confirmedPublished": true
     }
   },
   "repliedCommentIds": [
