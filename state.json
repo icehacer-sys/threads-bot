@@ -387,7 +387,10 @@
     "18354956167174452": "18102001628139439",
     "18029493626907228": "18102001628139439",
     "17882002542688971": "18102001628139439",
-    "18141649567615379": "18102001628139439"
+    "18141649567615379": "18102001628139439",
+    "18126634720879183": "18102001628139439",
+    "18118485082986619": "18102001628139439",
+    "18471008866136694": "18102001628139439"
   },
   "ownerReviews": {
     "17937444630360450": "{\"postId\":\"18103023326210157\",\"reason\":\"owner review: personal medical concern\",\"commentText\":\"Little sister of my friend swalloved a coin of 1 fim. At hospital the family was advised to thoroughly keep an eye on her poops. So, the next day they found two 50 penny coins😀.\",\"username\":\"velitapiof\",\"queuedAt\":\"2026-09-10T20:21:59.741Z\",\"resolvedAt\":\"2026-09-10T20:36:02.929Z\",\"resolution\":\"Owner confirmed this is a completed personal story and deleted the inappropriate boundary reply. No clinical review is needed.\"}",
@@ -17396,6 +17399,15 @@
       },
       "publishedId": "17953740309036806",
       "confirmedPublished": true
+    },
+    "comment:17910130995310171": {
+      "creationId": "17891995974614054",
+      "createdAt": "2026-10-03T04:02:22.632Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "George only does house calls if the bottle is still half full. Bring the bottle.",
+        "reply_to_id": "17910130995310171"
+      }
     }
   },
   "repliedCommentIds": [
@@ -28300,6 +28312,6 @@
   },
   "spend": {
     "date": "2026-10-02",
-    "usd": 1.4675973519999994
+    "usd": 1.4716039239999994
   }
 }
