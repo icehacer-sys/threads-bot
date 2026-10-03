@@ -517,7 +517,8 @@
     "18091858211472465": "{\"postId\":\"18102001628139439\",\"reason\":\"Owner review hold is active because of an unresolved anatomy concern on this image. Every diagnosis guess and every reply relying on this image or its case findings must be skipped even after the reveal. This comment is a detailed imaging-based diagnosis claim, so it cannot be answered or graded. Additionally the clinical claim (nephrocalcinosis as the sole explanation with medullary sponge kidney) would need owner-level review before any reply, and the comment also asserts image/anatomy details that are under the open concern.\",\"commentText\":\"That dense, fluffy white calcification in both kidney beds is classically taught as extensive nephrocalcinosis in medullary sponge kidney.\\nWhat you are seeing:\\nThe film is an abdominal X-ray. The bright clusters are calcium deposits in the inner part of the kidneys, called the medulla. Medullary sponge kidney is a congenital condition where the collecting ducts are dilated into small cysts.\",\"username\":\"edd56md\",\"queuedAt\":\"2026-10-03T05:10:23.362Z\"}",
     "17989813185051504": "{\"postId\":\"18102001628139439\",\"reason\":\"Owner review hold is active: the image has an unresolved anatomy concern so every diagnosis discussion and reply relying on this image or its case findings must be skipped, even after the reveal. This comment is a clinical account of the case findings so it falls under the hold. No neutral acknowledgment needed since it is not a complaint from this commenter.\",\"commentText\":\"Those cysts trap calcium and form stones, so the kidneys can look like they are full of snowflakes or bunches of grapes.\",\"username\":\"edd56md\",\"queuedAt\":\"2026-10-03T05:10:25.196Z\"}",
     "18087713615694677": "{\"postId\":\"18102001628139439\",\"reason\":\"OWNER REVIEW HOLD active: unresolved image/anatomy concern on this case. Diagnosis guesses and any reply relying on the image or case findings must be skipped even after reveal. This comment is a diagnosis guess (FOS plus kidney stones) so no eligible reply remains. Owner review: image/anatomy inconsistency.\",\"commentText\":\"FOS along with a forecast of kidney snow.\",\"username\":\"weesyanne\",\"queuedAt\":\"2026-10-03T06:12:28.111Z\"}",
-    "18094826483398786": "{\"postId\":\"18102001628139439\",\"reason\":\"Owner review hold: comment questions the kidney position on the image. The image has an unresolved anatomy concern so no reply relying on the image or case findings is allowed. Skip for owner review: image/anatomy inconsistency.\",\"commentText\":\"Um .... what the kidneys doing up there ???\",\"username\":\"a_robins.nest\",\"queuedAt\":\"2026-10-03T06:43:50.052Z\"}"
+    "18094826483398786": "{\"postId\":\"18102001628139439\",\"reason\":\"Owner review hold: comment questions the kidney position on the image. The image has an unresolved anatomy concern so no reply relying on the image or case findings is allowed. Skip for owner review: image/anatomy inconsistency.\",\"commentText\":\"Um .... what the kidneys doing up there ???\",\"username\":\"a_robins.nest\",\"queuedAt\":\"2026-10-03T06:43:50.052Z\"}",
+    "17950232409051566": "{\"postId\":\"17919320862444697\",\"reason\":\"owner review: unsupported patient history, confirmation, specifics (year) or dismissal of an accepted differential | guard:forced-skip\",\"commentText\":\"Patient drank too much milk. Developed crunchy finger disease.\",\"username\":\"nora.becker.art\",\"queuedAt\":\"2026-10-03T21:30:43.916Z\"}"
   },
   "concernAcknowledgments": {
     "[\"18121475662898455\",\"berit069\",\"image\"]": "18142096432588199",
@@ -17982,6 +17983,15 @@
       },
       "publishedId": "18114880223107727",
       "confirmedPublished": true
+    },
+    "comment:18577876702068785": {
+      "creationId": "17892113277614054",
+      "createdAt": "2026-10-03T21:30:59.834Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Carpentry in the cold is a trade with a very specific job hazard. Slow wins again.",
+        "reply_to_id": "18577876702068785"
+      }
     }
   },
   "repliedCommentIds": [
@@ -27540,7 +27550,8 @@
     "18075035291735266",
     "18107620427352696",
     "18103122653260925",
-    "18128041300691939"
+    "18128041300691939",
+    "18116911255998652"
   ],
   "answeredPostIds": [
     "18395606890093068"
@@ -27666,11 +27677,11 @@
     "18133515574657616": 87,
     "18205974196371350": 51,
     "18102001628139439": 209,
-    "17919320862444697": 41
+    "17919320862444697": 42
   },
   "daily": {
     "date": "2026-10-03",
-    "count": 41
+    "count": 42
   },
   "pinnedResolved": {
     "DaTTCIwoAw7": "18014812820883466"
@@ -28853,7 +28864,9 @@
     "18107497021916561",
     "18107427470600300",
     "18489471949109244",
-    "17890060353458775"
+    "17890060353458775",
+    "17950232409051566",
+    "18117655114879645"
   ],
   "skipStrikes": {
     "17895266316520842": 1,
@@ -28958,6 +28971,6 @@
   },
   "spend": {
     "date": "2026-10-03",
-    "usd": 0.073277244
+    "usd": 0.077020176
   }
 }
