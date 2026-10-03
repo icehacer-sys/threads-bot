@@ -17905,6 +17905,15 @@
       },
       "publishedId": "18112615837850152",
       "confirmedPublished": true
+    },
+    "comment:18183182275425200": {
+      "creationId": "17892109578614054",
+      "createdAt": "2026-10-03T20:57:30.948Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Tophi need gout and these deposits belong to a different diagnosis: calcinosis cutis in systemic sclerosis.",
+        "reply_to_id": "18183182275425200"
+      }
     }
   },
   "repliedCommentIds": [
@@ -28870,6 +28879,6 @@
   },
   "spend": {
     "date": "2026-10-03",
-    "usd": 0.056878692000000015
+    "usd": 0.05879653200000001
   }
 }
