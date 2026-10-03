@@ -17872,6 +17872,15 @@
       },
       "publishedId": "18116219480325512",
       "confirmedPublished": true
+    },
+    "comment:18418715617158761": {
+      "creationId": "17892108345614054",
+      "createdAt": "2026-10-03T20:41:17.071Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Osteoarthritis is not the answer here. Those lumps are calcium in the skin and soft tissue which is calcinosis cutis in systemic sclerosis and care is led by rheumatology targeting the underlying condition.",
+        "reply_to_id": "18418715617158761"
+      }
     }
   },
   "repliedCommentIds": [
@@ -27420,7 +27429,8 @@
     "18124975100478733",
     "18112875746139379",
     "18118305664980675",
-    "18447955828125688"
+    "18447955828125688",
+    "18113541449130929"
   ],
   "answeredPostIds": [
     "18395606890093068"
@@ -27546,11 +27556,11 @@
     "18133515574657616": 87,
     "18205974196371350": 51,
     "18102001628139439": 209,
-    "17919320862444697": 31
+    "17919320862444697": 32
   },
   "daily": {
     "date": "2026-10-03",
-    "count": 31
+    "count": 32
   },
   "pinnedResolved": {
     "DaTTCIwoAw7": "18014812820883466"
@@ -28833,6 +28843,6 @@
   },
   "spend": {
     "date": "2026-10-03",
-    "usd": 0.053631216000000016
+    "usd": 0.05520100800000002
   }
 }
