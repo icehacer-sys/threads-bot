@@ -17861,6 +17861,15 @@
       },
       "publishedId": "18050178578807790",
       "confirmedPublished": true
+    },
+    "comment:18113541449130929": {
+      "creationId": "17892108324614054",
+      "createdAt": "2026-10-03T20:40:53.079Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "That is the mnemonic doing its full tour. One caution on 'joints spared' though: the same source lists joint erosions and periarticular osteoporosis as hand findings here so spare is doing more work than it should.",
+        "reply_to_id": "18113541449130929"
+      }
     }
   },
   "repliedCommentIds": [
@@ -27408,7 +27417,8 @@
     "18108434779905113",
     "18124975100478733",
     "18112875746139379",
-    "18118305664980675"
+    "18118305664980675",
+    "18447955828125688"
   ],
   "answeredPostIds": [
     "18395606890093068"
@@ -27534,11 +27544,11 @@
     "18133515574657616": 87,
     "18205974196371350": 51,
     "18102001628139439": 209,
-    "17919320862444697": 30
+    "17919320862444697": 31
   },
   "daily": {
     "date": "2026-10-03",
-    "count": 30
+    "count": 31
   },
   "pinnedResolved": {
     "DaTTCIwoAw7": "18014812820883466"
@@ -28715,7 +28725,8 @@
     "17956546815255271",
     "17949111582295646",
     "18098666555412814",
-    "18113205332281198"
+    "18113205332281198",
+    "18485461255129646"
   ],
   "skipStrikes": {
     "17895266316520842": 1,
@@ -28820,6 +28831,6 @@
   },
   "spend": {
     "date": "2026-10-03",
-    "usd": 0.05131174800000002
+    "usd": 0.053631216000000016
   }
 }
