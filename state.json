@@ -17199,6 +17199,15 @@
       },
       "publishedId": "18151759909572022",
       "confirmedPublished": true
+    },
+    "comment:17932667937148181": {
+      "creationId": "17891981337614054",
+      "createdAt": "2026-10-03T01:22:52.045Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "That last part is what keeps me posting. The body survives things that should not be survivable and then just quietly carries on.",
+        "reply_to_id": "17932667937148181"
+      }
     }
   },
   "repliedCommentIds": [
@@ -26690,7 +26699,8 @@
     "17880941829627529",
     "18138018250541322",
     "18144152950573997",
-    "18115674356520797"
+    "18115674356520797",
+    "18102268124021819"
   ],
   "answeredPostIds": [
     "18395606890093068"
@@ -26815,11 +26825,11 @@
     "18097639436415272": 99,
     "18133515574657616": 87,
     "18205974196371350": 51,
-    "18102001628139439": 184
+    "18102001628139439": 185
   },
   "daily": {
     "date": "2026-10-02",
-    "count": 185
+    "count": 186
   },
   "pinnedResolved": {
     "DaTTCIwoAw7": "18014812820883466"
@@ -28083,6 +28093,6 @@
   },
   "spend": {
     "date": "2026-10-02",
-    "usd": 1.3782408599999998
+    "usd": 1.4339094239999997
   }
 }
