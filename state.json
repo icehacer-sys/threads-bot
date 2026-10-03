@@ -372,7 +372,9 @@
     "18014364965955856": "18102001628139439",
     "18110162615237031": "18102001628139439",
     "18099189344454713": "18102001628139439",
-    "18110993153468675": "18102001628139439"
+    "18110993153468675": "18102001628139439",
+    "18107603042628108": "18102001628139439",
+    "18145055029498892": "18102001628139439"
   },
   "ownerReviews": {
     "17937444630360450": "{\"postId\":\"18103023326210157\",\"reason\":\"owner review: personal medical concern\",\"commentText\":\"Little sister of my friend swalloved a coin of 1 fim. At hospital the family was advised to thoroughly keep an eye on her poops. So, the next day they found two 50 penny coins😀.\",\"username\":\"velitapiof\",\"queuedAt\":\"2026-09-10T20:21:59.741Z\",\"resolvedAt\":\"2026-09-10T20:36:02.929Z\",\"resolution\":\"Owner confirmed this is a completed personal story and deleted the inappropriate boundary reply. No clinical review is needed.\"}",
@@ -17136,6 +17138,15 @@
       },
       "publishedId": "18141463435715115",
       "confirmedPublished": true
+    },
+    "comment:17880941829627529": {
+      "creationId": "17891981238614054",
+      "createdAt": "2026-10-03T01:21:08.362Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "A plumbing problem with a moving target. That sounds like a long and rough stretch to get through.",
+        "reply_to_id": "17880941829627529"
+      }
     }
   },
   "repliedCommentIds": [
@@ -28015,6 +28026,6 @@
   },
   "spend": {
     "date": "2026-10-02",
-    "usd": 1.3697828520000002
+    "usd": 1.371356916
   }
 }
