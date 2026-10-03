@@ -374,7 +374,8 @@
     "18099189344454713": "18102001628139439",
     "18110993153468675": "18102001628139439",
     "18107603042628108": "18102001628139439",
-    "18145055029498892": "18102001628139439"
+    "18145055029498892": "18102001628139439",
+    "18176711743444664": "18102001628139439"
   },
   "ownerReviews": {
     "17937444630360450": "{\"postId\":\"18103023326210157\",\"reason\":\"owner review: personal medical concern\",\"commentText\":\"Little sister of my friend swalloved a coin of 1 fim. At hospital the family was advised to thoroughly keep an eye on her poops. So, the next day they found two 50 penny coins😀.\",\"username\":\"velitapiof\",\"queuedAt\":\"2026-09-10T20:21:59.741Z\",\"resolvedAt\":\"2026-09-10T20:36:02.929Z\",\"resolution\":\"Owner confirmed this is a completed personal story and deleted the inappropriate boundary reply. No clinical review is needed.\"}",
@@ -465,7 +466,8 @@
     "18092665382671504": "{\"postId\":\"18102001628139439\",\"reason\":\"Owner review hold on this image for an unresolved anatomy concern. Even after reveal the hold covers every diagnosis guess and any reply relying on the image or case findings, so no affirm, correction or explanation can be drafted here. Skipping rather than gauging how off the kidney appearance is.\",\"commentText\":\"Idk, but I don’t think the kidneys are supposed to look like that\",\"username\":\"josh_solinger\",\"queuedAt\":\"2026-10-02T23:43:29.158Z\"}",
     "18133565188760776": "{\"postId\":\"18102001628139439\",\"reason\":\"Owner review hold: unresolved anatomy concern on this image, so every diagnosis guess and any reply leaning on this image or its findings must be skipped even after the reveal.\",\"commentText\":\"Scoliosis\",\"username\":\"dobay808\",\"queuedAt\":\"2026-10-02T23:43:32.718Z\"}",
     "18115784266817313": "{\"postId\":\"18102001628139439\",\"reason\":\"Owner review hold: unresolved image/anatomy concern on this case. Diagnosis guesses and any reply relying on the image or case findings must be skipped. Comment is a two-word diagnosis guess so no unrelated banter or empathy hook exists.\",\"commentText\":\"Kidney freeze\",\"username\":\"8loodlvst\",\"queuedAt\":\"2026-10-02T23:44:32.768Z\"}",
-    "18074338781730701": "{\"postId\":\"18102001628139439\",\"reason\":\"Owner review hold: the image has an unresolved anatomy concern so every diagnosis guess and every reply relying on the image or the case findings is skipped even after the reveal. This comment is a diagnosis guess, so no reply and no grading.\",\"commentText\":\"Scoliosis and a shit ton of kidney stones\",\"username\":\"maraxon\",\"queuedAt\":\"2026-10-03T00:49:14.739Z\"}"
+    "18074338781730701": "{\"postId\":\"18102001628139439\",\"reason\":\"Owner review hold: the image has an unresolved anatomy concern so every diagnosis guess and every reply relying on the image or the case findings is skipped even after the reveal. This comment is a diagnosis guess, so no reply and no grading.\",\"commentText\":\"Scoliosis and a shit ton of kidney stones\",\"username\":\"maraxon\",\"queuedAt\":\"2026-10-03T00:49:14.739Z\"}",
+    "17875758135573337": "{\"postId\":\"18102001628139439\",\"reason\":\"Owner review hold: the image has an unresolved anatomy concern, so every diagnosis guess and every reply relying on this image or its case findings is skipped even after the reveal. The comment's questions about calcium and kidney failure depend on those case findings, so the boundary wording and unrelated banter are the only eligible outputs and this comment cannot be answered without the held material.\",\"commentText\":\"So constipation blues fosted flake kidneys?? I pray to never ever be that sick. Why so much calcium? Did kidney fail?\",\"username\":\"sgrplmfarey\",\"queuedAt\":\"2026-10-03T01:21:25.757Z\"}"
   },
   "concernAcknowledgments": {
     "[\"18121475662898455\",\"berit069\",\"image\"]": "18142096432588199",
@@ -17149,6 +17151,15 @@
       },
       "publishedId": "18096402905418272",
       "confirmedPublished": true
+    },
+    "comment:18138018250541322": {
+      "creationId": "17891981250614054",
+      "createdAt": "2026-10-03T01:21:31.338Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "The complete spa package then. Somewhere in there is an actual X-ray waiting for its turn.",
+        "reply_to_id": "18138018250541322"
+      }
     }
   },
   "repliedCommentIds": [
@@ -26636,7 +26647,8 @@
     "18431253586178332",
     "18623228170026634",
     "17887870230475622",
-    "18178990930431242"
+    "18178990930431242",
+    "17880941829627529"
   ],
   "answeredPostIds": [
     "18395606890093068"
@@ -26761,11 +26773,11 @@
     "18097639436415272": 99,
     "18133515574657616": 87,
     "18205974196371350": 51,
-    "18102001628139439": 180
+    "18102001628139439": 181
   },
   "daily": {
     "date": "2026-10-02",
-    "count": 181
+    "count": 182
   },
   "pinnedResolved": {
     "DaTTCIwoAw7": "18014812820883466"
@@ -27923,7 +27935,8 @@
     "18115784266817313",
     "18096062192324872",
     "17950262562051004",
-    "18074338781730701"
+    "18074338781730701",
+    "17875758135573337"
   ],
   "skipStrikes": {
     "17895266316520842": 1,
@@ -28028,6 +28041,6 @@
   },
   "spend": {
     "date": "2026-10-02",
-    "usd": 1.371356916
+    "usd": 1.3737597
   }
 }
