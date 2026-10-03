@@ -17373,6 +17373,15 @@
       },
       "publishedId": "18121743016724739",
       "confirmedPublished": true
+    },
+    "comment:18373615726242859": {
+      "creationId": "17891993322614054",
+      "createdAt": "2026-10-03T03:30:40.989Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Two votes for the same theory then. The film is still keeping its own counsel on that one.",
+        "reply_to_id": "18373615726242859"
+      }
     }
   },
   "repliedCommentIds": [
@@ -28275,6 +28284,6 @@
   },
   "spend": {
     "date": "2026-10-02",
-    "usd": 1.4655951039999993
+    "usd": 1.4662670319999993
   }
 }
