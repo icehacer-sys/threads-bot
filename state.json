@@ -397,7 +397,10 @@
     "18122563667489576": "18102001628139439",
     "18396801790202120": "18102001628139439",
     "18029819201684453": "18102001628139439",
-    "18003271842005830": "18102001628139439"
+    "18003271842005830": "18102001628139439",
+    "18356905165173442": "18102001628139439",
+    "18104356253130656": "18102001628139439",
+    "18068836220774842": "18102001628139439"
   },
   "ownerReviews": {
     "17937444630360450": "{\"postId\":\"18103023326210157\",\"reason\":\"owner review: personal medical concern\",\"commentText\":\"Little sister of my friend swalloved a coin of 1 fim. At hospital the family was advised to thoroughly keep an eye on her poops. So, the next day they found two 50 penny coins😀.\",\"username\":\"velitapiof\",\"queuedAt\":\"2026-09-10T20:21:59.741Z\",\"resolvedAt\":\"2026-09-10T20:36:02.929Z\",\"resolution\":\"Owner confirmed this is a completed personal story and deleted the inappropriate boundary reply. No clinical review is needed.\"}",
@@ -17465,6 +17468,15 @@
       },
       "publishedId": "18098659673563282",
       "confirmedPublished": true
+    },
+    "comment:18142637398563075": {
+      "creationId": "17892005595614054",
+      "createdAt": "2026-10-03T05:41:42.296Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "One word and no ultrasound to back it up. That is commitment.",
+        "reply_to_id": "18142637398563075"
+      }
     }
   },
   "repliedCommentIds": [
@@ -28378,6 +28390,6 @@
   },
   "spend": {
     "date": "2026-10-02",
-    "usd": 1.4813191719999994
+    "usd": 1.4844416919999992
   }
 }
