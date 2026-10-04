@@ -18783,6 +18783,15 @@
       },
       "publishedId": "18337916290277117",
       "confirmedPublished": true
+    },
+    "comment:17990485035099007": {
+      "creationId": "17892252309614054",
+      "createdAt": "2026-10-04T19:31:17.967Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Not the answer here. The teaching label is hydropneumothorax: air and fluid sharing the pleural space with a flat fluid line.",
+        "reply_to_id": "17990485035099007"
+      }
     }
   },
   "repliedCommentIds": [
@@ -29744,7 +29753,10 @@
     "18101207801531041",
     "18108021428266456",
     "17959237440211711",
-    "18092358305183899"
+    "18092358305183899",
+    "18193897351398884",
+    "18117927992058846",
+    "18100131419377300"
   ],
   "skipStrikes": {
     "17895266316520842": 1,
@@ -29849,6 +29861,6 @@
   },
   "spend": {
     "date": "2026-10-04",
-    "usd": 0.0032372639999999997
+    "usd": 0.006916116
   }
 }
