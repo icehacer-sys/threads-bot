@@ -18611,6 +18611,15 @@
       },
       "publishedId": "18122473106313938",
       "confirmedPublished": true
+    },
+    "comment:18151157977533452": {
+      "creationId": "17892146241614054",
+      "createdAt": "2026-10-04T03:46:13.219Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Cold hands were the whole opening symptom so a chill is weirdly on theme here.",
+        "reply_to_id": "18151157977533452"
+      }
     }
   },
   "repliedCommentIds": [
@@ -29661,6 +29670,6 @@
   },
   "spend": {
     "date": "2026-10-03",
-    "usd": 0.14058335999999996
+    "usd": 0.14125299599999996
   }
 }
