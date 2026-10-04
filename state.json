@@ -19396,7 +19396,9 @@
         "media_type": "TEXT",
         "text": "Drainage is the usual move here. The case does not record whether this patient actually got one.",
         "reply_to_id": "18151852510528335"
-      }
+      },
+      "publishedId": "17926985619422567",
+      "confirmedPublished": true
     }
   },
   "repliedCommentIds": [
