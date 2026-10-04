@@ -19355,6 +19355,15 @@
       },
       "publishedId": "18030848489886931",
       "confirmedPublished": true
+    },
+    "comment:18082467155350264": {
+      "creationId": "17892264948614054",
+      "createdAt": "2026-10-04T22:07:56.367Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Magicians get to hide the trick. Here the trick is the black gap above the fluid and it is sitting right there in the open for anyone to spot.",
+        "reply_to_id": "18082467155350264"
+      }
     }
   },
   "repliedCommentIds": [
@@ -29037,7 +29046,8 @@
     "17933794698148150",
     "18479839018116282",
     "17960590515000137",
-    "18134228797679589"
+    "18134228797679589",
+    "18447001141123197"
   ],
   "answeredPostIds": [
     "18395606890093068"
@@ -29164,11 +29174,11 @@
     "18205974196371350": 51,
     "18102001628139439": 209,
     "17919320862444697": 114,
-    "18115888633802609": 51
+    "18115888633802609": 52
   },
   "daily": {
     "date": "2026-10-04",
-    "count": 51
+    "count": 52
   },
   "pinnedResolved": {
     "DaTTCIwoAw7": "18014812820883466"
@@ -30478,6 +30488,6 @@
   },
   "spend": {
     "date": "2026-10-04",
-    "usd": 0.058530162000000024
+    "usd": 0.05939039400000003
   }
 }
