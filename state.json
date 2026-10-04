@@ -18666,6 +18666,15 @@
       },
       "publishedId": "18132280432671606",
       "confirmedPublished": true
+    },
+    "comment:18128787062485511": {
+      "creationId": "17892151626614054",
+      "createdAt": "2026-10-04T04:48:27.720Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "If only cutting the supplement would do it. This hand made its own supply from the scleroderma side of things.",
+        "reply_to_id": "18128787062485511"
+      }
     }
   },
   "repliedCommentIds": [
@@ -29722,6 +29731,6 @@
   },
   "spend": {
     "date": "2026-10-03",
-    "usd": 0.148583664
+    "usd": 0.150186696
   }
 }
