@@ -19520,6 +19520,15 @@
       },
       "publishedId": "17947585077322119",
       "confirmedPublished": true
+    },
+    "comment:18128595460789030": {
+      "creationId": "17892271149614054",
+      "createdAt": "2026-10-04T23:43:51.321Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "He does look unimpressed about the whole thing. Sadly Muppettitis is not the label on this one.",
+        "reply_to_id": "18128595460789030"
+      }
     }
   },
   "repliedCommentIds": [
@@ -30659,6 +30668,6 @@
   },
   "spend": {
     "date": "2026-10-04",
-    "usd": 0.07348386600000004
+    "usd": 0.07442989800000004
   }
 }
