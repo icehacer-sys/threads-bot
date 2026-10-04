@@ -18743,6 +18743,15 @@
       },
       "publishedId": "18486005668107266",
       "confirmedPublished": true
+    },
+    "comment:18023438009868903": {
+      "creationId": "17892162390614054",
+      "createdAt": "2026-10-04T06:21:20.789Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "A brassica that doubles as a cardiac glycoside is a serious overachiever.",
+        "reply_to_id": "18023438009868903"
+      }
     }
   },
   "repliedCommentIds": [
@@ -29806,6 +29815,6 @@
   },
   "spend": {
     "date": "2026-10-03",
-    "usd": 0.15725956799999996
+    "usd": 0.15792920399999996
   }
 }
