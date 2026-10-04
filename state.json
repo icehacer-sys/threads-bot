@@ -19245,6 +19245,15 @@
       },
       "publishedId": "17908539777481633",
       "confirmedPublished": true
+    },
+    "comment:18189953254360387": {
+      "creationId": "17892262848614054",
+      "createdAt": "2026-10-04T21:33:41.771Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Exactly it. The film gives you the air and fluid and the flat line but it cannot pick between a burst bulla a fistula a chest injury and a leak from the oesophagus.",
+        "reply_to_id": "18189953254360387"
+      }
     }
   },
   "repliedCommentIds": [
@@ -28917,7 +28926,8 @@
     "17942230260092700",
     "18088950410243092",
     "18146565046599001",
-    "18095679455425142"
+    "18095679455425142",
+    "18079367534384745"
   ],
   "answeredPostIds": [
     "18395606890093068"
@@ -29044,11 +29054,11 @@
     "18205974196371350": 51,
     "18102001628139439": 209,
     "17919320862444697": 114,
-    "18115888633802609": 41
+    "18115888633802609": 42
   },
   "daily": {
     "date": "2026-10-04",
-    "count": 41
+    "count": 42
   },
   "pinnedResolved": {
     "DaTTCIwoAw7": "18014812820883466"
@@ -30358,6 +30368,6 @@
   },
   "spend": {
     "date": "2026-10-04",
-    "usd": 0.04738301400000002
+    "usd": 0.04910233800000002
   }
 }
