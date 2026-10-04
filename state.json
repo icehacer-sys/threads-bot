@@ -18893,6 +18893,15 @@
       },
       "publishedId": "18117263410933408",
       "confirmedPublished": true
+    },
+    "comment:18119673302069689": {
+      "creationId": "17892254352614054",
+      "createdAt": "2026-10-04T19:50:24.840Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Not a collapsed lung. The answer is hydropneumothorax and the level fluid line with black air above it is your clue.",
+        "reply_to_id": "18119673302069689"
+      }
     }
   },
   "repliedCommentIds": [
@@ -29973,6 +29982,6 @@
   },
   "spend": {
     "date": "2026-10-04",
-    "usd": 0.015116867999999999
+    "usd": 0.016458852
   }
 }
