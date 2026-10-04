@@ -19418,7 +19418,9 @@
         "media_type": "TEXT",
         "text": "That is a rough thing to go through. Glad you are here telling us about it.",
         "reply_to_id": "18446153515193239"
-      }
+      },
+      "publishedId": "18077830925390099",
+      "confirmedPublished": true
     }
   },
   "repliedCommentIds": [
