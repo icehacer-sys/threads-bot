@@ -18655,6 +18655,15 @@
       },
       "publishedId": "18220866379340045",
       "confirmedPublished": true
+    },
+    "comment:18031424249896178": {
+      "creationId": "17892149154614054",
+      "createdAt": "2026-10-04T04:17:58.084Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Not the joint disease itself. Those lumps are calcium collecting in the skin around the joints which is calcinosis from scleroderma.",
+        "reply_to_id": "18031424249896178"
+      }
     }
   },
   "repliedCommentIds": [
@@ -29710,6 +29719,6 @@
   },
   "spend": {
     "date": "2026-10-03",
-    "usd": 0.146630256
+    "usd": 0.148583664
   }
 }
