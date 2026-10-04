@@ -19352,7 +19352,9 @@
         "media_type": "TEXT",
         "text": "You have the air part. This one is hydropneumothorax since fluid collected under it too.",
         "reply_to_id": "18447001141123197"
-      }
+      },
+      "publishedId": "18030848489886931",
+      "confirmedPublished": true
     }
   },
   "repliedCommentIds": [
