@@ -18457,6 +18457,15 @@
       },
       "publishedId": "18356974426247150",
       "confirmedPublished": true
+    },
+    "comment:18109071500230275": {
+      "creationId": "17892134847614054",
+      "createdAt": "2026-10-04T02:10:40.275Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "The calcium lumps themselves do not really clear up but care targets the scleroderma underneath with rheumatology leading it and painful deposits are sometimes removed surgically. No cure for the underlying condition yet.",
+        "reply_to_id": "18109071500230275"
+      }
     }
   },
   "repliedCommentIds": [
@@ -29384,7 +29393,8 @@
     "17888082705618990",
     "17889195135617554",
     "18111204548157418",
-    "18170580757413205"
+    "18170580757413205",
+    "18283320220289275"
   ],
   "skipStrikes": {
     "17895266316520842": 1,
@@ -29489,6 +29499,6 @@
   },
   "spend": {
     "date": "2026-10-03",
-    "usd": 0.12156351599999997
+    "usd": 0.12440770799999998
   }
 }
