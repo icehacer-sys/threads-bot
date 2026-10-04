@@ -18501,6 +18501,15 @@
       },
       "publishedId": "18144243745528226",
       "confirmedPublished": true
+    },
+    "comment:18019585652728688": {
+      "creationId": "17892139461614054",
+      "createdAt": "2026-10-04T02:42:04.052Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Cast again and the whole hand would be glowing. Spellcasting is off the table for this one.",
+        "reply_to_id": "18019585652728688"
+      }
     }
   },
   "repliedCommentIds": [
@@ -29538,6 +29547,6 @@
   },
   "spend": {
     "date": "2026-10-03",
-    "usd": 0.12798981599999998
+    "usd": 0.12863335199999998
   }
 }
