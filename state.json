@@ -18633,6 +18633,15 @@
       },
       "publishedId": "18463424941136596",
       "confirmedPublished": true
+    },
+    "comment:17998155483033507": {
+      "creationId": "17892146289614054",
+      "createdAt": "2026-10-04T03:46:54.634Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Not gout. These deposits sit in the soft tissue around the joints which points to calcinosis cutis from systemic sclerosis.",
+        "reply_to_id": "17998155483033507"
+      }
     }
   },
   "repliedCommentIds": [
@@ -28250,7 +28259,8 @@
     "18012173801765459",
     "18341472898261663",
     "18127230535862446",
-    "18151157977533452"
+    "18151157977533452",
+    "18634645645019080"
   ],
   "answeredPostIds": [
     "18395606890093068"
@@ -28376,11 +28386,11 @@
     "18133515574657616": 87,
     "18205974196371350": 51,
     "18102001628139439": 209,
-    "17919320862444697": 100
+    "17919320862444697": 101
   },
   "daily": {
     "date": "2026-10-03",
-    "count": 100
+    "count": 101
   },
   "pinnedResolved": {
     "DaTTCIwoAw7": "18014812820883466"
@@ -29685,6 +29695,6 @@
   },
   "spend": {
     "date": "2026-10-03",
-    "usd": 0.14281005599999996
+    "usd": 0.14471014799999998
   }
 }
