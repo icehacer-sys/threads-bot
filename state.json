@@ -18816,6 +18816,15 @@
       },
       "publishedId": "17887626090477223",
       "confirmedPublished": true
+    },
+    "comment:18435815857178274": {
+      "creationId": "17892252510614054",
+      "createdAt": "2026-10-04T19:32:30.115Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "It is squeezed up against the top of that side. The space below is filled by air and fluid sharing the pleural cavity.",
+        "reply_to_id": "18435815857178274"
+      }
     }
   },
   "repliedCommentIds": [
@@ -28449,7 +28458,8 @@
     "18343107847251794",
     "17882475729525430",
     "17990485035099007",
-    "18110700053333268"
+    "18110700053333268",
+    "18042574712823099"
   ],
   "answeredPostIds": [
     "18395606890093068"
@@ -28576,11 +28586,11 @@
     "18205974196371350": 51,
     "18102001628139439": 209,
     "17919320862444697": 114,
-    "18115888633802609": 2
+    "18115888633802609": 3
   },
   "daily": {
     "date": "2026-10-04",
-    "count": 2
+    "count": 3
   },
   "pinnedResolved": {
     "DaTTCIwoAw7": "18014812820883466"
@@ -29888,6 +29898,6 @@
   },
   "spend": {
     "date": "2026-10-04",
-    "usd": 0.008157623999999999
+    "usd": 0.009454236
   }
 }
