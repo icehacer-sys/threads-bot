@@ -18710,6 +18710,15 @@
       },
       "publishedId": "18100851617056373",
       "confirmedPublished": true
+    },
+    "comment:18139551808715822": {
+      "creationId": "17892157767614054",
+      "createdAt": "2026-10-04T05:50:06.074Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Something slipped past you too then.",
+        "reply_to_id": "18139551808715822"
+      }
     }
   },
   "repliedCommentIds": [
@@ -29770,6 +29779,6 @@
   },
   "spend": {
     "date": "2026-10-03",
-    "usd": 0.15358193999999997
+    "usd": 0.15452499599999997
   }
 }
