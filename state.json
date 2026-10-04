@@ -19003,6 +19003,15 @@
       },
       "publishedId": "17910198915496960",
       "confirmedPublished": true
+    },
+    "comment:17918864703242935": {
+      "creationId": "17892257223614054",
+      "createdAt": "2026-10-04T20:09:27.111Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Not lupus. The fluid collects beside the lung in the pleural space and air joined it there. Finding the exact cause means testing that fluid.",
+        "reply_to_id": "17918864703242935"
+      }
     }
   },
   "repliedCommentIds": [
@@ -28653,7 +28662,8 @@
     "17981136204109137",
     "18132826717662891",
     "17908940820480560",
-    "18121879492758748"
+    "18121879492758748",
+    "18092564651448477"
   ],
   "answeredPostIds": [
     "18395606890093068"
@@ -28780,11 +28790,11 @@
     "18205974196371350": 51,
     "18102001628139439": 209,
     "17919320862444697": 114,
-    "18115888633802609": 19
+    "18115888633802609": 20
   },
   "daily": {
     "date": "2026-10-04",
-    "count": 19
+    "count": 20
   },
   "pinnedResolved": {
     "DaTTCIwoAw7": "18014812820883466"
@@ -30093,6 +30103,6 @@
   },
   "spend": {
     "date": "2026-10-04",
-    "usd": 0.025079388000000005
+    "usd": 0.026014698000000006
   }
 }
