@@ -18215,6 +18215,15 @@
       },
       "publishedId": "17905232205604339",
       "confirmedPublished": true
+    },
+    "comment:18124377649850937": {
+      "creationId": "17892124911614054",
+      "createdAt": "2026-10-04T00:09:15.931Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Watching the lungs in scleroderma is a real part of the follow-up. The 1 in 4 figure is higher than what is usually quoted for pulmonary arterial hypertension in scleroderma though so I would not carry that number forward.",
+        "reply_to_id": "18124377649850937"
+      }
     }
   },
   "repliedCommentIds": [
@@ -27794,7 +27803,8 @@
     "18488053894128350",
     "18039999173828359",
     "17947195890067118",
-    "18116311231800717"
+    "18116311231800717",
+    "18106098662219357"
   ],
   "answeredPostIds": [
     "18395606890093068"
@@ -27920,11 +27930,11 @@
     "18133515574657616": 87,
     "18205974196371350": 51,
     "18102001628139439": 209,
-    "17919320862444697": 62
+    "17919320862444697": 63
   },
   "daily": {
     "date": "2026-10-03",
-    "count": 62
+    "count": 63
   },
   "pinnedResolved": {
     "DaTTCIwoAw7": "18014812820883466"
@@ -29116,7 +29126,8 @@
     "18095102876677661",
     "18054054860653582",
     "18116115647080594",
-    "17888082705618990"
+    "17888082705618990",
+    "17889195135617554"
   ],
   "skipStrikes": {
     "17895266316520842": 1,
@@ -29221,6 +29232,6 @@
   },
   "spend": {
     "date": "2026-10-03",
-    "usd": 0.09945483599999998
+    "usd": 0.10153799999999998
   }
 }
