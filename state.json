@@ -18281,6 +18281,15 @@
       },
       "publishedId": "18039600107656557",
       "confirmedPublished": true
+    },
+    "comment:17869811571648964": {
+      "creationId": "17892126882614054",
+      "createdAt": "2026-10-04T00:41:26.845Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Not arthritis. These are calcium lumps in the skin and soft tissue which is calcinosis cutis in systemic sclerosis.",
+        "reply_to_id": "17869811571648964"
+      }
     }
   },
   "repliedCommentIds": [
@@ -27866,7 +27875,8 @@
     "18349763503265111",
     "18110224745238804",
     "18118394710979767",
-    "17907277218477542"
+    "17907277218477542",
+    "17958559044236867"
   ],
   "answeredPostIds": [
     "18395606890093068"
@@ -27992,11 +28002,11 @@
     "18133515574657616": 87,
     "18205974196371350": 51,
     "18102001628139439": 209,
-    "17919320862444697": 68
+    "17919320862444697": 69
   },
   "daily": {
     "date": "2026-10-03",
-    "count": 68
+    "count": 69
   },
   "pinnedResolved": {
     "DaTTCIwoAw7": "18014812820883466"
@@ -29295,6 +29305,6 @@
   },
   "spend": {
     "date": "2026-10-03",
-    "usd": 0.10688330399999997
+    "usd": 0.10876667999999996
   }
 }
