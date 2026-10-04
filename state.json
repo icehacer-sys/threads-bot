@@ -18882,6 +18882,15 @@
       },
       "publishedId": "17961481446218571",
       "confirmedPublished": true
+    },
+    "comment:18132547540742854": {
+      "creationId": "17892252639614054",
+      "createdAt": "2026-10-04T19:34:54.189Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "No aneurysm or hernia involved here. This one is hydropneumothorax and the clue is that level fluid line with air above it in the pleural space.",
+        "reply_to_id": "18132547540742854"
+      }
     }
   },
   "repliedCommentIds": [
@@ -28521,7 +28530,8 @@
     "18126522602307619",
     "18141510103717096",
     "18036503282848193",
-    "18096207416434973"
+    "18096207416434973",
+    "18134057230731229"
   ],
   "answeredPostIds": [
     "18395606890093068"
@@ -28648,11 +28658,11 @@
     "18205974196371350": 51,
     "18102001628139439": 209,
     "17919320862444697": 114,
-    "18115888633802609": 8
+    "18115888633802609": 9
   },
   "daily": {
     "date": "2026-10-04",
-    "count": 8
+    "count": 9
   },
   "pinnedResolved": {
     "DaTTCIwoAw7": "18014812820883466"
@@ -29960,6 +29970,6 @@
   },
   "spend": {
     "date": "2026-10-04",
-    "usd": 0.013608852
+    "usd": 0.015116867999999999
   }
 }
