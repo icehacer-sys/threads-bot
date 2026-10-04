@@ -18204,6 +18204,15 @@
       },
       "publishedId": "18077832365392320",
       "confirmedPublished": true
+    },
+    "comment:18106098662219357": {
+      "creationId": "17892124899614054",
+      "createdAt": "2026-10-04T00:08:52.649Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Cotton swabs that never come out of the pack. Somebody stuffed the wrong drawer.",
+        "reply_to_id": "18106098662219357"
+      }
     }
   },
   "repliedCommentIds": [
@@ -29210,6 +29219,6 @@
   },
   "spend": {
     "date": "2026-10-03",
-    "usd": 0.09884039999999998
+    "usd": 0.09945483599999998
   }
 }
