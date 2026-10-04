@@ -19278,6 +19278,15 @@
       },
       "publishedId": "18338948587258551",
       "confirmedPublished": true
+    },
+    "comment:18032506628889663": {
+      "creationId": "17892263856614054",
+      "createdAt": "2026-10-04T21:49:55.616Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Ribs are still there. The lung just moved out and something else moved in.",
+        "reply_to_id": "18032506628889663"
+      }
     }
   },
   "repliedCommentIds": [
@@ -30395,6 +30404,6 @@
   },
   "spend": {
     "date": "2026-10-04",
-    "usd": 0.05092861800000002
+    "usd": 0.05160498600000002
   }
 }
