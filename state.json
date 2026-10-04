@@ -19014,6 +19014,15 @@
       },
       "publishedId": "17963773701192070",
       "confirmedPublished": true
+    },
+    "comment:18449818948130932": {
+      "creationId": "17892257250614054",
+      "createdAt": "2026-10-04T20:09:50.057Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "That is the whole picture. One small note on wording: the fluid sits in the pleural space itself rather than trapped under the air inside anything.",
+        "reply_to_id": "18449818948130932"
+      }
     }
   },
   "repliedCommentIds": [
@@ -28665,7 +28674,8 @@
     "18132826717662891",
     "17908940820480560",
     "18121879492758748",
-    "18092564651448477"
+    "18092564651448477",
+    "17918864703242935"
   ],
   "answeredPostIds": [
     "18395606890093068"
@@ -28792,11 +28802,11 @@
     "18205974196371350": 51,
     "18102001628139439": 209,
     "17919320862444697": 114,
-    "18115888633802609": 20
+    "18115888633802609": 21
   },
   "daily": {
     "date": "2026-10-04",
-    "count": 20
+    "count": 21
   },
   "pinnedResolved": {
     "DaTTCIwoAw7": "18014812820883466"
@@ -30105,6 +30115,6 @@
   },
   "spend": {
     "date": "2026-10-04",
-    "usd": 0.026014698000000006
+    "usd": 0.026559138000000006
   }
 }
