@@ -19146,6 +19146,15 @@
       },
       "publishedId": "18104962220351926",
       "confirmedPublished": true
+    },
+    "comment:18115807447960664": {
+      "creationId": "17892258807614054",
+      "createdAt": "2026-10-04T20:44:38.662Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Fat does not pool behind a level surface. Both fluid and air are in that pleural space and together they give you hydropneumothorax.",
+        "reply_to_id": "18115807447960664"
+      }
     }
   },
   "repliedCommentIds": [
@@ -28809,7 +28818,8 @@
     "18007971032994773",
     "18197291443343404",
     "17901677103599844",
-    "18120663506076750"
+    "18120663506076750",
+    "17892499647434727"
   ],
   "answeredPostIds": [
     "18395606890093068"
@@ -28936,11 +28946,11 @@
     "18205974196371350": 51,
     "18102001628139439": 209,
     "17919320862444697": 114,
-    "18115888633802609": 32
+    "18115888633802609": 33
   },
   "daily": {
     "date": "2026-10-04",
-    "count": 32
+    "count": 33
   },
   "pinnedResolved": {
     "DaTTCIwoAw7": "18014812820883466"
@@ -30250,6 +30260,6 @@
   },
   "spend": {
     "date": "2026-10-04",
-    "usd": 0.037665582000000024
+    "usd": 0.039061506000000024
   }
 }
