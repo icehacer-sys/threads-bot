@@ -18534,6 +18534,15 @@
       },
       "publishedId": "18030599207884290",
       "confirmedPublished": true
+    },
+    "comment:18117877891767927": {
+      "creationId": "17892139677614054",
+      "createdAt": "2026-10-04T02:43:03.648Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "No bone removal at all. The calcium lumps sit in the soft tissue so surgery takes out the deposits and leaves the bones exactly where they are. The bone manicure stays a spa dream.",
+        "reply_to_id": "18117877891767927"
+      }
     }
   },
   "repliedCommentIds": [
@@ -28142,7 +28151,8 @@
     "18123031643295882",
     "17969009700175963",
     "18019585652728688",
-    "17970872013171516"
+    "17970872013171516",
+    "17947441479084703"
   ],
   "answeredPostIds": [
     "18395606890093068"
@@ -28268,11 +28278,11 @@
     "18133515574657616": 87,
     "18205974196371350": 51,
     "18102001628139439": 209,
-    "17919320862444697": 91
+    "17919320862444697": 92
   },
   "daily": {
     "date": "2026-10-03",
-    "count": 91
+    "count": 92
   },
   "pinnedResolved": {
     "DaTTCIwoAw7": "18014812820883466"
@@ -29573,6 +29583,6 @@
   },
   "spend": {
     "date": "2026-10-03",
-    "usd": 0.13065566399999998
+    "usd": 0.131895408
   }
 }
