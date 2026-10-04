@@ -18358,6 +18358,15 @@
       },
       "publishedId": "18003783755794519",
       "confirmedPublished": true
+    },
+    "comment:18193339993403378": {
+      "creationId": "17892129822614054",
+      "createdAt": "2026-10-04T01:13:35.363Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Five years of being told your own body is not happening is exhausting and finding someone who finally listened should not take that long.",
+        "reply_to_id": "18193339993403378"
+      }
     }
   },
   "repliedCommentIds": [
@@ -27950,7 +27959,8 @@
     "18123014308911496",
     "18446884135133309",
     "18096323165406207",
-    "18123624010697660"
+    "18123624010697660",
+    "18126442549868151"
   ],
   "answeredPostIds": [
     "18395606890093068"
@@ -28076,11 +28086,11 @@
     "18133515574657616": 87,
     "18205974196371350": 51,
     "18102001628139439": 209,
-    "17919320862444697": 75
+    "17919320862444697": 76
   },
   "daily": {
     "date": "2026-10-03",
-    "count": 75
+    "count": 76
   },
   "pinnedResolved": {
     "DaTTCIwoAw7": "18014812820883466"
@@ -29379,6 +29389,6 @@
   },
   "spend": {
     "date": "2026-10-03",
-    "usd": 0.11378357999999997
+    "usd": 0.11465131199999996
   }
 }
