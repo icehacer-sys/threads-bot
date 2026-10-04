@@ -19377,6 +19377,15 @@
       },
       "publishedId": "18092528597394858",
       "confirmedPublished": true
+    },
+    "comment:18104851658258355": {
+      "creationId": "17892266727614054",
+      "createdAt": "2026-10-04T22:38:49.240Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Both named. Together they are the one label: hydropneumothorax.",
+        "reply_to_id": "18104851658258355"
+      }
     }
   },
   "repliedCommentIds": [
@@ -30503,6 +30512,6 @@
   },
   "spend": {
     "date": "2026-10-04",
-    "usd": 0.06015822600000003
+    "usd": 0.06080219400000003
   }
 }
