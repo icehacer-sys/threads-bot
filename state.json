@@ -18468,6 +18468,15 @@
       },
       "publishedId": "18636658930017322",
       "confirmedPublished": true
+    },
+    "comment:18144821623564040": {
+      "creationId": "17892134934614054",
+      "createdAt": "2026-10-04T02:11:02.284Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "The lumps are calcium salts in the soft tissue rather than new bone and they are not a protective response to overuse. In systemic sclerosis that calcium just deposits in the skin around the joints.",
+        "reply_to_id": "18144821623564040"
+      }
     }
   },
   "repliedCommentIds": [
@@ -28070,7 +28079,8 @@
     "18090294503218346",
     "17961749430198006",
     "18077076692546310",
-    "18148440724518267"
+    "18148440724518267",
+    "18109071500230275"
   ],
   "answeredPostIds": [
     "18395606890093068"
@@ -28196,11 +28206,11 @@
     "18133515574657616": 87,
     "18205974196371350": 51,
     "18102001628139439": 209,
-    "17919320862444697": 85
+    "17919320862444697": 86
   },
   "daily": {
     "date": "2026-10-03",
-    "count": 85
+    "count": 86
   },
   "pinnedResolved": {
     "DaTTCIwoAw7": "18014812820883466"
@@ -29501,6 +29511,6 @@
   },
   "spend": {
     "date": "2026-10-03",
-    "usd": 0.12440770799999998
+    "usd": 0.12610079999999999
   }
 }
