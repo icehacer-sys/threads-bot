@@ -19179,6 +19179,15 @@
       },
       "publishedId": "18197848555384959",
       "confirmedPublished": true
+    },
+    "comment:17971554750164514": {
+      "creationId": "17892259992614054",
+      "createdAt": "2026-10-04T21:01:03.341Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Spout pointing up means the pour is all air. Serve it anyway.",
+        "reply_to_id": "17971554750164514"
+      }
     }
   },
   "repliedCommentIds": [
@@ -30287,6 +30296,6 @@
   },
   "spend": {
     "date": "2026-10-04",
-    "usd": 0.04101135000000002
+    "usd": 0.04168831800000002
   }
 }
