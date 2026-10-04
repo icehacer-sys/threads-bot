@@ -18413,6 +18413,15 @@
       },
       "publishedId": "17901807144597917",
       "confirmedPublished": true
+    },
+    "comment:18090294503218346": {
+      "creationId": "17892129894614054",
+      "createdAt": "2026-10-04T01:14:54.188Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Being yelled at for stopping something that made you that sick is its own kind of awful and \"you're just getting older\" at 28 is not an answer to anything.",
+        "reply_to_id": "18090294503218346"
+      }
     }
   },
   "repliedCommentIds": [
@@ -28010,7 +28019,8 @@
     "18193339993403378",
     "17903636718597497",
     "17912292258286294",
-    "17881903656691315"
+    "17881903656691315",
+    "18130743277704716"
   ],
   "answeredPostIds": [
     "18395606890093068"
@@ -28136,11 +28146,11 @@
     "18133515574657616": 87,
     "18205974196371350": 51,
     "18102001628139439": 209,
-    "17919320862444697": 80
+    "17919320862444697": 81
   },
   "daily": {
     "date": "2026-10-03",
-    "count": 80
+    "count": 81
   },
   "pinnedResolved": {
     "DaTTCIwoAw7": "18014812820883466"
@@ -29439,6 +29449,6 @@
   },
   "spend": {
     "date": "2026-10-03",
-    "usd": 0.11759876399999997
+    "usd": 0.11845149599999996
   }
 }
