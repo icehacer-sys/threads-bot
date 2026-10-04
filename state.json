@@ -18578,6 +18578,15 @@
       },
       "publishedId": "17990535369058185",
       "confirmedPublished": true
+    },
+    "comment:18012173801765459": {
+      "creationId": "17892142560614054",
+      "createdAt": "2026-10-04T03:14:50.346Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Complications you can chalk up to bad luck but being brushed off while you could barely stand is a different thing entirely. Having your wife able to read it properly must have made those months even harder to sit through.",
+        "reply_to_id": "18012173801765459"
+      }
     }
   },
   "repliedCommentIds": [
@@ -28190,7 +28199,8 @@
     "17947441479084703",
     "18117877891767927",
     "18116587117800274",
-    "18001052291797152"
+    "18001052291797152",
+    "18118498789984170"
   ],
   "answeredPostIds": [
     "18395606890093068"
@@ -28316,11 +28326,11 @@
     "18133515574657616": 87,
     "18205974196371350": 51,
     "18102001628139439": 209,
-    "17919320862444697": 95
+    "17919320862444697": 96
   },
   "daily": {
     "date": "2026-10-03",
-    "count": 95
+    "count": 96
   },
   "pinnedResolved": {
     "DaTTCIwoAw7": "18014812820883466"
@@ -29622,6 +29632,6 @@
   },
   "spend": {
     "date": "2026-10-03",
-    "usd": 0.13479910799999997
+    "usd": 0.13613501999999997
   }
 }
