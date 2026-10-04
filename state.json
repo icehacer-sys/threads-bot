@@ -18688,6 +18688,15 @@
       },
       "publishedId": "18629773681041108",
       "confirmedPublished": true
+    },
+    "comment:18099676247562133": {
+      "creationId": "17892154875614054",
+      "createdAt": "2026-10-04T05:19:21.350Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Often yes. Calcium sitting in the soft tissue can feel like hard lumps under the skin and sometimes they break through it.",
+        "reply_to_id": "18099676247562133"
+      }
     }
   },
   "repliedCommentIds": [
@@ -29746,6 +29755,6 @@
   },
   "spend": {
     "date": "2026-10-03",
-    "usd": 0.151288812
+    "usd": 0.15282833999999998
   }
 }
