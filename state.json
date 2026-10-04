@@ -246,7 +246,14 @@
     "18637650190003364": "Raynaud’s with gout?",
     "18637712887013397": "Wildly I would say tons of pain.",
     "18383955316227742": "My son in law has this. Its Raynauds",
-    "18116198549321423": "Looks like a completely rheumatoid arthritic hand.  No (or very little) circulation of whatever is built up on the joints"
+    "18116198549321423": "Looks like a completely rheumatoid arthritic hand.  No (or very little) circulation of whatever is built up on the joints",
+    "18193897351398884": "Hydropenumothorax",
+    "18117927992058846": "Hydropneumothorax",
+    "18100131419377300": "Pneumatocele",
+    "17990485035099007": "Parvo",
+    "18110700053333268": "Still waiting for the x-ray to load...👀",
+    "18042574712823099": "Just keeping the wallet safe.",
+    "18435815857178274": "Where’s the rest of the lung?"
   },
   "imageHeldComments": {
     "18116444902754615": "18184997560424523",
@@ -28536,8 +28543,8 @@
     "17919320862444697": 114
   },
   "daily": {
-    "date": "2026-10-03",
-    "count": 114
+    "date": "2026-10-04",
+    "count": 0
   },
   "pinnedResolved": {
     "DaTTCIwoAw7": "18014812820883466"
@@ -29826,7 +29833,7 @@
     "17865730374636613": 1
   },
   "gifDaily": {
-    "date": "2026-10-03",
+    "date": "2026-10-04",
     "count": 0
   },
   "recentGifIds": [
@@ -29837,11 +29844,11 @@
   ],
   "promoPostCounts": {},
   "promoDaily": {
-    "date": "2026-10-03",
+    "date": "2026-10-04",
     "count": 0
   },
   "spend": {
-    "date": "2026-10-03",
-    "usd": 0.15936847199999998
+    "date": "2026-10-04",
+    "usd": 0.0032372639999999997
   }
 }
