@@ -18600,6 +18600,15 @@
       },
       "publishedId": "18629293615037972",
       "confirmedPublished": true
+    },
+    "comment:18127230535862446": {
+      "creationId": "17892142602614054",
+      "createdAt": "2026-10-04T03:15:43.316Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Losing feeling in your shin and foot and finding heat is the only thing that brings it back is a lot to live with on top of everything else that happened. The answer here was not nerve damage though.",
+        "reply_to_id": "18127230535862446"
+      }
     }
   },
   "repliedCommentIds": [
@@ -28214,7 +28223,8 @@
     "18116587117800274",
     "18001052291797152",
     "18118498789984170",
-    "18012173801765459"
+    "18012173801765459",
+    "18341472898261663"
   ],
   "answeredPostIds": [
     "18395606890093068"
@@ -28340,11 +28350,11 @@
     "18133515574657616": 87,
     "18205974196371350": 51,
     "18102001628139439": 209,
-    "17919320862444697": 97
+    "17919320862444697": 98
   },
   "daily": {
     "date": "2026-10-03",
-    "count": 97
+    "count": 98
   },
   "pinnedResolved": {
     "DaTTCIwoAw7": "18014812820883466"
@@ -29648,6 +29658,6 @@
   },
   "spend": {
     "date": "2026-10-03",
-    "usd": 0.13856853599999996
+    "usd": 0.14058335999999996
   }
 }
