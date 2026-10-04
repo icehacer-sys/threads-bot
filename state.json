@@ -18226,6 +18226,15 @@
       },
       "publishedId": "18095433161406428",
       "confirmedPublished": true
+    },
+    "comment:18349763503265111": {
+      "creationId": "17892126687614054",
+      "createdAt": "2026-10-04T00:39:43.768Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "The acronym spelled out to the letter and Raynaud's standing in as the visible half of it. Deposits in the skin over the joints are where the C in that name is earned.",
+        "reply_to_id": "18349763503265111"
+      }
     }
   },
   "repliedCommentIds": [
@@ -29235,6 +29244,6 @@
   },
   "spend": {
     "date": "2026-10-03",
-    "usd": 0.10153799999999998
+    "usd": 0.10273534799999998
   }
 }
