@@ -19333,6 +19333,15 @@
       },
       "publishedId": "18386845069224606",
       "confirmedPublished": true
+    },
+    "comment:18134228797679589": {
+      "creationId": "17892264915614054",
+      "createdAt": "2026-10-04T22:07:09.363Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "A perfectly flat surface like that needs the fluid to settle so the film is taken with the patient upright. Lie them flat and the fluid spreads out along the back of the chest instead and the neat line goes with it.",
+        "reply_to_id": "18134228797679589"
+      }
     }
   },
   "repliedCommentIds": [
@@ -30455,6 +30464,6 @@
   },
   "spend": {
     "date": "2026-10-04",
-    "usd": 0.05559912600000002
+    "usd": 0.05698843800000002
   }
 }
