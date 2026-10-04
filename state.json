@@ -18347,6 +18347,15 @@
       },
       "publishedId": "18375162580242393",
       "confirmedPublished": true
+    },
+    "comment:18126442549868151": {
+      "creationId": "17892129807614054",
+      "createdAt": "2026-10-04T01:13:19.142Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Watching two people you love carry this is a heavy thing to hold and the lung and swallowing side of it rarely gets the same attention as the hands. Thanks for putting a real face on it.",
+        "reply_to_id": "18126442549868151"
+      }
     }
   },
   "repliedCommentIds": [
@@ -27938,7 +27947,8 @@
     "18131397241738739",
     "18123014308911496",
     "18446884135133309",
-    "18096323165406207"
+    "18096323165406207",
+    "18123624010697660"
   ],
   "answeredPostIds": [
     "18395606890093068"
@@ -28064,11 +28074,11 @@
     "18133515574657616": 87,
     "18205974196371350": 51,
     "18102001628139439": 209,
-    "17919320862444697": 74
+    "17919320862444697": 75
   },
   "daily": {
     "date": "2026-10-03",
-    "count": 74
+    "count": 75
   },
   "pinnedResolved": {
     "DaTTCIwoAw7": "18014812820883466"
@@ -29367,6 +29377,6 @@
   },
   "spend": {
     "date": "2026-10-03",
-    "usd": 0.11316734399999996
+    "usd": 0.11378357999999997
   }
 }
