@@ -18292,6 +18292,15 @@
       },
       "publishedId": "18103446725022708",
       "confirmedPublished": true
+    },
+    "comment:18131397241738739": {
+      "creationId": "17892126990614054",
+      "createdAt": "2026-10-04T00:41:48.847Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Older estimates did run close to that range so your teaching was not off. Modern cohorts put it lower and the case itself does not attach a number either way.",
+        "reply_to_id": "18131397241738739"
+      }
     }
   },
   "repliedCommentIds": [
@@ -27878,7 +27887,8 @@
     "18110224745238804",
     "18118394710979767",
     "17907277218477542",
-    "17958559044236867"
+    "17958559044236867",
+    "17869811571648964"
   ],
   "answeredPostIds": [
     "18395606890093068"
@@ -28004,11 +28014,11 @@
     "18133515574657616": 87,
     "18205974196371350": 51,
     "18102001628139439": 209,
-    "17919320862444697": 69
+    "17919320862444697": 70
   },
   "daily": {
     "date": "2026-10-03",
-    "count": 69
+    "count": 70
   },
   "pinnedResolved": {
     "DaTTCIwoAw7": "18014812820883466"
@@ -29307,6 +29317,6 @@
   },
   "spend": {
     "date": "2026-10-03",
-    "usd": 0.10876667999999996
+    "usd": 0.11057313599999996
   }
 }
