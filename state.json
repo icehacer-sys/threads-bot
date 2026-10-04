@@ -18435,6 +18435,15 @@
       },
       "publishedId": "17909062419556379",
       "confirmedPublished": true
+    },
+    "comment:18077076692546310": {
+      "creationId": "17892132624614054",
+      "createdAt": "2026-10-04T01:45:36.369Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "All those lumps sitting right on the joints and every finger in on it. Ouch is fair.",
+        "reply_to_id": "18077076692546310"
+      }
     }
   },
   "repliedCommentIds": [
@@ -29359,7 +29368,8 @@
     "18116115647080594",
     "17888082705618990",
     "17889195135617554",
-    "18111204548157418"
+    "18111204548157418",
+    "18170580757413205"
   ],
   "skipStrikes": {
     "17895266316520842": 1,
@@ -29464,6 +29474,6 @@
   },
   "spend": {
     "date": "2026-10-03",
-    "usd": 0.11924632799999996
+    "usd": 0.12095087999999997
   }
 }
