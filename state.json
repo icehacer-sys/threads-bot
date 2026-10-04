@@ -18336,6 +18336,15 @@
       },
       "publishedId": "18146787847560902",
       "confirmedPublished": true
+    },
+    "comment:18123624010697660": {
+      "creationId": "17892129795614054",
+      "createdAt": "2026-10-04T01:13:00.844Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Being 17 and hurting that much and sent home with the weakest bottle on the shelf is a lot to carry. Skipping the game sounds like the right call for you.",
+        "reply_to_id": "18123624010697660"
+      }
     }
   },
   "repliedCommentIds": [
@@ -27926,7 +27935,8 @@
     "17869811571648964",
     "18131397241738739",
     "18123014308911496",
-    "18446884135133309"
+    "18446884135133309",
+    "18096323165406207"
   ],
   "answeredPostIds": [
     "18395606890093068"
@@ -28052,11 +28062,11 @@
     "18133515574657616": 87,
     "18205974196371350": 51,
     "18102001628139439": 209,
-    "17919320862444697": 73
+    "17919320862444697": 74
   },
   "daily": {
     "date": "2026-10-03",
-    "count": 73
+    "count": 74
   },
   "pinnedResolved": {
     "DaTTCIwoAw7": "18014812820883466"
@@ -29355,6 +29365,6 @@
   },
   "spend": {
     "date": "2026-10-03",
-    "usd": 0.11248673999999996
+    "usd": 0.11316734399999996
   }
 }
