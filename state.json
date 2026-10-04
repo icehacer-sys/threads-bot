@@ -18556,6 +18556,15 @@
       },
       "publishedId": "18097849391538136",
       "confirmedPublished": true
+    },
+    "comment:18001052291797152": {
+      "creationId": "17892142533614054",
+      "createdAt": "2026-10-04T03:14:15.211Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "That is the finding. In this hand it is calcinosis cutis from systemic sclerosis.",
+        "reply_to_id": "18001052291797152"
+      }
     }
   },
   "repliedCommentIds": [
@@ -29493,7 +29502,8 @@
     "17889195135617554",
     "18111204548157418",
     "18170580757413205",
-    "18283320220289275"
+    "18283320220289275",
+    "18101207801531041"
   ],
   "skipStrikes": {
     "17895266316520842": 1,
@@ -29598,6 +29608,6 @@
   },
   "spend": {
     "date": "2026-10-03",
-    "usd": 0.13256221199999998
+    "usd": 0.13407080399999996
   }
 }
