@@ -18718,7 +18718,9 @@
         "media_type": "TEXT",
         "text": "Something slipped past you too then.",
         "reply_to_id": "18139551808715822"
-      }
+      },
+      "publishedId": "18633739345002662",
+      "confirmedPublished": true
     }
   },
   "repliedCommentIds": [
