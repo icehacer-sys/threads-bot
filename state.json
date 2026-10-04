@@ -18278,7 +18278,9 @@
         "media_type": "TEXT",
         "text": "That batch never made it to the plate.",
         "reply_to_id": "17958559044236867"
-      }
+      },
+      "publishedId": "18039600107656557",
+      "confirmedPublished": true
     }
   },
   "repliedCommentIds": [
