@@ -20522,6 +20522,15 @@
       },
       "publishedId": "18372520225242768",
       "confirmedPublished": true
+    },
+    "comment:18632652379024251": {
+      "creationId": "17892403857614054",
+      "createdAt": "2026-10-05T22:32:30.624Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "The swallowing trouble points lower than it looks. This neck has a swollen epiglottis sitting above the airway.",
+        "reply_to_id": "18632652379024251"
+      }
     }
   },
   "repliedCommentIds": [
@@ -31767,6 +31776,6 @@
   },
   "spend": {
     "date": "2026-10-05",
-    "usd": 0.08386323599999995
+    "usd": 0.08590717199999996
   }
 }
