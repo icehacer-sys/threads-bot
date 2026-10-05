@@ -19652,6 +19652,15 @@
       },
       "publishedId": "18129633118630821",
       "confirmedPublished": true
+    },
+    "comment:17918072925445192": {
+      "creationId": "17892277215614054",
+      "createdAt": "2026-10-05T01:16:49.287Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Fair addition. Biopsy can be part of the workup but the case itself records no result from one.",
+        "reply_to_id": "17918072925445192"
+      }
     }
   },
   "repliedCommentIds": [
@@ -30699,7 +30708,9 @@
     "18100131419377300",
     "18133874275708538",
     "18438136189194395",
-    "18136717609727247"
+    "18136717609727247",
+    "18117539917953319",
+    "18137899861651413"
   ],
   "skipStrikes": {
     "17895266316520842": 1,
@@ -30805,6 +30816,6 @@
   },
   "spend": {
     "date": "2026-10-04",
-    "usd": 0.09141393000000003
+    "usd": 0.09440779800000003
   }
 }
