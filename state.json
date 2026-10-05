@@ -19836,6 +19836,15 @@
       },
       "publishedId": "18044701664818371",
       "confirmedPublished": true
+    },
+    "comment:17936373864125290": {
+      "creationId": "17892392097614054",
+      "createdAt": "2026-10-05T19:31:55.873Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "That is the answer and the swollen epiglottis shows the classic thumb sign. The case does not record which organism was found.",
+        "reply_to_id": "17936373864125290"
+      }
     }
   },
   "repliedCommentIds": [
@@ -29561,7 +29570,8 @@
     "18142844194520081",
     "18421088662158482",
     "18089895524233693",
-    "18143674393601444"
+    "18143674393601444",
+    "18126222577918954"
   ],
   "answeredPostIds": [
     "18395606890093068"
@@ -29689,11 +29699,11 @@
     "18102001628139439": 209,
     "17919320862444697": 114,
     "18115888633802609": 93,
-    "18126282277854768": 1
+    "18126282277854768": 2
   },
   "daily": {
     "date": "2026-10-05",
-    "count": 1
+    "count": 2
   },
   "pinnedResolved": {
     "DaTTCIwoAw7": "18014812820883466"
@@ -31008,6 +31018,6 @@
   },
   "spend": {
     "date": "2026-10-05",
-    "usd": 0.007121387999999999
+    "usd": 0.008468531999999999
   }
 }
