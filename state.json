@@ -19795,6 +19795,15 @@
       },
       "publishedId": "18116297482812062",
       "confirmedPublished": true
+    },
+    "comment:18089895524233693": {
+      "creationId": "17892310629614054",
+      "createdAt": "2026-10-05T06:14:31.066Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "The answer here is hydropneumothorax. What the case records is air and fluid sharing the pleural space with the fluid surface lying perfectly flat.",
+        "reply_to_id": "18089895524233693"
+      }
     }
   },
   "repliedCommentIds": [
@@ -29517,7 +29526,8 @@
     "18101104493221081",
     "18107786996238602",
     "18089239955692697",
-    "18142844194520081"
+    "18142844194520081",
+    "18421088662158482"
   ],
   "answeredPostIds": [
     "18395606890093068"
@@ -29644,11 +29654,11 @@
     "18205974196371350": 51,
     "18102001628139439": 209,
     "17919320862444697": 114,
-    "18115888633802609": 91
+    "18115888633802609": 92
   },
   "daily": {
     "date": "2026-10-04",
-    "count": 91
+    "count": 92
   },
   "pinnedResolved": {
     "DaTTCIwoAw7": "18014812820883466"
@@ -30962,6 +30972,6 @@
   },
   "spend": {
     "date": "2026-10-04",
-    "usd": 0.16181860200000006
+    "usd": 0.16309090200000007
   }
 }
