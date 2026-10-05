@@ -19976,7 +19976,9 @@
         "media_type": "TEXT",
         "text": "Your thimble is still missing I am afraid. That rounded shape belongs to the patient's own epiglottis.",
         "reply_to_id": "17910732891518223"
-      }
+      },
+      "publishedId": "17990110059062959",
+      "confirmedPublished": true
     }
   },
   "repliedCommentIds": [
