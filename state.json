@@ -20478,6 +20478,15 @@
       },
       "publishedId": "17986791774099060",
       "confirmedPublished": true
+    },
+    "comment:17975513961136756": {
+      "creationId": "17892402831614054",
+      "createdAt": "2026-10-05T22:10:04.022Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Epiglottitis is the teaching answer here and a retropharyngeal abscess can look very similar on a lateral neck so you are right that the two sit close together.",
+        "reply_to_id": "17975513961136756"
+      }
     }
   },
   "repliedCommentIds": [
@@ -30261,7 +30270,8 @@
     "18149824138550583",
     "18101801567033408",
     "18127854052848985",
-    "17919887664443527"
+    "17919887664443527",
+    "17909139882487781"
   ],
   "answeredPostIds": [
     "18395606890093068"
@@ -30389,11 +30399,11 @@
     "18102001628139439": 209,
     "17919320862444697": 114,
     "18115888633802609": 93,
-    "18126282277854768": 59
+    "18126282277854768": 60
   },
   "daily": {
     "date": "2026-10-05",
-    "count": 59
+    "count": 60
   },
   "pinnedResolved": {
     "DaTTCIwoAw7": "18014812820883466"
@@ -31718,6 +31728,6 @@
   },
   "spend": {
     "date": "2026-10-05",
-    "usd": 0.07955383199999995
+    "usd": 0.08137185599999995
   }
 }
