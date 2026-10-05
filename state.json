@@ -20497,7 +20497,9 @@
         "media_type": "TEXT",
         "text": "That is one way to hand in your resignation.",
         "reply_to_id": "17904962364579244"
-      }
+      },
+      "publishedId": "18008511434988436",
+      "confirmedPublished": true
     }
   },
   "repliedCommentIds": [
