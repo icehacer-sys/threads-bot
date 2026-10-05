@@ -19891,6 +19891,15 @@
       },
       "publishedId": "18634923142048683",
       "confirmedPublished": true
+    },
+    "comment:18123412087904918": {
+      "creationId": "17892392253614054",
+      "createdAt": "2026-10-05T19:33:29.211Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "The rounded thumb shape is the swollen epiglottis itself so the imaging matches supraglottitis rather than a swallowed tongue. On the C1 question the case facts do not cover the upper cervical spine so I cannot call anything there either way.",
+        "reply_to_id": "18123412087904918"
+      }
     }
   },
   "repliedCommentIds": [
@@ -29621,7 +29630,8 @@
     "17936373864125290",
     "18105640202215545",
     "17989186884105495",
-    "17883306132623199"
+    "17883306132623199",
+    "18189722023404520"
   ],
   "answeredPostIds": [
     "18395606890093068"
@@ -29749,11 +29759,11 @@
     "18102001628139439": 209,
     "17919320862444697": 114,
     "18115888633802609": 93,
-    "18126282277854768": 6
+    "18126282277854768": 7
   },
   "daily": {
     "date": "2026-10-05",
-    "count": 6
+    "count": 7
   },
   "pinnedResolved": {
     "DaTTCIwoAw7": "18014812820883466"
@@ -31068,6 +31078,6 @@
   },
   "spend": {
     "date": "2026-10-05",
-    "usd": 0.010753847999999998
+    "usd": 0.011747255999999998
   }
 }
