@@ -20552,7 +20552,9 @@
         "media_type": "TEXT",
         "text": "Infection is the usual one. The case facts do not mention radiation so I cannot claim that here.",
         "reply_to_id": "17900883636605234"
-      }
+      },
+      "publishedId": "18123838822923693",
+      "confirmedPublished": true
     }
   },
   "repliedCommentIds": [
