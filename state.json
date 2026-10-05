@@ -20588,6 +20588,15 @@
       },
       "publishedId": "18126032954482009",
       "confirmedPublished": true
+    },
+    "comment:18447435928121866": {
+      "creationId": "17892404856614054",
+      "createdAt": "2026-10-05T22:49:31.833Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Just say no is easy advice until the epiglottis does not ask permission.",
+        "reply_to_id": "18447435928121866"
+      }
     }
   },
   "repliedCommentIds": [
@@ -31839,6 +31848,6 @@
   },
   "spend": {
     "date": "2026-10-05",
-    "usd": 0.09016216799999997
+    "usd": 0.09082293599999998
   }
 }
