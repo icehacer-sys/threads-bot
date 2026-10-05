@@ -19880,6 +19880,15 @@
       },
       "publishedId": "18343010089281323",
       "confirmedPublished": true
+    },
+    "comment:18189722023404520": {
+      "creationId": "17892392238614054",
+      "createdAt": "2026-10-05T19:33:09.066Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Not this one. The smooth thumb-shaped mass is the patient's own epiglottis swollen by supraglottitis and there is no recorded foreign body.",
+        "reply_to_id": "18189722023404520"
+      }
     }
   },
   "repliedCommentIds": [
@@ -29609,7 +29618,8 @@
     "18126222577918954",
     "17936373864125290",
     "18105640202215545",
-    "17989186884105495"
+    "17989186884105495",
+    "17883306132623199"
   ],
   "answeredPostIds": [
     "18395606890093068"
@@ -29737,11 +29747,11 @@
     "18102001628139439": 209,
     "17919320862444697": 114,
     "18115888633802609": 93,
-    "18126282277854768": 5
+    "18126282277854768": 6
   },
   "daily": {
     "date": "2026-10-05",
-    "count": 5
+    "count": 6
   },
   "pinnedResolved": {
     "DaTTCIwoAw7": "18014812820883466"
@@ -31056,6 +31066,6 @@
   },
   "spend": {
     "date": "2026-10-05",
-    "usd": 0.009830039999999998
+    "usd": 0.010753847999999998
   }
 }
