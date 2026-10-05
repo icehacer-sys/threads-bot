@@ -20665,6 +20665,15 @@
       },
       "publishedId": "18166083280470076",
       "confirmedPublished": true
+    },
+    "comment:17962125159233725": {
+      "creationId": "17892406692614054",
+      "createdAt": "2026-10-05T23:07:24.269Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Saliva you cannot swallow is a loud warning and having to make that second call yourself sounds terrifying. Glad your ENT picked up.",
+        "reply_to_id": "17962125159233725"
+      }
     }
   },
   "repliedCommentIds": [
@@ -30465,7 +30474,8 @@
     "18222018463341975",
     "18118489969939577",
     "18134268799732823",
-    "18467300719191198"
+    "18467300719191198",
+    "18132896230779084"
   ],
   "answeredPostIds": [
     "18395606890093068"
@@ -30593,11 +30603,11 @@
     "18102001628139439": 209,
     "17919320862444697": 114,
     "18115888633802609": 93,
-    "18126282277854768": 76
+    "18126282277854768": 77
   },
   "daily": {
     "date": "2026-10-05",
-    "count": 76
+    "count": 77
   },
   "pinnedResolved": {
     "DaTTCIwoAw7": "18014812820883466"
@@ -31923,6 +31933,6 @@
   },
   "spend": {
     "date": "2026-10-05",
-    "usd": 0.09632309999999998
+    "usd": 0.09698806799999998
   }
 }
