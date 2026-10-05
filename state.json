@@ -19979,6 +19979,15 @@
       },
       "publishedId": "17990110059062959",
       "confirmedPublished": true
+    },
+    "comment:18631258033049721": {
+      "creationId": "17892393873614054",
+      "createdAt": "2026-10-05T19:51:31.676Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Epiglottitis is it. The swelling sits above the vocal cords so it can close off the airway fast which is why nobody was pushing anything down anywhere.",
+        "reply_to_id": "18631258033049721"
+      }
     }
   },
   "repliedCommentIds": [
@@ -29717,7 +29726,8 @@
     "18069437066761883",
     "17949869406055067",
     "18122058446314509",
-    "18637500187026795"
+    "18637500187026795",
+    "17910732891518223"
   ],
   "answeredPostIds": [
     "18395606890093068"
@@ -29845,11 +29855,11 @@
     "18102001628139439": 209,
     "17919320862444697": 114,
     "18115888633802609": 93,
-    "18126282277854768": 14
+    "18126282277854768": 15
   },
   "daily": {
     "date": "2026-10-05",
-    "count": 14
+    "count": 15
   },
   "pinnedResolved": {
     "DaTTCIwoAw7": "18014812820883466"
@@ -31166,6 +31176,6 @@
   },
   "spend": {
     "date": "2026-10-05",
-    "usd": 0.019647119999999997
+    "usd": 0.021172907999999997
   }
 }
