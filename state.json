@@ -19990,6 +19990,15 @@
       },
       "publishedId": "18371394892209751",
       "confirmedPublished": true
+    },
+    "comment:18101504885644954": {
+      "creationId": "17892393885614054",
+      "createdAt": "2026-10-05T19:51:51.782Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "A gummy bear would at least have dissolved on the way down. That rounded shape is the epiglottis itself swollen by supraglottitis.",
+        "reply_to_id": "18101504885644954"
+      }
     }
   },
   "repliedCommentIds": [
@@ -29729,7 +29738,8 @@
     "17949869406055067",
     "18122058446314509",
     "18637500187026795",
-    "17910732891518223"
+    "17910732891518223",
+    "18631258033049721"
   ],
   "answeredPostIds": [
     "18395606890093068"
@@ -29857,11 +29867,11 @@
     "18102001628139439": 209,
     "17919320862444697": 114,
     "18115888633802609": 93,
-    "18126282277854768": 15
+    "18126282277854768": 16
   },
   "daily": {
     "date": "2026-10-05",
-    "count": 15
+    "count": 16
   },
   "pinnedResolved": {
     "DaTTCIwoAw7": "18014812820883466"
@@ -31178,6 +31188,6 @@
   },
   "spend": {
     "date": "2026-10-05",
-    "usd": 0.021172907999999997
+    "usd": 0.022160255999999996
   }
 }
