@@ -20332,6 +20332,15 @@
       },
       "publishedId": "18224053300341472",
       "confirmedPublished": true
+    },
+    "comment:17874919098580847": {
+      "creationId": "17892398556614054",
+      "createdAt": "2026-10-05T20:48:28.450Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "The boulder on the walking stick is the swollen epiglottis. The stalk under it is the rest of the epiglottis and the lower bit below belongs to the airway and larynx proper.",
+        "reply_to_id": "17874919098580847"
+      }
     }
   },
   "repliedCommentIds": [
@@ -30102,7 +30111,8 @@
     "18640615201025104",
     "17987400453074128",
     "18114635360040580",
-    "18088597097268494"
+    "18088597097268494",
+    "18118532635972920"
   ],
   "answeredPostIds": [
     "18395606890093068"
@@ -30230,11 +30240,11 @@
     "18102001628139439": 209,
     "17919320862444697": 114,
     "18115888633802609": 93,
-    "18126282277854768": 46
+    "18126282277854768": 47
   },
   "daily": {
     "date": "2026-10-05",
-    "count": 46
+    "count": 47
   },
   "pinnedResolved": {
     "DaTTCIwoAw7": "18014812820883466"
@@ -31553,6 +31563,6 @@
   },
   "spend": {
     "date": "2026-10-05",
-    "usd": 0.05235214799999999
+    "usd": 0.05357396399999999
   }
 }
