@@ -20054,7 +20054,9 @@
         "media_type": "TEXT",
         "text": "No bolus here. The swelling is the epiglottis itself which is why the breathing worry was the right one to have.",
         "reply_to_id": "18447168859126193"
-      }
+      },
+      "publishedId": "18112345313173749",
+      "confirmedPublished": true
     }
   },
   "repliedCommentIds": [
