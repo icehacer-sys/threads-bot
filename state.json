@@ -20433,6 +20433,15 @@
       },
       "publishedId": "18155053951527182",
       "confirmedPublished": true
+    },
+    "comment:18101801567033408": {
+      "creationId": "17892402153614054",
+      "createdAt": "2026-10-05T21:53:04.187Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "The windpipe is the neighbour watching all this happen. The swelling is in the epiglottis above it.",
+        "reply_to_id": "18101801567033408"
+      }
     }
   },
   "repliedCommentIds": [
@@ -31668,6 +31677,6 @@
   },
   "spend": {
     "date": "2026-10-05",
-    "usd": 0.07138792799999996
+    "usd": 0.07311383999999996
   }
 }
