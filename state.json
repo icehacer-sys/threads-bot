@@ -537,7 +537,8 @@
     "18112258417874855": "{\"postId\":\"17919320862444697\",\"reason\":\"Question about where proceeds from the card game go and whether they support a named charity. No facts supplied about donations or charity partners, so any answer would invent a claim about the account's business. Owner response required.\",\"commentText\":\"Do proceeds go to any well known ME/CFS charity ?\",\"username\":\"stevefifield3\",\"queuedAt\":\"2026-10-03T22:19:18.617Z\"}",
     "18106479530249136": "{\"postId\":\"18126282277854768\",\"reason\":\"owner review: unsupported patient history, confirmation, specifics (day) or dismissal of an accepted differential | guard:forced-skip\",\"commentText\":\"Oesophageal tumour?\",\"username\":\"positive.cookiee\",\"queuedAt\":\"2026-10-05T19:53:29.889Z\"}",
     "17911288377502081": "{\"postId\":\"18126282277854768\",\"reason\":\"owner review: unsupported patient history, confirmation, specifics (day) or dismissal of an accepted differential | guard:forced-skip\",\"commentText\":\"also he needs a cervical curve.\",\"username\":\"ruth.werner.9\",\"queuedAt\":\"2026-10-05T21:21:07.033Z\"}",
-    "17900313897656260": "{\"postId\":\"18126282277854768\",\"reason\":\"owner review: unsupported patient history, confirmation, specifics (none) or dismissal of an accepted differential | guard:forced-skip\",\"commentText\":\"Is choking on a baby carrot.\",\"username\":\"lynnelhh\",\"queuedAt\":\"2026-10-05T21:21:10.989Z\"}"
+    "17900313897656260": "{\"postId\":\"18126282277854768\",\"reason\":\"owner review: unsupported patient history, confirmation, specifics (none) or dismissal of an accepted differential | guard:forced-skip\",\"commentText\":\"Is choking on a baby carrot.\",\"username\":\"lynnelhh\",\"queuedAt\":\"2026-10-05T21:21:10.989Z\"}",
+    "18117261502954588": "{\"postId\":\"18126282277854768\",\"reason\":\"owner review: unsupported patient history, confirmation, specifics (year) or dismissal of an accepted differential | guard:forced-skip\",\"commentText\":\"Barrett’s oesopgagus\",\"username\":\"jack.shei\",\"queuedAt\":\"2026-10-05T21:53:24.328Z\"}"
   },
   "concernAcknowledgments": {
     "[\"18121475662898455\",\"berit069\",\"image\"]": "18142096432588199",
@@ -20444,6 +20445,15 @@
       },
       "publishedId": "18068902463968990",
       "confirmedPublished": true
+    },
+    "comment:18127854052848985": {
+      "creationId": "17892402177614054",
+      "createdAt": "2026-10-05T21:53:30.885Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Some labels are just wishful thinking with a nice font.",
+        "reply_to_id": "18127854052848985"
+      }
     }
   },
   "repliedCommentIds": [
@@ -30224,7 +30234,8 @@
     "18116679025810647",
     "17911044675480795",
     "18114170975020661",
-    "18149824138550583"
+    "18149824138550583",
+    "18101801567033408"
   ],
   "answeredPostIds": [
     "18395606890093068"
@@ -30352,11 +30363,11 @@
     "18102001628139439": 209,
     "17919320862444697": 114,
     "18115888633802609": 93,
-    "18126282277854768": 56
+    "18126282277854768": 57
   },
   "daily": {
     "date": "2026-10-05",
-    "count": 56
+    "count": 57
   },
   "pinnedResolved": {
     "DaTTCIwoAw7": "18014812820883466"
@@ -31570,7 +31581,8 @@
     "17911288377502081",
     "17900313897656260",
     "18353339782174359",
-    "18106659187955858"
+    "18106659187955858",
+    "18117261502954588"
   ],
   "skipStrikes": {
     "17895266316520842": 1,
@@ -31679,6 +31691,6 @@
   },
   "spend": {
     "date": "2026-10-05",
-    "usd": 0.07311383999999996
+    "usd": 0.07591030799999995
   }
 }
