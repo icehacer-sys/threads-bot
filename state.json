@@ -20621,6 +20621,15 @@
       },
       "publishedId": "17909783049473163",
       "confirmedPublished": true
+    },
+    "comment:18118489969939577": {
+      "creationId": "17892406623614054",
+      "createdAt": "2026-10-05T23:06:00.074Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Nobody swallowed anything. The throat grew its own thumb.",
+        "reply_to_id": "18118489969939577"
+      }
     }
   },
   "repliedCommentIds": [
@@ -31875,6 +31884,6 @@
   },
   "spend": {
     "date": "2026-10-05",
-    "usd": 0.09223503599999998
+    "usd": 0.09285470399999998
   }
 }
