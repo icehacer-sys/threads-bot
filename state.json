@@ -19641,6 +19641,15 @@
       },
       "publishedId": "18639813373059804",
       "confirmedPublished": true
+    },
+    "comment:18107206235218121": {
+      "creationId": "17892274899614054",
+      "createdAt": "2026-10-05T00:46:10.913Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Trauma is one route to air and fluid in the pleural space but this case does not name a cause. Finding it means imaging plus analysis of the pleural fluid.",
+        "reply_to_id": "18107206235218121"
+      }
     }
   },
   "repliedCommentIds": [
@@ -29349,7 +29358,8 @@
     "18410608231089826",
     "18115920062596648",
     "18117266161770816",
-    "18115134359046015"
+    "18115134359046015",
+    "18487494031105243"
   ],
   "answeredPostIds": [
     "18395606890093068"
@@ -29476,11 +29486,11 @@
     "18205974196371350": 51,
     "18102001628139439": 209,
     "17919320862444697": 114,
-    "18115888633802609": 77
+    "18115888633802609": 78
   },
   "daily": {
     "date": "2026-10-04",
-    "count": 77
+    "count": 78
   },
   "pinnedResolved": {
     "DaTTCIwoAw7": "18014812820883466"
@@ -30792,6 +30802,6 @@
   },
   "spend": {
     "date": "2026-10-04",
-    "usd": 0.08907119400000002
+    "usd": 0.09141393000000003
   }
 }
