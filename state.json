@@ -19957,6 +19957,15 @@
       },
       "publishedId": "18184644883423111",
       "confirmedPublished": true
+    },
+    "comment:18637500187026795": {
+      "creationId": "17892392502614054",
+      "createdAt": "2026-10-05T19:35:28.719Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Not the oesophagus this time. The rounded thumb-shaped swelling is the epiglottis itself which is why supraglottitis fits better than a tear or reflux.",
+        "reply_to_id": "18637500187026795"
+      }
     }
   },
   "repliedCommentIds": [
@@ -29693,7 +29702,8 @@
     "18096979934429790",
     "18115762469328600",
     "18069437066761883",
-    "17949869406055067"
+    "17949869406055067",
+    "18122058446314509"
   ],
   "answeredPostIds": [
     "18395606890093068"
@@ -29821,11 +29831,11 @@
     "18102001628139439": 209,
     "17919320862444697": 114,
     "18115888633802609": 93,
-    "18126282277854768": 12
+    "18126282277854768": 13
   },
   "daily": {
     "date": "2026-10-05",
-    "count": 12
+    "count": 13
   },
   "pinnedResolved": {
     "DaTTCIwoAw7": "18014812820883466"
@@ -31141,6 +31151,6 @@
   },
   "spend": {
     "date": "2026-10-05",
-    "usd": 0.015616607999999997
+    "usd": 0.016570151999999998
   }
 }
