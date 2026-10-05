@@ -19740,6 +19740,15 @@
       },
       "publishedId": "18397085008206666",
       "confirmedPublished": true
+    },
+    "comment:18101104493221081": {
+      "creationId": "17892298329614054",
+      "createdAt": "2026-10-05T04:20:42.713Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Half full of optimism and half empty of lung. Either way the glass is definitely draining.",
+        "reply_to_id": "18101104493221081"
+      }
     }
   },
   "repliedCommentIds": [
@@ -30903,6 +30912,6 @@
   },
   "spend": {
     "date": "2026-10-04",
-    "usd": 0.15749447400000005
+    "usd": 0.15812674200000004
   }
 }
