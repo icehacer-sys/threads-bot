@@ -20453,7 +20453,9 @@
         "media_type": "TEXT",
         "text": "Some labels are just wishful thinking with a nice font.",
         "reply_to_id": "18127854052848985"
-      }
+      },
+      "publishedId": "18104262971573744",
+      "confirmedPublished": true
     }
   },
   "repliedCommentIds": [
