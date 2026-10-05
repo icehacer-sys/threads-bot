@@ -20422,6 +20422,15 @@
       },
       "publishedId": "18073714409753640",
       "confirmedPublished": true
+    },
+    "comment:18149824138550583": {
+      "creationId": "17892401613614054",
+      "createdAt": "2026-10-05T21:37:16.033Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Not the answer here. This neck's trouble is up at the epiglottis which swelled into a rounded thumb and narrowed the airway.",
+        "reply_to_id": "18149824138550583"
+      }
     }
   },
   "repliedCommentIds": [
@@ -30200,7 +30209,8 @@
     "17892867000435970",
     "18115571501014551",
     "18116679025810647",
-    "17911044675480795"
+    "17911044675480795",
+    "18114170975020661"
   ],
   "answeredPostIds": [
     "18395606890093068"
@@ -30328,11 +30338,11 @@
     "18102001628139439": 209,
     "17919320862444697": 114,
     "18115888633802609": 93,
-    "18126282277854768": 54
+    "18126282277854768": 55
   },
   "daily": {
     "date": "2026-10-05",
-    "count": 54
+    "count": 55
   },
   "pinnedResolved": {
     "DaTTCIwoAw7": "18014812820883466"
@@ -31654,6 +31664,6 @@
   },
   "spend": {
     "date": "2026-10-05",
-    "usd": 0.06798904799999997
+    "usd": 0.07020844799999996
   }
 }
