@@ -20351,7 +20351,9 @@
         "media_type": "TEXT",
         "text": "Somebody has to keep the thread from turning into a lecture.",
         "reply_to_id": "18480074731114792"
-      }
+      },
+      "publishedId": "18369490858208081",
+      "confirmedPublished": true
     }
   },
   "repliedCommentIds": [
