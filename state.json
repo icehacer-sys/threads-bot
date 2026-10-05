@@ -20288,6 +20288,15 @@
       },
       "publishedId": "18137254993724433",
       "confirmedPublished": true
+    },
+    "comment:17987400453074128": {
+      "creationId": "17892397257614054",
+      "createdAt": "2026-10-05T20:31:39.937Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Epiglot and peritonsillar both live in the same neighborhood of dread so the swerve was fair. The party in the trauma bay stays the right call when the airway is the one talking.",
+        "reply_to_id": "17987400453074128"
+      }
     }
   },
   "repliedCommentIds": [
@@ -30054,7 +30063,8 @@
     "17913205932532285",
     "18128946187838823",
     "18116979791053110",
-    "18107471975094243"
+    "18107471975094243",
+    "18640615201025104"
   ],
   "answeredPostIds": [
     "18395606890093068"
@@ -30182,11 +30192,11 @@
     "18102001628139439": 209,
     "17919320862444697": 114,
     "18115888633802609": 93,
-    "18126282277854768": 42
+    "18126282277854768": 43
   },
   "daily": {
     "date": "2026-10-05",
-    "count": 42
+    "count": 43
   },
   "pinnedResolved": {
     "DaTTCIwoAw7": "18014812820883466"
@@ -31505,6 +31515,6 @@
   },
   "spend": {
     "date": "2026-10-05",
-    "usd": 0.048786635999999994
+    "usd": 0.050214779999999994
   }
 }
