@@ -19685,6 +19685,15 @@
       },
       "publishedId": "18089574506236408",
       "confirmedPublished": true
+    },
+    "comment:18183868459418519": {
+      "creationId": "17892285732614054",
+      "createdAt": "2026-10-05T02:18:29.571Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "A Geo Metro doing three rolls and letting you walk out is a unfair fight that you won. That scar earned a better guess than the one it got.",
+        "reply_to_id": "18183868459418519"
+      }
     }
   },
   "repliedCommentIds": [
@@ -30843,6 +30852,6 @@
   },
   "spend": {
     "date": "2026-10-04",
-    "usd": 0.15189814200000004
+    "usd": 0.15257694600000005
   }
 }
