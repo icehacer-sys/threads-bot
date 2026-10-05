@@ -20299,6 +20299,15 @@
       },
       "publishedId": "17903531328665857",
       "confirmedPublished": true
+    },
+    "comment:18114635360040580": {
+      "creationId": "17892398139614054",
+      "createdAt": "2026-10-05T20:47:09.627Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "A frog would at least have croaked. This one just quietly swelled the epiglottis shut.",
+        "reply_to_id": "18114635360040580"
+      }
     }
   },
   "repliedCommentIds": [
@@ -31518,6 +31527,6 @@
   },
   "spend": {
     "date": "2026-10-05",
-    "usd": 0.050214779999999994
+    "usd": 0.05088154799999999
   }
 }
