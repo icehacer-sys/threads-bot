@@ -19968,6 +19968,15 @@
       },
       "publishedId": "18105846830261722",
       "confirmedPublished": true
+    },
+    "comment:17910732891518223": {
+      "creationId": "17892393852614054",
+      "createdAt": "2026-10-05T19:51:06.729Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Your thimble is still missing I am afraid. That rounded shape belongs to the patient's own epiglottis.",
+        "reply_to_id": "17910732891518223"
+      }
     }
   },
   "repliedCommentIds": [
@@ -31155,6 +31164,6 @@
   },
   "spend": {
     "date": "2026-10-05",
-    "usd": 0.017685192
+    "usd": 0.019647119999999997
   }
 }
