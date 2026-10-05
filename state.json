@@ -19663,6 +19663,15 @@
       },
       "publishedId": "18140648713722773",
       "confirmedPublished": true
+    },
+    "comment:18116944316008837": {
+      "creationId": "17892279699614054",
+      "createdAt": "2026-10-05T01:47:38.162Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "That post-procedure CXR to rule out iatrogenic pneumothorax is a very real anxiety with those needles. Doing a handful and coming out the other side with intact patients is worth something.",
+        "reply_to_id": "18116944316008837"
+      }
     }
   },
   "repliedCommentIds": [
@@ -30819,6 +30828,6 @@
   },
   "spend": {
     "date": "2026-10-04",
-    "usd": 0.09440779800000003
+    "usd": 0.15107091000000003
   }
 }
