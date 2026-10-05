@@ -20400,6 +20400,15 @@
       },
       "publishedId": "17983245048095058",
       "confirmedPublished": true
+    },
+    "comment:17911044675480795": {
+      "creationId": "17892401565614054",
+      "createdAt": "2026-10-05T21:36:30.416Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "The one night the sore throat was not just a sore throat.",
+        "reply_to_id": "17911044675480795"
+      }
     }
   },
   "repliedCommentIds": [
@@ -31631,6 +31640,6 @@
   },
   "spend": {
     "date": "2026-10-05",
-    "usd": 0.06662054399999998
+    "usd": 0.06728417999999997
   }
 }
