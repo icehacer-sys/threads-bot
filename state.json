@@ -535,7 +535,9 @@
     "18094826483398786": "{\"postId\":\"18102001628139439\",\"reason\":\"Owner review hold: comment questions the kidney position on the image. The image has an unresolved anatomy concern so no reply relying on the image or case findings is allowed. Skip for owner review: image/anatomy inconsistency.\",\"commentText\":\"Um .... what the kidneys doing up there ???\",\"username\":\"a_robins.nest\",\"queuedAt\":\"2026-10-03T06:43:50.052Z\"}",
     "17950232409051566": "{\"postId\":\"17919320862444697\",\"reason\":\"owner review: unsupported patient history, confirmation, specifics (year) or dismissal of an accepted differential | guard:forced-skip\",\"commentText\":\"Patient drank too much milk. Developed crunchy finger disease.\",\"username\":\"nora.becker.art\",\"queuedAt\":\"2026-10-03T21:30:43.916Z\"}",
     "18112258417874855": "{\"postId\":\"17919320862444697\",\"reason\":\"Question about where proceeds from the card game go and whether they support a named charity. No facts supplied about donations or charity partners, so any answer would invent a claim about the account's business. Owner response required.\",\"commentText\":\"Do proceeds go to any well known ME/CFS charity ?\",\"username\":\"stevefifield3\",\"queuedAt\":\"2026-10-03T22:19:18.617Z\"}",
-    "18106479530249136": "{\"postId\":\"18126282277854768\",\"reason\":\"owner review: unsupported patient history, confirmation, specifics (day) or dismissal of an accepted differential | guard:forced-skip\",\"commentText\":\"Oesophageal tumour?\",\"username\":\"positive.cookiee\",\"queuedAt\":\"2026-10-05T19:53:29.889Z\"}"
+    "18106479530249136": "{\"postId\":\"18126282277854768\",\"reason\":\"owner review: unsupported patient history, confirmation, specifics (day) or dismissal of an accepted differential | guard:forced-skip\",\"commentText\":\"Oesophageal tumour?\",\"username\":\"positive.cookiee\",\"queuedAt\":\"2026-10-05T19:53:29.889Z\"}",
+    "17911288377502081": "{\"postId\":\"18126282277854768\",\"reason\":\"owner review: unsupported patient history, confirmation, specifics (day) or dismissal of an accepted differential | guard:forced-skip\",\"commentText\":\"also he needs a cervical curve.\",\"username\":\"ruth.werner.9\",\"queuedAt\":\"2026-10-05T21:21:07.033Z\"}",
+    "17900313897656260": "{\"postId\":\"18126282277854768\",\"reason\":\"owner review: unsupported patient history, confirmation, specifics (none) or dismissal of an accepted differential | guard:forced-skip\",\"commentText\":\"Is choking on a baby carrot.\",\"username\":\"lynnelhh\",\"queuedAt\":\"2026-10-05T21:21:10.989Z\"}"
   },
   "concernAcknowledgments": {
     "[\"18121475662898455\",\"berit069\",\"image\"]": "18142096432588199",
@@ -31517,7 +31519,10 @@
     "18117539917953319",
     "18137899861651413",
     "18117630782004380",
-    "18106479530249136"
+    "18106479530249136",
+    "17911288377502081",
+    "17900313897656260",
+    "18353339782174359"
   ],
   "skipStrikes": {
     "17895266316520842": 1,
@@ -31601,9 +31606,7 @@
     "17892499647434727": 1,
     "17910732891518223": 1,
     "18631258033049721": 1,
-    "17974860536936669": 1,
-    "17911288377502081": 1,
-    "18353339782174359": 1
+    "17974860536936669": 1
   },
   "gifPostCounts": {
     "18432085978123193": 1,
@@ -31628,6 +31631,6 @@
   },
   "spend": {
     "date": "2026-10-05",
-    "usd": 0.06270585599999998
+    "usd": 0.06662054399999998
   }
 }
