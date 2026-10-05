@@ -20001,6 +20001,15 @@
       },
       "publishedId": "17950411146271287",
       "confirmedPublished": true
+    },
+    "comment:18366291979246852": {
+      "creationId": "17892393906614054",
+      "createdAt": "2026-10-05T19:52:15.930Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "The case only records that swallowing suddenly became hard so nobody can say how long the swelling took to get there.",
+        "reply_to_id": "18366291979246852"
+      }
     }
   },
   "repliedCommentIds": [
@@ -29741,7 +29750,8 @@
     "18122058446314509",
     "18637500187026795",
     "17910732891518223",
-    "18631258033049721"
+    "18631258033049721",
+    "18101504885644954"
   ],
   "answeredPostIds": [
     "18395606890093068"
@@ -29869,11 +29879,11 @@
     "18102001628139439": 209,
     "17919320862444697": 114,
     "18115888633802609": 93,
-    "18126282277854768": 16
+    "18126282277854768": 17
   },
   "daily": {
     "date": "2026-10-05",
-    "count": 16
+    "count": 17
   },
   "pinnedResolved": {
     "DaTTCIwoAw7": "18014812820883466"
@@ -31190,6 +31200,6 @@
   },
   "spend": {
     "date": "2026-10-05",
-    "usd": 0.022160255999999996
+    "usd": 0.023837243999999997
   }
 }
