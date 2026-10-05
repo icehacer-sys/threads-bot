@@ -19855,7 +19855,9 @@
         "media_type": "TEXT",
         "text": "And here the frog was packing a thumb.",
         "reply_to_id": "18105640202215545"
-      }
+      },
+      "publishedId": "18090319655219565",
+      "confirmedPublished": true
     }
   },
   "repliedCommentIds": [
