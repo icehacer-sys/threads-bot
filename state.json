@@ -432,7 +432,10 @@
     "17984993658094838": "18102001628139439",
     "18071275580757606": "18102001628139439",
     "18031183586896456": "18102001628139439",
-    "18132794311780946": "18102001628139439"
+    "18132794311780946": "18102001628139439",
+    "18411423877091893": "18126282277854768",
+    "18124459126906137": "18126282277854768",
+    "18134179300629062": "18126282277854768"
   },
   "ownerReviews": {
     "17937444630360450": "{\"postId\":\"18103023326210157\",\"reason\":\"owner review: personal medical concern\",\"commentText\":\"Little sister of my friend swalloved a coin of 1 fim. At hospital the family was advised to thoroughly keep an eye on her poops. So, the next day they found two 50 penny coins😀.\",\"username\":\"velitapiof\",\"queuedAt\":\"2026-09-10T20:21:59.741Z\",\"resolvedAt\":\"2026-09-10T20:36:02.929Z\",\"resolution\":\"Owner confirmed this is a completed personal story and deleted the inappropriate boundary reply. No clinical review is needed.\"}",
@@ -538,7 +541,8 @@
     "18106479530249136": "{\"postId\":\"18126282277854768\",\"reason\":\"owner review: unsupported patient history, confirmation, specifics (day) or dismissal of an accepted differential | guard:forced-skip\",\"commentText\":\"Oesophageal tumour?\",\"username\":\"positive.cookiee\",\"queuedAt\":\"2026-10-05T19:53:29.889Z\"}",
     "17911288377502081": "{\"postId\":\"18126282277854768\",\"reason\":\"owner review: unsupported patient history, confirmation, specifics (day) or dismissal of an accepted differential | guard:forced-skip\",\"commentText\":\"also he needs a cervical curve.\",\"username\":\"ruth.werner.9\",\"queuedAt\":\"2026-10-05T21:21:07.033Z\"}",
     "17900313897656260": "{\"postId\":\"18126282277854768\",\"reason\":\"owner review: unsupported patient history, confirmation, specifics (none) or dismissal of an accepted differential | guard:forced-skip\",\"commentText\":\"Is choking on a baby carrot.\",\"username\":\"lynnelhh\",\"queuedAt\":\"2026-10-05T21:21:10.989Z\"}",
-    "18117261502954588": "{\"postId\":\"18126282277854768\",\"reason\":\"owner review: unsupported patient history, confirmation, specifics (year) or dismissal of an accepted differential | guard:forced-skip\",\"commentText\":\"Barrett’s oesopgagus\",\"username\":\"jack.shei\",\"queuedAt\":\"2026-10-05T21:53:24.328Z\"}"
+    "18117261502954588": "{\"postId\":\"18126282277854768\",\"reason\":\"owner review: unsupported patient history, confirmation, specifics (year) or dismissal of an accepted differential | guard:forced-skip\",\"commentText\":\"Barrett’s oesopgagus\",\"username\":\"jack.shei\",\"queuedAt\":\"2026-10-05T21:53:24.328Z\"}",
+    "18138750667527973": "{\"postId\":\"18126282277854768\",\"reason\":\"Owner review: image/anatomy inconsistency. The commenter raises a specific concern about the dental arcades and granular changes anterior to the epiglottis. Those findings are not covered by the supplied case facts and I must not invent an anatomy or projection explanation or agree an error exists without review. Hold the reply for owner review.\",\"commentText\":\"the are aspects of this image that are curious.  The granular changes anterior to the epiglottis and the rather unusual dental arcades .\",\"username\":\"meanderingwa\",\"queuedAt\":\"2026-10-05T23:37:49.438Z\"}"
   },
   "concernAcknowledgments": {
     "[\"18121475662898455\",\"berit069\",\"image\"]": "18142096432588199",
@@ -20676,6 +20680,15 @@
       },
       "publishedId": "18095656700109830",
       "confirmedPublished": true
+    },
+    "comment:18114795217963723": {
+      "creationId": "17892409089614054",
+      "createdAt": "2026-10-05T23:38:06.704Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Melted plastic at least holds its shape. This egg lost the argument with the wrapper.",
+        "reply_to_id": "18114795217963723"
+      }
     }
   },
   "repliedCommentIds": [
@@ -31827,7 +31840,8 @@
     "18106659187955858",
     "18117261502954588",
     "17957473422016104",
-    "18115766860814375"
+    "18115766860814375",
+    "18138750667527973"
   ],
   "skipStrikes": {
     "17895266316520842": 1,
@@ -31936,6 +31950,6 @@
   },
   "spend": {
     "date": "2026-10-05",
-    "usd": 0.09698806799999998
+    "usd": 0.10127600399999998
   }
 }
