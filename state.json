@@ -20123,6 +20123,15 @@
       },
       "publishedId": "17910501852550155",
       "confirmedPublished": true
+    },
+    "comment:18413309230080267": {
+      "creationId": "17892395442614054",
+      "createdAt": "2026-10-05T20:11:35.012Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Not the styloid this time. The teaching answer is acute epiglottitis and the epiglottis itself is the rounded mass narrowing the airway.",
+        "reply_to_id": "18413309230080267"
+      }
     }
   },
   "repliedCommentIds": [
@@ -29874,7 +29883,8 @@
     "17988873531026298",
     "18139302799711705",
     "17906303748593674",
-    "17930151972161535"
+    "17930151972161535",
+    "17974860536936669"
   ],
   "answeredPostIds": [
     "18395606890093068"
@@ -30002,11 +30012,11 @@
     "18102001628139439": 209,
     "17919320862444697": 114,
     "18115888633802609": 93,
-    "18126282277854768": 27
+    "18126282277854768": 28
   },
   "daily": {
     "date": "2026-10-05",
-    "count": 27
+    "count": 28
   },
   "pinnedResolved": {
     "DaTTCIwoAw7": "18014812820883466"
@@ -31325,6 +31335,6 @@
   },
   "spend": {
     "date": "2026-10-05",
-    "usd": 0.035361564000000005
+    "usd": 0.037139040000000005
   }
 }
