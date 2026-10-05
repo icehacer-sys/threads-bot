@@ -20365,6 +20365,15 @@
       },
       "publishedId": "18117543260473614",
       "confirmedPublished": true
+    },
+    "comment:17892867000435970": {
+      "creationId": "17892399567614054",
+      "createdAt": "2026-10-05T21:04:48.666Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "That covers the case well. One addition the facts here support is steroids and nebulised adrenaline alongside the intravenous antibiotics.",
+        "reply_to_id": "17892867000435970"
+      }
     }
   },
   "repliedCommentIds": [
@@ -30138,7 +30147,8 @@
     "18088597097268494",
     "18118532635972920",
     "17874919098580847",
-    "18480074731114792"
+    "18480074731114792",
+    "18143168416587599"
   ],
   "answeredPostIds": [
     "18395606890093068"
@@ -30266,11 +30276,11 @@
     "18102001628139439": 209,
     "17919320862444697": 114,
     "18115888633802609": 93,
-    "18126282277854768": 49
+    "18126282277854768": 50
   },
   "daily": {
     "date": "2026-10-05",
-    "count": 49
+    "count": 50
   },
   "pinnedResolved": {
     "DaTTCIwoAw7": "18014812820883466"
@@ -31590,6 +31600,6 @@
   },
   "spend": {
     "date": "2026-10-05",
-    "usd": 0.057539291999999985
+    "usd": 0.058683371999999984
   }
 }
