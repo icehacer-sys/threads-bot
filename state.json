@@ -20277,6 +20277,15 @@
       },
       "publishedId": "18096667133437745",
       "confirmedPublished": true
+    },
+    "comment:18640615201025104": {
+      "creationId": "17892397230614054",
+      "createdAt": "2026-10-05T20:31:17.615Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "A tackle box with dividers would have been the tidy way to do it. The epiglottis just swelled up instead and skipped the organisation entirely.",
+        "reply_to_id": "18640615201025104"
+      }
     }
   },
   "repliedCommentIds": [
@@ -30042,7 +30051,8 @@
     "18355247218217767",
     "17913205932532285",
     "18128946187838823",
-    "18116979791053110"
+    "18116979791053110",
+    "18107471975094243"
   ],
   "answeredPostIds": [
     "18395606890093068"
@@ -30170,11 +30180,11 @@
     "18102001628139439": 209,
     "17919320862444697": 114,
     "18115888633802609": 93,
-    "18126282277854768": 41
+    "18126282277854768": 42
   },
   "daily": {
     "date": "2026-10-05",
-    "count": 41
+    "count": 42
   },
   "pinnedResolved": {
     "DaTTCIwoAw7": "18014812820883466"
@@ -31493,6 +31503,6 @@
   },
   "spend": {
     "date": "2026-10-05",
-    "usd": 0.04796240399999999
+    "usd": 0.048786635999999994
   }
 }
