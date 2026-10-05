@@ -20211,6 +20211,15 @@
       },
       "publishedId": "17922739644432463",
       "confirmedPublished": true
+    },
+    "comment:18133143148584373": {
+      "creationId": "17892395976614054",
+      "createdAt": "2026-10-05T20:14:16.771Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Fattius distal phalanx sounds like something you catch from too many thumb wars. Sadly this neck went with a swollen epiglottis instead.",
+        "reply_to_id": "18133143148584373"
+      }
     }
   },
   "repliedCommentIds": [
@@ -29970,7 +29979,8 @@
     "18091998473272011",
     "17957057148017220",
     "18186144685413932",
-    "18101913422575787"
+    "18101913422575787",
+    "17999157912036022"
   ],
   "answeredPostIds": [
     "18395606890093068"
@@ -30098,11 +30108,11 @@
     "18102001628139439": 209,
     "17919320862444697": 114,
     "18115888633802609": 93,
-    "18126282277854768": 35
+    "18126282277854768": 36
   },
   "daily": {
     "date": "2026-10-05",
-    "count": 35
+    "count": 36
   },
   "pinnedResolved": {
     "DaTTCIwoAw7": "18014812820883466"
@@ -31421,6 +31431,6 @@
   },
   "spend": {
     "date": "2026-10-05",
-    "usd": 0.04353590399999999
+    "usd": 0.044365235999999995
   }
 }
