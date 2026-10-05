@@ -20189,6 +20189,15 @@
       },
       "publishedId": "18110940428168457",
       "confirmedPublished": true
+    },
+    "comment:18101913422575787": {
+      "creationId": "17892395952614054",
+      "createdAt": "2026-10-05T20:13:37.721Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "A contrasted CT would say plenty but this case only covers the airway. The curve you spotted and the disc spaces are outside what the facts here describe so I can't back either one up.",
+        "reply_to_id": "18101913422575787"
+      }
     }
   },
   "repliedCommentIds": [
@@ -29946,7 +29955,8 @@
     "18103295261013375",
     "18118924918988265",
     "18091998473272011",
-    "17957057148017220"
+    "17957057148017220",
+    "18186144685413932"
   ],
   "answeredPostIds": [
     "18395606890093068"
@@ -30074,11 +30084,11 @@
     "18102001628139439": 209,
     "17919320862444697": 114,
     "18115888633802609": 93,
-    "18126282277854768": 33
+    "18126282277854768": 34
   },
   "daily": {
     "date": "2026-10-05",
-    "count": 33
+    "count": 34
   },
   "pinnedResolved": {
     "DaTTCIwoAw7": "18014812820883466"
@@ -31397,6 +31407,6 @@
   },
   "spend": {
     "date": "2026-10-05",
-    "usd": 0.041459628
+    "usd": 0.042757571999999994
   }
 }
