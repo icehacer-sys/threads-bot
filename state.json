@@ -20566,6 +20566,15 @@
       },
       "publishedId": "17887946391478585",
       "confirmedPublished": true
+    },
+    "comment:18122481920301056": {
+      "creationId": "17892403905614054",
+      "createdAt": "2026-10-05T22:33:47.397Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "That is the reading. Thick and rounded is exactly what the neck is showing and the narrowing behind it is the part that keeps everyone in the room alert.",
+        "reply_to_id": "18122481920301056"
+      }
     }
   },
   "repliedCommentIds": [
@@ -30357,7 +30366,8 @@
     "17912977263496215",
     "18632652379024251",
     "18147872566560942",
-    "17900883636605234"
+    "17900883636605234",
+    "18101391932135453"
   ],
   "answeredPostIds": [
     "18395606890093068"
@@ -30485,11 +30495,11 @@
     "18102001628139439": 209,
     "17919320862444697": 114,
     "18115888633802609": 93,
-    "18126282277854768": 67
+    "18126282277854768": 68
   },
   "daily": {
     "date": "2026-10-05",
-    "count": 67
+    "count": 68
   },
   "pinnedResolved": {
     "DaTTCIwoAw7": "18014812820883466"
@@ -31814,6 +31824,6 @@
   },
   "spend": {
     "date": "2026-10-05",
-    "usd": 0.08833742399999997
+    "usd": 0.08941473599999997
   }
 }
