@@ -19605,7 +19605,9 @@
         "media_type": "TEXT",
         "text": "You went straight to the answer and named it in one try.",
         "reply_to_id": "18115920062596648"
-      }
+      },
+      "publishedId": "18111967460119526",
+      "confirmedPublished": true
     }
   },
   "repliedCommentIds": [
