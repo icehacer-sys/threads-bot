@@ -21866,6 +21866,15 @@
       },
       "publishedId": "18199028608376876",
       "confirmedPublished": true
+    },
+    "comment:18079361561427550": {
+      "creationId": "17892541032614054",
+      "createdAt": "2026-10-06T23:45:14.679Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Drainage is part of it and the urgency is the whole point. Needle decompression tends to come first here because the pressure has to come off before the tube goes in.",
+        "reply_to_id": "18079361561427550"
+      }
     }
   },
   "repliedCommentIds": [
@@ -33138,7 +33147,8 @@
     "17942010372094401",
     "18137652172561401",
     "18045257366820364",
-    "18188461756416652"
+    "18188461756416652",
+    "17996195733037485"
   ],
   "skipStrikes": {
     "17895266316520842": 1,
@@ -33248,6 +33258,6 @@
   },
   "spend": {
     "date": "2026-10-06",
-    "usd": 0.10826424000000001
+    "usd": 0.11169519000000001
   }
 }
