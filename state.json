@@ -21711,6 +21711,15 @@
       },
       "publishedId": "18129135988796400",
       "confirmedPublished": true
+    },
+    "comment:18130719739835774": {
+      "creationId": "17892526908614054",
+      "createdAt": "2026-10-06T20:54:25.905Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "That point lands and it is worth saying plainly. A film cannot fix how someone was heard on the way to getting it but I won't wave away what you have told me.",
+        "reply_to_id": "18130719739835774"
+      }
     }
   },
   "repliedCommentIds": [
@@ -31600,7 +31609,8 @@
     "18155016169520876",
     "18048737708811450",
     "18176421472450711",
-    "18102618257010645"
+    "18102618257010645",
+    "18038038037845616"
   ],
   "answeredPostIds": [
     "18395606890093068"
@@ -31729,11 +31739,11 @@
     "17919320862444697": 114,
     "18115888633802609": 93,
     "18126282277854768": 107,
-    "18169862959459418": 58
+    "18169862959459418": 59
   },
   "daily": {
     "date": "2026-10-06",
-    "count": 58
+    "count": 59
   },
   "pinnedResolved": {
     "DaTTCIwoAw7": "18014812820883466"
@@ -33075,6 +33085,6 @@
   },
   "spend": {
     "date": "2026-10-06",
-    "usd": 0.08974556400000001
+    "usd": 0.09054579600000001
   }
 }
