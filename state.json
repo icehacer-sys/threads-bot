@@ -20958,6 +20958,15 @@
       },
       "publishedId": "18118772140865308",
       "confirmedPublished": true
+    },
+    "comment:17908803102476336": {
+      "creationId": "17892432720614054",
+      "createdAt": "2026-10-06T04:49:21.669Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "The pay increase is the fiction here. Case reports pay in citations and mild envy.",
+        "reply_to_id": "17908803102476336"
+      }
     }
   },
   "repliedCommentIds": [
@@ -32246,6 +32255,6 @@
   },
   "spend": {
     "date": "2026-10-05",
-    "usd": 0.137861388
+    "usd": 0.13860888
   }
 }
