@@ -21080,6 +21080,15 @@
       },
       "publishedId": "18135608989710748",
       "confirmedPublished": true
+    },
+    "comment:18121008160887734": {
+      "creationId": "17892519810614054",
+      "createdAt": "2026-10-06T19:32:22.890Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Not cancer here. The black side is air trapped in the pleural space and the collapsed lung has shrunk toward the middle.",
+        "reply_to_id": "18121008160887734"
+      }
     }
   },
   "repliedCommentIds": [
@@ -30912,7 +30921,8 @@
     "18093905072378150",
     "17968178703076260",
     "18113368595279355",
-    "17911130025514934"
+    "17911130025514934",
+    "17906883900561633"
   ],
   "answeredPostIds": [
     "18395606890093068"
@@ -31041,11 +31051,11 @@
     "17919320862444697": 114,
     "18115888633802609": 93,
     "18126282277854768": 107,
-    "18169862959459418": 1
+    "18169862959459418": 2
   },
   "daily": {
     "date": "2026-10-06",
-    "count": 1
+    "count": 2
   },
   "pinnedResolved": {
     "DaTTCIwoAw7": "18014812820883466"
@@ -32378,6 +32388,6 @@
   },
   "spend": {
     "date": "2026-10-06",
-    "usd": 0.011354388
+    "usd": 0.012746232
   }
 }
