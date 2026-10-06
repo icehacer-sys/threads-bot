@@ -20845,6 +20845,15 @@
       },
       "publishedId": "18467871202137687",
       "confirmedPublished": true
+    },
+    "comment:18118319584964598": {
+      "creationId": "17892426447614054",
+      "createdAt": "2026-10-06T03:44:49.148Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Being the patient in that scenario is a whole different level of frightening. Glad the feared abscess never showed up.",
+        "reply_to_id": "18118319584964598"
+      }
     }
   },
   "repliedCommentIds": [
@@ -30659,7 +30668,8 @@
     "17881669392691598",
     "17911364202519945",
     "17912931000524746",
-    "18135704254735033"
+    "18135704254735033",
+    "18136300981639625"
   ],
   "answeredPostIds": [
     "18395606890093068"
@@ -30787,11 +30797,11 @@
     "18102001628139439": 209,
     "17919320862444697": 114,
     "18115888633802609": 93,
-    "18126282277854768": 90
+    "18126282277854768": 91
   },
   "daily": {
     "date": "2026-10-05",
-    "count": 90
+    "count": 91
   },
   "pinnedResolved": {
     "DaTTCIwoAw7": "18014812820883466"
@@ -32122,6 +32132,6 @@
   },
   "spend": {
     "date": "2026-10-05",
-    "usd": 0.126961656
+    "usd": 0.127615752
   }
 }
