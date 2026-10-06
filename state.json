@@ -444,7 +444,9 @@
     "18013203083959037": "18126282277854768",
     "18099329366420298": "18126282277854768",
     "17947248348313834": "18126282277854768",
-    "18632669083041406": "18126282277854768"
+    "18632669083041406": "18126282277854768",
+    "18397121725206742": "18126282277854768",
+    "18500277142099566": "18126282277854768"
   },
   "ownerReviews": {
     "17937444630360450": "{\"postId\":\"18103023326210157\",\"reason\":\"owner review: personal medical concern\",\"commentText\":\"Little sister of my friend swalloved a coin of 1 fim. At hospital the family was advised to thoroughly keep an eye on her poops. So, the next day they found two 50 penny coins😀.\",\"username\":\"velitapiof\",\"queuedAt\":\"2026-09-10T20:21:59.741Z\",\"resolvedAt\":\"2026-09-10T20:36:02.929Z\",\"resolution\":\"Owner confirmed this is a completed personal story and deleted the inappropriate boundary reply. No clinical review is needed.\"}",
@@ -20779,6 +20781,15 @@
       },
       "publishedId": "18092445929181441",
       "confirmedPublished": true
+    },
+    "comment:17881669392691598": {
+      "creationId": "17892419364614054",
+      "createdAt": "2026-10-06T02:12:12.650Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "No nose and still no problem making an entrance.",
+        "reply_to_id": "17881669392691598"
+      }
     }
   },
   "repliedCommentIds": [
@@ -32050,6 +32061,6 @@
   },
   "spend": {
     "date": "2026-10-05",
-    "usd": 0.11494471199999999
+    "usd": 0.11640481199999998
   }
 }
