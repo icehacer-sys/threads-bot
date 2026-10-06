@@ -21124,6 +21124,15 @@
       },
       "publishedId": "18103866053344252",
       "confirmedPublished": true
+    },
+    "comment:18080698589362464": {
+      "creationId": "17892519894614054",
+      "createdAt": "2026-10-06T19:33:46.579Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "CHF usually keeps lung markings on both sides. Here the answer is tension pneumothorax with the mediastinum pushed across.",
+        "reply_to_id": "18080698589362464"
+      }
     }
   },
   "repliedCommentIds": [
@@ -30960,7 +30969,8 @@
     "17906883900561633",
     "18121008160887734",
     "17882605878690771",
-    "18141160237613517"
+    "18141160237613517",
+    "18018506321736104"
   ],
   "answeredPostIds": [
     "18395606890093068"
@@ -31089,11 +31099,11 @@
     "17919320862444697": 114,
     "18115888633802609": 93,
     "18126282277854768": 107,
-    "18169862959459418": 5
+    "18169862959459418": 6
   },
   "daily": {
     "date": "2026-10-06",
-    "count": 5
+    "count": 6
   },
   "pinnedResolved": {
     "DaTTCIwoAw7": "18014812820883466"
@@ -32426,6 +32436,6 @@
   },
   "spend": {
     "date": "2026-10-06",
-    "usd": 0.015333587999999999
+    "usd": 0.01701894
   }
 }
