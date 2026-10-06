@@ -603,7 +603,8 @@
     "18214227592358249": "{\"postId\":\"18126282277854768\",\"reason\":\"Owner review hold on this case: the image/anatomy is unresolved and the commenter is reasoning directly from the cervical spine appearance on it. No diagnosis discussion or anatomy interpretation is eligible. Skip.\",\"commentText\":\"Cervival looses its c shape, narrowing the airway coz its not in its natural state.\",\"username\":\"ain.hadi11\",\"queuedAt\":\"2026-10-06T02:43:06.167Z\"}",
     "18636799267028908": "{\"postId\":\"18126282277854768\",\"reason\":\"Owner review hold: the image has an unresolved anatomy concern, so every reply relying on this image or its case findings is skipped even after the reveal. The comment is a correct diagnosis guess and would otherwise get a brief affirmation, but affirming it would restate a case finding tied to the held image. Eligible unrelated banter or empathy only, which this single-word guess is not.\",\"commentText\":\"Epiglottis\",\"username\":\"kaypc1\",\"queuedAt\":\"2026-10-06T05:19:59.290Z\"}",
     "17947725957323667": "{\"postId\":\"18169862959459418\",\"reason\":\"owner review: unsupported patient history, confirmation, specifics (week) or dismissal of an accepted differential | guard:forced-skip\",\"commentText\":\"I’ve seen month old helium balloons less collapsed than that right lung seems to be. Time to get stabby and relieve that pneumothorax.\",\"username\":\"sullivanst668\",\"queuedAt\":\"2026-10-06T19:59:28.175Z\"}",
-    "17987126340114027": "{\"postId\":\"18169862959459418\",\"reason\":\"owner review: personal medical concern\",\"commentText\":\"Can I ask, do you know what this is on my tongue plz is it something my doc should see,much appreciated\",\"username\":\"richantwright1\",\"queuedAt\":\"2026-10-06T19:59:48.844Z\"}"
+    "17987126340114027": "{\"postId\":\"18169862959459418\",\"reason\":\"owner review: personal medical concern\",\"commentText\":\"Can I ask, do you know what this is on my tongue plz is it something my doc should see,much appreciated\",\"username\":\"richantwright1\",\"queuedAt\":\"2026-10-06T19:59:48.844Z\"}",
+    "18116319437079514": "{\"postId\":\"18169862959459418\",\"reason\":\"Comment asserts a specific imaging projection/orientation for the image. Projection naming is not supported by the supplied facts and I must not invent or confirm a projection explanation. Hold for owner review as an image-orientation claim rather than auto-replying.\",\"commentText\":\"So this image was taken from a posterior view. I see. Thank you.\",\"username\":\"alan_b2120\",\"queuedAt\":\"2026-10-06T20:00:37.677Z\"}"
   },
   "concernAcknowledgments": {
     "[\"18121475662898455\",\"berit069\",\"image\"]": "18142096432588199",
@@ -21490,6 +21491,15 @@
       },
       "publishedId": "18148469833538695",
       "confirmedPublished": true
+    },
+    "comment:18192908077400784": {
+      "creationId": "17892522600614054",
+      "createdAt": "2026-10-06T20:00:43.209Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Touché accepted. I'll keep the scissors away from the chest drain.",
+        "reply_to_id": "18192908077400784"
+      }
     }
   },
   "repliedCommentIds": [
@@ -31359,7 +31369,8 @@
     "18099928391642529",
     "17906317113564327",
     "17867838525652417",
-    "17987126340114027"
+    "17987126340114027",
+    "17917134279453275"
   ],
   "answeredPostIds": [
     "18395606890093068"
@@ -31488,11 +31499,11 @@
     "17919320862444697": 114,
     "18115888633802609": 93,
     "18126282277854768": 107,
-    "18169862959459418": 38
+    "18169862959459418": 39
   },
   "daily": {
     "date": "2026-10-06",
-    "count": 38
+    "count": 39
   },
   "pinnedResolved": {
     "DaTTCIwoAw7": "18014812820883466"
@@ -32721,7 +32732,8 @@
     "18107342588203584",
     "18068528747509615",
     "18630906688010061",
-    "17947725957323667"
+    "17947725957323667",
+    "18116319437079514"
   ],
   "skipStrikes": {
     "17895266316520842": 1,
@@ -32830,6 +32842,6 @@
   },
   "spend": {
     "date": "2026-10-06",
-    "usd": 0.056046887999999996
+    "usd": 0.058080564
   }
 }
