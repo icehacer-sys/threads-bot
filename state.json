@@ -21058,6 +21058,15 @@
       },
       "publishedId": "18155014192521593",
       "confirmedPublished": true
+    },
+    "comment:17911130025514934": {
+      "creationId": "17892519768614054",
+      "createdAt": "2026-10-06T19:31:43.193Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Nobody ran off with it. The air just moved in and refused to leave.",
+        "reply_to_id": "17911130025514934"
+      }
     }
   },
   "repliedCommentIds": [
@@ -32354,6 +32363,6 @@
   },
   "spend": {
     "date": "2026-10-06",
-    "usd": 0.010239924000000001
+    "usd": 0.01086192
   }
 }
