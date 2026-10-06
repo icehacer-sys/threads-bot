@@ -21432,6 +21432,15 @@
       },
       "publishedId": "18214898203358196",
       "confirmedPublished": true
+    },
+    "comment:18099928391642529": {
+      "creationId": "17892522411614054",
+      "createdAt": "2026-10-06T19:58:49.593Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "You are right that the tension call really is a bedside judgement. Here the film does show the mediastinum pushed across so it fits the label the teaching answer uses.",
+        "reply_to_id": "18099928391642529"
+      }
     }
   },
   "repliedCommentIds": [
@@ -31296,7 +31305,8 @@
     "17923161513437200",
     "18133028608723746",
     "18118493597000230",
-    "17955983154248559"
+    "17955983154248559",
+    "18145062655562187"
   ],
   "answeredPostIds": [
     "18395606890093068"
@@ -31425,11 +31435,11 @@
     "17919320862444697": 114,
     "18115888633802609": 93,
     "18126282277854768": 107,
-    "18169862959459418": 33
+    "18169862959459418": 34
   },
   "daily": {
     "date": "2026-10-06",
-    "count": 33
+    "count": 34
   },
   "pinnedResolved": {
     "DaTTCIwoAw7": "18014812820883466"
@@ -32766,6 +32776,6 @@
   },
   "spend": {
     "date": "2026-10-06",
-    "usd": 0.046980311999999996
+    "usd": 0.049228619999999994
   }
 }
