@@ -20807,6 +20807,15 @@
       },
       "publishedId": "18101377937631189",
       "confirmedPublished": true
+    },
+    "comment:17912931000524746": {
+      "creationId": "17892424128614054",
+      "createdAt": "2026-10-06T03:13:23.323Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Little less limp and a lot fewer pills here.",
+        "reply_to_id": "17912931000524746"
+      }
     }
   },
   "repliedCommentIds": [
@@ -32082,6 +32091,6 @@
   },
   "spend": {
     "date": "2026-10-05",
-    "usd": 0.11990284799999998
+    "usd": 0.12029888399999998
   }
 }
