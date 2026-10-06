@@ -21634,6 +21634,15 @@
       },
       "publishedId": "18115614494111562",
       "confirmedPublished": true
+    },
+    "comment:17992139553107474": {
+      "creationId": "17892525444614054",
+      "createdAt": "2026-10-06T20:37:02.734Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Your rule is the right starting point. On a frontal film you are facing the patient so the patient's right sits on your left and vice versa.",
+        "reply_to_id": "17992139553107474"
+      }
     }
   },
   "repliedCommentIds": [
@@ -31516,7 +31525,8 @@
     "18392219941165998",
     "18023303114868811",
     "18111125093182762",
-    "18066099284685187"
+    "18066099284685187",
+    "18099612965449278"
   ],
   "answeredPostIds": [
     "18395606890093068"
@@ -31645,11 +31655,11 @@
     "17919320862444697": 114,
     "18115888633802609": 93,
     "18126282277854768": 107,
-    "18169862959459418": 51
+    "18169862959459418": 52
   },
   "daily": {
     "date": "2026-10-06",
-    "count": 51
+    "count": 52
   },
   "pinnedResolved": {
     "DaTTCIwoAw7": "18014812820883466"
@@ -32991,6 +33001,6 @@
   },
   "spend": {
     "date": "2026-10-06",
-    "usd": 0.080236272
+    "usd": 0.08258230800000001
   }
 }
