@@ -21278,6 +21278,15 @@
       },
       "publishedId": "18138535927574714",
       "confirmedPublished": true
+    },
+    "comment:17944903521345922": {
+      "creationId": "17892520359614054",
+      "createdAt": "2026-10-06T19:38:46.948Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Rationing your fog to one nostril is a bold technique. It still tracks the tension pneumothorax answer though.",
+        "reply_to_id": "17944903521345922"
+      }
     }
   },
   "repliedCommentIds": [
@@ -31128,7 +31137,8 @@
     "18028131335913360",
     "18037593926650472",
     "17971525941183645",
-    "18070916801753623"
+    "18070916801753623",
+    "18135912403729353"
   ],
   "answeredPostIds": [
     "18395606890093068"
@@ -31257,11 +31267,11 @@
     "17919320862444697": 114,
     "18115888633802609": 93,
     "18126282277854768": 107,
-    "18169862959459418": 19
+    "18169862959459418": 20
   },
   "daily": {
     "date": "2026-10-06",
-    "count": 19
+    "count": 20
   },
   "pinnedResolved": {
     "DaTTCIwoAw7": "18014812820883466"
@@ -32596,6 +32606,6 @@
   },
   "spend": {
     "date": "2026-10-06",
-    "usd": 0.032822952
+    "usd": 0.033284892
   }
 }
