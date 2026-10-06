@@ -20724,7 +20724,9 @@
         "media_type": "TEXT",
         "text": "A rule everyone agrees with until the dentist asks how the checkup went.",
         "reply_to_id": "18129299386825523"
-      }
+      },
+      "publishedId": "17924712129426078",
+      "confirmedPublished": true
     }
   },
   "repliedCommentIds": [
