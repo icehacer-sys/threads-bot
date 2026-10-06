@@ -21844,6 +21844,15 @@
       },
       "publishedId": "18280393552289934",
       "confirmedPublished": true
+    },
+    "comment:18110774474461545": {
+      "creationId": "17892538104614054",
+      "createdAt": "2026-10-06T22:59:20.219Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Pneumothorax lands. The tension part came from air that kept entering and could not get back out.",
+        "reply_to_id": "18110774474461545"
+      }
     }
   },
   "repliedCommentIds": [
@@ -33113,7 +33122,8 @@
     "17905921845591086",
     "17942010372094401",
     "18137652172561401",
-    "18045257366820364"
+    "18045257366820364",
+    "18188461756416652"
   ],
   "skipStrikes": {
     "17895266316520842": 1,
@@ -33223,6 +33233,6 @@
   },
   "spend": {
     "date": "2026-10-06",
-    "usd": 0.104837316
+    "usd": 0.107503308
   }
 }
