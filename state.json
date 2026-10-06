@@ -21678,6 +21678,15 @@
       },
       "publishedId": "17958909474247742",
       "confirmedPublished": true
+    },
+    "comment:18176421472450711": {
+      "creationId": "17892526755614054",
+      "createdAt": "2026-10-06T20:53:27.025Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "The read is right but the side is flipped. The half with no lung markings is on the left in this film and that is where the collapsed lung sat pulled toward the middle.",
+        "reply_to_id": "18176421472450711"
+      }
     }
   },
   "repliedCommentIds": [
@@ -33040,6 +33049,6 @@
   },
   "spend": {
     "date": "2026-10-06",
-    "usd": 0.08491554000000001
+    "usd": 0.08709327600000001
   }
 }
