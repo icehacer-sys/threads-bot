@@ -20757,6 +20757,15 @@
       },
       "publishedId": "17998582323010592",
       "confirmedPublished": true
+    },
+    "comment:18430852474197121": {
+      "creationId": "17892415989614054",
+      "createdAt": "2026-10-06T01:41:31.160Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Lozenges at least have the decency to dissolve in an hour.",
+        "reply_to_id": "18430852474197121"
+      }
     }
   },
   "repliedCommentIds": [
@@ -32026,6 +32035,6 @@
   },
   "spend": {
     "date": "2026-10-05",
-    "usd": 0.113912448
+    "usd": 0.114308184
   }
 }
