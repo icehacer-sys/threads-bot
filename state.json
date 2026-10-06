@@ -447,7 +447,8 @@
     "18632669083041406": "18126282277854768",
     "18397121725206742": "18126282277854768",
     "18500277142099566": "18126282277854768",
-    "18029611001683377": "18126282277854768"
+    "18029611001683377": "18126282277854768",
+    "18338853355286109": "18126282277854768"
   },
   "ownerReviews": {
     "17937444630360450": "{\"postId\":\"18103023326210157\",\"reason\":\"owner review: personal medical concern\",\"commentText\":\"Little sister of my friend swalloved a coin of 1 fim. At hospital the family was advised to thoroughly keep an eye on her poops. So, the next day they found two 50 penny coins😀.\",\"username\":\"velitapiof\",\"queuedAt\":\"2026-09-10T20:21:59.741Z\",\"resolvedAt\":\"2026-09-10T20:36:02.929Z\",\"resolution\":\"Owner confirmed this is a completed personal story and deleted the inappropriate boundary reply. No clinical review is needed.\"}",
@@ -557,7 +558,8 @@
     "18138750667527973": "{\"postId\":\"18126282277854768\",\"reason\":\"Owner review: image/anatomy inconsistency. The commenter raises a specific concern about the dental arcades and granular changes anterior to the epiglottis. Those findings are not covered by the supplied case facts and I must not invent an anatomy or projection explanation or agree an error exists without review. Hold the reply for owner review.\",\"commentText\":\"the are aspects of this image that are curious.  The granular changes anterior to the epiglottis and the rather unusual dental arcades .\",\"username\":\"meanderingwa\",\"queuedAt\":\"2026-10-05T23:37:49.438Z\"}",
     "17969216450961811": "{\"postId\":\"18126282277854768\",\"reason\":\"OWNER REVIEW HOLD is active on this post: the image has an unresolved anatomy concern so every diagnosis guess must be skipped even though the reveal is public. This comment is purely two diagnosis guesses with no unrelated banter, empathy or boundary content eligible, so no reply is sent. Also noting no confirmationEvidence exists so nothing could be asserted as confirmed. Needs owner review before any answer.\",\"commentText\":\"Foreign object?  Tumor?\",\"username\":\"karen_demarini\",\"queuedAt\":\"2026-10-06T00:10:22.796Z\"}",
     "18396209806205605": "{\"postId\":\"18126282277854768\",\"reason\":\"Owner review hold is active on this image, and skipping every diagnosis reply. The commenter also raises a specific image/anatomy plausibility objection, which needs owner review before any response. No neutral acknowledgment drafted here beyond what the application may send.\",\"commentText\":\"The patient would not even be able to breath if this real which it is clearly not real!\",\"username\":\"wayne23788\",\"queuedAt\":\"2026-10-06T00:41:03.938Z\"}",
-    "17917921185451018": "{\"postId\":\"18126282277854768\",\"reason\":\"Comment questions the apparent size/proportions of the patient on the image. The image carries an unresolved anatomy concern under the owner review hold and the case facts state nothing about age or body size so no supported reply is possible. Classified as complaint with reason owner review: image/anatomy question.\",\"commentText\":\"Why is that kid so big?\",\"username\":\"vibesofthrive\",\"queuedAt\":\"2026-10-06T02:42:42.972Z\"}"
+    "17917921185451018": "{\"postId\":\"18126282277854768\",\"reason\":\"Comment questions the apparent size/proportions of the patient on the image. The image carries an unresolved anatomy concern under the owner review hold and the case facts state nothing about age or body size so no supported reply is possible. Classified as complaint with reason owner review: image/anatomy question.\",\"commentText\":\"Why is that kid so big?\",\"username\":\"vibesofthrive\",\"queuedAt\":\"2026-10-06T02:42:42.972Z\"}",
+    "18214227592358249": "{\"postId\":\"18126282277854768\",\"reason\":\"Owner review hold on this case: the image/anatomy is unresolved and the commenter is reasoning directly from the cervical spine appearance on it. No diagnosis discussion or anatomy interpretation is eligible. Skip.\",\"commentText\":\"Cervival looses its c shape, narrowing the airway coz its not in its natural state.\",\"username\":\"ain.hadi11\",\"queuedAt\":\"2026-10-06T02:43:06.167Z\"}"
   },
   "concernAcknowledgments": {
     "[\"18121475662898455\",\"berit069\",\"image\"]": "18142096432588199",
@@ -30616,7 +30618,8 @@
     "18281361223292196",
     "18430852474197121",
     "17994569475019102",
-    "17881669392691598"
+    "17881669392691598",
+    "17911364202519945"
   ],
   "answeredPostIds": [
     "18395606890093068"
@@ -30744,11 +30747,11 @@
     "18102001628139439": 209,
     "17919320862444697": 114,
     "18115888633802609": 93,
-    "18126282277854768": 87
+    "18126282277854768": 88
   },
   "daily": {
     "date": "2026-10-05",
-    "count": 87
+    "count": 88
   },
   "pinnedResolved": {
     "DaTTCIwoAw7": "18014812820883466"
@@ -31969,7 +31972,8 @@
     "18138750667527973",
     "17969216450961811",
     "18396209806205605",
-    "17917921185451018"
+    "17917921185451018",
+    "18214227592358249"
   ],
   "skipStrikes": {
     "17895266316520842": 1,
@@ -32078,6 +32082,6 @@
   },
   "spend": {
     "date": "2026-10-05",
-    "usd": 0.11853051599999997
+    "usd": 0.11990284799999998
   }
 }
