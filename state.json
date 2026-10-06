@@ -436,7 +436,8 @@
     "18411423877091893": "18126282277854768",
     "18124459126906137": "18126282277854768",
     "18134179300629062": "18126282277854768",
-    "17935919541384374": "18126282277854768"
+    "17935919541384374": "18126282277854768",
+    "17948580036315272": "18126282277854768"
   },
   "ownerReviews": {
     "17937444630360450": "{\"postId\":\"18103023326210157\",\"reason\":\"owner review: personal medical concern\",\"commentText\":\"Little sister of my friend swalloved a coin of 1 fim. At hospital the family was advised to thoroughly keep an eye on her poops. So, the next day they found two 50 penny coins😀.\",\"username\":\"velitapiof\",\"queuedAt\":\"2026-09-10T20:21:59.741Z\",\"resolvedAt\":\"2026-09-10T20:36:02.929Z\",\"resolution\":\"Owner confirmed this is a completed personal story and deleted the inappropriate boundary reply. No clinical review is needed.\"}",
@@ -20703,6 +20704,15 @@
       },
       "publishedId": "18091230497679528",
       "confirmedPublished": true
+    },
+    "comment:17897437962399051": {
+      "creationId": "17892410598614054",
+      "createdAt": "2026-10-06T00:09:22.412Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "That slow build is the sneaky part. Waking up unable to breathe must have been a real jolt.",
+        "reply_to_id": "17897437962399051"
+      }
     }
   },
   "repliedCommentIds": [
@@ -31966,6 +31976,6 @@
   },
   "spend": {
     "date": "2026-10-05",
-    "usd": 0.10321009199999998
+    "usd": 0.10505481599999998
   }
 }
