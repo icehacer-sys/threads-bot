@@ -21513,6 +21513,15 @@
       },
       "publishedId": "17905921449590101",
       "confirmedPublished": true
+    },
+    "comment:17990741994026695": {
+      "creationId": "17892523662614054",
+      "createdAt": "2026-10-06T20:16:36.363Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Your reasoning on spontaneous pneumothorax holds up and the side is the one detail to flip. The teaching answer is tension pneumothorax and the emptied half with the lung shrunk toward the middle is on the left in this film.",
+        "reply_to_id": "17990741994026695"
+      }
     }
   },
   "repliedCommentIds": [
@@ -32857,6 +32866,6 @@
   },
   "spend": {
     "date": "2026-10-06",
-    "usd": 0.058855296
+    "usd": 0.061146432
   }
 }
