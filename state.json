@@ -21245,6 +21245,15 @@
       },
       "publishedId": "18291667189295182",
       "confirmedPublished": true
+    },
+    "comment:17971525941183645": {
+      "creationId": "17892520308614054",
+      "createdAt": "2026-10-06T19:37:48.377Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Not heart failure this time since both sides would usually still show lung markings and here one side is just air with the collapsed lung pulled toward the middle.",
+        "reply_to_id": "17971525941183645"
+      }
     }
   },
   "repliedCommentIds": [
@@ -31092,7 +31101,8 @@
     "18006627308789153",
     "17870942256665142",
     "18118843595003795",
-    "18028131335913360"
+    "18028131335913360",
+    "18037593926650472"
   ],
   "answeredPostIds": [
     "18395606890093068"
@@ -31221,11 +31231,11 @@
     "17919320862444697": 114,
     "18115888633802609": 93,
     "18126282277854768": 107,
-    "18169862959459418": 16
+    "18169862959459418": 17
   },
   "daily": {
     "date": "2026-10-06",
-    "count": 16
+    "count": 17
   },
   "pinnedResolved": {
     "DaTTCIwoAw7": "18014812820883466"
@@ -32560,6 +32570,6 @@
   },
   "spend": {
     "date": "2026-10-06",
-    "usd": 0.028817388
+    "usd": 0.030863124000000002
   }
 }
