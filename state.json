@@ -21179,6 +21179,15 @@
       },
       "publishedId": "18085942682305866",
       "confirmedPublished": true
+    },
+    "comment:18168713536471453": {
+      "creationId": "17892519957614054",
+      "createdAt": "2026-10-06T19:35:30.971Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Vacuum packed is a good way to put it. The case facts do list sudden sharp pain and worsening breathlessness so your instinct on that part tracks.",
+        "reply_to_id": "18168713536471453"
+      }
     }
   },
   "repliedCommentIds": [
@@ -31020,7 +31029,8 @@
     "18080698589362464",
     "18635474953009492",
     "18138346300620172",
-    "17895515562609030"
+    "17895515562609030",
+    "17870559285643023"
   ],
   "answeredPostIds": [
     "18395606890093068"
@@ -31149,11 +31159,11 @@
     "17919320862444697": 114,
     "18115888633802609": 93,
     "18126282277854768": 107,
-    "18169862959459418": 10
+    "18169862959459418": 11
   },
   "daily": {
     "date": "2026-10-06",
-    "count": 10
+    "count": 11
   },
   "pinnedResolved": {
     "DaTTCIwoAw7": "18014812820883466"
@@ -32488,6 +32498,6 @@
   },
   "spend": {
     "date": "2026-10-06",
-    "usd": 0.02174802
+    "usd": 0.022243224
   }
 }
