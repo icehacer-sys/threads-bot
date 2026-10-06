@@ -21532,7 +21532,9 @@
         "media_type": "TEXT",
         "text": "You have the diagnosis but not the side. This film emptied on the left.",
         "reply_to_id": "18126017923883718"
-      }
+      },
+      "publishedId": "18058214315558288",
+      "confirmedPublished": true
     }
   },
   "repliedCommentIds": [
