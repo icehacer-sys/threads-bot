@@ -457,7 +457,8 @@
     "18077585951715793": "18126282277854768",
     "18112283065862061": "18126282277854768",
     "17922745545440631": "18126282277854768",
-    "18130526182755290": "18126282277854768"
+    "18130526182755290": "18126282277854768",
+    "18344475424280384": "18126282277854768"
   },
   "ownerReviews": {
     "17937444630360450": "{\"postId\":\"18103023326210157\",\"reason\":\"owner review: personal medical concern\",\"commentText\":\"Little sister of my friend swalloved a coin of 1 fim. At hospital the family was advised to thoroughly keep an eye on her poops. So, the next day they found two 50 penny coins😀.\",\"username\":\"velitapiof\",\"queuedAt\":\"2026-09-10T20:21:59.741Z\",\"resolvedAt\":\"2026-09-10T20:36:02.929Z\",\"resolution\":\"Owner confirmed this is a completed personal story and deleted the inappropriate boundary reply. No clinical review is needed.\"}",
@@ -21004,6 +21005,15 @@
       },
       "publishedId": "18022645490712610",
       "confirmedPublished": true
+    },
+    "comment:17968178703076260": {
+      "creationId": "17892438159614054",
+      "createdAt": "2026-10-06T05:50:49.709Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "The sugar coating at least would have slid down easier.",
+        "reply_to_id": "17968178703076260"
+      }
     }
   },
   "repliedCommentIds": [
@@ -32297,6 +32307,6 @@
   },
   "spend": {
     "date": "2026-10-05",
-    "usd": 0.141863736
+    "usd": 0.143254356
   }
 }
