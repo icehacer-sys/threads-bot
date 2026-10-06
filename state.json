@@ -20947,6 +20947,15 @@
       },
       "publishedId": "18152250079463818",
       "confirmedPublished": true
+    },
+    "comment:18163533952495985": {
+      "creationId": "17892429861614054",
+      "createdAt": "2026-10-06T04:18:52.714Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Two surgeries and still more levels acting up. Both feelings can sit side by side and that makes complete sense.",
+        "reply_to_id": "18163533952495985"
+      }
     }
   },
   "repliedCommentIds": [
@@ -30770,7 +30779,8 @@
     "18017784263949409",
     "18116751640974602",
     "18093969731159140",
-    "18413723080082831"
+    "18413723080082831",
+    "17909838681502850"
   ],
   "answeredPostIds": [
     "18395606890093068"
@@ -30898,11 +30908,11 @@
     "18102001628139439": 209,
     "17919320862444697": 114,
     "18115888633802609": 93,
-    "18126282277854768": 99
+    "18126282277854768": 100
   },
   "daily": {
     "date": "2026-10-05",
-    "count": 99
+    "count": 100
   },
   "pinnedResolved": {
     "DaTTCIwoAw7": "18014812820883466"
@@ -32233,6 +32243,6 @@
   },
   "spend": {
     "date": "2026-10-05",
-    "usd": 0.137086896
+    "usd": 0.137861388
   }
 }
