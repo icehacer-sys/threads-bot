@@ -567,7 +567,8 @@
     "17969216450961811": "{\"postId\":\"18126282277854768\",\"reason\":\"OWNER REVIEW HOLD is active on this post: the image has an unresolved anatomy concern so every diagnosis guess must be skipped even though the reveal is public. This comment is purely two diagnosis guesses with no unrelated banter, empathy or boundary content eligible, so no reply is sent. Also noting no confirmationEvidence exists so nothing could be asserted as confirmed. Needs owner review before any answer.\",\"commentText\":\"Foreign object?  Tumor?\",\"username\":\"karen_demarini\",\"queuedAt\":\"2026-10-06T00:10:22.796Z\"}",
     "18396209806205605": "{\"postId\":\"18126282277854768\",\"reason\":\"Owner review hold is active on this image, and skipping every diagnosis reply. The commenter also raises a specific image/anatomy plausibility objection, which needs owner review before any response. No neutral acknowledgment drafted here beyond what the application may send.\",\"commentText\":\"The patient would not even be able to breath if this real which it is clearly not real!\",\"username\":\"wayne23788\",\"queuedAt\":\"2026-10-06T00:41:03.938Z\"}",
     "17917921185451018": "{\"postId\":\"18126282277854768\",\"reason\":\"Comment questions the apparent size/proportions of the patient on the image. The image carries an unresolved anatomy concern under the owner review hold and the case facts state nothing about age or body size so no supported reply is possible. Classified as complaint with reason owner review: image/anatomy question.\",\"commentText\":\"Why is that kid so big?\",\"username\":\"vibesofthrive\",\"queuedAt\":\"2026-10-06T02:42:42.972Z\"}",
-    "18214227592358249": "{\"postId\":\"18126282277854768\",\"reason\":\"Owner review hold on this case: the image/anatomy is unresolved and the commenter is reasoning directly from the cervical spine appearance on it. No diagnosis discussion or anatomy interpretation is eligible. Skip.\",\"commentText\":\"Cervival looses its c shape, narrowing the airway coz its not in its natural state.\",\"username\":\"ain.hadi11\",\"queuedAt\":\"2026-10-06T02:43:06.167Z\"}"
+    "18214227592358249": "{\"postId\":\"18126282277854768\",\"reason\":\"Owner review hold on this case: the image/anatomy is unresolved and the commenter is reasoning directly from the cervical spine appearance on it. No diagnosis discussion or anatomy interpretation is eligible. Skip.\",\"commentText\":\"Cervival looses its c shape, narrowing the airway coz its not in its natural state.\",\"username\":\"ain.hadi11\",\"queuedAt\":\"2026-10-06T02:43:06.167Z\"}",
+    "18636799267028908": "{\"postId\":\"18126282277854768\",\"reason\":\"Owner review hold: the image has an unresolved anatomy concern, so every reply relying on this image or its case findings is skipped even after the reveal. The comment is a correct diagnosis guess and would otherwise get a brief affirmation, but affirming it would restate a case finding tied to the held image. Eligible unrelated banter or empathy only, which this single-word guess is not.\",\"commentText\":\"Epiglottis\",\"username\":\"kaypc1\",\"queuedAt\":\"2026-10-06T05:19:59.290Z\"}"
   },
   "concernAcknowledgments": {
     "[\"18121475662898455\",\"berit069\",\"image\"]": "18142096432588199",
@@ -20980,6 +20981,15 @@
       },
       "publishedId": "18214660429359330",
       "confirmedPublished": true
+    },
+    "comment:18410558617084380": {
+      "creationId": "17892435081614054",
+      "createdAt": "2026-10-06T05:20:03.099Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Cork Throat sounds like a vintage nobody ordered. Still waiting on the waiter to come back with that one.",
+        "reply_to_id": "18410558617084380"
+      }
     }
   },
   "repliedCommentIds": [
@@ -32161,7 +32171,8 @@
     "17969216450961811",
     "18396209806205605",
     "17917921185451018",
-    "18214227592358249"
+    "18214227592358249",
+    "18636799267028908"
   ],
   "skipStrikes": {
     "17895266316520842": 1,
@@ -32270,6 +32281,6 @@
   },
   "spend": {
     "date": "2026-10-05",
-    "usd": 0.139348272
+    "usd": 0.140448768
   }
 }
