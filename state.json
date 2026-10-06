@@ -456,7 +456,8 @@
     "18128063905671576": "18126282277854768",
     "18077585951715793": "18126282277854768",
     "18112283065862061": "18126282277854768",
-    "17922745545440631": "18126282277854768"
+    "17922745545440631": "18126282277854768",
+    "18130526182755290": "18126282277854768"
   },
   "ownerReviews": {
     "17937444630360450": "{\"postId\":\"18103023326210157\",\"reason\":\"owner review: personal medical concern\",\"commentText\":\"Little sister of my friend swalloved a coin of 1 fim. At hospital the family was advised to thoroughly keep an eye on her poops. So, the next day they found two 50 penny coins😀.\",\"username\":\"velitapiof\",\"queuedAt\":\"2026-09-10T20:21:59.741Z\",\"resolvedAt\":\"2026-09-10T20:36:02.929Z\",\"resolution\":\"Owner confirmed this is a completed personal story and deleted the inappropriate boundary reply. No clinical review is needed.\"}",
@@ -20992,6 +20993,15 @@
       },
       "publishedId": "17960618883000821",
       "confirmedPublished": true
+    },
+    "comment:18093905072378150": {
+      "creationId": "17892435087614054",
+      "createdAt": "2026-10-06T05:20:22.514Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "First thought and correct instinct. The throat here did not leave much room to negotiate.",
+        "reply_to_id": "18093905072378150"
+      }
     }
   },
   "repliedCommentIds": [
@@ -30819,7 +30829,8 @@
     "17909838681502850",
     "18163533952495985",
     "17908803102476336",
-    "18129077008700528"
+    "18129077008700528",
+    "18410558617084380"
   ],
   "answeredPostIds": [
     "18395606890093068"
@@ -30947,11 +30958,11 @@
     "18102001628139439": 209,
     "17919320862444697": 114,
     "18115888633802609": 93,
-    "18126282277854768": 103
+    "18126282277854768": 104
   },
   "daily": {
     "date": "2026-10-05",
-    "count": 103
+    "count": 104
   },
   "pinnedResolved": {
     "DaTTCIwoAw7": "18014812820883466"
@@ -32283,6 +32294,6 @@
   },
   "spend": {
     "date": "2026-10-05",
-    "usd": 0.140448768
+    "usd": 0.141863736
   }
 }
