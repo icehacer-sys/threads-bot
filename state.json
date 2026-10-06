@@ -21822,6 +21822,15 @@
       },
       "publishedId": "18152055658554341",
       "confirmedPublished": true
+    },
+    "comment:18109699682271510": {
+      "creationId": "17892532923614054",
+      "createdAt": "2026-10-06T21:58:07.553Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "That keeps me loading one more every night. I did put a free pack of six of the wild ones together if you want more of them.",
+        "reply_to_id": "18109699682271510"
+      }
     }
   },
   "repliedCommentIds": [
@@ -31721,7 +31730,8 @@
     "18075573149724615",
     "18129034966802946",
     "17973576858136423",
-    "17942153178093244"
+    "17942153178093244",
+    "17946625362342561"
   ],
   "answeredPostIds": [
     "18395606890093068"
@@ -31850,11 +31860,11 @@
     "17919320862444697": 114,
     "18115888633802609": 93,
     "18126282277854768": 107,
-    "18169862959459418": 68
+    "18169862959459418": 69
   },
   "daily": {
     "date": "2026-10-06",
-    "count": 68
+    "count": 69
   },
   "pinnedResolved": {
     "DaTTCIwoAw7": "18014812820883466"
@@ -33198,6 +33208,6 @@
   },
   "spend": {
     "date": "2026-10-06",
-    "usd": 0.102486024
+    "usd": 0.10316629199999999
   }
 }
