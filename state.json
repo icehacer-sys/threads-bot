@@ -459,7 +459,8 @@
     "17922745545440631": "18126282277854768",
     "18130526182755290": "18126282277854768",
     "18344475424280384": "18126282277854768",
-    "17986830711097974": "18126282277854768"
+    "17986830711097974": "18126282277854768",
+    "18214524628359593": "18126282277854768"
   },
   "ownerReviews": {
     "17937444630360450": "{\"postId\":\"18103023326210157\",\"reason\":\"owner review: personal medical concern\",\"commentText\":\"Little sister of my friend swalloved a coin of 1 fim. At hospital the family was advised to thoroughly keep an eye on her poops. So, the next day they found two 50 penny coins😀.\",\"username\":\"velitapiof\",\"queuedAt\":\"2026-09-10T20:21:59.741Z\",\"resolvedAt\":\"2026-09-10T20:36:02.929Z\",\"resolution\":\"Owner confirmed this is a completed personal story and deleted the inappropriate boundary reply. No clinical review is needed.\"}",
@@ -21017,6 +21018,15 @@
       },
       "publishedId": "17971757829172174",
       "confirmedPublished": true
+    },
+    "comment:18113368595279355": {
+      "creationId": "17892440061614054",
+      "createdAt": "2026-10-06T06:21:20.459Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Three separate whiplash rounds is a lot for one neck to absorb. The hernia at least kept its distance from the throat drama.",
+        "reply_to_id": "18113368595279355"
+      }
     }
   },
   "repliedCommentIds": [
@@ -32202,7 +32212,8 @@
     "18396209806205605",
     "17917921185451018",
     "18214227592358249",
-    "18636799267028908"
+    "18636799267028908",
+    "17998177265991725"
   ],
   "skipStrikes": {
     "17895266316520842": 1,
@@ -32311,6 +32322,6 @@
   },
   "spend": {
     "date": "2026-10-05",
-    "usd": 0.143894184
+    "usd": 0.145498248
   }
 }
