@@ -20913,6 +20913,15 @@
       },
       "publishedId": "18015438194958490",
       "confirmedPublished": true
+    },
+    "comment:18093969731159140": {
+      "creationId": "17892429735614054",
+      "createdAt": "2026-10-06T04:18:02.490Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Discharge instructions written before the patient even finished the intake form. The mint floss is the part that stings most.",
+        "reply_to_id": "18093969731159140"
+      }
     }
   },
   "repliedCommentIds": [
@@ -30733,7 +30742,8 @@
     "18154625665474187",
     "18106158355965585",
     "17866088853694998",
-    "18017784263949409"
+    "18017784263949409",
+    "18116751640974602"
   ],
   "answeredPostIds": [
     "18395606890093068"
@@ -30861,11 +30871,11 @@
     "18102001628139439": 209,
     "17919320862444697": 114,
     "18115888633802609": 93,
-    "18126282277854768": 96
+    "18126282277854768": 97
   },
   "daily": {
     "date": "2026-10-05",
-    "count": 96
+    "count": 97
   },
   "pinnedResolved": {
     "DaTTCIwoAw7": "18014812820883466"
@@ -32196,6 +32206,6 @@
   },
   "spend": {
     "date": "2026-10-05",
-    "usd": 0.133722552
+    "usd": 0.13435487999999998
   }
 }
