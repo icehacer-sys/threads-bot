@@ -20869,6 +20869,15 @@
       },
       "publishedId": "17902008246666647",
       "confirmedPublished": true
+    },
+    "comment:18106158355965585": {
+      "creationId": "17892429693614054",
+      "createdAt": "2026-10-06T04:17:03.210Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Candy that chews back is a bold strategy. The neck here never got that far in the box.",
+        "reply_to_id": "18106158355965585"
+      }
     }
   },
   "repliedCommentIds": [
@@ -32149,6 +32158,6 @@
   },
   "spend": {
     "date": "2026-10-05",
-    "usd": 0.130235868
+    "usd": 0.131706804
   }
 }
