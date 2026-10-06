@@ -21579,6 +21579,15 @@
       },
       "publishedId": "18116289680020302",
       "confirmedPublished": true
+    },
+    "comment:18392219941165998": {
+      "creationId": "17892524241614054",
+      "createdAt": "2026-10-06T20:19:48.872Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Sorry about that. Your lungs are doing the job this patient's couldn't.",
+        "reply_to_id": "18392219941165998"
+      }
     }
   },
   "repliedCommentIds": [
@@ -32931,6 +32940,6 @@
   },
   "spend": {
     "date": "2026-10-06",
-    "usd": 0.072198672
+    "usd": 0.07284504
   }
 }
