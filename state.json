@@ -437,7 +437,8 @@
     "18124459126906137": "18126282277854768",
     "18134179300629062": "18126282277854768",
     "17935919541384374": "18126282277854768",
-    "17948580036315272": "18126282277854768"
+    "17948580036315272": "18126282277854768",
+    "18117982612995017": "18126282277854768"
   },
   "ownerReviews": {
     "17937444630360450": "{\"postId\":\"18103023326210157\",\"reason\":\"owner review: personal medical concern\",\"commentText\":\"Little sister of my friend swalloved a coin of 1 fim. At hospital the family was advised to thoroughly keep an eye on her poops. So, the next day they found two 50 penny coins😀.\",\"username\":\"velitapiof\",\"queuedAt\":\"2026-09-10T20:21:59.741Z\",\"resolvedAt\":\"2026-09-10T20:36:02.929Z\",\"resolution\":\"Owner confirmed this is a completed personal story and deleted the inappropriate boundary reply. No clinical review is needed.\"}",
@@ -20715,6 +20716,15 @@
       },
       "publishedId": "18142673104579407",
       "confirmedPublished": true
+    },
+    "comment:18129299386825523": {
+      "creationId": "17892410610614054",
+      "createdAt": "2026-10-06T00:09:45.921Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "A rule everyone agrees with until the dentist asks how the checkup went.",
+        "reply_to_id": "18129299386825523"
+      }
     }
   },
   "repliedCommentIds": [
@@ -30519,7 +30529,8 @@
     "18132896230779084",
     "17962125159233725",
     "18114795217963723",
-    "18131579653745375"
+    "18131579653745375",
+    "17897437962399051"
   ],
   "answeredPostIds": [
     "18395606890093068"
@@ -30647,11 +30658,11 @@
     "18102001628139439": 209,
     "17919320862444697": 114,
     "18115888633802609": 93,
-    "18126282277854768": 80
+    "18126282277854768": 81
   },
   "daily": {
     "date": "2026-10-05",
-    "count": 80
+    "count": 81
   },
   "pinnedResolved": {
     "DaTTCIwoAw7": "18014812820883466"
@@ -31978,6 +31989,6 @@
   },
   "spend": {
     "date": "2026-10-05",
-    "usd": 0.10505481599999998
+    "usd": 0.10699553999999999
   }
 }
