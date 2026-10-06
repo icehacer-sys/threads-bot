@@ -20830,7 +20830,9 @@
         "media_type": "TEXT",
         "text": "That meal never made it past the first bite.",
         "reply_to_id": "18135704254735033"
-      }
+      },
+      "publishedId": "18130081657686062",
+      "confirmedPublished": true
     }
   },
   "repliedCommentIds": [
