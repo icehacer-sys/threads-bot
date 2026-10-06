@@ -21135,6 +21135,15 @@
       },
       "publishedId": "18111276770270503",
       "confirmedPublished": true
+    },
+    "comment:18635474953009492": {
+      "creationId": "17892519903614054",
+      "createdAt": "2026-10-06T19:34:05.860Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Weight loss doesn't usually move the mediastinum. This one showed up on the film so nobody had to guess from the doorway.",
+        "reply_to_id": "18635474953009492"
+      }
     }
   },
   "repliedCommentIds": [
@@ -30972,7 +30981,8 @@
     "18121008160887734",
     "17882605878690771",
     "18141160237613517",
-    "18018506321736104"
+    "18018506321736104",
+    "18080698589362464"
   ],
   "answeredPostIds": [
     "18395606890093068"
@@ -31101,11 +31111,11 @@
     "17919320862444697": 114,
     "18115888633802609": 93,
     "18126282277854768": 107,
-    "18169862959459418": 6
+    "18169862959459418": 7
   },
   "daily": {
     "date": "2026-10-06",
-    "count": 6
+    "count": 7
   },
   "pinnedResolved": {
     "DaTTCIwoAw7": "18014812820883466"
@@ -32438,6 +32448,6 @@
   },
   "spend": {
     "date": "2026-10-06",
-    "usd": 0.01701894
+    "usd": 0.017604276
   }
 }
