@@ -21479,6 +21479,15 @@
       },
       "publishedId": "18134393521658358",
       "confirmedPublished": true
+    },
+    "comment:17917134279453275": {
+      "creationId": "17892522543614054",
+      "createdAt": "2026-10-06T20:00:17.652Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "The gastric bubble is the one landmark that still points left. The dark half is the left too and the case does not give us a different view to lean on.",
+        "reply_to_id": "17917134279453275"
+      }
     }
   },
   "repliedCommentIds": [
@@ -31347,7 +31356,8 @@
     "18145062655562187",
     "18099928391642529",
     "17906317113564327",
-    "17867838525652417"
+    "17867838525652417",
+    "17987126340114027"
   ],
   "answeredPostIds": [
     "18395606890093068"
@@ -31476,11 +31486,11 @@
     "17919320862444697": 114,
     "18115888633802609": 93,
     "18126282277854768": 107,
-    "18169862959459418": 37
+    "18169862959459418": 38
   },
   "daily": {
     "date": "2026-10-06",
-    "count": 37
+    "count": 38
   },
   "pinnedResolved": {
     "DaTTCIwoAw7": "18014812820883466"
@@ -32818,6 +32828,6 @@
   },
   "spend": {
     "date": "2026-10-06",
-    "usd": 0.053726987999999996
+    "usd": 0.056046887999999996
   }
 }
