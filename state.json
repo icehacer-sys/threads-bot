@@ -20969,6 +20969,15 @@
       },
       "publishedId": "18156331915519436",
       "confirmedPublished": true
+    },
+    "comment:18129077008700528": {
+      "creationId": "17892432726614054",
+      "createdAt": "2026-10-06T04:49:35.780Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "The mortar crew deserves hazard pay. Nerve pain grinding on every night is a brutal way to live and that nightly repair scene makes total sense.",
+        "reply_to_id": "18129077008700528"
+      }
     }
   },
   "repliedCommentIds": [
@@ -30794,7 +30803,8 @@
     "18093969731159140",
     "18413723080082831",
     "17909838681502850",
-    "18163533952495985"
+    "18163533952495985",
+    "17908803102476336"
   ],
   "answeredPostIds": [
     "18395606890093068"
@@ -30922,11 +30932,11 @@
     "18102001628139439": 209,
     "17919320862444697": 114,
     "18115888633802609": 93,
-    "18126282277854768": 101
+    "18126282277854768": 102
   },
   "daily": {
     "date": "2026-10-05",
-    "count": 101
+    "count": 102
   },
   "pinnedResolved": {
     "DaTTCIwoAw7": "18014812820883466"
@@ -32257,6 +32267,6 @@
   },
   "spend": {
     "date": "2026-10-05",
-    "usd": 0.13860888
+    "usd": 0.139348272
   }
 }
