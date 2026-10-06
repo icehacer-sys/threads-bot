@@ -21811,6 +21811,15 @@
       },
       "publishedId": "17950908555274440",
       "confirmedPublished": true
+    },
+    "comment:17946625362342561": {
+      "creationId": "17892532842614054",
+      "createdAt": "2026-10-06T21:57:48.853Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Some cases do leave you doing math in your head.",
+        "reply_to_id": "17946625362342561"
+      }
     }
   },
   "repliedCommentIds": [
@@ -33187,6 +33196,6 @@
   },
   "spend": {
     "date": "2026-10-06",
-    "usd": 0.10148296799999999
+    "usd": 0.102486024
   }
 }
