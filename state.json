@@ -455,7 +455,8 @@
     "18136331512655254": "18126282277854768",
     "18128063905671576": "18126282277854768",
     "18077585951715793": "18126282277854768",
-    "18112283065862061": "18126282277854768"
+    "18112283065862061": "18126282277854768",
+    "17922745545440631": "18126282277854768"
   },
   "ownerReviews": {
     "17937444630360450": "{\"postId\":\"18103023326210157\",\"reason\":\"owner review: personal medical concern\",\"commentText\":\"Little sister of my friend swalloved a coin of 1 fim. At hospital the family was advised to thoroughly keep an eye on her poops. So, the next day they found two 50 penny coins😀.\",\"username\":\"velitapiof\",\"queuedAt\":\"2026-09-10T20:21:59.741Z\",\"resolvedAt\":\"2026-09-10T20:36:02.929Z\",\"resolution\":\"Owner confirmed this is a completed personal story and deleted the inappropriate boundary reply. No clinical review is needed.\"}",
@@ -20935,6 +20936,15 @@
       },
       "publishedId": "18225133087333909",
       "confirmedPublished": true
+    },
+    "comment:17909838681502850": {
+      "creationId": "17892429852614054",
+      "createdAt": "2026-10-06T04:18:38.333Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Someone had to bring it home. Rhyme aside the throat can go from sore to sealed without much warning which is why your field hears about it more than anyone should.",
+        "reply_to_id": "17909838681502850"
+      }
     }
   },
   "repliedCommentIds": [
@@ -30757,7 +30767,8 @@
     "17866088853694998",
     "18017784263949409",
     "18116751640974602",
-    "18093969731159140"
+    "18093969731159140",
+    "18413723080082831"
   ],
   "answeredPostIds": [
     "18395606890093068"
@@ -30885,11 +30896,11 @@
     "18102001628139439": 209,
     "17919320862444697": 114,
     "18115888633802609": 93,
-    "18126282277854768": 98
+    "18126282277854768": 99
   },
   "daily": {
     "date": "2026-10-05",
-    "count": 98
+    "count": 99
   },
   "pinnedResolved": {
     "DaTTCIwoAw7": "18014812820883466"
@@ -32220,6 +32231,6 @@
   },
   "spend": {
     "date": "2026-10-05",
-    "usd": 0.135074172
+    "usd": 0.137086896
   }
 }
