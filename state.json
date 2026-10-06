@@ -21833,6 +21833,15 @@
       },
       "publishedId": "17889555804654440",
       "confirmedPublished": true
+    },
+    "comment:18108095407922128": {
+      "creationId": "17892532989614054",
+      "createdAt": "2026-10-06T21:58:30.490Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Collapsed lung counts and the term is pneumothorax. The ribs are still there but the air in the pleural space is the same shade as bone so they blend into it.",
+        "reply_to_id": "18108095407922128"
+      }
     }
   },
   "repliedCommentIds": [
@@ -31733,7 +31742,8 @@
     "18129034966802946",
     "17973576858136423",
     "17942153178093244",
-    "17946625362342561"
+    "17946625362342561",
+    "18109699682271510"
   ],
   "answeredPostIds": [
     "18395606890093068"
@@ -31862,11 +31872,11 @@
     "17919320862444697": 114,
     "18115888633802609": 93,
     "18126282277854768": 107,
-    "18169862959459418": 69
+    "18169862959459418": 70
   },
   "daily": {
     "date": "2026-10-06",
-    "count": 69
+    "count": 70
   },
   "pinnedResolved": {
     "DaTTCIwoAw7": "18014812820883466"
@@ -33210,6 +33220,6 @@
   },
   "spend": {
     "date": "2026-10-06",
-    "usd": 0.10316629199999999
+    "usd": 0.104837316
   }
 }
