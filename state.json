@@ -22020,6 +22020,15 @@
       },
       "publishedId": "18106395122523255",
       "confirmedPublished": true
+    },
+    "comment:17914462467537632": {
+      "creationId": "17892550161614054",
+      "createdAt": "2026-10-07T01:50:02.470Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Going home with that one is the bad ending. Air keeps piling in until the pressure stops blood getting back to the heart which is why the fix happens right away.",
+        "reply_to_id": "17914462467537632"
+      }
     }
   },
   "repliedCommentIds": [
@@ -31937,7 +31946,8 @@
     "18224202208335379",
     "17919437079243435",
     "17952387246334929",
-    "18108262636908456"
+    "18108262636908456",
+    "17969085036197902"
   ],
   "answeredPostIds": [
     "18395606890093068"
@@ -32066,11 +32076,11 @@
     "17919320862444697": 114,
     "18115888633802609": 93,
     "18126282277854768": 107,
-    "18169862959459418": 86
+    "18169862959459418": 87
   },
   "daily": {
     "date": "2026-10-06",
-    "count": 86
+    "count": 87
   },
   "pinnedResolved": {
     "DaTTCIwoAw7": "18014812820883466"
@@ -33420,6 +33430,6 @@
   },
   "spend": {
     "date": "2026-10-06",
-    "usd": 0.127767078
+    "usd": 0.12966713400000002
   }
 }
