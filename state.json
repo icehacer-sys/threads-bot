@@ -21965,6 +21965,15 @@
       },
       "publishedId": "18094911587649467",
       "confirmedPublished": true
+    },
+    "comment:18224202208335379": {
+      "creationId": "17892549849614054",
+      "createdAt": "2026-10-07T01:48:28.733Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Yes and the emergency part is the shift. Air kept piling in until the mediastinum got pushed across.",
+        "reply_to_id": "18224202208335379"
+      }
     }
   },
   "repliedCommentIds": [
@@ -33361,6 +33370,6 @@
   },
   "spend": {
     "date": "2026-10-06",
-    "usd": 0.12240244200000001
+    "usd": 0.12396815400000001
   }
 }
