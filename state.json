@@ -22530,6 +22530,15 @@
       },
       "publishedId": "17883914106622854",
       "confirmedPublished": true
+    },
+    "comment:18131207506763914": {
+      "creationId": "17892665400614054",
+      "createdAt": "2026-10-07T21:45:48.782Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "That's the one and the fluid sitting around both hila is what drew the wings.",
+        "reply_to_id": "18131207506763914"
+      }
     }
   },
   "repliedCommentIds": [
@@ -33879,7 +33888,8 @@
     "18026826815879929",
     "18382095133233020",
     "18103587653180142",
-    "17950164348327079"
+    "17950164348327079",
+    "18478908361118051"
   ],
   "skipStrikes": {
     "17895266316520842": 1,
@@ -33994,6 +34004,6 @@
   },
   "spend": {
     "date": "2026-10-07",
-    "usd": 0.09345442800000002
+    "usd": 0.09498525600000002
   }
 }
