@@ -21976,6 +21976,15 @@
       },
       "publishedId": "17941454253361469",
       "confirmedPublished": true
+    },
+    "comment:17919437079243435": {
+      "creationId": "17892549888614054",
+      "createdAt": "2026-10-07T01:48:46.745Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "That is the honest answer for a case like this. Tension physiology is time critical and this case says it gets treated at once with needle decompression then a drain.",
+        "reply_to_id": "17919437079243435"
+      }
     }
   },
   "repliedCommentIds": [
@@ -31889,7 +31898,8 @@
     "18112724567588545",
     "17909487849483700",
     "18105248186339977",
-    "17889840339616367"
+    "17889840339616367",
+    "18224202208335379"
   ],
   "answeredPostIds": [
     "18395606890093068"
@@ -32018,11 +32028,11 @@
     "17919320862444697": 114,
     "18115888633802609": 93,
     "18126282277854768": 107,
-    "18169862959459418": 82
+    "18169862959459418": 83
   },
   "daily": {
     "date": "2026-10-06",
-    "count": 82
+    "count": 83
   },
   "pinnedResolved": {
     "DaTTCIwoAw7": "18014812820883466"
@@ -33372,6 +33382,6 @@
   },
   "spend": {
     "date": "2026-10-06",
-    "usd": 0.12396815400000001
+    "usd": 0.12525393
   }
 }
