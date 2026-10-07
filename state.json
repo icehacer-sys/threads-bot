@@ -22075,6 +22075,15 @@
       },
       "publishedId": "18122123798474268",
       "confirmedPublished": true
+    },
+    "comment:18109369859177448": {
+      "creationId": "17892562986614054",
+      "createdAt": "2026-10-07T04:24:09.765Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "The case never gives one. It describes what the trapped air does and how it gets treated but not what started the leak.",
+        "reply_to_id": "18109369859177448"
+      }
     }
   },
   "repliedCommentIds": [
@@ -33456,7 +33465,8 @@
     "18631258033049721": 1,
     "17974860536936669": 1,
     "18213292345361509": 1,
-    "18224202208335379": 1
+    "18224202208335379": 1,
+    "18167541523473270": 1
   },
   "gifPostCounts": {
     "18432085978123193": 1,
@@ -33481,6 +33491,6 @@
   },
   "spend": {
     "date": "2026-10-06",
-    "usd": 0.137105478
+    "usd": 0.14053816200000002
   }
 }
