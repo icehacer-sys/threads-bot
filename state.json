@@ -22586,6 +22586,15 @@
       },
       "publishedId": "17984988840117253",
       "confirmedPublished": true
+    },
+    "comment:18073642130477775": {
+      "creationId": "17892669528614054",
+      "createdAt": "2026-10-07T23:03:38.612Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Pulmonary oedema it is and that bat wing spread from both hila is the part that gives it away.",
+        "reply_to_id": "18073642130477775"
+      }
     }
   },
   "repliedCommentIds": [
@@ -34058,6 +34067,6 @@
   },
   "spend": {
     "date": "2026-10-07",
-    "usd": 0.10536662000000001
+    "usd": 0.10616634800000001
   }
 }
