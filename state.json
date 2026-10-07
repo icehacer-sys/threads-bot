@@ -22199,6 +22199,15 @@
       },
       "publishedId": "17950193604343571",
       "confirmedPublished": true
+    },
+    "comment:18115449200085749": {
+      "creationId": "17892656772614054",
+      "createdAt": "2026-10-07T19:33:55.206Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "This one is pulmonary oedema. The telling bit is the fluffy shadowing fanning out from both hila into bat wings rather than the patchy shadowing pneumonia or the hyperinflation of COPD would give.",
+        "reply_to_id": "18115449200085749"
+      }
     }
   },
   "repliedCommentIds": [
@@ -32131,7 +32140,8 @@
     "18111690608141713",
     "18074988104734148",
     "18104310523996603",
-    "18098895548355083"
+    "18098895548355083",
+    "18194228209352884"
   ],
   "answeredPostIds": [
     "18395606890093068"
@@ -32261,11 +32271,11 @@
     "18115888633802609": 93,
     "18126282277854768": 107,
     "18169862959459418": 96,
-    "18004698404989902": 5
+    "18004698404989902": 6
   },
   "daily": {
     "date": "2026-10-07",
-    "count": 5
+    "count": 6
   },
   "pinnedResolved": {
     "DaTTCIwoAw7": "18014812820883466"
@@ -33508,7 +33518,8 @@
     "18139615774622610",
     "18180292120439131",
     "17951800428273307",
-    "18023751338874780"
+    "18023751338874780",
+    "18118684711951953"
   ],
   "skipStrikes": {
     "17895266316520842": 1,
@@ -33621,6 +33632,6 @@
   },
   "spend": {
     "date": "2026-10-07",
-    "usd": 0.016597572000000005
+    "usd": 0.019305672000000003
   }
 }
