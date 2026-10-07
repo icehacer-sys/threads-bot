@@ -22453,6 +22453,15 @@
       },
       "publishedId": "18089089403686393",
       "confirmedPublished": true
+    },
+    "comment:17890783431458578": {
+      "creationId": "17892661464614054",
+      "createdAt": "2026-10-07T20:42:29.204Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Breathlessness and swollen ankles are easy to file under lungs until the fluid turns out to be litres of it. That push to the ER was the right call.",
+        "reply_to_id": "17890783431458578"
+      }
     }
   },
   "repliedCommentIds": [
@@ -33908,6 +33917,6 @@
   },
   "spend": {
     "date": "2026-10-07",
-    "usd": 0.06390039200000001
+    "usd": 0.06475192400000002
   }
 }
