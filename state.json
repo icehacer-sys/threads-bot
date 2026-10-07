@@ -22405,7 +22405,9 @@
         "media_type": "TEXT",
         "text": "A hike is a bold call for someone whose lungs are already waterlogged. Come back when the foliage clears.",
         "reply_to_id": "17962159701209772"
-      }
+      },
+      "publishedId": "17945526123344771",
+      "confirmedPublished": true
     }
   },
   "repliedCommentIds": [
