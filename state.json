@@ -21954,6 +21954,15 @@
       },
       "publishedId": "18106359944249314",
       "confirmedPublished": true
+    },
+    "comment:17889840339616367": {
+      "creationId": "17892546939614054",
+      "createdAt": "2026-10-07T01:17:51.929Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "So the snoring was really a summoning call. That tarantula took the scenic route.",
+        "reply_to_id": "17889840339616367"
+      }
     }
   },
   "repliedCommentIds": [
@@ -33347,6 +33356,6 @@
   },
   "spend": {
     "date": "2026-10-06",
-    "usd": 0.11995719000000002
+    "usd": 0.12064135800000002
   }
 }
