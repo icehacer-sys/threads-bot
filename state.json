@@ -22409,6 +22409,15 @@
       },
       "publishedId": "17945526123344771",
       "confirmedPublished": true
+    },
+    "comment:18569123950079249": {
+      "creationId": "17892660207614054",
+      "createdAt": "2026-10-07T20:25:55.899Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Nailed the lungs and left the ankles unexplained which is how the X-ray reads too.",
+        "reply_to_id": "18569123950079249"
+      }
     }
   },
   "repliedCommentIds": [
@@ -33859,6 +33868,6 @@
   },
   "spend": {
     "date": "2026-10-07",
-    "usd": 0.059355920000000006
+    "usd": 0.06023324000000001
   }
 }
