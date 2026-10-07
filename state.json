@@ -22475,6 +22475,15 @@
       },
       "publishedId": "17918970492243473",
       "confirmedPublished": true
+    },
+    "comment:18109198151599709": {
+      "creationId": "17892662529614054",
+      "createdAt": "2026-10-07T20:58:20.255Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Liver isn't what's driving this one. The answer is pulmonary oedema and the pattern is the giveaway: the fluffy shadowing fans out from both hila and leaves the outer edges clearer.",
+        "reply_to_id": "18109198151599709"
+      }
     }
   },
   "repliedCommentIds": [
@@ -33932,6 +33941,6 @@
   },
   "spend": {
     "date": "2026-10-07",
-    "usd": 0.06580274000000001
+    "usd": 0.06800648000000001
   }
 }
