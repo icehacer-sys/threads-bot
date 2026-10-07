@@ -22619,6 +22619,15 @@
       },
       "publishedId": "18030902831907134",
       "confirmedPublished": true
+    },
+    "comment:18124777738892540": {
+      "creationId": "17892671667614054",
+      "createdAt": "2026-10-07T23:34:55.735Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Yes it's pulmonary oedema. The trouble starts with the heart backing fluid into the air spaces around both hila.",
+        "reply_to_id": "18124777738892540"
+      }
     }
   },
   "repliedCommentIds": [
@@ -32589,7 +32598,8 @@
     "17914963320532566",
     "17868184383659313",
     "18073642130477775",
-    "18108417875213275"
+    "18108417875213275",
+    "18335230795261380"
   ],
   "answeredPostIds": [
     "18395606890093068"
@@ -32719,11 +32729,11 @@
     "18115888633802609": 93,
     "18126282277854768": 107,
     "18169862959459418": 96,
-    "18004698404989902": 43
+    "18004698404989902": 44
   },
   "daily": {
     "date": "2026-10-07",
-    "count": 43
+    "count": 44
   },
   "pinnedResolved": {
     "DaTTCIwoAw7": "18014812820883466"
@@ -34093,6 +34103,6 @@
   },
   "spend": {
     "date": "2026-10-07",
-    "usd": 0.10748972
+    "usd": 0.10947926
   }
 }
