@@ -22031,6 +22031,15 @@
       },
       "publishedId": "17909608425487084",
       "confirmedPublished": true
+    },
+    "comment:18178540585438682": {
+      "creationId": "17892552822614054",
+      "createdAt": "2026-10-07T02:21:31.825Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Your tally is the textbook picture and the fix is time critical. Films still happen when the patient can sit up and hold still long enough but the needle does not wait on it.",
+        "reply_to_id": "18178540585438682"
+      }
     }
   },
   "repliedCommentIds": [
@@ -33433,6 +33442,6 @@
   },
   "spend": {
     "date": "2026-10-06",
-    "usd": 0.12966713400000002
+    "usd": 0.131398758
   }
 }
