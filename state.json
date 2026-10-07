@@ -22486,6 +22486,15 @@
       },
       "publishedId": "18056735069568363",
       "confirmedPublished": true
+    },
+    "comment:18102952562011695": {
+      "creationId": "17892662538614054",
+      "createdAt": "2026-10-07T20:58:39.454Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Pulmonary oedema is the serious one and the doughnut is the funniest. The hila get less haunted once the fluid clears.",
+        "reply_to_id": "18102952562011695"
+      }
     }
   },
   "repliedCommentIds": [
@@ -32444,7 +32453,8 @@
     "17937612978366489",
     "18024788411871597",
     "17890783431458578",
-    "17937945255365393"
+    "17937945255365393",
+    "18109198151599709"
   ],
   "answeredPostIds": [
     "18395606890093068"
@@ -32574,11 +32584,11 @@
     "18115888633802609": 93,
     "18126282277854768": 107,
     "18169862959459418": 96,
-    "18004698404989902": 31
+    "18004698404989902": 32
   },
   "daily": {
     "date": "2026-10-07",
-    "count": 31
+    "count": 32
   },
   "pinnedResolved": {
     "DaTTCIwoAw7": "18014812820883466"
@@ -33943,6 +33953,6 @@
   },
   "spend": {
     "date": "2026-10-07",
-    "usd": 0.06800648000000001
+    "usd": 0.06872248400000001
   }
 }
