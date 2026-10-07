@@ -22287,6 +22287,15 @@
       },
       "publishedId": "18118229779962769",
       "confirmedPublished": true
+    },
+    "comment:18029612879856128": {
+      "creationId": "17892656964614054",
+      "createdAt": "2026-10-07T19:36:46.122Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Embolism isn't the answer here. This is pulmonary oedema and the giveaway is the bat wing shadowing fanning out from both hila.",
+        "reply_to_id": "18029612879856128"
+      }
     }
   },
   "repliedCommentIds": [
@@ -32227,7 +32236,8 @@
     "18162535228430968",
     "18182789497417944",
     "17895729573418557",
-    "17870778594643341"
+    "17870778594643341",
+    "18114435026026783"
   ],
   "answeredPostIds": [
     "18395606890093068"
@@ -32357,11 +32367,11 @@
     "18115888633802609": 93,
     "18126282277854768": 107,
     "18169862959459418": 96,
-    "18004698404989902": 13
+    "18004698404989902": 14
   },
   "daily": {
     "date": "2026-10-07",
-    "count": 13
+    "count": 14
   },
   "pinnedResolved": {
     "DaTTCIwoAw7": "18014812820883466"
@@ -33721,6 +33731,6 @@
   },
   "spend": {
     "date": "2026-10-07",
-    "usd": 0.04481957600000001
+    "usd": 0.04647447200000001
   }
 }
