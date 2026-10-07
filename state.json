@@ -285,7 +285,21 @@
     "18070916801753623": "Pneumo-thorax? Or aliens extracted the right lobe.",
     "18135912403729353": "This is a right-sided pneumothorax or collapsed lung. You threw us an easy one for a change, huh?",
     "17944903521345922": "Inhaled fog through only one nostril!",
-    "18110855948129149": "Pneumothorax or someone is once again feeding the zombies."
+    "18110855948129149": "Pneumothorax or someone is once again feeding the zombies.",
+    "18631891639059944": "Congestive heart failure.",
+    "18180292120439131": "Moldy lungs",
+    "18111690608141713": "Mesothelioma?",
+    "17951800428273307": "Lung Fibrosis ?",
+    "18074988104734148": "CHF?",
+    "18355682755175460": "some kind of water potential issue causing fluid build up in the lungs and ankles?",
+    "18104310523996603": "Trapped wind!",
+    "18023751338874780": "Pneumoconiosis?",
+    "18098895548355083": "Pleural effusion",
+    "18194228209352884": "What is it??",
+    "18118684711951953": "Sodium overload.",
+    "18115449200085749": "Pneumonia or constricted breathing possible, COPD, asthma or bronchitis. Tests needed asap",
+    "18111344507136810": "A spooky ghost.",
+    "18136992529730520": "Congestive heart failure with pulmonary edema"
   },
   "imageHeldComments": {
     "18116444902754615": "18184997560424523",
@@ -32178,8 +32192,8 @@
     "18169862959459418": 96
   },
   "daily": {
-    "date": "2026-10-06",
-    "count": 96
+    "date": "2026-10-07",
+    "count": 0
   },
   "pinnedResolved": {
     "DaTTCIwoAw7": "18014812820883466"
@@ -33515,7 +33529,7 @@
     "17865730374636613": 1
   },
   "gifDaily": {
-    "date": "2026-10-06",
+    "date": "2026-10-07",
     "count": 0
   },
   "recentGifIds": [
@@ -33526,11 +33540,11 @@
   ],
   "promoPostCounts": {},
   "promoDaily": {
-    "date": "2026-10-06",
+    "date": "2026-10-07",
     "count": 0
   },
   "spend": {
-    "date": "2026-10-06",
-    "usd": 0.14445712200000002
+    "date": "2026-10-07",
+    "usd": 0.00610254
   }
 }
