@@ -620,7 +620,8 @@
     "17987126340114027": "{\"postId\":\"18169862959459418\",\"reason\":\"owner review: personal medical concern\",\"commentText\":\"Can I ask, do you know what this is on my tongue plz is it something my doc should see,much appreciated\",\"username\":\"richantwright1\",\"queuedAt\":\"2026-10-06T19:59:48.844Z\"}",
     "18116319437079514": "{\"postId\":\"18169862959459418\",\"reason\":\"Comment asserts a specific imaging projection/orientation for the image. Projection naming is not supported by the supplied facts and I must not invent or confirm a projection explanation. Hold for owner review as an image-orientation claim rather than auto-replying.\",\"commentText\":\"So this image was taken from a posterior view. I see. Thank you.\",\"username\":\"alan_b2120\",\"queuedAt\":\"2026-10-06T20:00:37.677Z\"}",
     "18045257366820364": "{\"postId\":\"18169862959459418\",\"reason\":\"owner review: unsupported patient history, confirmation, specifics (week) or dismissal of an accepted differential | guard:forced-skip\",\"commentText\":\"when I was in med school, this was the X-ray they used to hammer home the importance of the “breathing” step of the rapid trauma survey\",\"username\":\"lttlknn\",\"queuedAt\":\"2026-10-06T21:41:58.710Z\"}",
-    "18125862076855812": "{\"postId\":\"18004698404989902\",\"reason\":\"owner review: unsupported patient history, confirmation, specifics (week) or dismissal of an accepted differential | guard:forced-skip\",\"commentText\":\"He's not well?\",\"username\":\"denathompson70\",\"queuedAt\":\"2026-10-07T20:10:35.480Z\"}"
+    "18125862076855812": "{\"postId\":\"18004698404989902\",\"reason\":\"owner review: unsupported patient history, confirmation, specifics (week) or dismissal of an accepted differential | guard:forced-skip\",\"commentText\":\"He's not well?\",\"username\":\"denathompson70\",\"queuedAt\":\"2026-10-07T20:10:35.480Z\"}",
+    "18150410479481618": "{\"postId\":\"18004698404989902\",\"reason\":\"owner review: unsupported patient history, confirmation, specifics (day) or dismissal of an accepted differential | guard:forced-skip\",\"commentText\":\"Left side heart failure, left side backs up in the lungs. \\nRight side backs up into the body. \\n\\nIV lasix, with cardiac monitoring, and out put Q1h, to reduce strain in heart and kidneys.\\n\\nif YOU CAN HEAR THE TIDE RISE AND FALL AS THEY BREATHE HOPITAL ASAP...SKIP URCHIN CARE. \\n(waaaaahhhhmmm-bulance maybe indicated)..\",\"username\":\"dark.11angel730\",\"queuedAt\":\"2026-10-07T21:46:15.446Z\"}"
   },
   "concernAcknowledgments": {
     "[\"18121475662898455\",\"berit069\",\"image\"]": "18142096432588199",
@@ -22541,6 +22542,15 @@
       },
       "publishedId": "18206255683325087",
       "confirmedPublished": true
+    },
+    "comment:18162231244498250": {
+      "creationId": "17892665415614054",
+      "createdAt": "2026-10-07T21:46:20.099Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Watching someone you love go through that is its own kind of hard. Hope she's steadier now.",
+        "reply_to_id": "18162231244498250"
+      }
     }
   },
   "repliedCommentIds": [
@@ -32504,7 +32514,8 @@
     "18102952562011695",
     "18014373875954784",
     "18147345205607799",
-    "18217416406350354"
+    "18217416406350354",
+    "18131207506763914"
   ],
   "answeredPostIds": [
     "18395606890093068"
@@ -32634,11 +32645,11 @@
     "18115888633802609": 93,
     "18126282277854768": 107,
     "18169862959459418": 96,
-    "18004698404989902": 36
+    "18004698404989902": 37
   },
   "daily": {
     "date": "2026-10-07",
-    "count": 36
+    "count": 37
   },
   "pinnedResolved": {
     "DaTTCIwoAw7": "18014812820883466"
@@ -33891,7 +33902,8 @@
     "18382095133233020",
     "18103587653180142",
     "17950164348327079",
-    "18478908361118051"
+    "18478908361118051",
+    "18150410479481618"
   ],
   "skipStrikes": {
     "17895266316520842": 1,
@@ -34006,6 +34018,6 @@
   },
   "spend": {
     "date": "2026-10-07",
-    "usd": 0.09498525600000002
+    "usd": 0.10203260000000001
   }
 }
