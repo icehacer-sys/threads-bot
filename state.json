@@ -22133,6 +22133,15 @@
       },
       "publishedId": "18075468389720692",
       "confirmedPublished": true
+    },
+    "comment:18631891639059944": {
+      "creationId": "17892656526614054",
+      "createdAt": "2026-10-07T19:31:20.100Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "That fits the pictured fluid backed up into both lungs.",
+        "reply_to_id": "18631891639059944"
+      }
     }
   },
   "repliedCommentIds": [
@@ -33545,6 +33554,6 @@
   },
   "spend": {
     "date": "2026-10-07",
-    "usd": 0.00610254
+    "usd": 0.006698736
   }
 }
