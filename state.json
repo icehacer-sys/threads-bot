@@ -22053,6 +22053,15 @@
       },
       "publishedId": "17896278777655708",
       "confirmedPublished": true
+    },
+    "comment:18172564654397388": {
+      "creationId": "17892554862614054",
+      "createdAt": "2026-10-07T02:52:34.187Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "It is treated as an emergency at once. Timing in any one commenter's story is not something the case records so I cannot line the two up but the tension kind does not wait around.",
+        "reply_to_id": "18172564654397388"
+      }
     }
   },
   "repliedCommentIds": [
@@ -33457,6 +33466,6 @@
   },
   "spend": {
     "date": "2026-10-06",
-    "usd": 0.13360923
+    "usd": 0.135404622
   }
 }
