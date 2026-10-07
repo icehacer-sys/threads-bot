@@ -22497,6 +22497,15 @@
       },
       "publishedId": "18160617019501027",
       "confirmedPublished": true
+    },
+    "comment:18014373875954784": {
+      "creationId": "17892663945614054",
+      "createdAt": "2026-10-07T21:14:05.041Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Right on it. The bat wing pattern around both hila is the giveaway.",
+        "reply_to_id": "18014373875954784"
+      }
     }
   },
   "repliedCommentIds": [
@@ -33956,6 +33965,6 @@
   },
   "spend": {
     "date": "2026-10-07",
-    "usd": 0.06872248400000001
+    "usd": 0.06933482000000002
   }
 }
