@@ -22042,6 +22042,15 @@
       },
       "publishedId": "18116081039279357",
       "confirmedPublished": true
+    },
+    "comment:18040594436841840": {
+      "creationId": "17892552837614054",
+      "createdAt": "2026-10-07T02:21:55.957Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Not this kind. Once the pressure is trapping itself and shoving the mediastinum across it needs decompression right where it started and a drain after.",
+        "reply_to_id": "18040594436841840"
+      }
     }
   },
   "repliedCommentIds": [
@@ -31961,7 +31970,8 @@
     "17952387246334929",
     "18108262636908456",
     "17969085036197902",
-    "17914462467537632"
+    "17914462467537632",
+    "18178540585438682"
   ],
   "answeredPostIds": [
     "18395606890093068"
@@ -32090,11 +32100,11 @@
     "17919320862444697": 114,
     "18115888633802609": 93,
     "18126282277854768": 107,
-    "18169862959459418": 88
+    "18169862959459418": 89
   },
   "daily": {
     "date": "2026-10-06",
-    "count": 88
+    "count": 89
   },
   "pinnedResolved": {
     "DaTTCIwoAw7": "18014812820883466"
@@ -33444,6 +33454,6 @@
   },
   "spend": {
     "date": "2026-10-06",
-    "usd": 0.131398758
+    "usd": 0.13360923
   }
 }
