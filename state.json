@@ -22564,6 +22564,15 @@
       },
       "publishedId": "18023338928866358",
       "confirmedPublished": true
+    },
+    "comment:17914963320532566": {
+      "creationId": "17892666738614054",
+      "createdAt": "2026-10-07T22:17:23.772Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Crackles at the bases is exactly what fluid around both hila sounds like.",
+        "reply_to_id": "17914963320532566"
+      }
     }
   },
   "repliedCommentIds": [
@@ -34033,6 +34042,6 @@
   },
   "spend": {
     "date": "2026-10-07",
-    "usd": 0.10275293600000002
+    "usd": 0.10341267200000001
   }
 }
