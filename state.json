@@ -21910,6 +21910,15 @@
       },
       "publishedId": "18078160799412777",
       "confirmedPublished": true
+    },
+    "comment:18156868714528602": {
+      "creationId": "17892544308614054",
+      "createdAt": "2026-10-07T00:46:32.552Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Left is right here and you picked the side the film argues for. Decompression first then the drain.",
+        "reply_to_id": "18156868714528602"
+      }
     }
   },
   "repliedCommentIds": [
@@ -33299,6 +33308,6 @@
   },
   "spend": {
     "date": "2026-10-06",
-    "usd": 0.11535444600000001
+    "usd": 0.11607281400000001
   }
 }
