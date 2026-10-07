@@ -21932,6 +21932,15 @@
       },
       "publishedId": "18059013317639396",
       "confirmedPublished": true
+    },
+    "comment:17909487849483700": {
+      "creationId": "17892544338614054",
+      "createdAt": "2026-10-07T00:47:14.070Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "McKillme medical center is a nickname that had to be earned. Student clinics do build that kind of reputation one visit at a time.",
+        "reply_to_id": "17909487849483700"
+      }
     }
   },
   "repliedCommentIds": [
@@ -31841,7 +31850,8 @@
     "18476668075117677",
     "18435534529178782",
     "18130169395794915",
-    "18156868714528602"
+    "18156868714528602",
+    "18112724567588545"
   ],
   "answeredPostIds": [
     "18395606890093068"
@@ -31970,11 +31980,11 @@
     "17919320862444697": 114,
     "18115888633802609": 93,
     "18126282277854768": 107,
-    "18169862959459418": 78
+    "18169862959459418": 79
   },
   "daily": {
     "date": "2026-10-06",
-    "count": 78
+    "count": 79
   },
   "pinnedResolved": {
     "DaTTCIwoAw7": "18014812820883466"
@@ -33322,6 +33332,6 @@
   },
   "spend": {
     "date": "2026-10-06",
-    "usd": 0.11755707000000001
+    "usd": 0.11917705800000002
   }
 }
