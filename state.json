@@ -22188,6 +22188,15 @@
       },
       "publishedId": "18083626094330563",
       "confirmedPublished": true
+    },
+    "comment:18194228209352884": {
+      "creationId": "17892656760614054",
+      "createdAt": "2026-10-07T19:33:27.192Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "It's pulmonary oedema. The fluffy shadowing spreading out from the centre of both lungs in bat wing shape is fluid filling the air spaces around the hila.",
+        "reply_to_id": "18194228209352884"
+      }
     }
   },
   "repliedCommentIds": [
@@ -32119,7 +32128,8 @@
     "18631891639059944",
     "18111690608141713",
     "18074988104734148",
-    "18104310523996603"
+    "18104310523996603",
+    "18098895548355083"
   ],
   "answeredPostIds": [
     "18395606890093068"
@@ -32249,11 +32259,11 @@
     "18115888633802609": 93,
     "18126282277854768": 107,
     "18169862959459418": 96,
-    "18004698404989902": 4
+    "18004698404989902": 5
   },
   "daily": {
     "date": "2026-10-07",
-    "count": 4
+    "count": 5
   },
   "pinnedResolved": {
     "DaTTCIwoAw7": "18014812820883466"
@@ -33609,6 +33619,6 @@
   },
   "spend": {
     "date": "2026-10-07",
-    "usd": 0.014915052000000005
+    "usd": 0.016597572000000005
   }
 }
