@@ -22064,6 +22064,15 @@
       },
       "publishedId": "18109183388180247",
       "confirmedPublished": true
+    },
+    "comment:18117699931768813": {
+      "creationId": "17892560667614054",
+      "createdAt": "2026-10-07T03:53:19.138Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Yes the trapped air is what pushes it. Air keeps entering the pleural space and cannot leave so the rising pressure shoves the mediastinum across.",
+        "reply_to_id": "18117699931768813"
+      }
     }
   },
   "repliedCommentIds": [
@@ -33469,6 +33478,6 @@
   },
   "spend": {
     "date": "2026-10-06",
-    "usd": 0.135404622
+    "usd": 0.137105478
   }
 }
