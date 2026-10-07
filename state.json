@@ -22420,6 +22420,15 @@
       },
       "publishedId": "17931397668409484",
       "confirmedPublished": true
+    },
+    "comment:18122405998928731": {
+      "creationId": "17892660234614054",
+      "createdAt": "2026-10-07T20:26:18.938Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Pneumonia would sit patchy in one spot. Here the shadowing fans out from both hila like bat wings so it's pulmonary oedema.",
+        "reply_to_id": "18122405998928731"
+      }
     }
   },
   "repliedCommentIds": [
@@ -32372,7 +32381,8 @@
     "17905136934664214",
     "18373677793214320",
     "18104610731460500",
-    "17962159701209772"
+    "17962159701209772",
+    "18569123950079249"
   ],
   "answeredPostIds": [
     "18395606890093068"
@@ -32502,11 +32512,11 @@
     "18115888633802609": 93,
     "18126282277854768": 107,
     "18169862959459418": 96,
-    "18004698404989902": 25
+    "18004698404989902": 26
   },
   "daily": {
     "date": "2026-10-07",
-    "count": 25
+    "count": 26
   },
   "pinnedResolved": {
     "DaTTCIwoAw7": "18014812820883466"
@@ -33870,6 +33880,6 @@
   },
   "spend": {
     "date": "2026-10-07",
-    "usd": 0.06023324000000001
+    "usd": 0.06194308400000001
   }
 }
