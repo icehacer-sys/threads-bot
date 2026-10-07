@@ -22431,6 +22431,15 @@
       },
       "publishedId": "17890537887456507",
       "confirmedPublished": true
+    },
+    "comment:17937612978366489": {
+      "creationId": "17892660267614054",
+      "createdAt": "2026-10-07T20:26:42.323Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "A cat sleeping on the face is at least a respectable excuse for the fluff. The hairball theory is where I'd stop though.",
+        "reply_to_id": "17937612978366489"
+      }
     }
   },
   "repliedCommentIds": [
@@ -32384,7 +32393,8 @@
     "18373677793214320",
     "18104610731460500",
     "17962159701209772",
-    "18569123950079249"
+    "18569123950079249",
+    "18122405998928731"
   ],
   "answeredPostIds": [
     "18395606890093068"
@@ -32514,11 +32524,11 @@
     "18115888633802609": 93,
     "18126282277854768": 107,
     "18169862959459418": 96,
-    "18004698404989902": 26
+    "18004698404989902": 27
   },
   "daily": {
     "date": "2026-10-07",
-    "count": 26
+    "count": 27
   },
   "pinnedResolved": {
     "DaTTCIwoAw7": "18014812820883466"
@@ -33882,6 +33892,6 @@
   },
   "spend": {
     "date": "2026-10-07",
-    "usd": 0.06194308400000001
+    "usd": 0.06241376000000001
   }
 }
