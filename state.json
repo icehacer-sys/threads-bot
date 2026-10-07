@@ -22553,6 +22553,15 @@
       },
       "publishedId": "18108001643223961",
       "confirmedPublished": true
+    },
+    "comment:17886872916685998": {
+      "creationId": "17892665862614054",
+      "createdAt": "2026-10-07T22:01:50.498Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "That's the failing heart behind it all and the fluid flooding both hila is where those bat wings come from.",
+        "reply_to_id": "17886872916685998"
+      }
     }
   },
   "repliedCommentIds": [
@@ -34021,6 +34030,6 @@
   },
   "spend": {
     "date": "2026-10-07",
-    "usd": 0.10203260000000001
+    "usd": 0.10275293600000002
   }
 }
