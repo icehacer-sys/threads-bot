@@ -22860,6 +22860,15 @@
       },
       "publishedId": "18128011600891920",
       "confirmedPublished": true
+    },
+    "comment:18219417754348877": {
+      "creationId": "17892784419614054",
+      "createdAt": "2026-10-08T19:34:53.021Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Hydropneumothorax can follow chest trauma so it is a fair thing to raise. What this case gives us is a low bright object on the same side as the whiteout and a history of injury and that fits blood filling the chest.",
+        "reply_to_id": "18219417754348877"
+      }
     }
   },
   "repliedCommentIds": [
@@ -32851,7 +32860,8 @@
     "18142607410519792",
     "18097268780439897",
     "18104745890624185",
-    "18436472830179772"
+    "18436472830179772",
+    "17909819685540089"
   ],
   "answeredPostIds": [
     "18395606890093068"
@@ -32982,11 +32992,11 @@
     "18126282277854768": 107,
     "18169862959459418": 96,
     "18004698404989902": 55,
-    "18054929093583647": 9
+    "18054929093583647": 10
   },
   "daily": {
     "date": "2026-10-08",
-    "count": 9
+    "count": 10
   },
   "pinnedResolved": {
     "DaTTCIwoAw7": "18014812820883466"
@@ -34240,7 +34250,8 @@
     "18103587653180142",
     "17950164348327079",
     "18478908361118051",
-    "18150410479481618"
+    "18150410479481618",
+    "17877051918568135"
   ],
   "skipStrikes": {
     "17895266316520842": 1,
@@ -34357,6 +34368,6 @@
   },
   "spend": {
     "date": "2026-10-08",
-    "usd": 0.013460508
+    "usd": 0.034709388
   }
 }
