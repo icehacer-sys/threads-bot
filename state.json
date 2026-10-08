@@ -23003,6 +23003,15 @@
       },
       "publishedId": "18134345431709518",
       "confirmedPublished": true
+    },
+    "comment:18105973067619419": {
+      "creationId": "17892786882614054",
+      "createdAt": "2026-10-08T20:09:10.544Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "The case doesn't give a timing for the injury so I can't put an age on it. Your one-sided reading is solid though because a massive haemothorax fills just that side.",
+        "reply_to_id": "18105973067619419"
+      }
     }
   },
   "repliedCommentIds": [
@@ -33007,7 +33016,8 @@
     "18115724368817180",
     "18142449484607113",
     "18059133635553370",
-    "18102823994636517"
+    "18102823994636517",
+    "18105886205195663"
   ],
   "answeredPostIds": [
     "18395606890093068"
@@ -33138,11 +33148,11 @@
     "18126282277854768": 107,
     "18169862959459418": 96,
     "18004698404989902": 55,
-    "18054929093583647": 22
+    "18054929093583647": 23
   },
   "daily": {
     "date": "2026-10-08",
-    "count": 22
+    "count": 23
   },
   "pinnedResolved": {
     "DaTTCIwoAw7": "18014812820883466"
@@ -34515,6 +34525,6 @@
   },
   "spend": {
     "date": "2026-10-08",
-    "usd": 0.04721844000000001
+    "usd": 0.04853781600000001
   }
 }
