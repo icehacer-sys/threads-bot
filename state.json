@@ -23179,6 +23179,15 @@
       },
       "publishedId": "17865449562677935",
       "confirmedPublished": true
+    },
+    "comment:18098081747663474": {
+      "creationId": "17892794394614054",
+      "createdAt": "2026-10-08T21:46:00.237Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "And the blood on that side is exactly what the film shows. The case facts only go as far as the drain and possible surgery so I can't add what a scan would have shown.",
+        "reply_to_id": "18098081747663474"
+      }
     }
   },
   "repliedCommentIds": [
@@ -33199,7 +33208,8 @@
     "18004839872792907",
     "18036635798658935",
     "18163262065495578",
-    "18101759597374353"
+    "18101759597374353",
+    "18374044234240460"
   ],
   "answeredPostIds": [
     "18395606890093068"
@@ -33330,11 +33340,11 @@
     "18126282277854768": 107,
     "18169862959459418": 96,
     "18004698404989902": 55,
-    "18054929093583647": 38
+    "18054929093583647": 39
   },
   "daily": {
     "date": "2026-10-08",
-    "count": 38
+    "count": 39
   },
   "pinnedResolved": {
     "DaTTCIwoAw7": "18014812820883466"
@@ -34711,6 +34721,6 @@
   },
   "spend": {
     "date": "2026-10-08",
-    "usd": 0.07331413199999999
+    "usd": 0.07523385599999999
   }
 }
