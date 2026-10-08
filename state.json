@@ -22849,6 +22849,15 @@
       },
       "publishedId": "18038092892835285",
       "confirmedPublished": true
+    },
+    "comment:17909819685540089": {
+      "creationId": "17892784386614054",
+      "createdAt": "2026-10-08T19:34:16.538Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Bloody lung is the right idea and the teaching answer is a massive haemothorax. What you see lying low on that side is the bullet while the whiteout is blood filling the whole side of the chest rather than one lobe.",
+        "reply_to_id": "17909819685540089"
+      }
     }
   },
   "repliedCommentIds": [
@@ -32839,7 +32848,8 @@
     "18168140122480189",
     "18142607410519792",
     "18097268780439897",
-    "18104745890624185"
+    "18104745890624185",
+    "18436472830179772"
   ],
   "answeredPostIds": [
     "18395606890093068"
@@ -32970,11 +32980,11 @@
     "18126282277854768": 107,
     "18169862959459418": 96,
     "18004698404989902": 55,
-    "18054929093583647": 8
+    "18054929093583647": 9
   },
   "daily": {
     "date": "2026-10-08",
-    "count": 8
+    "count": 9
   },
   "pinnedResolved": {
     "DaTTCIwoAw7": "18014812820883466"
@@ -34345,6 +34355,6 @@
   },
   "spend": {
     "date": "2026-10-08",
-    "usd": 0.011953992
+    "usd": 0.013460508
   }
 }
