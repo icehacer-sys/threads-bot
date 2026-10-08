@@ -22737,7 +22737,9 @@
         "media_type": "TEXT",
         "text": "Something is definitely bubbling in there and it is not on the menu.",
         "reply_to_id": "18130902619682000"
-      }
+      },
+      "publishedId": "18133601419662847",
+      "confirmedPublished": true
     }
   },
   "repliedCommentIds": [
