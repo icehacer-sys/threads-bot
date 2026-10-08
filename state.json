@@ -22663,6 +22663,15 @@
       },
       "publishedId": "18106575290218978",
       "confirmedPublished": true
+    },
+    "comment:18088123616692029": {
+      "creationId": "17892674403614054",
+      "createdAt": "2026-10-08T00:25:29.681Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "The organs do get linked in this one but the picture is pulmonary oedema with that bat wing spread from both hila.",
+        "reply_to_id": "18088123616692029"
+      }
     }
   },
   "repliedCommentIds": [
@@ -32637,7 +32646,8 @@
     "18335230795261380",
     "18124777738892540",
     "18221893117343112",
-    "17952497043295477"
+    "17952497043295477",
+    "18370995817215392"
   ],
   "answeredPostIds": [
     "18395606890093068"
@@ -32767,11 +32777,11 @@
     "18115888633802609": 93,
     "18126282277854768": 107,
     "18169862959459418": 96,
-    "18004698404989902": 47
+    "18004698404989902": 48
   },
   "daily": {
     "date": "2026-10-07",
-    "count": 47
+    "count": 48
   },
   "pinnedResolved": {
     "DaTTCIwoAw7": "18014812820883466"
@@ -34141,6 +34151,6 @@
   },
   "spend": {
     "date": "2026-10-07",
-    "usd": 0.11176196
+    "usd": 0.11375326399999999
   }
 }
