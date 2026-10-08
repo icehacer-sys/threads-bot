@@ -22871,6 +22871,15 @@
       },
       "publishedId": "18187220512418311",
       "confirmedPublished": true
+    },
+    "comment:18478083211116323": {
+      "creationId": "17892785679614054",
+      "createdAt": "2026-10-08T19:50:15.694Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "That much smoke would need a bigger bong than the whole left side.",
+        "reply_to_id": "18478083211116323"
+      }
     }
   },
   "repliedCommentIds": [
@@ -34371,6 +34380,6 @@
   },
   "spend": {
     "date": "2026-10-08",
-    "usd": 0.034709388
+    "usd": 0.035163492
   }
 }
