@@ -22718,6 +22718,15 @@
       },
       "publishedId": "18130055848703539",
       "confirmedPublished": true
+    },
+    "comment:18370355332212747": {
+      "creationId": "17892685092614054",
+      "createdAt": "2026-10-08T02:27:28.244Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Hearing that he was right about his own recovery must have made the whole shift feel lighter.",
+        "reply_to_id": "18370355332212747"
+      }
     }
   },
   "repliedCommentIds": [
@@ -34202,6 +34211,6 @@
   },
   "spend": {
     "date": "2026-10-07",
-    "usd": 0.11787163999999999
+    "usd": 0.11916885199999999
   }
 }
