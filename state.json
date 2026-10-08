@@ -23256,6 +23256,15 @@
       },
       "publishedId": "18146431666567698",
       "confirmedPublished": true
+    },
+    "comment:18021554651941890": {
+      "creationId": "17892799497614054",
+      "createdAt": "2026-10-08T23:00:21.986Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Optimist's reading of a chest film. The other side is still charging rent for all that space.",
+        "reply_to_id": "18021554651941890"
+      }
     }
   },
   "repliedCommentIds": [
@@ -34797,6 +34806,6 @@
   },
   "spend": {
     "date": "2026-10-08",
-    "usd": 0.08277347999999998
+    "usd": 0.08344774799999999
   }
 }
