@@ -23080,6 +23080,15 @@
       },
       "publishedId": "18081900785686440",
       "confirmedPublished": true
+    },
+    "comment:18108536251932285": {
+      "creationId": "17892790185614054",
+      "createdAt": "2026-10-08T20:56:49.971Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Full working write-up and the side matches. One small thing: the blood sits with a bullet on that same side so injury is in the picture too.",
+        "reply_to_id": "18108536251932285"
+      }
     }
   },
   "repliedCommentIds": [
@@ -34600,6 +34609,6 @@
   },
   "spend": {
     "date": "2026-10-08",
-    "usd": 0.05487626400000001
+    "usd": 0.057202404000000005
   }
 }
