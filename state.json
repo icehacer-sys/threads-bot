@@ -22970,6 +22970,15 @@
       },
       "publishedId": "17904446958575477",
       "confirmedPublished": true
+    },
+    "comment:18059133635553370": {
+      "creationId": "17892786825614054",
+      "createdAt": "2026-10-08T20:08:20.362Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Severe and also extremely accurate. The formal name is a massive haemothorax but yours reads better on a chart.",
+        "reply_to_id": "18059133635553370"
+      }
     }
   },
   "repliedCommentIds": [
@@ -34454,7 +34463,8 @@
     "17868256392662323": 1,
     "18569123950079249": 1,
     "18073642130477775": 1,
-    "18117501871950191": 1
+    "18117501871950191": 1,
+    "18141794803578829": 1
   },
   "gifPostCounts": {
     "18432085978123193": 1,
@@ -34479,6 +34489,6 @@
   },
   "spend": {
     "date": "2026-10-08",
-    "usd": 0.04447857600000001
+    "usd": 0.04595776800000001
   }
 }
