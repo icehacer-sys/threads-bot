@@ -23223,6 +23223,15 @@
       },
       "publishedId": "18039275990834081",
       "confirmedPublished": true
+    },
+    "comment:18096253622551814": {
+      "creationId": "17892797505614054",
+      "createdAt": "2026-10-08T22:28:57.785Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "The tech who orders it is in the same room as the tech who has to shoot it and that is the whole joke.",
+        "reply_to_id": "18096253622551814"
+      }
     }
   },
   "repliedCommentIds": [
@@ -34641,7 +34650,8 @@
     "17877051918568135",
     "18176384455443997",
     "18411690979090246",
-    "18077879417421108"
+    "18077879417421108",
+    "17907155052480449"
   ],
   "skipStrikes": {
     "17895266316520842": 1,
@@ -34760,6 +34770,6 @@
   },
   "spend": {
     "date": "2026-10-08",
-    "usd": 0.07875939599999998
+    "usd": 0.08085299999999998
   }
 }
