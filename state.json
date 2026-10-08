@@ -299,7 +299,17 @@
     "18118684711951953": "Sodium overload.",
     "18115449200085749": "Pneumonia or constricted breathing possible, COPD, asthma or bronchitis. Tests needed asap",
     "18111344507136810": "A spooky ghost.",
-    "18136992529730520": "Congestive heart failure with pulmonary edema"
+    "18136992529730520": "Congestive heart failure with pulmonary edema",
+    "17908106934590102": "Masive hemothorax? Since history states trauma?",
+    "17997923090825840": "Hemothorax",
+    "18076602587440747": "Bullet and blood? If not what’s the tiny bright spot. This is wicked looking",
+    "18168140122480189": "Umm, they are missing a whole ass lung",
+    "18142607410519792": "Collapse lung",
+    "18097268780439897": "Looks Like A Possible Demonic Possession",
+    "18104745890624185": "Hemothorax. Learned that one after reading about the hydropneumothorax you posted a few days ago.",
+    "18478083211116323": "Excessive Bong Rippage 🤘🏼🤙🏼",
+    "18117501871950191": "He needs to lose weight.",
+    "18436472830179772": "If patient is female, when was their last LMP? Also they probably need to lose weight, and it's likely just anxiety."
   },
   "imageHeldComments": {
     "18116444902754615": "18184997560424523",
@@ -32855,8 +32865,8 @@
     "18004698404989902": 55
   },
   "daily": {
-    "date": "2026-10-07",
-    "count": 55
+    "date": "2026-10-08",
+    "count": 0
   },
   "pinnedResolved": {
     "DaTTCIwoAw7": "18014812820883466"
@@ -34210,7 +34220,7 @@
     "17865730374636613": 1
   },
   "gifDaily": {
-    "date": "2026-10-07",
+    "date": "2026-10-08",
     "count": 0
   },
   "recentGifIds": [
@@ -34221,11 +34231,11 @@
   ],
   "promoPostCounts": {},
   "promoDaily": {
-    "date": "2026-10-07",
+    "date": "2026-10-08",
     "count": 0
   },
   "spend": {
-    "date": "2026-10-07",
-    "usd": 0.11984118799999999
+    "date": "2026-10-08",
+    "usd": 0.004547135999999999
   }
 }
