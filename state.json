@@ -23168,6 +23168,15 @@
       },
       "publishedId": "18176720173443260",
       "confirmedPublished": true
+    },
+    "comment:18374044234240460": {
+      "creationId": "17892794379614054",
+      "createdAt": "2026-10-08T21:45:30.273Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Gunshot and blood are both in there. The side is not the one you picked though and the teaching answer is a massive haemothorax.",
+        "reply_to_id": "18374044234240460"
+      }
     }
   },
   "repliedCommentIds": [
@@ -34700,6 +34709,6 @@
   },
   "spend": {
     "date": "2026-10-08",
-    "usd": 0.07108759199999999
+    "usd": 0.07331413199999999
   }
 }
