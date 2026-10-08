@@ -22696,6 +22696,15 @@
       },
       "publishedId": "17895704118416507",
       "confirmedPublished": true
+    },
+    "comment:17879634537547191": {
+      "creationId": "17892679971614054",
+      "createdAt": "2026-10-08T01:26:36.560Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "You read it the way it's meant to be read: the wings plus that acute picture land on pulmonary oedema.",
+        "reply_to_id": "17879634537547191"
+      }
     }
   },
   "repliedCommentIds": [
@@ -34178,6 +34187,6 @@
   },
   "spend": {
     "date": "2026-10-07",
-    "usd": 0.11559428
+    "usd": 0.11676609199999999
   }
 }
