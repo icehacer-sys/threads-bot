@@ -23146,6 +23146,15 @@
       },
       "publishedId": "17975040519069965",
       "confirmedPublished": true
+    },
+    "comment:18163262065495578": {
+      "creationId": "17892792732614054",
+      "createdAt": "2026-10-08T21:29:32.983Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Running won't help. The patient needs the drain not the cardio.",
+        "reply_to_id": "18163262065495578"
+      }
     }
   },
   "repliedCommentIds": [
@@ -34675,6 +34684,6 @@
   },
   "spend": {
     "date": "2026-10-08",
-    "usd": 0.068039928
+    "usd": 0.06892032
   }
 }
