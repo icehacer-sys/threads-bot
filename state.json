@@ -22794,6 +22794,15 @@
       },
       "publishedId": "18001753622808105",
       "confirmedPublished": true
+    },
+    "comment:18168140122480189": {
+      "creationId": "17892784305614054",
+      "createdAt": "2026-10-08T19:32:36.647Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "The lung is still in there. That whole white side is blood in the chest which is why it looks like it vanished.",
+        "reply_to_id": "18168140122480189"
+      }
     }
   },
   "repliedCommentIds": [
@@ -32779,7 +32788,8 @@
     "18130902619682000",
     "18220364272342379",
     "17908106934590102",
-    "17997923090825840"
+    "17997923090825840",
+    "18076602587440747"
   ],
   "answeredPostIds": [
     "18395606890093068"
@@ -32910,11 +32920,11 @@
     "18126282277854768": 107,
     "18169862959459418": 96,
     "18004698404989902": 55,
-    "18054929093583647": 3
+    "18054929093583647": 4
   },
   "daily": {
     "date": "2026-10-08",
-    "count": 3
+    "count": 4
   },
   "pinnedResolved": {
     "DaTTCIwoAw7": "18014812820883466"
@@ -34284,6 +34294,6 @@
   },
   "spend": {
     "date": "2026-10-08",
-    "usd": 0.006607272
+    "usd": 0.007959084
   }
 }
