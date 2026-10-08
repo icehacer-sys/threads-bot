@@ -22750,6 +22750,15 @@
       },
       "publishedId": "18133601419662847",
       "confirmedPublished": true
+    },
+    "comment:18220364272342379": {
+      "creationId": "17892784236614054",
+      "createdAt": "2026-10-08T19:31:25.108Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "You landed on the answer with the haemothorax and the injury to a vessel. The teaching answer for this one is a massive haemothorax with more than 1500 mL of blood on that side.",
+        "reply_to_id": "18220364272342379"
+      }
     }
   },
   "repliedCommentIds": [
@@ -34236,6 +34245,6 @@
   },
   "spend": {
     "date": "2026-10-08",
-    "usd": 0.004547135999999999
+    "usd": 0.0052546319999999995
   }
 }
