@@ -22904,6 +22904,15 @@
       },
       "publishedId": "18142780045599439",
       "confirmedPublished": true
+    },
+    "comment:18032462078854483": {
+      "creationId": "17892785721614054",
+      "createdAt": "2026-10-08T19:51:15.129Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Air is the usual suspect here but this side filled with blood instead so the answer is a massive haemothorax.",
+        "reply_to_id": "18032462078854483"
+      }
     }
   },
   "repliedCommentIds": [
@@ -32899,7 +32908,8 @@
     "17909819685540089",
     "18219417754348877",
     "18478083211116323",
-    "18117501871950191"
+    "18117501871950191",
+    "18134768065568335"
   ],
   "answeredPostIds": [
     "18395606890093068"
@@ -33030,11 +33040,11 @@
     "18126282277854768": 107,
     "18169862959459418": 96,
     "18004698404989902": 55,
-    "18054929093583647": 13
+    "18054929093583647": 14
   },
   "daily": {
     "date": "2026-10-08",
-    "count": 13
+    "count": 14
   },
   "pinnedResolved": {
     "DaTTCIwoAw7": "18014812820883466"
@@ -34406,6 +34416,6 @@
   },
   "spend": {
     "date": "2026-10-08",
-    "usd": 0.037439292000000006
+    "usd": 0.039160788
   }
 }
