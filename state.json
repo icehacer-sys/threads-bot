@@ -23091,6 +23091,15 @@
       },
       "publishedId": "18111853598134071",
       "confirmedPublished": true
+    },
+    "comment:17930625765163419": {
+      "creationId": "17892790245614054",
+      "createdAt": "2026-10-08T20:57:15.300Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Positioning can shift how the airway looks so I can't split the two from a single film. The case notes don't record the trachea either way so I'd rather not guess at a cause.",
+        "reply_to_id": "17930625765163419"
+      }
     }
   },
   "repliedCommentIds": [
@@ -33103,7 +33112,8 @@
     "17943173412090516",
     "18104473454365805",
     "17964764909981425",
-    "18149962888555828"
+    "18149962888555828",
+    "18108536251932285"
   ],
   "answeredPostIds": [
     "18395606890093068"
@@ -33234,11 +33244,11 @@
     "18126282277854768": 107,
     "18169862959459418": 96,
     "18004698404989902": 55,
-    "18054929093583647": 30
+    "18054929093583647": 31
   },
   "daily": {
     "date": "2026-10-08",
-    "count": 30
+    "count": 31
   },
   "pinnedResolved": {
     "DaTTCIwoAw7": "18014812820883466"
@@ -34611,6 +34621,6 @@
   },
   "spend": {
     "date": "2026-10-08",
-    "usd": 0.057202404000000005
+    "usd": 0.058954296
   }
 }
