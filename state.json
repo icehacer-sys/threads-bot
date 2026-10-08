@@ -23212,6 +23212,15 @@
       },
       "publishedId": "17927360748186495",
       "confirmedPublished": true
+    },
+    "comment:18172999390403999": {
+      "creationId": "17892796704614054",
+      "createdAt": "2026-10-08T22:13:22.028Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Not a collapsed lung and the blood sits on the other side. The answer is a massive haemothorax.",
+        "reply_to_id": "18172999390403999"
+      }
     }
   },
   "repliedCommentIds": [
@@ -34748,6 +34757,6 @@
   },
   "spend": {
     "date": "2026-10-08",
-    "usd": 0.07674375599999998
+    "usd": 0.07875939599999998
   }
 }
