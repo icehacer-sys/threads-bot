@@ -22937,6 +22937,15 @@
       },
       "publishedId": "18398761768207667",
       "confirmedPublished": true
+    },
+    "comment:18173268673458401": {
+      "creationId": "17892785784614054",
+      "createdAt": "2026-10-08T19:52:19.515Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Pneumonia isn't the teaching answer here. The injury history points to a massive haemothorax with blood filling that side.",
+        "reply_to_id": "18173268673458401"
+      }
     }
   },
   "repliedCommentIds": [
@@ -32935,7 +32944,8 @@
     "18117501871950191",
     "18134768065568335",
     "18032462078854483",
-    "18054597497802029"
+    "18054597497802029",
+    "18355499584174914"
   ],
   "answeredPostIds": [
     "18395606890093068"
@@ -33066,11 +33076,11 @@
     "18126282277854768": 107,
     "18169862959459418": 96,
     "18004698404989902": 55,
-    "18054929093583647": 16
+    "18054929093583647": 17
   },
   "daily": {
     "date": "2026-10-08",
-    "count": 16
+    "count": 17
   },
   "pinnedResolved": {
     "DaTTCIwoAw7": "18014812820883466"
@@ -34442,6 +34452,6 @@
   },
   "spend": {
     "date": "2026-10-08",
-    "usd": 0.040939668000000005
+    "usd": 0.04268326800000001
   }
 }
