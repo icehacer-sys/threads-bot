@@ -22893,6 +22893,15 @@
       },
       "publishedId": "18097879535183374",
       "confirmedPublished": true
+    },
+    "comment:18134768065568335": {
+      "creationId": "17892785709614054",
+      "createdAt": "2026-10-08T19:50:54.675Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "The lung hasn't dropped. That side is full of blood which is a massive haemothorax and the small bright thing is a bullet.",
+        "reply_to_id": "18134768065568335"
+      }
     }
   },
   "repliedCommentIds": [
@@ -32887,7 +32896,8 @@
     "18436472830179772",
     "17909819685540089",
     "18219417754348877",
-    "18478083211116323"
+    "18478083211116323",
+    "18117501871950191"
   ],
   "answeredPostIds": [
     "18395606890093068"
@@ -33018,11 +33028,11 @@
     "18126282277854768": 107,
     "18169862959459418": 96,
     "18004698404989902": 55,
-    "18054929093583647": 12
+    "18054929093583647": 13
   },
   "daily": {
     "date": "2026-10-08",
-    "count": 12
+    "count": 13
   },
   "pinnedResolved": {
     "DaTTCIwoAw7": "18014812820883466"
@@ -34394,6 +34404,6 @@
   },
   "spend": {
     "date": "2026-10-08",
-    "usd": 0.035642064
+    "usd": 0.037439292000000006
   }
 }
