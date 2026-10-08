@@ -23132,7 +23132,9 @@
         "media_type": "TEXT",
         "text": "That trailing ellipsis is doing all the reacting for you.",
         "reply_to_id": "18004839872792907"
-      }
+      },
+      "publishedId": "18479449843118840",
+      "confirmedPublished": true
     }
   },
   "repliedCommentIds": [
