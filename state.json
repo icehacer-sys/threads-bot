@@ -23058,6 +23058,15 @@
       },
       "publishedId": "18096677315197659",
       "confirmedPublished": true
+    },
+    "comment:17964764909981425": {
+      "creationId": "17892788874614054",
+      "createdAt": "2026-10-08T20:40:58.086Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Your read is blood and pressure which lands close to home. What fills that side is over 1500 mL of blood so the name is a massive haemothorax.",
+        "reply_to_id": "17964764909981425"
+      }
     }
   },
   "repliedCommentIds": [
@@ -34576,6 +34585,6 @@
   },
   "spend": {
     "date": "2026-10-08",
-    "usd": 0.05212632000000001
+    "usd": 0.05401573200000001
   }
 }
