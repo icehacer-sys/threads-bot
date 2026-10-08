@@ -22685,6 +22685,15 @@
       },
       "publishedId": "18130354564684492",
       "confirmedPublished": true
+    },
+    "comment:18025010660869705": {
+      "creationId": "17892676959614054",
+      "createdAt": "2026-10-08T00:56:13.097Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Pulmonary edema is it. Those fluffy shadows fanning out from both hila are the classic bat wing look.",
+        "reply_to_id": "18025010660869705"
+      }
     }
   },
   "repliedCommentIds": [
@@ -34166,6 +34175,6 @@
   },
   "spend": {
     "date": "2026-10-07",
-    "usd": 0.11452409599999999
+    "usd": 0.11559428
   }
 }
