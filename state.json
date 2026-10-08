@@ -23190,6 +23190,15 @@
       },
       "publishedId": "18112993403122921",
       "confirmedPublished": true
+    },
+    "comment:18116282179810922": {
+      "creationId": "17892795192614054",
+      "createdAt": "2026-10-08T21:57:33.373Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "A whole lotta OMG is the right unit of measurement here.",
+        "reply_to_id": "18116282179810922"
+      }
     }
   },
   "repliedCommentIds": [
@@ -34724,6 +34733,6 @@
   },
   "spend": {
     "date": "2026-10-08",
-    "usd": 0.07523385599999999
+    "usd": 0.07593482399999998
   }
 }
