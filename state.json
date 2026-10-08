@@ -22652,6 +22652,15 @@
       },
       "publishedId": "18124516349304892",
       "confirmedPublished": true
+    },
+    "comment:18370995817215392": {
+      "creationId": "17892674385614054",
+      "createdAt": "2026-10-08T00:25:04.439Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Or the tree gets a lungful and the whole living room looks like this.",
+        "reply_to_id": "18370995817215392"
+      }
     }
   },
   "repliedCommentIds": [
@@ -34130,6 +34139,6 @@
   },
   "spend": {
     "date": "2026-10-07",
-    "usd": 0.111119624
+    "usd": 0.11176196
   }
 }
