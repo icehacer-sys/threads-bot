@@ -22956,7 +22956,9 @@
         "media_type": "TEXT",
         "text": "Ask away. The context is just the starting point and questions are welcome.",
         "reply_to_id": "18115724368817180"
-      }
+      },
+      "publishedId": "17884355214622551",
+      "confirmedPublished": true
     }
   },
   "repliedCommentIds": [
