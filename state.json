@@ -22813,7 +22813,9 @@
         "media_type": "TEXT",
         "text": "Not a collapsed lung. This one is a massive haemothorax with over 1500 mL of blood on that side.",
         "reply_to_id": "18142607410519792"
-      }
+      },
+      "publishedId": "18106694690207889",
+      "confirmedPublished": true
     }
   },
   "repliedCommentIds": [
