@@ -23366,6 +23366,15 @@
       },
       "publishedId": "17911882578537539",
       "confirmedPublished": true
+    },
+    "comment:18436015525183205": {
+      "creationId": "17892813141614054",
+      "createdAt": "2026-10-09T02:05:43.683Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "You're going to want the chest tray not the crash cart. That blood needs draining more than anything needs shocking back.",
+        "reply_to_id": "18436015525183205"
+      }
     }
   },
   "repliedCommentIds": [
@@ -34923,7 +34932,7 @@
   },
   "spend": {
     "date": "2026-10-08",
-    "usd": 0.535823996
+    "usd": 0.553985996
   },
   "deepSeekHalt": {
     "date": "2026-10-08",
