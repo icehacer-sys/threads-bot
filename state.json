@@ -23355,6 +23355,15 @@
       },
       "publishedId": "18045791465822066",
       "confirmedPublished": true
+    },
+    "comment:17934976398404629": {
+      "creationId": "17892805269614054",
+      "createdAt": "2026-10-09T00:34:57.661Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Yep that's the gig. Still got access to all the weird films and enough patient stories to realize med school teaches you half of it.",
+        "reply_to_id": "17934976398404629"
+      }
     }
   },
   "repliedCommentIds": [
@@ -33391,7 +33400,8 @@
     "18002874279006236",
     "17948397663290243",
     "17906490645587548",
-    "18098785661645284"
+    "18098785661645284",
+    "18004716644974604"
   ],
   "answeredPostIds": [
     "18395606890093068"
@@ -33522,11 +33532,11 @@
     "18126282277854768": 107,
     "18169862959459418": 96,
     "18004698404989902": 55,
-    "18054929093583647": 54
+    "18054929093583647": 55
   },
   "daily": {
     "date": "2026-10-08",
-    "count": 54
+    "count": 55
   },
   "pinnedResolved": {
     "DaTTCIwoAw7": "18014812820883466"
@@ -34909,7 +34919,7 @@
   },
   "spend": {
     "date": "2026-10-08",
-    "usd": 0.505471496
+    "usd": 0.5247744959999999
   },
   "deepSeekHalt": {
     "date": "2026-10-08",
