@@ -38,14 +38,32 @@ function contentPairs(s: string): Set<string> {
   return out;
 }
 
+// Template shapes built only from common words, which content pairs cannot see. The 2026-10-09 audit
+// counted "would at least have" 11 times and "That is the one" 4 times on single posts.
+const STOCK_SHAPES: Array<[string, RegExp]> = [
+  ['would at least', /\bwould at least\b/i],
+  ['that is the one', /^(?:that is|that's) the one\b/i],
+  ['heavy lifting', /\bheavy lifting\b/i],
+  ['doing a lot of work', /\bdoing (?:a lot of|most of the|all the) (?:work|talking)\b/i],
+  ['is the correct reaction', /\bis the correct (?:response|reaction|unit|move|amount)\b/i],
+];
+// A facts phrase may repeat across a post, but not become a refrain ("both hila" 15 times, "bat wing" 19).
+const FACT_REFRAIN = 6;
+
 /**
  * Phrases a draft reuses from replies already on the post. Medical vocabulary from the answer and
  * facts is exempt: every correct guess shares "guinea worm" and that is not the failure.
  * A shared run of four words in the same order (two or more) counts as a reused sentence shape.
+ * Facts vocabulary (not the answer itself) stops being exempt once it is a refrain in recent replies,
+ * and stock template shapes count once two recent replies already used them.
  */
-export function repeatedPhrasing(draft: string, recent: string[], protectedText = ''): string[] {
+export function repeatedPhrasing(draft: string, recent: string[], protectedText = '', answerText?: string): string[] {
   const exempt = new Set(words(protectedText));
+  const answerWords = new Set(words(answerText ?? protectedText));
   const pairs = [...contentPairs(draft)].filter(p => !p.split(' ').some(w => exempt.has(w)) && recent.some(r => contentPairs(r).has(p)));
+  const refrains = [...contentPairs(draft)].filter(p => p.split(' ').some(w => exempt.has(w)) && !p.split(' ').some(w => answerWords.has(w)) &&
+    recent.filter(r => contentPairs(r).has(p)).length >= FACT_REFRAIN);
+  const stock = STOCK_SHAPES.filter(([, re]) => re.test(draft) && recent.filter(r => re.test(r)).length >= 2).map(([name]) => name);
   const shapes = recent.filter(r => sharedShapeCount(r, draft) >= 2).map(r => r.slice(0, 60));
-  return [...pairs.map(p => `"${p}"`), ...shapes.map(s => `the shape of "${s}..."`)];
+  return [...pairs.map(p => `"${p}"`), ...refrains.map(p => `the refrain "${p}"`), ...stock.map(s => `the stock phrase "${s}"`), ...shapes.map(s => `the shape of "${s}..."`)];
 }

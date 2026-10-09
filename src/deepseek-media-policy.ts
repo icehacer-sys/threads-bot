@@ -61,6 +61,23 @@ export function unsupportedLaterality(reply: string, caseFacts: string): boolean
   if (SIDE_DISPUTE.test(reply) && !supported.size) return true;
   return [...claimed].some((side) => !supported.has(side));
 }
+// Teaching contrasts (2026-10-09 audit): to grade a wrong guess deepseek-flash generalised about the GUESSED
+// condition with invented rules ("Pneumonia would sit patchy in one spot", "Stones pass through",
+// "Parasites would be tiny separate shapes"). In a medical reply, a sentence that names a guess term the
+// case facts never mention AND states how that condition behaves or looks is unsupported teaching.
+const CONTRAST_CUE = /\b(?:would|wouldn't|usually|typically|tends? to|always|never|sits?|shows? up|leaves?|lives? in|stays? in|parks? in|pass(?:es)? through|looks? like|is (?:a|an) (?:lung|liver|bone|muscle|bowel|brain|heart|skin) (?:thing|story|problem))\b/i;
+const CONTRAST_STOP = new Set('about after again against before being below between could doing during every flagged guess guessed looks maybe might other really right should since their there these thing think those though under where which while would whole yeah never always first'.split(' '));
+const stem = (w: string) => w.toLowerCase().replace(/(?:es|s)$/, '');
+/** A medical DeepSeek reply that teaches how the guessed condition behaves without support in the case facts. */
+export function unsupportedTeachingContrast(reply: string, comment: string, caseFacts: string, category: string): boolean {
+  if (!['correct', 'teach', 'affirm'].includes(category)) return false;
+  const supported = new Set((caseFacts.toLowerCase().match(/[a-z]+/g) ?? []).map(stem));
+  const guessTerms = new Set((comment.toLowerCase().match(/[a-z]{5,}/g) ?? []).filter((w) => !CONTRAST_STOP.has(w)).map(stem).filter((w) => !supported.has(w)));
+  if (!guessTerms.size) return false;
+  return reply.split(/(?<=[.!?])\s+/).some((sentence) =>
+    CONTRAST_CUE.test(sentence) && (sentence.toLowerCase().match(/[a-z]+/g) ?? []).some((w) => guessTerms.has(stem(w))));
+}
+export const TEACHING_CONTRAST_RECHECK = 'Do not describe how the guessed condition usually looks, behaves or where it lives. Say plainly that the guess is not the answer, give the answer and distinguish it only with a feature that the case facts state.';
 // 2026-10-09 audit: "the case facts/records/notes don't say..." dodges read as a bot; drug jokes off-brand.
 const INTERNAL_LEAK = /\b(?:packet|supplied facts|system prompt|my instructions|the instructions|case (?:facts|notes|records?)|teaching answer|the notes|parent comment(?:er)?|the case (?:does not|doesn't|never|only) (?:record|state|mention|say|list|cover)\w*)\b/i;
 const DRUG_JOKE = /\b(?:bong|weed|stoned|high as a kite|cocaine|meth)\b/i;

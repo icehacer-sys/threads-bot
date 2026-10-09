@@ -19,7 +19,7 @@ import { GIF_TAGS } from "./gifs";
 import { PROMO_TAGS, PRODUCTS_BLOCK } from "./products";
 import { priceFor } from "./spend";
 import { createReplyMessage, retryVerdictOnClaude } from './reply-provider';
-import { claimsOffPlatformAction, isLatinNonEnglishReply, isPoliticalJab, unsupportedDeepSeekClaim, unsupportedLaterality } from './deepseek-media-policy';
+import { claimsOffPlatformAction, isLatinNonEnglishReply, isPoliticalJab, unsupportedDeepSeekClaim, unsupportedLaterality, unsupportedTeachingContrast, TEACHING_CONTRAST_RECHECK } from './deepseek-media-policy';
 import { acknowledgmentKind, concernAcknowledgment, directConcern, imageConcernKind, requestsPersonalAdvice, isRetiredMedicalBoundary } from "./concerns";
 
 // Self-learned voice notes (maintained by the Fable 5 self-audit in voicelearn.ts). Loaded ONCE and
@@ -340,6 +340,7 @@ async function classifyAndDraftCore(input: ClassifyInput): Promise<Decision> {
       : isLatinNonEnglishReply(d.reply_text) ? 'non-English reply'
       : claimsOffPlatformAction(d.reply_text) ? 'claims an off-platform action'
       : unsupportedLaterality(d.reply_text, [postText, ...(facts ?? []), answer ?? ''].join(' ')) ? 'unsupported laterality'
+      : unsupportedTeachingContrast(d.reply_text, commentText, [postText, ...(facts ?? []), answer ?? ''].join(' '), d.category) ? 'unsupported teaching contrast'
       : claim ? `unsupported ${claim}` : null;
     return issue ? { ...d, decision: 'skip', category: 'other', reply_text: '', reason: `${issue}: DeepSeek reply skipped | guard:forced-skip` } : d;
   };
@@ -385,7 +386,7 @@ async function classifyAndDraftCore(input: ClassifyInput): Promise<Decision> {
     }
     // Reused phrasing gets one fresh draft. A banter or affirm line that still repeats is dropped,
     // but a genuine teach/correct answer is posted: a repeated topic never justifies silence.
-    const repeats = clean.decision === 'reply' && !bareMedia ? repeatedPhrasing(clean.reply_text, recentReplies ?? [], [answer ?? '', ...(facts ?? [])].join(' ')) : [];
+    const repeats = clean.decision === 'reply' && !bareMedia ? repeatedPhrasing(clean.reply_text, recentReplies ?? [], [answer ?? '', ...(facts ?? [])].join(' '), answer ?? '') : [];
     if (repeats.length && !rechecked) return classifyAndDraftCore({ ...input, varietyRecheck: repeats, allowSearch: false });
     if (repeats.length && !['teach', 'correct'].includes(clean.category)) {
       return presentationFailure(d, { ...clean, decision: 'skip', category: 'other', reply_text: '', reason: `variety guard: reused ${repeats.join(', ')} | guard:forced-skip` }, 'variety');
@@ -649,6 +650,10 @@ async function classifyAndDraftCore(input: ClassifyInput): Promise<Decision> {
     }
     const parsed = parseDecision(submit.input, withMedia);
     const policed = deepSeekPolicy(res.model, parsed);
+    // An invented rule about the guessed condition gets one rewrite limited to the case facts.
+    if (/^unsupported teaching contrast/.test(policed.reason) && !rechecked) {
+      return classifyAndDraftCore({ ...input, conversationRecheck: TEACHING_CONTRAST_RECHECK, allowSearch: false });
+    }
     return isDeepSeekRevealHold(policed) ? policed : finalize(policed);
   } catch (err) {
     // Any failure (API error, bad output) -> stay silent. Never post on uncertainty.
