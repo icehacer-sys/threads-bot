@@ -19,7 +19,7 @@ import { GIF_TAGS } from "./gifs";
 import { PROMO_TAGS, PRODUCTS_BLOCK } from "./products";
 import { priceFor } from "./spend";
 import { createReplyMessage, retryVerdictOnClaude } from './reply-provider';
-import { claimsOffPlatformAction, isLatinNonEnglishReply, isPoliticalJab, unsupportedDeepSeekClaim } from './deepseek-media-policy';
+import { claimsOffPlatformAction, isLatinNonEnglishReply, isPoliticalJab, unsupportedDeepSeekClaim, unsupportedLaterality } from './deepseek-media-policy';
 import { acknowledgmentKind, concernAcknowledgment, directConcern, imageConcernKind, requestsPersonalAdvice, isRetiredMedicalBoundary } from "./concerns";
 
 // Self-learned voice notes (maintained by the Fable 5 self-audit in voicelearn.ts). Loaded ONCE and
@@ -339,6 +339,7 @@ async function classifyAndDraftCore(input: ClassifyInput): Promise<Decision> {
     const issue = isPoliticalJab(commentText) ? 'political jab'
       : isLatinNonEnglishReply(d.reply_text) ? 'non-English reply'
       : claimsOffPlatformAction(d.reply_text) ? 'claims an off-platform action'
+      : unsupportedLaterality(d.reply_text, [postText, ...(facts ?? []), answer ?? ''].join(' ')) ? 'unsupported laterality'
       : claim ? `unsupported ${claim}` : null;
     return issue ? { ...d, decision: 'skip', category: 'other', reply_text: '', reason: `${issue}: DeepSeek reply skipped | guard:forced-skip` } : d;
   };
