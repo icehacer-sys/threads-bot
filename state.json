@@ -23300,6 +23300,15 @@
       },
       "publishedId": "18056176157799864",
       "confirmedPublished": true
+    },
+    "comment:18002874279006236": {
+      "creationId": "17892803307614054",
+      "createdAt": "2026-10-09T00:02:46.070Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Grim but the case stops short of that. The blood and the drain are all the notes give us.",
+        "reply_to_id": "18002874279006236"
+      }
     }
   },
   "repliedCommentIds": [
@@ -34849,6 +34858,6 @@
   },
   "spend": {
     "date": "2026-10-08",
-    "usd": 0.09437926799999999
+    "usd": 0.09547611599999999
   }
 }
