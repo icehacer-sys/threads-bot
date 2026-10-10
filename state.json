@@ -24362,6 +24362,15 @@
       },
       "publishedId": "18117030173107717",
       "confirmedPublished": true
+    },
+    "comment:18119931130982487": {
+      "creationId": "17893066626614054",
+      "createdAt": "2026-10-10T21:43:46.055Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Jackhammer and nutcracker describe pressure patterns on manometry and the corkscrew shape is a barium swallow finding so the two don't map onto each other one to one. Three trips convinced it was your heart is a rough club to be in.",
+        "reply_to_id": "18119931130982487"
+      }
     }
   },
   "repliedCommentIds": [
@@ -34488,7 +34497,8 @@
     "18071703335592224",
     "18134580847674963",
     "18431645992144870",
-    "17993093922025892"
+    "17993093922025892",
+    "18144051079598370"
   ],
   "answeredPostIds": [
     "18395606890093068"
@@ -34620,11 +34630,11 @@
     "18169862959459418": 96,
     "18004698404989902": 55,
     "18054929093583647": 60,
-    "18628279045036981": 83
+    "18628279045036981": 84
   },
   "daily": {
     "date": "2026-10-10",
-    "count": 83
+    "count": 84
   },
   "pinnedResolved": {
     "DaTTCIwoAw7": "18014812820883466"
@@ -36017,6 +36027,6 @@
   },
   "spend": {
     "date": "2026-10-10",
-    "usd": 0.084180516
+    "usd": 0.085842612
   }
 }
