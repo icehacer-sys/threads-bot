@@ -24428,6 +24428,15 @@
       },
       "publishedId": "18383819833229768",
       "confirmedPublished": true
+    },
+    "comment:17871736710640701": {
+      "creationId": "17893067538614054",
+      "createdAt": "2026-10-10T22:00:49.556Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "That is a hard thing to live with daily and it makes sense this one landed close. The swallowing trouble here comes from the oesophagus itself not from the stomach.",
+        "reply_to_id": "17871736710640701"
+      }
     }
   },
   "repliedCommentIds": [
@@ -36091,6 +36100,6 @@
   },
   "spend": {
     "date": "2026-10-10",
-    "usd": 0.090787332
+    "usd": 0.09144693599999999
   }
 }
