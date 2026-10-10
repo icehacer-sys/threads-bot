@@ -23746,6 +23746,15 @@
       },
       "publishedId": "18118883852066359",
       "confirmedPublished": true
+    },
+    "comment:18444945961134993": {
+      "creationId": "17893056984614054",
+      "createdAt": "2026-10-10T19:55:47.345Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "The husband referral pathway has never once found the twists. Good thing the barium swallow does not need his sign-off.",
+        "reply_to_id": "18444945961134993"
+      }
     }
   },
   "repliedCommentIds": [
@@ -33816,7 +33825,8 @@
     "18128660509871092",
     "18115690982322007",
     "18092315012679841",
-    "18141323965612063"
+    "18141323965612063",
+    "17885320524502620"
   ],
   "answeredPostIds": [
     "18395606890093068"
@@ -33948,11 +33958,11 @@
     "18169862959459418": 96,
     "18004698404989902": 55,
     "18054929093583647": 60,
-    "18628279045036981": 27
+    "18628279045036981": 28
   },
   "daily": {
     "date": "2026-10-10",
-    "count": 27
+    "count": 28
   },
   "pinnedResolved": {
     "DaTTCIwoAw7": "18014812820883466"
@@ -35338,6 +35348,6 @@
   },
   "spend": {
     "date": "2026-10-10",
-    "usd": 0.026669760000000008
+    "usd": 0.02710923600000001
   }
 }
