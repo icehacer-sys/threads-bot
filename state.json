@@ -23702,6 +23702,15 @@
       },
       "publishedId": "18448229434127825",
       "confirmedPublished": true
+    },
+    "comment:18115690982322007": {
+      "creationId": "17893056780614054",
+      "createdAt": "2026-10-10T19:54:32.686Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Named it twice over and both count.",
+        "reply_to_id": "18115690982322007"
+      }
     }
   },
   "repliedCommentIds": [
@@ -35291,6 +35300,6 @@
   },
   "spend": {
     "date": "2026-10-10",
-    "usd": 0.024411780000000008
+    "usd": 0.02485258800000001
   }
 }
