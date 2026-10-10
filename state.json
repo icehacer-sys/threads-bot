@@ -23537,6 +23537,15 @@
       },
       "publishedId": "17924901540202701",
       "confirmedPublished": true
+    },
+    "comment:18081859361397010": {
+      "creationId": "17893055316614054",
+      "createdAt": "2026-10-10T19:35:15.430Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Achalasia isn't it. The barium here traces repeating twists through the chest which points to diffuse oesophageal spasm.",
+        "reply_to_id": "18081859361397010"
+      }
     }
   },
   "repliedCommentIds": [
@@ -33588,7 +33597,8 @@
     "17941699146098303",
     "18075243398724126",
     "18122967556900202",
-    "17957931834014761"
+    "17957931834014761",
+    "18128864830867594"
   ],
   "answeredPostIds": [
     "18395606890093068"
@@ -33720,11 +33730,11 @@
     "18169862959459418": 96,
     "18004698404989902": 55,
     "18054929093583647": 60,
-    "18628279045036981": 8
+    "18628279045036981": 9
   },
   "daily": {
     "date": "2026-10-10",
-    "count": 8
+    "count": 9
   },
   "pinnedResolved": {
     "DaTTCIwoAw7": "18014812820883466"
@@ -35109,6 +35119,6 @@
   },
   "spend": {
     "date": "2026-10-10",
-    "usd": 0.013901580000000002
+    "usd": 0.014770092000000002
   }
 }
