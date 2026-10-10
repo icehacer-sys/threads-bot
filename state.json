@@ -24403,7 +24403,9 @@
         "media_type": "TEXT",
         "text": "Twisted twice over in this case.",
         "reply_to_id": "18082272914706323"
-      }
+      },
+      "publishedId": "18091214309485173",
+      "confirmedPublished": true
     }
   },
   "repliedCommentIds": [
