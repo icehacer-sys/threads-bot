@@ -24384,6 +24384,15 @@
       },
       "publishedId": "17898788148672467",
       "confirmedPublished": true
+    },
+    "comment:18193920058397754": {
+      "creationId": "17893066665614054",
+      "createdAt": "2026-10-10T21:44:19.590Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "She swallowed the spider and the oesophagus decided to wriggle on its own. Maybe she should have stopped at the fly.",
+        "reply_to_id": "18193920058397754"
+      }
     }
   },
   "repliedCommentIds": [
@@ -34512,7 +34521,8 @@
     "18431645992144870",
     "17993093922025892",
     "18144051079598370",
-    "18119931130982487"
+    "18119931130982487",
+    "17939215677125747"
   ],
   "answeredPostIds": [
     "18395606890093068"
@@ -34644,11 +34654,11 @@
     "18169862959459418": 96,
     "18004698404989902": 55,
     "18054929093583647": 60,
-    "18628279045036981": 85
+    "18628279045036981": 86
   },
   "daily": {
     "date": "2026-10-10",
-    "count": 85
+    "count": 86
   },
   "pinnedResolved": {
     "DaTTCIwoAw7": "18014812820883466"
@@ -36041,6 +36051,6 @@
   },
   "spend": {
     "date": "2026-10-10",
-    "usd": 0.086510916
+    "usd": 0.08714171999999999
   }
 }
