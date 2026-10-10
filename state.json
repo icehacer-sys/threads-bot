@@ -23955,6 +23955,15 @@
       },
       "publishedId": "18123511576911421",
       "confirmedPublished": true
+    },
+    "comment:17993861568050089": {
+      "creationId": "17893060461614054",
+      "createdAt": "2026-10-10T20:31:37.572Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "No worm here. The twists are the oesophagus itself squeezing in mismatched waves so the barium traces a corkscrew.",
+        "reply_to_id": "17993861568050089"
+      }
     }
   },
   "repliedCommentIds": [
@@ -34044,7 +34053,8 @@
     "18072775781506431",
     "18606638494064836",
     "18107943908351418",
-    "17989822520867311"
+    "17989822520867311",
+    "18107231468121763"
   ],
   "answeredPostIds": [
     "18395606890093068"
@@ -34176,11 +34186,11 @@
     "18169862959459418": 96,
     "18004698404989902": 55,
     "18054929093583647": 60,
-    "18628279045036981": 46
+    "18628279045036981": 47
   },
   "daily": {
     "date": "2026-10-10",
-    "count": 46
+    "count": 47
   },
   "pinnedResolved": {
     "DaTTCIwoAw7": "18014812820883466"
@@ -35568,6 +35578,6 @@
   },
   "spend": {
     "date": "2026-10-10",
-    "usd": 0.043915344000000016
+    "usd": 0.045824820000000016
   }
 }
