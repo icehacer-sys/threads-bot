@@ -24032,6 +24032,15 @@
       },
       "publishedId": "18118525651983728",
       "confirmedPublished": true
+    },
+    "comment:18105640802630722": {
+      "creationId": "17893060575614054",
+      "createdAt": "2026-10-10T20:34:05.448Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Stress being the trigger and it still being rare is a strange combination to live with. I hope the rare part keeps winning.",
+        "reply_to_id": "18105640802630722"
+      }
     }
   },
   "repliedCommentIds": [
@@ -34128,7 +34137,8 @@
     "18128262730874758",
     "18086837438296091",
     "18232276006323954",
-    "18094729277408275"
+    "18094729277408275",
+    "18228227014328239"
   ],
   "answeredPostIds": [
     "18395606890093068"
@@ -34260,11 +34270,11 @@
     "18169862959459418": 96,
     "18004698404989902": 55,
     "18054929093583647": 60,
-    "18628279045036981": 53
+    "18628279045036981": 54
   },
   "daily": {
     "date": "2026-10-10",
-    "count": 53
+    "count": 54
   },
   "pinnedResolved": {
     "DaTTCIwoAw7": "18014812820883466"
@@ -35654,6 +35664,6 @@
   },
   "spend": {
     "date": "2026-10-10",
-    "usd": 0.05667909600000003
+    "usd": 0.05747816400000003
   }
 }
