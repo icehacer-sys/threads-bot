@@ -23834,6 +23834,15 @@
       },
       "publishedId": "18113580509522099",
       "confirmedPublished": true
+    },
+    "comment:18096963371384338": {
+      "creationId": "17893057263614054",
+      "createdAt": "2026-10-10T19:58:15.254Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Yep. The muscle squeezes in uncoordinated waves along its length so the barium-filled tube gets pulled into tight repeating twists. Corkscrew oesophagus is the name that stuck.",
+        "reply_to_id": "18096963371384338"
+      }
     }
   },
   "repliedCommentIds": [
@@ -33912,7 +33921,8 @@
     "18015109922752125",
     "18145577389499110",
     "17912304759531698",
-    "18072293375774566"
+    "18072293375774566",
+    "18346907035284645"
   ],
   "answeredPostIds": [
     "18395606890093068"
@@ -34044,11 +34054,11 @@
     "18169862959459418": 96,
     "18004698404989902": 55,
     "18054929093583647": 60,
-    "18628279045036981": 35
+    "18628279045036981": 36
   },
   "daily": {
     "date": "2026-10-10",
-    "count": 35
+    "count": 36
   },
   "pinnedResolved": {
     "DaTTCIwoAw7": "18014812820883466"
@@ -35434,6 +35444,6 @@
   },
   "spend": {
     "date": "2026-10-10",
-    "usd": 0.03183567600000001
+    "usd": 0.03300992400000001
   }
 }
