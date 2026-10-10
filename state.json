@@ -23515,6 +23515,15 @@
       },
       "publishedId": "18180623620451001",
       "confirmedPublished": true
+    },
+    "comment:17957931834014761": {
+      "creationId": "17893055271614054",
+      "createdAt": "2026-10-10T19:34:38.164Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "The answering is now part of the fun: corkscrew oesophagus or diffuse oesophageal spasm. The barium traces the whole twisty route instead of a nice smooth tube.",
+        "reply_to_id": "17957931834014761"
+      }
     }
   },
   "repliedCommentIds": [
@@ -33564,7 +33573,8 @@
     "18078710159421177",
     "18143552053515383",
     "17941699146098303",
-    "18075243398724126"
+    "18075243398724126",
+    "18122967556900202"
   ],
   "answeredPostIds": [
     "18395606890093068"
@@ -33696,11 +33706,11 @@
     "18169862959459418": 96,
     "18004698404989902": 55,
     "18054929093583647": 60,
-    "18628279045036981": 6
+    "18628279045036981": 7
   },
   "daily": {
     "date": "2026-10-10",
-    "count": 6
+    "count": 7
   },
   "pinnedResolved": {
     "DaTTCIwoAw7": "18014812820883466"
@@ -35085,6 +35095,6 @@
   },
   "spend": {
     "date": "2026-10-10",
-    "usd": 0.012525096000000001
+    "usd": 0.013399008000000002
   }
 }
