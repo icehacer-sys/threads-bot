@@ -24505,6 +24505,15 @@
       },
       "publishedId": "18133608334775120",
       "confirmedPublished": true
+    },
+    "comment:18123996958912152": {
+      "creationId": "17893068612614054",
+      "createdAt": "2026-10-10T22:18:03.814Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Fusillitis flares up whenever the pasta water boils over. This one spirals on its own with no sauce involved.",
+        "reply_to_id": "18123996958912152"
+      }
     }
   },
   "repliedCommentIds": [
@@ -34644,7 +34653,8 @@
     "18432958801179625",
     "17914503990530709",
     "18178386985431641",
-    "18070133270760331"
+    "18070133270760331",
+    "18150077617548668"
   ],
   "answeredPostIds": [
     "18395606890093068"
@@ -34776,11 +34786,11 @@
     "18169862959459418": 96,
     "18004698404989902": 55,
     "18054929093583647": 60,
-    "18628279045036981": 96
+    "18628279045036981": 97
   },
   "daily": {
     "date": "2026-10-10",
-    "count": 96
+    "count": 97
   },
   "pinnedResolved": {
     "DaTTCIwoAw7": "18014812820883466"
@@ -36175,6 +36185,6 @@
   },
   "spend": {
     "date": "2026-10-10",
-    "usd": 0.09754776
+    "usd": 0.098234064
   }
 }
