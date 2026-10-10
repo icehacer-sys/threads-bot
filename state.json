@@ -24043,6 +24043,15 @@
       },
       "publishedId": "17905426287584399",
       "confirmedPublished": true
+    },
+    "comment:18120839131944454": {
+      "creationId": "17893061862614054",
+      "createdAt": "2026-10-10T20:49:37.205Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "That is the whole case in one comment. Corkscrew and rosary beads are both names the twists earned and yes the muscle relaxants aim at the strength and number of those squeezes.",
+        "reply_to_id": "18120839131944454"
+      }
     }
   },
   "repliedCommentIds": [
@@ -35667,6 +35676,6 @@
   },
   "spend": {
     "date": "2026-10-10",
-    "usd": 0.05747816400000003
+    "usd": 0.05820646800000003
   }
 }
