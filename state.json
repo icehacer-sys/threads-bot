@@ -23710,7 +23710,9 @@
         "media_type": "TEXT",
         "text": "Named it twice over and both count.",
         "reply_to_id": "18115690982322007"
-      }
+      },
+      "publishedId": "17994785514042235",
+      "confirmedPublished": true
     }
   },
   "repliedCommentIds": [
