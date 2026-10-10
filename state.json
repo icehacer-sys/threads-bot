@@ -309,7 +309,24 @@
     "18104745890624185": "Hemothorax. Learned that one after reading about the hydropneumothorax you posted a few days ago.",
     "18478083211116323": "Excessive Bong Rippage 🤘🏼🤙🏼",
     "18117501871950191": "He needs to lose weight.",
-    "18436472830179772": "If patient is female, when was their last LMP? Also they probably need to lose weight, and it's likely just anxiety."
+    "18436472830179772": "If patient is female, when was their last LMP? Also they probably need to lose weight, and it's likely just anxiety.",
+    "18096584450449092": "Diffuse esophageal spasm?\nSince you didn't mention any pain so, I am keeping dd of nutcracker esophagus away for now!",
+    "18158735851511503": "They ate a landline?",
+    "18078710159421177": "He swallowed a drill bit?",
+    "18143552053515383": "Trapped wind!",
+    "17941699146098303": "That does not look like food. Hopital!",
+    "18075243398724126": "",
+    "18122967556900202": "Corkscrew oesophagus",
+    "17957931834014761": "Come on doc. \nI came too early to this post; I’m begging for the actual diagnosis, because I know it’s not the phone cord from the kitchen wall phone.",
+    "18128864830867594": "Stole a landline from Grams?",
+    "18081859361397010": "Achalasia",
+    "18075392159569839": "Looks like they're screwed. \n\nI'll see myself out.",
+    "18001323392806361": "It's like the oesophagus and stomach have twirled around??",
+    "17887420827620359": "Did the patient spin really fast  on themselves",
+    "18045271973826196": "A screwy esophagus",
+    "17990142123100102": "That doesn't look like something normally found in a human body.",
+    "17921367357445987": "He swallowed a swizzle stick when he was drinking a fancy alcoholic drink. He swigged it down was drunk and felt no pain til later. \nI had an exray of a man who swallowed his teeth.",
+    "18117887777059051": "Acute peristaltic pigtailing..."
   },
   "imageHeldComments": {
     "18116444902754615": "18184997560424523",
@@ -33598,8 +33615,8 @@
     "18054929093583647": 60
   },
   "daily": {
-    "date": "2026-10-08",
-    "count": 61
+    "date": "2026-10-10",
+    "count": 0
   },
   "pinnedResolved": {
     "DaTTCIwoAw7": "18014812820883466"
@@ -34968,7 +34985,7 @@
     "17865730374636613": 1
   },
   "gifDaily": {
-    "date": "2026-10-08",
+    "date": "2026-10-10",
     "count": 0
   },
   "recentGifIds": [
@@ -34979,15 +34996,11 @@
   ],
   "promoPostCounts": {},
   "promoDaily": {
-    "date": "2026-10-08",
+    "date": "2026-10-10",
     "count": 0
   },
   "spend": {
-    "date": "2026-10-08",
-    "usd": 0.7335504959999999
-  },
-  "deepSeekHalt": {
-    "date": "2026-10-08",
-    "reason": "uncertain DeepSeek attempt or unavailable key"
+    "date": "2026-10-10",
+    "usd": 0.008501172000000001
   }
 }
