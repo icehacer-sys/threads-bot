@@ -23845,6 +23845,15 @@
       },
       "publishedId": "18134883673707506",
       "confirmedPublished": true
+    },
+    "comment:18283430452294136": {
+      "creationId": "17893057281614054",
+      "createdAt": "2026-10-10T19:58:34.039Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Dentures are a whole plate of teeth traveling as one unit and they had no trouble showing up on that film. Overnight they just went along for the ride.",
+        "reply_to_id": "18283430452294136"
+      }
     }
   },
   "repliedCommentIds": [
@@ -33924,7 +33933,8 @@
     "18145577389499110",
     "17912304759531698",
     "18072293375774566",
-    "18346907035284645"
+    "18346907035284645",
+    "18096963371384338"
   ],
   "answeredPostIds": [
     "18395606890093068"
@@ -34056,11 +34066,11 @@
     "18169862959459418": 96,
     "18004698404989902": 55,
     "18054929093583647": 60,
-    "18628279045036981": 36
+    "18628279045036981": 37
   },
   "daily": {
     "date": "2026-10-10",
-    "count": 36
+    "count": 37
   },
   "pinnedResolved": {
     "DaTTCIwoAw7": "18014812820883466"
@@ -35446,6 +35456,6 @@
   },
   "spend": {
     "date": "2026-10-10",
-    "usd": 0.03300992400000001
+    "usd": 0.03444397200000001
   }
 }
