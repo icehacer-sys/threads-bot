@@ -23941,7 +23941,9 @@
         "media_type": "TEXT",
         "text": "Ouch is about the right review of that one.",
         "reply_to_id": "17989822520867311"
-      }
+      },
+      "publishedId": "18333211303279790",
+      "confirmedPublished": true
     }
   },
   "repliedCommentIds": [
