@@ -23900,6 +23900,15 @@
       },
       "publishedId": "18218404714355912",
       "confirmedPublished": true
+    },
+    "comment:18072775781506431": {
+      "creationId": "17893058892614054",
+      "createdAt": "2026-10-10T20:14:59.462Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "In diffuse oesophageal spasm the swallowing squeeze loses its usual order along the length of the oesophagus and the muscle fires in mismatched segments.",
+        "reply_to_id": "18072775781506431"
+      }
     }
   },
   "repliedCommentIds": [
@@ -33984,7 +33993,8 @@
     "18283430452294136",
     "18017676800957537",
     "18105932846248605",
-    "17999535720031647"
+    "17999535720031647",
+    "18394398082202558"
   ],
   "answeredPostIds": [
     "18395606890093068"
@@ -34116,11 +34126,11 @@
     "18169862959459418": 96,
     "18004698404989902": 55,
     "18054929093583647": 60,
-    "18628279045036981": 41
+    "18628279045036981": 42
   },
   "daily": {
     "date": "2026-10-10",
-    "count": 41
+    "count": 42
   },
   "pinnedResolved": {
     "DaTTCIwoAw7": "18014812820883466"
@@ -35506,6 +35516,6 @@
   },
   "spend": {
     "date": "2026-10-10",
-    "usd": 0.03749673600000002
+    "usd": 0.03941251200000002
   }
 }
