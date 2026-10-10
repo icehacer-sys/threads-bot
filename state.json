@@ -24010,6 +24010,15 @@
       },
       "publishedId": "18142536403659926",
       "confirmedPublished": true
+    },
+    "comment:18094729277408275": {
+      "creationId": "17893060530614054",
+      "createdAt": "2026-10-10T20:33:24.114Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Food feeling stuck is the usual complaint and the twists run the whole length because the muscle along it fires in uncoordinated waves rather than one smooth push.",
+        "reply_to_id": "18094729277408275"
+      }
     }
   },
   "repliedCommentIds": [
@@ -34104,7 +34113,8 @@
     "17993861568050089",
     "18470676259140778",
     "18128262730874758",
-    "18086837438296091"
+    "18086837438296091",
+    "18232276006323954"
   ],
   "answeredPostIds": [
     "18395606890093068"
@@ -34236,11 +34246,11 @@
     "18169862959459418": 96,
     "18004698404989902": 55,
     "18054929093583647": 60,
-    "18628279045036981": 51
+    "18628279045036981": 52
   },
   "daily": {
     "date": "2026-10-10",
-    "count": 51
+    "count": 52
   },
   "pinnedResolved": {
     "DaTTCIwoAw7": "18014812820883466"
@@ -35629,6 +35639,6 @@
   },
   "spend": {
     "date": "2026-10-10",
-    "usd": 0.05141865600000003
+    "usd": 0.05354870400000003
   }
 }
