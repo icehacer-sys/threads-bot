@@ -24593,6 +24593,15 @@
       },
       "publishedId": "17872351377639857",
       "confirmedPublished": true
+    },
+    "comment:18077483348718057": {
+      "creationId": "17893072665614054",
+      "createdAt": "2026-10-10T23:06:01.114Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Worst applicator design on record. The string at least left something to hold onto.",
+        "reply_to_id": "18077483348718057"
+      }
     }
   },
   "repliedCommentIds": [
@@ -36272,6 +36281,6 @@
   },
   "spend": {
     "date": "2026-10-10",
-    "usd": 0.104759808
+    "usd": 0.105409212
   }
 }
