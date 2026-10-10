@@ -24139,7 +24139,9 @@
         "media_type": "TEXT",
         "text": "Yes is the whole review this one needed.",
         "reply_to_id": "18376181293233157"
-      }
+      },
+      "publishedId": "18030208298883505",
+      "confirmedPublished": true
     }
   },
   "repliedCommentIds": [
