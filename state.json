@@ -23933,6 +23933,15 @@
       },
       "publishedId": "18029221847687962",
       "confirmedPublished": true
+    },
+    "comment:17989822520867311": {
+      "creationId": "17893060434614054",
+      "createdAt": "2026-10-10T20:31:00.191Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Ouch is about the right review of that one.",
+        "reply_to_id": "17989822520867311"
+      }
     }
   },
   "repliedCommentIds": [
@@ -35544,6 +35553,6 @@
   },
   "spend": {
     "date": "2026-10-10",
-    "usd": 0.04232955600000002
+    "usd": 0.04293922800000002
   }
 }
