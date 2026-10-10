@@ -23438,6 +23438,15 @@
       },
       "publishedId": "17896188093674536",
       "confirmedPublished": true
+    },
+    "comment:18096584450449092": {
+      "creationId": "17893055025614054",
+      "createdAt": "2026-10-10T19:31:40.255Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "That's the one. The reasoning holds up too since pain wasn't part of this story.",
+        "reply_to_id": "18096584450449092"
+      }
     }
   },
   "repliedCommentIds": [
@@ -35001,6 +35010,6 @@
   },
   "spend": {
     "date": "2026-10-10",
-    "usd": 0.008501172000000001
+    "usd": 0.009122304000000001
   }
 }
