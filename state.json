@@ -24406,6 +24406,15 @@
       },
       "publishedId": "18091214309485173",
       "confirmedPublished": true
+    },
+    "comment:18000037980008593": {
+      "creationId": "17893066698614054",
+      "createdAt": "2026-10-10T21:44:56.344Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "The cord you can almost excuse. That spiral is the oesophagus twisting on its own which is the answer here not the snack.",
+        "reply_to_id": "18000037980008593"
+      }
     }
   },
   "repliedCommentIds": [
@@ -34536,7 +34545,8 @@
     "18144051079598370",
     "18119931130982487",
     "17939215677125747",
-    "18193920058397754"
+    "18193920058397754",
+    "18082272914706323"
   ],
   "answeredPostIds": [
     "18395606890093068"
@@ -34668,11 +34678,11 @@
     "18169862959459418": 96,
     "18004698404989902": 55,
     "18054929093583647": 60,
-    "18628279045036981": 87
+    "18628279045036981": 88
   },
   "daily": {
     "date": "2026-10-10",
-    "count": 87
+    "count": 88
   },
   "pinnedResolved": {
     "DaTTCIwoAw7": "18014812820883466"
@@ -36066,6 +36076,6 @@
   },
   "spend": {
     "date": "2026-10-10",
-    "usd": 0.088585416
+    "usd": 0.089503716
   }
 }
