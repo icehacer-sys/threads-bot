@@ -23625,6 +23625,15 @@
       },
       "publishedId": "18105980459256877",
       "confirmedPublished": true
+    },
+    "comment:18107899550238554": {
+      "creationId": "17893055403614054",
+      "createdAt": "2026-10-10T19:37:29.579Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Not a parasite or a swallowed spiral. That repeating twist is the oesophagus itself in diffuse oesophageal spasm.",
+        "reply_to_id": "18107899550238554"
+      }
     }
   },
   "repliedCommentIds": [
@@ -33684,7 +33693,8 @@
     "17887420827620359",
     "18045271973826196",
     "17990142123100102",
-    "17921367357445987"
+    "17921367357445987",
+    "18117887777059051"
   ],
   "answeredPostIds": [
     "18395606890093068"
@@ -33816,11 +33826,11 @@
     "18169862959459418": 96,
     "18004698404989902": 55,
     "18054929093583647": 60,
-    "18628279045036981": 16
+    "18628279045036981": 17
   },
   "daily": {
     "date": "2026-10-10",
-    "count": 16
+    "count": 17
   },
   "pinnedResolved": {
     "DaTTCIwoAw7": "18014812820883466"
@@ -35205,6 +35215,6 @@
   },
   "spend": {
     "date": "2026-10-10",
-    "usd": 0.01975340400000001
+    "usd": 0.02062182000000001
   }
 }
