@@ -24351,6 +24351,15 @@
       },
       "publishedId": "17966456259191903",
       "confirmedPublished": true
+    },
+    "comment:18144051079598370": {
+      "creationId": "17893066608614054",
+      "createdAt": "2026-10-10T21:43:24.690Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Not quite. EoE and feline oesophagus narrow in rings rather than coiling and this one is the corkscrew pattern of diffuse oesophageal spasm.",
+        "reply_to_id": "18144051079598370"
+      }
     }
   },
   "repliedCommentIds": [
@@ -34476,7 +34485,8 @@
     "18099971321357143",
     "18071703335592224",
     "18134580847674963",
-    "18431645992144870"
+    "18431645992144870",
+    "17993093922025892"
   ],
   "answeredPostIds": [
     "18395606890093068"
@@ -34608,11 +34618,11 @@
     "18169862959459418": 96,
     "18004698404989902": 55,
     "18054929093583647": 60,
-    "18628279045036981": 82
+    "18628279045036981": 83
   },
   "daily": {
     "date": "2026-10-10",
-    "count": 82
+    "count": 83
   },
   "pinnedResolved": {
     "DaTTCIwoAw7": "18014812820883466"
@@ -36005,6 +36015,6 @@
   },
   "spend": {
     "date": "2026-10-10",
-    "usd": 0.08266392
+    "usd": 0.084180516
   }
 }
