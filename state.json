@@ -24340,6 +24340,15 @@
       },
       "publishedId": "17921227050440882",
       "confirmedPublished": true
+    },
+    "comment:17993093922025892": {
+      "creationId": "17893066593614054",
+      "createdAt": "2026-10-10T21:43:03.773Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Unwinding one twist would just hand the rest a head start.",
+        "reply_to_id": "17993093922025892"
+      }
     }
   },
   "repliedCommentIds": [
@@ -35994,6 +36003,6 @@
   },
   "spend": {
     "date": "2026-10-10",
-    "usd": 0.082064016
+    "usd": 0.08266392
   }
 }
