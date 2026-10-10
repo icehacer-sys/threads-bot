@@ -23878,6 +23878,15 @@
       },
       "publishedId": "18092922329264852",
       "confirmedPublished": true
+    },
+    "comment:17999535720031647": {
+      "creationId": "17893058859614054",
+      "createdAt": "2026-10-10T20:14:24.529Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "That is the one people know it by. The tight repeating twists on the barium swallow are what earned it the name.",
+        "reply_to_id": "17999535720031647"
+      }
     }
   },
   "repliedCommentIds": [
@@ -35483,6 +35492,6 @@
   },
   "spend": {
     "date": "2026-10-10",
-    "usd": 0.03584770800000001
+    "usd": 0.036449412000000014
   }
 }
