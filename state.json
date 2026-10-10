@@ -24656,7 +24656,9 @@
         "media_type": "TEXT",
         "text": "Someone's waiting by the phone tonight.",
         "reply_to_id": "18111799637156120"
-      }
+      },
+      "publishedId": "18415562707157376",
+      "confirmedPublished": true
     }
   },
   "repliedCommentIds": [
