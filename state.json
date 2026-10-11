@@ -25463,6 +25463,15 @@
       },
       "publishedId": "18120966959007511",
       "confirmedPublished": true
+    },
+    "comment:17943673650358679": {
+      "creationId": "17893100010614054",
+      "createdAt": "2026-10-11T03:28:37.582Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Stress as the trigger must make it harder to switch off when the spasm starts. Good that the cardizem combo has kept the ED out of the picture so far and the offer of sympathy to others in the same boat is a decent thing to put out there.",
+        "reply_to_id": "17943673650358679"
+      }
     }
   },
   "repliedCommentIds": [
@@ -35689,7 +35698,8 @@
     "18629258659008719",
     "18018297395740257",
     "18413646442083653",
-    "18210388699367563"
+    "18210388699367563",
+    "18637429630040191"
   ],
   "answeredPostIds": [
     "18395606890093068"
@@ -35821,11 +35831,11 @@
     "18169862959459418": 96,
     "18004698404989902": 55,
     "18054929093583647": 60,
-    "18628279045036981": 183
+    "18628279045036981": 184
   },
   "daily": {
     "date": "2026-10-10",
-    "count": 183
+    "count": 184
   },
   "pinnedResolved": {
     "DaTTCIwoAw7": "18014812820883466"
@@ -37234,6 +37244,6 @@
   },
   "spend": {
     "date": "2026-10-10",
-    "usd": 0.18400677599999998
+    "usd": 0.18489014399999998
   }
 }
