@@ -26280,6 +26280,15 @@
       },
       "publishedId": "18382262176224397",
       "confirmedPublished": true
+    },
+    "comment:18413493298083780": {
+      "creationId": "17893208118614054",
+      "createdAt": "2026-10-11T19:40:56.625Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Cough and night sweats do point that way but the pockets here arrived through the blood so septic lung abscesses are the answer.",
+        "reply_to_id": "18413493298083780"
+      }
     }
   },
   "repliedCommentIds": [
@@ -36577,7 +36586,8 @@
     "18021443852931134",
     "18135648382739226",
     "18128432948479074",
-    "18043165628828271"
+    "18043165628828271",
+    "18002178485809500"
   ],
   "answeredPostIds": [
     "18395606890093068"
@@ -36710,11 +36720,11 @@
     "18004698404989902": 55,
     "18054929093583647": 60,
     "18628279045036981": 229,
-    "18117179536935952": 25
+    "18117179536935952": 26
   },
   "daily": {
     "date": "2026-10-11",
-    "count": 25
+    "count": 26
   },
   "pinnedResolved": {
     "DaTTCIwoAw7": "18014812820883466"
@@ -38132,6 +38142,6 @@
   },
   "spend": {
     "date": "2026-10-11",
-    "usd": 0.04251996599999999
+    "usd": 0.04429738199999999
   }
 }
