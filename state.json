@@ -24945,6 +24945,15 @@
       },
       "publishedId": "17993385795101234",
       "confirmedPublished": true
+    },
+    "comment:18474574969113154": {
+      "creationId": "17893088502614054",
+      "createdAt": "2026-10-11T01:44:15.303Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Not the throat. This is the oesophagus and that tight repeating twist is what diffuse oesophageal spasm does on a barium swallow.",
+        "reply_to_id": "18474574969113154"
+      }
     }
   },
   "repliedCommentIds": [
@@ -35124,7 +35133,8 @@
     "18173874577454894",
     "18165612451422409",
     "18070581953759227",
-    "18217408390346055"
+    "18217408390346055",
+    "18380106514225928"
   ],
   "answeredPostIds": [
     "18395606890093068"
@@ -35256,11 +35266,11 @@
     "18169862959459418": 96,
     "18004698404989902": 55,
     "18054929093583647": 60,
-    "18628279045036981": 136
+    "18628279045036981": 137
   },
   "daily": {
     "date": "2026-10-10",
-    "count": 136
+    "count": 137
   },
   "pinnedResolved": {
     "DaTTCIwoAw7": "18014812820883466"
@@ -36661,6 +36671,6 @@
   },
   "spend": {
     "date": "2026-10-10",
-    "usd": 0.13708263600000004
+    "usd": 0.13855556400000002
   }
 }
