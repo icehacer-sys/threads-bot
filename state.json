@@ -25485,6 +25485,15 @@
       },
       "publishedId": "18064687604516111",
       "confirmedPublished": true
+    },
+    "comment:17912474340521470": {
+      "creationId": "17893100040614054",
+      "createdAt": "2026-10-11T03:29:08.159Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Food and foot change that entire sentence so the good time was well earned. The textbook edition gets a pass there because pie hole is already doing the heavy lifting.",
+        "reply_to_id": "17912474340521470"
+      }
     }
   },
   "repliedCommentIds": [
@@ -35713,7 +35722,8 @@
     "18413646442083653",
     "18210388699367563",
     "18637429630040191",
-    "17943673650358679"
+    "17943673650358679",
+    "18011330954995387"
   ],
   "answeredPostIds": [
     "18395606890093068"
@@ -35845,11 +35855,11 @@
     "18169862959459418": 96,
     "18004698404989902": 55,
     "18054929093583647": 60,
-    "18628279045036981": 185
+    "18628279045036981": 186
   },
   "daily": {
     "date": "2026-10-10",
-    "count": 185
+    "count": 186
   },
   "pinnedResolved": {
     "DaTTCIwoAw7": "18014812820883466"
@@ -37258,6 +37268,6 @@
   },
   "spend": {
     "date": "2026-10-10",
-    "usd": 0.18553324799999998
+    "usd": 0.18617022
   }
 }
