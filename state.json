@@ -26874,6 +26874,15 @@
       },
       "publishedId": "18112297061464732",
       "confirmedPublished": true
+    },
+    "comment:18142661689606856": {
+      "creationId": "17893212096614054",
+      "createdAt": "2026-10-11T20:29:30.100Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Popcorn lung closes the small airways rather than filling both lungs with separate infected pockets so the answer here is septic lung abscesses.",
+        "reply_to_id": "18142661689606856"
+      }
     }
   },
   "repliedCommentIds": [
@@ -37225,7 +37234,8 @@
     "18097516520435048",
     "17863557054693045",
     "17965400610205700",
-    "18123731350798345"
+    "18123731350798345",
+    "18118838215948925"
   ],
   "answeredPostIds": [
     "18395606890093068"
@@ -37358,11 +37368,11 @@
     "18004698404989902": 55,
     "18054929093583647": 60,
     "18628279045036981": 229,
-    "18117179536935952": 79
+    "18117179536935952": 80
   },
   "daily": {
     "date": "2026-10-11",
-    "count": 79
+    "count": 80
   },
   "pinnedResolved": {
     "DaTTCIwoAw7": "18014812820883466"
@@ -38797,6 +38807,6 @@
   },
   "spend": {
     "date": "2026-10-11",
-    "usd": 0.11850783
+    "usd": 0.12008583
   }
 }
