@@ -27172,6 +27172,15 @@
       },
       "publishedId": "18219622351357784",
       "confirmedPublished": true
+    },
+    "comment:18140586352621010": {
+      "creationId": "17893212837614054",
+      "createdAt": "2026-10-11T20:39:02.430Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "TB tends to keep its cavities in the top part of the lung and only a few of them. Septic abscesses arrive with the blood so they show up as many separate pockets scattered everywhere.",
+        "reply_to_id": "18140586352621010"
+      }
     }
   },
   "repliedCommentIds": [
@@ -37550,7 +37559,8 @@
     "18152160073538235",
     "18151852111558328",
     "18154743994524126",
-    "18091698776285677"
+    "18091698776285677",
+    "18477161746113905"
   ],
   "answeredPostIds": [
     "18395606890093068"
@@ -37683,11 +37693,11 @@
     "18004698404989902": 55,
     "18054929093583647": 60,
     "18628279045036981": 229,
-    "18117179536935952": 106
+    "18117179536935952": 107
   },
   "daily": {
     "date": "2026-10-11",
-    "count": 106
+    "count": 107
   },
   "pinnedResolved": {
     "DaTTCIwoAw7": "18014812820883466"
@@ -39135,6 +39145,6 @@
   },
   "spend": {
     "date": "2026-10-11",
-    "usd": 0.1604908499999999
+    "usd": 0.1626349979999999
   }
 }
