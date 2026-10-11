@@ -27701,6 +27701,15 @@
       },
       "publishedId": "18104446031528965",
       "confirmedPublished": true
+    },
+    "comment:18110985461037197": {
+      "creationId": "17893217871614054",
+      "createdAt": "2026-10-11T21:26:10.641Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "No shooter involved because those rings are infected cavities that popped open rather than holes punched through.",
+        "reply_to_id": "18110985461037197"
+      }
     }
   },
   "repliedCommentIds": [
@@ -39736,6 +39745,6 @@
   },
   "spend": {
     "date": "2026-10-11",
-    "usd": 0.24017022599999988
+    "usd": 0.2417104259999999
   }
 }
