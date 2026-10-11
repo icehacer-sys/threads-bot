@@ -25724,7 +25724,9 @@
         "media_type": "TEXT",
         "text": "Cavatappi did nothing wrong here and we both know it.",
         "reply_to_id": "17943549540089078"
-      }
+      },
+      "publishedId": "18128255125878496",
+      "confirmedPublished": true
     }
   },
   "repliedCommentIds": [
