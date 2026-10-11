@@ -28394,6 +28394,15 @@
       },
       "publishedId": "17992843086047851",
       "confirmedPublished": true
+    },
+    "comment:18075190055753760": {
+      "creationId": "17893221849614054",
+      "createdAt": "2026-10-11T22:12:31.177Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Six weeks of PT for a chest that looks like bubble wrap is exactly the kind of plan that comes with a copay and a shrug.",
+        "reply_to_id": "18075190055753760"
+      }
     }
   },
   "repliedCommentIds": [
@@ -38883,7 +38892,8 @@
     "17996641413045103",
     "17951693259313771",
     "18108531377246689",
-    "18131190473495172"
+    "18131190473495172",
+    "18080522945378034"
   ],
   "answeredPostIds": [
     "18395606890093068"
@@ -39016,11 +39026,11 @@
     "18004698404989902": 55,
     "18054929093583647": 60,
     "18628279045036981": 229,
-    "18117179536935952": 217
+    "18117179536935952": 218
   },
   "daily": {
     "date": "2026-10-11",
-    "count": 217
+    "count": 218
   },
   "pinnedResolved": {
     "DaTTCIwoAw7": "18014812820883466"
@@ -40517,6 +40527,6 @@
   },
   "spend": {
     "date": "2026-10-11",
-    "usd": 0.340173834
+    "usd": 0.340910106
   }
 }
