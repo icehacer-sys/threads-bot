@@ -28504,6 +28504,15 @@
       },
       "publishedId": "18286881157290499",
       "confirmedPublished": true
+    },
+    "comment:17909864019482244": {
+      "creationId": "17893223934614054",
+      "createdAt": "2026-10-11T22:46:32.223Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Air and fluid together in those pockets is exactly it and the infection reached them through the blood.",
+        "reply_to_id": "17909864019482244"
+      }
     }
   },
   "repliedCommentIds": [
@@ -40643,6 +40652,6 @@
   },
   "spend": {
     "date": "2026-10-11",
-    "usd": 0.4193689619999999
+    "usd": 0.4205294819999999
   }
 }
