@@ -28218,6 +28218,15 @@
       },
       "publishedId": "18104303933357463",
       "confirmedPublished": true
+    },
+    "comment:18381860548236747": {
+      "creationId": "17893220907614054",
+      "createdAt": "2026-10-11T21:56:12.832Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "The fire truck restriction is doing a lot of the work here and the peer-reviewed acclaim will be easy once the cone is on the record.",
+        "reply_to_id": "18381860548236747"
+      }
     }
   },
   "repliedCommentIds": [
@@ -38691,7 +38700,8 @@
     "18088348253692665",
     "17912759361542158",
     "18001611719801677",
-    "17937577572249629"
+    "17937577572249629",
+    "18145967236567236"
   ],
   "answeredPostIds": [
     "18395606890093068"
@@ -38824,11 +38834,11 @@
     "18004698404989902": 55,
     "18054929093583647": 60,
     "18628279045036981": 229,
-    "18117179536935952": 201
+    "18117179536935952": 202
   },
   "daily": {
     "date": "2026-10-11",
-    "count": 201
+    "count": 202
   },
   "pinnedResolved": {
     "DaTTCIwoAw7": "18014812820883466"
@@ -40314,6 +40324,6 @@
   },
   "spend": {
     "date": "2026-10-11",
-    "usd": 0.3051359820000001
+    "usd": 0.30582965400000006
   }
 }
