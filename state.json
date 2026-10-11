@@ -25253,6 +25253,15 @@
       },
       "publishedId": "18034573736890094",
       "confirmedPublished": true
+    },
+    "comment:17989584507118706": {
+      "creationId": "17893095555614054",
+      "createdAt": "2026-10-11T02:52:47.075Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Burping as the escape hatch and vomiting as the backup is a rough pair of options to live with. Hope the hot water trick buys you something gentler.",
+        "reply_to_id": "17989584507118706"
+      }
     }
   },
   "repliedCommentIds": [
@@ -37002,6 +37011,6 @@
   },
   "spend": {
     "date": "2026-10-10",
-    "usd": 0.16604233200000001
+    "usd": 0.1667712
   }
 }
