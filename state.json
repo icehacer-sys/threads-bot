@@ -25903,6 +25903,15 @@
       },
       "publishedId": "18100272554456445",
       "confirmedPublished": true
+    },
+    "comment:18411592018095540": {
+      "creationId": "17893121832614054",
+      "createdAt": "2026-10-11T06:41:50.090Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "That wavy column is the barium swallow filling an oesophagus that keeps squeezing in on itself. Diffuse oesophageal spasm is the name for it.",
+        "reply_to_id": "18411592018095540"
+      }
     }
   },
   "repliedCommentIds": [
@@ -37717,6 +37726,6 @@
   },
   "spend": {
     "date": "2026-10-10",
-    "usd": 0.22356722400000004
+    "usd": 0.22466184000000006
   }
 }
