@@ -6,6 +6,12 @@ for (const text of ['Coin, it turned out.', 'This is a coin. And yeah.', 'Coin.A
   assert.ok(replyStyleIssue(text), text);
   assert.equal(sanitize({ decision: 'reply', category: 'banter', reply_text: text, reason: 'test' }).decision, 'skip', text);
 }
+for (const text of ['Dial tone first then the receiver. This one came with a corkscrew oesophagus instead.', 'The phone rang. Nobody answered.', 'The phone rang.\nNobody answered.']) {
+  assert.equal(replyStyleIssue(text, 'banter'), 'split banter', text);
+  assert.equal(sanitize({ decision: 'reply', category: 'banter', reply_text: text, reason: 'test' }).decision, 'skip', text);
+}
+for (const text of ['That machine owes you a refund.', 'Mr. M would ask for a refund.', 'That machine owes you a refund. 😭']) assert.equal(replyStyleIssue(text, 'banter'), undefined, text);
+assert.equal(replyStyleIssue('The caption does not state the age. The image cannot establish it.', 'teach'), undefined, 'complete independent explanations remain possible');
 for (const text of ['The lateral view shows a halo sign.', 'It cleared the airway.', 'Breathing is fine.', 'The crisp disc rules out a battery.']) assert.equal(clinicalClaimIssue(text), true, text);
 assert.equal(clinicalClaimIssue('The halo is on the AP view and the step-off is on the lateral view.'), false);
 assert.equal(needsClinicalReview('Endoscopy is the main move.'), true);

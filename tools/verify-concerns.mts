@@ -143,7 +143,7 @@ mockModel = async (url, init) => {
   assert.ok(!messages.includes(privateAnswer), 'the private diagnosis stays out of model context');
   assert.ok(!messages.includes(privateFact), 'unrevealed case facts stay out of model context');
   const verdict = {intent:'fictional joke with a completed personal anecdote and a collection question',decision:'reply',category:'banter',
-    reply_text:leakPrivateAnswer ? `${privateAnswer}.` : 'The Emperor skipped diplomacy. I cannot promise which tooth cases are in the collection.',
+    reply_text:leakPrivateAnswer ? `${privateAnswer}.` : 'The Emperor skipped diplomacy but I cannot confirm which tooth cases are in the collection.',
     reason:'respond to the mixed comment without inventing inventory or personal medical advice',needs_lookup:false,promo_product:'none',promo_explicit:false,...(config.gifReplies?{gif_tag:'none'}:{})};
   return new Response(JSON.stringify({id:'r01-fixture',type:'message',role:'assistant',model:config.triageModel,stop_reason:'tool_use',stop_sequence:null,
     usage:{input_tokens:1,output_tokens:1},content:[{type:'tool_use',id:'r01-tool',name:'submit_reply',input:verdict}]}), {headers:{'content-type':'application/json'}});

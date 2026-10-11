@@ -56,6 +56,7 @@ queue = [{ ...verdict, ...evidence }]; calls = 0;
 const good = await classifyAndDraft(input);
 assert.equal(good.reply_text, verdict.reply_text); assert.equal(good.media_text, evidence.media_text); assert.equal(calls, 1);
 assert.match(JSON.stringify(bodies.at(-1)), /on-screen words/);
+assert.match(JSON.stringify(bodies.at(-1).system), /one complete conversational sentence/);
 queue = [{ ...verdict, ...evidence }];
 await classifyAndDraft({ ...input, postText: 'CLINICAL_POST_FIXTURE', recentReplies: ['CLINICAL_REPLY_FIXTURE'], facts: ['CLINICAL_FACT_FIXTURE'], images: [{ media_type: 'image/png', data: 'POST_IMAGE_FIXTURE' }] });
 assert.ok(!JSON.stringify(bodies.at(-1)).includes('POST_IMAGE_FIXTURE'), 'a bare reaction GIF should not receive a competing X-ray image');
@@ -68,6 +69,11 @@ queue = [{ ...verdict, ...evidence }];
 await classifyAndDraft({ ...input, commentText: 'What is the clinical risk?', facts: ['CLINICAL_FACT_FIXTURE'], images: [{ media_type: 'image/png', data: 'POST_IMAGE_FIXTURE' }] });
 assert.match(JSON.stringify(bodies.at(-1)), /CLINICAL_FACT_FIXTURE/);
 assert.match(JSON.stringify(bodies.at(-1)), /POST_IMAGE_FIXTURE/);
+assert.match(JSON.stringify(bodies.at(-1)), /Use one complete conversational sentence for a simple reaction/);
+
+queue = [{ ...verdict, ...evidence, reply_text: 'A name first. Safety came later.' }, { ...verdict, ...evidence }]; calls = 0;
+assert.equal((await classifyAndDraft(input)).reply_text, verdict.reply_text); assert.equal(calls, 2);
+assert.match(JSON.stringify(bodies.at(-1)), /STYLE RECHECK/);
 
 queue = [{ ...verdict, ...evidence, reply_text: bad[0] }, { ...verdict, ...evidence }]; calls = 0;
 assert.equal((await classifyAndDraft(input)).reply_text, verdict.reply_text); assert.equal(calls, 2);

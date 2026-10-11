@@ -1,8 +1,12 @@
 /** Conservative list recognition. Ambiguous prose must be redrafted, not split mechanically. */
-export function replyStyleIssue(text: string): string | undefined {
+export function replyStyleIssue(text: string, category?: string): string | undefined {
   if (/[;；؛]/u.test(text)) return 'semicolon';
   if (/[—–]/u.test(text)) return 'prose dash';
   if (/[.!?]\s*["“(]*\s*(?:and|which)\b/i.test(text)) return 'fragmented sentence transition';
+  if (category === 'banter') {
+    const prose = text.replace(/\b(?:Mr|Mrs|Ms|Dr|Prof|St|e\.g|i\.e)\./gi, word => word.replace(/\./g, ''));
+    if (prose.split(/(?<=[.!?])\s+|\n+/u).filter(sentence => /\p{L}/u.test(sentence)).length > 1) return 'split banter';
+  }
   for (const sentence of text.split(/[.!?\n]+/)) {
     if (!sentence.includes(',')) continue;
     // A list must contain at least three short items and an explicit final and/or.
