@@ -28325,7 +28325,9 @@
         "media_type": "TEXT",
         "text": "And the patient still walked in complaining about a cough.",
         "reply_to_id": "18075923357722550"
-      }
+      },
+      "publishedId": "17921234259440587",
+      "confirmedPublished": true
     }
   },
   "repliedCommentIds": [
