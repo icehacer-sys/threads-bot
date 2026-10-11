@@ -27478,7 +27478,9 @@
         "media_type": "TEXT",
         "text": "The algorithm has decided you need a chest X-ray education whether you asked for one or not.",
         "reply_to_id": "18115696715099512"
-      }
+      },
+      "publishedId": "18096762128115933",
+      "confirmedPublished": true
     }
   },
   "repliedCommentIds": [
