@@ -14,6 +14,25 @@ assert.equal(conversationReplyIssue('Inhaled talcum powder as a baby.','empathiz
 assert.equal(conversationReplyIssue('I inhaled powder as a baby.','empathize','That sounds like a frightening experience.',true),undefined);
 assert.equal(conversationReplyIssue('Mold','correct','Fungal infections can produce nodular patterns but the upper-lobe conglomerate masses and calcified hilar nodes here point toward progressive massive fibrosis from long-term dust exposure rather than mold.',true),'overlong response to a short guess');
 
+const emojiCommentary = [
+ ['DES. 😦','You skipped straight to the abbreviation and that face says you already know the twist.'],
+ ['Wow 😮','That face says you were not expecting this.'],
+ ['LMAOOOOO','Laughing is the correct response to a chest that decided to be a corkscrew.'],
+ ['A cautionary childhood story.','Two of those laugh emojis and the oesophagus is still going.'],
+ ['DES. 😦','The reaction is fair.'],
+];
+for (const [comment,draft] of emojiCommentary) assert.match(conversationReplyIssue(comment,'banter',draft,true) ?? '',/emoji commentary/);
+assert.match(conversationReplyIssue('Dracunculus medinensis','affirm','You went straight to the Latin name.',true) ?? '',/comment wording/);
+for (const [comment,category,draft] of [
+ ['DES. 😦','affirm',"That's the one."],
+ ['Wow 😮','banter','That took me by surprise too.'],
+ ['What does 😦 mean?','teach','That emoji usually expresses surprise.'],
+ ['What does that emoji mean?','teach','That emoji usually expresses surprise.'],
+ ['What does DES mean? 😦','teach','DES stands for diffuse oesophageal spasm.'],
+ ['Why is the face swollen?','teach','The case does not state the cause of the facial swelling.'],
+ ['I had an allergic reaction. 😦','empathize','That sounds like a frightening experience.'],
+]) assert.equal(conversationReplyIssue(comment,category,draft,true),undefined,`preserve a meaningful reply: ${comment}`);
+
 const base={intent:'friendly reaction',decision:'reply',category:'banter',reply_text:'That one was rough to look at.',reason:'acknowledge their reaction',needs_lookup:false,promo_product:'none',promo_explicit:false};
 let queue:any[]=[];let calls=0;let body:any;
 globalThis.fetch=async (_url,init)=>{
@@ -21,6 +40,24 @@ globalThis.fetch=async (_url,init)=>{
  return new Response(JSON.stringify({id:'fixture',type:'message',role:'assistant',model:config.triageModel,stop_reason:'tool_use',usage:{input_tokens:1,output_tokens:1},content:[{type:'tool_use',id:'tool',name:'submit_reply',input:next}]}),{headers:{'content-type':'application/json'}});
 };
 const input={postText:'Diagnosis challenge',commentText:'Wow 😮',answer:'Progressive massive fibrosis',answerPublic:true,priorityCommenter:true,modelOverride:config.triageModel};
+const emojiInput={...input,commentText:'DES. 😦',answer:'Diffuse oesophageal spasm'};
+const narrated={...base,reply_text:emojiCommentary[0][1]};
+const natural={...base,category:'affirm',reply_text:"That's the one."};
+queue=[narrated,natural];calls=0;
+assert.equal((await classifyAndDraft(emojiInput)).reply_text,natural.reply_text);
+assert.equal(calls,2,'emoji commentary gets only one rewrite');
+assert.match(JSON.stringify(body),/without describing the emoji or reaction/);
+queue=[narrated,narrated];calls=0;
+const repeatedNarration=await classifyAndDraft(emojiInput);
+assert.equal(repeatedNarration.decision,'skip');assert.equal(repeatedNarration.reply_text,'');assert.equal(calls,2);
+queue=[natural];calls=0;
+assert.equal((await classifyAndDraft(emojiInput)).reply_text,natural.reply_text);assert.equal(calls,1,'text plus emoji remains eligible');
+queue=[{...base,reply_text:'The film has another surprise for you.'}];calls=0;
+const privateReaction=await classifyAndDraft({...emojiInput,answerPublic:false,replyAll:true});
+assert.equal(privateReaction.decision,'reply');assert.equal(calls,1);assert.ok(!JSON.stringify(body).includes(emojiInput.answer),'no private answer sent for a text-plus-emoji comment');
+queue=[natural];calls=0;
+assert.equal((await classifyAndDraft({...emojiInput,answerPublic:false})).decision,'skip');assert.equal(calls,1,'emoji policy does not permit grading a private guess');
+console.log('PASS audited emoji narration, shorthand commentary, direct symbol questions, natural text-plus-emoji replies and bounded rewrite with reveal safeguards');
 queue=[base];calls=0;
 assert.equal((await classifyAndDraft(input)).decision,'reply');assert.equal(calls,1);
 assert.match(JSON.stringify(body),/OWNER REPLY PRIORITY/);
