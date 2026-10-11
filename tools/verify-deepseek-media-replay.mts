@@ -16,6 +16,7 @@ Object.assign(config,{deepSeekTrial:true,deepSeekCommentMedia:'held',webSearch:t
 const {classifyAndDraft}=await import('../src/reply');const {drainSpend}=await import('../src/spend');
 const {COVERAGE_NOTE}=await import('../src/reply-coverage');
 const {VOICE_LEAN}=await import('../src/voice-lean');
+const {GIF_SYSTEM_PROMPT,MEDIA_REPLY_NOTE}=await import('../src/media-reply');
 // Keep paid fixture hashes intact. Reverse only the owner-approved coverage and
 // sentence-style edits when comparing with the historical prompt.
 const recordedCoverageNote=COVERAGE_NOTE.replace('including short guesses, thanks and reactions. Skip comments consisting only of emoji.','including short guesses, emoji, thanks and reactions.');
@@ -29,6 +30,10 @@ const recordedVoice=currentVoice
  .replace('You searched for four days just to get one euro back.','Four days of searching just to get one euro back.')
  .replace('They found coins, keys and buttons.','Coins, keys and buttons.');
 assert.notEqual(recordedVoice,currentVoice,'Current voice must use the approved complete-sentence style');
+const currentGifVoice=GIF_SYSTEM_PROMPT.replace(/\r\n/g,'\n');
+const recordedGifVoice=currentGifVoice.replace(' Write one complete conversational sentence without a setup fragment or a separate punchline.','');
+const currentMediaNote=MEDIA_REPLY_NOTE.replace(/\r\n/g,'\n');
+const recordedMediaNote=currentMediaNote.replace(' Use one complete conversational sentence for a simple reaction.','');
 const {DEEPSEEK_MEDIA_GUIDANCE,DEEPSEEK_MEDIA_HOLD,DEEPSEEK_REPLY_GUIDANCE}=await import('../src/deepseek-media-policy');
 let roundedTotal=0;
 for(const c of [...pack.cases,...recheck.cases]){active=c;const before=attempts;const result=await classifyAndDraft(c.input);assert.equal(attempts-before,1);
@@ -40,8 +45,9 @@ for(const c of [...pack.cases,...recheck.cases]){active=c;const before=attempts;
  // Saved paid requests predate the discipline block; compare them without it only.
  const paid={...captured,system:captured.system.filter((b:any)=>b.text!==DEEPSEEK_REPLY_GUIDANCE)};
  const originalRequest=c.guidancePresentInNativeRequest?paid:{...paid,system:paid.system.slice(0,-1)};
- assert.ok(captured.system.some((b:any)=>b.text.includes('For banter write one complete sentence that responds directly to what they said.')),'Actual requests use the new voice guidance');
- const canonical=JSON.stringify(originalRequest,(_key,value)=>typeof value==='string'?value.replace(/\r\n/g,'\n').replace(COVERAGE_NOTE,recordedCoverageNote).replace(currentVoice,recordedVoice):value);
+ const expectedVoice=c.input.commentText.trim()?'For banter write one complete sentence that responds directly to what they said.':'Write one complete conversational sentence without a setup fragment or a separate punchline.';
+ assert.ok(captured.system.some((b:any)=>b.text.includes(expectedVoice)),'Actual text and bare-GIF requests use the new sentence guidance');
+ const canonical=JSON.stringify(originalRequest,(_key,value)=>typeof value==='string'?value.replace(/\r\n/g,'\n').replace(COVERAGE_NOTE,recordedCoverageNote).replace(currentVoice,recordedVoice).replace(currentGifVoice,recordedGifVoice).replace(currentMediaNote,recordedMediaNote):value);
  assert.equal(hash(canonical),c.normalizedRequestHash,'Historical native request parity apart from line endings and approved owner policy edits');
  assert.deepEqual(captured.messages.flatMap((m:any)=>m.content.filter((b:any)=>b.type==='image')).map((b:any)=>hash(Buffer.from(b.source.data,'base64') as any)),c.frameHashes);
  assert.deepEqual(JSON.parse(JSON.stringify(result)),c.final.decision==='reply'?{decision:'skip',category:'other',reply_text:'',reason:`error: ${DEEPSEEK_MEDIA_HOLD}`}:c.final);const spend=drainSpend();assert.equal(spend.calls,1);assert.equal(Math.ceil(spend.usd*1e6),c.costMicroUsd);roundedTotal+=c.costMicroUsd;
