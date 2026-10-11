@@ -25826,6 +25826,15 @@
       },
       "publishedId": "18131645149779439",
       "confirmedPublished": true
+    },
+    "comment:18160892332500546": {
+      "creationId": "17893117545614054",
+      "createdAt": "2026-10-11T06:09:36.198Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "That snack unrolls smooth and this tube went for the accordion fold instead.",
+        "reply_to_id": "18160892332500546"
+      }
     }
   },
   "repliedCommentIds": [
@@ -37633,6 +37642,6 @@
   },
   "spend": {
     "date": "2026-10-10",
-    "usd": 0.21688857600000003
+    "usd": 0.21752344800000004
   }
 }
