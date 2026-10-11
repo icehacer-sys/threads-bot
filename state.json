@@ -25559,7 +25559,9 @@
         "media_type": "TEXT",
         "text": "The snake checked out without leaving a forwarding address.",
         "reply_to_id": "18413408281095918"
-      }
+      },
+      "publishedId": "18111869906583189",
+      "confirmedPublished": true
     }
   },
   "repliedCommentIds": [
