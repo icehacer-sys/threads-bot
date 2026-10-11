@@ -26390,6 +26390,15 @@
       },
       "publishedId": "18000108825008163",
       "confirmedPublished": true
+    },
+    "comment:17907595065595685": {
+      "creationId": "17893208340614054",
+      "createdAt": "2026-10-11T19:44:24.508Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "The answer is septic lung abscesses and the matching sizes on both sides are the giveaway rather than one upper-lung pattern.",
+        "reply_to_id": "17907595065595685"
+      }
     }
   },
   "repliedCommentIds": [
@@ -36697,7 +36706,8 @@
     "17905139643596743",
     "18061806647626021",
     "18075409460651047",
-    "18127537594883579"
+    "18127537594883579",
+    "18125437409476445"
   ],
   "answeredPostIds": [
     "18395606890093068"
@@ -36830,11 +36840,11 @@
     "18004698404989902": 55,
     "18054929093583647": 60,
     "18628279045036981": 229,
-    "18117179536935952": 35
+    "18117179536935952": 36
   },
   "daily": {
     "date": "2026-10-11",
-    "count": 35
+    "count": 36
   },
   "pinnedResolved": {
     "DaTTCIwoAw7": "18014812820883466"
@@ -38257,6 +38267,6 @@
   },
   "spend": {
     "date": "2026-10-11",
-    "usd": 0.05804908199999999
+    "usd": 0.059525981999999984
   }
 }
