@@ -26486,7 +26486,9 @@
         "media_type": "TEXT",
         "text": "That name is doing more work than the whole report and you are already walking to the next case.",
         "reply_to_id": "18028476503875061"
-      }
+      },
+      "publishedId": "18133590427584080",
+      "confirmedPublished": true
     }
   },
   "repliedCommentIds": [
