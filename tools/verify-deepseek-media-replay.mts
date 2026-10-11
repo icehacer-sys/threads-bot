@@ -24,8 +24,8 @@ let roundedTotal=0;
 for(const c of [...pack.cases,...recheck.cases]){active=c;const before=attempts;const result=await classifyAndDraft(c.input);assert.equal(attempts-before,1);
  assert.equal(capturedUrl,'https://api.deepseek.com/anthropic/v1/messages');
  // Files loaded into system prompts use CRLF on Windows and LF in Linux checkout.
- // Preserve the paid raw hash in the fixture; normalize ONLY string line endings
- // for this cross-platform full-request hash. Every other field/byte is included.
+ // Preserve the paid fixture hashes; normalize line endings and reverse only the
+ // approved emoji guidance above. Every other request field/byte is included.
  assert.equal(captured.system.at(-1).text,DEEPSEEK_MEDIA_GUIDANCE);assert.equal(captured.system.at(-2).text,DEEPSEEK_REPLY_GUIDANCE);
  // Saved paid requests predate the discipline block; compare them without it only.
  const paid={...captured,system:captured.system.filter((b:any)=>b.text!==DEEPSEEK_REPLY_GUIDANCE)};
