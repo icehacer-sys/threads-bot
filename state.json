@@ -25264,6 +25264,15 @@
       },
       "publishedId": "18096425768447331",
       "confirmedPublished": true
+    },
+    "comment:18129578821695969": {
+      "creationId": "17893095573614054",
+      "createdAt": "2026-10-11T02:53:02.927Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Getting a burp out is at least a useful signal that your heart is off the hook. The spasms carrying on regardless is the less fun half of that deal.",
+        "reply_to_id": "18129578821695969"
+      }
     }
   },
   "repliedCommentIds": [
@@ -35472,7 +35481,8 @@
     "18169029520467425",
     "18139562383552348",
     "18112825628169833",
-    "18111800777609404"
+    "18111800777609404",
+    "17989584507118706"
   ],
   "answeredPostIds": [
     "18395606890093068"
@@ -35604,11 +35614,11 @@
     "18169862959459418": 96,
     "18004698404989902": 55,
     "18054929093583647": 60,
-    "18628279045036981": 165
+    "18628279045036981": 166
   },
   "daily": {
     "date": "2026-10-10",
-    "count": 165
+    "count": 166
   },
   "pinnedResolved": {
     "DaTTCIwoAw7": "18014812820883466"
@@ -37013,6 +37023,6 @@
   },
   "spend": {
     "date": "2026-10-10",
-    "usd": 0.1667712
+    "usd": 0.167527368
   }
 }
