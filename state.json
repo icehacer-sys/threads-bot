@@ -25595,6 +25595,15 @@
       },
       "publishedId": "18427589887150746",
       "confirmedPublished": true
+    },
+    "comment:18136829578643545": {
+      "creationId": "17893107747614054",
+      "createdAt": "2026-10-11T04:32:12.069Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Fusilli is the pitch the pasta people would make at that meeting. The million to one line lands better than it should.",
+        "reply_to_id": "18136829578643545"
+      }
     }
   },
   "repliedCommentIds": [
@@ -37380,6 +37389,6 @@
   },
   "spend": {
     "date": "2026-10-10",
-    "usd": 0.19394308799999999
+    "usd": 0.194684856
   }
 }
