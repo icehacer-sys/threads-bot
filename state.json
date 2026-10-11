@@ -25562,6 +25562,15 @@
       },
       "publishedId": "18111869906583189",
       "confirmedPublished": true
+    },
+    "comment:18120217658052152": {
+      "creationId": "17893104459614054",
+      "createdAt": "2026-10-11T04:01:09.778Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Not MALS. The twist here is diffuse oesophageal spasm and the barium swallow lays the corkscrew out in plain view.",
+        "reply_to_id": "18120217658052152"
+      }
     }
   },
   "repliedCommentIds": [
@@ -35797,7 +35806,8 @@
     "18072660764780922",
     "18109341428189922",
     "18098947808091157",
-    "18114076558837659"
+    "18114076558837659",
+    "18413408281095918"
   ],
   "answeredPostIds": [
     "18395606890093068"
@@ -35929,11 +35939,11 @@
     "18169862959459418": 96,
     "18004698404989902": 55,
     "18054929093583647": 60,
-    "18628279045036981": 192
+    "18628279045036981": 193
   },
   "daily": {
     "date": "2026-10-10",
-    "count": 192
+    "count": 193
   },
   "pinnedResolved": {
     "DaTTCIwoAw7": "18014812820883466"
@@ -37342,6 +37352,6 @@
   },
   "spend": {
     "date": "2026-10-10",
-    "usd": 0.19064533199999997
+    "usd": 0.191736948
   }
 }
