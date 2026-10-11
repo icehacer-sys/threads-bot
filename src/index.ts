@@ -34,6 +34,7 @@ import {
   getPostById,
   getAllMyPosts,
   getReplies,
+  getReplyById,
   getConversation,
   postReply,
   type ThreadsPost,
@@ -709,6 +710,12 @@ async function runLiveOrDry(mode: Mode, target: string | null, observation: Cove
         const publication = state.publication(`comment:${c.id}`);
         const pending = publication.get();
         if (!pending || resumed.has(c.id) || state.hasReplied(c.id)) continue;
+        if (!pending.publishedId && !pending.confirmedPublished && !isVisible(c)) {
+          resumed.add(c.id);
+          observe(() => observation.eligibility(post.id, c.id, 'excluded', 'hidden'));
+          console.log(`    saved reply for ${c.id} paused: hidden comment`);
+          continue;
+        }
         if (!pending.publishedId && !pending.confirmedPublished && isEmojiOnlyComment(c.text ?? '')) {
           resumed.add(c.id);
           console.log(`    saved reply for ${c.id} paused: emoji-only comment`);
@@ -738,6 +745,11 @@ async function runLiveOrDry(mode: Mode, target: string | null, observation: Cove
         try {
           if (!pending.publishedId && replyStyleIssue(pending.params.text)) {
             state.queueOwnerReview(c.id, post.id, 'owner review: saved draft violates current punctuation rules', c.text, c.username);
+            continue;
+          }
+          if (!pending.publishedId && !pending.confirmedPublished && !isVisible(await getReplyById(c.id))) {
+            observe(() => observation.eligibility(post.id, c.id, 'excluded', 'hidden'));
+            console.log(`    saved reply for ${c.id} paused: hidden comment`);
             continue;
           }
           await postReply(c.id, pending.params.text, undefined, undefined, publication);
@@ -1213,6 +1225,11 @@ async function runLiveOrDry(mode: Mode, target: string | null, observation: Cove
         try {
           if (replyStyleIssue(replyText)) {
             state.queueOwnerReview(c.id, post.id, 'owner review: final reply violates punctuation rules', c.text, c.username);
+            continue;
+          }
+          if (!isVisible(await getReplyById(c.id))) {
+            observe(() => observation.eligibility(post.id, c.id, 'excluded', 'hidden'));
+            console.log(`    reply for ${c.id} paused: hidden comment`);
             continue;
           }
           await postReply(c.id, replyText, undefined, gif?.gif_id, state.publication(`comment:${c.id}`));

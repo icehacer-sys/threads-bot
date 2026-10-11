@@ -102,6 +102,7 @@ try {
         if (address.pathname.endsWith('/me')) return response({ id: 'owner', username: 'owner' });
         if (address.pathname.endsWith('/post/replies')) return response({ data: [candidate] });
         if (address.pathname.endsWith('/post/conversation')) return response({ data: conversation });
+        if (address.searchParams.get('fields') === 'id,hide_status') return response({ id: 'candidate', hide_status: 'NOT_HUSHED' });
         if (address.pathname.endsWith('/threads_publish')) { publishCalls++; return scenario === 'publishFailure' && poll === 1 ? response({ error: { message: 'synthetic publisher failure' } }, 400) : response({ id: 'published' }); }
         if (address.pathname.endsWith('/threads')) return init?.method === 'POST' ? response({ id: 'container' }) : response({ data: [{ id: 'post', text: postText, timestamp: at, permalink: 'https://www.threads.net/@fixture/post/fixture' }] });
         throw Error(`Unexpected synthetic endpoint: ${address.pathname}`);
