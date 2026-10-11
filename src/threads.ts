@@ -185,6 +185,15 @@ export async function getReplies(mediaId: string): Promise<ThreadsReply[]> {
   });
 }
 
+/** Refresh moderation status immediately before replying to an audience comment. */
+export async function getReplyById(id: string): Promise<ThreadsReply> {
+  const reply = await api<ThreadsReply>(`/${id}`, { query: { fields: 'id,hide_status' } });
+  if (reply.id !== id || typeof reply.hide_status !== 'string' || !reply.hide_status) {
+    throw new Error(`Threads reply ${id} visibility unavailable`);
+  }
+  return reply;
+}
+
 /** The OLDEST replies on a post — a SINGLE page, not the full apiGetAll pagination loop. The
  *  account's own answer reply is always posted early (minutes/hours after the challenge, before
  *  organic engagement piles up), so one page chronological-ascending finds it instantly even on

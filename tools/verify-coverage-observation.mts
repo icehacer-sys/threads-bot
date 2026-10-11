@@ -72,7 +72,7 @@ const fixture = mkdtempSync(join(tmpdir(), 'coverage-observation-'));
 const noop = { discover() {}, eligibility() {}, admission() {}, classified() {}, deferred() {}, printSummary() {}, health: () => ({ failedRecorderCalls: 0, limitedRecorderCalls: 0 }) };
 const baselines = process.argv.includes('--baseline-dir') ? [process.argv[process.argv.indexOf('--baseline-dir') + 1]] : [];
 const variants = ['disabled', 'recorded', 'throws', 'hookThrows', 'hookRejects', 'clock', 'limit', ...baselines.map(() => 'baseline')];
-const publicationScenarios = ['published', 'providerFailure', 'createFailure', 'publishFailure', 'mixedFailure', 'publishRetry', 'alreadyPublished', 'resumeFailure', 'resumeSuccess', 'resumeConfirmed', 'dryCap', 'duplicateAfterFailure'];
+const publicationScenarios = ['published', 'providerFailure', 'createFailure', 'publishFailure', 'mixedFailure', 'publishRetry', 'alreadyPublished', 'resumeFailure', 'resumeSuccess', 'resumeConfirmed', 'dryCap', 'duplicateAfterFailure', 'hiddenAfterDraft', 'hiddenThenUnhidden', 'visibilityFailure', 'visibilityMissing', 'resumeHidden', 'resumeHiddenAfterScan', 'resumeUnhidden', 'resumeHiddenConfirmed'];
 const originalDate = Date, originalTimeout = globalThis.setTimeout;
 class FixtureDate extends Date { constructor(value?: string | number) { super(value ?? Date.parse(at)); } static now() { return Date.parse(at); } }
 globalThis.Date = FixtureDate as DateConstructor;
@@ -107,16 +107,22 @@ try {
       writeFileSync(stateFile, JSON.stringify(state));
       if (scenario === 'dryCap') config.dailyCap = 1;
       if (scenario.startsWith('resume')) writeFileSync(stateFile, JSON.stringify({ ...state, publications: {
-        'comment:one': { creationId: 'container-one', createdAt: at, params: { media_type: 'TEXT', text: 'That was a rough one.', reply_to_id: 'one' }, ...(scenario === 'resumeConfirmed' ? { confirmedPublished: true, publishedId: 'published-one' } : {}) },
+        'comment:one': { creationId: 'container-one', createdAt: at, params: { media_type: 'TEXT', text: 'That was a rough one.', reply_to_id: 'one' }, ...(['resumeConfirmed', 'resumeHiddenConfirmed'].includes(scenario) ? { confirmedPublished: true, publishedId: 'published-one' } : {}) },
       } }));
       const comments = scenario === 'gates' ? [c('own', 'owner'), { ...c('hidden'), hide_status: 'HUSHED' }, c('empty', 'reader', 'post', ''), c('done'), c('skipped'), c('imageheld'), c('root'), c('first', 'owner', 'root'), c('second', 'reader', 'first'), c('third', 'owner', 'second'), c('turnlimited', 'reader', 'third'), c('orphan', 'reader', 'missing')]
         : scenario === 'reveal' ? [c('revealheld')]
         : scenario === 'cap' ? [c('low', 'reader', 'post', 'A friendly fixture reaction.'), c('high', 'reader', 'post', 'What is a fixture question?'), c('support', 'supporter', 'post', 'hi')]
         : scenario === 'malformed' ? [null] : scenario.startsWith('resume') ? [c('one', 'alice')] : [c('one', 'alice'), c('two', 'bob')];
+      if (scenario === 'gates') for (const status of ['HIDDEN', 'COVERED', 'BLOCKED', 'RESTRICTED']) {
+        comments.push({ ...c(`hidden-${status}`, 'supporter'), hide_status: status });
+        comments.push({ ...c(`hidden-followup-${status}`, 'supporter', 'first'), hide_status: status });
+      }
+      if (['resumeHidden', 'resumeHiddenConfirmed', 'hiddenThenUnhidden'].includes(scenario)) comments.forEach(comment => Object.assign(comment!, { hide_status: 'HIDDEN' }));
+      if (scenario === 'resumeUnhidden') comments.forEach(comment => Object.assign(comment!, { hide_status: 'UNHUSHED' }));
       const calls: unknown[] = [], logs: string[] = [];
       let providerCalls = 0;
       const publishCalls = new Map<string, number>();
-      const confirmations = new Set<string>(scenario === 'resumeConfirmed' ? ['one'] : []);
+      const confirmations = new Set<string>(['resumeConfirmed', 'resumeHiddenConfirmed'].includes(scenario) ? ['one'] : []);
       fixtureFetch = async (url, init) => {
         const address = new URL(String(url));
         calls.push({ path: address.pathname, query: address.search, method: init?.method ?? 'GET', body: init?.body ? String(init.body) : null });
@@ -131,6 +137,12 @@ try {
         if (address.pathname.endsWith('/post/replies')) return response({ data: comments });
         if (address.pathname.endsWith('/post/conversation')) return scenario === 'fetchFailure' ? response({ error: 'synthetic discovery failure' }, 400) : response({ data: comments });
         if (address.pathname.endsWith('/later/replies') || address.pathname.endsWith('/later/conversation')) return response({ data: [c('later-comment', 'reader', 'later')] });
+        if (address.searchParams.get('fields') === 'id,hide_status') {
+          if (scenario === 'visibilityFailure') return response({ error: { message: 'synthetic visibility failure' } }, 400);
+          const id = address.pathname.split('/').at(-1)!;
+          if (scenario === 'visibilityMissing') return response({ id });
+          return response({ id, hide_status: ['hiddenAfterDraft', 'resumeHiddenAfterScan'].includes(scenario) ? 'HIDDEN' : ['resumeUnhidden', 'resumeHidden', 'hiddenThenUnhidden'].includes(scenario) ? 'UNHUSHED' : 'NOT_HUSHED' });
+        }
         if (address.pathname.endsWith('/threads_publish')) {
           if (!publicationScenarios.includes(scenario)) return response({ id: 'published' });
           const id = new URLSearchParams(String(init?.body)).get('creation_id')!.replace(/^container-/, '');
@@ -158,22 +170,42 @@ try {
       try { await runLiveOrDry(scenario === 'dryCap' ? 'dry-run' : 'live', null, o); }
       catch (err) { thrown = { name: (err as Error).name, message: (err as Error).message }; }
       finally { console.log = savedLog; console.error = savedError; console.warn = savedWarn; }
+      if (['resumeHidden', 'hiddenThenUnhidden'].includes(scenario)) {
+        const blocked = JSON.parse(readFileSync(stateFile, 'utf8'));
+        assert.equal(providerCalls, 0, 'hidden comments never reach drafting');
+        assert.equal(publishCalls.size, 0, 'hidden saved replies never reach publishing');
+        assert.equal(blocked.daily.count, 0);
+        assert.ok(!blocked.repliedCommentIds.includes('one') && !blocked.skippedCommentIds.includes('one'), 'hiding is temporary, not a replied or permanent skip marker');
+        if (scenario === 'resumeHidden') assert.equal(blocked.publications['comment:one'].creationId, 'container-one', 'hidden receipt retained');
+        comments.forEach(comment => Object.assign(comment!, { hide_status: 'UNHUSHED' }));
+        console.log = (...args) => { if (!String(args[0]).startsWith('{"coverageObservation":')) logs.push(args.map(String).join(' ')); };
+        console.error = console.warn = (...args) => logs.push(args.map(String).join(' '));
+        try { await runLiveOrDry('live', null, o); }
+        finally { console.log = savedLog; console.error = savedError; console.warn = savedWarn; }
+      }
       assert.equal(!!thrown, scenario === 'malformed', 'only malformed payload exercises the original thrown worker path');
+      if (scenario === 'gates') assert.ok(!calls.some((call: any) => call.method === 'POST' && new URLSearchParams(call.body ?? '').get('reply_to_id')?.startsWith('hidden')), 'hidden top-level and supporter follow-ups never create reply containers');
       if (publicationScenarios.includes(scenario)) {
         const after = JSON.parse(readFileSync(stateFile, 'utf8'));
         const confirmed = Object.values(after.publications ?? {}).filter((p: any) => p.confirmedPublished || p.publishedId).length;
-        const summary = logs.find(line => line.startsWith('Summary:'))!;
+        const summary = [...logs].reverse().find(line => line.startsWith('Summary:'))!;
         const count = Number(summary.match(/(?:posted|would post) (\d+) repl/)?.[1]);
-        const expected = ['published', 'publishRetry', 'alreadyPublished'].includes(scenario) ? 2 : ['mixedFailure', 'resumeSuccess', 'resumeConfirmed'].includes(scenario) ? 1 : 0;
+        const expected = ['published', 'publishRetry', 'alreadyPublished', 'hiddenThenUnhidden'].includes(scenario) ? 2 : ['mixedFailure', 'resumeSuccess', 'resumeConfirmed', 'resumeHidden', 'resumeUnhidden', 'resumeHiddenConfirmed'].includes(scenario) ? 1 : 0;
         assert.equal(confirmations.size, expected, `${scenario}: synthetic provider confirmations`);
         assert.equal(confirmed, expected, `${scenario}: durable confirmed receipts`);
         assert.equal(count, scenario === 'dryCap' ? 1 : expected, `${scenario}: summary counts confirmations, not drafts or retries`);
         assert.equal(after.daily.count, expected, `${scenario}: daily admission still counts completed replies`);
-        assert.equal(process.exitCode, ['providerFailure', 'createFailure', 'publishFailure', 'mixedFailure', 'resumeFailure', 'duplicateAfterFailure'].includes(scenario) ? 1 : 0, `${scenario}: failure visibility`);
+        assert.equal(process.exitCode, ['providerFailure', 'createFailure', 'publishFailure', 'mixedFailure', 'resumeFailure', 'duplicateAfterFailure', 'visibilityFailure', 'visibilityMissing'].includes(scenario) ? 1 : 0, `${scenario}: failure visibility`);
         if (scenario.startsWith('resume')) {
           assert.equal(providerCalls, 0, 'saved receipts bypass drafting');
           assert.equal(calls.filter((call: any) => call.path.endsWith('/threads') && call.method === 'POST').length, 0, 'saved receipts are never recreated');
-          assert.equal(publishCalls.get('one') ?? 0, scenario === 'resumeConfirmed' ? 0 : scenario === 'resumeFailure' ? 4 : 1);
+          assert.equal(publishCalls.get('one') ?? 0, ['resumeConfirmed', 'resumeHiddenConfirmed', 'resumeHiddenAfterScan'].includes(scenario) ? 0 : scenario === 'resumeFailure' ? 4 : 1);
+        }
+        if (['hiddenAfterDraft', 'resumeHiddenAfterScan', 'visibilityFailure', 'visibilityMissing'].includes(scenario)) {
+          assert.equal(publishCalls.size, 0, 'a hidden or unreadable current status prevents public writes');
+          assert.ok(!after.repliedCommentIds.includes('one') && !after.skippedCommentIds.includes('one'), 'visibility checks leave the comment eligible for a future poll');
+          assert.equal(calls.filter((call: any) => call.path.endsWith('/threads') && call.method === 'POST').length, 0, 'visibility is checked before creating a container');
+          if (scenario === 'resumeHiddenAfterScan') assert.equal(after.publications['comment:one'].creationId, 'container-one', 'receipt survives a hide after discovery');
         }
         if (['publishFailure', 'mixedFailure', 'duplicateAfterFailure'].includes(scenario)) {
           assert.equal(publishCalls.get('one'), 4, 'existing publish retry allowance');
