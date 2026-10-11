@@ -24703,6 +24703,15 @@
       },
       "publishedId": "17885188797504555",
       "confirmedPublished": true
+    },
+    "comment:18216047338355647": {
+      "creationId": "17893078155614054",
+      "createdAt": "2026-10-11T00:07:18.381Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Living with that everyday is no small thing. This case is labelled diffuse oesophageal spasm though and the film shows that coiling pattern rather than any muscle disorder.",
+        "reply_to_id": "18216047338355647"
+      }
     }
   },
   "repliedCommentIds": [
@@ -34860,7 +34869,8 @@
     "18111799637156120",
     "18133552246580583",
     "18034193576664934",
-    "17987242041118234"
+    "17987242041118234",
+    "18357636034220007"
   ],
   "answeredPostIds": [
     "18395606890093068"
@@ -34992,11 +35002,11 @@
     "18169862959459418": 96,
     "18004698404989902": 55,
     "18054929093583647": 60,
-    "18628279045036981": 114
+    "18628279045036981": 115
   },
   "daily": {
     "date": "2026-10-10",
-    "count": 114
+    "count": 115
   },
   "pinnedResolved": {
     "DaTTCIwoAw7": "18014812820883466"
@@ -36394,6 +36404,6 @@
   },
   "spend": {
     "date": "2026-10-10",
-    "usd": 0.116309964
+    "usd": 0.117390648
   }
 }
