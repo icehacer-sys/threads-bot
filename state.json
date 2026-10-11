@@ -24736,6 +24736,15 @@
       },
       "publishedId": "18013170383972944",
       "confirmedPublished": true
+    },
+    "comment:17898034509394339": {
+      "creationId": "17893080993614054",
+      "createdAt": "2026-10-11T00:38:25.434Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "So the Umbrella lab got a barium swallow. At least this sample stayed in the chest.",
+        "reply_to_id": "17898034509394339"
+      }
     }
   },
   "repliedCommentIds": [
@@ -36431,6 +36440,6 @@
   },
   "spend": {
     "date": "2026-10-10",
-    "usd": 0.11926830000000001
+    "usd": 0.119908704
   }
 }
