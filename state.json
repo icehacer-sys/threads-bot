@@ -25672,6 +25672,15 @@
       },
       "publishedId": "18115652738014851",
       "confirmedPublished": true
+    },
+    "comment:18118568095949498": {
+      "creationId": "17893109259614054",
+      "createdAt": "2026-10-11T04:47:09.714Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "The maths checks out but the ratio here is one twist per bite of dinner.",
+        "reply_to_id": "18118568095949498"
+      }
     }
   },
   "repliedCommentIds": [
@@ -37464,6 +37473,6 @@
   },
   "spend": {
     "date": "2026-10-10",
-    "usd": 0.200044464
+    "usd": 0.200638968
   }
 }
