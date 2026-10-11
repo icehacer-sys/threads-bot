@@ -26236,6 +26236,15 @@
       },
       "publishedId": "18079601516445359",
       "confirmedPublished": true
+    },
+    "comment:18135648382739226": {
+      "creationId": "17893208049614054",
+      "createdAt": "2026-10-11T19:39:43.029Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Septic lung abscesses from blood spread. Every pocket you see is an abscess that travelled in through the bloodstream.",
+        "reply_to_id": "18135648382739226"
+      }
     }
   },
   "repliedCommentIds": [
@@ -36529,7 +36538,8 @@
     "17877399066566795",
     "18215341144314979",
     "18640049884058201",
-    "18109258598184138"
+    "18109258598184138",
+    "18021443852931134"
   ],
   "answeredPostIds": [
     "18395606890093068"
@@ -36662,11 +36672,11 @@
     "18004698404989902": 55,
     "18054929093583647": 60,
     "18628279045036981": 229,
-    "18117179536935952": 21
+    "18117179536935952": 22
   },
   "daily": {
     "date": "2026-10-11",
-    "count": 21
+    "count": 22
   },
   "pinnedResolved": {
     "DaTTCIwoAw7": "18014812820883466"
@@ -38084,6 +38094,6 @@
   },
   "spend": {
     "date": "2026-10-11",
-    "usd": 0.03897024599999999
+    "usd": 0.04063962599999999
   }
 }
