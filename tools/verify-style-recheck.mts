@@ -3,17 +3,21 @@ process.env.ANTHROPIC_API_KEY = 'offline-fixture';
 process.env.BOT_USAGE_LOG = 'off';
 let calls = 0;
 let failAgain = false;
+let initialDraft = 'Coins went in; nothing came out.';
 globalThis.fetch = async (_url, init) => {
   calls++;
   const body = JSON.parse(String(init?.body));
   if (calls === 2) assert.match(JSON.stringify(body.messages), /STYLE RECHECK/);
-  return new Response(JSON.stringify({id:'fixture',type:'message',role:'assistant',model:body.model,stop_reason:'tool_use',stop_sequence:null,usage:{input_tokens:1,output_tokens:1},content:[{type:'tool_use',id:'fixture',name:'submit_reply',input:{intent:'joke',decision:'reply',category:'banter',reply_text:calls === 1 || failAgain ? 'Coins went in; nothing came out.' : 'Worst vending machine ever.',reason:'joke',needs_lookup:false,promo_product:'none',promo_explicit:false}}]}), {headers:{'content-type':'application/json'}});
+  return new Response(JSON.stringify({id:'fixture',type:'message',role:'assistant',model:body.model,stop_reason:'tool_use',stop_sequence:null,usage:{input_tokens:1,output_tokens:1},content:[{type:'tool_use',id:'fixture',name:'submit_reply',input:{intent:'joke',decision:'reply',category:'banter',reply_text:calls === 1 || failAgain ? initialDraft : 'That machine owes you a refund.',reason:'joke',needs_lookup:false,promo_product:'none',promo_explicit:false}}]}), {headers:{'content-type':'application/json'}});
 };
 const { classifyAndDraft } = await import('../src/reply');
 const { config } = await import('../src/config');
-const input = {postText:'Case',commentText:'A vending machine?',answerPublic:true,modelOverride:config.triageModel};
-assert.equal((await classifyAndDraft(input)).reply_text, 'Worst vending machine ever.');
-assert.equal(calls, 2);
+const input = {postText:'The scan shows a corkscrew oesophagus.',commentText:'A vending machine?',answerPublic:true,modelOverride:config.triageModel};
+for (initialDraft of ['Coins went in; nothing came out.', 'Dial tone first then the receiver. This one came with a corkscrew oesophagus instead.']) {
+  calls = 0;
+  assert.equal((await classifyAndDraft(input)).reply_text, 'That machine owes you a refund.');
+  assert.equal(calls, 2);
+}
 calls = 0;
 failAgain = true;
 const held = await classifyAndDraft(input);
