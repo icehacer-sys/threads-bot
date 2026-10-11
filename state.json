@@ -28372,6 +28372,15 @@
       },
       "publishedId": "18348191230284823",
       "confirmedPublished": true
+    },
+    "comment:18131190473495172": {
+      "creationId": "17893221792614054",
+      "createdAt": "2026-10-11T22:11:49.875Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "TB is not the pick here. These walled pockets were seeded through the bloodstream so they turned up on both sides.",
+        "reply_to_id": "18131190473495172"
+      }
     }
   },
   "repliedCommentIds": [
@@ -38859,7 +38868,8 @@
     "18075923357722550",
     "17912248218508845",
     "17996641413045103",
-    "17951693259313771"
+    "17951693259313771",
+    "18108531377246689"
   ],
   "answeredPostIds": [
     "18395606890093068"
@@ -38992,11 +39002,11 @@
     "18004698404989902": 55,
     "18054929093583647": 60,
     "18628279045036981": 229,
-    "18117179536935952": 215
+    "18117179536935952": 216
   },
   "daily": {
     "date": "2026-10-11",
-    "count": 215
+    "count": 216
   },
   "pinnedResolved": {
     "DaTTCIwoAw7": "18014812820883466"
@@ -40492,6 +40502,6 @@
   },
   "spend": {
     "date": "2026-10-11",
-    "usd": 0.33528703800000004
+    "usd": 0.337314186
   }
 }
