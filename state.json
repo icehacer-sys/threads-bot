@@ -26852,6 +26852,15 @@
       },
       "publishedId": "18415177030084357",
       "confirmedPublished": true
+    },
+    "comment:18123731350798345": {
+      "creationId": "17893212063614054",
+      "createdAt": "2026-10-11T20:28:54.135Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "The all-overs is the honest reaction to a pair of lungs that look like this.",
+        "reply_to_id": "18123731350798345"
+      }
     }
   },
   "repliedCommentIds": [
@@ -38774,6 +38783,6 @@
   },
   "spend": {
     "date": "2026-10-11",
-    "usd": 0.116842938
+    "usd": 0.117901758
   }
 }
