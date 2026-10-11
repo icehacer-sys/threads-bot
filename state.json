@@ -27327,6 +27327,15 @@
       },
       "publishedId": "18487524112107689",
       "confirmedPublished": true
+    },
+    "comment:18095635298555804": {
+      "creationId": "17893214985614054",
+      "createdAt": "2026-10-11T20:58:42.331Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "And the bees moved out long ago.",
+        "reply_to_id": "18095635298555804"
+      }
     }
   },
   "repliedCommentIds": [
@@ -39311,6 +39320,6 @@
   },
   "spend": {
     "date": "2026-10-11",
-    "usd": 0.18402228599999984
+    "usd": 0.18462865799999983
   }
 }
