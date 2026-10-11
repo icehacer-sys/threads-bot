@@ -25173,7 +25173,9 @@
         "media_type": "TEXT",
         "text": "That rule was never in danger here. The duck has no part in this one.",
         "reply_to_id": "18117202748054413"
-      }
+      },
+      "publishedId": "18113101447858361",
+      "confirmedPublished": true
     }
   },
   "repliedCommentIds": [
