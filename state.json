@@ -24890,6 +24890,15 @@
       },
       "publishedId": "18125108950915483",
       "confirmedPublished": true
+    },
+    "comment:18173874577454894": {
+      "creationId": "17893088214614054",
+      "createdAt": "2026-10-11T01:42:46.612Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "That cord was never going to fit down a landline let alone a person. The coils are the oesophagus doing it to itself.",
+        "reply_to_id": "18173874577454894"
+      }
     }
   },
   "repliedCommentIds": [
@@ -36602,6 +36611,6 @@
   },
   "spend": {
     "date": "2026-10-10",
-    "usd": 0.13304059200000004
+    "usd": 0.13366899600000004
   }
 }
