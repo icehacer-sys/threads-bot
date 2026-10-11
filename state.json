@@ -25397,6 +25397,15 @@
       },
       "publishedId": "18064599527510659",
       "confirmedPublished": true
+    },
+    "comment:17907143562581763": {
+      "creationId": "17893099929614054",
+      "createdAt": "2026-10-11T03:26:53.954Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Slinky is close on shape and the real name is diffuse oesophageal spasm. Yours is more fun to say.",
+        "reply_to_id": "17907143562581763"
+      }
     }
   },
   "repliedCommentIds": [
@@ -37163,6 +37172,6 @@
   },
   "spend": {
     "date": "2026-10-10",
-    "usd": 0.180165084
+    "usd": 0.180808488
   }
 }
