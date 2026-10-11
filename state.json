@@ -27183,6 +27183,15 @@
       },
       "publishedId": "18116075768471161",
       "confirmedPublished": true
+    },
+    "comment:17880364551629599": {
+      "creationId": "17893212861614054",
+      "createdAt": "2026-10-11T20:39:26.603Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Antibiotics are the mainstay and drainage comes in when a collection needs it. Oxygen is a support act here because the problem sits in the lung tissue rather than the airway.",
+        "reply_to_id": "17880364551629599"
+      }
     }
   },
   "repliedCommentIds": [
@@ -37562,7 +37571,8 @@
     "18151852111558328",
     "18154743994524126",
     "18091698776285677",
-    "18477161746113905"
+    "18477161746113905",
+    "18140586352621010"
   ],
   "answeredPostIds": [
     "18395606890093068"
@@ -37695,11 +37705,11 @@
     "18004698404989902": 55,
     "18054929093583647": 60,
     "18628279045036981": 229,
-    "18117179536935952": 107
+    "18117179536935952": 108
   },
   "daily": {
     "date": "2026-10-11",
-    "count": 107
+    "count": 108
   },
   "pinnedResolved": {
     "DaTTCIwoAw7": "18014812820883466"
@@ -39147,6 +39157,6 @@
   },
   "spend": {
     "date": "2026-10-11",
-    "usd": 0.1626349979999999
+    "usd": 0.16478851799999988
   }
 }
