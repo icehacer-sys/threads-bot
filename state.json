@@ -28306,6 +28306,15 @@
       },
       "publishedId": "17998964223041767",
       "confirmedPublished": true
+    },
+    "comment:18126277270893866": {
+      "creationId": "17893221006614054",
+      "createdAt": "2026-10-11T21:59:01.859Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Night sweats and a cough are a fair reason to reach for TB first so no apology needed and the film just had a different story.",
+        "reply_to_id": "18126277270893866"
+      }
     }
   },
   "repliedCommentIds": [
@@ -38787,7 +38796,8 @@
     "18129295091506480",
     "18012210785975713",
     "17951923539281032",
-    "18116762963327698"
+    "18116762963327698",
+    "18129968317840316"
   ],
   "answeredPostIds": [
     "18395606890093068"
@@ -38920,11 +38930,11 @@
     "18004698404989902": 55,
     "18054929093583647": 60,
     "18628279045036981": 229,
-    "18117179536935952": 209
+    "18117179536935952": 210
   },
   "daily": {
     "date": "2026-10-11",
-    "count": 209
+    "count": 210
   },
   "pinnedResolved": {
     "DaTTCIwoAw7": "18014812820883466"
@@ -40414,6 +40424,6 @@
   },
   "spend": {
     "date": "2026-10-11",
-    "usd": 0.31863645000000007
+    "usd": 0.32093716200000005
   }
 }
