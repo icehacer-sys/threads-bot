@@ -27283,6 +27283,15 @@
       },
       "publishedId": "17911590135549077",
       "confirmedPublished": true
+    },
+    "comment:18011320229987059": {
+      "creationId": "17893213134614054",
+      "createdAt": "2026-10-11T20:42:21.786Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "A dive with no contact explained is a very Klinsmann thing to build a phrase around and the chest here still did not need a replay to show its damage.",
+        "reply_to_id": "18011320229987059"
+      }
     }
   },
   "repliedCommentIds": [
@@ -37671,7 +37680,8 @@
     "17964285018207330",
     "17905750017574470",
     "18132115009744768",
-    "18116434919468250"
+    "18116434919468250",
+    "18120721819819746"
   ],
   "answeredPostIds": [
     "18395606890093068"
@@ -37804,11 +37814,11 @@
     "18004698404989902": 55,
     "18054929093583647": 60,
     "18628279045036981": 229,
-    "18117179536935952": 116
+    "18117179536935952": 117
   },
   "daily": {
     "date": "2026-10-11",
-    "count": 116
+    "count": 117
   },
   "pinnedResolved": {
     "DaTTCIwoAw7": "18014812820883466"
@@ -39260,6 +39270,6 @@
   },
   "spend": {
     "date": "2026-10-11",
-    "usd": 0.17851500599999984
+    "usd": 0.17938234199999983
   }
 }
