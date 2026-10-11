@@ -26907,6 +26907,15 @@
       },
       "publishedId": "18106548026343837",
       "confirmedPublished": true
+    },
+    "comment:18151510846546791": {
+      "creationId": "17893212201614054",
+      "createdAt": "2026-10-11T20:30:47.690Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "It can be treated with weeks of antibiotics and sometimes drainage. This case does not record how it went for this patient.",
+        "reply_to_id": "18151510846546791"
+      }
     }
   },
   "repliedCommentIds": [
@@ -37261,7 +37270,8 @@
     "18123731350798345",
     "18118838215948925",
     "18142661689606856",
-    "18102375581379818"
+    "18102375581379818",
+    "18197592367387837"
   ],
   "answeredPostIds": [
     "18395606890093068"
@@ -37394,11 +37404,11 @@
     "18004698404989902": 55,
     "18054929093583647": 60,
     "18628279045036981": 229,
-    "18117179536935952": 82
+    "18117179536935952": 83
   },
   "daily": {
     "date": "2026-10-11",
-    "count": 82
+    "count": 83
   },
   "pinnedResolved": {
     "DaTTCIwoAw7": "18014812820883466"
@@ -38836,6 +38846,6 @@
   },
   "spend": {
     "date": "2026-10-11",
-    "usd": 0.126077838
+    "usd": 0.127290654
   }
 }
