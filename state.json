@@ -25529,6 +25529,15 @@
       },
       "publishedId": "17916649614264835",
       "confirmedPublished": true
+    },
+    "comment:18098947808091157": {
+      "creationId": "17893104399614054",
+      "createdAt": "2026-10-11T04:00:19.630Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Three flavors in and they still match the twist better than any candy should. At least these come off the stick without a barium swallow.",
+        "reply_to_id": "18098947808091157"
+      }
     }
   },
   "repliedCommentIds": [
@@ -37307,6 +37316,6 @@
   },
   "spend": {
     "date": "2026-10-10",
-    "usd": 0.18836432399999997
+    "usd": 0.18942002399999996
   }
 }
