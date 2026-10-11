@@ -3,7 +3,10 @@ process.env.ANTHROPIC_API_KEY='offline-fixture';
 process.env.BOT_USAGE_LOG='off';
 process.env.BOT_WEB_SEARCH='off';
 process.env.BOT_MAX_THREAD_REPLIES='3';
-const {replyCoverage,isRetiredGuessReceipt}=await import('../src/reply-coverage');
+const {replyCoverage,isRetiredGuessReceipt,isEmojiOnlyComment}=await import('../src/reply-coverage');
+const emojiReactions=['😜','👍😊','🤣🤣🤣','😂😂','😊','😂',' 👍🏽\n❤️ ','👨‍👩‍👧‍👦','🇪🇬','1️⃣','#️⃣','*️⃣','🏳️‍🌈','🏴\u{E0067}\u{E0062}\u{E0065}\u{E006E}\u{E0067}\u{E007F}'];
+for(const text of emojiReactions) assert.equal(isEmojiOnlyComment(text),true,`emoji reaction: ${text}`);
+for(const text of ['', '  ', 'Wow 😂', 'Thanks 👍🏽', 'شكراً 😊', '123', '#', '*', '😂 2', '???']) assert.equal(isEmojiOnlyComment(text),false,`written content or no emoji: ${text}`);
 const {config}=await import('../src/config');
 assert.equal(config.maxThreadReplies,3,'owner limit of three bot turns is honoured, not clamped to two');
 const {unsupportedPatientHistory}=await import('../src/case-evidence');
@@ -41,8 +44,15 @@ globalThis.fetch=async (_url,init)=>{
  calls++;body=JSON.parse(String(init?.body));const next=queue.shift();assert.ok(next,'unexpected extra model call');
  return new Response(JSON.stringify({id:'fixture',type:'message',role:'assistant',model:'fixture',stop_reason:'tool_use',usage:{input_tokens:1,output_tokens:1},content:[{type:'tool_use',id:'tool',name:'submit_reply',input:next}]}),{headers:{'content-type':'application/json'}});
 };
-const input={postText:'A knee that looked wrong from birth.',commentText:'😮',answer:'Congenital knee dislocation',answerPublic:true,replyAll:true};
-queue=[{...base,decision:'skip',category:'other',reply_text:'',reason:'A lone emoji with no substantive content'},base];calls=0;
+const input={postText:'A knee that looked wrong from birth.',commentText:'Wow 😮',answer:'Congenital knee dislocation',answerPublic:true,replyAll:true};
+for(const commentText of emojiReactions) {
+ for(const overrides of [{replyAll:true},{priorityCommenter:true},{priorExchange:{commenter:'Funny case',bot:'A rough one.'}}]) {
+  queue=[];calls=0;
+  const decision=await classifyAndDraft({...input,...overrides,commentText});
+  assert.equal(decision.decision,'skip');assert.match(decision.reason,/emoji-only/);assert.equal(calls,0,'emoji reactions never purchase a draft or repair');
+ }
+}
+queue=[{...base,decision:'skip',category:'other',reply_text:'',reason:'A short reaction with no substantive content'},base];calls=0;
 assert.equal((await classifyAndDraft(input)).decision,'reply');assert.equal(calls,2);assert.match(JSON.stringify(body),/OWNER COVERAGE POLICY/);
 for(const secret of ['Congenital knee dislocation','An unrelated diagnosis']) {
  queue=[{...base,intent:'diagnosis guess',category:'affirm',reply_text:'Exactly right!'},{...base,intent:'diagnosis guess',reply_text:'Give that shoulder another look before you settle on it.'}];calls=0;
