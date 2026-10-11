@@ -648,7 +648,8 @@
     "18116319437079514": "{\"postId\":\"18169862959459418\",\"reason\":\"Comment asserts a specific imaging projection/orientation for the image. Projection naming is not supported by the supplied facts and I must not invent or confirm a projection explanation. Hold for owner review as an image-orientation claim rather than auto-replying.\",\"commentText\":\"So this image was taken from a posterior view. I see. Thank you.\",\"username\":\"alan_b2120\",\"queuedAt\":\"2026-10-06T20:00:37.677Z\"}",
     "18045257366820364": "{\"postId\":\"18169862959459418\",\"reason\":\"owner review: unsupported patient history, confirmation, specifics (week) or dismissal of an accepted differential | guard:forced-skip\",\"commentText\":\"when I was in med school, this was the X-ray they used to hammer home the importance of the “breathing” step of the rapid trauma survey\",\"username\":\"lttlknn\",\"queuedAt\":\"2026-10-06T21:41:58.710Z\"}",
     "18125862076855812": "{\"postId\":\"18004698404989902\",\"reason\":\"owner review: unsupported patient history, confirmation, specifics (week) or dismissal of an accepted differential | guard:forced-skip\",\"commentText\":\"He's not well?\",\"username\":\"denathompson70\",\"queuedAt\":\"2026-10-07T20:10:35.480Z\"}",
-    "18150410479481618": "{\"postId\":\"18004698404989902\",\"reason\":\"owner review: unsupported patient history, confirmation, specifics (day) or dismissal of an accepted differential | guard:forced-skip\",\"commentText\":\"Left side heart failure, left side backs up in the lungs. \\nRight side backs up into the body. \\n\\nIV lasix, with cardiac monitoring, and out put Q1h, to reduce strain in heart and kidneys.\\n\\nif YOU CAN HEAR THE TIDE RISE AND FALL AS THEY BREATHE HOPITAL ASAP...SKIP URCHIN CARE. \\n(waaaaahhhhmmm-bulance maybe indicated)..\",\"username\":\"dark.11angel730\",\"queuedAt\":\"2026-10-07T21:46:15.446Z\"}"
+    "18150410479481618": "{\"postId\":\"18004698404989902\",\"reason\":\"owner review: unsupported patient history, confirmation, specifics (day) or dismissal of an accepted differential | guard:forced-skip\",\"commentText\":\"Left side heart failure, left side backs up in the lungs. \\nRight side backs up into the body. \\n\\nIV lasix, with cardiac monitoring, and out put Q1h, to reduce strain in heart and kidneys.\\n\\nif YOU CAN HEAR THE TIDE RISE AND FALL AS THEY BREATHE HOPITAL ASAP...SKIP URCHIN CARE. \\n(waaaaahhhhmmm-bulance maybe indicated)..\",\"username\":\"dark.11angel730\",\"queuedAt\":\"2026-10-07T21:46:15.446Z\"}",
+    "18154369117520707": "{\"postId\":\"18628279045036981\",\"reason\":\"Question about image provenance/authenticity requires an owner response and no automatic reply per policy. Commenter alleges the image is AI-generated and cites an external source. No reply drafted, no invented claim about how the image was made, no agreement or denial.\",\"commentText\":\"No need to use AI to show this case, friend. If you’re looking for examples of a corkscrew esophagus, there are dozens of cases on Radiopedia https://radiopaedia.org/articles/corkscrew-sign-diffuse-oesophageal-spasm?lang=us\",\"username\":\"hippocates\",\"queuedAt\":\"2026-10-11T02:55:37.749Z\"}"
   },
   "concernAcknowledgments": {
     "[\"18121475662898455\",\"berit069\",\"image\"]": "18142096432588199",
@@ -25363,6 +25364,15 @@
       },
       "publishedId": "18097857140200669",
       "confirmedPublished": true
+    },
+    "comment:17996801592008952": {
+      "creationId": "17893095825614054",
+      "createdAt": "2026-10-11T02:55:43.614Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Wild is the word for a tube that twists like that on its own.",
+        "reply_to_id": "17996801592008952"
+      }
     }
   },
   "repliedCommentIds": [
@@ -35580,7 +35590,8 @@
     "18106659671195702",
     "17903102862667041",
     "18139773394627168",
-    "17887197747619961"
+    "17887197747619961",
+    "18108139571253025"
   ],
   "answeredPostIds": [
     "18395606890093068"
@@ -35712,11 +35723,11 @@
     "18169862959459418": 96,
     "18004698404989902": 55,
     "18054929093583647": 60,
-    "18628279045036981": 174
+    "18628279045036981": 175
   },
   "daily": {
     "date": "2026-10-10",
-    "count": 174
+    "count": 175
   },
   "pinnedResolved": {
     "DaTTCIwoAw7": "18014812820883466"
@@ -37002,7 +37013,9 @@
     "17971815057151258",
     "18117611288018078",
     "18128509537870035",
-    "17918904006451069"
+    "17918904006451069",
+    "18410643349093172",
+    "18154369117520707"
   ],
   "skipStrikes": {
     "17895266316520842": 1,
@@ -37122,6 +37135,6 @@
   },
   "spend": {
     "date": "2026-10-10",
-    "usd": 0.17523144
+    "usd": 0.177467868
   }
 }
