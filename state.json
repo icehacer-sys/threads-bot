@@ -24681,6 +24681,15 @@
       },
       "publishedId": "18343376653256326",
       "confirmedPublished": true
+    },
+    "comment:17987242041118234": {
+      "creationId": "17893078134614054",
+      "createdAt": "2026-10-11T00:06:39.237Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Cordless would have untangled by now.",
+        "reply_to_id": "17987242041118234"
+      }
     }
   },
   "repliedCommentIds": [
@@ -36370,6 +36379,6 @@
   },
   "spend": {
     "date": "2026-10-10",
-    "usd": 0.113779476
+    "usd": 0.11439798000000001
   }
 }
