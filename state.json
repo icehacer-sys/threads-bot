@@ -25870,6 +25870,15 @@
       },
       "publishedId": "18129108331744903",
       "confirmedPublished": true
+    },
+    "comment:17916310743264336": {
+      "creationId": "17893117602614054",
+      "createdAt": "2026-10-11T06:10:41.263Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "I can't claim any personal pouch check but I can say this case is not a pouch so the twists here are the spasm itself. Sixteen pills in one go is a serious talent and the milkshake assist makes perfect sense.",
+        "reply_to_id": "17916310743264336"
+      }
     }
   },
   "repliedCommentIds": [
@@ -36133,7 +36142,8 @@
     "18097176212537548",
     "18160892332500546",
     "18392744941160787",
-    "17925401445428452"
+    "17925401445428452",
+    "18030462284911133"
   ],
   "answeredPostIds": [
     "18395606890093068"
@@ -36265,11 +36275,11 @@
     "18169862959459418": 96,
     "18004698404989902": 55,
     "18054929093583647": 60,
-    "18628279045036981": 220
+    "18628279045036981": 221
   },
   "daily": {
     "date": "2026-10-10",
-    "count": 220
+    "count": 221
   },
   "pinnedResolved": {
     "DaTTCIwoAw7": "18014812820883466"
@@ -37680,6 +37690,6 @@
   },
   "spend": {
     "date": "2026-10-10",
-    "usd": 0.22082956800000003
+    "usd": 0.22210645200000004
   }
 }
