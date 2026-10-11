@@ -28515,6 +28515,15 @@
       },
       "publishedId": "18603858973067400",
       "confirmedPublished": true
+    },
+    "comment:18117327445791548": {
+      "creationId": "17893223943614054",
+      "createdAt": "2026-10-11T22:46:51.158Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Scarring tightens the lung while this chest is full of scattered air pockets and those came from infection seeded through the blood.",
+        "reply_to_id": "18117327445791548"
+      }
     }
   },
   "repliedCommentIds": [
@@ -39015,7 +39024,8 @@
     "17906395374568027",
     "18112330208142788",
     "18146158960541003",
-    "18146599807566476"
+    "18146599807566476",
+    "17909864019482244"
   ],
   "answeredPostIds": [
     "18395606890093068"
@@ -39148,11 +39158,11 @@
     "18004698404989902": 55,
     "18054929093583647": 60,
     "18628279045036981": 229,
-    "18117179536935952": 228
+    "18117179536935952": 229
   },
   "daily": {
     "date": "2026-10-11",
-    "count": 228
+    "count": 229
   },
   "pinnedResolved": {
     "DaTTCIwoAw7": "18014812820883466"
@@ -40654,6 +40664,6 @@
   },
   "spend": {
     "date": "2026-10-11",
-    "usd": 0.4205294819999999
+    "usd": 0.42208978199999986
   }
 }
