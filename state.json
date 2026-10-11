@@ -28405,6 +28405,15 @@
       },
       "publishedId": "18098269952086933",
       "confirmedPublished": true
+    },
+    "comment:17893228881437545": {
+      "creationId": "17893222656614054",
+      "createdAt": "2026-10-11T22:28:03.227Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Holes yes but nothing pulled the trigger since the infection did the shooting through the blood.",
+        "reply_to_id": "17893228881437545"
+      }
     }
   },
   "repliedCommentIds": [
@@ -40531,6 +40540,6 @@
   },
   "spend": {
     "date": "2026-10-11",
-    "usd": 0.341663778
+    "usd": 0.34206402599999997
   }
 }
