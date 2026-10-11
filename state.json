@@ -25867,7 +25867,9 @@
         "media_type": "TEXT",
         "text": "Someone skipped the settle step and drank it mid-vortex.",
         "reply_to_id": "18030462284911133"
-      }
+      },
+      "publishedId": "18129108331744903",
+      "confirmedPublished": true
     }
   },
   "repliedCommentIds": [
