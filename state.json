@@ -28658,6 +28658,15 @@
       },
       "publishedId": "18131894746778823",
       "confirmedPublished": true
+    },
+    "comment:18041894927832563": {
+      "creationId": "17893224897614054",
+      "createdAt": "2026-10-11T23:06:21.233Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Asbestosis is not the answer here because this chest shows many separate air-filled abscesses and those were seeded through the blood.",
+        "reply_to_id": "18041894927832563"
+      }
     }
   },
   "repliedCommentIds": [
@@ -39171,7 +39180,8 @@
     "17912971302522102",
     "18096003569555799",
     "17951616882320300",
-    "18144954295582996"
+    "18144954295582996",
+    "17883021249528167"
   ],
   "answeredPostIds": [
     "18395606890093068"
@@ -39304,11 +39314,11 @@
     "18004698404989902": 55,
     "18054929093583647": 60,
     "18628279045036981": 229,
-    "18117179536935952": 241
+    "18117179536935952": 242
   },
   "daily": {
     "date": "2026-10-11",
-    "count": 241
+    "count": 242
   },
   "pinnedResolved": {
     "DaTTCIwoAw7": "18014812820883466"
@@ -40815,6 +40825,6 @@
   },
   "spend": {
     "date": "2026-10-11",
-    "usd": 0.43851629399999986
+    "usd": 0.4405107419999999
   }
 }
