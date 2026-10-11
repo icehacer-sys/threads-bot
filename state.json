@@ -27657,6 +27657,15 @@
       },
       "publishedId": "18126987439854870",
       "confirmedPublished": true
+    },
+    "comment:17958346131013046": {
+      "creationId": "17893216017614054",
+      "createdAt": "2026-10-11T21:09:27.735Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Clots in every lobe is a scary thing to carry and I'm glad that one is behind you. Your read looked at how widely the chest was involved which is fair and here the pockets are infected cavities rather than clots.",
+        "reply_to_id": "17958346131013046"
+      }
     }
   },
   "repliedCommentIds": [
@@ -38079,7 +38088,8 @@
     "18123753061710448",
     "18101198378628535",
     "18132443440756857",
-    "17979040311066890"
+    "17979040311066890",
+    "18338616271262590"
   ],
   "answeredPostIds": [
     "18395606890093068"
@@ -38212,11 +38222,11 @@
     "18004698404989902": 55,
     "18054929093583647": 60,
     "18628279045036981": 229,
-    "18117179536935952": 150
+    "18117179536935952": 151
   },
   "daily": {
     "date": "2026-10-11",
-    "count": 150
+    "count": 151
   },
   "pinnedResolved": {
     "DaTTCIwoAw7": "18014812820883466"
@@ -39659,7 +39669,9 @@
     "18108526006919607": 1,
     "18118821620098953": 1,
     "18030481160907478": 1,
-    "18110985461037197": 1
+    "18110985461037197": 1,
+    "17941831938364201": 1,
+    "18090622604682549": 1
   },
   "gifPostCounts": {
     "18432085978123193": 1,
@@ -39684,6 +39696,6 @@
   },
   "spend": {
     "date": "2026-10-11",
-    "usd": 0.23372839799999987
+    "usd": 0.23681296199999988
   }
 }
