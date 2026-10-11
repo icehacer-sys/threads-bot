@@ -25738,6 +25738,15 @@
       },
       "publishedId": "18115332671023793",
       "confirmedPublished": true
+    },
+    "comment:18090726263224647": {
+      "creationId": "17893110711614054",
+      "createdAt": "2026-10-11T05:06:18.197Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "The pun is doing more twisting than the snake did.",
+        "reply_to_id": "18090726263224647"
+      }
     }
   },
   "repliedCommentIds": [
@@ -37536,6 +37545,6 @@
   },
   "spend": {
     "date": "2026-10-10",
-    "usd": 0.20553594
+    "usd": 0.20818914
   }
 }
