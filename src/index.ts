@@ -18,7 +18,7 @@ import { PersistenceError } from "./persistence";
 import { isLossStory, replyStyleIssue } from './reply-style';
 import { mediaModelRoute } from './media-reply';
 import { isPriorityCommenter } from './supporter-replies';
-import { replyCoverage, isRetiredGuessReceipt } from './reply-coverage';
+import { replyCoverage, isRetiredGuessReceipt, isEmojiOnlyComment } from './reply-coverage';
 import { createPollObservation, type CoverageObservation } from './coverage-observation';
 import { unsupportedPatientHistory } from './case-evidence';
 import { classifyAndDraft, isBotQuestion, isPreRevealHold, firstSentences, type Decision, type InlineImage, type ImageMediaType } from "./reply";
@@ -709,6 +709,11 @@ async function runLiveOrDry(mode: Mode, target: string | null, observation: Cove
         const publication = state.publication(`comment:${c.id}`);
         const pending = publication.get();
         if (!pending || resumed.has(c.id) || state.hasReplied(c.id)) continue;
+        if (!pending.publishedId && !pending.confirmedPublished && isEmojiOnlyComment(c.text ?? '')) {
+          resumed.add(c.id);
+          console.log(`    saved reply for ${c.id} paused: emoji-only comment`);
+          continue;
+        }
         if (!pending.publishedId && isRetiredGuessReceipt(pending.params.text)) {
           state.queueOwnerReview(c.id, post.id, 'owner review: retired guess receipt in saved publication', c.text, c.username);
           resumed.add(c.id);
@@ -792,6 +797,7 @@ async function runLiveOrDry(mode: Mode, target: string | null, observation: Cove
       if (!beforeReveal(c)) return false;
       if (revisitIds.has(post.id) && !state.isImageHeld(c.id, post.id)) return false;
       if (!isVisible(c)) { observe(() => observation.eligibility(post.id, c.id, 'excluded', 'hidden')); return false; }
+      if (isEmojiOnlyComment(c.text ?? '')) { observe(() => observation.eligibility(post.id, c.id, 'excluded', 'policy_excluded')); return false; }
       if (!((c.text ?? "").trim().length >= (config.replyAll ? 1 : config.minCommentLength) ||
         (isPriorityCommenter(c.username, config.priorityUsernames) && !!(c.text ?? '').trim()) ||
         ((c.media_type === "IMAGE" || c.media_type === "VIDEO") && !!c.media_url) ||

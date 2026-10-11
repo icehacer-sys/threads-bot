@@ -20,11 +20,11 @@ globalThis.fetch=async (_url,init)=>{
  calls++;body=JSON.parse(String(init?.body));const next=queue.shift();assert.ok(next,'unexpected extra paid call');
  return new Response(JSON.stringify({id:'fixture',type:'message',role:'assistant',model:config.triageModel,stop_reason:'tool_use',usage:{input_tokens:1,output_tokens:1},content:[{type:'tool_use',id:'tool',name:'submit_reply',input:next}]}),{headers:{'content-type':'application/json'}});
 };
-const input={postText:'Diagnosis challenge',commentText:'😮',answer:'Progressive massive fibrosis',answerPublic:true,priorityCommenter:true,modelOverride:config.triageModel};
+const input={postText:'Diagnosis challenge',commentText:'Wow 😮',answer:'Progressive massive fibrosis',answerPublic:true,priorityCommenter:true,modelOverride:config.triageModel};
 queue=[base];calls=0;
 assert.equal((await classifyAndDraft(input)).decision,'reply');assert.equal(calls,1);
 assert.match(JSON.stringify(body),/OWNER REPLY PRIORITY/);
-const low={...base,decision:'skip',category:'other',reply_text:'',reason:'A lone emoji with no substantive content'};
+const low={...base,decision:'skip',category:'other',reply_text:'',reason:'A short reaction with no substantive content'};
 for(const reason of ['The reveal is private. All diagnosis guesses are held.', 'Diagnosis guess made before the answer is publicly revealed.', 'Diagnosis guess submitted before public reveal.']) {
  assert.equal(isPreRevealHold({...low,reason} as any,false),true);
  assert.equal(isPreRevealHold({...low,reason} as any,true),false);
