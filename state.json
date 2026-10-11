@@ -25735,7 +25735,9 @@
         "media_type": "TEXT",
         "text": "Hello. The tube is still over here twisting itself into a corkscrew.",
         "reply_to_id": "18098687150093967"
-      }
+      },
+      "publishedId": "18115332671023793",
+      "confirmedPublished": true
     }
   },
   "repliedCommentIds": [
