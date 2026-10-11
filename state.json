@@ -27734,6 +27734,15 @@
       },
       "publishedId": "17896017234609545",
       "confirmedPublished": true
+    },
+    "comment:18025307492858083": {
+      "creationId": "17893218093614054",
+      "createdAt": "2026-10-11T21:27:13.135Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Mesothelioma grows along the pleura rather than opening up as round cavities and the answer here is septic lung abscesses spread through the blood.",
+        "reply_to_id": "18025307492858083"
+      }
     }
   },
   "repliedCommentIds": [
@@ -38163,7 +38172,8 @@
     "18128097643843347",
     "18111555590174701",
     "18110985461037197",
-    "17941831938364201"
+    "17941831938364201",
+    "17966291196216930"
   ],
   "answeredPostIds": [
     "18395606890093068"
@@ -38296,11 +38306,11 @@
     "18004698404989902": 55,
     "18054929093583647": 60,
     "18628279045036981": 229,
-    "18117179536935952": 157
+    "18117179536935952": 158
   },
   "daily": {
     "date": "2026-10-11",
-    "count": 157
+    "count": 158
   },
   "pinnedResolved": {
     "DaTTCIwoAw7": "18014812820883466"
@@ -39771,6 +39781,6 @@
   },
   "spend": {
     "date": "2026-10-11",
-    "usd": 0.2438533979999999
+    "usd": 0.2453935979999999
   }
 }
