@@ -24747,6 +24747,15 @@
       },
       "publishedId": "18090226388230115",
       "confirmedPublished": true
+    },
+    "comment:18111082549888130": {
+      "creationId": "17893081008614054",
+      "createdAt": "2026-10-11T00:38:42.275Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Having to wash every bite down with a drink is a tiring way to eat. That sounds worth mentioning to someone who can look into it properly.",
+        "reply_to_id": "18111082549888130"
+      }
     }
   },
   "repliedCommentIds": [
@@ -34908,7 +34917,8 @@
     "18357636034220007",
     "18216047338355647",
     "17907357807330411",
-    "18374580799208017"
+    "18374580799208017",
+    "17898034509394339"
   ],
   "answeredPostIds": [
     "18395606890093068"
@@ -35040,11 +35050,11 @@
     "18169862959459418": 96,
     "18004698404989902": 55,
     "18054929093583647": 60,
-    "18628279045036981": 118
+    "18628279045036981": 119
   },
   "daily": {
     "date": "2026-10-10",
-    "count": 118
+    "count": 119
   },
   "pinnedResolved": {
     "DaTTCIwoAw7": "18014812820883466"
@@ -36442,6 +36452,6 @@
   },
   "spend": {
     "date": "2026-10-10",
-    "usd": 0.119908704
+    "usd": 0.120906288
   }
 }
