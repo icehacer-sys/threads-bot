@@ -25198,6 +25198,15 @@
       },
       "publishedId": "18080082584373806",
       "confirmedPublished": true
+    },
+    "comment:18205310836335317": {
+      "creationId": "17893091805614054",
+      "createdAt": "2026-10-11T02:21:12.171Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Closest real ones are tomophobia or iatrophobia and neither quite covers a chest deciding to corkscrew. The sympathy is earned too because that twist is diffuse oesophageal spasm.",
+        "reply_to_id": "18205310836335317"
+      }
     }
   },
   "repliedCommentIds": [
@@ -35400,7 +35409,8 @@
     "18106439396258342",
     "17911821771520224",
     "18117202748054413",
-    "18137163433725496"
+    "18137163433725496",
+    "17911356945548526"
   ],
   "answeredPostIds": [
     "18395606890093068"
@@ -35532,11 +35542,11 @@
     "18169862959459418": 96,
     "18004698404989902": 55,
     "18054929093583647": 60,
-    "18628279045036981": 159
+    "18628279045036981": 160
   },
   "daily": {
     "date": "2026-10-10",
-    "count": 159
+    "count": 160
   },
   "pinnedResolved": {
     "DaTTCIwoAw7": "18014812820883466"
@@ -36941,6 +36951,6 @@
   },
   "spend": {
     "date": "2026-10-10",
-    "usd": 0.161662344
+    "usd": 0.162790128
   }
 }
