@@ -27401,7 +27401,9 @@
         "media_type": "TEXT",
         "text": "That was my first read too.",
         "reply_to_id": "18153139408573788"
-      }
+      },
+      "publishedId": "18118776122050814",
+      "confirmedPublished": true
     }
   },
   "repliedCommentIds": [
