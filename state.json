@@ -28141,6 +28141,15 @@
       },
       "publishedId": "17995214490051978",
       "confirmedPublished": true
+    },
+    "comment:18188324104407743": {
+      "creationId": "17893220727614054",
+      "createdAt": "2026-10-11T21:54:03.808Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Loving the hookah that much usually leaves scars of a different shape and this chest is wearing several walled pockets instead.",
+        "reply_to_id": "18188324104407743"
+      }
     }
   },
   "repliedCommentIds": [
@@ -38607,7 +38616,8 @@
     "18158101168508191",
     "18126835757485098",
     "17948665593312381",
-    "17912445420520251"
+    "17912445420520251",
+    "18087215921291522"
   ],
   "answeredPostIds": [
     "18395606890093068"
@@ -38740,11 +38750,11 @@
     "18004698404989902": 55,
     "18054929093583647": 60,
     "18628279045036981": 229,
-    "18117179536935952": 194
+    "18117179536935952": 195
   },
   "daily": {
     "date": "2026-10-11",
-    "count": 194
+    "count": 195
   },
   "pinnedResolved": {
     "DaTTCIwoAw7": "18014812820883466"
@@ -40229,6 +40239,6 @@
   },
   "spend": {
     "date": "2026-10-11",
-    "usd": 0.29588635799999996
+    "usd": 0.29693090999999994
   }
 }
