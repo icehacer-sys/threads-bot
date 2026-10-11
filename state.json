@@ -26343,7 +26343,9 @@
         "media_type": "TEXT",
         "text": "That many eggs and not one of them has hatched yet.",
         "reply_to_id": "17905139643596743"
-      }
+      },
+      "publishedId": "17920825980446750",
+      "confirmedPublished": true
     }
   },
   "repliedCommentIds": [
