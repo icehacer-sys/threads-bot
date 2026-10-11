@@ -26478,6 +26478,15 @@
       },
       "publishedId": "18125473768854858",
       "confirmedPublished": true
+    },
+    "comment:18028476503875061": {
+      "creationId": "17893209795614054",
+      "createdAt": "2026-10-11T20:02:12.244Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "That name is doing more work than the whole report and you are already walking to the next case.",
+        "reply_to_id": "18028476503875061"
+      }
     }
   },
   "repliedCommentIds": [
@@ -38233,7 +38242,8 @@
     "17988711393066539",
     "18117385376080904",
     "18136706977653247",
-    "18127222444893334"
+    "18127222444893334",
+    "18186971272414319"
   ],
   "skipStrikes": {
     "17895266316520842": 1,
@@ -38355,6 +38365,6 @@
   },
   "spend": {
     "date": "2026-10-11",
-    "usd": 0.06830036999999997
+    "usd": 0.07107355799999997
   }
 }
