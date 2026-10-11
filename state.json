@@ -25647,7 +25647,9 @@
         "media_type": "TEXT",
         "text": "That trim would have to be size triple extra large.",
         "reply_to_id": "18159622723506454"
-      }
+      },
+      "publishedId": "17970332355193482",
+      "confirmedPublished": true
     }
   },
   "repliedCommentIds": [
