@@ -26753,6 +26753,15 @@
       },
       "publishedId": "18143255395582463",
       "confirmedPublished": true
+    },
+    "comment:18139614049613757": {
+      "creationId": "17893210686614054",
+      "createdAt": "2026-10-11T20:10:44.937Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Perfectly level fluid lines do deserve a posture award and a chest that ringed would get your club banned twice over.",
+        "reply_to_id": "18139614049613757"
+      }
     }
   },
   "repliedCommentIds": [
@@ -37093,7 +37102,8 @@
     "18138879364711183",
     "17913414405280919",
     "18112557371011661",
-    "18067146011524378"
+    "18067146011524378",
+    "18023073560943237"
   ],
   "answeredPostIds": [
     "18395606890093068"
@@ -37226,11 +37236,11 @@
     "18004698404989902": 55,
     "18054929093583647": 60,
     "18628279045036981": 229,
-    "18117179536935952": 68
+    "18117179536935952": 69
   },
   "daily": {
     "date": "2026-10-11",
-    "count": 68
+    "count": 69
   },
   "pinnedResolved": {
     "DaTTCIwoAw7": "18014812820883466"
@@ -38662,6 +38672,6 @@
   },
   "spend": {
     "date": "2026-10-11",
-    "usd": 0.10563412199999998
+    "usd": 0.10637249399999998
   }
 }
