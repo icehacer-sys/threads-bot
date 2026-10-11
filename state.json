@@ -25845,7 +25845,9 @@
         "media_type": "TEXT",
         "text": "Tell Dr Bombay the cord is fine because the patient is the one doing the coiling.",
         "reply_to_id": "18392744941160787"
-      }
+      },
+      "publishedId": "17914038801540020",
+      "confirmedPublished": true
     }
   },
   "repliedCommentIds": [
