@@ -10,8 +10,19 @@ export function isLowEngagementSkip(decision: string, category: string, reason: 
     /noise|low[- ](?:value|engagement)|nothing (?:new|to)|no (?:new|substantive|meaningful)|(?:lone|single) emoji|bare thanks|already (?:answered|explained)/i.test(reason);
 }
 
-/** Targeted failures found in the September 20 reply audit. */
+/** Targeted failures found in the September 20 and October 11 reply audits. */
 export function conversationReplyIssue(comment: string, category: string, draft: string, isCase: boolean): string | undefined {
+  // Emoji give tone to written comments. Only discuss their meaning when asked.
+  const emojiQuestion = /\b(?:what|why|how|which|explain)\b[^.!?]{0,60}\b(?:emojis?|emoticons?)\b|\b(?:emojis?|emoticons?)\b[^.!?]{0,40}\b(?:mean|means|meaning)\b/i.test(comment) ||
+    /\bwhat\s+(?:does|do)\s+[\p{Extended_Pictographic}\p{Regional_Indicator}\p{Emoji_Modifier}\s\u200D\uFE0E\uFE0F]+\s+mean\b/iu.test(comment);
+  const reactionCommentary = /\b(?:face|reaction|expression)\s+(?:says?|tells?|shows?|gives?)\b|\b(?:reaction|response)\s+(?:is|was)\s+(?:fair|perfect|correct|appropriate|accurate|proportionate)\b|\b(?:laugh(?:ing)?|smil(?:e|ing))\s+(?:is|was)\s+(?:(?:the|a|an|only|fair|correct|sensible|perfect|appropriate)\s+){0,4}(?:response|reaction|reflex)\b/i.test(draft);
+  if (!emojiQuestion && (/\b(?:emojis?|emoticons?)\b/i.test(draft) ||
+      (reactionCommentary && (category === 'banter' || /\p{Extended_Pictographic}/u.test(comment))))) {
+    return 'emoji commentary: respond to the meaning without describing the emoji or reaction';
+  }
+  if (['banter', 'affirm'].includes(category) && /\byou (?:went|skipped|jumped) (?:straight )?to (?:the )?(?:abbreviation|shorthand|Latin name)\b|\byou (?:used|chose|picked) (?:the )?(?:abbreviation|shorthand|Latin name)\b/i.test(draft)) {
+    return 'comment wording: acknowledge the guess itself without commenting on its abbreviation or spelling';
+  }
   if (/^nailed it[.!\s]*$/i.test(draft) || (category === 'banter' && /\bthat['’]s a new way to describe\b/i.test(draft))) return 'stock praise or commentary instead of responding to the comment';
   if (/\bself[- ]inflicted\b|\bdenial and adaptation\b/i.test(draft)) return 'unsupported blame or patient motivation';
   if (isCase && !/\b(?:i|i['’]m|my|me|we|our)\b/i.test(comment) && /\byour (?:lungs?|symptoms?|medical history|exposure|risk)\b/i.test(draft)) return 'assumed personal medical history';

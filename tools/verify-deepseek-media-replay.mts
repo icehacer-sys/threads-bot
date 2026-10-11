@@ -18,11 +18,13 @@ const {COVERAGE_NOTE}=await import('../src/reply-coverage');
 const {VOICE_LEAN}=await import('../src/voice-lean');
 const {GIF_SYSTEM_PROMPT,MEDIA_REPLY_NOTE}=await import('../src/media-reply');
 // Keep paid fixture hashes intact. Reverse only the owner-approved coverage and
-// sentence-style edits when comparing with the historical prompt.
+// sentence-style and emoji-intent edits when comparing with the historical prompt.
 const recordedCoverageNote=COVERAGE_NOTE.replace('including short guesses, thanks and reactions. Skip comments consisting only of emoji.','including short guesses, emoji, thanks and reactions.');
 assert.notEqual(recordedCoverageNote,COVERAGE_NOTE,'Current coverage guidance must exclude emoji-only comments');
 const currentVoice=VOICE_LEAN.replace(/\r\n/g,'\n');
 const recordedVoice=currentVoice
+ .replace("Treat emoji as emotional context for the written comment. Respond to the guess, question or joke itself without explaining the emoji, describing the face or announcing what their reaction means. Do not praise a reaction as correct, fair or appropriate. Do not comment on their use of an abbreviation, Latin name or spelling. Discuss an emoji's meaning only when the commenter explicitly asks about it. If there is no clear meaning, skip rather than invent one.\n",'')
+ .replace("Correct guess after reveal -> a brief natural acknowledgment of the guess without commenting on its wording: 'Dracunculus medinensis' -> 'That's the one.'","Correct guess after reveal -> affirm with a few words tied to how THEY said it, never a bare stamp: 'Dracunculus medinensis' -> 'You went straight to the Latin name.'")
  .replace('Prefer one complete sentence for a brief reply.','Usually one or two short sentences.')
  .replace('For banter write one complete sentence that responds directly to what they said. Do not split a joke into a setup fragment and a separate punchline. Prefer plain wording you would say aloud. Avoid slogans, elaborate metaphors and clever wording that needs explaining. Do not force the diagnosis or scan description into a joke.','For banter, make one small response to their premise and stop.')
  .replace('You went straight to the Latin name.','Straight to the Latin name.')
@@ -47,6 +49,7 @@ for(const c of [...pack.cases,...recheck.cases]){active=c;const before=attempts;
  const originalRequest=c.guidancePresentInNativeRequest?paid:{...paid,system:paid.system.slice(0,-1)};
  const expectedVoice=c.input.commentText.trim()?'For banter write one complete sentence that responds directly to what they said.':'Write one complete conversational sentence without a setup fragment or a separate punchline.';
  assert.ok(captured.system.some((b:any)=>b.text.includes(expectedVoice)),'Actual text and bare-GIF requests use the new sentence guidance');
+ if(c.input.commentText.trim()) assert.ok(captured.system.some((b:any)=>b.text.includes('Treat emoji as emotional context for the written comment.')),'Actual text requests use the new emoji-intent guidance');
  const canonical=JSON.stringify(originalRequest,(_key,value)=>typeof value==='string'?value.replace(/\r\n/g,'\n').replace(COVERAGE_NOTE,recordedCoverageNote).replace(currentVoice,recordedVoice).replace(currentGifVoice,recordedGifVoice).replace(currentMediaNote,recordedMediaNote):value);
  assert.equal(hash(canonical),c.normalizedRequestHash,'Historical native request parity apart from line endings and approved owner policy edits');
  assert.deepEqual(captured.messages.flatMap((m:any)=>m.content.filter((b:any)=>b.type==='image')).map((b:any)=>hash(Buffer.from(b.source.data,'base64') as any)),c.frameHashes);
