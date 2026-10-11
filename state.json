@@ -27382,6 +27382,15 @@
       },
       "publishedId": "18117597613970847",
       "confirmedPublished": true
+    },
+    "comment:18099078674411641": {
+      "creationId": "17893215072614054",
+      "createdAt": "2026-10-11T21:00:39.112Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Tuberculosis was the classic call for this look but here the pockets are many separate abscesses spread through the blood.",
+        "reply_to_id": "18099078674411641"
+      }
     }
   },
   "repliedCommentIds": [
@@ -37779,7 +37788,8 @@
     "18095635298555804",
     "18108526006919607",
     "18118821620098953",
-    "18140877739611512"
+    "18140877739611512",
+    "18466084843189772"
   ],
   "answeredPostIds": [
     "18395606890093068"
@@ -37912,11 +37922,11 @@
     "18004698404989902": 55,
     "18054929093583647": 60,
     "18628279045036981": 229,
-    "18117179536935952": 125
+    "18117179536935952": 126
   },
   "daily": {
     "date": "2026-10-11",
-    "count": 125
+    "count": 126
   },
   "pinnedResolved": {
     "DaTTCIwoAw7": "18014812820883466"
@@ -39373,6 +39383,6 @@
   },
   "spend": {
     "date": "2026-10-11",
-    "usd": 0.1923104339999998
+    "usd": 0.1938634379999998
   }
 }
