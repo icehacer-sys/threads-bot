@@ -25452,6 +25452,15 @@
       },
       "publishedId": "17928596292423256",
       "confirmedPublished": true
+    },
+    "comment:18637429630040191": {
+      "creationId": "17893099983614054",
+      "createdAt": "2026-10-11T03:28:12.770Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Years of being told the wrong thing before anyone landed on it is its own kind of exhausting. Glad the meds finally eased the frequency even if the pressure has nowhere to go.",
+        "reply_to_id": "18637429630040191"
+      }
     }
   },
   "repliedCommentIds": [
@@ -35677,7 +35686,8 @@
     "17907143562581763",
     "18629258659008719",
     "18018297395740257",
-    "18413646442083653"
+    "18413646442083653",
+    "18210388699367563"
   ],
   "answeredPostIds": [
     "18395606890093068"
@@ -35809,11 +35819,11 @@
     "18169862959459418": 96,
     "18004698404989902": 55,
     "18054929093583647": 60,
-    "18628279045036981": 182
+    "18628279045036981": 183
   },
   "daily": {
     "date": "2026-10-10",
-    "count": 182
+    "count": 183
   },
   "pinnedResolved": {
     "DaTTCIwoAw7": "18014812820883466"
@@ -37222,6 +37232,6 @@
   },
   "spend": {
     "date": "2026-10-10",
-    "usd": 0.183292572
+    "usd": 0.18400677599999998
   }
 }
