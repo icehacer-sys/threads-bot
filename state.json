@@ -28735,6 +28735,15 @@
       },
       "publishedId": "18034893053850433",
       "confirmedPublished": true
+    },
+    "comment:18591422293065926": {
+      "creationId": "17893227021614054",
+      "createdAt": "2026-10-11T23:39:00.911Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "No bullet needed here because the infection travelled through the blood and left multiple abscesses in both lungs.",
+        "reply_to_id": "18591422293065926"
+      }
     }
   },
   "repliedCommentIds": [
@@ -40905,6 +40914,6 @@
   },
   "spend": {
     "date": "2026-10-11",
-    "usd": 0.4509213299999999
+    "usd": 0.45242612999999987
   }
 }
