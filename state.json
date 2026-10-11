@@ -28317,6 +28317,15 @@
       },
       "publishedId": "18142198759614901",
       "confirmedPublished": true
+    },
+    "comment:18075923357722550": {
+      "creationId": "17893221702614054",
+      "createdAt": "2026-10-11T22:09:33.273Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "And the patient still walked in complaining about a cough.",
+        "reply_to_id": "18075923357722550"
+      }
     }
   },
   "repliedCommentIds": [
@@ -40427,6 +40436,6 @@
   },
   "spend": {
     "date": "2026-10-11",
-    "usd": 0.32093716200000005
+    "usd": 0.32156573400000005
   }
 }
