@@ -25994,6 +25994,15 @@
       },
       "publishedId": "18376263841214489",
       "confirmedPublished": true
+    },
+    "comment:18425894617150282": {
+      "creationId": "17893207410614054",
+      "createdAt": "2026-10-11T19:32:29.889Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Storm clouds with a forecast of antibiotics and possibly a drain.",
+        "reply_to_id": "18425894617150282"
+      }
     }
   },
   "repliedCommentIds": [
@@ -37813,6 +37822,6 @@
   },
   "spend": {
     "date": "2026-10-11",
-    "usd": 0.015973608
+    "usd": 0.016559808
   }
 }
