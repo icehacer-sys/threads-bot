@@ -25815,6 +25815,15 @@
       },
       "publishedId": "18092130599663160",
       "confirmedPublished": true
+    },
+    "comment:18097176212537548": {
+      "creationId": "17893114959614054",
+      "createdAt": "2026-10-11T05:38:50.306Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Having a suspected MCAS piece in the mix can make the whole search for something that works slower and messier than anyone would like.",
+        "reply_to_id": "18097176212537548"
+      }
     }
   },
   "repliedCommentIds": [
@@ -36073,7 +36082,8 @@
     "18112330403150052",
     "17953698303271273",
     "18117133291790291",
-    "18383443546225922"
+    "18383443546225922",
+    "17913982797281701"
   ],
   "answeredPostIds": [
     "18395606890093068"
@@ -36205,11 +36215,11 @@
     "18169862959459418": 96,
     "18004698404989902": 55,
     "18054929093583647": 60,
-    "18628279045036981": 215
+    "18628279045036981": 216
   },
   "daily": {
     "date": "2026-10-10",
-    "count": 215
+    "count": 216
   },
   "pinnedResolved": {
     "DaTTCIwoAw7": "18014812820883466"
@@ -37620,6 +37630,6 @@
   },
   "spend": {
     "date": "2026-10-10",
-    "usd": 0.21566072400000003
+    "usd": 0.21688857600000003
   }
 }
