@@ -26574,7 +26574,9 @@
         "media_type": "TEXT",
         "text": "Forecast calls for a 90 percent chance of polymicrobial.",
         "reply_to_id": "18125390128913580"
-      }
+      },
+      "publishedId": "17936401569398204",
+      "confirmedPublished": true
     }
   },
   "repliedCommentIds": [
