@@ -28699,7 +28699,9 @@
         "media_type": "TEXT",
         "text": "That word travels well even if the meaning stays local.",
         "reply_to_id": "18637666543060068"
-      }
+      },
+      "publishedId": "17889473028653746",
+      "confirmedPublished": true
     }
   },
   "repliedCommentIds": [
