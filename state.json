@@ -28918,6 +28918,15 @@
       },
       "publishedId": "18219055561353258",
       "confirmedPublished": true
+    },
+    "comment:18599176231066818": {
+      "creationId": "17893351584614054",
+      "createdAt": "2026-10-12T19:52:44.941Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Correct. Those months of headaches had a plumbing problem behind them.",
+        "reply_to_id": "18599176231066818"
+      }
     }
   },
   "repliedCommentIds": [
@@ -41116,6 +41125,6 @@
   },
   "spend": {
     "date": "2026-10-12",
-    "usd": 0.03167329199999999
+    "usd": 0.03259041599999999
   }
 }
