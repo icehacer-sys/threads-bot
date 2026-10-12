@@ -29061,6 +29061,15 @@
       },
       "publishedId": "18053901269591686",
       "confirmedPublished": true
+    },
+    "comment:18100385921305970": {
+      "creationId": "17893361034614054",
+      "createdAt": "2026-10-12T21:58:27.561Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Yes it's an AVM and that chip reading is fair because a knot of vessels full of dye does look wired in but this one grew instead of being installed.",
+        "reply_to_id": "18100385921305970"
+      }
     }
   },
   "repliedCommentIds": [
@@ -41281,6 +41290,6 @@
   },
   "spend": {
     "date": "2026-10-12",
-    "usd": 0.052025759999999976
+    "usd": 0.05307615599999998
   }
 }
