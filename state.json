@@ -28805,7 +28805,9 @@
         "media_type": "TEXT",
         "text": "There is a small pouch on the feeding vessel but the diagnosis is the AVM behind it.",
         "reply_to_id": "18082872377709604"
-      }
+      },
+      "publishedId": "17914790946495933",
+      "confirmedPublished": true
     }
   },
   "repliedCommentIds": [
