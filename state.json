@@ -362,7 +362,25 @@
     "18002178485809500": "Mucinex goblins moved in.",
     "18413493298083780": "TB",
     "18347620477248891": "Sarcoidosis?",
-    "18117331808072392": "Ah, Lyric disease. This is when the invasive organism (I’m going with TB, but that’s a WAG) is bored with squatting. They start to bring (ahem) culture, and includes theater box seats. \n\nAlso known as Prosceniumosis. \nTreatment is limited to blocking enlargement of the theater, and bad reviews so as to close the show early."
+    "18117331808072392": "Ah, Lyric disease. This is when the invasive organism (I’m going with TB, but that’s a WAG) is bored with squatting. They start to bring (ahem) culture, and includes theater box seats. \n\nAlso known as Prosceniumosis. \nTreatment is limited to blocking enlargement of the theater, and bad reviews so as to close the show early.",
+    "18599176231066818": "AVM.",
+    "17895236511611020": "AVM.",
+    "18115283063014277": "Avm with aneurysm",
+    "17925037971200377": "Ballooney Veins",
+    "17962887564207818": "A-V Fistula. A whopper one. Aneurysm as well.",
+    "17907855003479044": "Awww lookit the little balloon! I concur AVM with aneurysm as the others stated. Scary! Glad the balloon is small relatively",
+    "18088518020310787": "Spooky woods",
+    "18104846642149975": "I'm glad the AV balloon didn't pop\n I didn't,  right?",
+    "18082872377709604": "Aneurysm?",
+    "17987968809075635": "Maybe a leaking clot?",
+    "18067149080602064": "A tree, a bush, and a mushroom. Forest brain syndrome.",
+    "18135181342641517": "Obviously the problem is that they have squiggly lines on their skull. The challenge is finding out what caused the squiggly lines.",
+    "18070713788744050": "Cavernous angioma.",
+    "18129885763684449": "Aneurysm or AVM?",
+    "18082097960709322": "Wow, a never seen before plant monster “Thing.” Awakened from a glacier thaw and folks—it looks like he’s well on his way 😬",
+    "18149621869589099": "Maxell veins. This is what happens when you plug your head into a 1980s cassette player in your car. \n\nDoctor will need a spool and a pencil, stat.",
+    "18097290311434344": "There's a small child climbing a tree in his head. Cut the tree down.",
+    "18116919076796860": "Not being a medical person, I’m guessing this is a cerebral angiogram. I see 2 things abnormal to my lay person eyes. An abnormal tangle of blood vessels, next to a ballooning blood vessel at the top. Aneurysm, with malformed blood vessels. Looks serious."
   },
   "imageHeldComments": {
     "18116444902754615": "18184997560424523",
@@ -39404,8 +39422,8 @@
     "18117179536935952": 250
   },
   "daily": {
-    "date": "2026-10-11",
-    "count": 250
+    "date": "2026-10-12",
+    "count": 0
   },
   "pinnedResolved": {
     "DaTTCIwoAw7": "18014812820883466"
@@ -40901,7 +40919,7 @@
     "17865730374636613": 1
   },
   "gifDaily": {
-    "date": "2026-10-11",
+    "date": "2026-10-12",
     "count": 0
   },
   "recentGifIds": [
@@ -40912,11 +40930,11 @@
   ],
   "promoPostCounts": {},
   "promoDaily": {
-    "date": "2026-10-11",
+    "date": "2026-10-12",
     "count": 0
   },
   "spend": {
-    "date": "2026-10-11",
-    "usd": 0.45242612999999987
+    "date": "2026-10-12",
+    "usd": 0.009412967999999999
   }
 }
