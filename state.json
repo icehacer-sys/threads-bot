@@ -29072,6 +29072,15 @@
       },
       "publishedId": "17951163603319931",
       "confirmedPublished": true
+    },
+    "comment:18133762090735047": {
+      "creationId": "17893361646614054",
+      "createdAt": "2026-10-12T22:13:57.295Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "That's the one. A direct artery-to-vein connection with nothing slowing the flow in between is what drew that tangle.",
+        "reply_to_id": "18133762090735047"
+      }
     }
   },
   "repliedCommentIds": [
@@ -41294,6 +41303,6 @@
   },
   "spend": {
     "date": "2026-10-12",
-    "usd": 0.05400925199999998
+    "usd": 0.05440216799999998
   }
 }
