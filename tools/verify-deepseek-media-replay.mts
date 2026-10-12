@@ -23,6 +23,11 @@ const recordedCoverageNote=COVERAGE_NOTE.replace('including short guesses, thank
 assert.notEqual(recordedCoverageNote,COVERAGE_NOTE,'Current coverage guidance must exclude emoji-only comments');
 const currentVoice=VOICE_LEAN.replace(/\r\n/g,'\n');
 const recordedVoice=currentVoice
+ // 2026-10-12 voice audit edits (owner-approved), reversed first.
+ .replace('Obvious fictional diagnoses, food comparisons and everyday-object, animal or injury explanations such as a swallowed phone cord or a gunshot are jokes or lay readings, not clinical guesses: reply to their premise.','Obvious fictional diagnoses and food comparisons are jokes, not clinical guesses: reply to the joke.')
+ .replace("When a comment reads the film as an object, animal or injury, start from why it looks that way and land the answer in the same sentence only if it fits. A sincere lay misreading gets the resemblance first: 'They really do look like bullet holes but these opened up from the inside.' Never open by negating their noun with 'No bullet', 'Nobody swallowed' or 'Nothing fired'.\n",'')
+ .replace(" Never agree with or echo a wish to die, even as hyperbole such as 'I'd rather die than have that'. React to the scan or the fear instead.",'')
+ .replace(" For a bare 'wow', 'dead' or 'yikes' react to the scan itself the way a friend would ('That was my first read too') instead of rating their word as right, fair or about right.",'')
  .replace("Treat emoji as emotional context for the written comment. Respond to the guess, question or joke itself without explaining the emoji, describing the face or announcing what their reaction means. Do not praise a reaction as correct, fair or appropriate. Do not comment on their use of an abbreviation, Latin name or spelling. Discuss an emoji's meaning only when the commenter explicitly asks about it. If there is no clear meaning, skip rather than invent one.\n",'')
  .replace("Correct guess after reveal -> a brief natural acknowledgment of the guess without commenting on its wording: 'Dracunculus medinensis' -> 'That's the one.'","Correct guess after reveal -> affirm with a few words tied to how THEY said it, never a bare stamp: 'Dracunculus medinensis' -> 'You went straight to the Latin name.'")
  .replace('Prefer one complete sentence for a brief reply.','Usually one or two short sentences.')

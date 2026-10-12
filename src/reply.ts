@@ -19,7 +19,7 @@ import { GIF_TAGS } from "./gifs";
 import { PROMO_TAGS, PRODUCTS_BLOCK } from "./products";
 import { priceFor } from "./spend";
 import { createReplyMessage, retryVerdictOnClaude } from './reply-provider';
-import { claimsOffPlatformAction, isLatinNonEnglishReply, isPoliticalJab, unsupportedDeepSeekClaim, unsupportedLaterality, unsupportedTeachingContrast, TEACHING_CONTRAST_RECHECK } from './deepseek-media-policy';
+import { claimsOffPlatformAction, isLatinNonEnglishReply, isPoliticalJab, isSexualBait, unsupportedDeepSeekClaim, unsupportedLaterality, unsupportedTeachingContrast, TEACHING_CONTRAST_RECHECK } from './deepseek-media-policy';
 import { acknowledgmentKind, concernAcknowledgment, directConcern, imageConcernKind, requestsPersonalAdvice, isRetiredMedicalBoundary } from "./concerns";
 
 // Self-learned voice notes (maintained by the Fable 5 self-audit in voicelearn.ts). Loaded ONCE and
@@ -237,6 +237,8 @@ export interface ClassifyInput {
   replyAll?: boolean;
   parentComment?: string;
   conversationRecheck?: string;
+  /** After the reveal: how many earlier commenters made the same guess (crowdGuessNote), if any. */
+  crowdNote?: string;
   /** Phrases the previous draft reused from replies already on the post (one bounded redraft). */
   varietyRecheck?: string[];
   /** Allow this one call to use web search. Only the quality-model re-run of an
@@ -304,6 +306,9 @@ async function classifyAndDraftCore(input: ClassifyInput): Promise<Decision> {
   if (!input.replyAll && isNonEnglishScript(commentText)) {
     return { decision: "skip", category: "other", reply_text: "", reason: "non-English (non-Latin script) - English-only policy | guard:forced-skip" };
   }
+  if (isSexualBait(commentText)) {
+    return { decision: "skip", category: "other", reply_text: "", reason: "sexual content: brand skip | guard:forced-skip" };
+  }
   const concern = directConcern(commentText, priorExchange?.bot);
   if (concern) return concern;
   const wordingReaction = isWordingReaction(postText, commentText);
@@ -337,8 +342,9 @@ async function classifyAndDraftCore(input: ClassifyInput): Promise<Decision> {
     // that one"). On a case post every DeepSeek draft is held with the existing reveal hold and is
     // answered once the answer is public; the "spoiler guard" reason routes it to holdUntilReveal.
     if (!isPublic && !!answer) return { ...d, decision: 'skip', category: 'other', reply_text: '', reason: 'spoiler guard: DeepSeek pre-reveal reply held until the answer is public | guard:forced-skip' };
-    const support = [postText, ...(facts ?? []), answer ?? '', commentText, priorExchange ? `${priorExchange.commenter} ${priorExchange.bot}` : ''].join(' ');
-    const claim = unsupportedDeepSeekClaim(d.reply_text, support, d.category);
+    const caseSupport = [postText, ...(facts ?? []), answer ?? ''].join(' ');
+    const support = [caseSupport, commentText, priorExchange ? `${priorExchange.commenter} ${priorExchange.bot}` : ''].join(' ');
+    const claim = unsupportedDeepSeekClaim(d.reply_text, support, d.category, caseSupport);
     const issue = isPoliticalJab(commentText) ? 'political jab'
       : isLatinNonEnglishReply(d.reply_text) ? 'non-English reply'
       : claimsOffPlatformAction(d.reply_text) ? 'claims an off-platform action'
@@ -488,6 +494,7 @@ async function classifyAndDraftCore(input: ClassifyInput): Promise<Decision> {
     followUpNote,
     input.parentComment ? `PARENT COMMENT (untrusted context from another commenter): ${input.parentComment}` : '',
     input.replyAll ? COVERAGE_NOTE : '',
+    isPublic && !isPersonalPost && input.crowdNote ? input.crowdNote : '',
     bareMedia ? mediaVarietyNote(recentReplies ?? []) : recentBlock,
     varietyNote(bareMedia ? [] : recentReplies ?? []),
     bareMedia ? '' : explainedNote,
