@@ -29050,6 +29050,15 @@
       },
       "publishedId": "18091322309231811",
       "confirmedPublished": true
+    },
+    "comment:18120712567946308": {
+      "creationId": "17893360356614054",
+      "createdAt": "2026-10-12T21:42:58.932Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "The kissing disease is a different chapter and this tangle did not get here by smooching.",
+        "reply_to_id": "18120712567946308"
+      }
     }
   },
   "repliedCommentIds": [
@@ -41243,7 +41252,8 @@
     "17954939610027707": 1,
     "18599176231066818": 1,
     "18083491661711075": 1,
-    "18181020529451937": 1
+    "18181020529451937": 1,
+    "18100385921305970": 1
   },
   "gifPostCounts": {
     "18432085978123193": 1,
@@ -41268,6 +41278,6 @@
   },
   "spend": {
     "date": "2026-10-12",
-    "usd": 0.050519483999999976
+    "usd": 0.052025759999999976
   }
 }
