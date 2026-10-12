@@ -5,7 +5,9 @@ delete process.env.ANTHROPIC_AUTH_TOKEN;
 let handler:typeof fetch=async()=>{throw Error('Unexpected HTTP');};globalThis.fetch=(...args)=>handler(...args);
 const {config}=await import('../src/config');const {classifyAndDraft}=await import('../src/reply');
 const {createDeepSeekReplyClient}=await import('../src/deepseek-reply-client');
-Object.assign(config,{deepSeekTrial:true,webSearch:true,gifReplies:false,voiceVariant:'lean'});
+// Pinned to the Sonnet 4.6 wire contract (forced submit_reply, 1024 tokens): this test covers provider
+// parity and routing, not the Claude model. The Sonnet 5.5 boundary is covered by verify-sonnet-5-5.mts.
+Object.assign(config,{deepSeekTrial:true,webSearch:true,gifReplies:false,voiceVariant:'lean',model:'claude-sonnet-4-6'});
 const input={postText:'A synthetic teaching puzzle.',commentText:'What does this unfamiliar fictional term mean?',answer:'Synthetic answer',answerPublic:true,replyAll:true,modelOverride:config.model,allowSearch:true,learnedNotesOverride:''};
 const usage={input_tokens:10,output_tokens:20,cache_creation_input_tokens:0,cache_read_input_tokens:0,server_tool_use:{web_search_requests:1}};
 const verdict={intent:'Synthetic reference',decision:'reply',category:'banter',reply_text:'That is a fictional term in this example.',reason:'Synthetic only',needs_lookup:false,promo_product:'none',promo_explicit:false};

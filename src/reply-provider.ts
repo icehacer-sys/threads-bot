@@ -55,11 +55,45 @@ export async function createReplyMessage(request: ReplyRequest): Promise<Anthrop
   return claudeMessage(plan.provider === 'anthropic' ? plan.request : request);
 }
 
-async function claudeMessage(request: ReplyRequest): Promise<Anthropic.Message> {
+async function sendClaude(request: ReplyRequest): Promise<Anthropic.Message> {
   const response = await getClaude().messages.create(request);
   recordUsage(request.model, response.usage);
   try { observeReplyUsage(response.usage); } catch { /* PR13 observation is optional. */ }
   return response;
+}
+
+// Claude Sonnet 5.5 (and Opus 5.5 / Fable 5.1) reject forced tool_choice with a 400 and think by
+// default, with thinking counted against max_tokens. The shared request keeps its forced
+// submit_reply and 1024-token bound because DeepSeek receives the same body; only the Claude
+// boundary adapts. A forced call becomes auto, and if no submit_reply comes back the turn is
+// continued once, append-only, asking for it (callers still see a forced-style result).
+export const NO_FORCED_TOOL_CHOICE = /^claude-(?:sonnet-5-5|opus-5-5|fable-5-1|mythos-5-1)/;
+const CLAUDE_THINKING_HEADROOM = 4096;
+export function adaptClaudeRequest(request: ReplyRequest): { request: ReplyRequest; forcedTool: string | null } {
+  if (!NO_FORCED_TOOL_CHOICE.test(request.model)) return { request, forcedTool: null };
+  const choice = request.tool_choice;
+  const forcedTool = choice?.type === 'tool' ? choice.name : choice?.type === 'any' ? '*' : null;
+  return {
+    forcedTool,
+    request: {
+      ...request,
+      max_tokens: Math.max(request.max_tokens, CLAUDE_THINKING_HEADROOM),
+      ...(forcedTool ? { tool_choice: { type: 'auto' } } : {}),
+    } as ReplyRequest,
+  };
+}
+
+async function claudeMessage(request: ReplyRequest): Promise<Anthropic.Message> {
+  const { request: adapted, forcedTool } = adaptClaudeRequest(request);
+  const response = await sendClaude(adapted);
+  if (!forcedTool || response.stop_reason === 'max_tokens' || response.stop_reason === 'refusal') return response;
+  const called = response.content.some((b) => b.type === 'tool_use' && (forcedTool === '*' || b.name === forcedTool));
+  if (called) return response;
+  return sendClaude({
+    ...adapted,
+    messages: [...adapted.messages, { role: 'assistant', content: response.content },
+      { role: 'user', content: `Call the ${forcedTool === '*' ? 'appropriate' : forcedTool} tool now with your decision.` }],
+  } as ReplyRequest);
 }
 
 // A DeepSeek reply whose verdict cannot be used (extra or missing field, truncation, no submit_reply)

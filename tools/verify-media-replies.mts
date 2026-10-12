@@ -6,6 +6,9 @@ process.env.BOT_WEB_SEARCH = 'on';
 const { classifyAndDraft, parseDecision } = await import('../src/reply');
 const { mediaModelRoute, genericMediaReply, mediaReplyIssue, mediaVarietyNote } = await import('../src/media-reply');
 const { config } = await import('../src/config');
+// Pinned to the Sonnet 4.6 wire contract (forced submit_reply, 1024 tokens): this test covers provider
+// parity and routing, not the Claude model. The Sonnet 5.5 boundary is covered by verify-sonnet-5-5.mts.
+config.model = 'claude-sonnet-4-6';
 
 const bad = [
   "That's the face everyone makes when they see what came back on the X-ray.",
