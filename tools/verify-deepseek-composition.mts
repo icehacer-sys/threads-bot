@@ -13,7 +13,9 @@ const { drainSpend, costOf } = await import('../src/spend');
 const { replyTrialProviderSnapshot } = await import('../src/reply-provider');
 const { deepSeekTokenCost } = await import('../src/deepseek-reply-client');
 const { groundDeepSeekRequest, DEEPSEEK_MEDIA_HOLD } = await import('../src/deepseek-media-policy');
-Object.assign(config, { deepSeekTrial: false, gifReplies: false, voiceVariant: 'lean' });
+// Pinned to the Sonnet 4.6 wire contract (forced submit_reply, 1024 tokens): this test covers provider
+// parity and routing, not the Claude model. The Sonnet 5.5 boundary is covered by verify-sonnet-5-5.mts.
+Object.assign(config, { deepSeekTrial: false, gifReplies: false, voiceVariant: 'lean', model: 'claude-sonnet-4-6' });
 const nativeUsage = { input_tokens: 10, output_tokens: 20, cache_creation_input_tokens: 0, cache_read_input_tokens: 30 };
 const valid = { intent: 'friendly reaction', decision: 'reply', category: 'banter', reply_text: 'That was a rough one.', reason: 'synthetic friendly reaction', needs_lookup: false, promo_product: 'none', promo_explicit: false };
 const base = { postText: 'A synthetic teaching puzzle.', commentText: 'A friendly reaction.', answer: 'Synthetic answer', answerPublic: true, replyAll: false, modelOverride: config.triageModel, allowSearch: false, learnedNotesOverride: '' };

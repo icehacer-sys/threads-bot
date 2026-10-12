@@ -83,7 +83,7 @@ jobs:
       BOT_MEDICAL_RESERVE_USD: "0"
       BOT_RESERVE_MIN_VALUE: "2"
       BOT_ESCALATE_MEDIA: "motion"
-      BOT_MODEL: "claude-sonnet-4-6"
+      BOT_MODEL: "claude-sonnet-5-5"
       BOT_TRIAGE_MODEL: "claude-haiku-4-5-20251001"
       BOT_ESCALATE: "correct,teach,reference"
       BOT_ANTIREPEAT: "30"

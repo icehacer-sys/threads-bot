@@ -18,6 +18,7 @@ const PRICES: Record<string, ModelPrice> = {
   "claude-haiku-4-5": { input: 1, output: 5 },
   "claude-sonnet-4-6": { input: 3, output: 15 },
   "claude-sonnet-5": { input: 3, output: 15 },
+  "claude-sonnet-5-5": { input: 2, output: 10 }, // launch price, same as Sonnet 5 intro
   "claude-opus-4-8": { input: 5, output: 25 },
   "claude-opus-5": { input: 5, output: 25 },
   "claude-fable-5": { input: 10, output: 50 },

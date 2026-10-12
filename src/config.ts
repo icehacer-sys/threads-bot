@@ -61,7 +61,7 @@ export const config = {
   // Two-tier models. The cheap triageModel drafts/classifies EVERY comment; only
   // accuracy-critical categories (escalateCategories) are re-drafted by the pricier,
   // higher-quality `model`. Set BOT_TRIAGE_MODEL=<same as model> to disable two-tier.
-  model: process.env.BOT_MODEL ?? "claude-sonnet-4-6",
+  model: process.env.BOT_MODEL ?? "claude-sonnet-5-5",
   triageModel: process.env.BOT_TRIAGE_MODEL ?? "claude-haiku-4-5-20251001",
   // Web search depends on 'reference' being present (search is gated to that category).
   escalateCategories: (process.env.BOT_ESCALATE ?? "correct,teach,reference")
