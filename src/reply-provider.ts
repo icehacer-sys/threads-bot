@@ -86,7 +86,9 @@ export function adaptClaudeRequest(request: ReplyRequest): { request: ReplyReque
 async function claudeMessage(request: ReplyRequest): Promise<Anthropic.Message> {
   const { request: adapted, forcedTool } = adaptClaudeRequest(request);
   const response = await sendClaude(adapted);
-  if (!forcedTool || response.stop_reason === 'max_tokens' || response.stop_reason === 'refusal') return response;
+  // Only a first-turn request gets the continuation: reply.ts already re-asks once after a search turn,
+  // and a second nested ask would just pay for the same miss twice.
+  if (!forcedTool || adapted.messages.length > 1 || response.stop_reason === 'max_tokens' || response.stop_reason === 'refusal') return response;
   const called = response.content.some((b) => b.type === 'tool_use' && (forcedTool === '*' || b.name === forcedTool));
   if (called) return response;
   return sendClaude({

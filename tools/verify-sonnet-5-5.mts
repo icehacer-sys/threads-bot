@@ -66,6 +66,12 @@ for (const stop of ['refusal', 'max_tokens']) {
   assert.equal(sent.length, 1, stop); assert.equal(res.stop_reason, stop);
 }
 
+// 3b. A forced request that is already a continuation (reply.ts's own re-ask) is never re-asked again.
+sent.length = 0;
+replies.push(msg([{ type: 'text', text: 'still no tool' }]));
+await createReplyMessage({ ...base, messages: [...base.messages, { role: 'assistant', content: 'x' }, { role: 'user', content: 'Submit now' }] });
+assert.equal(sent.length, 1, 'no nested continuation');
+
 // 4. Haiku triage still sends the forced contract unchanged.
 sent.length = 0;
 replies.push({ ...msg([toolUse], 'tool_use'), model: 'claude-haiku-4-5-20251001' });
