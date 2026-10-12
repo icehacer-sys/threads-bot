@@ -28984,6 +28984,15 @@
       },
       "publishedId": "18117487970053768",
       "confirmedPublished": true
+    },
+    "comment:18181020529451937": {
+      "creationId": "17893355739614054",
+      "createdAt": "2026-10-12T20:40:26.353Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "That is the answer and those months of headaches fit a tangle of vessels with no capillary bed in between.",
+        "reply_to_id": "18181020529451937"
+      }
     }
   },
   "repliedCommentIds": [
@@ -41193,6 +41202,6 @@
   },
   "spend": {
     "date": "2026-10-12",
-    "usd": 0.04305421199999998
+    "usd": 0.04347662399999998
   }
 }
