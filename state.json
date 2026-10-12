@@ -28852,6 +28852,15 @@
       },
       "publishedId": "18336957322261664",
       "confirmedPublished": true
+    },
+    "comment:18116919076796860": {
+      "creationId": "17893349568614054",
+      "createdAt": "2026-10-12T19:35:25.536Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "For someone not in medicine you read that angiogram well. The tangle is the AVM itself and that balloon on the vessel feeding it is a related aneurysm so you basically called both parts.",
+        "reply_to_id": "18116919076796860"
+      }
     }
   },
   "repliedCommentIds": [
@@ -39381,7 +39390,8 @@
     "18082872377709604",
     "18067149080602064",
     "18082097960709322",
-    "18149621869589099"
+    "18149621869589099",
+    "18097290311434344"
   ],
   "answeredPostIds": [
     "18395606890093068"
@@ -39515,11 +39525,11 @@
     "18054929093583647": 60,
     "18628279045036981": 229,
     "18117179536935952": 250,
-    "18144676564597946": 7
+    "18144676564597946": 8
   },
   "daily": {
     "date": "2026-10-12",
-    "count": 7
+    "count": 8
   },
   "pinnedResolved": {
     "DaTTCIwoAw7": "18014812820883466"
@@ -41041,6 +41051,6 @@
   },
   "spend": {
     "date": "2026-10-12",
-    "usd": 0.02524477199999999
+    "usd": 0.02578024799999999
   }
 }
