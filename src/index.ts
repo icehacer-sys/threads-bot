@@ -18,7 +18,7 @@ import { PersistenceError } from "./persistence";
 import { isLossStory, replyStyleIssue } from './reply-style';
 import { mediaModelRoute } from './media-reply';
 import { isPriorityCommenter } from './supporter-replies';
-import { replyCoverage, isRetiredGuessReceipt, isEmojiOnlyComment } from './reply-coverage';
+import { replyCoverage, isRetiredGuessReceipt, isEmojiOnlyComment, crowdGuessNote } from './reply-coverage';
 import { createPollObservation, type CoverageObservation } from './coverage-observation';
 import { unsupportedPatientHistory } from './case-evidence';
 import { classifyAndDraft, isBotQuestion, isPreRevealHold, firstSentences, type Decision, type InlineImage, type ImageMediaType } from "./reply";
@@ -990,6 +990,9 @@ async function runLiveOrDry(mode: Mode, target: string | null, observation: Cove
         priorityCommenter: isPriorityCommenter(c.username, config.priorityUsernames),
         postText: post.text ?? "",
         commentText: c.text ?? "",
+        crowdNote: crowdGuessNote(c.text ?? "", coverageComments
+          .filter((o) => o.username !== me && o.id !== c.id && !!o.timestamp && !!c.timestamp && o.timestamp < c.timestamp)
+          .map((o) => o.text ?? "")),
         answer: imageReviewHeld || state.hasImageReview(post.id) ? undefined : knownAnswer,
         facts: imageReviewHeld || state.hasImageReview(post.id) ? undefined : revealFacts,
         diagnosticContext: imageReviewHeld || state.hasImageReview(post.id) ? undefined : resolved.diagnosticContext,

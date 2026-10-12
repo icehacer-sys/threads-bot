@@ -40,7 +40,12 @@ export function claimsOffPlatformAction(reply: string): boolean {
 // Claim families where the full-post reviews caught DeepSeek inventing or getting facts wrong. A draft may
 // use one only when the case facts, post or comment already contain that family. Imaging and taxonomy
 // apply to medical categories; events (people, procedures, outcomes) apply everywhere.
-const CLAIM_FAMILIES: Array<{ name: string; pattern: RegExp; medicalOnly: boolean }> = [
+// factsOnly families (2026-10-12 audit) must come from the case itself: a commenter's "most commonly
+// S. aureus" became the bot's claim although the case says polymicrobial, and "thin-walled", "evenly" and
+// "matching sizes" contradicted the case.
+const CLAIM_FAMILIES: Array<{ name: string; pattern: RegExp; medicalOnly: boolean; factsOnly?: boolean }> = [
+  { name: 'organism', medicalOnly: true, factsOnly: true, pattern: /\b(?:staph\w*|s\.? ?aureus|strep\w*|klebsiella|pseudomonas|e\.? ?coli|haemophilus|mrsa)\b/i },
+  { name: 'distribution or wall descriptor', medicalOnly: true, factsOnly: true, pattern: /\b(?:thin|thick)[- ]walled\b|\bevenly\b|\bmatching sizes?\b|\bsame size\b|\bupper (?:zones?|lobes?)\b|\bsymmetric\w*\b/i },
   { name: 'imaging brightness', medicalOnly: true, pattern: /\b(?:bright\w*|white\w*|dark\w*|black\w*|lucen\w*|radiolucen\w*|radiopaque|opaque|opacit\w*|dens(?:e|ity))\b/i },
   { name: 'organism taxonomy', medicalOnly: true, pattern: /\b(?:family|genus|genera|species|phylum|nematodes?|cestodes?|trematodes?|pentastomids?|protozoa\w*|arthropods?|helminths?)\b/i },
   { name: 'clinician or procedure', medicalOnly: false, pattern: /\b(?:radiologists?|surgeons?|surgical|surgery|theatre|operat(?:ed|ion|ing)|ruled out|biops\w*|autops\w*)\b/i },
@@ -65,14 +70,22 @@ export function unsupportedLaterality(reply: string, caseFacts: string): boolean
 // condition with invented rules ("Pneumonia would sit patchy in one spot", "Stones pass through",
 // "Parasites would be tiny separate shapes"). In a medical reply, a sentence that names a guess term the
 // case facts never mention AND states how that condition behaves or looks is unsupported teaching.
-const CONTRAST_CUE = /\b(?:would|wouldn't|usually|typically|tends? to|always|never|sits?|shows? up|leaves?|lives? in|stays? in|parks? in|pass(?:es)? through|looks? like|is (?:a|an) (?:lung|liver|bone|muscle|bowel|brain|heart|skin) (?:thing|story|problem))\b/i;
+// 2026-10-12 audit: every leak after #37 used a present-tense behaviour verb or "rather than", named the
+// guess by an abbreviation (TB) or answered a non-Latin comment, so all three now count.
+const CONTRAST_CUE = /\b(?:would|wouldn't|usually|typically|tends? to|always|never|sits?|shows? up|leaves?|lives? in|stays? in|parks? in|pass(?:es)? through|looks? like|rather than|instead of|unlike|keeps?|favou?rs?|narrows?|closes?|enlarges?|grows? along|scars?|tightens?|is written up as|is (?:a|an) (?:lung|liver|bone|muscle|bowel|brain|heart|skin) (?:thing|story|problem))\b/i;
 const CONTRAST_STOP = new Set('about after again against before being below between could doing during every flagged guess guessed looks maybe might other really right should since their there these thing think those though under where which while would whole yeah never always first'.split(' '));
+const ABBREV: Record<string, string[]> = { tb: ['tuberculosis', 'tuberculous'], tuberculosis: ['tb'], cf: ['cystic'], chf: ['heart'], copd: ['emphysema'], eoe: ['eosinophilic'], ra: ['rheumatoid'], pe: ['embolism'] };
+const NAMED_CONDITION = /\b[a-z]+(?:itis|osis|oma|asis)\b|\b(?:tb|cancer|metastas\w*|cannonballs?)\b/g;
 const stem = (w: string) => w.toLowerCase().replace(/(?:es|s)$/, '');
 /** A medical DeepSeek reply that teaches how the guessed condition behaves without support in the case facts. */
 export function unsupportedTeachingContrast(reply: string, comment: string, caseFacts: string, category: string): boolean {
   if (!['correct', 'teach', 'affirm'].includes(category)) return false;
   const supported = new Set((caseFacts.toLowerCase().match(/[a-z]+/g) ?? []).map(stem));
-  const guessTerms = new Set((comment.toLowerCase().match(/[a-z]{5,}/g) ?? []).filter((w) => !CONTRAST_STOP.has(w)).map(stem).filter((w) => !supported.has(w)));
+  const raw = comment.toLowerCase().match(/[a-z]{2,}/g) ?? [];
+  const base = raw.filter((w) => (w.length >= 5 && !CONTRAST_STOP.has(w)) || Object.hasOwn(ABBREV, w));
+  const guessTerms = new Set(base.flatMap((w) => [w, ...(ABBREV[w] ?? [])]).map(stem).filter((w) => !supported.has(w)));
+  // A non-Latin comment yields no terms: any condition the reply names that the facts never mention counts.
+  if (!raw.length) for (const w of reply.toLowerCase().match(NAMED_CONDITION) ?? []) if (!supported.has(stem(w))) guessTerms.add(stem(w));
   if (!guessTerms.size) return false;
   return reply.split(/(?<=[.!?])\s+/).some((sentence) =>
     CONTRAST_CUE.test(sentence) && (sentence.toLowerCase().match(/[a-z]+/g) ?? []).some((w) => guessTerms.has(stem(w))));
@@ -81,16 +94,24 @@ export const TEACHING_CONTRAST_RECHECK = 'Do not describe how the guessed condit
 // 2026-10-09 audit: "the case facts/records/notes don't say..." dodges read as a bot; drug jokes off-brand.
 const INTERNAL_LEAK = /\b(?:packet|supplied facts|system prompt|my instructions|the instructions|case (?:facts|notes|records?)|teaching answer|the notes|parent comment(?:er)?|the case (?:does not|doesn't|never|only) (?:record|state|mention|say|list|cover)\w*)\b/i;
 const DRUG_JOKE = /\b(?:bong|weed|stoned|high as a kite|cocaine|meth)\b/i;
-/** First unsupported claim family in a DeepSeek draft, or null. `support` is facts + post + answer + comment. */
-export function unsupportedDeepSeekClaim(reply: string, support: string, category: string): string | null {
+/** First unsupported claim family in a DeepSeek draft, or null. `support` is facts + post + answer + comment;
+ *  `caseSupport` (facts + post + answer only) backs the factsOnly families. */
+export function unsupportedDeepSeekClaim(reply: string, support: string, category: string, caseSupport = support): string | null {
   if (INTERNAL_LEAK.test(reply)) return 'internal wording';
   if (DRUG_JOKE.test(reply)) return 'drug joke';
   const medical = ['correct', 'teach', 'affirm'].includes(category);
   for (const family of CLAIM_FAMILIES) {
     if (family.medicalOnly && !medical) continue;
-    if (family.pattern.test(reply) && !family.pattern.test(support)) return family.name;
+    if (family.pattern.test(reply) && !family.pattern.test(family.factsOnly ? caseSupport : support)) return family.name;
   }
   return null;
+}
+
+// 2026-10-12 audit: three crude sexual-bait comments got witty replies on an educational brand.
+const SEXUAL_BAIT = /\b(?:blow ?jobs?|phone sex|porn\w*|pussy|cock|tits|boobs?|nudes?|horny)\b|\byour (?:mom|mum|mother|momma)['’]?s? (?:vagina|pussy|ass|butt|dick|penis)\b/i;
+/** Sexual bait never gets a reply, whichever model would draft it. */
+export function isSexualBait(commentText: string): boolean {
+  return SEXUAL_BAIT.test(commentText);
 }
 
 export const DEEPSEEK_MEDIA_HOLD = 'media-grounding: DeepSeek media reply held pending grounding and written-intent acceptance';

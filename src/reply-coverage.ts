@@ -9,6 +9,24 @@ export function isEmojiOnlyComment(text: string): boolean {
   return remainder !== text && !remainder.replace(/[\s\u200D\uFE0E\uFE0F\u{E0020}-\u{E007F}]/gu, '');
 }
 
+// 2026-10-12 voice audit: 17 of 30 TB guesses on one post got the same "Not TB..." correction. A person
+// answering the 20th identical guess says so instead of writing the first correction again.
+const GUESS_ALIASES: Array<[string, RegExp]> = [
+  ['TB', /\b(?:tb|tuberc\w*|consumption|t[uü]berk\w*)\b/i],
+  ['cancer', /\b(?:cancer|tumou?rs?|malignan\w*|carcinoma|mets)\b/i],
+  ['pneumonia', /\bpneumonia\b/i],
+  ['a gunshot', /\b(?:shot|gsw|bullets?|guns?|gunshot|shotgun|buckshot)\b/i],
+  ['a swallowed object', /\b(?:swallowed|ate|eaten)\b/i],
+];
+const CROWD_MIN = 4;
+/** After the reveal: how many earlier audience comments on this post made the same guess. Pure. */
+export function crowdGuessNote(comment: string, earlier: string[]): string {
+  const hit = GUESS_ALIASES.find(([, re]) => re.test(comment));
+  if (!hit) return '';
+  const n = earlier.filter(text => hit[1].test(text)).length;
+  return n >= CROWD_MIN ? `CROWD NOTE: ${n} earlier comments on this post also went with ${hit[0]}. You may acknowledge that like a person would (you and half the thread). Do not reuse a correction sentence you already gave others. One short sentence is enough.` : '';
+}
+
 export function isRetiredGuessReceipt(text: string): boolean {
   return /\bthanks? (?:you )?for (?:putting (?:a|your) guess in|joining the challenge|having a go|taking a shot|(?:your )?guess(?:ing)?)\b|\b(?:your guess is in|got your guess|guess (?:received|recorded|noted))\b/i.test(text);
 }

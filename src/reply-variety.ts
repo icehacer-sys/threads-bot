@@ -46,9 +46,24 @@ const STOCK_SHAPES: Array<[string, RegExp]> = [
   ['heavy lifting', /\bheavy lifting\b/i],
   ['doing a lot of work', /\bdoing (?:a lot of|most of the|all the) (?:work|talking)\b/i],
   ['is the correct reaction', /\bis the correct (?:response|reaction|unit|move|amount)\b/i],
+  // 2026-10-12 audit: after #41 the reaction-grading template moved to words ("Wow is about the right speed").
+  ['is about the right', /\bis about (?:the )?right\b/i],
+  ['any time', /^any time\b/i],
 ];
 // A facts phrase may repeat across a post, but not become a refrain ("both hila" 15 times, "bat wing" 19).
 const FACT_REFRAIN = 6;
+// 2026-10-12 audit: "through the blood" sat in 62 of 248 replies on one post. contentPairs drops every pair
+// that touches a stopword, so refrains such as "through the blood" or "on its own" were invisible to it.
+const RUN_REFRAIN = 5;
+function runs(s: string): Set<string> {
+  const w = words(s);
+  const out = new Set<string>();
+  for (let i = 0; i + 3 <= w.length; i++) {
+    const gram = w.slice(i, i + 3);
+    if (gram.some(x => !STOP.has(x) && x.length >= 4)) out.add(gram.join(' '));
+  }
+  return out;
+}
 
 /**
  * Phrases a draft reuses from replies already on the post. Medical vocabulary from the answer and
@@ -63,7 +78,9 @@ export function repeatedPhrasing(draft: string, recent: string[], protectedText 
   const pairs = [...contentPairs(draft)].filter(p => !p.split(' ').some(w => exempt.has(w)) && recent.some(r => contentPairs(r).has(p)));
   const refrains = [...contentPairs(draft)].filter(p => p.split(' ').some(w => exempt.has(w)) && !p.split(' ').some(w => answerWords.has(w)) &&
     recent.filter(r => contentPairs(r).has(p)).length >= FACT_REFRAIN);
+  const runRefrains = [...runs(draft)].filter(g => !g.split(' ').some(w => answerWords.has(w)) &&
+    recent.filter(r => runs(r).has(g)).length >= RUN_REFRAIN);
   const stock = STOCK_SHAPES.filter(([, re]) => re.test(draft) && recent.filter(r => re.test(r)).length >= 2).map(([name]) => name);
   const shapes = recent.filter(r => sharedShapeCount(r, draft) >= 2).map(r => r.slice(0, 60));
-  return [...pairs.map(p => `"${p}"`), ...refrains.map(p => `the refrain "${p}"`), ...stock.map(s => `the stock phrase "${s}"`), ...shapes.map(s => `the shape of "${s}..."`)];
+  return [...pairs.map(p => `"${p}"`), ...refrains.map(p => `the refrain "${p}"`), ...runRefrains.map(g => `the refrain "${g}"`), ...stock.map(s => `the stock phrase "${s}"`), ...shapes.map(s => `the shape of "${s}..."`)];
 }

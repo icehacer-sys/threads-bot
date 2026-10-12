@@ -10,7 +10,9 @@ export function isLowEngagementSkip(decision: string, category: string, reason: 
     /noise|low[- ](?:value|engagement)|nothing (?:new|to)|no (?:new|substantive|meaningful)|(?:lone|single) emoji|bare thanks|already (?:answered|explained)/i.test(reason);
 }
 
-/** Targeted failures found in the September 20 and October 11 reply audits. */
+const MEDICAL_TERM = /\b(?:tb|tuberc\w*|cancer|tumou?r\w*|malignan\w*|pneumo\w*|fibrosis|emphysema|copd|chf|oedema|edema|effusion|abscess\w*|sepsis|septic|infection|fungal|mou?ld|lupus|achalasia|stricture\w*|spasm|hernia|torsion|embol\w*|gout|arthritis|stones?|haemo\w*|hemo\w*|collapse\w*|cyst\w*|mets|aneurysm\w*|fracture\w*|parasit\w*|worms?)\b|\w+(?:itis|osis|oma|omas|aemia|emia)\b/i;
+
+/** Targeted failures found in the September 20 and October 11 and 12 reply audits. */
 export function conversationReplyIssue(comment: string, category: string, draft: string, isCase: boolean): string | undefined {
   // Emoji give tone to written comments. Only discuss their meaning when asked.
   const emojiQuestion = /\b(?:what|why|how|which|explain)\b[^.!?]{0,60}\b(?:emojis?|emoticons?)\b|\b(?:emojis?|emoticons?)\b[^.!?]{0,40}\b(?:mean|means|meaning)\b/i.test(comment) ||
@@ -22,6 +24,20 @@ export function conversationReplyIssue(comment: string, category: string, draft:
   }
   if (['banter', 'affirm'].includes(category) && /\byou (?:went|skipped|jumped) (?:straight )?to (?:the )?(?:abbreviation|shorthand|Latin name)\b|\byou (?:used|chose|picked) (?:the )?(?:abbreviation|shorthand|Latin name)\b/i.test(draft)) {
     return 'comment wording: acknowledge the guess itself without commenting on its abbreviation or spelling';
+  }
+  // 2026-10-12 audit: after #41 the template moved to the commenter's own word ("Wow is about the right speed").
+  const echoWord = (comment.toLowerCase().match(/\p{L}+/u) ?? [''])[0];
+  const gradesReaction = /\b(?:is|was) (?:about )?(?:the |a )?(?:right|correct|fair|honest) (?:amount|word|unit|volume|size|speed|noise|review|first word|summary|response|reaction)\b|\babout (?:covers|sums up) (?:it|how)\b|^\S+(?: \S+){0,2} (?:is|was) (?:about )?(?:a |the )?(?:right|fair)\b/i.test(draft);
+  const bareReaction = comment.trim().split(/\s+/).length <= 4 && !/\?/.test(comment) && !/^\s*(?:what|why|how|is|are|can|does|did)\b/i.test(comment);
+  if (bareReaction && gradesReaction && (!echoWord || draft.toLowerCase().includes(echoWord) || /\babout (?:covers|sums up)\b/i.test(draft))) {
+    return 'grading the reaction: respond to what they reacted to instead of rating their word';
+  }
+  // 2026-10-12 audit: 45 joke or lay comments got "No X here. It's Y." (16 of 43 gun jokes on Oct 11).
+  // A comment naming a medical condition is a real guess and may get "Not TB..."; an honest "No idea" stays.
+  if (isCase && ['correct', 'teach', 'banter'].includes(category) && !MEDICAL_TERM.test(comment) &&
+      !/^\s*(?:what|why|how|when|where|who|which|did|does|do|is|are|was|were|can|could|will|would|has|have|should)\b/i.test(comment) &&
+      /^(?:no|not|nothing|nobody|none)\b/i.test(draft.trim()) && !/^(?:no idea|not sure|no way to (?:know|tell))\b/i.test(draft.trim())) {
+    return 'deflating correction of a joke or lay reading: start from why it looks that way, then the answer only if it fits';
   }
   if (/^nailed it[.!\s]*$/i.test(draft) || (category === 'banter' && /\bthat['’]s a new way to describe\b/i.test(draft))) return 'stock praise or commentary instead of responding to the comment';
   if (/\bself[- ]inflicted\b|\bdenial and adaptation\b/i.test(draft)) return 'unsupported blame or patient motivation';
