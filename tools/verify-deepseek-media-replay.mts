@@ -56,7 +56,14 @@ const promoEdits:Array<[string,string]>=[
  ['("I made a free round of these you can play on your phone" / "I put 10 of the weirdest into a book")','("I actually turned these into a card game" / "I put 50 of these into a book")'],
  ['you may name the price from the catalog but never a discount code;','you may name the price or the SPOTIT code;'],
 ];
-const recordPromo=(s:string)=>promoEdits.reduce((t,[now,then])=>t.replace(now,then),s.replace(PRODUCTS_BLOCK,recordedProductsBlock));
+// Learned notes: voicelearn.yml activates new notes after its fixed evaluation and they ride in the
+// system prompt, so each activation (e.g. 2026-10-12 18:34 UTC) changed the paid hashes. Swap the
+// active notes for the copy that was live when the requests were recorded (activated 2026-09-28).
+const learnedBody=(md:string)=>md.replace(/\r\n/g,'\n').trim().replace(/<!--[\s\S]*?-->/g,'').trim();
+const activeNotes=learnedBody(fs.readFileSync(new URL('../data/voice-learned.md',import.meta.url),'utf8'));
+const recordedNotes=learnedBody(fs.readFileSync(new URL('./fixtures/voice-learned-recorded-2026-09-28.md',import.meta.url),'utf8'));
+const recordNotes=(s:string)=>activeNotes&&activeNotes!==recordedNotes?s.replace(`\n${activeNotes}`,`\n${recordedNotes}`):s;
+const recordPromo=(s:string)=>recordNotes(promoEdits.reduce((t,[now,then])=>t.replace(now,then),s.replace(PRODUCTS_BLOCK,recordedProductsBlock)));
 const sameTags=(v:unknown)=>Array.isArray(v)&&JSON.stringify(v)===JSON.stringify(PROMO_TAGS);
 const {DEEPSEEK_MEDIA_GUIDANCE,DEEPSEEK_MEDIA_HOLD,DEEPSEEK_REPLY_GUIDANCE}=await import('../src/deepseek-media-policy');
 let roundedTotal=0;
