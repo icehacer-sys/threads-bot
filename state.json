@@ -28896,6 +28896,15 @@
       },
       "publishedId": "18636103504036613",
       "confirmedPublished": true
+    },
+    "comment:17938980039388564": {
+      "creationId": "17893349721614054",
+      "createdAt": "2026-10-12T19:36:45.138Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "A tangled ball of string is exactly what a knot of vessels looks like when it fills with dye but this one is a brain AVM.",
+        "reply_to_id": "17938980039388564"
+      }
     }
   },
   "repliedCommentIds": [
@@ -39429,7 +39438,8 @@
     "18097290311434344",
     "18116919076796860",
     "17953249926285168",
-    "18086613677305774"
+    "18086613677305774",
+    "18172415938457722"
   ],
   "answeredPostIds": [
     "18395606890093068"
@@ -39563,11 +39573,11 @@
     "18054929093583647": 60,
     "18628279045036981": 229,
     "18117179536935952": 250,
-    "18144676564597946": 11
+    "18144676564597946": 12
   },
   "daily": {
     "date": "2026-10-12",
-    "count": 11
+    "count": 12
   },
   "pinnedResolved": {
     "DaTTCIwoAw7": "18014812820883466"
@@ -41089,6 +41099,6 @@
   },
   "spend": {
     "date": "2026-10-12",
-    "usd": 0.028808459999999994
+    "usd": 0.029285603999999993
   }
 }
