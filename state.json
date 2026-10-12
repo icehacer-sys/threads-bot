@@ -28962,6 +28962,15 @@
       },
       "publishedId": "17995723089107077",
       "confirmedPublished": true
+    },
+    "comment:18103351748420363": {
+      "creationId": "17893353516614054",
+      "createdAt": "2026-10-12T20:09:33.475Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "The little side streets are doing a lot of heavy lifting here and the main road is the one that needs the repair crew.",
+        "reply_to_id": "18103351748420363"
+      }
     }
   },
   "repliedCommentIds": [
@@ -41167,6 +41176,6 @@
   },
   "spend": {
     "date": "2026-10-12",
-    "usd": 0.040507055999999986
+    "usd": 0.041008799999999984
   }
 }
