@@ -42,7 +42,8 @@
     "audit:verify": "tsx tools/verify-audit.mts",
     "runtime:summary": "tsx tools/runtime-summary.mts",
     "voice:evaluate": "tsx tools/evaluate-voice.mts --live",
-    "specifics:verify": "tsx tools/verify-invented-specifics.mts"
+    "specifics:verify": "tsx tools/verify-invented-specifics.mts && npm run products:verify",
+    "products:verify": "tsx tools/verify-products.mts"
   },
   "dependencies": {
     "@anthropic-ai/sdk": "^0.104.1",

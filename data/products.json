@@ -1,101 +1,68 @@
 [
   {
-    "tag": "free_pack",
-    "name": "The Hopital Pack (FREE)",
+    "tag": "free_round",
+    "name": "Wait. What Is That? (Case File 00, free)",
     "url": "https://free.mednoteslab.com/",
     "price": "free",
-    "when": "DEFAULT plug for casual interest: someone enjoying the cases, asking if there are more, or new to the account. Zero friction — 6 wild cases, free.",
+    "when": "DEFAULT plug for casual interest: someone enjoying the cases, asking if there are more, or new to the account. A free 2-minute guessing game on the phone with 6 X-rays of things that should not be inside a person (a coin, a spoon, a razor blade, a nail in an eye socket, a metal rod and a tooth in the chest). Each reveal says what it is and what happens next. No app and no sign up.",
     "keywords": [
-      "pack",
       "free",
+      "free round",
+      "game",
       "starter"
     ]
   },
   {
-    "tag": "complete_collection",
-    "name": "Weird X-Ray Case Files: The Complete Collection",
-    "url": "https://mednoteslab.gumroad.com/l/collection",
-    "price": "$79, code SPOTIT takes $30 off",
-    "when": "Superfans: 'I could read these all day', 'I'd buy a whole book of this', asks for everything in one place. Six editions, 140 cases, every answer.",
+    "tag": "inside_game",
+    "name": "How Did That Get In There? (Case File 01)",
+    "url": "https://inside.mednoteslab.com/",
+    "price": "pay what you want from $3",
+    "when": "Cheap or impulse asks ('is there a cheaper one') and swallowed-object or foreign-body comments ('how did that get in there'). A phone game with 10 X-rays of things found inside people, among them a fork, a safety pin, a sword, a battery in a nose and scissors left behind after surgery. Each reveal says how it got there and whether it can be fixed. Solo or party mode for 2 to 6 players on one phone.",
     "keywords": [
-      "collection",
+      "game",
+      "swallowed",
+      "inside",
+      "cheap",
+      "party"
+    ]
+  },
+  {
+    "tag": "book",
+    "name": "What Am I Even Looking At? (Case File 02)",
+    "url": "https://book.mednoteslab.com/",
+    "price": "$9",
+    "when": "Someone asking 'is there a book', wanting the cases explained, or asking whether these can be fixed. 10 of the weirdest X-rays as a PDF book with a guess page and an answer page for each (what it is, why it happens and whether it can be fixed in plain words) plus the same 10 as a scored phone game.",
+    "keywords": [
       "book",
-      "140",
-      "spotit",
-      "full run",
-      "every edition",
-      "all six"
+      "pdf",
+      "explained",
+      "curable"
     ]
   },
   {
-    "tag": "could_you_spot_it",
-    "name": "Could You Spot It?",
-    "url": "https://spot.mednoteslab.com/",
-    "price": "$24",
-    "when": "Someone who loves the GUESSING game specifically — 50 of the strangest cases, one guess per page, flip for the answer.",
+    "tag": "every_file",
+    "name": "I Could Read These All Day (Case File 03)",
+    "url": "https://all.mednoteslab.com/",
+    "price": "$49",
+    "when": "Superfans: 'I could read these all day', 'I'd buy all of them', asks for everything in one place. Every case file in one library: both games, the book, the archive of posted cases and every new file from here on at no extra cost. Never state a case count for it.",
     "keywords": [
-      "spot it",
-      "book",
-      "50"
+      "everything",
+      "all of them",
+      "library",
+      "every case"
     ]
   },
   {
-    "tag": "volume_1",
-    "name": "Weird X-Ray Case Files: Volume 1",
-    "url": "https://xray.mednoteslab.com/",
-    "price": "$12",
-    "when": "Someone asking where to START with a paid edition — the original 20 cases explained in simple language.",
+    "tag": "support",
+    "name": "Keep The Cases Coming",
+    "url": "https://support.mednoteslab.com/",
+    "price": "pay what you want from $10",
+    "when": "Someone who wants to support the account or the creator ('how can I support you', 'you deserve to be paid for this', 'take my money'). A pay-what-you-want way to help keep the nightly cases free for everyone. It has no cases in it.",
     "keywords": [
-      "volume",
-      "book",
-      "original"
-    ]
-  },
-  {
-    "tag": "volume_2",
-    "name": "Weird X-Ray Case Files: Volume 2",
-    "url": "https://xray2.mednoteslab.com/",
-    "price": "$12",
-    "when": "Readers who already read Volume 1 and want the next 20 bizarre cases.",
-    "keywords": [
-      "volume",
-      "book",
-      "second",
-      "vol 2"
-    ]
-  },
-  {
-    "tag": "volume_3",
-    "name": "Weird X-Ray Case Files: Volume 3",
-    "url": "https://xray3.mednoteslab.com/",
-    "price": "$12",
-    "when": "Returning readers who already know the series and want the NEWEST 20 cases.",
-    "keywords": [
-      "volume",
-      "newest",
-      "book"
-    ]
-  },
-  {
-    "tag": "rarest_findings",
-    "name": "Rarest Findings",
-    "url": "https://rare.mednoteslab.com/",
-    "price": "$12",
-    "when": "Comments obsessed with how RARE a case is ('how rare is this', 'never seen anything like it') — the 10 rarest cases in radiology.",
-    "keywords": [
-      "rarest",
-      "rare cases",
-      "book"
-    ]
-  },
-  {
-    "tag": "hopital_edition",
-    "name": "Hopital Field Edition",
-    "url": "https://hopital.mednoteslab.com/",
-    "price": "$12",
-    "when": "In-joke moments around the 'hopital' meme — 20 wild cases where the only answer is hopital.",
-    "keywords": [
-      "hopital"
+      "support",
+      "tip",
+      "donate",
+      "patron"
     ]
   },
   {
@@ -109,21 +76,6 @@
       "game",
       "cards",
       "deck"
-    ]
-  },
-  {
-    "tag": "viral_10",
-    "name": "Weird X-Ray Case Files: The Viral 10",
-    "url": "https://viral.mednoteslab.com/",
-    "price": "$5",
-    "when": "A cheap impulse ask ('is there a cheaper one', 'do you have anything smaller/less expensive') or someone mentioning a specific case that went viral — the 10 highest-viewed cases ever posted, bundled.",
-    "keywords": [
-      "viral",
-      "cheap",
-      "$5",
-      "starter",
-      "top 10",
-      "most viewed"
     ]
   }
 ]
