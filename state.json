@@ -29182,6 +29182,15 @@
       },
       "publishedId": "18034232249853869",
       "confirmedPublished": true
+    },
+    "comment:17971109100158148": {
+      "creationId": "17893389966614054",
+      "createdAt": "2026-10-13T05:00:25.204Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Not a clot and not a bleed. This tangle is arteries hooked straight into veins and the dye drains into an enlarged vein before it should.",
+        "reply_to_id": "17971109100158148"
+      }
     }
   },
   "repliedCommentIds": [
@@ -41419,6 +41428,6 @@
   },
   "spend": {
     "date": "2026-10-12",
-    "usd": 0.06716558399999999
+    "usd": 0.06878594999999998
   }
 }
