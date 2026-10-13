@@ -29193,6 +29193,15 @@
       },
       "publishedId": "18338283142276709",
       "confirmedPublished": true
+    },
+    "comment:18572633239072176": {
+      "creationId": "17893390017614054",
+      "createdAt": "2026-10-13T05:00:49.523Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "A dural fistula is a fair thought but this one is a cerebral AVM with the tangle sitting in the brain tissue itself.",
+        "reply_to_id": "18572633239072176"
+      }
     }
   },
   "repliedCommentIds": [
@@ -39753,7 +39762,8 @@
     "17974443543150397",
     "18019866920947149",
     "18100940438380671",
-    "18165317515488779"
+    "18165317515488779",
+    "17971109100158148"
   ],
   "answeredPostIds": [
     "18395606890093068"
@@ -39887,11 +39897,11 @@
     "18054929093583647": 60,
     "18628279045036981": 229,
     "18117179536935952": 250,
-    "18144676564597946": 38
+    "18144676564597946": 39
   },
   "daily": {
     "date": "2026-10-12",
-    "count": 38
+    "count": 39
   },
   "pinnedResolved": {
     "DaTTCIwoAw7": "18014812820883466"
@@ -41430,6 +41440,6 @@
   },
   "spend": {
     "date": "2026-10-12",
-    "usd": 0.06878594999999998
+    "usd": 0.07092094199999999
   }
 }
