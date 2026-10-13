@@ -717,7 +717,8 @@
     "18150410479481618": "{\"postId\":\"18004698404989902\",\"reason\":\"owner review: unsupported patient history, confirmation, specifics (day) or dismissal of an accepted differential | guard:forced-skip\",\"commentText\":\"Left side heart failure, left side backs up in the lungs. \\nRight side backs up into the body. \\n\\nIV lasix, with cardiac monitoring, and out put Q1h, to reduce strain in heart and kidneys.\\n\\nif YOU CAN HEAR THE TIDE RISE AND FALL AS THEY BREATHE HOPITAL ASAP...SKIP URCHIN CARE. \\n(waaaaahhhhmmm-bulance maybe indicated)..\",\"username\":\"dark.11angel730\",\"queuedAt\":\"2026-10-07T21:46:15.446Z\"}",
     "18154369117520707": "{\"postId\":\"18628279045036981\",\"reason\":\"Question about image provenance/authenticity requires an owner response and no automatic reply per policy. Commenter alleges the image is AI-generated and cites an external source. No reply drafted, no invented claim about how the image was made, no agreement or denial.\",\"commentText\":\"No need to use AI to show this case, friend. If you’re looking for examples of a corkscrew esophagus, there are dozens of cases on Radiopedia https://radiopaedia.org/articles/corkscrew-sign-diffuse-oesophageal-spasm?lang=us\",\"username\":\"hippocates\",\"queuedAt\":\"2026-10-11T02:55:37.749Z\"}",
     "18155830345518933": "{\"postId\":\"18117179536935952\",\"reason\":\"Comment asserts the X-ray is fake, i.e. a challenge to image authenticity/provenance. Per policy image-provenance questions require owner review and no automatic reply, and I must not agree an error exists or invent a claim about authenticity.\",\"commentText\":\"Рентген - фейк.\",\"username\":\"mortis_andrew1962\",\"queuedAt\":\"2026-10-11T20:35:23.985Z\"}",
-    "18395524552207908": "{\"postId\":\"18117179536935952\",\"reason\":\"Question about the account operator and their credentials (are you a doctor) needs an owner response. Skipping rather than claiming or denying credentials or impersonating an operator.\",\"commentText\":\"Are you a doctor by any chance\",\"username\":\"jackhiggins328\",\"queuedAt\":\"2026-10-11T20:40:17.783Z\"}"
+    "18395524552207908": "{\"postId\":\"18117179536935952\",\"reason\":\"Question about the account operator and their credentials (are you a doctor) needs an owner response. Skipping rather than claiming or denying credentials or impersonating an operator.\",\"commentText\":\"Are you a doctor by any chance\",\"username\":\"jackhiggins328\",\"queuedAt\":\"2026-10-11T20:40:17.783Z\"}",
+    "18107973095080957": "{\"postId\":\"17958909246216998\",\"reason\":\"owner review: unsupported patient history, confirmation, specifics (month) or dismissal of an accepted differential | guard:forced-skip\",\"commentText\":\"Kidneys seem a little discombobulated .\",\"username\":\"peace_of_mind714\",\"queuedAt\":\"2026-10-13T22:28:02.045Z\"}"
   },
   "concernAcknowledgments": {
     "[\"18121475662898455\",\"berit069\",\"image\"]": "18142096432588199",
@@ -41664,7 +41665,8 @@
     "18112305266155139",
     "18633943960021329",
     "18491275321107665",
-    "18105248789357740"
+    "18105248789357740",
+    "18107973095080957"
   ],
   "skipStrikes": {
     "17895266316520842": 1,
@@ -41804,6 +41806,6 @@
   },
   "spend": {
     "date": "2026-10-13",
-    "usd": 0.043654619999999984
+    "usd": 0.044587283999999984
   }
 }
