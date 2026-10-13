@@ -29436,6 +29436,15 @@
       },
       "publishedId": "17868559281662688",
       "confirmedPublished": true
+    },
+    "comment:17877689067567121": {
+      "creationId": "17893476327614054",
+      "createdAt": "2026-10-13T20:08:13.453Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "A whole grapefruit would at least explain the round shadow but not the two stretched tubes feeding it.",
+        "reply_to_id": "17877689067567121"
+      }
     }
   },
   "repliedCommentIds": [
@@ -41700,6 +41709,6 @@
   },
   "spend": {
     "date": "2026-10-13",
-    "usd": 0.026144759999999993
+    "usd": 0.026569571999999993
   }
 }
