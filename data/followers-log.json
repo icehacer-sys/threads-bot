@@ -330,12 +330,12 @@
     "viewsThatDay": 474477
   },
   {
-    "intervalHours": 26.668143055555557,
+    "intervalHours": 48.76984638888889,
     "attribution": "Account-wide net change, not gross follows or attribution to a single case/reply",
     "date": "2026-10-13",
-    "takenAt": "2026-10-13T00:18:58.281Z",
-    "followersCount": 348124,
-    "netChange": 331,
-    "viewsThatDay": null
+    "takenAt": "2026-10-13T22:25:04.413Z",
+    "followersCount": 348081,
+    "netChange": 288,
+    "viewsThatDay": 488935
   }
 ]
