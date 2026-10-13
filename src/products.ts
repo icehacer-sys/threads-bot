@@ -6,7 +6,7 @@ import { fileURLToPath } from "node:url";
 import { dirname, join } from "node:path";
 
 export interface Product {
-  tag: string; // slug the classifier emits (free_pack / complete_collection / ...)
+  tag: string; // slug the classifier emits (free_round / book / every_file / ...)
   name: string;
   url: string; // appended by CODE after sanitize — the model never writes URLs
   price: string;
@@ -34,9 +34,14 @@ export function getProduct(tag: string | undefined): Product | null {
   return PRODUCTS.find((p) => p.tag === tag) ?? null;
 }
 
+/** Catalog block for a product list (exported so saved-request replays can rebuild an older catalog). */
+export function catalogBlock(products: Product[]): string {
+  return products.length
+    ? `\n\n## YOUR PRODUCT CATALOG (for the rare promo_product plug — pick by fit, never by price)\n${products.map(
+        (p) => `- ${p.tag}: ${p.name} (${p.price}). ${p.when}`,
+      ).join("\n")}`
+    : "";
+}
+
 /** Catalog block injected into the cached system prompt so the model can match product to moment. */
-export const PRODUCTS_BLOCK = PRODUCTS.length
-  ? `\n\n## YOUR PRODUCT CATALOG (for the rare promo_product plug — pick by fit, never by price)\n${PRODUCTS.map(
-      (p) => `- ${p.tag}: ${p.name} (${p.price}). ${p.when}`,
-    ).join("\n")}`
-  : "";
+export const PRODUCTS_BLOCK = catalogBlock(PRODUCTS);

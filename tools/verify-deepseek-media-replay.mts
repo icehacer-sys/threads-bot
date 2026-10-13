@@ -41,6 +41,30 @@ const currentGifVoice=GIF_SYSTEM_PROMPT.replace(/\r\n/g,'\n');
 const recordedGifVoice=currentGifVoice.replace(' Write one complete conversational sentence without a setup fragment or a separate punchline.','');
 const currentMediaNote=MEDIA_REPLY_NOTE.replace(/\r\n/g,'\n');
 const recordedMediaNote=currentMediaNote.replace(' Use one complete conversational sentence for a simple reaction.','');
+// Weird X-Ray Case Files catalog switch (owner-approved, 2026-10-13). The saved requests carry the
+// 2026-09-30 catalog, so rebuild that block and promo enum and reverse the promo wording edits.
+const {PRODUCTS_BLOCK,PROMO_TAGS,catalogBlock}=await import('../src/products');
+const recordedProducts=JSON.parse(fs.readFileSync(new URL('./fixtures/products-recorded-2026-09-30.json',import.meta.url),'utf8'));
+const recordedProductsBlock=catalogBlock(recordedProducts);
+const recordedPromoTags=['none',...recordedProducts.map((p:any)=>p.tag)];
+assert.notEqual(PRODUCTS_BLOCK,recordedProductsBlock,'Current catalog must be the new product line');
+const promoEdits:Array<[string,string]>=[
+ ['whether there is a book or a game','whether there is a book or collection'],
+ [', ask how to support you (→ support), or joke',', or joke'],
+ ['(free_round is the default for casual interest)','(free_pack is the default for casual interest)'],
+ ['default to free_round (start free) or every_file when they want everything.','default to free_pack (start free) or complete_collection.'],
+ ['("I made a free round of these you can play on your phone" / "I put 10 of the weirdest into a book")','("I actually turned these into a card game" / "I put 50 of these into a book")'],
+ ['you may name the price from the catalog but never a discount code;','you may name the price or the SPOTIT code;'],
+];
+// Learned notes: voicelearn.yml activates new notes after its fixed evaluation and they ride in the
+// system prompt, so each activation (e.g. 2026-10-12 18:34 UTC) changed the paid hashes. Swap the
+// active notes for the copy that was live when the requests were recorded (activated 2026-09-28).
+const learnedBody=(md:string)=>md.replace(/\r\n/g,'\n').trim().replace(/<!--[\s\S]*?-->/g,'').trim();
+const activeNotes=learnedBody(fs.readFileSync(new URL('../data/voice-learned.md',import.meta.url),'utf8'));
+const recordedNotes=learnedBody(fs.readFileSync(new URL('./fixtures/voice-learned-recorded-2026-09-28.md',import.meta.url),'utf8'));
+const recordNotes=(s:string)=>activeNotes&&activeNotes!==recordedNotes?s.replace(`\n${activeNotes}`,`\n${recordedNotes}`):s;
+const recordPromo=(s:string)=>recordNotes(promoEdits.reduce((t,[now,then])=>t.replace(now,then),s.replace(PRODUCTS_BLOCK,recordedProductsBlock)));
+const sameTags=(v:unknown)=>Array.isArray(v)&&JSON.stringify(v)===JSON.stringify(PROMO_TAGS);
 const {DEEPSEEK_MEDIA_GUIDANCE,DEEPSEEK_MEDIA_HOLD,DEEPSEEK_REPLY_GUIDANCE}=await import('../src/deepseek-media-policy');
 let roundedTotal=0;
 for(const c of [...pack.cases,...recheck.cases]){active=c;const before=attempts;const result=await classifyAndDraft(c.input);assert.equal(attempts-before,1);
@@ -55,7 +79,7 @@ for(const c of [...pack.cases,...recheck.cases]){active=c;const before=attempts;
  const expectedVoice=c.input.commentText.trim()?'For banter write one complete sentence that responds directly to what they said.':'Write one complete conversational sentence without a setup fragment or a separate punchline.';
  assert.ok(captured.system.some((b:any)=>b.text.includes(expectedVoice)),'Actual text and bare-GIF requests use the new sentence guidance');
  if(c.input.commentText.trim()) assert.ok(captured.system.some((b:any)=>b.text.includes('Treat emoji as emotional context for the written comment.')),'Actual text requests use the new emoji-intent guidance');
- const canonical=JSON.stringify(originalRequest,(_key,value)=>typeof value==='string'?value.replace(/\r\n/g,'\n').replace(COVERAGE_NOTE,recordedCoverageNote).replace(currentVoice,recordedVoice).replace(currentGifVoice,recordedGifVoice).replace(currentMediaNote,recordedMediaNote):value);
+ const canonical=JSON.stringify(originalRequest,(_key,value)=>sameTags(value)?recordedPromoTags:typeof value==='string'?recordPromo(value.replace(/\r\n/g,'\n').replace(COVERAGE_NOTE,recordedCoverageNote).replace(currentVoice,recordedVoice).replace(currentGifVoice,recordedGifVoice).replace(currentMediaNote,recordedMediaNote)):value);
  assert.equal(hash(canonical),c.normalizedRequestHash,'Historical native request parity apart from line endings and approved owner policy edits');
  assert.deepEqual(captured.messages.flatMap((m:any)=>m.content.filter((b:any)=>b.type==='image')).map((b:any)=>hash(Buffer.from(b.source.data,'base64') as any)),c.frameHashes);
  assert.deepEqual(JSON.parse(JSON.stringify(result)),c.final.decision==='reply'?{decision:'skip',category:'other',reply_text:'',reason:`error: ${DEEPSEEK_MEDIA_HOLD}`}:c.final);const spend=drainSpend();assert.equal(spend.calls,1);assert.equal(Math.ceil(spend.usd*1e6),c.costMicroUsd);roundedTotal+=c.costMicroUsd;
