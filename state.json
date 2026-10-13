@@ -29094,6 +29094,15 @@
       },
       "publishedId": "17958063900252040",
       "confirmedPublished": true
+    },
+    "comment:18063652709538374": {
+      "creationId": "17893367835614054",
+      "createdAt": "2026-10-13T00:00:42.176Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Not this one. The answer is a cerebral AVM and the dye here fills the tangle and drains early into an enlarged vein.",
+        "reply_to_id": "18063652709538374"
+      }
     }
   },
   "repliedCommentIds": [
@@ -41320,6 +41329,6 @@
   },
   "spend": {
     "date": "2026-10-12",
-    "usd": 0.05711836799999998
+    "usd": 0.057998399999999985
   }
 }
