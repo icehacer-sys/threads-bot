@@ -29116,6 +29116,15 @@
       },
       "publishedId": "18409505407091600",
       "confirmedPublished": true
+    },
+    "comment:17888270235479380": {
+      "creationId": "17893375992614054",
+      "createdAt": "2026-10-13T01:57:28.584Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "The tangle is mostly arteries wired straight into veins so it is a cerebral AVM.",
+        "reply_to_id": "17888270235479380"
+      }
     }
   },
   "repliedCommentIds": [
@@ -41344,6 +41353,6 @@
   },
   "spend": {
     "date": "2026-10-12",
-    "usd": 0.05879750399999999
+    "usd": 0.060327011999999985
   }
 }
