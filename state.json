@@ -29491,6 +29491,15 @@
       },
       "publishedId": "18110591738608373",
       "confirmedPublished": true
+    },
+    "comment:18061060217543537": {
+      "creationId": "17893484442614054",
+      "createdAt": "2026-10-13T21:56:51.376Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "A pepper would explain the smoke but those two tubes have been swollen long before anyone reached for the spice rack.",
+        "reply_to_id": "18061060217543537"
+      }
     }
   },
   "repliedCommentIds": [
@@ -41768,6 +41777,6 @@
   },
   "spend": {
     "date": "2026-10-13",
-    "usd": 0.040470515999999984
+    "usd": 0.041225087999999986
   }
 }
