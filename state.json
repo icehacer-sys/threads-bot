@@ -29149,6 +29149,15 @@
       },
       "publishedId": "17992881420056590",
       "confirmedPublished": true
+    },
+    "comment:18019866920947149": {
+      "creationId": "17893383489614054",
+      "createdAt": "2026-10-13T03:28:54.989Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "That is the one and the early drain into that enlarged vein is the giveaway.",
+        "reply_to_id": "18019866920947149"
+      }
     }
   },
   "repliedCommentIds": [
@@ -41382,6 +41391,6 @@
   },
   "spend": {
     "date": "2026-10-12",
-    "usd": 0.06400433999999998
+    "usd": 0.06461644799999998
   }
 }
