@@ -29226,6 +29226,15 @@
       },
       "publishedId": "18006189314786914",
       "confirmedPublished": true
+    },
+    "comment:18105478571346502": {
+      "creationId": "17893394304614054",
+      "createdAt": "2026-10-13T05:57:12.039Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "And here I thought the egg was supposed to be the brain on drugs not the other way round.",
+        "reply_to_id": "18105478571346502"
+      }
     }
   },
   "repliedCommentIds": [
@@ -41467,6 +41476,6 @@
   },
   "spend": {
     "date": "2026-10-12",
-    "usd": 0.07531775399999999
+    "usd": 0.07596526199999999
   }
 }
