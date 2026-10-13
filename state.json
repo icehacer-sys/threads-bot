@@ -29469,6 +29469,15 @@
       },
       "publishedId": "18124471090785083",
       "confirmedPublished": true
+    },
+    "comment:18112990094127109": {
+      "creationId": "17893481466614054",
+      "createdAt": "2026-10-13T21:10:39.080Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Reflux comes up from the bladder and here the back pressure came down from a bladder that could not empty. Bilateral hydroureteronephrosis.",
+        "reply_to_id": "18112990094127109"
+      }
     }
   },
   "repliedCommentIds": [
@@ -41743,6 +41752,6 @@
   },
   "spend": {
     "date": "2026-10-13",
-    "usd": 0.03644380799999999
+    "usd": 0.03828526799999999
   }
 }
