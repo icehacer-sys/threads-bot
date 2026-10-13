@@ -29370,6 +29370,15 @@
       },
       "publishedId": "18117333559787115",
       "confirmedPublished": true
+    },
+    "comment:18172101595454936": {
+      "creationId": "17893475217614054",
+      "createdAt": "2026-10-13T19:50:54.661Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Glad it was already sitting there when you scrolled down.",
+        "reply_to_id": "18172101595454936"
+      }
     }
   },
   "repliedCommentIds": [
@@ -41628,6 +41637,6 @@
   },
   "spend": {
     "date": "2026-10-13",
-    "usd": 0.021447395999999994
+    "usd": 0.022581347999999994
   }
 }
