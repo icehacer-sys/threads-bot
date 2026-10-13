@@ -29502,6 +29502,15 @@
       },
       "publishedId": "18097424501536444",
       "confirmedPublished": true
+    },
+    "comment:18117459598782133": {
+      "creationId": "17893485654614054",
+      "createdAt": "2026-10-13T22:12:23.870Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "No stone in either kidney here. The answer is bilateral hydroureteronephrosis because a blocked bladder backed urine up into both kidneys.",
+        "reply_to_id": "18117459598782133"
+      }
     }
   },
   "repliedCommentIds": [
@@ -41780,6 +41789,6 @@
   },
   "spend": {
     "date": "2026-10-13",
-    "usd": 0.041225087999999986
+    "usd": 0.042939947999999985
   }
 }
