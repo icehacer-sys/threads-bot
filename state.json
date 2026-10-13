@@ -29105,6 +29105,15 @@
       },
       "publishedId": "17911861614521044",
       "confirmedPublished": true
+    },
+    "comment:18113044358004645": {
+      "creationId": "17893372200614054",
+      "createdAt": "2026-10-13T00:56:48.348Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Rare is what makes the hit feel good so enjoy that one.",
+        "reply_to_id": "18113044358004645"
+      }
     }
   },
   "repliedCommentIds": [
@@ -41332,6 +41341,6 @@
   },
   "spend": {
     "date": "2026-10-12",
-    "usd": 0.057998399999999985
+    "usd": 0.05879750399999999
   }
 }
