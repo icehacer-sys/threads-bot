@@ -29204,6 +29204,15 @@
       },
       "publishedId": "18199048474391418",
       "confirmedPublished": true
+    },
+    "comment:18124912198807640": {
+      "creationId": "17893391616614054",
+      "createdAt": "2026-10-13T05:31:18.840Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Yes these tangles are usually something people are born with so they can show up in childhood. Headaches that keep coming back for months are worth having checked by a doctor.",
+        "reply_to_id": "18124912198807640"
+      }
     }
   },
   "repliedCommentIds": [
@@ -41443,6 +41452,6 @@
   },
   "spend": {
     "date": "2026-10-12",
-    "usd": 0.07092094199999999
+    "usd": 0.07293499799999999
   }
 }
