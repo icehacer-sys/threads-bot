@@ -29536,6 +29536,15 @@
       },
       "publishedId": "17952346068291372",
       "confirmedPublished": true
+    },
+    "comment:18034742252903086": {
+      "creationId": "17893490451614054",
+      "createdAt": "2026-10-13T23:15:07.624Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "I am sorry about your husband. Six or seven more years is a real stretch of time and he clearly got there without a transplant.",
+        "reply_to_id": "18034742252903086"
+      }
     }
   },
   "repliedCommentIds": [
@@ -41818,6 +41827,6 @@
   },
   "spend": {
     "date": "2026-10-13",
-    "usd": 0.04580795999999998
+    "usd": 0.04655983199999998
   }
 }
