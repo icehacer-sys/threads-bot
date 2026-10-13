@@ -29127,6 +29127,15 @@
       },
       "publishedId": "18122919824318228",
       "confirmedPublished": true
+    },
+    "comment:17994712509042096": {
+      "creationId": "17893378341614054",
+      "createdAt": "2026-10-13T02:27:55.560Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "That's it. Those months of headaches came from the artery-to-vein tangle with nothing in between.",
+        "reply_to_id": "17994712509042096"
+      }
     }
   },
   "repliedCommentIds": [
@@ -41356,6 +41365,6 @@
   },
   "spend": {
     "date": "2026-10-12",
-    "usd": 0.060327011999999985
+    "usd": 0.06095591999999998
   }
 }
