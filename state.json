@@ -29215,6 +29215,15 @@
       },
       "publishedId": "17952591942291889",
       "confirmedPublished": true
+    },
+    "comment:18147525013561600": {
+      "creationId": "17893391628614054",
+      "createdAt": "2026-10-13T05:31:42.518Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "You caught the enlarged draining vein right and the bulge rides a feeding artery so it is not an aneurysm inside it. The answer is a cerebral AVM and they really are nasty things.",
+        "reply_to_id": "18147525013561600"
+      }
     }
   },
   "repliedCommentIds": [
@@ -39777,7 +39786,8 @@
     "18100940438380671",
     "18165317515488779",
     "17971109100158148",
-    "18572633239072176"
+    "18572633239072176",
+    "18124912198807640"
   ],
   "answeredPostIds": [
     "18395606890093068"
@@ -39911,11 +39921,11 @@
     "18054929093583647": 60,
     "18628279045036981": 229,
     "18117179536935952": 250,
-    "18144676564597946": 40
+    "18144676564597946": 41
   },
   "daily": {
     "date": "2026-10-12",
-    "count": 40
+    "count": 41
   },
   "pinnedResolved": {
     "DaTTCIwoAw7": "18014812820883466"
@@ -41454,6 +41464,6 @@
   },
   "spend": {
     "date": "2026-10-12",
-    "usd": 0.07293499799999999
+    "usd": 0.07531775399999999
   }
 }
