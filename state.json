@@ -29447,6 +29447,15 @@
       },
       "publishedId": "17935513899404089",
       "confirmedPublished": true
+    },
+    "comment:18033568772674253": {
+      "creationId": "17893477302614054",
+      "createdAt": "2026-10-13T20:23:55.055Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "I am sorry you lost him and sorry you had to learn this picture the hard way. It is a lot to carry.",
+        "reply_to_id": "18033568772674253"
+      }
     }
   },
   "repliedCommentIds": [
@@ -41689,7 +41698,8 @@
     "18083491661711075": 1,
     "18181020529451937": 1,
     "18100385921305970": 1,
-    "18019866920947149": 1
+    "18019866920947149": 1,
+    "18106149962353917": 1
   },
   "gifPostCounts": {
     "18432085978123193": 1,
@@ -41714,6 +41724,6 @@
   },
   "spend": {
     "date": "2026-10-13",
-    "usd": 0.027610463999999994
+    "usd": 0.028952903999999995
   }
 }
