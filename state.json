@@ -29381,6 +29381,15 @@
       },
       "publishedId": "17940163773369573",
       "confirmedPublished": true
+    },
+    "comment:17971631187189346": {
+      "creationId": "17893475238614054",
+      "createdAt": "2026-10-13T19:51:15.763Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Twisted they are and that is the back pressure showing. Bilateral hydroureteronephrosis from a bladder that could not empty.",
+        "reply_to_id": "17971631187189346"
+      }
     }
   },
   "repliedCommentIds": [
@@ -39957,7 +39966,8 @@
     "18228731356333520",
     "18136696750653124",
     "18136294600636687",
-    "18038841125838330"
+    "18038841125838330",
+    "18172101595454936"
   ],
   "answeredPostIds": [
     "18395606890093068"
@@ -40092,11 +40102,11 @@
     "18628279045036981": 229,
     "18117179536935952": 250,
     "18144676564597946": 43,
-    "17958909246216998": 11
+    "17958909246216998": 12
   },
   "daily": {
     "date": "2026-10-13",
-    "count": 11
+    "count": 12
   },
   "pinnedResolved": {
     "DaTTCIwoAw7": "18014812820883466"
@@ -41639,6 +41649,6 @@
   },
   "spend": {
     "date": "2026-10-13",
-    "usd": 0.022581347999999994
+    "usd": 0.023110991999999993
   }
 }
