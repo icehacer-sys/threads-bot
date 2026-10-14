@@ -29681,6 +29681,15 @@
       },
       "publishedId": "17890678752457376",
       "confirmedPublished": true
+    },
+    "comment:18103737743369711": {
+      "creationId": "17893609011614054",
+      "createdAt": "2026-10-14T19:32:43.336Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "They do sit right where a thought bubble would go but those are pockets of air inside the skull and no amount of life pressure will vent them.",
+        "reply_to_id": "18103737743369711"
+      }
     }
   },
   "repliedCommentIds": [
@@ -40283,7 +40292,8 @@
     "17990533215059087",
     "18473320822116944",
     "18644784544025055",
-    "18143790982597782"
+    "18143790982597782",
+    "18107583704589742"
   ],
   "answeredPostIds": [
     "18395606890093068"
@@ -40419,11 +40429,11 @@
     "18117179536935952": 250,
     "18144676564597946": 43,
     "17958909246216998": 35,
-    "18079498634383460": 2
+    "18079498634383460": 3
   },
   "daily": {
     "date": "2026-10-14",
-    "count": 2
+    "count": 3
   },
   "pinnedResolved": {
     "DaTTCIwoAw7": "18014812820883466"
@@ -41989,6 +41999,6 @@
   },
   "spend": {
     "date": "2026-10-14",
-    "usd": 0.0080082
+    "usd": 0.008950488
   }
 }
