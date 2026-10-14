@@ -30045,6 +30045,15 @@
       },
       "publishedId": "18123210835879624",
       "confirmedPublished": true
+    },
+    "comment:18084726470339239": {
+      "creationId": "17893621272614054",
+      "createdAt": "2026-10-14T22:23:01.172Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Those blobs are the one thing up there that never needs a host.",
+        "reply_to_id": "18084726470339239"
+      }
     }
   },
   "repliedCommentIds": [
@@ -42407,6 +42416,6 @@
   },
   "spend": {
     "date": "2026-10-14",
-    "usd": 0.068191476
+    "usd": 0.06862896
   }
 }
