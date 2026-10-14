@@ -29700,7 +29700,9 @@
         "media_type": "TEXT",
         "text": "That is the one and you also got the sequence right.",
         "reply_to_id": "18090053393242438"
-      }
+      },
+      "publishedId": "17898788235394768",
+      "confirmedPublished": true
     }
   },
   "repliedCommentIds": [
