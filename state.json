@@ -29627,6 +29627,15 @@
       },
       "publishedId": "18130350091750480",
       "confirmedPublished": true
+    },
+    "comment:18473320822116944": {
+      "creationId": "17893524021614054",
+      "createdAt": "2026-10-14T06:01:59.666Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "You called both parts right because the swollen upper tracts and the blocked outlet belong in one sentence.",
+        "reply_to_id": "18473320822116944"
+      }
     }
   },
   "repliedCommentIds": [
@@ -41929,6 +41938,6 @@
   },
   "spend": {
     "date": "2026-10-13",
-    "usd": 0.06512459999999996
+    "usd": 0.06596999999999996
   }
 }
