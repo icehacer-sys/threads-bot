@@ -30023,6 +30023,15 @@
       },
       "publishedId": "18124852075818982",
       "confirmedPublished": true
+    },
+    "comment:18118685710921839": {
+      "creationId": "17893618452614054",
+      "createdAt": "2026-10-14T21:51:02.559Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "The machine is overfilled but nothing in there is worth a coin.",
+        "reply_to_id": "18118685710921839"
+      }
     }
   },
   "repliedCommentIds": [
@@ -42353,7 +42362,8 @@
     "18019866920947149": 1,
     "18129142474833486": 1,
     "18002692886809385": 1,
-    "18112006847231329": 1
+    "18112006847231329": 1,
+    "18637971523040824": 1
   },
   "gifPostCounts": {
     "18432085978123193": 1,
@@ -42378,6 +42388,6 @@
   },
   "spend": {
     "date": "2026-10-14",
-    "usd": 0.059407176
+    "usd": 0.061129284
   }
 }
