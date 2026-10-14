@@ -29648,6 +29648,15 @@
       },
       "publishedId": "18386821357231819",
       "confirmedPublished": true
+    },
+    "comment:18644784544025055": {
+      "creationId": "17893608855614054",
+      "createdAt": "2026-10-14T19:31:42.538Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "A CSF leak is often what drives the runny nose and it can let air in. The published answer is pneumocephalus.",
+        "reply_to_id": "18644784544025055"
+      }
     }
   },
   "repliedCommentIds": [
@@ -41811,7 +41820,8 @@
     "18136573255731053",
     "17968381782189815",
     "18078406697394116",
-    "17958500046016520"
+    "17958500046016520",
+    "18087553484290367"
   ],
   "skipStrikes": {
     "17895266316520842": 1,
@@ -41952,6 +41962,6 @@
   },
   "spend": {
     "date": "2026-10-14",
-    "usd": 0.004637868
+    "usd": 0.006535872
   }
 }
