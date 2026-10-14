@@ -29990,6 +29990,15 @@
       },
       "publishedId": "18448202338133954",
       "confirmedPublished": true
+    },
+    "comment:18439092334198331": {
+      "creationId": "17893615677614054",
+      "createdAt": "2026-10-14T21:04:04.139Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "The leak is the reason the air got there and the air is what the film shows.",
+        "reply_to_id": "18439092334198331"
+      }
     }
   },
   "repliedCommentIds": [
@@ -42312,7 +42321,8 @@
     "18019866920947149": 1,
     "18129142474833486": 1,
     "18002692886809385": 1,
-    "18112006847231329": 1
+    "18112006847231329": 1,
+    "18129755731700549": 1
   },
   "gifPostCounts": {
     "18432085978123193": 1,
@@ -42337,6 +42347,6 @@
   },
   "spend": {
     "date": "2026-10-14",
-    "usd": 0.046046460000000004
+    "usd": 0.049130892
   }
 }
