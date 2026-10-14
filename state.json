@@ -29605,6 +29605,15 @@
       },
       "publishedId": "18130454557770142",
       "confirmedPublished": true
+    },
+    "comment:18129142474833486": {
+      "creationId": "17893519038614054",
+      "createdAt": "2026-10-14T05:00:39.558Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Hydronephrosis is the kidney part and the ureters are stretched too so the fuller name is bilateral hydroureteronephrosis.",
+        "reply_to_id": "18129142474833486"
+      }
     }
   },
   "repliedCommentIds": [
@@ -41904,6 +41913,6 @@
   },
   "spend": {
     "date": "2026-10-13",
-    "usd": 0.06242113199999997
+    "usd": 0.06283804799999997
   }
 }
