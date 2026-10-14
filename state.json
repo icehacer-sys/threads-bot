@@ -718,7 +718,8 @@
     "18154369117520707": "{\"postId\":\"18628279045036981\",\"reason\":\"Question about image provenance/authenticity requires an owner response and no automatic reply per policy. Commenter alleges the image is AI-generated and cites an external source. No reply drafted, no invented claim about how the image was made, no agreement or denial.\",\"commentText\":\"No need to use AI to show this case, friend. If you’re looking for examples of a corkscrew esophagus, there are dozens of cases on Radiopedia https://radiopaedia.org/articles/corkscrew-sign-diffuse-oesophageal-spasm?lang=us\",\"username\":\"hippocates\",\"queuedAt\":\"2026-10-11T02:55:37.749Z\"}",
     "18155830345518933": "{\"postId\":\"18117179536935952\",\"reason\":\"Comment asserts the X-ray is fake, i.e. a challenge to image authenticity/provenance. Per policy image-provenance questions require owner review and no automatic reply, and I must not agree an error exists or invent a claim about authenticity.\",\"commentText\":\"Рентген - фейк.\",\"username\":\"mortis_andrew1962\",\"queuedAt\":\"2026-10-11T20:35:23.985Z\"}",
     "18395524552207908": "{\"postId\":\"18117179536935952\",\"reason\":\"Question about the account operator and their credentials (are you a doctor) needs an owner response. Skipping rather than claiming or denying credentials or impersonating an operator.\",\"commentText\":\"Are you a doctor by any chance\",\"username\":\"jackhiggins328\",\"queuedAt\":\"2026-10-11T20:40:17.783Z\"}",
-    "18107973095080957": "{\"postId\":\"17958909246216998\",\"reason\":\"owner review: unsupported patient history, confirmation, specifics (month) or dismissal of an accepted differential | guard:forced-skip\",\"commentText\":\"Kidneys seem a little discombobulated .\",\"username\":\"peace_of_mind714\",\"queuedAt\":\"2026-10-13T22:28:02.045Z\"}"
+    "18107973095080957": "{\"postId\":\"17958909246216998\",\"reason\":\"owner review: unsupported patient history, confirmation, specifics (month) or dismissal of an accepted differential | guard:forced-skip\",\"commentText\":\"Kidneys seem a little discombobulated .\",\"username\":\"peace_of_mind714\",\"queuedAt\":\"2026-10-13T22:28:02.045Z\"}",
+    "18054656933592037": "{\"postId\":\"17958909246216998\",\"reason\":\"Comment relays a third-party story (unidentified, from August) and closes with a vaccine jab that ties a cause to it. The case facts do not cover vaccines, inflammation of drains or that story, and vaccine-cause claims are outside what I can support. Needs owner review rather than a substantive reply.\",\"commentText\":\"In august i listened to a story where the drain tubes inflamed and blocked the  left kidney to drain and the guy looked like a barrel 4 gallon of water was on one kidney  great vaccine hey modern\",\"username\":\"arpadszekeres\",\"queuedAt\":\"2026-10-14T01:46:35.884Z\"}"
   },
   "concernAcknowledgments": {
     "[\"18121475662898455\",\"berit069\",\"image\"]": "18142096432588199",
@@ -41696,7 +41697,8 @@
     "17910379326304821",
     "17917093026461824",
     "18088260236273347",
-    "18590520709069485"
+    "18590520709069485",
+    "18054656933592037"
   ],
   "skipStrikes": {
     "17895266316520842": 1,
@@ -41836,6 +41838,6 @@
   },
   "spend": {
     "date": "2026-10-13",
-    "usd": 0.05451913199999997
+    "usd": 0.05499827999999997
   }
 }
