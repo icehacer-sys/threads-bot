@@ -30031,7 +30031,9 @@
         "media_type": "TEXT",
         "text": "The machine is overfilled but nothing in there is worth a coin.",
         "reply_to_id": "18118685710921839"
-      }
+      },
+      "publishedId": "18465102208189843",
+      "confirmedPublished": true
     }
   },
   "repliedCommentIds": [
