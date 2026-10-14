@@ -30111,6 +30111,15 @@
       },
       "publishedId": "18646056616012460",
       "confirmedPublished": true
+    },
+    "comment:18114584348598348": {
+      "creationId": "17893624221614054",
+      "createdAt": "2026-10-14T22:55:37.189Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "TB is not the answer here. This is pneumocephalus and the dark pockets are air inside the skull.",
+        "reply_to_id": "18114584348598348"
+      }
     }
   },
   "repliedCommentIds": [
@@ -42481,6 +42490,6 @@
   },
   "spend": {
     "date": "2026-10-14",
-    "usd": 0.078518706
+    "usd": 0.08040626999999999
   }
 }
