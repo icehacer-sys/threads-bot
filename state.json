@@ -29802,6 +29802,15 @@
       },
       "publishedId": "18119052914078305",
       "confirmedPublished": true
+    },
+    "comment:18122666677931674": {
+      "creationId": "17893610502614054",
+      "createdAt": "2026-10-14T19:52:00.615Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Air gets under the skull when a break in the skull base tears the dura and lets air in from the nose or sinuses.",
+        "reply_to_id": "18122666677931674"
+      }
     }
   },
   "repliedCommentIds": [
@@ -40415,7 +40424,8 @@
     "18111442082629062",
     "18002692886809385",
     "17928141825184316",
-    "18129902374693338"
+    "18129902374693338",
+    "18181478269431548"
   ],
   "answeredPostIds": [
     "18395606890093068"
@@ -40551,11 +40561,11 @@
     "18117179536935952": 250,
     "18144676564597946": 43,
     "17958909246216998": 35,
-    "18079498634383460": 13
+    "18079498634383460": 14
   },
   "daily": {
     "date": "2026-10-14",
-    "count": 13
+    "count": 14
   },
   "pinnedResolved": {
     "DaTTCIwoAw7": "18014812820883466"
@@ -42128,6 +42138,6 @@
   },
   "spend": {
     "date": "2026-10-14",
-    "usd": 0.022531284
+    "usd": 0.023861724
   }
 }
