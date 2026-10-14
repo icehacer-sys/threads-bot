@@ -29670,6 +29670,15 @@
       },
       "publishedId": "18032828096905776",
       "confirmedPublished": true
+    },
+    "comment:18107583704589742": {
+      "creationId": "17893608918614054",
+      "createdAt": "2026-10-14T19:32:23.073Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "That's the read: intracranial air with a suspected dural tear behind the leaky nose. Whether the dura is actually torn is not something one film can settle.",
+        "reply_to_id": "18107583704589742"
+      }
     }
   },
   "repliedCommentIds": [
@@ -40271,7 +40280,8 @@
     "18129142474833486",
     "17990533215059087",
     "18473320822116944",
-    "18644784544025055"
+    "18644784544025055",
+    "18143790982597782"
   ],
   "answeredPostIds": [
     "18395606890093068"
@@ -40407,11 +40417,11 @@
     "18117179536935952": 250,
     "18144676564597946": 43,
     "17958909246216998": 35,
-    "18079498634383460": 1
+    "18079498634383460": 2
   },
   "daily": {
     "date": "2026-10-14",
-    "count": 1
+    "count": 2
   },
   "pinnedResolved": {
     "DaTTCIwoAw7": "18014812820883466"
@@ -41977,6 +41987,6 @@
   },
   "spend": {
     "date": "2026-10-14",
-    "usd": 0.007495224
+    "usd": 0.0080082
   }
 }
