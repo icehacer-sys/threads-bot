@@ -29946,6 +29946,15 @@
       },
       "publishedId": "17863630665694238",
       "confirmedPublished": true
+    },
+    "comment:18112006847231329": {
+      "creationId": "17893613358614054",
+      "createdAt": "2026-10-14T20:32:24.613Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "That drainage hunch was closer than your transcript suggests since the leak really is what opened the door for the air.",
+        "reply_to_id": "18112006847231329"
+      }
     }
   },
   "repliedCommentIds": [
@@ -42289,6 +42298,6 @@
   },
   "spend": {
     "date": "2026-10-14",
-    "usd": 0.041373648000000006
+    "usd": 0.042301848
   }
 }
