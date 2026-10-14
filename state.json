@@ -30166,6 +30166,15 @@
       },
       "publishedId": "18122189690318543",
       "confirmedPublished": true
+    },
+    "comment:18103699934033337": {
+      "creationId": "17893626273614054",
+      "createdAt": "2026-10-14T23:42:37.274Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "You named the leak and the hole it came through and the air behind the forehead is what the film adds.",
+        "reply_to_id": "18103699934033337"
+      }
     }
   },
   "repliedCommentIds": [
@@ -42398,7 +42407,8 @@
     "18152325901488581",
     "18028419533916218",
     "18120275017978160",
-    "17976591381134953"
+    "17976591381134953",
+    "17974430928069667"
   ],
   "skipStrikes": {
     "17895266316520842": 1,
@@ -42542,6 +42552,6 @@
   },
   "spend": {
     "date": "2026-10-14",
-    "usd": 0.085300062
+    "usd": 0.087169398
   }
 }
