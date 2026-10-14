@@ -30034,6 +30034,15 @@
       },
       "publishedId": "18465102208189843",
       "confirmedPublished": true
+    },
+    "comment:18130079086830618": {
+      "creationId": "17893619481614054",
+      "createdAt": "2026-10-14T22:06:48.128Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "A knock to the head is the usual route because air inside the skull is a complication of a fracture at the base of the skull and that runny nose was the leak.",
+        "reply_to_id": "18130079086830618"
+      }
     }
   },
   "repliedCommentIds": [
@@ -42249,7 +42258,8 @@
     "18108486059264298",
     "18074185715743738",
     "18041297240834948",
-    "17883238977528957"
+    "17883238977528957",
+    "18637971523040824"
   ],
   "skipStrikes": {
     "17895266316520842": 1,
@@ -42367,8 +42377,7 @@
     "18019866920947149": 1,
     "18129142474833486": 1,
     "18002692886809385": 1,
-    "18112006847231329": 1,
-    "18637971523040824": 1
+    "18112006847231329": 1
   },
   "gifPostCounts": {
     "18432085978123193": 1,
@@ -42393,6 +42402,6 @@
   },
   "spend": {
     "date": "2026-10-14",
-    "usd": 0.063527268
+    "usd": 0.066224112
   }
 }
