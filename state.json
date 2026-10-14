@@ -29548,6 +29548,15 @@
       },
       "publishedId": "18101147156277404",
       "confirmedPublished": true
+    },
+    "comment:18285109885291872": {
+      "creationId": "17893502052614054",
+      "createdAt": "2026-10-14T02:16:47.019Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "That is the reading and the cause list both. Worth adding that the film itself does not say which of those blocked the outflow.",
+        "reply_to_id": "18285109885291872"
+      }
     }
   },
   "repliedCommentIds": [
@@ -41838,6 +41847,6 @@
   },
   "spend": {
     "date": "2026-10-13",
-    "usd": 0.05499827999999997
+    "usd": 0.055554827999999966
   }
 }
