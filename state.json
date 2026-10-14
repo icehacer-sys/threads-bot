@@ -392,7 +392,16 @@
     "18381921292233398": "Some kind of egg, looks over boiled.",
     "18228731356333520": "stage 3 wacky, waving, inflatable, arm-flailing tube bladder￼",
     "18136696750653124": "Those kidneys are just wrong.",
-    "18034256084897041": "(is that actually a kidney stone covering the entire bladder and all the way up into both kidneys‽?)"
+    "18034256084897041": "(is that actually a kidney stone covering the entire bladder and all the way up into both kidneys‽?)",
+    "18087553484290367": ".. well there goes the brainfluid Bye Bye ?",
+    "18644784544025055": "CSF leak",
+    "18143790982597782": "The runny nose is leaking spinal fluid, and im assuming the fluid in the cavity is either the leak or a massive brain bleed",
+    "18107583704589742": "(muttered oh shit) as picks up phone to call for ENT, and surgical suite. \nAir pockets in frontal area of cranium, tear of dura(?) with leakage of Cerebrospinal fluid.",
+    "18103737743369711": "thought bubbles\n\nprobably from undiagnosed anxiety disorder. need surgery to relieve life pressure immediately!",
+    "18090053393242438": "CSF leak followed by air inside skull vault! Pneumocephalus?",
+    "18033933023671608": "Dude held in too many farts and they traveled up like grandma said they would. 🤣",
+    "17943004368090706": "Brain abscess?",
+    "18025875857877109": "Blood brain barrier not doing its thing?"
   },
   "imageHeldComments": {
     "18116444902754615": "18184997560424523",
@@ -721,7 +730,8 @@
     "18107973095080957": "{\"postId\":\"17958909246216998\",\"reason\":\"owner review: unsupported patient history, confirmation, specifics (month) or dismissal of an accepted differential | guard:forced-skip\",\"commentText\":\"Kidneys seem a little discombobulated .\",\"username\":\"peace_of_mind714\",\"queuedAt\":\"2026-10-13T22:28:02.045Z\"}",
     "18054656933592037": "{\"postId\":\"17958909246216998\",\"reason\":\"Comment relays a third-party story (unidentified, from August) and closes with a vaccine jab that ties a cause to it. The case facts do not cover vaccines, inflammation of drains or that story, and vaccine-cause claims are outside what I can support. Needs owner review rather than a substantive reply.\",\"commentText\":\"In august i listened to a story where the drain tubes inflamed and blocked the  left kidney to drain and the guy looked like a barrel 4 gallon of water was on one kidney  great vaccine hey modern\",\"username\":\"arpadszekeres\",\"queuedAt\":\"2026-10-14T01:46:35.884Z\"}",
     "18177289477386792": "{\"postId\":\"17958909246216998\",\"reason\":\"Comment alleges the image is AI-generated. Image provenance/authenticity questions require an owner response and no automatic reply, since I cannot verify or deny how the film was produced.\",\"commentText\":\"AI slop\",\"username\":\"hippocates\",\"queuedAt\":\"2026-10-14T02:47:30.801Z\"}",
-    "18136573255731053": "{\"postId\":\"17958909246216998\",\"reason\":\"Comment alleges the post/image is AI-generated. Image provenance questions require an owner response and no automatic reply per policy, so hold for owner review.\",\"commentText\":\"AI slop\",\"username\":\"hippocates\",\"queuedAt\":\"2026-10-14T03:18:14.344Z\"}"
+    "18136573255731053": "{\"postId\":\"17958909246216998\",\"reason\":\"Comment alleges the post/image is AI-generated. Image provenance questions require an owner response and no automatic reply per policy, so hold for owner review.\",\"commentText\":\"AI slop\",\"username\":\"hippocates\",\"queuedAt\":\"2026-10-14T03:18:14.344Z\"}",
+    "17958500046016520": "{\"postId\":\"18079498634383460\",\"reason\":\"Commenter alleges the content/image is AI-generated (authenticity and image-provenance challenge). Per policy image-provenance and authenticity questions require an owner response, so skip and route to owner review.\",\"commentText\":\"AI Slop\",\"username\":\"hippocates\",\"queuedAt\":\"2026-10-14T19:16:00.324Z\"}"
   },
   "concernAcknowledgments": {
     "[\"18121475662898455\",\"berit069\",\"image\"]": "18142096432588199",
@@ -40376,8 +40386,8 @@
     "17958909246216998": 35
   },
   "daily": {
-    "date": "2026-10-13",
-    "count": 35
+    "date": "2026-10-14",
+    "count": 0
   },
   "pinnedResolved": {
     "DaTTCIwoAw7": "18014812820883466"
@@ -41800,7 +41810,8 @@
     "18177289477386792",
     "18136573255731053",
     "17968381782189815",
-    "18078406697394116"
+    "18078406697394116",
+    "17958500046016520"
   ],
   "skipStrikes": {
     "17895266316520842": 1,
@@ -41925,7 +41936,7 @@
     "17865730374636613": 1
   },
   "gifDaily": {
-    "date": "2026-10-13",
+    "date": "2026-10-14",
     "count": 0
   },
   "recentGifIds": [
@@ -41936,11 +41947,11 @@
   ],
   "promoPostCounts": {},
   "promoDaily": {
-    "date": "2026-10-13",
+    "date": "2026-10-14",
     "count": 0
   },
   "spend": {
-    "date": "2026-10-13",
-    "usd": 0.06596999999999996
+    "date": "2026-10-14",
+    "usd": 0.004637868
   }
 }
