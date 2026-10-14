@@ -29616,6 +29616,15 @@
       },
       "publishedId": "18104263592189224",
       "confirmedPublished": true
+    },
+    "comment:17990533215059087": {
+      "creationId": "17893520589614054",
+      "createdAt": "2026-10-14T05:31:16.365Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Backed up into both kidneys is the answer and the reflux travels the other way.",
+        "reply_to_id": "17990533215059087"
+      }
     }
   },
   "repliedCommentIds": [
@@ -41916,6 +41925,6 @@
   },
   "spend": {
     "date": "2026-10-13",
-    "usd": 0.06283804799999997
+    "usd": 0.06393683999999997
   }
 }
