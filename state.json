@@ -29891,6 +29891,15 @@
       },
       "publishedId": "18008830043778643",
       "confirmedPublished": true
+    },
+    "comment:17970257469176467": {
+      "creationId": "17893612953614054",
+      "createdAt": "2026-10-14T20:25:48.324Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "The piercing story is a good scare tactic but the scan shows air behind the forehead rather than anything a needle left behind.",
+        "reply_to_id": "17970257469176467"
+      }
     }
   },
   "repliedCommentIds": [
@@ -42228,6 +42237,6 @@
   },
   "spend": {
     "date": "2026-10-14",
-    "usd": 0.035799384000000004
+    "usd": 0.036811548000000006
   }
 }
