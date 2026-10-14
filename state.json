@@ -29758,6 +29758,15 @@
       },
       "publishedId": "18093939230468452",
       "confirmedPublished": true
+    },
+    "comment:18002692886809385": {
+      "creationId": "17893610232614054",
+      "createdAt": "2026-10-14T19:50:29.430Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "That leak is exactly what let the bubbly stuff in. The answer is air inside the skull.",
+        "reply_to_id": "18002692886809385"
+      }
     }
   },
   "repliedCommentIds": [
@@ -42079,6 +42088,6 @@
   },
   "spend": {
     "date": "2026-10-14",
-    "usd": 0.01799928
+    "usd": 0.018504324
   }
 }
