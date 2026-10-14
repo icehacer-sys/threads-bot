@@ -29902,6 +29902,15 @@
       },
       "publishedId": "17950391070055732",
       "confirmedPublished": true
+    },
+    "comment:17903207718670665": {
+      "creationId": "17893613049614054",
+      "createdAt": "2026-10-14T20:26:05.665Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Holding a sneeze in gets blamed for a lot of things but the air up there came in through a break at the bottom of the skull.",
+        "reply_to_id": "17903207718670665"
+      }
     }
   },
   "repliedCommentIds": [
@@ -40524,7 +40533,8 @@
     "18143432416614416",
     "18108833150256747",
     "18206764006332753",
-    "17990476350097874"
+    "17990476350097874",
+    "17970257469176467"
   ],
   "answeredPostIds": [
     "18395606890093068"
@@ -40660,11 +40670,11 @@
     "18117179536935952": 250,
     "18144676564597946": 43,
     "17958909246216998": 35,
-    "18079498634383460": 22
+    "18079498634383460": 23
   },
   "daily": {
     "date": "2026-10-14",
-    "count": 22
+    "count": 23
   },
   "pinnedResolved": {
     "DaTTCIwoAw7": "18014812820883466"
@@ -42239,6 +42249,6 @@
   },
   "spend": {
     "date": "2026-10-14",
-    "usd": 0.036811548000000006
+    "usd": 0.037312896000000005
   }
 }
