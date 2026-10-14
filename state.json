@@ -30108,7 +30108,9 @@
         "media_type": "TEXT",
         "text": "A second opinion would just agree with yours.",
         "reply_to_id": "18076598369438141"
-      }
+      },
+      "publishedId": "18646056616012460",
+      "confirmedPublished": true
     }
   },
   "repliedCommentIds": [
