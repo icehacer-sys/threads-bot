@@ -29579,7 +29579,9 @@
         "media_type": "TEXT",
         "text": "That was my first look too.",
         "reply_to_id": "17874961350593422"
-      }
+      },
+      "publishedId": "17986658406108517",
+      "confirmedPublished": true
     }
   },
   "repliedCommentIds": [
