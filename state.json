@@ -731,7 +731,8 @@
     "18054656933592037": "{\"postId\":\"17958909246216998\",\"reason\":\"Comment relays a third-party story (unidentified, from August) and closes with a vaccine jab that ties a cause to it. The case facts do not cover vaccines, inflammation of drains or that story, and vaccine-cause claims are outside what I can support. Needs owner review rather than a substantive reply.\",\"commentText\":\"In august i listened to a story where the drain tubes inflamed and blocked the  left kidney to drain and the guy looked like a barrel 4 gallon of water was on one kidney  great vaccine hey modern\",\"username\":\"arpadszekeres\",\"queuedAt\":\"2026-10-14T01:46:35.884Z\"}",
     "18177289477386792": "{\"postId\":\"17958909246216998\",\"reason\":\"Comment alleges the image is AI-generated. Image provenance/authenticity questions require an owner response and no automatic reply, since I cannot verify or deny how the film was produced.\",\"commentText\":\"AI slop\",\"username\":\"hippocates\",\"queuedAt\":\"2026-10-14T02:47:30.801Z\"}",
     "18136573255731053": "{\"postId\":\"17958909246216998\",\"reason\":\"Comment alleges the post/image is AI-generated. Image provenance questions require an owner response and no automatic reply per policy, so hold for owner review.\",\"commentText\":\"AI slop\",\"username\":\"hippocates\",\"queuedAt\":\"2026-10-14T03:18:14.344Z\"}",
-    "17958500046016520": "{\"postId\":\"18079498634383460\",\"reason\":\"Commenter alleges the content/image is AI-generated (authenticity and image-provenance challenge). Per policy image-provenance and authenticity questions require an owner response, so skip and route to owner review.\",\"commentText\":\"AI Slop\",\"username\":\"hippocates\",\"queuedAt\":\"2026-10-14T19:16:00.324Z\"}"
+    "17958500046016520": "{\"postId\":\"18079498634383460\",\"reason\":\"Commenter alleges the content/image is AI-generated (authenticity and image-provenance challenge). Per policy image-provenance and authenticity questions require an owner response, so skip and route to owner review.\",\"commentText\":\"AI Slop\",\"username\":\"hippocates\",\"queuedAt\":\"2026-10-14T19:16:00.324Z\"}",
+    "18056879198799964": "{\"postId\":\"18079498634383460\",\"reason\":\"owner review: unsupported patient history, confirmation, specifics (foot) or dismissal of an accepted differential | guard:forced-skip\",\"commentText\":\"Boy ain’t right in the head. \\nI dunno what’s wrong, but it looks dire. Brains don’t respond well to compression. 😕\",\"username\":\"elea.nor1962\",\"queuedAt\":\"2026-10-14T20:08:46.343Z\"}"
   },
   "concernAcknowledgments": {
     "[\"18121475662898455\",\"berit069\",\"image\"]": "18142096432588199",
@@ -29846,6 +29847,15 @@
       },
       "publishedId": "18092048060662477",
       "confirmedPublished": true
+    },
+    "comment:18143432416614416": {
+      "creationId": "17893612008614054",
+      "createdAt": "2026-10-14T20:08:51.958Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "That's the one and you even put it in the right spot.",
+        "reply_to_id": "18143432416614416"
+      }
     }
   },
   "repliedCommentIds": [
@@ -40463,7 +40473,8 @@
     "18181478269431548",
     "18122666677931674",
     "18113863304464620",
-    "18074227379722540"
+    "18074227379722540",
+    "18120343975881844"
   ],
   "answeredPostIds": [
     "18395606890093068"
@@ -40599,11 +40610,11 @@
     "18117179536935952": 250,
     "18144676564597946": 43,
     "17958909246216998": 35,
-    "18079498634383460": 17
+    "18079498634383460": 18
   },
   "daily": {
     "date": "2026-10-14",
-    "count": 17
+    "count": 18
   },
   "pinnedResolved": {
     "DaTTCIwoAw7": "18014812820883466"
@@ -42035,7 +42046,8 @@
     "17868788673660313",
     "18379435927300309",
     "17922916662436699",
-    "18110434985179740"
+    "18110434985179740",
+    "18056879198799964"
   ],
   "skipStrikes": {
     "17895266316520842": 1,
@@ -42177,6 +42189,6 @@
   },
   "spend": {
     "date": "2026-10-14",
-    "usd": 0.029446668000000002
+    "usd": 0.030916440000000003
   }
 }
