@@ -31027,6 +31027,15 @@
       },
       "publishedId": "17962064664217754",
       "confirmedPublished": true
+    },
+    "comment:18069495842761997": {
+      "creationId": "17893752768614054",
+      "createdAt": "2026-10-15T21:14:41.042Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Those two come up a lot and the diet side is the one that carries most of the weight since uncomplicated diverticulosis is usually managed with more fibre.",
+        "reply_to_id": "18069495842761997"
+      }
     }
   },
   "repliedCommentIds": [
@@ -43516,6 +43525,6 @@
   },
   "spend": {
     "date": "2026-10-15",
-    "usd": 0.041618388000000006
+    "usd": 0.042863844000000005
   }
 }
