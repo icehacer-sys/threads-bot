@@ -30494,7 +30494,9 @@
         "media_type": "TEXT",
         "text": "At least you know where to start searching next time.",
         "reply_to_id": "17910133107541899"
-      }
+      },
+      "publishedId": "18104313119368907",
+      "confirmedPublished": true
     }
   },
   "repliedCommentIds": [
