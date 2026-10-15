@@ -733,7 +733,8 @@
     "18136573255731053": "{\"postId\":\"17958909246216998\",\"reason\":\"Comment alleges the post/image is AI-generated. Image provenance questions require an owner response and no automatic reply per policy, so hold for owner review.\",\"commentText\":\"AI slop\",\"username\":\"hippocates\",\"queuedAt\":\"2026-10-14T03:18:14.344Z\"}",
     "17958500046016520": "{\"postId\":\"18079498634383460\",\"reason\":\"Commenter alleges the content/image is AI-generated (authenticity and image-provenance challenge). Per policy image-provenance and authenticity questions require an owner response, so skip and route to owner review.\",\"commentText\":\"AI Slop\",\"username\":\"hippocates\",\"queuedAt\":\"2026-10-14T19:16:00.324Z\"}",
     "18056879198799964": "{\"postId\":\"18079498634383460\",\"reason\":\"owner review: unsupported patient history, confirmation, specifics (foot) or dismissal of an accepted differential | guard:forced-skip\",\"commentText\":\"Boy ain’t right in the head. \\nI dunno what’s wrong, but it looks dire. Brains don’t respond well to compression. 😕\",\"username\":\"elea.nor1962\",\"queuedAt\":\"2026-10-14T20:08:46.343Z\"}",
-    "18130209286765440": "{\"postId\":\"18079498634383460\",\"reason\":\"Hostility or personal insult. The comment uses a slur directed at a person rather than engaging with the case. This falls outside the coverage policy for harmless banter and requires owner review.\",\"commentText\":\"Your daughter is also a moron?\",\"username\":\"swiftmoonphoto\",\"queuedAt\":\"2026-10-15T01:18:51.555Z\"}"
+    "18130209286765440": "{\"postId\":\"18079498634383460\",\"reason\":\"Hostility or personal insult. The comment uses a slur directed at a person rather than engaging with the case. This falls outside the coverage policy for harmless banter and requires owner review.\",\"commentText\":\"Your daughter is also a moron?\",\"username\":\"swiftmoonphoto\",\"queuedAt\":\"2026-10-15T01:18:51.555Z\"}",
+    "18635047570039257": "{\"postId\":\"18079498634383460\",\"reason\":\"Incoherent opening and unsupported medical speculation; intent unclear. Requires owner review to distinguish between translation error, joke, or genuine question before a safe reply can be drafted.\",\"commentText\":\"Rapent republicanism. The brain starts to dry up and atrophy\",\"username\":\"agent_onlyf\",\"queuedAt\":\"2026-10-15T04:40:35.980Z\"}"
   },
   "concernAcknowledgments": {
     "[\"18121475662898455\",\"berit069\",\"image\"]": "18142096432588199",
@@ -30574,6 +30575,15 @@
       },
       "publishedId": "17960759133207927",
       "confirmedPublished": true
+    },
+    "comment:17959831752434292": {
+      "creationId": "17893654509614054",
+      "createdAt": "2026-10-15T04:40:46.110Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "The air got there by accident not intention so pneumocephalus is the one and the trauma came from outside not the OR.",
+        "reply_to_id": "17959831752434292"
+      }
     }
   },
   "repliedCommentIds": [
@@ -41257,7 +41267,8 @@
     "18090659426226228",
     "18114528061839810",
     "18560063704079926",
-    "18593061898068129"
+    "18593061898068129",
+    "17985601479097604"
   ],
   "answeredPostIds": [
     "18395606890093068"
@@ -41393,11 +41404,11 @@
     "18117179536935952": 250,
     "18144676564597946": 43,
     "17958909246216998": 35,
-    "18079498634383460": 83
+    "18079498634383460": 84
   },
   "daily": {
     "date": "2026-10-14",
-    "count": 83
+    "count": 84
   },
   "pinnedResolved": {
     "DaTTCIwoAw7": "18014812820883466"
@@ -42856,7 +42867,8 @@
     "18128997319846995",
     "18178145770431856",
     "18092832470190547",
-    "18345289048280680"
+    "18345289048280680",
+    "18635047570039257"
   ],
   "skipStrikes": {
     "17895266316520842": 1,
@@ -43002,7 +43014,7 @@
   },
   "spend": {
     "date": "2026-10-14",
-    "usd": 0.956068194
+    "usd": 0.967035794
   },
   "deepSeekHalt": {
     "date": "2026-10-14",
