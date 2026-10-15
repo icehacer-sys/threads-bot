@@ -30442,6 +30442,15 @@
       },
       "publishedId": "18117678323008735",
       "confirmedPublished": true
+    },
+    "comment:18116596879821091": {
+      "creationId": "17893645500614054",
+      "createdAt": "2026-10-15T03:05:44.204Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "The post gives no trauma history and no update on how the patient did afterward so I can't say how they are now.",
+        "reply_to_id": "18116596879821091"
+      }
     }
   },
   "repliedCommentIds": [
@@ -41113,7 +41122,8 @@
     "18080372312372649",
     "17913594897533727",
     "17949496092343354",
-    "18143508418585732"
+    "18143508418585732",
+    "18465621451188163"
   ],
   "answeredPostIds": [
     "18395606890093068"
@@ -41249,11 +41259,11 @@
     "18117179536935952": 250,
     "18144676564597946": 43,
     "17958909246216998": 35,
-    "18079498634383460": 71
+    "18079498634383460": 72
   },
   "daily": {
     "date": "2026-10-14",
-    "count": 71
+    "count": 72
   },
   "pinnedResolved": {
     "DaTTCIwoAw7": "18014812820883466"
@@ -42856,7 +42866,7 @@
   },
   "spend": {
     "date": "2026-10-14",
-    "usd": 0.7117399939999999
+    "usd": 0.7410993939999999
   },
   "deepSeekHalt": {
     "date": "2026-10-14",
