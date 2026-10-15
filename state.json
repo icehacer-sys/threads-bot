@@ -30453,6 +30453,15 @@
       },
       "publishedId": "18218768326354961",
       "confirmedPublished": true
+    },
+    "comment:18132312790776676": {
+      "creationId": "17893645614614054",
+      "createdAt": "2026-10-15T03:06:03.113Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "You nailed both the finding and the mechanism. That air infiltrated the skull through a fracture at the base.",
+        "reply_to_id": "18132312790776676"
+      }
     }
   },
   "repliedCommentIds": [
@@ -41125,7 +41134,8 @@
     "17913594897533727",
     "17949496092343354",
     "18143508418585732",
-    "18465621451188163"
+    "18465621451188163",
+    "18116596879821091"
   ],
   "answeredPostIds": [
     "18395606890093068"
@@ -41261,11 +41271,11 @@
     "18117179536935952": 250,
     "18144676564597946": 43,
     "17958909246216998": 35,
-    "18079498634383460": 72
+    "18079498634383460": 73
   },
   "daily": {
     "date": "2026-10-14",
-    "count": 72
+    "count": 73
   },
   "pinnedResolved": {
     "DaTTCIwoAw7": "18014812820883466"
@@ -42868,7 +42878,7 @@
   },
   "spend": {
     "date": "2026-10-14",
-    "usd": 0.7410993939999999
+    "usd": 0.7480957939999999
   },
   "deepSeekHalt": {
     "date": "2026-10-14",
