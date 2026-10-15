@@ -30417,7 +30417,9 @@
         "media_type": "TEXT",
         "text": "That's the one.",
         "reply_to_id": "17949496092343354"
-      }
+      },
+      "publishedId": "18463552003184974",
+      "confirmedPublished": true
     }
   },
   "repliedCommentIds": [
