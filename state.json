@@ -30320,6 +30320,15 @@
       },
       "publishedId": "18070011770775900",
       "confirmedPublished": true
+    },
+    "comment:18094759439445469": {
+      "creationId": "17893635375614054",
+      "createdAt": "2026-10-15T01:18:13.834Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "A fluid leak out of the nose is a fair thing to link with this case but those dark pockets on the film are air inside the skull and the published answer is pneumocephalus.",
+        "reply_to_id": "18094759439445469"
+      }
     }
   },
   "repliedCommentIds": [
@@ -40980,7 +40989,8 @@
     "18038776937844924",
     "17975103524939411",
     "18106126946637236",
-    "18133536058676756"
+    "18133536058676756",
+    "18072997706762417"
   ],
   "answeredPostIds": [
     "18395606890093068"
@@ -41116,11 +41126,11 @@
     "18117179536935952": 250,
     "18144676564597946": 43,
     "17958909246216998": 35,
-    "18079498634383460": 60
+    "18079498634383460": 61
   },
   "daily": {
     "date": "2026-10-14",
-    "count": 60
+    "count": 61
   },
   "pinnedResolved": {
     "DaTTCIwoAw7": "18014812820883466"
@@ -42716,7 +42726,7 @@
   },
   "spend": {
     "date": "2026-10-14",
-    "usd": 0.49377219399999994
+    "usd": 0.556235394
   },
   "deepSeekHalt": {
     "date": "2026-10-14",
