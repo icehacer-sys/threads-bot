@@ -30398,6 +30398,15 @@
       },
       "publishedId": "18166653892475077",
       "confirmedPublished": true
+    },
+    "comment:17913594897533727": {
+      "creationId": "17893641798614054",
+      "createdAt": "2026-10-15T02:33:49.868Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Engine shop would've sent this one straight to neurosurgery the second they cracked open the skull.",
+        "reply_to_id": "17913594897533727"
+      }
     }
   },
   "repliedCommentIds": [
@@ -42808,7 +42817,7 @@
   },
   "spend": {
     "date": "2026-10-14",
-    "usd": 0.6276267939999999
+    "usd": 0.6311829939999999
   },
   "deepSeekHalt": {
     "date": "2026-10-14",
