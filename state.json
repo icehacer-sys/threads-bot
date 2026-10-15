@@ -30610,6 +30610,15 @@
       },
       "publishedId": "18106767689262779",
       "confirmedPublished": true
+    },
+    "comment:17987469900078431": {
+      "creationId": "17893660947614054",
+      "createdAt": "2026-10-15T06:13:11.634Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "The dark areas are air rather than fluid because they show up as black pockets inside the skull at the front. Whether the runny nose was leaked brain fluid isn't something this case spells out.",
+        "reply_to_id": "17987469900078431"
+      }
     }
   },
   "repliedCommentIds": [
@@ -42901,7 +42910,9 @@
     "18461666176190283",
     "18218663209355170",
     "18097843973643149",
-    "18079097516391488"
+    "18079097516391488",
+    "18096722141555701",
+    "18086450102325433"
   ],
   "skipStrikes": {
     "17895266316520842": 1,
@@ -43047,7 +43058,7 @@
   },
   "spend": {
     "date": "2026-10-14",
-    "usd": 1.061400194
+    "usd": 1.104099394
   },
   "deepSeekHalt": {
     "date": "2026-10-14",
