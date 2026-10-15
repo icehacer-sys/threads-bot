@@ -30675,6 +30675,15 @@
       },
       "publishedId": "18123254687304821",
       "confirmedPublished": true
+    },
+    "comment:18126550582859722": {
+      "creationId": "17893745205614054",
+      "createdAt": "2026-10-15T19:32:57.403Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "It does look strung on a wire but those beads are pouches of diverticulosis and you would not want that necklace.",
+        "reply_to_id": "18126550582859722"
+      }
     }
   },
   "repliedCommentIds": [
@@ -41366,7 +41375,8 @@
     "17987469900078431",
     "17975220444139537",
     "18131317447787295",
-    "18080511032361179"
+    "18080511032361179",
+    "17906768235571177"
   ],
   "answeredPostIds": [
     "18395606890093068"
@@ -41503,11 +41513,11 @@
     "18144676564597946": 43,
     "17958909246216998": 35,
     "18079498634383460": 88,
-    "17903856849668624": 3
+    "17903856849668624": 4
   },
   "daily": {
     "date": "2026-10-15",
-    "count": 3
+    "count": 4
   },
   "pinnedResolved": {
     "DaTTCIwoAw7": "18014812820883466"
@@ -43123,6 +43133,6 @@
   },
   "spend": {
     "date": "2026-10-15",
-    "usd": 0.009472764
+    "usd": 0.00997404
   }
 }
