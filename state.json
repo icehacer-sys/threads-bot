@@ -732,7 +732,8 @@
     "18177289477386792": "{\"postId\":\"17958909246216998\",\"reason\":\"Comment alleges the image is AI-generated. Image provenance/authenticity questions require an owner response and no automatic reply, since I cannot verify or deny how the film was produced.\",\"commentText\":\"AI slop\",\"username\":\"hippocates\",\"queuedAt\":\"2026-10-14T02:47:30.801Z\"}",
     "18136573255731053": "{\"postId\":\"17958909246216998\",\"reason\":\"Comment alleges the post/image is AI-generated. Image provenance questions require an owner response and no automatic reply per policy, so hold for owner review.\",\"commentText\":\"AI slop\",\"username\":\"hippocates\",\"queuedAt\":\"2026-10-14T03:18:14.344Z\"}",
     "17958500046016520": "{\"postId\":\"18079498634383460\",\"reason\":\"Commenter alleges the content/image is AI-generated (authenticity and image-provenance challenge). Per policy image-provenance and authenticity questions require an owner response, so skip and route to owner review.\",\"commentText\":\"AI Slop\",\"username\":\"hippocates\",\"queuedAt\":\"2026-10-14T19:16:00.324Z\"}",
-    "18056879198799964": "{\"postId\":\"18079498634383460\",\"reason\":\"owner review: unsupported patient history, confirmation, specifics (foot) or dismissal of an accepted differential | guard:forced-skip\",\"commentText\":\"Boy ain’t right in the head. \\nI dunno what’s wrong, but it looks dire. Brains don’t respond well to compression. 😕\",\"username\":\"elea.nor1962\",\"queuedAt\":\"2026-10-14T20:08:46.343Z\"}"
+    "18056879198799964": "{\"postId\":\"18079498634383460\",\"reason\":\"owner review: unsupported patient history, confirmation, specifics (foot) or dismissal of an accepted differential | guard:forced-skip\",\"commentText\":\"Boy ain’t right in the head. \\nI dunno what’s wrong, but it looks dire. Brains don’t respond well to compression. 😕\",\"username\":\"elea.nor1962\",\"queuedAt\":\"2026-10-14T20:08:46.343Z\"}",
+    "18130209286765440": "{\"postId\":\"18079498634383460\",\"reason\":\"Hostility or personal insult. The comment uses a slur directed at a person rather than engaging with the case. This falls outside the coverage policy for harmless banter and requires owner review.\",\"commentText\":\"Your daughter is also a moron?\",\"username\":\"swiftmoonphoto\",\"queuedAt\":\"2026-10-15T01:18:51.555Z\"}"
   },
   "concernAcknowledgments": {
     "[\"18121475662898455\",\"berit069\",\"image\"]": "18142096432588199",
@@ -30342,6 +30343,15 @@
       },
       "publishedId": "18078892526717468",
       "confirmedPublished": true
+    },
+    "comment:18126413320855673": {
+      "creationId": "17893635405614054",
+      "createdAt": "2026-10-15T01:18:58.123Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Whatever hit had enough force to crack the skull base and let air straight into the cranium.",
+        "reply_to_id": "18126413320855673"
+      }
     }
   },
   "repliedCommentIds": [
@@ -41004,7 +41014,8 @@
     "18106126946637236",
     "18133536058676756",
     "18072997706762417",
-    "18094759439445469"
+    "18094759439445469",
+    "18069784724787693"
   ],
   "answeredPostIds": [
     "18395606890093068"
@@ -41140,11 +41151,11 @@
     "18117179536935952": 250,
     "18144676564597946": 43,
     "17958909246216998": 35,
-    "18079498634383460": 62
+    "18079498634383460": 63
   },
   "daily": {
     "date": "2026-10-14",
-    "count": 62
+    "count": 63
   },
   "pinnedResolved": {
     "DaTTCIwoAw7": "18014812820883466"
@@ -42596,7 +42607,8 @@
     "17883113931527738",
     "17991704043051892",
     "18008003150995967",
-    "18198946381383809"
+    "18198946381383809",
+    "18130209286765440"
   ],
   "skipStrikes": {
     "17895266316520842": 1,
@@ -42741,7 +42753,7 @@
   },
   "spend": {
     "date": "2026-10-14",
-    "usd": 0.567271994
+    "usd": 0.5745363939999999
   },
   "deepSeekHalt": {
     "date": "2026-10-14",
