@@ -31093,6 +31093,15 @@
       },
       "publishedId": "18174821377455220",
       "confirmedPublished": true
+    },
+    "comment:18107755139080571": {
+      "creationId": "17893759680614054",
+      "createdAt": "2026-10-15T23:02:54.079Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "One word and it still says everything about how that visit must have gone.",
+        "reply_to_id": "18107755139080571"
+      }
     }
   },
   "repliedCommentIds": [
@@ -43593,6 +43602,6 @@
   },
   "spend": {
     "date": "2026-10-15",
-    "usd": 0.05405583
+    "usd": 0.054466446
   }
 }
