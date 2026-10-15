@@ -31082,6 +31082,15 @@
       },
       "publishedId": "18076696505718071",
       "confirmedPublished": true
+    },
+    "comment:18051575582603921": {
+      "creationId": "17893757370614054",
+      "createdAt": "2026-10-15T22:32:22.514Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Vincent's angina is a real shout and that silver disc is exactly the sort of film that makes people stop scrolling. Two weeks in ICU with family watching is a heavy thing to carry though.",
+        "reply_to_id": "18051575582603921"
+      }
     }
   },
   "repliedCommentIds": [
@@ -43433,7 +43442,8 @@
     "17959961742248201",
     "18631877635009448",
     "18113728952143128",
-    "18167356594485510"
+    "18167356594485510",
+    "18118564321973862"
   ],
   "skipStrikes": {
     "17895266316520842": 1,
@@ -43579,6 +43589,6 @@
   },
   "spend": {
     "date": "2026-10-15",
-    "usd": 0.049933176
+    "usd": 0.052925814
   }
 }
