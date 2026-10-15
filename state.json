@@ -30708,6 +30708,15 @@
       },
       "publishedId": "18112121030335931",
       "confirmedPublished": true
+    },
+    "comment:18657910129032715": {
+      "creationId": "17893745616614054",
+      "createdAt": "2026-10-15T19:33:58.730Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "That swirl of soft serve does look a lot like the pouches marching around the colon and the firefighter's face sums up how the bowels feel about them.",
+        "reply_to_id": "18657910129032715"
+      }
     }
   },
   "repliedCommentIds": [
@@ -41402,7 +41411,8 @@
     "18080511032361179",
     "17906768235571177",
     "18126550582859722",
-    "18110699099231734"
+    "18110699099231734",
+    "18029484119916493"
   ],
   "answeredPostIds": [
     "18395606890093068"
@@ -41539,11 +41549,11 @@
     "18144676564597946": 43,
     "17958909246216998": 35,
     "18079498634383460": 88,
-    "17903856849668624": 6
+    "17903856849668624": 7
   },
   "daily": {
     "date": "2026-10-15",
-    "count": 6
+    "count": 7
   },
   "pinnedResolved": {
     "DaTTCIwoAw7": "18014812820883466"
@@ -43159,6 +43169,6 @@
   },
   "spend": {
     "date": "2026-10-15",
-    "usd": 0.011414304
+    "usd": 0.012278076
   }
 }
