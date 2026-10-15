@@ -734,7 +734,8 @@
     "17958500046016520": "{\"postId\":\"18079498634383460\",\"reason\":\"Commenter alleges the content/image is AI-generated (authenticity and image-provenance challenge). Per policy image-provenance and authenticity questions require an owner response, so skip and route to owner review.\",\"commentText\":\"AI Slop\",\"username\":\"hippocates\",\"queuedAt\":\"2026-10-14T19:16:00.324Z\"}",
     "18056879198799964": "{\"postId\":\"18079498634383460\",\"reason\":\"owner review: unsupported patient history, confirmation, specifics (foot) or dismissal of an accepted differential | guard:forced-skip\",\"commentText\":\"Boy ain’t right in the head. \\nI dunno what’s wrong, but it looks dire. Brains don’t respond well to compression. 😕\",\"username\":\"elea.nor1962\",\"queuedAt\":\"2026-10-14T20:08:46.343Z\"}",
     "18130209286765440": "{\"postId\":\"18079498634383460\",\"reason\":\"Hostility or personal insult. The comment uses a slur directed at a person rather than engaging with the case. This falls outside the coverage policy for harmless banter and requires owner review.\",\"commentText\":\"Your daughter is also a moron?\",\"username\":\"swiftmoonphoto\",\"queuedAt\":\"2026-10-15T01:18:51.555Z\"}",
-    "18635047570039257": "{\"postId\":\"18079498634383460\",\"reason\":\"Incoherent opening and unsupported medical speculation; intent unclear. Requires owner review to distinguish between translation error, joke, or genuine question before a safe reply can be drafted.\",\"commentText\":\"Rapent republicanism. The brain starts to dry up and atrophy\",\"username\":\"agent_onlyf\",\"queuedAt\":\"2026-10-15T04:40:35.980Z\"}"
+    "18635047570039257": "{\"postId\":\"18079498634383460\",\"reason\":\"Incoherent opening and unsupported medical speculation; intent unclear. Requires owner review to distinguish between translation error, joke, or genuine question before a safe reply can be drafted.\",\"commentText\":\"Rapent republicanism. The brain starts to dry up and atrophy\",\"username\":\"agent_onlyf\",\"queuedAt\":\"2026-10-15T04:40:35.980Z\"}",
+    "18097843973643149": "{\"postId\":\"18079498634383460\",\"reason\":\"Missing fact: case does not state whether patient had pain or was pain-free. Cannot infer symptom severity from headache mention alone. Hold for owner review if additional clinical detail is available.\",\"commentText\":\"Patient didn’t have any pain?\",\"username\":\"lisabarton3518\",\"queuedAt\":\"2026-10-15T05:11:54.248Z\"}"
   },
   "concernAcknowledgments": {
     "[\"18121475662898455\",\"berit069\",\"image\"]": "18142096432588199",
@@ -42885,7 +42886,8 @@
     "18345289048280680",
     "18635047570039257",
     "18461666176190283",
-    "18218663209355170"
+    "18218663209355170",
+    "18097843973643149"
   ],
   "skipStrikes": {
     "17895266316520842": 1,
@@ -43031,7 +43033,7 @@
   },
   "spend": {
     "date": "2026-10-14",
-    "usd": 1.0010985940000001
+    "usd": 1.004490794
   },
   "deepSeekHalt": {
     "date": "2026-10-14",
