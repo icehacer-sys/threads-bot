@@ -31134,7 +31134,9 @@
         "media_type": "TEXT",
         "text": "Sent onward from the place that was supposed to be the destination.",
         "reply_to_id": "18115805599972366"
-      }
+      },
+      "publishedId": "17875230837650394",
+      "confirmedPublished": true
     }
   },
   "repliedCommentIds": [
