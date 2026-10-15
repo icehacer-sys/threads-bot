@@ -30961,6 +30961,15 @@
       },
       "publishedId": "18228054451330489",
       "confirmedPublished": true
+    },
+    "comment:18105936512285258": {
+      "creationId": "17893750083614054",
+      "createdAt": "2026-10-15T20:42:26.727Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "It does read like a caption waiting for someone to finish the sentence.",
+        "reply_to_id": "18105936512285258"
+      }
     }
   },
   "repliedCommentIds": [
@@ -43442,6 +43451,6 @@
   },
   "spend": {
     "date": "2026-10-15",
-    "usd": 0.033759132000000004
+    "usd": 0.034216680000000006
   }
 }
