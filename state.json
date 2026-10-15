@@ -30287,6 +30287,15 @@
       },
       "publishedId": "17968874463179439",
       "confirmedPublished": true
+    },
+    "comment:18106126946637236": {
+      "creationId": "17893631709614054",
+      "createdAt": "2026-10-15T00:47:03.691Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Curiosity is the only qualification that matters here and the body keeps handing out stranger answers than anyone expects.",
+        "reply_to_id": "18106126946637236"
+      }
     }
   },
   "repliedCommentIds": [
@@ -40944,7 +40953,8 @@
     "18112396016153706",
     "17919575304246041",
     "17963256741229770",
-    "18038776937844924"
+    "18038776937844924",
+    "17975103524939411"
   ],
   "answeredPostIds": [
     "18395606890093068"
@@ -41080,11 +41090,11 @@
     "18117179536935952": 250,
     "18144676564597946": 43,
     "17958909246216998": 35,
-    "18079498634383460": 57
+    "18079498634383460": 58
   },
   "daily": {
     "date": "2026-10-14",
-    "count": 57
+    "count": 58
   },
   "pinnedResolved": {
     "DaTTCIwoAw7": "18014812820883466"
@@ -42680,6 +42690,6 @@
   },
   "spend": {
     "date": "2026-10-14",
-    "usd": 0.12238157799999999
+    "usd": 0.12316914999999999
   }
 }
