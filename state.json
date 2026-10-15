@@ -30431,6 +30431,15 @@
       },
       "publishedId": "18098936645412824",
       "confirmedPublished": true
+    },
+    "comment:18465621451188163": {
+      "creationId": "17893645428614054",
+      "createdAt": "2026-10-15T03:05:06.195Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Punched out lesions would be a sensible read of dark rounded spots but the case facts describe these as pockets of air inside the skull at the front and the teaching answer is pneumocephalus from a skull base fracture.",
+        "reply_to_id": "18465621451188163"
+      }
     }
   },
   "repliedCommentIds": [
@@ -42845,7 +42854,7 @@
   },
   "spend": {
     "date": "2026-10-14",
-    "usd": 0.6448247939999999
+    "usd": 0.7117399939999999
   },
   "deepSeekHalt": {
     "date": "2026-10-14",
