@@ -30804,7 +30804,9 @@
         "media_type": "TEXT",
         "text": "I'll let the two of you settle that one.",
         "reply_to_id": "18104757776306541"
-      }
+      },
+      "publishedId": "17872077777640333",
+      "confirmedPublished": true
     }
   },
   "repliedCommentIds": [
