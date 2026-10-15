@@ -30519,6 +30519,15 @@
       },
       "publishedId": "18128887274491996",
       "confirmedPublished": true
+    },
+    "comment:18090659426226228": {
+      "creationId": "17893651503614054",
+      "createdAt": "2026-10-15T04:08:52.923Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Those dark pockets are air rather than a blood vessel problem so this one lands on pneumocephalus linked to a fracture at the skull base. The case facts don't say what the runny nose was though so I can't tell you if it was spinal fluid.",
+        "reply_to_id": "18090659426226228"
+      }
     }
   },
   "repliedCommentIds": [
@@ -41197,7 +41206,8 @@
     "18131382019814028",
     "18338383264279871",
     "17910133107541899",
-    "18125465923784874"
+    "18125465923784874",
+    "18096190145449095"
   ],
   "answeredPostIds": [
     "18395606890093068"
@@ -41333,11 +41343,11 @@
     "18117179536935952": 250,
     "18144676564597946": 43,
     "17958909246216998": 35,
-    "18079498634383460": 78
+    "18079498634383460": 79
   },
   "daily": {
     "date": "2026-10-14",
-    "count": 78
+    "count": 79
   },
   "pinnedResolved": {
     "DaTTCIwoAw7": "18014812820883466"
@@ -42942,7 +42952,7 @@
   },
   "spend": {
     "date": "2026-10-14",
-    "usd": 0.8611507939999999
+    "usd": 0.9292171939999999
   },
   "deepSeekHalt": {
     "date": "2026-10-14",
