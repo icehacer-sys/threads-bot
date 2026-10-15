@@ -30243,6 +30243,15 @@
       },
       "publishedId": "18096488231414643",
       "confirmedPublished": true
+    },
+    "comment:17919575304246041": {
+      "creationId": "17893628727614054",
+      "createdAt": "2026-10-15T00:15:23.983Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Air pressing on the brain behind the forehead does make a person's judgement look questionable to everyone else.",
+        "reply_to_id": "17919575304246041"
+      }
     }
   },
   "repliedCommentIds": [
@@ -40896,7 +40905,8 @@
     "17907690363331263",
     "18146825380568840",
     "18639076027035915",
-    "17909318760561296"
+    "17909318760561296",
+    "18112396016153706"
   ],
   "answeredPostIds": [
     "18395606890093068"
@@ -41032,11 +41042,11 @@
     "18117179536935952": 250,
     "18144676564597946": 43,
     "17958909246216998": 35,
-    "18079498634383460": 53
+    "18079498634383460": 54
   },
   "daily": {
     "date": "2026-10-14",
-    "count": 53
+    "count": 54
   },
   "pinnedResolved": {
     "DaTTCIwoAw7": "18014812820883466"
@@ -42628,6 +42638,6 @@
   },
   "spend": {
     "date": "2026-10-14",
-    "usd": 0.11492860599999999
+    "usd": 0.11551058199999999
   }
 }
