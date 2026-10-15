@@ -30276,6 +30276,15 @@
       },
       "publishedId": "17965797116980617",
       "confirmedPublished": true
+    },
+    "comment:17975103524939411": {
+      "creationId": "17893631685614054",
+      "createdAt": "2026-10-15T00:46:47.590Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Interesting is a generous word for a skull with air where thoughts should be.",
+        "reply_to_id": "17975103524939411"
+      }
     }
   },
   "repliedCommentIds": [
@@ -42522,7 +42531,9 @@
     "17974430928069667",
     "17962960707226638",
     "18013137977761681",
-    "17883113931527738"
+    "17883113931527738",
+    "17991704043051892",
+    "18008003150995967"
   ],
   "skipStrikes": {
     "17895266316520842": 1,
@@ -42667,6 +42678,6 @@
   },
   "spend": {
     "date": "2026-10-14",
-    "usd": 0.119703442
+    "usd": 0.12238157799999999
   }
 }
