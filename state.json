@@ -31049,6 +31049,15 @@
       },
       "publishedId": "18142660432719980",
       "confirmedPublished": true
+    },
+    "comment:17884878597690346": {
+      "creationId": "17893753551614054",
+      "createdAt": "2026-10-15T21:30:30.162Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Not the inflamed version here. Those pouches are diverticulosis and the -itis only starts when they get inflamed.",
+        "reply_to_id": "17884878597690346"
+      }
     }
   },
   "repliedCommentIds": [
@@ -43541,6 +43550,6 @@
   },
   "spend": {
     "date": "2026-10-15",
-    "usd": 0.044609076000000004
+    "usd": 0.046156524000000004
   }
 }
