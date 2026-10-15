@@ -30763,6 +30763,15 @@
       },
       "publishedId": "18220861870356297",
       "confirmedPublished": true
+    },
+    "comment:18094259192406058": {
+      "creationId": "17893747131614054",
+      "createdAt": "2026-10-15T19:50:51.647Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Diverticulosis is the answer. The gas is just normal bowel gas sitting between the pouches rather than a separate finding.",
+        "reply_to_id": "18094259192406058"
+      }
     }
   },
   "repliedCommentIds": [
@@ -41462,7 +41471,8 @@
     "18657910129032715",
     "18179131357447723",
     "18139955788623007",
-    "18104872385213207"
+    "18104872385213207",
+    "18093936083659883"
   ],
   "answeredPostIds": [
     "18395606890093068"
@@ -41599,11 +41609,11 @@
     "18144676564597946": 43,
     "17958909246216998": 35,
     "18079498634383460": 88,
-    "17903856849668624": 11
+    "17903856849668624": 12
   },
   "daily": {
     "date": "2026-10-15",
-    "count": 11
+    "count": 12
   },
   "pinnedResolved": {
     "DaTTCIwoAw7": "18014812820883466"
@@ -43221,6 +43231,6 @@
   },
   "spend": {
     "date": "2026-10-15",
-    "usd": 0.016772267999999996
+    "usd": 0.017269211999999996
   }
 }
