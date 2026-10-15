@@ -31060,6 +31060,15 @@
       },
       "publishedId": "18096284186217783",
       "confirmedPublished": true
+    },
+    "comment:18013022771762830": {
+      "creationId": "17893756116614054",
+      "createdAt": "2026-10-15T22:01:15.620Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "So the doctors got the full tour and you got the summary. At least now you know what your own version looks like.",
+        "reply_to_id": "18013022771762830"
+      }
     }
   },
   "repliedCommentIds": [
@@ -43407,7 +43416,8 @@
     "17919066660466023",
     "17910222567515867",
     "17959961742248201",
-    "18631877635009448"
+    "18631877635009448",
+    "18113728952143128"
   ],
   "skipStrikes": {
     "17895266316520842": 1,
@@ -43553,6 +43563,6 @@
   },
   "spend": {
     "date": "2026-10-15",
-    "usd": 0.046156524000000004
+    "usd": 0.048485832000000006
   }
 }
