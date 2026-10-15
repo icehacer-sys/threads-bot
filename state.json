@@ -401,7 +401,17 @@
     "18090053393242438": "CSF leak followed by air inside skull vault! Pneumocephalus?",
     "18033933023671608": "Dude held in too many farts and they traveled up like grandma said they would. 🤣",
     "17943004368090706": "Brain abscess?",
-    "18025875857877109": "Blood brain barrier not doing its thing?"
+    "18025875857877109": "Blood brain barrier not doing its thing?",
+    "17975220444139537": "-itis or -osis, either way it's double-plus ungood.",
+    "18128146313492670": "Impacted bowel?",
+    "18097693301548000": "Diverticulitis?",
+    "17904386682667003": "Diverticulitis?",
+    "18131317447787295": "Bowel obstruction via Neco wafers?",
+    "18080511032361179": "Colonic Diverticulosis",
+    "17906768235571177": "Colonic diverticulosis",
+    "18126550582859722": "Candy Necklace-itis 😬😭",
+    "18110699099231734": "Diverticulitis?  Side pockets in the intestine?",
+    "18029484119916493": "Someone’s cat got hold of one side of the Christmas garland."
   },
   "imageHeldComments": {
     "18116444902754615": "18184997560424523",
@@ -41448,8 +41458,8 @@
     "18079498634383460": 88
   },
   "daily": {
-    "date": "2026-10-14",
-    "count": 88
+    "date": "2026-10-15",
+    "count": 0
   },
   "pinnedResolved": {
     "DaTTCIwoAw7": "18014812820883466"
@@ -43046,7 +43056,7 @@
     "17865730374636613": 1
   },
   "gifDaily": {
-    "date": "2026-10-14",
+    "date": "2026-10-15",
     "count": 0
   },
   "recentGifIds": [
@@ -43057,15 +43067,11 @@
   ],
   "promoPostCounts": {},
   "promoDaily": {
-    "date": "2026-10-14",
+    "date": "2026-10-15",
     "count": 0
   },
   "spend": {
-    "date": "2026-10-14",
-    "usd": 1.1124457939999999
-  },
-  "deepSeekHalt": {
-    "date": "2026-10-14",
-    "reason": "uncertain DeepSeek attempt or unavailable key"
+    "date": "2026-10-15",
+    "usd": 0.004670568
   }
 }
