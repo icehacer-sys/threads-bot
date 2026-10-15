@@ -30210,6 +30210,15 @@
       },
       "publishedId": "18236413183320472",
       "confirmedPublished": true
+    },
+    "comment:18639076027035915": {
+      "creationId": "17893628652614054",
+      "createdAt": "2026-10-15T00:14:14.648Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "That's the one. Air behind the forehead.",
+        "reply_to_id": "18639076027035915"
+      }
     }
   },
   "repliedCommentIds": [
@@ -42593,6 +42602,6 @@
   },
   "spend": {
     "date": "2026-10-14",
-    "usd": 0.09225411
+    "usd": 0.092866086
   }
 }
