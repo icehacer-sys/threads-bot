@@ -31623,6 +31623,15 @@
       },
       "publishedId": "18133106114508862",
       "confirmedPublished": true
+    },
+    "comment:18167356723464724": {
+      "creationId": "17893924290614054",
+      "createdAt": "2026-10-16T21:28:54.427Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "That's the one and your read of the anatomy lines up. Size and symptoms are what steer whether it gets watched or fixed.",
+        "reply_to_id": "18167356723464724"
+      }
     }
   },
   "repliedCommentIds": [
@@ -44187,6 +44196,6 @@
   },
   "spend": {
     "date": "2026-10-16",
-    "usd": 0.04832898599999999
+    "usd": 0.050062229999999985
   }
 }
