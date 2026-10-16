@@ -31645,6 +31645,15 @@
       },
       "publishedId": "18112251122147656",
       "confirmedPublished": true
+    },
+    "comment:18630939616050322": {
+      "creationId": "17893927461614054",
+      "createdAt": "2026-10-16T22:09:42.614Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "That's it. The sac sits just below the kidney arteries.",
+        "reply_to_id": "18630939616050322"
+      }
     }
   },
   "repliedCommentIds": [
@@ -44213,6 +44222,6 @@
   },
   "spend": {
     "date": "2026-10-16",
-    "usd": 0.053740205999999985
+    "usd": 0.05438501399999998
   }
 }
