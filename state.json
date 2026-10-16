@@ -31634,6 +31634,15 @@
       },
       "publishedId": "18116778830012646",
       "confirmedPublished": true
+    },
+    "comment:18083841161335356": {
+      "creationId": "17893926705614054",
+      "createdAt": "2026-10-16T21:59:50.224Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "It has the root vegetable silhouette down but that turnip is the aorta ballooning into a sac.",
+        "reply_to_id": "18083841161335356"
+      }
     }
   },
   "repliedCommentIds": [
@@ -44051,7 +44060,9 @@
     "18380612578237279",
     "18130692812309305",
     "18101617778452144",
-    "17965634408979836"
+    "17965634408979836",
+    "17923191279431310",
+    "18118257526778426"
   ],
   "skipStrikes": {
     "17895266316520842": 1,
@@ -44199,6 +44210,6 @@
   },
   "spend": {
     "date": "2026-10-16",
-    "usd": 0.05116049399999999
+    "usd": 0.053740205999999985
   }
 }
