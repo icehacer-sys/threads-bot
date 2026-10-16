@@ -31502,6 +31502,15 @@
       },
       "publishedId": "17866209021677266",
       "confirmedPublished": true
+    },
+    "comment:18020631638926520": {
+      "creationId": "17893916664614054",
+      "createdAt": "2026-10-16T20:08:27.330Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Solid reptile gynaecology but an egg that size would at least have laid a shell.",
+        "reply_to_id": "18020631638926520"
+      }
     }
   },
   "repliedCommentIds": [
@@ -44049,6 +44058,6 @@
   },
   "spend": {
     "date": "2026-10-16",
-    "usd": 0.028817472000000004
+    "usd": 0.029336484000000003
   }
 }
