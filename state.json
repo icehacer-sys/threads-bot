@@ -31137,6 +31137,15 @@
       },
       "publishedId": "17875230837650394",
       "confirmedPublished": true
+    },
+    "comment:18083818814333442": {
+      "creationId": "17893763925614054",
+      "createdAt": "2026-10-16T00:04:42.339Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Most people with these pouches never need an operation at all and surgery only comes into play when things like perforation or an abscess show up. This film shows the pouches themselves without any sign of infection here.",
+        "reply_to_id": "18083818814333442"
+      }
     }
   },
   "repliedCommentIds": [
@@ -43616,7 +43625,8 @@
     "18084726470339239": 1,
     "18639076027035915": 1,
     "18132312790776676": 1,
-    "18448437427120595": 1
+    "18448437427120595": 1,
+    "18144054457592243": 1
   },
   "gifPostCounts": {
     "18432085978123193": 1,
@@ -43641,6 +43651,6 @@
   },
   "spend": {
     "date": "2026-10-15",
-    "usd": 0.11110645200000001
+    "usd": 0.11503004400000001
   }
 }
