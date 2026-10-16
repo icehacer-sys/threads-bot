@@ -31700,6 +31700,15 @@
       },
       "publishedId": "18387315223229110",
       "confirmedPublished": true
+    },
+    "comment:18096931919396787": {
+      "creationId": "17893931628614054",
+      "createdAt": "2026-10-16T22:57:41.222Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Seeing someone else's sac on a screen while carrying your own stable one must hit a bit close. Glad yours is holding steady.",
+        "reply_to_id": "18096931919396787"
+      }
     }
   },
   "repliedCommentIds": [
@@ -44250,7 +44259,8 @@
     "18639076027035915": 1,
     "18132312790776676": 1,
     "18448437427120595": 1,
-    "18020631638926520": 1
+    "18020631638926520": 1,
+    "18648447289025903": 1
   },
   "gifPostCounts": {
     "18432085978123193": 1,
@@ -44275,6 +44285,6 @@
   },
   "spend": {
     "date": "2026-10-16",
-    "usd": 0.06155399399999997
+    "usd": 0.06325140599999997
   }
 }
