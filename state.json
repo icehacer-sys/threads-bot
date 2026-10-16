@@ -31785,7 +31785,9 @@
         "media_type": "TEXT",
         "text": "Three letters and you have the whole thing.",
         "reply_to_id": "18133696135679352"
-      }
+      },
+      "publishedId": "18181128511381976",
+      "confirmedPublished": true
     }
   },
   "repliedCommentIds": [
