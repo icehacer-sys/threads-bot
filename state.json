@@ -31755,6 +31755,15 @@
       },
       "publishedId": "18151979554544338",
       "confirmedPublished": true
+    },
+    "comment:18343274437270256": {
+      "creationId": "17893934925614054",
+      "createdAt": "2026-10-16T23:44:28.495Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "That old lady had a whole menagerie on board by the last verse and she still went for the horse.",
+        "reply_to_id": "18343274437270256"
+      }
     }
   },
   "repliedCommentIds": [
@@ -44336,6 +44345,6 @@
   },
   "spend": {
     "date": "2026-10-16",
-    "usd": 0.06768042599999997
+    "usd": 0.06839303399999998
   }
 }
