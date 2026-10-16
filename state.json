@@ -31656,6 +31656,15 @@
       },
       "publishedId": "17871253527648821",
       "confirmedPublished": true
+    },
+    "comment:17866650999675187": {
+      "creationId": "17893928721614054",
+      "createdAt": "2026-10-16T22:25:29.203Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Reading the answer first is cheating and yet I would have done the same thing.",
+        "reply_to_id": "17866650999675187"
+      }
     }
   },
   "repliedCommentIds": [
@@ -44201,7 +44210,8 @@
     "18639076027035915": 1,
     "18132312790776676": 1,
     "18448437427120595": 1,
-    "18020631638926520": 1
+    "18020631638926520": 1,
+    "18204024835378750": 1
   },
   "gifPostCounts": {
     "18432085978123193": 1,
@@ -44226,6 +44236,6 @@
   },
   "spend": {
     "date": "2026-10-16",
-    "usd": 0.05564147399999998
+    "usd": 0.05779553399999998
   }
 }
