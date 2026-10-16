@@ -31612,6 +31612,15 @@
       },
       "publishedId": "18131050943307216",
       "confirmedPublished": true
+    },
+    "comment:18054834539807313": {
+      "creationId": "17893922787614054",
+      "createdAt": "2026-10-16T21:13:10.068Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "The candelabra read holds until you notice the middle stem is thicker than the arms.",
+        "reply_to_id": "18054834539807313"
+      }
     }
   },
   "repliedCommentIds": [
@@ -44174,6 +44183,6 @@
   },
   "spend": {
     "date": "2026-10-16",
-    "usd": 0.04640761799999999
+    "usd": 0.04709262599999999
   }
 }
