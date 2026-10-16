@@ -31367,7 +31367,9 @@
         "media_type": "TEXT",
         "text": "I share the panic in that waiting room.",
         "reply_to_id": "18382314715227775"
-      }
+      },
+      "publishedId": "18129011617877630",
+      "confirmedPublished": true
     }
   },
   "repliedCommentIds": [
