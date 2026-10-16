@@ -31568,6 +31568,15 @@
       },
       "publishedId": "18233037871324450",
       "confirmedPublished": true
+    },
+    "comment:17961514823998530": {
+      "creationId": "17893919097614054",
+      "createdAt": "2026-10-16T20:26:11.427Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "One film shows the shape but not the stage. Size is what tracks the rupture risk and this case doesn't record a diameter so there's no way to say from this image alone whether it had already torn.",
+        "reply_to_id": "17961514823998530"
+      }
     }
   },
   "repliedCommentIds": [
@@ -42339,7 +42348,8 @@
     "18096248966536026",
     "17893819944681078",
     "18108834799900281",
-    "17957830392017676"
+    "17957830392017676",
+    "18093829538662512"
   ],
   "answeredPostIds": [
     "18395606890093068"
@@ -42477,11 +42487,11 @@
     "17958909246216998": 35,
     "18079498634383460": 88,
     "17903856849668624": 55,
-    "18425195461157641": 25
+    "18425195461157641": 26
   },
   "daily": {
     "date": "2026-10-16",
-    "count": 25
+    "count": 26
   },
   "pinnedResolved": {
     "DaTTCIwoAw7": "18014812820883466"
@@ -44123,6 +44133,6 @@
   },
   "spend": {
     "date": "2026-10-16",
-    "usd": 0.040878347999999995
+    "usd": 0.04223300399999999
   }
 }
