@@ -31170,6 +31170,15 @@
       },
       "publishedId": "17950163298055569",
       "confirmedPublished": true
+    },
+    "comment:18150429898593939": {
+      "creationId": "17893766484614054",
+      "createdAt": "2026-10-16T00:37:07.037Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "His whole brand is telling people not to swallow things and this colon clearly never watched the channel.",
+        "reply_to_id": "18150429898593939"
+      }
     }
   },
   "repliedCommentIds": [
@@ -43679,6 +43688,6 @@
   },
   "spend": {
     "date": "2026-10-15",
-    "usd": 0.12115138800000001
+    "usd": 0.122373612
   }
 }
