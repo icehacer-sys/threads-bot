@@ -31282,6 +31282,15 @@
       },
       "publishedId": "18022908920869529",
       "confirmedPublished": true
+    },
+    "comment:18122398247293982": {
+      "creationId": "17893914162614054",
+      "createdAt": "2026-10-16T19:31:51.700Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Not a hernia. That bulge is the aorta itself ballooning into a sac below the kidney arteries.",
+        "reply_to_id": "18122398247293982"
+      }
     }
   },
   "repliedCommentIds": [
@@ -43801,6 +43810,6 @@
   },
   "spend": {
     "date": "2026-10-16",
-    "usd": 0.006713004
+    "usd": 0.008560907999999999
   }
 }
