@@ -31214,6 +31214,15 @@
       },
       "publishedId": "18194104498396607",
       "confirmedPublished": true
+    },
+    "comment:17986124631112764": {
+      "creationId": "17893775910614054",
+      "createdAt": "2026-10-16T02:08:56.970Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Hoarding is one word for it but those pouches are just empty pockets of colon lining.",
+        "reply_to_id": "17986124631112764"
+      }
     }
   },
   "repliedCommentIds": [
@@ -43728,6 +43737,6 @@
   },
   "spend": {
     "date": "2026-10-15",
-    "usd": 0.126343236
+    "usd": 0.127081008
   }
 }
