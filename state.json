@@ -31601,6 +31601,15 @@
       },
       "publishedId": "18235868173320015",
       "confirmedPublished": true
+    },
+    "comment:17969589429188664": {
+      "creationId": "17893919301614054",
+      "createdAt": "2026-10-16T20:27:08.232Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "You got the aneurysm. Those branches feeding the kidneys come off the aorta above the sac and the sac itself starts just below them.",
+        "reply_to_id": "17969589429188664"
+      }
     }
   },
   "repliedCommentIds": [
@@ -42375,7 +42384,8 @@
     "17957830392017676",
     "18093829538662512",
     "17961514823998530",
-    "18121500788467701"
+    "18121500788467701",
+    "18114502082033240"
   ],
   "answeredPostIds": [
     "18395606890093068"
@@ -42513,11 +42523,11 @@
     "17958909246216998": 35,
     "18079498634383460": 88,
     "17903856849668624": 55,
-    "18425195461157641": 28
+    "18425195461157641": 29
   },
   "daily": {
     "date": "2026-10-16",
-    "count": 28
+    "count": 29
   },
   "pinnedResolved": {
     "DaTTCIwoAw7": "18014812820883466"
@@ -44160,6 +44170,6 @@
   },
   "spend": {
     "date": "2026-10-16",
-    "usd": 0.04413166799999999
+    "usd": 0.04462911599999999
   }
 }
