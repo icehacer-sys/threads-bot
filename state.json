@@ -31469,6 +31469,15 @@
       },
       "publishedId": "18079240592530395",
       "confirmedPublished": true
+    },
+    "comment:17950640955320720": {
+      "creationId": "17893915935614054",
+      "createdAt": "2026-10-16T19:52:20.379Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Word travels fast when a sac like that lands on the list and suddenly the whole room is looking over your shoulder.",
+        "reply_to_id": "17950640955320720"
+      }
     }
   },
   "repliedCommentIds": [
@@ -42231,7 +42240,8 @@
     "18140604946719794",
     "18396118783200878",
     "17938826808380715",
-    "18133498816679745"
+    "18133498816679745",
+    "18073433351733433"
   ],
   "answeredPostIds": [
     "18395606890093068"
@@ -42369,11 +42379,11 @@
     "17958909246216998": 35,
     "18079498634383460": 88,
     "17903856849668624": 55,
-    "18425195461157641": 16
+    "18425195461157641": 17
   },
   "daily": {
     "date": "2026-10-16",
-    "count": 16
+    "count": 17
   },
   "pinnedResolved": {
     "DaTTCIwoAw7": "18014812820883466"
@@ -44011,6 +44021,6 @@
   },
   "spend": {
     "date": "2026-10-16",
-    "usd": 0.025433940000000002
+    "usd": 0.025907352
   }
 }
