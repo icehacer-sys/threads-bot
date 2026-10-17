@@ -32011,6 +32011,15 @@
       },
       "publishedId": "18119536910077764",
       "confirmedPublished": true
+    },
+    "comment:18104471588572790": {
+      "creationId": "17894077533614054",
+      "createdAt": "2026-10-17T21:30:57.423Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Champion of the contest and it went straight into the neck. That sac was a laryngocele full of air.",
+        "reply_to_id": "18104471588572790"
+      }
     }
   },
   "repliedCommentIds": [
@@ -44624,7 +44633,8 @@
     "18448437427120595": 1,
     "18020631638926520": 1,
     "18648447289025903": 1,
-    "17928728868180340": 1
+    "17928728868180340": 1,
+    "18091568192192827": 1
   },
   "gifPostCounts": {
     "18432085978123193": 1,
@@ -44649,6 +44659,6 @@
   },
   "spend": {
     "date": "2026-10-17",
-    "usd": 0.04061500799999998
+    "usd": 0.04192969199999998
   }
 }
