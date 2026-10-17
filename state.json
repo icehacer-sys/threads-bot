@@ -32022,6 +32022,15 @@
       },
       "publishedId": "18007276757973602",
       "confirmedPublished": true
+    },
+    "comment:18091568192192827": {
+      "creationId": "17894078403614054",
+      "createdAt": "2026-10-17T21:46:23.464Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Free built-in reverb then. No extra talent required apparently.",
+        "reply_to_id": "18091568192192827"
+      }
     }
   },
   "repliedCommentIds": [
@@ -44662,6 +44671,6 @@
   },
   "spend": {
     "date": "2026-10-17",
-    "usd": 0.04192969199999998
+    "usd": 0.042401339999999975
   }
 }
