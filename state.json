@@ -32000,6 +32000,15 @@
       },
       "publishedId": "18642495031016733",
       "confirmedPublished": true
+    },
+    "comment:17911808871502273": {
+      "creationId": "17894076543614054",
+      "createdAt": "2026-10-17T21:15:26.161Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Not lupus. It's a laryngocele.",
+        "reply_to_id": "17911808871502273"
+      }
     }
   },
   "repliedCommentIds": [
@@ -44637,6 +44646,6 @@
   },
   "spend": {
     "date": "2026-10-17",
-    "usd": 0.039370955999999985
+    "usd": 0.04061500799999998
   }
 }
