@@ -31953,6 +31953,15 @@
       },
       "publishedId": "17909373984484165",
       "confirmedPublished": true
+    },
+    "comment:18095012192693543": {
+      "creationId": "17893968564614054",
+      "createdAt": "2026-10-17T06:10:48.872Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "The pear is the aorta making its own sac so upsetting it mostly means keeping an eye on size and symptoms.",
+        "reply_to_id": "18095012192693543"
+      }
     }
   },
   "repliedCommentIds": [
@@ -44556,6 +44565,6 @@
   },
   "spend": {
     "date": "2026-10-16",
-    "usd": 0.08844538199999996
+    "usd": 0.08907758999999996
   }
 }
