@@ -33,6 +33,10 @@ interface StateShape {
   spend?: { date: string; usd: number };
   /** Cap-day on which the DeepSeek trial was disabled after uncertain usage or an unavailable key. */
   deepSeekHalt?: { date: string; reason: string };
+  /** Cap-day of the last completed late sweep and how many replies it posted (one sweep per cap-day). */
+  lateSweep?: { date: string; replies: number };
+  /** Post id -> comment id that received that post's clinician nod (one per post). */
+  clinicianNods?: Record<string, string>;
 }
 
 function today(): string {
@@ -65,6 +69,8 @@ export class State {
   private promoDaily: { date: string; count: number };
   private spend: { date: string; usd: number };
   private deepSeekHalt?: { date: string; reason: string };
+  private lateSweep?: { date: string; replies: number };
+  private clinicianNods: Record<string, string>;
   private file: string;
 
   // stateFile defaults to the Threads state; the Facebook reply loop passes its own path
@@ -93,6 +99,8 @@ export class State {
         }
         if (loaded?.spend !== undefined && (!loaded.spend || typeof loaded.spend.date !== "string" || !Number.isFinite(Date.parse(loaded.spend.date)) || typeof loaded.spend.usd !== "number" || !Number.isFinite(loaded.spend.usd) || loaded.spend.usd < 0)) throw new Error("invalid spend");
         if (loaded?.deepSeekHalt !== undefined && (!loaded.deepSeekHalt || typeof loaded.deepSeekHalt.date !== "string" || typeof loaded.deepSeekHalt.reason !== "string")) throw new Error("invalid DeepSeek breaker");
+        if (loaded?.lateSweep !== undefined && (!loaded.lateSweep || typeof loaded.lateSweep.date !== "string" || !Number.isInteger(loaded.lateSweep.replies) || loaded.lateSweep.replies < 0)) throw new Error("invalid late sweep");
+        if (loaded?.clinicianNods !== undefined && (!loaded.clinicianNods || typeof loaded.clinicianNods !== "object" || Array.isArray(loaded.clinicianNods) || !Object.values(loaded.clinicianNods).every((v) => typeof v === "string"))) throw new Error("invalid clinician nods");
         if (loaded?.recentGifIds !== undefined && !strings(loaded.recentGifIds)) throw new Error("invalid GIF history");
         if (loaded?.pinnedResolved !== undefined && (!loaded.pinnedResolved || typeof loaded.pinnedResolved !== "object" || Array.isArray(loaded.pinnedResolved) || !Object.values(loaded.pinnedResolved).every((v) => typeof v === "string"))) throw new Error("invalid pinned map");
         if (!loaded || !strings(loaded.repliedCommentIds) || !strings(loaded.answeredPostIds) ||
@@ -128,6 +136,66 @@ export class State {
     this.spend =
       loaded?.spend && loaded.spend.date === today() ? loaded.spend : { date: today(), usd: 0 };
     this.deepSeekHalt = loaded?.deepSeekHalt?.date === today() ? loaded.deepSeekHalt : undefined;
+    this.lateSweep = loaded?.lateSweep;
+    this.clinicianNods = loaded?.clinicianNods ?? {};
+  }
+
+  // --- Late sweep: at most one completed sweep per cap-day ---
+  lateSweepDoneToday(): boolean {
+    return this.lateSweep?.date === today();
+  }
+
+  markLateSweepDone(replies: number): void {
+    this.lateSweep = { date: today(), replies: Math.max(0, Math.floor(replies)) };
+    this.save();
+  }
+
+  /** Any recorded skip for this comment: the permanent skip cache or a pending soft-skip strike. */
+  hasSkipRecord(commentId: string): boolean {
+    return this.skipped.has(commentId) || Object.hasOwn(this.skipStrikes, commentId);
+  }
+
+  hasOwnerReview(commentId: string): boolean {
+    return Object.hasOwn(this.ownerReviews, commentId);
+  }
+
+  // --- Clinician nod: one per post ---
+  hasClinicianNod(postId: string): boolean {
+    return Object.hasOwn(this.clinicianNods, postId);
+  }
+
+  markClinicianNod(postId: string, commentId: string): void {
+    if (this.hasClinicianNod(postId)) return;
+    this.clinicianNods[postId] = commentId;
+    this.save();
+  }
+
+  /**
+   * Resolve unresolved owner reviews queued more than `maxAgeHours` ago. A review is queued after its
+   * comment and so after its post, which makes queuedAt a conservative stand-in for the post's age: an
+   * expired review's post is always at least that old. Expired image-review items also drop their held
+   * comments so a post whose concern was never reviewed is not revisited. Returns the number expired.
+   */
+  expireOwnerReviews(maxAgeHours: number, now: Date = new Date()): number {
+    if (!(maxAgeHours > 0)) return 0;
+    const cutoff = now.getTime() - maxAgeHours * 3_600_000;
+    const expiredPosts = new Set<string>();
+    let expired = 0;
+    for (const [commentId, raw] of Object.entries(this.ownerReviews)) {
+      let review: { postId?: string; reason?: string; queuedAt?: string; resolvedAt?: string };
+      try { review = JSON.parse(raw); } catch { continue; }
+      const queued = Date.parse(review.queuedAt ?? '');
+      if (review.resolvedAt || !Number.isFinite(queued) || queued > cutoff) continue;
+      this.ownerReviews[commentId] = JSON.stringify({ ...review, resolvedAt: now.toISOString(), resolution: `auto-expired: queued more than ${maxAgeHours}h ago`, expired: true });
+      if (review.postId && /image\/anatomy/i.test(review.reason ?? '')) expiredPosts.add(review.postId);
+      expired++;
+    }
+    if (!expired) return 0;
+    for (const [commentId, postId] of Object.entries(this.imageHeldComments)) {
+      if (expiredPosts.has(postId) && !this.hasImageReview(postId)) delete this.imageHeldComments[commentId];
+    }
+    this.save();
+    return expired;
   }
 
   // --- DeepSeek trial breaker: one uncertain attempt disables the trial for the cap-day ---
@@ -344,6 +412,8 @@ export class State {
       promoDaily: this.promoDaily,
       spend: this.spend,
       ...(this.deepSeekHalt ? { deepSeekHalt: this.deepSeekHalt } : {}),
+      ...(this.lateSweep ? { lateSweep: this.lateSweep } : {}),
+      ...(Object.keys(this.clinicianNods).length ? { clinicianNods: this.clinicianNods } : {}),
     };
     atomicJson(this.file, out);
   }

@@ -21,10 +21,13 @@ import { isPriorityCommenter } from './supporter-replies';
 import { replyCoverage, isRetiredGuessReceipt, isEmojiOnlyComment, crowdGuessNote } from './reply-coverage';
 import { createPollObservation, type CoverageObservation } from './coverage-observation';
 import { unsupportedPatientHistory } from './case-evidence';
-import { classifyAndDraft, isBotQuestion, isPreRevealHold, firstSentences, type Decision, type InlineImage, type ImageMediaType } from "./reply";
+import { classifyAndDraft, isBotQuestion, isNonEnglishScript, isPreRevealHold, firstSentences, type Decision, type InlineImage, type ImageMediaType } from "./reply";
 import { pickGif } from "./gifs";
 import { drainSpend, usd } from "./spend";
-import { enableDeepSeekForEverything, seedDeepSeekHalt, takeDeepSeekTrip } from "./reply-provider";
+import { enableDeepSeekForEverything, lastServedModel, seedDeepSeekHalt, takeDeepSeekTrip } from "./reply-provider";
+import { lateSweepWindowOpen, selectLateSweep, windowCloseAfter } from "./late-sweep";
+import { pickClinicianNod } from "./clinician-nod";
+import { addresseeVerdict, taggedOthers, type AddresseeContext } from "./peer-conversation";
 import { acknowledgmentKind, holdForImageReview, imageConcernKind, isRetiredMedicalBoundary } from "./concerns";
 import { getProduct } from "./products";
 import { resolveXrayAnswer } from "./xray";
@@ -580,7 +583,11 @@ async function runLiveOrDry(mode: Mode, target: string | null, observation: Cove
     return;
   }
 
-  if (posting && !withinActiveHours()) {
+  // Late sweep: outside the active window, from BOT_LATE_SWEEP_AT until the window opens, one sweep per
+  // cap-day of the previous night's post (src/late-sweep.ts). `npm run dry -- --late-sweep` previews it.
+  const inHours = !posting || withinActiveHours();
+  const sweepWindow = posting && !inHours && config.lateSweep && lateSweepWindowOpen(new Date(), config.lateSweepAt, config.activeStart, config.activeTz || "UTC");
+  if (posting && !inHours && !sweepWindow) {
     const windows = config.activeWindows.map(([a, b]) => `${a}-${b}`).join(", ");
     console.log(`Outside active hours (${windows} ${config.activeTz}). Nothing to do.`);
     return;
@@ -589,6 +596,16 @@ async function runLiveOrDry(mode: Mode, target: string | null, observation: Cove
   // Lazy import so demo mode never needs the state file or Threads token.
   const { State } = await import("./state");
   const state = new State();
+  const sweep = (!posting && process.argv.includes("--late-sweep")) || (sweepWindow && !state.lateSweepDoneToday());
+  if (posting && !inHours && !sweep) {
+    console.log("Late sweep already done for this cap-day. Nothing to do until the window opens.");
+    return;
+  }
+  // Owner-review items whose post can no longer be answered usefully expire at poll time.
+  if (posting) {
+    const expired = state.expireOwnerReviews(config.ownerReviewExpiryHours);
+    if (expired) console.log(`Owner reviews: ${expired} item(s) queued more than ${config.ownerReviewExpiryHours}h ago auto-expired.`);
+  }
   if (config.deepSeekTrial) seedDeepSeekHalt(state.deepSeekHaltedToday());
   // Dry runs read the breaker but never write state.
   const persistDeepSeekTrip = () => { if (takeDeepSeekTrip() && posting) state.haltDeepSeek('uncertain DeepSeek attempt or unavailable key'); };
@@ -608,12 +625,21 @@ async function runLiveOrDry(mode: Mode, target: string | null, observation: Cove
   if (evalReplay || evalPreReveal) console.log(`EVALUATION dry run: replay=${evalReplay} preReveal=${evalPreReveal}. Nothing is posted or saved.`);
   // Newest post only: posts come back newest-first, so keep just the first.
   if (!target && config.newestOnly && posts.length > 1) posts = posts.slice(0, 1);
+  // The sweep runs before tonight's post goes up, so the newest post is the previous night's case.
+  // Anything younger than 12h or older than 36h is not last night's post and is left alone.
+  if (sweep) {
+    posts = posts.slice(0, 1).filter((p) => {
+      const ageHours = p.timestamp ? (Date.now() - new Date(p.timestamp).getTime()) / 3_600_000 : NaN;
+      return ageHours >= 12 && ageHours <= 36;
+    });
+    console.log(`LATE SWEEP of the previous night's post (${posts.length ? posts[0].id : "none in range"}): questions and stories only, at most ${config.lateSweepMax} replies and ${usd(config.lateSweepUsd)} of spend.`);
+  }
 
   // Pinned posts (e.g. a pinned intro thread): always scanned on top of the daily post,
   // unless a specific target was requested. They bypass the time window + per-post cap below.
-  const pinnedPosts = target ? [] : await resolvePinnedPosts(state, posts, recordFailure);
+  const pinnedPosts = target || sweep ? [] : await resolvePinnedPosts(state, posts, recordFailure);
   const pinnedIds = new Set(pinnedPosts.map((p) => p.id));
-  const revisitPosts = target ? [] : await resolveReleasedHoldPosts(state, [...posts, ...pinnedPosts]);
+  const revisitPosts = target || sweep ? [] : await resolveReleasedHoldPosts(state, [...posts, ...pinnedPosts]);
   const revisitIds = new Set(revisitPosts.map((p) => p.id));
   const scanPosts = [...posts, ...pinnedPosts, ...revisitPosts];
 
@@ -671,7 +697,7 @@ async function runLiveOrDry(mode: Mode, target: string | null, observation: Cove
     if (budgetStop || fatalStop) break;
     // Optional time window: only enforced when windowHours > 0 (0 = no limit).
     // Pinned posts are intentionally old, so they skip the age filter.
-    if (config.windowHours > 0 && !pinnedIds.has(post.id) && !revisitIds.has(post.id)) {
+    if (config.windowHours > 0 && !sweep && !pinnedIds.has(post.id) && !revisitIds.has(post.id)) {
       const ageHours = post.timestamp ? (Date.now() - new Date(post.timestamp).getTime()) / 3_600_000 : 0;
       if (ageHours > config.windowHours) continue;
     }
@@ -804,8 +830,14 @@ async function runLiveOrDry(mode: Mode, target: string | null, observation: Cove
     // times to those (it never saw its own pending reply). (Trade-off: if the owner deletes a
     // bot reply it will not be re-answered automatically — clearing the comment id from
     // state.json's repliedCommentIds re-enables that, which is the right place for it.)
+    // Addressee check (owner-reported 2026-10-17): replies between commenters, replies under our reply aimed
+    // at the person we answered, and top-level friend tags are not addressed to the account. Logged as
+    // peer_conversation exclusions, never errors, and outside the coverage denominator.
+    const addressee: AddresseeContext = { postId: post.id, me, byId: new Map(conversation.map((c) => [c.id, c])), answerCommentId: evalPreReveal ? null : answerCommentId(conversation, me) };
+    const peerSkipped = new Set<string>();
     const wantsReply = (c: ThreadsReply): boolean => {
       if (c.username === me) { observe(() => observation.eligibility(post.id, c.id, 'excluded', 'self')); return false; }
+      if (addresseeVerdict(c, addressee)) { peerSkipped.add(c.id); observe(() => observation.eligibility(post.id, c.id, 'excluded', 'peer_conversation')); return false; }
       if (!beforeReveal(c)) return false;
       if (revisitIds.has(post.id) && !state.isImageHeld(c.id, post.id)) return false;
       if (!isVisible(c)) { observe(() => observation.eligibility(post.id, c.id, 'excluded', 'hidden')); return false; }
@@ -931,8 +963,33 @@ async function runLiveOrDry(mode: Mode, target: string | null, observation: Cove
     const waitingForReveal = withinThreadLimit.length - eligible.length;
     if (pool.length > withinThreadLimit.length) console.log(`  ${pool.length - withinThreadLimit.length} comment(s) excluded by thread limit or incomplete ancestry; no model calls.`);
     if (waitingForReveal) console.log(`  ${waitingForReveal} comment(s) waiting for reveal; no model calls for these.`);
+    if (peerSkipped.size) console.log(`  ${peerSkipped.size} comment(s) skipped as peer conversation (addressed to other commenters or friend tags only); no model calls.`);
+    // Late sweep: only questions and stories that arrived after the window closed, or in-window ones a
+    // guard or model skip left unanswered. Same eligibility, thread limit and idempotency as a normal poll.
+    let sweepCandidates: ThreadsReply[] | null = null;
+    if (sweep) {
+      if (!answerPublic || !knownAnswer || isPersonalPost || !post.timestamp) {
+        console.log("  (late sweep: no public answer on this post; nothing swept)\n");
+        continue;
+      }
+      const roots = [...replies, ...(ansId ? conversation.filter((c) => c.replied_to?.id === ansId) : [])];
+      sweepCandidates = selectLateSweep(roots, {
+        me,
+        windowClose: windowCloseAfter(post.timestamp, config.activeEnd, config.activeTz || "UTC"),
+        max: config.lateSweepMax,
+        hadSkip: (id) => state.hasSkipRecord(id),
+        eligible: (c) => isVisible(c) && !isEmojiOnlyComment(c.text ?? "") && !state.hasReplied(c.id) && !answeredByMe.has(c.id) &&
+          !resumed.has(c.id) && !state.hasOwnerReview(c.id) && !state.isWaitingForImageReview(c.id, post.id) &&
+          !isBotQuestion(c.text) && !isNonEnglishScript(c.text) && !addresseeVerdict(c, addressee) && coverage.canReply(c.id),
+      });
+      console.log(`  late sweep selected ${sweepCandidates.length} comment(s).`);
+    }
     // Supporters can exceed the soft per-post cap, but the daily/platform and USD caps still apply.
-    const candidates = selectCandidates(eligible, committed, coverage.count).filter((c, index) => config.replyAll || index < perPostRemaining || isPriorityCommenter(c.username, config.priorityUsernames));
+    const candidates = sweepCandidates ?? selectCandidates(eligible, committed, coverage.count).filter((c, index) => config.replyAll || index < perPostRemaining || isPriorityCommenter(c.username, config.priorityUsernames));
+    // Clinician nod: the night's strongest clinician read gets one short facts-only nod after the reveal.
+    const nodTarget = config.clinicianNod && answerPublic && !isPersonalPost && !imageReviewHeld && !state.hasClinicianNod(post.id)
+      ? pickClinicianNod(candidates, post.id) : undefined;
+    if (nodTarget) console.log(`  clinician nod candidate: ${nodTarget}`);
     observe(() => {
       const candidateIds = new Set(candidates.map(c => c.id));
       return observation.deferred(post.id, eligible.filter(c => !candidateIds.has(c.id)), 'per_post_cap');
@@ -950,6 +1007,10 @@ async function runLiveOrDry(mode: Mode, target: string | null, observation: Cove
       if (!coverage.canReply(c.id)) continue; // Recheck after earlier siblings posted in this same poll.
       if (budgetLeft() <= 0) { observe(() => observation.deferred(post.id, candidates.slice(candidates.indexOf(c)), 'budget')); break; }
       if (fatalStop) break;
+      if (sweep && spentThisRun >= config.lateSweepUsd) {
+        console.log(`  Late sweep spend ceiling reached (${usd(spentThisRun)} of ${usd(config.lateSweepUsd)}); stopping the sweep.`);
+        break;
+      }
       // Protect the medical reserve: once inside it, a low-value comment is dropped BEFORE any
       // model call (so this costs nothing) and left un-cached, so it is simply re-considered for
       // free on the next poll or on a fresh budget day. Questions and substantive comments still
@@ -992,7 +1053,7 @@ async function runLiveOrDry(mode: Mode, target: string | null, observation: Cove
         commentText: c.text ?? "",
         crowdNote: crowdGuessNote(c.text ?? "", coverageComments
           .filter((o) => o.username !== me && o.id !== c.id && !!o.timestamp && !!c.timestamp && o.timestamp < c.timestamp)
-          .map((o) => o.text ?? "")),
+          .map((o) => o.text ?? ""), knownAnswer ?? ""),
         answer: imageReviewHeld || state.hasImageReview(post.id) ? undefined : knownAnswer,
         facts: imageReviewHeld || state.hasImageReview(post.id) ? undefined : revealFacts,
         diagnosticContext: imageReviewHeld || state.hasImageReview(post.id) ? undefined : resolved.diagnosticContext,
@@ -1005,10 +1066,13 @@ async function runLiveOrDry(mode: Mode, target: string | null, observation: Cove
         priorExplanations: [...allOwnerReplies, ...draftedThisRun].filter((r) => r.length >= 140).length,
         commentImages,
         commentMediaKind,
-        inAnswerThread: inAnswerThreadIds.has(c.id),
+        inAnswerThread: inAnswerThreadIds.has(c.id) || (!!ansId && c.replied_to?.id === ansId),
         priorExchange: followUpContext.get(c.id),
         answerPublic,
         isPersonalPost,
+        clinicianNod: c.id === nodTarget,
+        lateSweep: sweep,
+        taggedOthers: !c.replied_to?.id || c.replied_to.id === post.id ? taggedOthers(c.text, me) : [],
       };
       // Motion media uses one quality read, avoiding a cheap draft that misses the action
       // and a second paid reading of the same frames. A budget hold must not publish triage filler.
@@ -1055,8 +1119,11 @@ async function runLiveOrDry(mode: Mode, target: string | null, observation: Cove
         // Web search on the "reference" re-run and on any lookup escalation (to identify an
         // unrecognized movie/show/meme/person); medical correct/teach escalations rely on vetted facts.
         const allowSearch = config.webSearch && (d.category === "reference" || wantsLookup);
-        console.log(`        (escalating ${d.category}${wantsLookup ? " +lookup" : ""} to ${config.model}${allowSearch ? " + web search" : ""})`);
+        const escalatedCategory = d.category;
         d = await classifyAndDraft({ ...baseInput, modelOverride: config.model, allowSearch }, outcome => observe(() => observation.classified(post.id, c.id, outcome)));
+        // Log the model that actually served: with BOT_REPLY_PROVIDER=deepseek most escalations are answered
+        // by deepseek-flash, and the old "to claude-sonnet-5-5" label misled the 2026-10-17 audit 84 times.
+        console.log(`        (escalated ${escalatedCategory}${wantsLookup ? " +lookup" : ""}: requested ${config.model}, served by ${lastServedModel() ?? "unknown"}${allowSearch ? " + web search" : ""})`);
         escalated = true;
       } else if (wantsEscalation) {
         const limit = isMedical ? config.dailyUsdCap : config.escalateUsdCap;
@@ -1237,6 +1304,7 @@ async function runLiveOrDry(mode: Mode, target: string | null, observation: Cove
           }
           await postReply(c.id, replyText, undefined, gif?.gif_id, state.publication(`comment:${c.id}`));
           state.markReplied(c.id, post.id);
+          if (c.id === nodTarget) state.markClinicianNod(post.id, c.id);
           if (gif) {
             state.markGifPosted(post.id, gif.gif_id);
             console.log(`        (+ GIF ${gif.tag}: ${gif.desc})`);
@@ -1263,8 +1331,15 @@ async function runLiveOrDry(mode: Mode, target: string | null, observation: Cove
     console.log("");
   }
 
-  // Post the day's answer breakdown (a separate job from replying to comments).
-  if (config.answerEnabled) {
+  // One completed sweep per cap-day. Idempotency per comment comes from the replied log and receipts, so
+  // a sweep interrupted before this line simply runs again inside the same 21:30-22:00 slot.
+  if (sweep && posting && !fatalStop && operationalFailures === 0 && errorSkips === 0) {
+    state.markLateSweepDone(replied);
+    console.log(`Late sweep done for this cap-day: ${replied} repl${replied === 1 ? "y" : "ies"}.`);
+  }
+
+  // Post the day's answer breakdown (a separate job from replying to comments). Never from the sweep.
+  if (config.answerEnabled && !sweep) {
     for (const post of posts) {
       if (state.hasImageReview(post.id)) continue;
       const sc = shortcodeFromPermalink(post.permalink);

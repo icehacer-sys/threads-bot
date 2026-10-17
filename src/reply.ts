@@ -10,17 +10,19 @@ import { config } from "./config";
 import { SYSTEM_PROMPT } from "./voice";
 import { diagnosticContext, unsupportedConfirmation, rejectsAcceptedDifferential, overstatesImagingLimit, unsupportedSpecifics, unsupportedPatientHistory, type DiagnosticContext } from './case-evidence';
 import { COVERAGE_NOTE, isRetiredGuessReceipt, isEmojiOnlyComment } from './reply-coverage';
-import { varietyNote, restrainEmoji, repeatedPhrasing } from './reply-variety';
+import { varietyNote, restrainEmoji, repeatedPhrasing, emojiRemovalBreaksText, shortConfirmation, ALLOWED_EMOJI } from './reply-variety';
 import { GIF_SYSTEM_PROMPT, MEDIA_FIELDS, MEDIA_REPLY_NOTE, mediaReplyIssue, mediaVarietyNote, type MediaRead } from './media-reply';
 import { isWordingReaction, WORDING_NOTE, wordingReplyIssue } from './wording-reply';
 import { SUPPORTER_NOTE, isLowEngagementSkip, conversationReplyIssue } from './supporter-replies';
-import { replyStyleIssue, needsClinicalReview, clinicalClaimIssue } from './reply-style';
+import { replyStyleIssue, needsClinicalReview, clinicalClaimIssue, isLossStory } from './reply-style';
 import { GIF_TAGS } from "./gifs";
 import { PROMO_TAGS, PRODUCTS_BLOCK } from "./products";
 import { priceFor } from "./spend";
 import { createReplyMessage, retryVerdictOnClaude } from './reply-provider';
-import { claimsOffPlatformAction, isLatinNonEnglishReply, isPoliticalJab, isSexualBait, unsupportedDeepSeekClaim, unsupportedLaterality, unsupportedTeachingContrast, TEACHING_CONTRAST_RECHECK } from './deepseek-media-policy';
-import { acknowledgmentKind, concernAcknowledgment, directConcern, imageConcernKind, requestsPersonalAdvice, isRetiredMedicalBoundary } from "./concerns";
+import { affirmsCommenterOnlyFinding, claimsOffPlatformAction, isAiProvenanceComment, isLatinNonEnglishReply, isPoliticalJab, isSexualBait, policyRecheck, unsupportedDeepSeekClaim, unsupportedLaterality, unsupportedTeachingContrast, TEACHING_CONTRAST_RECHECK } from './deepseek-media-policy';
+import { acknowledgmentKind, concernAcknowledgment, directConcern, imageConcernKind, requestsPersonalAdvice, isRetiredMedicalBoundary, thirdPersonSymptomQuestion } from "./concerns";
+import { CLINICIAN_NOD_NOTE } from './clinician-nod';
+import { LATE_SWEEP_NOTE } from './late-sweep';
 
 // Self-learned voice notes (maintained by the Fable 5 self-audit in voicelearn.ts). Loaded ONCE and
 // appended to the cached system prompt, so the voice keeps sharpening with zero per-reply cost.
@@ -249,7 +251,16 @@ export interface ClassifyInput {
    *  never guesses — the whole case framing has to come off or the bot banters at people
    *  telling it something real. */
   isPersonalPost?: boolean;
+  /** This comment is the night's strongest clinician read: one short facts-only nod (clinician-nod.ts). */
+  clinicianNod?: boolean;
+  /** Daily late sweep of the previous night's post: only genuine case questions and personal stories. */
+  lateSweep?: boolean;
+  /** Other people a top-level comment tags. Those tags are for them, not for the account. */
+  taggedOthers?: string[];
 }
+
+/** Categories a late-sweep draft may post as. Jokes and banter stay unanswered in the sweep. */
+const LATE_SWEEP_CATEGORIES = new Set<Category>(['teach', 'correct', 'affirm', 'empathize', 'personal_medical']);
 
 // ENGLISH-ONLY policy: detect comments written in a non-Latin script so they can be
 // skipped without spending a model call. A POSITIVE Latin test (a letter is "foreign"
@@ -309,8 +320,19 @@ async function classifyAndDraftCore(input: ClassifyInput): Promise<Decision> {
   if (isSexualBait(commentText)) {
     return { decision: "skip", category: "other", reply_text: "", reason: "sexual content: brand skip | guard:forced-skip" };
   }
+  // 2026-10-17 audit: two political jokes were answered. Deterministic for every provider, before any call.
+  if (isPoliticalJab(commentText)) {
+    return { decision: "skip", category: "other", reply_text: "", reason: "political jab: brand skip | guard:forced-skip" };
+  }
   const concern = directConcern(commentText, priorExchange?.bot);
   if (concern) return concern;
+  // AI-provenance remarks ("AI slop", "chatgpt") are the owner's call. Never drafted, always queued.
+  if (isAiProvenanceComment(commentText)) {
+    return { decision: "skip", category: "complaint", reply_text: "", reason: "owner review: AI-provenance comment | guard:forced-skip" };
+  }
+  // Third-person symptom questions ("could this happen to my son... complaining of") get the approved
+  // boundary line instead of a drafted "worth having checked" (2026-10-17 audit).
+  if (thirdPersonSymptomQuestion(commentText)) return concernAcknowledgment('personal', priorExchange?.bot);
   const wordingReaction = isWordingReaction(postText, commentText);
   const rechecked = input.storyRecheck || input.evidenceRecheck || input.styleRecheck || input.mediaRecheck || input.wordingRecheck || !!input.varietyRecheck?.length || !!input.conversationRecheck;
   if ((commentMediaKind === 'video' || commentMediaKind === 'video-frame') && !commentImages?.length && !commentText.trim()) {
@@ -334,24 +356,39 @@ async function classifyAndDraftCore(input: ClassifyInput): Promise<Decision> {
     if (safe.decision !== 'reply' || !['banter', 'affirm', 'empathize'].includes(safe.category)) return failed;
     return { ...failed, draftFailure: kind };
   };
-  // DeepSeek drafts broke the political-jab voice rule in evaluation; skip them deterministically.
-  // DeepSeek-only deterministic backstops for rules it broke in evaluation; never API-error skips.
+  // A second overlong draft for a short guess: post its first sentence when that is 24 words or fewer and
+  // still names the answer (or is an affirm of their correct guess). Otherwise the comment stays a skip.
+  const keepFirstSentence = (d: Decision): Decision | undefined => {
+    if (d.decision !== 'reply' || !isPublic || isPersonalPost) return undefined;
+    const first = (d.reply_text.trim().match(/^[^.!?]+[.!?]*/)?.[0] ?? '').trim();
+    if (!first || first.split(/\s+/).filter(Boolean).length > 24) return undefined;
+    const low = ` ${first.toLowerCase().replace(/[^\p{L}\p{N}]+/gu, ' ')} `;
+    const carriesAnswer = d.category === 'affirm' || spoilerTerms.some((t) => t.length >= 3 && low.includes(` ${t.replace(/[^\p{L}\p{N}]+/gu, ' ').trim()} `));
+    if (!carriesAnswer || conversationReplyIssue(commentText, d.category, first, true)) return undefined;
+    return { ...d, reply_text: first, reason: `${d.reason} | kept first sentence of an overlong draft` };
+  };
+  // Deterministic backstops for rules drafts broke in evaluation and live audits; never API-error skips.
+  // Until 2026-10-17 these ran only on deepseek-flash drafts, so a six-hour Claude fallback bypassed all
+  // of them (4 "case facts" leaks, "hits different"). Only the pre-reveal hold stays DeepSeek-specific:
+  // Claude keeps its existing non-grading pre-reveal coverage behaviour.
   const deepSeekPolicy = (servedModel: string | undefined, d: Decision): Decision => {
-    if (servedModel !== 'deepseek-flash' || d.decision !== 'reply') return d;
+    if (d.decision !== 'reply') return d;
     // Before the reveal DeepSeek labelled guesses as banter and hinted ("colony", "worth holding onto
     // that one"). On a case post every DeepSeek draft is held with the existing reveal hold and is
     // answered once the answer is public; the "spoiler guard" reason routes it to holdUntilReveal.
-    if (!isPublic && !!answer) return { ...d, decision: 'skip', category: 'other', reply_text: '', reason: 'spoiler guard: DeepSeek pre-reveal reply held until the answer is public | guard:forced-skip' };
+    if (servedModel === 'deepseek-flash' && !isPublic && !!answer) return { ...d, decision: 'skip', category: 'other', reply_text: '', reason: 'spoiler guard: DeepSeek pre-reveal reply held until the answer is public | guard:forced-skip' };
     const caseSupport = [postText, ...(facts ?? []), answer ?? ''].join(' ');
     const support = [caseSupport, commentText, priorExchange ? `${priorExchange.commenter} ${priorExchange.bot}` : ''].join(' ');
     const claim = unsupportedDeepSeekClaim(d.reply_text, support, d.category, caseSupport);
+    const commenterOnly = isPublic && !isPersonalPost ? affirmsCommenterOnlyFinding(d.reply_text, commentText, caseSupport, d.category) : null;
     const issue = isPoliticalJab(commentText) ? 'political jab'
       : isLatinNonEnglishReply(d.reply_text) ? 'non-English reply'
       : claimsOffPlatformAction(d.reply_text) ? 'claims an off-platform action'
-      : unsupportedLaterality(d.reply_text, [postText, ...(facts ?? []), answer ?? ''].join(' ')) ? 'unsupported laterality'
-      : unsupportedTeachingContrast(d.reply_text, commentText, [postText, ...(facts ?? []), answer ?? ''].join(' '), d.category) ? 'unsupported teaching contrast'
-      : claim ? `unsupported ${claim}` : null;
-    return issue ? { ...d, decision: 'skip', category: 'other', reply_text: '', reason: `${issue}: DeepSeek reply skipped | guard:forced-skip` } : d;
+      : unsupportedLaterality(d.reply_text, caseSupport) ? 'unsupported laterality'
+      : unsupportedTeachingContrast(d.reply_text, commentText, caseSupport, d.category) ? 'unsupported teaching contrast'
+      : claim ? `unsupported ${claim}`
+      : commenterOnly ? 'unsupported commenter-only finding' : null;
+    return issue ? { ...d, decision: 'skip', category: 'other', reply_text: '', reason: `${issue}: reply skipped (${servedModel ?? 'unknown model'}) | guard:forced-skip` } : d;
   };
   const finalize = async (d: Decision): Promise<Decision> => {
     // Preserve a tailored draft instead of replacing jokes and guesses with fixed receipts.
@@ -363,11 +400,19 @@ async function classifyAndDraftCore(input: ClassifyInput): Promise<Decision> {
       if (!rechecked) return classifyAndDraftCore({ ...input, conversationRecheck: 'Write a fresh Mr. M response to the comment itself, not a participation receipt. Treat obvious fictional diagnoses and food comparisons as jokes. For a genuine guess before reveal use non-grading conversation or a general invitation to take another look without clues. After reveal explain one supported distinction. Do not thank them for guessing or announce that their guess was received.', allowSearch: false });
       return { ...d, decision: 'skip', category: 'other', reply_text: '', reason: 'conversation guard: receipt or unrepaired pre-reveal grading | guard:forced-skip' };
     }
+    // The late sweep answers only genuine case questions and personal stories; jokes stay unanswered.
+    if (input.lateSweep && d.decision === 'reply' && !LATE_SWEEP_CATEGORIES.has(d.category)) {
+      return { ...d, decision: 'skip', category: 'other', reply_text: '', reason: `late sweep: ${d.category} is not a case question or personal story | guard:forced-skip` };
+    }
     const conversationIssue = d.decision === 'reply' ? conversationReplyIssue(commentText, d.category, d.reply_text, !isPersonalPost) : undefined;
     const prioritySkip = (input.priorityCommenter || input.replyAll) && isLowEngagementSkip(d.decision, d.category, d.reason);
     if (conversationIssue || prioritySkip) {
       if (!rechecked) return classifyAndDraftCore({ ...input, conversationRecheck: conversationIssue ?? 'harmless comment wrongly skipped as low engagement', allowSearch: false });
-      return { ...d, decision: 'skip', category: 'other', reply_text: '', reason: `conversation guard: ${conversationIssue ?? 'supporter draft unresolved'} | guard:forced-skip` };
+      // 2026-10-17 audit: 16 short guesses went unanswered after two long drafts. Keep the first sentence
+      // when it is short and still carries the answer (or affirms their correct guess) instead of silence.
+      const kept = conversationIssue === 'overlong response to a short guess' ? keepFirstSentence(d) : undefined;
+      if (!kept) return { ...d, decision: 'skip', category: 'other', reply_text: '', reason: `conversation guard: ${conversationIssue ?? 'supporter draft unresolved'} | guard:forced-skip` };
+      d = kept;
     }
     if (wordingReaction && d.decision === 'reply' && wordingReplyIssue(d.category, d.reply_text)) {
       if (!rechecked) return classifyAndDraftCore({ ...input, wordingRecheck: true, allowSearch: false });
@@ -384,7 +429,16 @@ async function classifyAndDraftCore(input: ClassifyInput): Promise<Decision> {
       if (!rechecked) return classifyAndDraftCore({ ...input, evidenceRecheck: true, allowSearch: false });
       return { ...d, decision: 'skip', category: 'other', reply_text: '', reason: `owner review: unsupported patient history, confirmation, specifics (${invented.join(', ') || 'none'}) or dismissal of an accepted differential | guard:forced-skip` };
     }
-    const clean = sanitize({ ...d, reply_text: restrainEmoji(d.reply_text, recentReplies ?? []) }, { isPublic, terms: spoilerTerms }, isBotQuestion(commentText));
+    // Emoji never ride on serious replies (grief, fear, corrections, medical answers); see restrainEmoji.
+    const seriousTone = ['empathize', 'personal_medical', 'correct', 'teach', 'complaint'].includes(d.category) || isLossStory(commentText);
+    const restrained = restrainEmoji(d.reply_text, recentReplies ?? [], seriousTone);
+    const clean = sanitize({ ...d, reply_text: restrained }, { isPublic, terms: spoilerTerms }, isBotQuestion(commentText));
+    // 2026-10-17 audit: "...and the is doing a lot of work" was posted after an emoji used as a noun was
+    // stripped. Removing that emoji breaks the sentence, so it gets a words-only rewrite instead.
+    if (clean.decision === 'reply' && emojiRemovalBreaksText(d.reply_text, clean.reply_text)) {
+      if (!rechecked) return classifyAndDraftCore({ ...input, conversationRecheck: 'Write the reply in words only. Never use an emoji in place of a word inside a sentence', allowSearch: false });
+      return { ...clean, decision: 'skip', category: 'other', reply_text: '', reason: 'text guard: emoji removal broke the sentence | guard:forced-skip' };
+    }
     if (input.replyAll && clean.reason.includes('spoiler guard') && !rechecked) return classifyAndDraftCore({ ...input, conversationRecheck: 'Remove all grading, diagnostic clues and verdicts. Reply to the comment in a playful non-grading way without a participation receipt.', allowSearch: false });
     if (clean.reason.includes('punctuation guard') && !rechecked) {
       return classifyAndDraftCore({ ...input, styleRecheck: true, allowSearch: false });
@@ -397,6 +451,12 @@ async function classifyAndDraftCore(input: ClassifyInput): Promise<Decision> {
     // but a genuine teach/correct answer is posted: a repeated topic never justifies silence.
     const repeats = clean.decision === 'reply' && !bareMedia ? repeatedPhrasing(clean.reply_text, recentReplies ?? [], [answer ?? '', ...(facts ?? [])].join(' '), answer ?? '') : [];
     if (repeats.length && !rechecked) return classifyAndDraftCore({ ...input, varietyRecheck: repeats, allowSearch: false });
+    // 2026-10-17 audit: the variety guard silenced correct guessers. An affirm of a correct guess after the
+    // reveal that still repeats gets a short rotated confirmation (index.ts dedupeStamp keeps rotating it).
+    if (repeats.length && clean.category === 'affirm' && isPublic && !isPersonalPost && !withMedia && hasAnswer) {
+      const short = sanitize({ ...clean, reply_text: shortConfirmation(recentReplies ?? []) }, { isPublic, terms: spoilerTerms }, isBotQuestion(commentText));
+      if (short.decision === 'reply') return { ...short, reason: `${clean.reason} | variety fallback: short confirmation` };
+    }
     if (repeats.length && !['teach', 'correct'].includes(clean.category)) {
       return presentationFailure(d, { ...clean, decision: 'skip', category: 'other', reply_text: '', reason: `variety guard: reused ${repeats.join(', ')} | guard:forced-skip` }, 'variety');
     }
@@ -502,6 +562,9 @@ async function classifyAndDraftCore(input: ClassifyInput): Promise<Decision> {
     withMedia ? MEDIA_REPLY_NOTE : '',
     wordingReaction ? WORDING_NOTE : '',
     input.priorityCommenter ? SUPPORTER_NOTE : '',
+    input.clinicianNod && isPublic && !isPersonalPost ? CLINICIAN_NOD_NOTE : '',
+    input.lateSweep ? LATE_SWEEP_NOTE : '',
+    input.taggedOthers?.length ? `TAGGED FRIENDS: This comment also tags ${input.taggedOthers.slice(0, 3).map((t) => '@' + t.replace(/[^\w.]/g, '')).join(' and ')}. That tag is for them and not for you. Reply only to the guess or question meant for you and never answer as if the tag or anything said to that friend were addressed to you. If nothing is meant for you skip.` : '',
     !isPersonalPost && commentText.length <= 80 ? 'SHORT COMMENT: If this is a diagnosis guess, use at most 24 words after reveal with the supported answer and at most one useful clue. No stock praise of the guess or speculative risks from alternate exposures. A genuine why/how question may receive the explanation it needs. Before reveal never grade a guess; follow the current coverage policy.' : '',
     isPersonalPost ? 'CURRENT POST TYPE: personal post. No diagnosis guessing rules apply.' : `CURRENT REVEAL STATE: ${isPublic ? 'PUBLIC. The answer has already been published. Do not skip a diagnosis discussion for being before the reveal.' : input.replyAll ? 'PRIVATE. Conversational replies without grading or diagnostic hints. No participation receipts.' : 'PRIVATE. Skip all diagnosis guesses.'}`,
     `COMMENT:\n${commentText || "(no text — just the attached image)"}`,
@@ -567,7 +630,7 @@ async function classifyAndDraftCore(input: ClassifyInput): Promise<Decision> {
   content.push({ type: "text", text: varText });
   if (input.storyRecheck) content.push({ type: 'text', text: 'CLASSIFICATION RECHECK: No explicit request for personal medical advice was found in this comment. Re-read the actual comment. A completed anecdote, reported hospital advice or a joke is not a current symptom assessment. Use empathize for a sincere story or banter for its light punchline. A general educational question mixed with a personal remark may receive a teach reply to the supported general part without assessing personal risk or recommending care. Do not discard a useful general question merely because a personal exposure is mentioned. Do not send a medical disclaimer or invent current symptoms. If the intent is still uncertain or describes current danger, skip. All spoiler, accuracy and image-review rules still apply.' });
   if (input.evidenceRecheck) content.push({ type: 'text', text: 'EVIDENCE RECHECK (one attempt): Your draft invented a confirmation/result, dismissed an accepted differential, overstated an imaging limitation or stated a time span, size, date, life cycle or history that the supplied facts and the comment do not contain. Write a fresh reply using only recorded evidence. Do not say came back as, biopsy confirmed or invent surgery, recovery or duration. Recognize a supported differential without replacing it with certainty. When THIS image is insufficient, say so without claiming that imaging in general cannot distinguish conditions. If the question cannot be answered from the supplied evidence, skip for owner review. Keep every reveal and punctuation rule.' });
-  if (input.styleRecheck) content.push({ type: 'text', text: 'STYLE RECHECK (only attempt): Draft a simpler reply to the original comment. For banter write one complete sentence in plain conversational wording. Do not split it into a setup fragment and a separate punchline or force in the diagnosis. Prefer one complete sentence with no comma at all. Commas are allowed only in a short explicit list of three or more items. No semicolons or em dashes. No sentence starting And or Which after punctuation. Use ordinary conjunctions to connect the thought without a comma. Complete separate sentences are allowed for a genuine explanation. No repeated praise about the right fear or instinct. Keep every accuracy, personal-story and reveal rule. Do not add facts to fill space.' });
+  if (input.styleRecheck) content.push({ type: 'text', text: 'STYLE RECHECK (only attempt): Write the same idea with a different move such as deadpan, yes-and, a straight answer or a real reaction. For banter use one to three short sentences in plain conversational wording. Do not split it into a setup fragment and a separate punchline or force in the diagnosis. Use a full stop wherever a comma would go. Commas are allowed only in a short explicit list of three or more items. No semicolons or em dashes. No sentence starting And or Which after punctuation. Use ordinary conjunctions to connect the thought without a comma. Complete separate sentences are allowed for a genuine explanation. No repeated praise about the right fear or instinct. Keep every accuracy, personal-story and reveal rule. Do not add facts to fill space.' });
   if (input.mediaRecheck) content.push({ type: 'text', text: 'MEDIA RECHECK (only attempt): The previous draft repeated an earlier reply, used generic reaction commentary or repeated the medical case unnecessarily. Re-read the visible action and on-screen words. Write a fresh brief response to their meaning without narrating the GIF or explaining its connection to the X-ray. Skip if that meaning is unclear. Do not use a synonym for the rejected template.' });
   if (input.varietyRecheck?.length) content.push({ type: 'text', text: `VARIETY RECHECK (only attempt): Your draft reused ${input.varietyRecheck.join(', ')} from replies already on this post. Build a reply from THIS comment's own words and premise with a different construction. Do not swap in a synonym for the reused phrase. Keep every accuracy, reveal and punctuation rule. Skip if nothing fresh fits.` });
   if (input.wordingRecheck) content.push({ type: 'text', text: 'WORDING RECHECK (only attempt): The draft missed the caption criticism or overexplained it. Respond to the awkward or overcomplicated phrasing itself in at most 12 plain words. No clinical recap, second sentence, elaborate analogy, diagnosis affirmation, defensive explanation or generic shock. If you cannot establish the intended meaning, skip.' });
@@ -660,9 +723,12 @@ async function classifyAndDraftCore(input: ClassifyInput): Promise<Decision> {
     }
     const parsed = parseDecision(submit.input, withMedia);
     const policed = deepSeekPolicy(res.model, parsed);
-    // An invented rule about the guessed condition gets one rewrite limited to the case facts.
-    if (/^unsupported teaching contrast/.test(policed.reason) && !rechecked) {
-      return classifyAndDraftCore({ ...input, conversationRecheck: TEACHING_CONTRAST_RECHECK, allowSearch: false });
+    // An invented rule about the guessed condition, internal wording, an unsupported brightness or
+    // taxonomy claim, or a confirmed commenter-only finding each get one rewrite (2026-10-17 audit:
+    // repair instead of skip). A second failure still skips.
+    const repair = /^unsupported teaching contrast/.test(policed.reason) ? TEACHING_CONTRAST_RECHECK : policyRecheck(policed.reason);
+    if (repair && !rechecked) {
+      return classifyAndDraftCore({ ...input, conversationRecheck: repair, allowSearch: false });
     }
     return isDeepSeekRevealHold(policed) ? policed : finalize(policed);
   } catch (err) {
@@ -684,7 +750,7 @@ async function classifyAndDraftCore(input: ClassifyInput): Promise<Decision> {
 // Only these emojis are allowed in replies (the account owner's set). Expanded 2026-07-06 so 🤣 is
 // no longer the ONLY casual-emotion option (its monotony was the top "bot" tell): 😭 = crying-laughing/
 // overwhelm, 🤍 = warmth, 🫡 = respect. Everything else (😳, 🦴, 👀, 🤘, ...) is stripped before posting.
-const ALLOWED_EMOJI = new Set(["🤣", "😭", "🤍", "🫡", "✅", "💯", "👏"]);
+// The set itself lives in reply-variety.ts so restrainEmoji and sanitize can never disagree about it.
 const EMOJI_SEQ = /\p{Extended_Pictographic}(?:️|[\u{1F3FB}-\u{1F3FF}]|‍\p{Extended_Pictographic}️?)*/gu;
 
 // Worn-out house one-liners. The model still reaches for these as a lazy dry topper
@@ -707,7 +773,7 @@ const IMAGE_SOLICIT =
 
 // Phrases that read as medical advice. If any slip into a draft, we force a skip.
 const ADVICE_PATTERN =
-  /\b(you should|i (would |really )?recommend|see (a|your) (doctor|physician|gp|specialist|dentist)|ask your (doctor|doc|physician|gp|dentist|specialist)|get (it|that|this) (checked|looked at|scanned|seen)|worth getting[^.]{0,20}(checked|scanned|looked at|seen)|needs? (a |an )?(scan|x-?ray|mri|ct|ultrasound|biopsy|work-?up|imaging)|push for (a|an|another)|don'?t ignore|get (checked|seen|scanned)|consult|seek medical|go to the (er|a&e|hospital|doctor)|you (might|may|could) have|sounds like you (have|might))\b/i;
+  /\b(you should|i (would |really )?recommend|see (a|your) (doctor|physician|gp|specialist|dentist)|ask your (doctor|doc|physician|gp|dentist|specialist)|get (it|that|this) (checked|looked at|scanned|seen)|worth getting[^.]{0,20}(checked|scanned|looked at|seen)|worth having[^.]{0,20}(checked|scanned|looked at|seen)|needs? (a |an )?(scan|x-?ray|mri|ct|ultrasound|biopsy|work-?up|imaging)|push for (a|an|another)|don'?t ignore|get (checked|seen|scanned)|consult|seek medical|go to the (er|a&e|hospital|doctor)|you (might|may|could) have|sounds like you (have|might))\b/i;
 
 // HARD CONFESSION GUARD: the owner never wants an admission that the image is AI/generated, or
 // that the operator is a bot/automated. The voice rules dodge "are you a bot" questions WITHOUT

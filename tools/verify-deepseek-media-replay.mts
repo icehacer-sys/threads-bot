@@ -19,10 +19,23 @@ const {VOICE_LEAN}=await import('../src/voice-lean');
 const {GIF_SYSTEM_PROMPT,MEDIA_REPLY_NOTE}=await import('../src/media-reply');
 // Keep paid fixture hashes intact. Reverse only the owner-approved coverage and
 // sentence-style and emoji-intent edits when comparing with the historical prompt.
-const recordedCoverageNote=COVERAGE_NOTE.replace('including short guesses, thanks and reactions. Skip comments consisting only of emoji.','including short guesses, emoji, thanks and reactions.');
+// 2026-10-17 owner voice update (freer sentence shape, question back, "!", one-in-five emoji), reversed first.
+const voice1017:Array<[string,string]>=[
+ ['Vary the shape the way a real person types: one to three short sentences and sometimes just two to six words.','Prefer one complete sentence for a brief reply.'],
+ ['About one reply in five may carry one emoji from the allowed set (🤣 😭 🤍 🫡 ✅ 💯 👏) when it adds real tone to light banter or warmth. Never on grief, fear, corrections or medical answers and never more than one.','Prefer replies without emoji. Use at most one occasional emoji when it adds something to the specific joke.'],
+ ["Where a comma would go use a full stop instead of chaining every thought with and. A very short reply such as 'Nope.' is fine but do not stack choppy fragments or use connector fragments such as 'Still.' or 'And yeah.'","Keep connected thoughts in one sentence using and, but, so or because without a comma. Separate genuinely independent thoughts with a full stop. Do not create fragments such as 'Still.' or 'And yeah.'"],
+ ['For banter respond directly to what they said in one to three short sentences. A two to six word reply is often the best one.','For banter write one complete sentence that responds directly to what they said.'],
+ ['An occasional light question back is fine when you would genuinely want their answer but never as a habit to prolong the exchange. Use an exclamation mark where a real person would and not on every reply.','Do not add a question at the end just to prolong the exchange.'],
+ ['react to the scan itself in your own words the way a friend would instead of rating',"react to the scan itself the way a friend would ('That was my first read too') instead of rating"],
+];
+const coverage1017:[string,string]=['Keep it short and vary the shape: a few words or one to three short sentences. An occasional genuine question back is fine but never just to prolong the exchange.','Prefer one plain sentence. Do not add questions just to prolong the exchange.'];
+const variety1017:[string,string]=['Words carry the reply. An emoji is optional and never a default ending. Do not replace one repeated emoji with another.','Prefer words alone. Emoji is optional decoration, never a default ending. Do not replace one repeated emoji with another.'];
+assert.ok(COVERAGE_NOTE.includes(coverage1017[0]),'2026-10-17 coverage wording present');
+const recordedCoverageNote=COVERAGE_NOTE.replace(...coverage1017).replace('including short guesses, thanks and reactions. Skip comments consisting only of emoji.','including short guesses, emoji, thanks and reactions.');
 assert.notEqual(recordedCoverageNote,COVERAGE_NOTE,'Current coverage guidance must exclude emoji-only comments');
 const currentVoice=VOICE_LEAN.replace(/\r\n/g,'\n');
-const recordedVoice=currentVoice
+for(const [now] of voice1017) assert.ok(currentVoice.includes(now),`2026-10-17 voice wording present: ${now.slice(0,40)}`);
+const recordedVoice=voice1017.reduce((t,[now,then])=>t.replace(now,then),currentVoice)
  // 2026-10-12 voice audit edits (owner-approved), reversed first.
  .replace('Obvious fictional diagnoses, food comparisons and everyday-object, animal or injury explanations such as a swallowed phone cord or a gunshot are jokes or lay readings, not clinical guesses: reply to their premise.','Obvious fictional diagnoses and food comparisons are jokes, not clinical guesses: reply to the joke.')
  .replace("When a comment reads the film as an object, animal or injury, start from why it looks that way and land the answer in the same sentence only if it fits. A sincere lay misreading gets the resemblance first: 'They really do look like bullet holes but these opened up from the inside.' Never open by negating their noun with 'No bullet', 'Nobody swallowed' or 'Nothing fired'.\n",'')
@@ -76,10 +89,10 @@ for(const c of [...pack.cases,...recheck.cases]){active=c;const before=attempts;
  // Saved paid requests predate the discipline block; compare them without it only.
  const paid={...captured,system:captured.system.filter((b:any)=>b.text!==DEEPSEEK_REPLY_GUIDANCE)};
  const originalRequest=c.guidancePresentInNativeRequest?paid:{...paid,system:paid.system.slice(0,-1)};
- const expectedVoice=c.input.commentText.trim()?'For banter write one complete sentence that responds directly to what they said.':'Write one complete conversational sentence without a setup fragment or a separate punchline.';
+ const expectedVoice=c.input.commentText.trim()?'For banter respond directly to what they said in one to three short sentences.':'Write one complete conversational sentence without a setup fragment or a separate punchline.';
  assert.ok(captured.system.some((b:any)=>b.text.includes(expectedVoice)),'Actual text and bare-GIF requests use the new sentence guidance');
  if(c.input.commentText.trim()) assert.ok(captured.system.some((b:any)=>b.text.includes('Treat emoji as emotional context for the written comment.')),'Actual text requests use the new emoji-intent guidance');
- const canonical=JSON.stringify(originalRequest,(_key,value)=>sameTags(value)?recordedPromoTags:typeof value==='string'?recordPromo(value.replace(/\r\n/g,'\n').replace(COVERAGE_NOTE,recordedCoverageNote).replace(currentVoice,recordedVoice).replace(currentGifVoice,recordedGifVoice).replace(currentMediaNote,recordedMediaNote)):value);
+ const canonical=JSON.stringify(originalRequest,(_key,value)=>sameTags(value)?recordedPromoTags:typeof value==='string'?recordPromo(value.replace(/\r\n/g,'\n').replace(...variety1017).replace(COVERAGE_NOTE,recordedCoverageNote).replace(currentVoice,recordedVoice).replace(currentGifVoice,recordedGifVoice).replace(currentMediaNote,recordedMediaNote)):value);
  assert.equal(hash(canonical),c.normalizedRequestHash,'Historical native request parity apart from line endings and approved owner policy edits');
  assert.deepEqual(captured.messages.flatMap((m:any)=>m.content.filter((b:any)=>b.type==='image')).map((b:any)=>hash(Buffer.from(b.source.data,'base64') as any)),c.frameHashes);
  assert.deepEqual(JSON.parse(JSON.stringify(result)),c.final.decision==='reply'?{decision:'skip',category:'other',reply_text:'',reason:`error: ${DEEPSEEK_MEDIA_HOLD}`}:c.final);const spend=drainSpend();assert.equal(spend.calls,1);assert.equal(Math.ceil(spend.usd*1e6),c.costMicroUsd);roundedTotal+=c.costMicroUsd;

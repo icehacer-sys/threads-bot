@@ -50,10 +50,12 @@ assert.ok(!repeatedPhrasing('Yes septic haematogenous lung abscesses it is.',Arr
 assert.ok(repeatedPhrasing('Whew is about the right size for a chest that crowded.',['Wow is about the right speed.','Yikes is about right.'],'',ANSWER).some(r=>r.includes('is about the right')));
 
 // Fix 2a: crowd note only when at least 4 earlier comments made the same guess.
-const tb=['TB','tuberculosis?','Looks like TB','I say TB'];
+// 2026-10-17: the hard-coded Oct 11 alias list is gone. The note now counts repeated guesses per post
+// (and the answer's own aliases), so synonyms such as "tuberculosis" no longer fold into "TB".
+const tb=['TB','TB again?','Looks like TB','I say TB'];
 assert.match(crowdGuessNote('TB?',tb),/^CROWD NOTE: 4 earlier comments on this post also went with TB\./);
 assert.equal(crowdGuessNote('TB?',tb.slice(0,3)),'');
-assert.match(crowdGuessNote('GSW',['he got shot','bullet holes','gunshot','shotgun pellets']),/went with a gunshot/);
+assert.match(crowdGuessNote('Gunshot',['gunshot','a gunshot wound','gunshot for sure','shotgun gunshot']),/went with gunshot/);
 assert.equal(crowdGuessNote('Beautiful film',tb),'');
 
 // Fix 3: invented teaching contrasts that leaked after #37.

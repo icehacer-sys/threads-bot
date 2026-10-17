@@ -158,6 +158,22 @@ normal(preflightBudget, 1, [300]);
 assert.equal(preflightBudget.events.filter(e => e.kind === 'npm' && e.args === 'run preflight').length, 1);
 console.log('PASS clipped or overdue preflight is skipped; preflight consuming budget prevents a new poll');
 
+// Late sweep (2026-10-17): with BOT_LATE_SWEEP=on the out-of-window cadence lands one poll at 21:30 Cairo
+// (LATE_SWEEP_LEAD before the 22:00 open) and only the following nap arms the pre-open credit check.
+const sweepNight = fixture({ MAXSECS: '3400', CAIRO_HOUR: '21', CAIRO_MINUTE: '0', BOT_LATE_SWEEP: 'on', LATE_SWEEP_LEAD: '1800' });
+normal(sweepNight, 4, [1800, 1500, 60, 40]);
+const sweepPolls = sweepNight.polls.map(p => p.time);
+assert.equal(sweepPolls[1], 1800, 'second poll lands at 21:30 for the sweep');
+const preflights = sweepNight.events.filter(e => e.kind === 'npm' && e.args === 'run preflight');
+assert.equal(preflights.length, 1, 'one preflight');
+assert.equal(preflights[0].time, 3300, 'the credit check still runs at 21:55, not at the sweep poll');
+const sweepOff = fixture({ MAXSECS: '3400', CAIRO_HOUR: '21', CAIRO_MINUTE: '0' });
+normal(sweepOff, 3, [3300, 60, 40]);
+assert.equal(sweepOff.events.filter(e => e.kind === 'npm' && e.args === 'run preflight')[0]?.time, 3300, 'without the sweep the cadence is unchanged');
+const lateAfternoon = fixture({ MAXSECS: '100', CAIRO_HOUR: '14', BOT_LATE_SWEEP: 'on', LATE_SWEEP_LEAD: '1800' });
+normal(lateAfternoon, 1, [100]);
+console.log('PASS late sweep cadence: a 21:30 poll before the unchanged 21:55 preflight; off keeps the old cadence');
+
 const failedFinalSync = fixture({ FAIL_PUSH_FROM: '3' });
 assert.equal(failedFinalSync.status, 1);
 assert.equal(failedFinalSync.polls.length, 1);

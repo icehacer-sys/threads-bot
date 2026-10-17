@@ -136,3 +136,35 @@ export function emojiProfile(replies: string[]): EmojiProfile {
     .sort((a, b) => b.replies - a.replies);
   return { withEmoji, trailing, byGlyph };
 }
+
+export interface VoiceMix {
+  replies: number;
+  /** Share of replies that are exactly one sentence (the 2026-10-17 audit measured 77%). */
+  singleSentence: number;
+  /** Share of replies of six words or fewer. */
+  short: number;
+  /** Share of replies with at least one emoji, and the most emoji any one reply carried. */
+  withEmoji: number;
+  maxEmojiPerReply: number;
+  /** Share of replies containing "?" or "!" (the audit measured 0 and 0). */
+  questionOrExclaim: number;
+  medianWords: number;
+}
+
+/** The owner's voice-register targets, measured the same way the audits count them. */
+export function voiceMix(replies: string[]): VoiceMix {
+  const n = replies.length || 1;
+  const sentences = (r: string) => r.split(/(?<=[.!?])\s+|\n+/u).filter((s) => /\p{L}/u.test(s)).length;
+  const wordCount = (r: string) => (r.match(/[\p{L}\p{N}'’%]+/gu) ?? []).length;
+  const emojiCount = (r: string) => (r.match(EMOJI_SEQ) ?? []).length;
+  const counts = replies.map(wordCount).sort((a, b) => a - b);
+  return {
+    replies: replies.length,
+    singleSentence: replies.filter((r) => sentences(r) === 1).length / n,
+    short: replies.filter((r) => wordCount(r) <= 6).length / n,
+    withEmoji: replies.filter((r) => emojiCount(r) > 0).length / n,
+    maxEmojiPerReply: Math.max(0, ...replies.map(emojiCount)),
+    questionOrExclaim: replies.filter((r) => /[?!]/.test(r)).length / n,
+    medianWords: counts.length ? counts[Math.floor(counts.length / 2)] : 0,
+  };
+}
