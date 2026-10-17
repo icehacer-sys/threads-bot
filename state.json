@@ -31931,6 +31931,15 @@
       },
       "publishedId": "18095877569559105",
       "confirmedPublished": true
+    },
+    "comment:17990517150114429": {
+      "creationId": "17893952409614054",
+      "createdAt": "2026-10-17T03:20:15.082Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "That's it. Family history on your dad's side is worth knowing with this one in the family.",
+        "reply_to_id": "17990517150114429"
+      }
     }
   },
   "repliedCommentIds": [
@@ -44531,6 +44540,6 @@
   },
   "spend": {
     "date": "2026-10-16",
-    "usd": 0.08631619799999996
+    "usd": 0.08696250599999995
   }
 }
