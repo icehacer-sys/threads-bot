@@ -31898,6 +31898,15 @@
       },
       "publishedId": "17933941458142824",
       "confirmedPublished": true
+    },
+    "comment:18094708652666240": {
+      "creationId": "17893947852614054",
+      "createdAt": "2026-10-17T02:19:09.479Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Knowing it from a film is one thing but having it in the house is another. Hope his is one of the ones that just gets watched.",
+        "reply_to_id": "18094708652666240"
+      }
     }
   },
   "repliedCommentIds": [
@@ -44495,6 +44504,6 @@
   },
   "spend": {
     "date": "2026-10-16",
-    "usd": 0.08203535399999996
+    "usd": 0.08479715399999996
   }
 }
