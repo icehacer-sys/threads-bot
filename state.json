@@ -31967,6 +31967,15 @@
       },
       "publishedId": "18194971951361122",
       "confirmedPublished": true
+    },
+    "comment:18118710449111650": {
+      "creationId": "17894074899614054",
+      "createdAt": "2026-10-17T20:59:12.357Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "That's it. You're in good company with the rest of the thread.",
+        "reply_to_id": "18118710449111650"
+      }
     }
   },
   "repliedCommentIds": [
@@ -44600,6 +44609,6 @@
   },
   "spend": {
     "date": "2026-10-17",
-    "usd": 0.03529916399999999
+    "usd": 0.03592613999999999
   }
 }
