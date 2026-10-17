@@ -32044,6 +32044,15 @@
       },
       "publishedId": "18114840545038191",
       "confirmedPublished": true
+    },
+    "comment:18106593139981733": {
+      "creationId": "17894087649614054",
+      "createdAt": "2026-10-17T23:32:58.004Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Gills that only work when you blow hard would be a rough way to live. Turns out it was a laryngocele instead.",
+        "reply_to_id": "18106593139981733"
+      }
     }
   },
   "repliedCommentIds": [
@@ -44536,7 +44545,8 @@
     "18113641106165860",
     "18131589712765953",
     "18108047633196213",
-    "18020823560932000"
+    "18020823560932000",
+    "18153885835546667"
   ],
   "skipStrikes": {
     "17895266316520842": 1,
@@ -44687,6 +44697,6 @@
   },
   "spend": {
     "date": "2026-10-17",
-    "usd": 0.04356279599999998
+    "usd": 0.045509759999999976
   }
 }
