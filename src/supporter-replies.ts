@@ -10,7 +10,7 @@ export function isLowEngagementSkip(decision: string, category: string, reason: 
     /noise|low[- ](?:value|engagement)|nothing (?:new|to)|no (?:new|substantive|meaningful)|(?:lone|single) emoji|bare thanks|already (?:answered|explained)/i.test(reason);
 }
 
-const MEDICAL_TERM = /\b(?:tb|tuberc\w*|cancer|tumou?r\w*|malignan\w*|pneumo\w*|fibrosis|emphysema|copd|chf|oedema|edema|effusion|abscess\w*|sepsis|septic|infection|fungal|mou?ld|lupus|achalasia|stricture\w*|spasm|hernia|torsion|embol\w*|gout|arthritis|stones?|haemo\w*|hemo\w*|collapse\w*|cyst\w*|mets|aneurysm\w*|fracture\w*|parasit\w*|worms?)\b|\w+(?:itis|osis|oma|omas|aemia|emia)\b/i;
+export const MEDICAL_TERM = /\b(?:tb|tuberc\w*|cancer|tumou?r\w*|malignan\w*|pneumo\w*|fibrosis|emphysema|copd|chf|oedema|edema|effusion|abscess\w*|sepsis|septic|infection|fungal|mou?ld|lupus|achalasia|stricture\w*|spasm|hernia|torsion|embol\w*|gout|arthritis|stones?|haemo\w*|hemo\w*|collapse\w*|cyst\w*|mets|aneurysm\w*|aneuris\w*|fracture\w*|parasit\w*|worms?|clots?|bleed\w*|blood\w*|bowels?|impact\w*|megacolon|obstruct\w*|constipat\w*|chiari|malformation\w*|block\w*|urethr\w*|kidneys?|bladder\w*|transplant\w*|fluid\w*|csf|leak\w*|triple a|aaa|avm)\b|\w+(?:itis|osis|oma|omas|aemia|emia)\b/i;
 
 /** Targeted failures found in the September 20 and October 11 and 12 reply audits. */
 export function conversationReplyIssue(comment: string, category: string, draft: string, isCase: boolean): string | undefined {
@@ -34,8 +34,13 @@ export function conversationReplyIssue(comment: string, category: string, draft:
   }
   // 2026-10-12 audit: 45 joke or lay comments got "No X here. It's Y." (16 of 43 gun jokes on Oct 11).
   // A comment naming a medical condition is a real guess and may get "Not TB..."; an honest "No idea" stays.
-  if (isCase && ['correct', 'teach', 'banter'].includes(category) && !MEDICAL_TERM.test(comment) &&
-      !/^\s*(?:what|why|how|when|where|who|which|did|does|do|is|are|was|were|can|could|will|would|has|have|should)\b/i.test(comment) &&
+  // 2026-10-17 audit: 13 of 18 forced-skips here were sincere guesses. A hedged guess ("maybe", "I'd say",
+  // "not a doctor but"), a question of three or more words ending in "?" or a "So what/where" question is
+  // not a joke to be deflated. Short object readings with a question mark ("Telephone cord?") still count.
+  const hedged = /\b(?:maybe|guess|i think|think it|thinking|i(?:'|’)?d say|not a doctor|probably|perhaps|possibly|my bet|could be|might be)\b/i.test(comment);
+  const longQuestion = /\?\s*$/.test(comment.trim()) && comment.trim().split(/\s+/).length >= 3;
+  if (isCase && ['correct', 'teach', 'banter'].includes(category) && !MEDICAL_TERM.test(comment) && !hedged && !longQuestion &&
+      !/^\s*(?:so\s+(?:what|where)|what|why|how|when|where|who|which|did|does|do|is|are|was|were|can|could|will|would|has|have|should)\b/i.test(comment) &&
       /^(?:no|not|nothing|nobody|none)\b/i.test(draft.trim()) && !/^(?:no idea|not sure|no way to (?:know|tell))\b/i.test(draft.trim())) {
     return 'deflating correction of a joke or lay reading: start from why it looks that way, then the answer only if it fits';
   }

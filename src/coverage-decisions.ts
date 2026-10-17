@@ -11,6 +11,8 @@ export const COVERAGE_REASONS = [
   'publication_confirmed', 'publication_failed', 'publication_unknown',
   'durability_unknown', 'terminal_skip',
   'classified_reply', 'classified_skip',
+  // 2026-10-17: a comment addressed to another commenter, or a top-level friend tag with nothing for us.
+  'peer_conversation',
 ] as const;
 export type CoverageReason = typeof COVERAGE_REASONS[number];
 export const COVERAGE_CATEGORIES = ['banter', 'affirm', 'correct', 'teach', 'reference', 'empathize', 'personal_medical', 'complaint', 'spam', 'other'] as const;

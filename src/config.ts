@@ -210,6 +210,25 @@ export const config = {
   promoMaxPerPost: num("BOT_PROMO_PER_POST", 1), // hard: never a second LINK on one post
   promoMaxPerDay: num("BOT_PROMO_PER_DAY", 2), // link-frequency is the main spam signal; kept low (owner, 2/day). Product MENTIONS (no link) are not capped here.
 
+  // --- Late sweep (owner approved 2026-10-17; see src/late-sweep.ts and OPERATOR.md) ---
+  // Once a day, from BOT_LATE_SWEEP_AT (Cairo, activeTz) until the window opens, answer genuine case
+  // questions and personal stories on the PREVIOUS night's post that arrived after the window closed
+  // (plus in-window ones a guard left unanswered). Off by default; reply.yml turns it on. 21:30 sits on the
+  // same 12:00-to-12:00 cap-day as the night that starts at 22:00, so the sweep spends tonight's budget:
+  // it is capped at lateSweepMax replies and lateSweepUsd of spend on top of the normal daily caps.
+  lateSweep: (process.env.BOT_LATE_SWEEP ?? "off").toLowerCase() === "on",
+  lateSweepAt: (process.env.BOT_LATE_SWEEP_AT ?? "21:30").trim(),
+  lateSweepMax: Math.max(0, Math.min(20, Math.floor(num("BOT_LATE_SWEEP_MAX", 15)))),
+  lateSweepUsd: num("BOT_LATE_SWEEP_USD", 0.15),
+
+  // --- Clinician nod (owner approved 2026-10-17; see src/clinician-nod.ts) ---
+  // After the reveal, one short facts-only nod per post to the strongest clinician read. Off by default.
+  clinicianNod: (process.env.BOT_CLINICIAN_NOD ?? "off").toLowerCase() === "on",
+
+  // Owner-review items queued more than this many hours ago expire automatically at poll time (their post
+  // can no longer be answered usefully). 0 disables expiry.
+  ownerReviewExpiryHours: num("BOT_OWNER_REVIEW_EXPIRY_HOURS", 48),
+
   // Local state file (replied-comment log + daily counter)
   stateFile: process.env.BOT_STATE_FILE ?? "./state.json",
 

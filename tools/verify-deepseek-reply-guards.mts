@@ -29,7 +29,7 @@ assert.equal(claimsOffPlatformAction('I did put a free pack of six of the wild o
 for (const rule of ['right side of the patient appears on the left of the image', 'never the values of this patient', 'never what this film shows', 'side with the patient'])
   assert.ok(DEEPSEEK_REPLY_GUIDANCE.includes(rule), rule);
 
-// End to end through the real classifier: DeepSeek drafts are policed, Claude drafts are not.
+// End to end through the real classifier: drafts from every provider are policed (2026-10-17).
 let replyText = '';
 const queue: string[] = []; let calls = 0; const prompts: string[] = [];
 globalThis.fetch = async (_url, init) => {
@@ -47,13 +47,13 @@ config.deepSeekTrial = true;
 replyText = 'Pneumothorax yes but the side is flipped. That empty half is on the left.';
 const flipped = await classifyAndDraft(input as never);
 assert.equal(flipped.decision, 'skip');
-assert.match(flipped.reason, /^unsupported laterality: DeepSeek reply skipped/);
+assert.match(flipped.reason, /^unsupported laterality: reply skipped/);
 assert.doesNotMatch(flipped.reason, /^(?:error|fatal):/, 'a policy skip, never an API-error skip');
 replyText = 'That is the one. The lung gave up and the air moved in.';
 assert.equal((await classifyAndDraft(input as never)).decision, 'reply', 'a side-free reply still posts');
 config.deepSeekTrial = false;
 replyText = 'Pneumothorax yes but the side is flipped. That empty half is on the left.';
-assert.doesNotMatch((await classifyAndDraft(input as never)).reason, /unsupported laterality/, 'Claude path unchanged');
+assert.match((await classifyAndDraft(input as never)).reason, /^unsupported laterality: reply skipped \(claude-/, 'Claude drafts are policed too (2026-10-17)');
 // Teaching contrasts: real 00188/00193 replies that invented rules about the guessed condition.
 const { unsupportedTeachingContrast } = await import('../src/deepseek-media-policy');
 const nephro = 'Both kidneys are packed with clusters of tiny bright calcium deposits. Nephrocalcinosis is calcium deposited in the kidney tissue itself.';
@@ -76,7 +76,7 @@ queue.push('Stones pass through.', 'Stones usually pass through.');
 calls = 0;
 const stillWrong = await classifyAndDraft(nephroInput as never);
 assert.equal(stillWrong.decision, 'skip');
-assert.match(stillWrong.reason, /^unsupported teaching contrast: DeepSeek reply skipped/);
+assert.match(stillWrong.reason, /^unsupported teaching contrast: reply skipped/);
 assert.equal(calls, 2, 'no loop: one rewrite then skip');
 
 // Repeated phrasing: facts refrains and stock template shapes (2026-10-09 audit).
@@ -89,4 +89,4 @@ assert.deepEqual(repeatedPhrasing('Acute pulmonary oedema it is.', Array(8).fill
 const gummy = ['A gummy bear would at least have dissolved.', 'Dentures would at least have kept their shape.'];
 assert.ok(repeatedPhrasing('A thimble would at least have fit.', gummy).some((p) => p.includes('stock phrase "would at least"')), 'stock shape reused twice already');
 assert.deepEqual(repeatedPhrasing('A thimble would at least have fit.', gummy.slice(0, 1)).filter((p) => p.includes('stock')), [], 'one earlier use is fine');
-console.log('PASS DeepSeek reply guards: laterality (incl. real 00192 flips), case-facts meta talk, drug jokes, invented product claims, teaching contrasts with one bounded rewrite, facts refrains and stock shapes, prompt rules; Claude unchanged.');
+console.log('PASS DeepSeek reply guards: laterality (incl. real 00192 flips), case-facts meta talk, drug jokes, invented product claims, teaching contrasts with one bounded rewrite, facts refrains and stock shapes, prompt rules; Claude drafts policed too.');

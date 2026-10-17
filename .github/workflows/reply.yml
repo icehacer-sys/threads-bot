@@ -104,6 +104,18 @@ jobs:
       BOT_PROMO: "on" # RARE product plug (data/products.json). The reply NAMES the product in-voice on a genuine opening; the raw LINK is attached ONLY when the commenter explicitly asks for it (ask-only links, to keep spam/reach risk low). Never on medical/tender/corrections.
       BOT_PROMO_PER_POST: "1" # hard: never a second LINK on one post
       BOT_PROMO_PER_DAY: "2" # link-frequency is the main spam signal; kept low
+      # LATE SWEEP (owner approved 2026-10-17): once per cap-day from 21:30 Cairo until the 22:00 open, reply to
+      # genuine case questions and personal stories on the PREVIOUS night's post that arrived after 10:00 (plus
+      # in-window ones a guard left unanswered). At most 15 replies and $0.15 of spend, on top of the normal caps.
+      # 21:30 is on the same 12:00->12:00 cap-day as tonight's window, so it spends from tonight's budget.
+      # Takes effect at the next hand-off. ROLLBACK: set to "off". Keep BOT_LATE_SWEEP_AT and LATE_SWEEP_LEAD
+      # (the poll step below, seconds before BOT_ACTIVE_START) in sync.
+      BOT_LATE_SWEEP: "on"
+      BOT_LATE_SWEEP_AT: "21:30"
+      BOT_LATE_SWEEP_MAX: "15"
+      BOT_LATE_SWEEP_USD: "0.15"
+      BOT_CLINICIAN_NOD: "on" # owner 2026-10-17: one short facts-only nod per post to the strongest clinician read, after the reveal. Rollback: "off"
+      BOT_OWNER_REVIEW_EXPIRY_HOURS: "48" # owner 2026-10-17: owner-review items queued more than 48h ago auto-expire at poll time. 0 disables
     steps:
       - uses: actions/checkout@v4
 
@@ -147,6 +159,9 @@ jobs:
           # Raising it much past ~15 min just widens the gap in which the balance can die after a
           # PASS; the live path's own fatal detection covers that case either way.
           PREFLIGHT_LEAD: "300"
+          # Late sweep poll: this many seconds before BOT_ACTIVE_START (1800 = 21:30 for a 22:00 open). Must match
+          # BOT_LATE_SWEEP_AT above. Only used when BOT_LATE_SWEEP is "on".
+          LATE_SWEEP_LEAD: "1800"
         run: |
           # Push local commits, retrying rebase+push. Runs every loop (not only when the tree is
           # freshly dirty) so a push that failed on a previous loop is genuinely retried instead of
@@ -266,10 +281,18 @@ jobs:
               # to act on it. Landing after the open would make the alarm useless: the post is
               # already up and collecting comments by then.
               nap=$(( (BOT_ACTIVE_START - ch) * 3600 - cm * 60 - PREFLIGHT_LEAD ))
+              # Late sweep (owner 2026-10-17): before the pre-open nap, land one poll LATE_SWEEP_LEAD seconds
+              # before the open (21:30). That poll runs the once-per-cap-day sweep of last night's post;
+              # the following nap is the usual one to the pre-open credit check.
+              sweep_nap_due=0
+              if [ "${BOT_LATE_SWEEP:-off}" = "on" ]; then
+                sweep_nap=$(( (BOT_ACTIVE_START - ch) * 3600 - cm * 60 - ${LATE_SWEEP_LEAD:-1800} ))
+                if [ "$sweep_nap" -gt 0 ]; then nap=$sweep_nap; sweep_nap_due=1; fi
+              fi
               # Only the nap that actually lands on the pre-open mark arms the check. A nap capped
               # at an hour is mid-afternoon and says nothing about the balance at 22:00; a nap
               # clamped up to the 60s floor means we are already inside the lead and have checked.
-              if [ "$nap" -gt 0 ] && [ "$nap" -le 3600 ]; then preflight_due=1; fi
+              if [ "$sweep_nap_due" = "0" ] && [ "$nap" -gt 0 ] && [ "$nap" -le 3600 ]; then preflight_due=1; fi
               if [ "$nap" -gt 3600 ]; then nap=3600; fi
               if [ "$nap" -lt 60 ]; then nap=60; fi
             fi

@@ -24,6 +24,8 @@ interface XrayCase {
   whyItMatters?: string;
   treatment?: string;
   takeaway?: string;
+  /** Publisher clue-to-fact pairs (xray-cases PR #22). Optional: older cases have none. */
+  clueFacts?: Array<{ clue?: unknown; fact?: unknown }>;
 }
 
 export interface BridgedAnswer {
@@ -66,6 +68,9 @@ export async function resolveXrayAnswer(postId: string): Promise<BridgedAnswer |
 
   const answer = [c.diagnosis, ...(c.aliases ?? [])].filter(Boolean).join(" / ");
   // A generic teaching mnemonic can describe a typical age, not this patient's age/history.
-  const facts = [c.whatYouSee, c.whyItMatters, c.treatment].filter((x): x is string => !!x && x.trim().length > 0);
+  // Clue facts back the caption's hints (for example a CSF leak) so the policy guards treat them as case
+  // support instead of commenter-only claims. Malformed entries are ignored.
+  const clueFacts = Array.isArray(c.clueFacts) ? c.clueFacts.map((f) => (f && typeof f === 'object' ? f.fact : undefined)) : [];
+  const facts = [c.whatYouSee, c.whyItMatters, c.treatment, ...clueFacts].filter((x): x is string => typeof x === 'string' && x.trim().length > 0);
   return { answer, facts, diagnosticContext: diagnosticContext(c.diagnosticContext, c.source === 'generated') };
 }

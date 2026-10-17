@@ -4,6 +4,7 @@ import fs from 'node:fs';
 process.env.ANTHROPIC_API_KEY = 'synthetic-claude';
 process.env.DEEPSEEK_API_KEY = 'synthetic-deepseek';
 process.env.ANTHROPIC_BASE_URL = 'https://api.anthropic.com';
+process.env.BOT_DEEPSEEK_RETRY_MS = '0';
 delete process.env.ANTHROPIC_AUTH_TOKEN;
 let handler: typeof fetch = async () => { throw Error('Unexpected HTTP'); };
 globalThis.fetch = (...args) => handler(...args);
@@ -30,22 +31,32 @@ if (process.argv.includes('--unknown-usage') || process.argv.includes('--unknown
     return new Response(JSON.stringify(process.argv.includes('--null-response') ? null : tool('deepseek-flash', valid, { input_tokens: 10, output_tokens: 20 })), { status: 200, headers: { 'content-type': 'application/json' } });
   };
   const { takeDeepSeekTrip } = await import('../src/reply-provider');
+  // 2026-10-17: a transport error is retried once (first failure of the poll only); a comment that still
+  // fails is answered by the fallback alone and DeepSeek stays on until two comments fail in one poll.
+  const transport = process.argv.includes('--unknown-transport');
   const first = await classifyAndDraft(base);
   assert.doesNotMatch(first.reason, /^(?:error|fatal):/, 'a DeepSeek failure is not an API-error or fatal skip');
   assert.equal(first.reply_text, valid.reply_text, 'the same request is answered by Claude');
-  assert.deepEqual([deepAttempts, claudeAttempts], [1, 1]);
+  assert.deepEqual([deepAttempts, claudeAttempts], [transport ? 2 : 1, 1], transport ? 'one retry before the fallback' : 'no retry for an unusable 200 body');
   const charged = drainSpend();
-  assert.ok(Math.abs(charged.usd - (0.35 + costOf(config.triageModel, nativeUsage))) < 1e-12, 'conservative DeepSeek charge plus the Claude fallback');
-  assert.equal(charged.calls, 2);
-  assert.equal(takeDeepSeekTrip(), true, 'trip reported for the durable cap-day breaker');
-  assert.equal(takeDeepSeekTrip(), false, 'trip reported once');
-  config.webSearch = true;
+  const uncertain = transport ? 0.7 : 0.35;
+  assert.ok(Math.abs(charged.usd - (uncertain + costOf(config.triageModel, nativeUsage))) < 1e-12, 'conservative DeepSeek charge per uncertain attempt plus the Claude fallback');
+  assert.equal(charged.calls, transport ? 3 : 2);
+  assert.equal(takeDeepSeekTrip(), false, 'one failed comment does not trip the cap-day breaker');
+  assert.equal(replyTrialProviderSnapshot().halted, false, 'DeepSeek stays on after one failed comment');
   const second = await classifyAndDraft(base);
   assert.equal(second.reply_text, valid.reply_text);
-  assert.deepEqual([deepAttempts, claudeAttempts], [1, 2], 'DeepSeek stays off for the rest of the process');
+  assert.deepEqual([deepAttempts, claudeAttempts], [transport ? 3 : 2, 2], 'no second retry in the same poll');
+  assert.ok(Math.abs(drainSpend().usd - (0.35 + costOf(config.triageModel, nativeUsage))) < 1e-12);
+  assert.equal(takeDeepSeekTrip(), true, 'the second failed comment trips the durable cap-day breaker');
+  assert.equal(takeDeepSeekTrip(), false, 'trip reported once');
+  config.webSearch = true;
+  const third = await classifyAndDraft(base);
+  assert.equal(third.reply_text, valid.reply_text);
+  assert.deepEqual([deepAttempts, claudeAttempts], [transport ? 3 : 2, 3], 'DeepSeek stays off for the rest of the process');
   assert.deepEqual(drainSpend(), { usd: costOf(config.triageModel, nativeUsage), calls: 1 });
   assert.equal(replyTrialProviderSnapshot().halted, true);
-  console.log('PASS uncertain trial: one DeepSeek attempt, conservative $0.35 charge, same request answered by Claude, DeepSeek disabled for the process and trip reported once.');
+  console.log('PASS uncertain trial: retry once on transport errors, conservative $0.35 per uncertain attempt, the failed comment answered by Claude, breaker trips on the second failed comment and is reported once.');
 } else {
   const mediaFixture = JSON.parse(fs.readFileSync(new URL('./fixtures/deepseek-gif-smoke.json', import.meta.url), 'utf8'));
   const mediaInput = mediaFixture.input;

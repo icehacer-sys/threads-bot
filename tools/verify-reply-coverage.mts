@@ -72,10 +72,10 @@ for(const [comment,text] of [['Silly Putty Shoulder.','Please keep it off the ca
  queue=[{...base,intent:'fictional diagnosis guess used as a joke',reply_text:text}];calls=0;
  assert.equal((await classifyAndDraft({...input,commentText:comment,answerPublic:false})).reply_text,text);assert.equal(calls,1,'joke draft must not be replaced with a receipt');
 }
-queue=[{...base,category:'correct',reply_text:'The teaching answer is chondrosarcoma with rings and arcs of calcium in the mass.'}];calls=0;
+queue=[{...base,category:'correct',reply_text:'The answer is chondrosarcoma with rings and arcs of calcium in the mass.'}];calls=0;
 assert.equal((await classifyAndDraft({...input,commentText:'Osteosarcoma?',answer:'Chondrosarcoma',facts:['Rings and arcs of calcium in a mass.']})).category,'correct');assert.equal(calls,1,'public-answer correction remains available');
-queue=[{...base,category:'affirm',reply_text:'Nailed it.'},{...base,category:'affirm',reply_text:'Chondrosarcoma is the teaching answer here.'}];calls=0;
-assert.equal((await classifyAndDraft({...input,answer:'Chondrosarcoma',commentText:'Chondrosarcoma?'})).reply_text,'Chondrosarcoma is the teaching answer here.');assert.equal(calls,2);
+queue=[{...base,category:'affirm',reply_text:'Nailed it.'},{...base,category:'affirm',reply_text:'Chondrosarcoma is the answer here.'}];calls=0;
+assert.equal((await classifyAndDraft({...input,answer:'Chondrosarcoma',commentText:'Chondrosarcoma?'})).reply_text,'Chondrosarcoma is the answer here.');assert.equal(calls,2);
 queue=[{...base,intent:'diagnosis guess',decision:'skip',reply_text:'',reason:'owner review: image-dependent reply paused'}];
 assert.equal((await classifyAndDraft({...input,answerPublic:false,imageReviewPending:true})).decision,'skip');
 queue=[{...base,category:'teach',reply_text:'The patient is a newborn.'},{...base,category:'teach',reply_text:'The caption does not state the age.'}];calls=0;

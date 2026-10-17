@@ -8,9 +8,9 @@
     "node": ">=18.17"
   },
   "scripts": {
-    "deepseek:verify": "tsx tools/verify-reply-provider-plan.mts && tsx tools/verify-deepseek-reply-client.mts && tsx tools/verify-deepseek-composition.mts && tsx tools/verify-deepseek-composition.mts --unknown-usage && tsx tools/verify-deepseek-composition.mts --unknown-transport && tsx tools/verify-deepseek-composition.mts --null-response && tsx tools/verify-deepseek-search-boundary.mts && tsx tools/verify-deepseek-media-policy.mts && tsx tools/verify-deepseek-media-replay.mts && tsx tools/verify-deepseek-breaker.mts && tsx tools/verify-deepseek-invalid-verdict.mts && tsx tools/verify-deepseek-invalid-verdict.mts --primary && tsx tools/verify-deepseek-political.mts && tsx tools/verify-deepseek-reply-guards.mts && tsx tools/verify-deepseek-primary.mts && tsx tools/verify-sonnet-5-5.mts",
+    "deepseek:verify": "tsx tools/verify-reply-provider-plan.mts && tsx tools/verify-deepseek-reply-client.mts && tsx tools/verify-deepseek-composition.mts && tsx tools/verify-deepseek-composition.mts --unknown-usage && tsx tools/verify-deepseek-composition.mts --unknown-transport && tsx tools/verify-deepseek-composition.mts --null-response && tsx tools/verify-deepseek-search-boundary.mts && tsx tools/verify-deepseek-media-policy.mts && tsx tools/verify-deepseek-media-replay.mts && tsx tools/verify-deepseek-breaker.mts && tsx tools/verify-deepseek-retry.mts && tsx tools/verify-deepseek-invalid-verdict.mts && tsx tools/verify-deepseek-invalid-verdict.mts --primary && tsx tools/verify-deepseek-political.mts && tsx tools/verify-deepseek-reply-guards.mts && tsx tools/verify-deepseek-primary.mts && tsx tools/verify-sonnet-5-5.mts",
     "reviews": "tsx tools/owner-reviews.mts",
-    "concerns:verify": "tsx tools/verify-concerns.mts && tsx tools/verify-held-revisit.mts",
+    "concerns:verify": "tsx tools/verify-concerns.mts && tsx tools/verify-held-revisit.mts && tsx tools/verify-review-expiry.mts",
     "demo": "tsx src/index.ts --demo",
     "dry": "tsx src/index.ts --dry-run",
     "live": "tsx src/index.ts --live",
@@ -32,8 +32,8 @@
     "media:verify": "tsx tools/verify-media-replies.mts",
     "wording:verify": "tsx tools/verify-wording-replies.mts && npm run draft-retry:verify",
     "draft-retry:verify": "tsx tools/verify-draft-retries.mts && tsx tools/verify-draft-failure-flags.mts",
-    "supporters:verify": "tsx tools/verify-supporter-replies.mts && tsx tools/verify-voice-audit-1012.mts",
-    "coverage:verify": "tsx tools/verify-reply-coverage.mts && npm run coverage:decisions:verify && npm run coverage:observation:verify && npm run coverage:classifier:verify && npm run provider:verify",
+    "supporters:verify": "tsx tools/verify-supporter-replies.mts && tsx tools/verify-voice-audit-1012.mts && tsx tools/verify-reply-audit-1017.mts && tsx tools/verify-voice-mix.mts",
+    "coverage:verify": "tsx tools/verify-reply-coverage.mts && tsx tools/verify-late-sweep.mts && tsx tools/verify-clinician-nod.mts && tsx tools/verify-xray-clue-facts.mts && tsx tools/verify-peer-conversation.mts && npm run coverage:decisions:verify && npm run coverage:observation:verify && npm run coverage:classifier:verify && npm run provider:verify",
     "coverage:decisions:verify": "tsx tools/verify-coverage-decisions.mts",
     "coverage:observation:verify": "tsx tools/verify-coverage-observation.mts",
     "coverage:classifier:verify": "tsx tools/verify-classifier-outcomes.mts",

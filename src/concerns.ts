@@ -10,7 +10,20 @@ export type ConcernKind = keyof typeof ACKNOWLEDGMENTS;
 export function isRetiredMedicalBoundary(text: string): boolean {
   return /that sounds worrying|a comment (?:can['’]?t|cannot) establish (?:what['’]?s|what is) causing it|a clinician can assess your symptoms/i.test(text);
 }
+// 2026-10-17 audit: an 11-year-old's headaches ("could this happen to a child? my son has been complaining
+// of headaches") got "worth having checked by a doctor" instead of the approved boundary line. A question
+// about whether this could be happening to a named relative, or one asked about a relative's current
+// symptoms, is a request for an individual assessment even though it is in the third person.
+const RELATIVE = String.raw`(?:child|kid|kiddo|son|daughter|baby|toddler|boy|girl|brother|sister|husband|wife|partner|boyfriend|girlfriend|fianc[eé]e?|mom|mum|mother|mama|dad|father|papa|grand(?:ma|pa|mother|father|son|daughter|child)|aunt|uncle|nephew|niece|cousin|friend|\d{1,2}[- ]?(?:year|yr)[- ]?old|\d{1,2}[- ]?(?:yo|y\/o))`;
+const HAPPEN_TO_RELATIVE = new RegExp(String.raw`\b(?:could|can|would|might|does|do|is|are|will)\b[^.?!]{0,50}\b(?:happen|occur|be|cause|start|develop)\w*\b[^.?!]{0,30}\b(?:to|in|for|with)\s+(?:a|an|my|our|your)\s+(?:little\s+|young\s+|teenage\s+)?${RELATIVE}\b`, 'i');
+const RELATIVE_SYMPTOMS = new RegExp(String.raw`\b(?:my|our)\s+(?:little\s+|young\s+|teenage\s+)?${RELATIVE}(?:['’]s)?\b[^.?!]{0,60}\b(?:complain(?:s|ed|ing)? (?:of|about)|has had|have had|has been (?:having|getting|feeling|complaining)|keeps? (?:getting|having)|been having|is having|started having|gets? (?:these|this|bad|really)|suffers? from)\b`, 'i');
+export function thirdPersonSymptomQuestion(text: string): boolean {
+  if (!/\?/.test(text) && !/\b(?:could|can|should)\s+(?:this|it|that)\b/i.test(text)) return false;
+  const asksPossibility = /\b(?:could|can|might|would|should|is it|does (?:this|that|it)|do you think|what (?:could|would|should))\b/i.test(text);
+  return (RELATIVE_SYMPTOMS.test(text) && asksPossibility) || (HAPPEN_TO_RELATIVE.test(text) && /\b(?:complain\w*|symptoms?|pain|headaches?|hurts?|aches?|lump|swelling|vomit\w*|fever|bleed\w*|cough\w*|numb\w*|dizz\w*|seizures?|has had|has been)\b/i.test(text));
+}
 export function requestsPersonalAdvice(text: string): boolean {
+  if (thirdPersonSymptomQuestion(text)) return true;
   // A medical anecdote, hospital visit or quoted advice is not a current request.
   const request = /\b(?:should|could|can|would|do)\s+(?:i|we|my\s+(?:child|baby|son|daughter|partner))\b|\bwhat\s+(?:medicine|medication|treatment|test)\s+should\b|\bwhat should (?:i|we) do\b|\b(?:please|can you|could you)\s+(?:help|advise|diagnose|tell)\b|\b(?:i|we)\s+(?:need|want)\s+(?:medical\s+)?advice\b/i;
   const personal = /\b(?:i|me|my|we|our|us)\b/i;
