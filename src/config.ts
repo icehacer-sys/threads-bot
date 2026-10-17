@@ -34,10 +34,11 @@ function parseActiveWindows(): Array<[number, number]> {
   return [[num("BOT_ACTIVE_START", 0), num("BOT_ACTIVE_END", 24)]];
 }
 
-function replyProvider(): 'claude' | 'hybrid' | 'deepseek' {
+export type ReplyProviderSetting = 'claude' | 'hybrid' | 'deepseek' | 'deepseek-all';
+function replyProvider(): ReplyProviderSetting {
   const raw = (process.env.BOT_REPLY_PROVIDER ?? '').trim().toLowerCase();
-  if (raw === 'claude' || raw === 'hybrid' || raw === 'deepseek') return raw;
-  if (raw) throw new Error(`BOT_REPLY_PROVIDER must be claude, hybrid or deepseek (got "${raw}")`);
+  if (raw === 'claude' || raw === 'hybrid' || raw === 'deepseek' || raw === 'deepseek-all') return raw;
+  if (raw) throw new Error(`BOT_REPLY_PROVIDER must be claude, hybrid, deepseek or deepseek-all (got "${raw}")`);
   return (process.env.BOT_DEEPSEEK_TRIAL ?? 'off').toLowerCase() === 'on' ? 'hybrid' : 'claude';
 }
 
@@ -48,7 +49,13 @@ export const config = {
   // claude: Claude only (default, full rollback). hybrid: the BOT_DEEPSEEK_TRIAL routing, where search,
   // commenter media and Sonnet escalations stay on Claude. deepseek: DeepSeek answers everything except
   // web-search lookups, which keep Claude; a DeepSeek failure still falls back to Claude for the day.
+  // deepseek-all (owner decision A, 2026-10-17): DeepSeek answers every request including native web
+  // search and its continuations. Claude is an idle fallback on fallbackModel, used only after DeepSeek
+  // failed (retries exhausted) and only for the rest of that poll; the next poll tries DeepSeek again.
   replyProvider: replyProvider(),
+  // The Claude model that answers when DeepSeek fails in deepseek-all mode (and the logical tier label
+  // there when BOT_MODEL / BOT_TRIAGE_MODEL are unset). Haiku 5.5 accepts the forced submit_reply.
+  fallbackModel: process.env.BOT_FALLBACK_MODEL?.trim() || "claude-haiku-5-5",
   // Commenter GIF/image/video replies stay on Claude during the trial: DeepSeek media grounding
   // is not accepted, and a held reply surfaces as an error skip that trips the outage alarms.
   // 'held' is for the offline native-media replay only. Deliberately not read from env.
@@ -61,8 +68,11 @@ export const config = {
   // Two-tier models. The cheap triageModel drafts/classifies EVERY comment; only
   // accuracy-critical categories (escalateCategories) are re-drafted by the pricier,
   // higher-quality `model`. Set BOT_TRIAGE_MODEL=<same as model> to disable two-tier.
-  model: process.env.BOT_MODEL ?? "claude-sonnet-5-5",
-  triageModel: process.env.BOT_TRIAGE_MODEL ?? "claude-haiku-4-5-20251001",
+  // In deepseek-all mode both tiers are only logical labels (DeepSeek serves them and the fallback swaps
+  // in fallbackModel), so they default to the fallback model and no Sonnet appears in the reply path.
+  // Escalation still means a second, separately prompted pass; it is not keyed on the label differing.
+  model: process.env.BOT_MODEL ?? (replyProvider() === "deepseek-all" ? process.env.BOT_FALLBACK_MODEL?.trim() || "claude-haiku-5-5" : "claude-sonnet-5-5"),
+  triageModel: process.env.BOT_TRIAGE_MODEL ?? (replyProvider() === "deepseek-all" ? process.env.BOT_FALLBACK_MODEL?.trim() || "claude-haiku-5-5" : "claude-haiku-4-5-20251001"),
   // Web search depends on 'reference' being present (search is gated to that category).
   escalateCategories: (process.env.BOT_ESCALATE ?? "correct,teach,reference")
     .split(",")

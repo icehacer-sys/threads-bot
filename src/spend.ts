@@ -16,6 +16,10 @@ interface ModelPrice {
 
 const PRICES: Record<string, ModelPrice> = {
   "claude-haiku-4-5": { input: 1, output: 5 },
+  // Claude Haiku 5.5 (the deepseek-all fallback), official pricing page 2026-10-17: $0.10 / $0.50 per MTok
+  // for prompts up to 100,000 tokens; see HAIKU_5_5_LONG for longer prompts. Cache multipliers match the
+  // ones below (read 0.1x = $0.01, 5m write 1.25x = $0.125, 1h write 2x = $0.20).
+  "claude-haiku-5-5": { input: 0.1, output: 0.5 },
   "claude-sonnet-4-6": { input: 3, output: 15 },
   "claude-sonnet-5": { input: 3, output: 15 },
   "claude-sonnet-5-5": { input: 2, output: 10 }, // launch price, same as Sonnet 5 intro
@@ -34,11 +38,17 @@ function introOverride(model: string, now: number): ModelPrice | null {
   return null;
 }
 
+// Claude Haiku 5.5 is priced by prompt length: a request whose prompt (input + cache reads + cache
+// writes) is over 100,000 tokens pays $0.50 / $2.50 for the whole request.
+const HAIKU_5_5_LONG: ModelPrice = { input: 0.5, output: 2.5 };
+const HAIKU_5_5_LONG_ABOVE = 100_000;
+
 // Model ids may carry a date suffix (claude-haiku-4-5-20251001). Match the longest known
 // prefix so a dated snapshot prices the same as its base model.
-export function priceFor(model: string, now: number = Date.now()): ModelPrice {
+export function priceFor(model: string, now: number = Date.now(), promptTokens = 0): ModelPrice {
   const intro = introOverride(model, now);
   if (intro) return intro;
+  if (model.startsWith("claude-haiku-5-5") && promptTokens > HAIKU_5_5_LONG_ABOVE) return HAIKU_5_5_LONG;
   let best: ModelPrice | null = null;
   let bestLen = 0;
   for (const [key, price] of Object.entries(PRICES)) {
@@ -72,9 +82,10 @@ const n = (v: number | null | undefined): number => (typeof v === "number" && Nu
 /** Exact USD cost of one API call, from the usage block the API returns. */
 export function costOf(model: string, usage: CallUsage | null | undefined, now: number = Date.now()): number {
   if (!usage) return 0;
-  const p = priceFor(model, now);
   const write1h = n(usage.cache_creation?.ephemeral_1h_input_tokens);
   const write5m = n(usage.cache_creation?.ephemeral_5m_input_tokens);
+  const prompt = n(usage.input_tokens) + n(usage.cache_read_input_tokens) + Math.max(write1h + write5m, n(usage.cache_creation_input_tokens));
+  const p = priceFor(model, now, prompt);
   // Older SDKs report only the total, with no 5m/1h split. Since 2026-08-27 the bot writes at
   // BOTH TTLs (Haiku 1h, Sonnet 5m — see cacheTtl in reply.ts), so an unsplit total is
   // ambiguous; price it at the higher 1h rate. Over-estimating an unknown is the safe

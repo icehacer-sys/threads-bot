@@ -8,13 +8,14 @@ Generated from tracked source. This does not read or print credentials, local .e
 const raw = (process.env.BOT_ACTIVE_WINDOWS ?? "").trim();
 return [[num("BOT_ACTIVE_START", 0), num("BOT_ACTIVE_END", 24)]];
 const raw = (process.env.BOT_REPLY_PROVIDER ?? '').trim().toLowerCase();
-if (raw) throw new Error(`BOT_REPLY_PROVIDER must be claude, hybrid or deepseek (got "${raw}")`);
+if (raw) throw new Error(`BOT_REPLY_PROVIDER must be claude, hybrid, deepseek or deepseek-all (got "${raw}")`);
 return (process.env.BOT_DEEPSEEK_TRIAL ?? 'off').toLowerCase() === 'on' ? 'hybrid' : 'claude';
+fallbackModel: process.env.BOT_FALLBACK_MODEL?.trim() || "claude-haiku-5-5",
 evalReplay: (process.env.BOT_EVAL_REPLAY ?? 'off').toLowerCase() === 'on',
 evalPreReveal: (process.env.BOT_EVAL_PRE_REVEAL ?? 'off').toLowerCase() === 'on',
 evalDeepSeekAll: (process.env.BOT_EVAL_DEEPSEEK_ALL ?? 'off').toLowerCase() === 'on',
-model: process.env.BOT_MODEL ?? "claude-sonnet-5-5",
-triageModel: process.env.BOT_TRIAGE_MODEL ?? "claude-haiku-4-5-20251001",
+model: process.env.BOT_MODEL ?? (replyProvider() === "deepseek-all" ? process.env.BOT_FALLBACK_MODEL?.trim() || "claude-haiku-5-5" : "claude-sonnet-5-5"),
+triageModel: process.env.BOT_TRIAGE_MODEL ?? (replyProvider() === "deepseek-all" ? process.env.BOT_FALLBACK_MODEL?.trim() || "claude-haiku-5-5" : "claude-haiku-4-5-20251001"),
 escalateCategories: (process.env.BOT_ESCALATE ?? "correct,teach,reference")
 escalateMedia: (process.env.BOT_ESCALATE_MEDIA ?? "motion").toLowerCase(),
 voiceVariant: (process.env.BOT_VOICE ?? "lean").toLowerCase(),
@@ -92,12 +93,11 @@ BOT_ESCALATE_USD: "1.12" # 70% of the cap: past this, DISCRETIONARY escalations 
 BOT_MEDICAL_RESERVE_USD: "0.31" # kept at 0.31 (about 19% of the 1.60 cap) so ordinary comments still get replies until 1.29; reserved for medical replies. Added 2026-08-24 after a night where the flat gate held 16 correct/teach comments unanswered from 00:15 Cairo while cheap banter kept posting on the rest of the budget.
 BOT_RESERVE_MIN_VALUE: "2" # inside the reserve, only comments scoring >=2 on the value heuristic are triaged at all (questions, long stories); one-word quips and guesses are dropped un-triaged, costing nothing.
 BOT_ESCALATE_MEDIA: "motion" # GIF/video frames go directly to one quality read; no cheap fallback when the quality budget is unavailable.
-BOT_REPLY_PROVIDER: "deepseek" # owner 2026-10-02, cost: DeepSeek writes every reply incl. corrections, teaching and commenter media; Claude only for web-search lookups and DeepSeek failures. Rollback: "hybrid" (or "claude")
-BOT_MODEL: "claude-sonnet-5-5" # quality model: corrections/teaching and direct GIF/video reads
-BOT_TRIAGE_MODEL: "claude-haiku-4-5-20251001" # cheap first pass outside direct motion-media routing
-BOT_ESCALATE: "correct,teach,reference" # categories the Haiku triage hands to Sonnet
+BOT_REPLY_PROVIDER: "deepseek-all" # owner decision A 2026-10-17: DeepSeek for every reply incl. web search; Haiku 5.5 one-poll fallback. Rollback: "deepseek" (or "claude")
+BOT_FALLBACK_MODEL: "claude-haiku-5-5" # latest Haiku; accepts the forced submit_reply. The only Claude model the reply path can call.
+BOT_ESCALATE: "correct,teach,reference" # categories that get a second, separately prompted pass (still on DeepSeek); reference adds a web search
 BOT_ANTIREPEAT: "30" # replies the model sees as ALREADY POSTED so it doesn't repeat toppers/corrections. Raised 15->30 on 2026-07-08 after a 101-reply night repeated toppers >15 apart (modest uncached-token cost, worth it on viral nights)
-BOT_WEB_SEARCH: "on" # search runs ONLY on the Sonnet "reference" re-run (unrecognized memes/refs), never on triage
+BOT_WEB_SEARCH: "on" # search runs ONLY on the "reference" / needs_lookup re-run (unrecognized memes/refs), never on triage. deepseek-flash runs it natively (web_search_20250305, max_uses 3)
 BOT_FACEBOOK_REPLY: "off" # FB dropped — Threads only (owner deleted the Page over the "AI info" label, 2026-07-03). fbindex early-returns when off; flip to "on" to restore.
 BOT_GIF_REPLIES: "off" # bot-posted reaction GIFs KILLED by owner (2026-07-07) — text replies only. (Reading COMMENTER GIFs is unaffected; that path stays on.)
 BOT_GIF_CHANCE: "1" # no coin flip — when the model tags a banter reply and caps allow, attach the GIF (owner, 2026-07-04 moderate loosening; was 0.5). Volume is bounded by the model's tag rate + the 1/post, 2/day caps
@@ -119,7 +119,9 @@ if [ "${BOT_LATE_SWEEP:-off}" = "on" ]; then
 
 ```text
 - cron: "0 9 * * 1" # Mondays 09:00 UTC (12 PM Cairo)
-BOT_LEARN_MODEL: "claude-sonnet-5"
+BOT_LEARN_PROVIDER: "deepseek"
+BOT_REPLY_PROVIDER: "deepseek-all"
+BOT_FALLBACK_MODEL: "claude-haiku-5-5"
 BOT_LEARN_DAYS: "7" # matches the weekly cron — at 3 the audit paid for a weekly run but only ever saw 3 of the 7 days
 BOT_LEARN_MAX_PAIRS: "150"
 git pull --rebase --autostash origin "${GITHUB_REF_NAME}" || { git rebase --abort 2>/dev/null || true; sleep 3; continue; }

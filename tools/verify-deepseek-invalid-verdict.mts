@@ -1,11 +1,11 @@
-// A malformed DeepSeek verdict is answered by Claude, never an API-error skip. All HTTP is mocked.
+// A malformed DeepSeek verdict gets one DeepSeek repair, then Claude; never an API-error skip. All HTTP is mocked.
 // Repro: faecaloma eval 36907000952, "Uterine tumor?" -> "error: Invalid reply verdict: unexpected field".
 // index.ts counts every error: skip as an API failure (poll exit 1, never cached, re-billed next poll).
 import assert from 'node:assert/strict';
 process.env.ANTHROPIC_API_KEY = 'synthetic-claude';
 process.env.DEEPSEEK_API_KEY = 'synthetic-deepseek';
 process.env.ANTHROPIC_BASE_URL = 'https://api.anthropic.com';
-const provider = process.argv.includes('--primary') ? 'deepseek' : 'hybrid';
+const provider = process.argv.includes('--all') ? 'deepseek-all' : process.argv.includes('--primary') ? 'deepseek' : 'hybrid';
 process.env.BOT_REPLY_PROVIDER = provider;
 delete process.env.ANTHROPIC_AUTH_TOKEN;
 let handler: typeof fetch = async () => { throw Error('Unexpected HTTP'); };
@@ -44,17 +44,37 @@ for (const [name, deepSeekResponse] of Object.entries(broken)) {
   assert.doesNotMatch(result.reason, /^(?:error|fatal):/, `${name}: never an API-error skip`);
   assert.equal(result.decision, 'reply', name);
   assert.equal(result.reply_text, claudeText, `${name}: Claude answers the same comment`);
-  assert.deepEqual(calls.map(call => call.host), ['api.deepseek.com', 'api.anthropic.com'], `${name}: one DeepSeek attempt then one Claude call`);
-  assert.equal(calls[1].body.model, config.triageModel, `${name}: Claude gets the original request model`);
-  assert.ok(!JSON.stringify(calls[1].body.system).includes('DEEPSEEK REPLY DISCIPLINE'), `${name}: Claude gets the original prompt, not the DeepSeek-grounded one`);
-  const expected = deepSeekTokenCost('deepseek-flash', usage)! + costOf(config.triageModel, usage);
-  assert.ok(Math.abs(spend.usd - expected) < 1e-12, `${name}: DeepSeek priced once plus the Claude call`);
-  assert.equal(spend.calls, 2, name);
+  assert.deepEqual(calls.map(call => call.host), ['api.deepseek.com', 'api.deepseek.com', 'api.anthropic.com'], `${name}: one DeepSeek attempt, one DeepSeek repair, then one Claude call`);
+  assert.match(JSON.stringify(calls[1].body.messages.at(-1).content.at(-1)), /REPAIR \(one attempt\)/, `${name}: the repair carries the validator error`);
+  assert.equal(calls[2].body.model, provider === 'deepseek-all' ? 'claude-haiku-5-5' : config.triageModel, `${name}: Claude gets the original request model (the Haiku 5.5 fallback in deepseek-all)`);
+  if (provider === 'deepseek-all') {
+    assert.deepEqual(calls[2].body.thinking, { type: 'disabled' }, `${name}: Haiku 5.5 runs with thinking off`);
+    assert.deepEqual(calls[2].body.tool_choice, { type: 'tool', name: 'submit_reply' }, `${name}: Haiku 5.5 keeps the forced submit_reply`);
+  }
+  assert.ok(!JSON.stringify(calls[2].body.system).includes('DEEPSEEK REPLY DISCIPLINE'), `${name}: Claude gets the original prompt, not the DeepSeek-grounded one`);
+  assert.ok(!JSON.stringify(calls[2].body.messages).includes('REPAIR (one attempt)'), `${name}: Claude gets the original request without the repair note`);
+  const expected = 2 * deepSeekTokenCost('deepseek-flash', usage)! + costOf(calls[2].body.model, usage);
+  assert.ok(Math.abs(spend.usd - expected) < 1e-12, `${name}: two DeepSeek calls priced plus the Claude call`);
+  assert.equal(spend.calls, 3, name);
   assert.equal(takeDeepSeekTrip(), false, `${name}: a known-cost malformed verdict does not trip the cap-day breaker`);
   assert.equal(replyTrialProviderSnapshot().halted, false, `${name}: DeepSeek stays on for the next comment`);
 }
 
-// Claude's own malformed verdict keeps today's behavior: a single error skip, no loop.
+// The repair fixes it: DeepSeek answers on the second attempt and Claude is never called.
+{
+  const calls: string[] = [];
+  let n = 0;
+  handler = async (url, init) => {
+    calls.push(new URL(String(url)).hostname);
+    const body = JSON.parse(String(init?.body));
+    return json(n++ === 0 ? tool(body.model, { ...valid, confidence: 'high' }) : tool(body.model, valid));
+  };
+  const repaired = await classifyAndDraft(base);
+  assert.equal(repaired.reply_text, valid.reply_text);
+  assert.deepEqual(calls, ['api.deepseek.com', 'api.deepseek.com'], 'a successful repair needs no Claude call');
+}
+
+// Everything unusable (DeepSeek, its repair and Claude): a bounded draft failure, never an API-error skip.
 const calls: string[] = [];
 handler = async (url, init) => {
   const host = new URL(String(url)).hostname;
@@ -63,8 +83,9 @@ handler = async (url, init) => {
 };
 drainSpend();
 const both = await classifyAndDraft(base);
-assert.match(both.reason, /^error: Invalid reply verdict: unexpected field/, 'a Claude failure still surfaces');
-assert.deepEqual(calls, ['api.deepseek.com', 'api.anthropic.com'], 'Claude is tried once; no retry loop');
+assert.match(both.reason, /^unusable verdict after DeepSeek repair and fallback: Invalid reply verdict: unexpected field/, 'surfaces as a draft failure');
+assert.equal(both.draftFailure, 'verdict', 'index.ts re-checks it on two later polls, then caches it');
+assert.deepEqual(calls, ['api.deepseek.com', 'api.deepseek.com', 'api.anthropic.com'], 'one repair and one Claude call; no retry loop');
 
 // A good DeepSeek verdict is used as is, with no Claude call.
 calls.length = 0;
@@ -75,4 +96,4 @@ handler = async (url, init) => {
 const good = await classifyAndDraft(base);
 assert.equal(good.reply_text, valid.reply_text);
 assert.deepEqual(calls, ['api.deepseek.com']);
-console.log(`PASS [${provider}] malformed DeepSeek verdict (unexpected field, missing field, truncation, no submit): Claude answers the same comment with the original request, DeepSeek priced once and left on; a Claude failure still surfaces; a good DeepSeek verdict needs no Claude call.`);
+console.log(`PASS [${provider}] malformed DeepSeek verdict (unexpected field, missing field, truncation, no submit): one DeepSeek repair with the validator error, then Claude answers the same comment with the original request; DeepSeek left on; a successful repair needs no Claude call; all three unusable is a bounded draft failure; a good DeepSeek verdict needs no Claude call.`);

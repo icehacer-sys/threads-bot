@@ -644,7 +644,7 @@ async function runLiveOrDry(mode: Mode, target: string | null, observation: Cove
   const scanPosts = [...posts, ...pinnedPosts, ...revisitPosts];
 
   console.log(
-    `\n${posting ? "LIVE" : "DRY-RUN"} — @${me}, model ${config.model}. ` +
+    `\n${posting ? "LIVE" : "DRY-RUN"} — @${me}, ${config.replyProvider === "deepseek-all" ? `provider deepseek-all (deepseek-flash, fallback ${config.fallbackModel})` : `model ${config.model}`}. ` +
       `Scanning ${scanPosts.length} post(s)${pinnedPosts.length ? ` (incl. ${pinnedPosts.length} pinned)` : ""}${revisitPosts.length ? ` (incl. ${revisitPosts.length} released from image review)` : ""}${target ? ` (target ${target})` : ""}. ` +
       `Per-post cap ${config.perPostCap}, daily left ${state.remainingToday()}/${config.dailyCap}.` +
       (posting ? "" : " Nothing will be posted.") +
@@ -954,9 +954,9 @@ async function runLiveOrDry(mode: Mode, target: string | null, observation: Cove
     // Filter before ranking so held comments cannot crowd out fresh engagement.
     const withinThreadLimit = pool.filter(c => coverage.canReply(c.id));
     const eligible = withinThreadLimit.filter(c => {
-      // DeepSeek mode holds every case-post draft until the reveal, so held comments must not be
-      // re-sent each poll even with BOT_REPLY_ALL; Claude mode keeps its existing behavior.
-      const allowed = (config.replyAll && config.replyProvider !== 'deepseek') || !state.isWaitingForReveal(c.id, c.text ?? "", answerPublic);
+      // DeepSeek modes (deepseek, deepseek-all) hold every case-post draft until the reveal, so held
+      // comments must not be re-sent each poll even with BOT_REPLY_ALL; Claude mode keeps its existing behavior.
+      const allowed = (config.replyAll && config.replyProvider !== 'deepseek' && config.replyProvider !== 'deepseek-all') || !state.isWaitingForReveal(c.id, c.text ?? "", answerPublic);
       if (!allowed) observe(() => observation.admission(post.id, c.id, 'deferred', 'reveal_hold'));
       return allowed;
     });
@@ -1123,7 +1123,8 @@ async function runLiveOrDry(mode: Mode, target: string | null, observation: Cove
         d = await classifyAndDraft({ ...baseInput, modelOverride: config.model, allowSearch }, outcome => observe(() => observation.classified(post.id, c.id, outcome)));
         // Log the model that actually served: with BOT_REPLY_PROVIDER=deepseek most escalations are answered
         // by deepseek-flash, and the old "to claude-sonnet-5-5" label misled the 2026-10-17 audit 84 times.
-        console.log(`        (escalated ${escalatedCategory}${wantsLookup ? " +lookup" : ""}: requested ${config.model}, served by ${lastServedModel() ?? "unknown"}${allowSearch ? " + web search" : ""})`);
+        // In deepseek-all the requested model is only a tier label, so only the serving model is logged.
+        console.log(`        (escalated ${escalatedCategory}${wantsLookup ? " +lookup" : ""}: ${config.replyProvider === "deepseek-all" ? "" : `requested ${config.model}, `}served by ${lastServedModel() ?? "unknown"}${allowSearch ? " + web search" : ""})`);
         escalated = true;
       } else if (wantsEscalation) {
         const limit = isMedical ? config.dailyUsdCap : config.escalateUsdCap;

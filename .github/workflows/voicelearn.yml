@@ -1,6 +1,6 @@
 name: voice-self-learn
 
-# Once a WEEK, Fable 5 audits the account's own recent comment->reply pairs (weighting the replies
+# Once a WEEK, deepseek-flash audits the account's own recent comment->reply pairs (weighting the replies
 # that sparked a human reply back) and consolidates a bounded set of "learned voice notes" into
 # data/voice-learned.md. reply.ts injects that file into every reply's system prompt, so the voice
 # keeps sharpening itself. The file is git-tracked, so every update is a reviewable, revertible
@@ -12,7 +12,10 @@ name: voice-self-learn
 # Fable 5 audit, and a week's worth gives it more signal per run. Trigger manually (Actions -> Run
 # workflow) with backfill=true to reseed from ALL past posts.
 #
-# Required repository secrets: ANTHROPIC_API_KEY (with Fable 5 access), THREADS_ACCESS_TOKEN
+# Provider (owner decision A, 2026-10-17): the audit AND the fixed voice evaluation run on deepseek-flash.
+# Claude Haiku 5.5 (BOT_FALLBACK_MODEL) answers a call only when DeepSeek still fails after retries.
+#
+# Required repository secrets: DEEPSEEK_API_KEY, ANTHROPIC_API_KEY (idle Haiku 5.5 fallback), THREADS_ACCESS_TOKEN
 
 on:
   schedule:
@@ -36,13 +39,15 @@ jobs:
     runs-on: ubuntu-latest
     env:
       ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+      DEEPSEEK_API_KEY: ${{ secrets.DEEPSEEK_API_KEY }}
       THREADS_ACCESS_TOKEN: ${{ secrets.THREADS_ACCESS_TOKEN }}
       THREADS_USER_ID: me
-      # Sonnet 5 is the sweet spot for this bounded voice-distillation task: near-Opus judgment on
-      # humor/voice at ~1/4 of Fable 5's cost (~$0.10 vs ~$0.45 per daily run). Flip to claude-fable-5
-      # or claude-opus-4-8 for an occasional deeper audit; the max_tokens=12000 ceiling in voicelearn.ts
-      # gives any reasoning model enough headroom (it bills only actual output, not the ceiling).
-      BOT_LEARN_MODEL: "claude-sonnet-5"
+      # The learner drafts the notes on deepseek-flash; the fixed evaluation drafts its synthetic replies through
+      # the same deepseek-all reply path the worker uses. ROLLBACK: delete these three lines and the learner
+      # returns to BOT_LEARN_MODEL (code default claude-sonnet-5) with Claude evaluation.
+      BOT_LEARN_PROVIDER: "deepseek"
+      BOT_REPLY_PROVIDER: "deepseek-all"
+      BOT_FALLBACK_MODEL: "claude-haiku-5-5"
       BOT_LEARN_DAYS: "7" # matches the weekly cron — at 3 the audit paid for a weekly run but only ever saw 3 of the 7 days
       BOT_LEARN_MAX_PAIRS: "150"
     steps:

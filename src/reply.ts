@@ -18,7 +18,7 @@ import { replyStyleIssue, needsClinicalReview, clinicalClaimIssue, isLossStory }
 import { GIF_TAGS } from "./gifs";
 import { PROMO_TAGS, PRODUCTS_BLOCK } from "./products";
 import { priceFor } from "./spend";
-import { createReplyMessage, retryVerdictOnClaude } from './reply-provider';
+import { createReplyMessage, repairDeepSeekVerdict } from './reply-provider';
 import { affirmsCommenterOnlyFinding, claimsOffPlatformAction, isAiProvenanceComment, isLatinNonEnglishReply, isPoliticalJab, isSexualBait, policyRecheck, unsupportedDeepSeekClaim, unsupportedLaterality, unsupportedTeachingContrast, TEACHING_CONTRAST_RECHECK } from './deepseek-media-policy';
 import { acknowledgmentKind, concernAcknowledgment, directConcern, imageConcernKind, requestsPersonalAdvice, isRetiredMedicalBoundary, thirdPersonSymptomQuestion } from "./concerns";
 import { CLINICIAN_NOD_NOTE } from './clinician-nod';
@@ -54,7 +54,7 @@ export interface Decision extends Partial<MediaRead> {
   reply_text: string;
   reason: string;
   /** Internal only; never accepted from the provider's reply schema. */
-  draftFailure?: 'punctuation' | 'wording' | 'variety';
+  draftFailure?: 'punctuation' | 'wording' | 'variety' | 'verdict';
   /** Mood tag for a curated reaction GIF. Only ever honored on a live "banter" reply. */
   gif_tag?: string;
   /** Set by the cheap triage pass when it sees a reference (in text or an attached image/GIF) it
@@ -182,7 +182,7 @@ export function parseDecision(value: unknown, withMedia = false): Decision {
  */
 export function isFatalApiError(err: unknown): boolean {
   const status = (err as { status?: number } | null)?.status;
-  if (status === 401 || status === 403) return true;
+  if (status === 401 || status === 402 || status === 403) return true;
   const msg = err instanceof Error ? err.message : String(err ?? "");
   return /credit balance|billing|payment required|insufficient.{0,12}(credit|quota|funds)|invalid x-api-key|authentication_error|permission_error/i.test(
     msg,
@@ -648,9 +648,10 @@ async function classifyAndDraftCore(input: ClassifyInput): Promise<Decision> {
   // (tools -> system -> messages) — that was the main Sonnet cache leak. tool_choice:auto lets
   // the model search only when it actually needs to (the voice rules gate that); the cheap Haiku
   // triage stays deterministic (forced submit_reply, no search) for one clean call.
-  // With BOT_REPLY_PROVIDER=deepseek only real lookups carry the search tool (and so go to Claude); the
-  // shared-cache reason for attaching it to every escalation is Claude-specific.
-  const searchEligible = config.replyProvider === 'deepseek' ? allowSearch === true : (!isTriage || allowSearch);
+  // With BOT_REPLY_PROVIDER=deepseek only real lookups carry the search tool (and so go to Claude); with
+  // deepseek-all only real lookups carry it too (DeepSeek runs the search). The shared-cache reason for
+  // attaching it to every escalation is Claude-specific.
+  const searchEligible = config.replyProvider === 'deepseek' || config.replyProvider === 'deepseek-all' ? allowSearch === true : (!isTriage || allowSearch);
   if (config.webSearch && searchEligible && (!withMedia || allowSearch === true)) {
     tools.unshift({ type: "web_search_20250305", name: "web_search", max_uses: 3 });
     toolChoice = { type: "auto" };
@@ -681,10 +682,23 @@ async function classifyAndDraftCore(input: ClassifyInput): Promise<Decision> {
     } as unknown as Anthropic.MessageCreateParamsNonStreaming;
     let res = await createReplyMessage(request);
     if (res.model === "deepseek-flash" && (toolChoice as { type?: string }).type === "tool") {
-      const submitted = findSubmit(res);
-      let problem = res.stop_reason === "max_tokens" ? "truncated" : !submitted?.input ? "no submit_reply" : null;
-      if (!problem) try { parseDecision(submitted!.input, withMedia); } catch (err) { problem = err instanceof Error ? err.message : String(err); }
-      if (problem) res = (await retryVerdictOnClaude(request, problem)) ?? res;
+      const verdictProblem = (m: Anthropic.Message): string | null => {
+        const submitted = findSubmit(m);
+        if (m.stop_reason === "max_tokens") return "truncated";
+        if (!submitted?.input) return "no submit_reply";
+        try { parseDecision(submitted.input, withMedia); return null; } catch (err) { return err instanceof Error ? err.message : String(err); }
+      };
+      const problem = verdictProblem(res);
+      if (problem) {
+        // One DeepSeek repair with the validator error, then the fallback. A verdict that is still unusable
+        // after both is a bounded draft failure (re-checked on the next two polls, then cached), never an
+        // API-error skip that fails the poll and is re-billed on every later poll.
+        res = await repairDeepSeekVerdict(request, problem, verdictProblem);
+        const still = verdictProblem(res);
+        if (still) {
+          return { decision: "skip", category: "other", reply_text: "", reason: `unusable verdict after DeepSeek repair and fallback: ${still.slice(0, 120)}`, draftFailure: "verdict" };
+        }
+      }
     }
 
     if (res.content.some((b) => (b as { type: string }).type === "web_search_tool_result")) {
