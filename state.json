@@ -31865,6 +31865,15 @@
       },
       "publishedId": "17871611586644175",
       "confirmedPublished": true
+    },
+    "comment:18095502422400540": {
+      "creationId": "17893942011614054",
+      "createdAt": "2026-10-17T01:18:03.928Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "That tiny gap between the film loading and your brain catching up is doing a lot of work here.",
+        "reply_to_id": "18095502422400540"
+      }
     }
   },
   "repliedCommentIds": [
@@ -44433,7 +44442,8 @@
     "18132312790776676": 1,
     "18448437427120595": 1,
     "18020631638926520": 1,
-    "18648447289025903": 1
+    "18648447289025903": 1,
+    "17928728868180340": 1
   },
   "gifPostCounts": {
     "18432085978123193": 1,
@@ -44458,6 +44468,6 @@
   },
   "spend": {
     "date": "2026-10-16",
-    "usd": 0.07945171799999998
+    "usd": 0.08072443799999997
   }
 }
