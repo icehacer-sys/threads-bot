@@ -31923,6 +31923,15 @@
       },
       "publishedId": "17982163037912257",
       "confirmedPublished": true
+    },
+    "comment:17965241382230308": {
+      "creationId": "17894070678614054",
+      "createdAt": "2026-10-17T20:27:29.708Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "That's the answer. This film only shows the air-filled sac though so it can't settle which type it is. No test result or surgery is recorded for this one either.",
+        "reply_to_id": "17965241382230308"
+      }
     }
   },
   "repliedCommentIds": [
@@ -44552,6 +44561,6 @@
   },
   "spend": {
     "date": "2026-10-17",
-    "usd": 0.03035429999999999
+    "usd": 0.031889147999999985
   }
 }
