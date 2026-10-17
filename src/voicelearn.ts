@@ -18,6 +18,7 @@ const provider = (process.env.BOT_LEARN_PROVIDER ?? "anthropic").toLowerCase() =
 const model = provider === "deepseek" ? "deepseek-flash" : process.env.BOT_LEARN_MODEL ?? "claude-sonnet-5";
 const days = Number(process.env.BOT_LEARN_DAYS ?? 7);
 const limit = Number(process.env.BOT_LEARN_MAX_PAIRS ?? 150);
+const dryRun = process.argv.includes("--dry-run");
 const clip = (s: string | undefined, n = 500) => (s ?? "").slice(0, n);
 async function main() {
   if (provider === "anthropic") priceFor(model);
@@ -87,6 +88,17 @@ async function main() {
       ({ r: res, text: body } = await ask(JSON.stringify({ previousDraft: body, validationError: why,
         instruction: "Rewrite the previous draft so it passes validation: merge or drop the weakest bullets to at most 14 bullets total, keep the three headings, keep every bullet under 300 characters. Return only the complete file." })));
     }
+  }
+  if (dryRun) {
+    // --dry-run: run the learner and the fixed evaluation (paid model calls) but write nothing to data/.
+    let validation = "passed";
+    try { validateNotes(body, res.stop_reason); } catch (err) { validation = err instanceof Error ? err.message : String(err); }
+    const evaluation = validation === "passed" ? await evaluateVoice(body) : null;
+    const spend = drainSpend();
+    console.log(`DRY RUN (nothing written): learner served by ${servedBy}; validation ${validation}; evaluation ${evaluation ? (evaluation.passed ? "passed" : `failed: ${evaluation.results.filter(r => !r.passed).map(r => r.name).join(", ")}`) : "skipped"}; spend estimate $${spend.usd.toFixed(4)}.`);
+    console.log(body);
+    if (evaluation && !evaluation.passed) process.exitCode = 1;
+    return;
   }
   mkdirSync(root, { recursive: true });
   // Preserve the candidate before validation so rejected output is inspectable.

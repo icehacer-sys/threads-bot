@@ -21,6 +21,7 @@
     "token": "tsx src/get-token.ts",
     "learn": "tsx src/voicelearn.ts",
     "learn:backfill": "tsx src/voicelearn.ts --backfill",
+    "learn:dry": "tsx src/voicelearn.ts --dry-run",
     "typecheck": "tsc --noEmit",
     "publishing:verify": "tsx tools/verify-publishing.mts",
     "checkpoint:verify": "tsx tools/verify-checkpoint.mts",
