@@ -31890,6 +31890,15 @@
       },
       "publishedId": "17912265045536597",
       "confirmedPublished": true
+    },
+    "comment:18431614246149210": {
+      "creationId": "17894066793614054",
+      "createdAt": "2026-10-17T20:06:01.824Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "The three-way valve bit is good. On the serious one: it's a laryngocele which is air in the saccule off the laryngeal ventricle. Pressure on straining pushes that sac out.",
+        "reply_to_id": "18431614246149210"
+      }
     }
   },
   "repliedCommentIds": [
@@ -42708,7 +42717,8 @@
     "18091770122228752",
     "18093612791186205",
     "18143996593587858",
-    "18088394834286511"
+    "18088394834286511",
+    "18128849536828230"
   ],
   "answeredPostIds": [
     "18395606890093068"
@@ -42847,11 +42857,11 @@
     "18079498634383460": 88,
     "17903856849668624": 55,
     "18425195461157641": 61,
-    "18644902039045637": 10
+    "18644902039045637": 11
   },
   "daily": {
     "date": "2026-10-17",
-    "count": 10
+    "count": 11
   },
   "pinnedResolved": {
     "DaTTCIwoAw7": "18014812820883466"
@@ -44514,6 +44524,6 @@
   },
   "spend": {
     "date": "2026-10-17",
-    "usd": 0.025782383999999995
+    "usd": 0.027318359999999993
   }
 }
