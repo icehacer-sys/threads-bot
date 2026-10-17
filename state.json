@@ -31920,6 +31920,15 @@
       },
       "publishedId": "18129796540753413",
       "confirmedPublished": true
+    },
+    "comment:18145154470585385": {
+      "creationId": "17893950156614054",
+      "createdAt": "2026-10-17T02:49:51.298Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "A CT is the right next step now that it's grown and I hope it comes back at a size that's still just watched. Glad these keep you interested even with one in the house.",
+        "reply_to_id": "18145154470585385"
+      }
     }
   },
   "repliedCommentIds": [
@@ -44519,6 +44528,6 @@
   },
   "spend": {
     "date": "2026-10-16",
-    "usd": 0.08551572599999996
+    "usd": 0.08631619799999996
   }
 }
