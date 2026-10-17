@@ -32033,6 +32033,15 @@
       },
       "publishedId": "18133465324678642",
       "confirmedPublished": true
+    },
+    "comment:18196853689390214": {
+      "creationId": "17894084607614054",
+      "createdAt": "2026-10-17T23:02:17.398Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "So the voice had to go somewhere. At least it stayed in the building.",
+        "reply_to_id": "18196853689390214"
+      }
     }
   },
   "repliedCommentIds": [
@@ -44675,6 +44684,6 @@
   },
   "spend": {
     "date": "2026-10-17",
-    "usd": 0.04312517999999998
+    "usd": 0.04356279599999998
   }
 }
