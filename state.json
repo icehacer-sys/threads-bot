@@ -31769,6 +31769,15 @@
       },
       "publishedId": "18192563407406564",
       "confirmedPublished": true
+    },
+    "comment:17972174214156720": {
+      "creationId": "17894063061614054",
+      "createdAt": "2026-10-17T19:31:15.006Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Laryngocele is the answer. There is no fistula to the trachea here though.",
+        "reply_to_id": "17972174214156720"
+      }
     }
   },
   "repliedCommentIds": [
@@ -44373,6 +44382,6 @@
   },
   "spend": {
     "date": "2026-10-17",
-    "usd": 0.005274731999999999
+    "usd": 0.006985727999999998
   }
 }
