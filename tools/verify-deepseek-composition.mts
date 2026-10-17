@@ -31,32 +31,32 @@ if (process.argv.includes('--unknown-usage') || process.argv.includes('--unknown
     return new Response(JSON.stringify(process.argv.includes('--null-response') ? null : tool('deepseek-flash', valid, { input_tokens: 10, output_tokens: 20 })), { status: 200, headers: { 'content-type': 'application/json' } });
   };
   const { takeDeepSeekTrip } = await import('../src/reply-provider');
-  // 2026-10-17: a transport error is retried once (first failure of the poll only); a comment that still
-  // fails is answered by the fallback alone and DeepSeek stays on until two comments fail in one poll.
+  // 2026-10-17: a network/timeout error is retried twice with backoff; usage is uncertain so it is charged
+  // conservatively ONCE per comment. A comment that still fails is answered by the fallback alone and, in
+  // this legacy mode, DeepSeek stays on until two comments fail in one poll.
   const transport = process.argv.includes('--unknown-transport');
   const first = await classifyAndDraft(base);
   assert.doesNotMatch(first.reason, /^(?:error|fatal):/, 'a DeepSeek failure is not an API-error or fatal skip');
   assert.equal(first.reply_text, valid.reply_text, 'the same request is answered by Claude');
-  assert.deepEqual([deepAttempts, claudeAttempts], [transport ? 2 : 1, 1], transport ? 'one retry before the fallback' : 'no retry for an unusable 200 body');
+  assert.deepEqual([deepAttempts, claudeAttempts], [transport ? 3 : 1, 1], transport ? 'two retries before the fallback' : 'no retry for an unusable 200 body');
   const charged = drainSpend();
-  const uncertain = transport ? 0.7 : 0.35;
-  assert.ok(Math.abs(charged.usd - (uncertain + costOf(config.triageModel, nativeUsage))) < 1e-12, 'conservative DeepSeek charge per uncertain attempt plus the Claude fallback');
-  assert.equal(charged.calls, transport ? 3 : 2);
+  assert.ok(Math.abs(charged.usd - (0.35 + costOf(config.triageModel, nativeUsage))) < 1e-12, 'one conservative DeepSeek charge per comment plus the Claude fallback');
+  assert.equal(charged.calls, 2);
   assert.equal(takeDeepSeekTrip(), false, 'one failed comment does not trip the cap-day breaker');
   assert.equal(replyTrialProviderSnapshot().halted, false, 'DeepSeek stays on after one failed comment');
   const second = await classifyAndDraft(base);
   assert.equal(second.reply_text, valid.reply_text);
-  assert.deepEqual([deepAttempts, claudeAttempts], [transport ? 3 : 2, 2], 'no second retry in the same poll');
+  assert.deepEqual([deepAttempts, claudeAttempts], [transport ? 6 : 2, 2], 'the second failed comment gets its own retries');
   assert.ok(Math.abs(drainSpend().usd - (0.35 + costOf(config.triageModel, nativeUsage))) < 1e-12);
   assert.equal(takeDeepSeekTrip(), true, 'the second failed comment trips the durable cap-day breaker');
   assert.equal(takeDeepSeekTrip(), false, 'trip reported once');
   config.webSearch = true;
   const third = await classifyAndDraft(base);
   assert.equal(third.reply_text, valid.reply_text);
-  assert.deepEqual([deepAttempts, claudeAttempts], [transport ? 3 : 2, 3], 'DeepSeek stays off for the rest of the process');
+  assert.deepEqual([deepAttempts, claudeAttempts], [transport ? 6 : 2, 3], 'DeepSeek stays off for the rest of the process');
   assert.deepEqual(drainSpend(), { usd: costOf(config.triageModel, nativeUsage), calls: 1 });
   assert.equal(replyTrialProviderSnapshot().halted, true);
-  console.log('PASS uncertain trial: retry once on transport errors, conservative $0.35 per uncertain attempt, the failed comment answered by Claude, breaker trips on the second failed comment and is reported once.');
+  console.log('PASS uncertain trial: two retries on transport errors, one conservative $0.35 charge per uncertain comment, the failed comment answered by Claude, breaker trips on the second failed comment and is reported once.');
 } else {
   const mediaFixture = JSON.parse(fs.readFileSync(new URL('./fixtures/deepseek-gif-smoke.json', import.meta.url), 'utf8'));
   const mediaInput = mediaFixture.input;
@@ -100,19 +100,30 @@ if (process.argv.includes('--unknown-usage') || process.argv.includes('--unknown
       drainSpend();
       const result = await classifyAndDraft(input);
       const spend = drainSpend();
-      // An unusable DeepSeek verdict (truncation, bad schema) is retried once on Claude with the original request.
+      // An unusable DeepSeek verdict (truncation, bad schema) gets one DeepSeek repair, then Claude with the original request.
       const verdictFallback = enabled && (scenario === 'truncation' || scenario === 'bad-schema');
-      assert.equal(requests.length, (scenario === 'operator' ? 0 : scenario === 'repair' || scenario === 'search-error-continuation' ? 2 : 1) + (verdictFallback ? 1 : 0), scenario);
+      assert.equal(requests.length, (scenario === 'operator' ? 0 : scenario === 'repair' || scenario === 'search-error-continuation' ? 2 : 1) + (verdictFallback ? 2 : 0), scenario);
       if (!enabled) expected.set(scenario, { requests, result });
       else {
         const baseline = expected.get(scenario);
-        assert.deepEqual(result, baseline.result, `${scenario}: identical final guard behavior`);
+        if (verdictFallback) {
+          // Every mocked answer is unusable here, so after the repair and the fallback it is a bounded draft
+          // failure, never an API-error skip that is re-billed on every poll.
+          assert.equal(result.decision, 'skip');
+          assert.equal(result.draftFailure, 'verdict', `${scenario}: bounded draft failure`);
+          assert.match(result.reason, /^unusable verdict after DeepSeek repair and fallback/);
+        } else assert.deepEqual(result, baseline.result, `${scenario}: identical final guard behavior`);
         // index.ts counts error:/fatal: skips as API failures (non-zero poll exit, poll abandonment).
         if (claudeOwned.has(scenario)) assert.doesNotMatch(result.reason, /^(?:error|fatal):/, `${scenario}: commenter media is not an API-error skip`);
         assert.notEqual(result.reason, `error: ${DEEPSEEK_MEDIA_HOLD}`);
         for (const [index, request] of requests.entries()) {
           if (verdictFallback && index === 1) {
-            assert.deepEqual(request, baseline.requests[0], `${scenario}: Claude retry is the exact original request`);
+            assert.equal(request.url, 'https://api.deepseek.com/anthropic/v1/messages', `${scenario}: the repair goes to DeepSeek`);
+            assert.match(JSON.stringify(request.body.messages.at(-1).content.at(-1)), /REPAIR \(one attempt\)/, `${scenario}: repair carries the validator error`);
+            continue;
+          }
+          if (verdictFallback && index === 2) {
+            assert.deepEqual(request, baseline.requests[0], `${scenario}: Claude fallback is the exact original request`);
             continue;
           }
           const original = baseline.requests[index].body;
@@ -140,7 +151,7 @@ if (process.argv.includes('--unknown-usage') || process.argv.includes('--unknown
   const snapshot = replyTrialProviderSnapshot();
   assert.equal(snapshot.providers.deepseek.observation.transport.starts, deepPhysical);
   assert.equal(snapshot.providers.deepseek.observation.usage.records, deepPhysical);
-  assert.equal(claudeFallbackPhysical, 6, 'search continuation (2), commenter media and unclear media (1 each), truncation and bad-schema verdict retries (1 each)');
+  assert.equal(claudeFallbackPhysical, 6, 'search continuation (2), commenter media and unclear media (1 each), truncation and bad-schema fallbacks after the DeepSeek repair (1 each)');
   assert.equal(snapshot.providers.deepseek.observation.usage.serverWebSearchRequests.reportedTotal, null);
   assert.equal(snapshot.providers.deepseek.observation.usage.serverWebSearchRequests.unknownRecords, deepPhysical);
   console.log(`PASS default-off/ON actual composition: 9 scenarios each, exact prompts/repairs, Claude-owned commenter media and search continuation, ${deepPhysical} DeepSeek physical mocks, ${claudeFallbackPhysical} explicit Claude fallback mocks, native pricing and scoped observers. No paid calls.`);

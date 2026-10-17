@@ -1,8 +1,11 @@
-// BOT_REPLY_PROVIDER=deepseek: DeepSeek answers everything except web-search lookups. Mocked HTTP only.
+// BOT_REPLY_PROVIDER=deepseek: DeepSeek answers everything except web-search lookups.
+// --all: BOT_REPLY_PROVIDER=deepseek-all (decision A): web-search lookups also on DeepSeek, no Sonnet label. Mocked HTTP only.
 import assert from 'node:assert/strict';
 import fs from 'node:fs';
 process.env.ANTHROPIC_API_KEY = 'synthetic-claude'; process.env.DEEPSEEK_API_KEY = 'synthetic-deepseek';
-process.env.BOT_REPLY_PROVIDER = 'deepseek';
+const all = process.argv.includes('--all');
+process.env.BOT_REPLY_PROVIDER = all ? 'deepseek-all' : 'deepseek';
+delete process.env.BOT_MODEL; delete process.env.BOT_TRIAGE_MODEL; delete process.env.BOT_FALLBACK_MODEL;
 delete process.env.ANTHROPIC_AUTH_TOKEN;
 const valid = { intent: 'question', decision: 'reply', category: 'teach', reply_text: 'Impacted stool fills the colon here.', reason: 'synthetic', needs_lookup: false, promo_product: 'none', promo_explicit: false };
 let mediaResponse: any = null;
@@ -16,7 +19,12 @@ globalThis.fetch = async (url, init) => {
     content: [{ type: 'tool_use', id: 't', name: 'submit_reply', input: valid }] }), { headers: { 'content-type': 'application/json' } });
 };
 const { config } = await import('../src/config');
-assert.equal(config.replyProvider, 'deepseek');
+assert.equal(config.replyProvider, all ? 'deepseek-all' : 'deepseek');
+if (all) {
+  assert.equal(config.fallbackModel, 'claude-haiku-5-5');
+  assert.equal(config.model, 'claude-haiku-5-5', 'no Sonnet label in deepseek-all');
+  assert.equal(config.triageModel, 'claude-haiku-5-5');
+}
 assert.equal(config.deepSeekTrial, true);
 Object.assign(config, { gifReplies: false, voiceVariant: 'lean', webSearch: true });
 const { classifyAndDraft } = await import('../src/reply');
@@ -30,8 +38,9 @@ assert.deepEqual(escalation.calls.map(c => c.host), ['api.deepseek.com'], 'corre
 assert.deepEqual(escalation.calls[0].tools, ['submit_reply'], 'no search tool on a non-lookup escalation');
 assert.equal(escalation.calls[0].choice, 'tool');
 const lookup = await run({ modelOverride: config.model, allowSearch: true });
-assert.deepEqual(lookup.calls.map(c => c.host), ['api.anthropic.com'], 'web-search lookup on Claude');
+assert.deepEqual(lookup.calls.map(c => c.host), [all ? 'api.deepseek.com' : 'api.anthropic.com'], all ? 'web-search lookup on DeepSeek' : 'web-search lookup on Claude');
 assert.ok(lookup.calls[0].tools.includes('web_search'));
+if (all) assert.equal(lookup.calls[0].model, 'deepseek-flash');
 const fx = JSON.parse(fs.readFileSync(new URL('./fixtures/deepseek-gif-smoke.json', import.meta.url), 'utf8'));
 mediaResponse = fx.response;
 const media = await run({ ...fx.input, answerPublic: true });
@@ -42,4 +51,6 @@ mediaResponse = null;
 const pre = await run({ modelOverride: config.triageModel, allowSearch: false, answerPublic: false });
 assert.equal(pre.calls.length, 1, 'pre-reveal hold costs exactly one DeepSeek call, no repair');
 assert.match(pre.d.reason, /^spoiler guard: DeepSeek pre-reveal reply held/);
-console.log('PASS BOT_REPLY_PROVIDER=deepseek: triage, escalations and commenter media on DeepSeek; only web-search lookups on Claude; media never held.');
+console.log(all
+  ? 'PASS BOT_REPLY_PROVIDER=deepseek-all: triage, escalations, web-search lookups and commenter media all on DeepSeek; tier labels are Haiku 5.5, no Sonnet; media never held.'
+  : 'PASS BOT_REPLY_PROVIDER=deepseek: triage, escalations and commenter media on DeepSeek; only web-search lookups on Claude; media never held.');

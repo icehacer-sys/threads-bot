@@ -49,3 +49,38 @@ console.log('PASS native-compatible SDK serialization boundary ONLY. Native fres
   if (deepSeekSearchCost('deepseek-flash', { output_tokens: 1 }) !== null) throw Error('unknown input must stay unknown');
   console.log('PASS DeepSeek search-mode pricing: reported tokens plus a conservative per-search reserve; unknown usage stays unknown.');
 }
+// Decision A (2026-10-17): BOT_REPLY_PROVIDER=deepseek-all runs native web search on DeepSeek. A successful search
+// response is priced by the search pricer BEFORE the unknown-usage path, so it is never charged the flat $0.35
+// and never stops DeepSeek. The forced continuation after a search turn also stays on DeepSeek.
+{
+  const { drainSpend } = await import('../src/spend');
+  const { deepSeekSearchCost, DEEPSEEK_SEARCH_RESERVE_USD } = await import('../src/deepseek-reply-client');
+  const { replyTrialProviderSnapshot, takeDeepSeekTrip, resetDeepSeekBreakerForTests } = await import('../src/reply-provider');
+  assert.equal(DEEPSEEK_SEARCH_RESERVE_USD, 0.003, 'about 4x the $0.75 per 1,000 searches billed from 2026-11-01');
+  Object.assign(config, { replyProvider: 'deepseek-all', deepSeekTrial: true, webSearch: true });
+  resetDeepSeekBreakerForTests(); drainSpend();
+  const dsUsage = { input_tokens: 4000, output_tokens: 60, cache_read_input_tokens: 9000, cache_creation_input_tokens: 0, server_tool_use: { web_search_requests: 1 } };
+  const plainUsage = { input_tokens: 500, output_tokens: 40, cache_read_input_tokens: 9000, cache_creation_input_tokens: 0 };
+  const requests: any[] = [];
+  handler = async (url, init) => {
+    assert.equal(new URL(String(url)).hostname, 'api.deepseek.com', 'deepseek-all: search and its continuation run on DeepSeek');
+    const body = JSON.parse(String(init?.body)); requests.push(body);
+    if (requests.length === 1) {
+      assert.equal(body.tools[0].type, 'web_search_20250305'); assert.equal(body.tools[0].max_uses, 3);
+      assert.deepEqual(body.tool_choice, { type: 'auto' }); assert.deepEqual(body.thinking, { type: 'disabled' });
+      return new Response(JSON.stringify({ id: 'ds', type: 'message', role: 'assistant', model: 'deepseek-flash', stop_reason: 'end_turn', usage: dsUsage,
+        content: [{ type: 'server_tool_use', id: 'search-1', name: 'web_search', input: { query: 'synthetic' } }, { type: 'web_search_tool_result', tool_use_id: 'search-1', content: [{ type: 'web_search_result', url: 'https://fixture.invalid', title: 'Synthetic', encrypted_content: 'x' }] }] }), { headers: { 'content-type': 'application/json' } });
+    }
+    assert.deepEqual(body.tool_choice, { type: 'tool', name: 'submit_reply' }, 'forced continuation');
+    return new Response(JSON.stringify({ ...submit('deepseek-flash'), usage: plainUsage }), { headers: { 'content-type': 'application/json' } });
+  };
+  const result = await classifyAndDraft(input);
+  assert.equal(result.decision, 'reply'); assert.equal(requests.length, 2);
+  const spend = drainSpend();
+  const expected = deepSeekSearchCost('deepseek-flash', dsUsage)! + deepSeekSearchCost('deepseek-flash', plainUsage)!;
+  assert.ok(Math.abs(spend.usd - expected) < 1e-12, `search priced by the search pricer, not $0.35 (got ${spend.usd})`);
+  assert.ok(spend.usd < 0.01, 'a search reply costs well under a cent');
+  assert.equal(replyTrialProviderSnapshot().halted, false, 'a successful search never stops DeepSeek');
+  assert.equal(takeDeepSeekTrip(), false);
+  console.log(`PASS deepseek-all native search: production search payload and forced continuation on DeepSeek, priced ${spend.usd.toFixed(5)} USD by the search pricer, DeepSeek stays on.`);
+}

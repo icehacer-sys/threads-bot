@@ -10,7 +10,8 @@ name: threads-autoreply
 # Start it once (Actions -> Run workflow) and it runs forever; disable the workflow to stop.
 #
 # Required repository secrets (Settings -> Secrets and variables -> Actions):
-#   ANTHROPIC_API_KEY
+#   DEEPSEEK_API_KEY        (deepseek-flash answers every reply; the pre-flight gates the window on it)
+#   ANTHROPIC_API_KEY       (idle Claude Haiku 5.5 fallback, used only when DeepSeek fails)
 #   THREADS_ACCESS_TOKEN
 #   FB_PAGE_ID              (Facebook Page id — same value as in the xray-cases repo)
 #   FB_PAGE_ACCESS_TOKEN    (Facebook Page token — same value as in the xray-cases repo)
@@ -88,16 +89,18 @@ jobs:
       BOT_MEDICAL_RESERVE_USD: "0.31" # kept at 0.31 (about 19% of the 1.60 cap) so ordinary comments still get replies until 1.29; reserved for medical replies. Added 2026-08-24 after a night where the flat gate held 16 correct/teach comments unanswered from 00:15 Cairo while cheap banter kept posting on the rest of the budget.
       BOT_RESERVE_MIN_VALUE: "2" # inside the reserve, only comments scoring >=2 on the value heuristic are triaged at all (questions, long stories); one-word quips and guesses are dropped un-triaged, costing nothing.
       BOT_ESCALATE_MEDIA: "motion" # GIF/video frames go directly to one quality read; no cheap fallback when the quality budget is unavailable.
-      # DeepSeek provider (owner decision, 2026-10-01): deepseek-flash answers every reply except
-      # web-search lookups (reference / needs_lookup escalations), which stay on Claude. A DeepSeek
-      # failure is charged once, answered by Claude and disables DeepSeek for the cap-day.
-      # ROLLBACK: set to "claude" (or delete this line) and the next run is Claude-only again.
-      BOT_REPLY_PROVIDER: "deepseek" # owner 2026-10-02, cost: DeepSeek writes every reply incl. corrections, teaching and commenter media; Claude only for web-search lookups and DeepSeek failures. Rollback: "hybrid" (or "claude")
-      BOT_MODEL: "claude-sonnet-5-5" # quality model: corrections/teaching and direct GIF/video reads
-      BOT_TRIAGE_MODEL: "claude-haiku-4-5-20251001" # cheap first pass outside direct motion-media routing
-      BOT_ESCALATE: "correct,teach,reference" # categories the Haiku triage hands to Sonnet
+      # Provider (owner decision A, 2026-10-17): deepseek-flash (served by DeepSeek-V4.1-Flash) answers EVERY reply
+      # path, including web-search lookups (native search through DeepSeek's Anthropic-compatible endpoint) and
+      # commenter images/GIFs. Claude is kept only as an idle fallback on BOT_FALLBACK_MODEL: a DeepSeek failure is
+      # retried with backoff, then that poll's remaining replies go to Claude Haiku 5.5, and the next poll tries
+      # DeepSeek again (nothing is persisted for the cap-day). No Sonnet anywhere in the reply path.
+      # ROLLBACK: set to "deepseek" (the 2026-10-02 mode: Claude Sonnet keeps web-search lookups and a DeepSeek
+      # failure hands the cap-day to Claude) or "claude". Takes effect at the next hand-off.
+      BOT_REPLY_PROVIDER: "deepseek-all" # owner decision A 2026-10-17: DeepSeek for every reply incl. web search; Haiku 5.5 one-poll fallback. Rollback: "deepseek" (or "claude")
+      BOT_FALLBACK_MODEL: "claude-haiku-5-5" # latest Haiku; accepts the forced submit_reply. The only Claude model the reply path can call.
+      BOT_ESCALATE: "correct,teach,reference" # categories that get a second, separately prompted pass (still on DeepSeek); reference adds a web search
       BOT_ANTIREPEAT: "30" # replies the model sees as ALREADY POSTED so it doesn't repeat toppers/corrections. Raised 15->30 on 2026-07-08 after a 101-reply night repeated toppers >15 apart (modest uncached-token cost, worth it on viral nights)
-      BOT_WEB_SEARCH: "on" # search runs ONLY on the Sonnet "reference" re-run (unrecognized memes/refs), never on triage
+      BOT_WEB_SEARCH: "on" # search runs ONLY on the "reference" / needs_lookup re-run (unrecognized memes/refs), never on triage. deepseek-flash runs it natively (web_search_20250305, max_uses 3)
       BOT_FACEBOOK_REPLY: "off" # FB dropped — Threads only (owner deleted the Page over the "AI info" label, 2026-07-03). fbindex early-returns when off; flip to "on" to restore.
       BOT_GIF_REPLIES: "off" # bot-posted reaction GIFs KILLED by owner (2026-07-07) — text replies only. (Reading COMMENTER GIFs is unaffected; that path stays on.)
       BOT_GIF_CHANCE: "1" # no coin flip — when the model tags a banter reply and caps allow, attach the GIF (owner, 2026-07-04 moderate loosening; was 0.5). Volume is bounded by the model's tag rate + the 1/post, 2/day caps
@@ -208,7 +211,7 @@ jobs:
               # downtime under the tapered cadence (2026-08-24: credit died at 01:23 and the rest
               # of the night was spent re-classifying the same comments into the same 400).
               if [ "$rc" -eq 3 ]; then
-                echo "::error::Fatal Anthropic API error (billing/auth). The bot cannot reply until this is fixed - check the API credit balance."
+                echo "::error::Fatal API error (billing/auth) on the reply provider. The bot cannot reply until this is fixed - check the DeepSeek balance (and the Anthropic balance if the Haiku fallback was in use)."
                 # Land whatever state this run produced before we go.
                 if [ -n "$(git status --porcelain state.json)" ]; then
                   git add state.json
@@ -323,19 +326,19 @@ jobs:
               if npm run preflight; then pf=0; else pf=$?; fi
               echo "::endgroup::"
               if [ "$pf" -eq 3 ]; then
-                echo "::error::PRE-FLIGHT FAILED — the Anthropic key cannot spend and the window opens in ~${lead_min} minutes. Top up the credit balance now, or tonight's post goes unanswered like 2026-09-08."
+                echo "::error::PRE-FLIGHT FAILED — the reply provider key cannot spend (DeepSeek in deepseek-all mode) and the window opens in ~${lead_min} minutes. Top up the balance now, or tonight's post goes unanswered like 2026-09-08."
                 # A ::error:: annotation alone does not email; a failing job does, and an issue
                 # actually lands in the owner's notifications. Do both, but dedupe on title so a
                 # multi-night outage does not open one issue per run.
-                if [ -z "$(gh issue list --state open --search 'in:title Anthropic credit exhausted' --json number -q '.[0].number')" ]; then
+                if [ -z "$(gh issue list --state open --search 'in:title "credit exhausted"' --json number -q '.[0].number')" ]; then
                   # printf builds the body so every SOURCE line here stays indented (a bare
                   # continuation line at column 0 would terminate this `run: |` block scalar and
                   # break the whole workflow) while the ISSUE text comes out unindented — four
                   # leading spaces would render the body as a markdown code block.
                   gh issue create \
-                    --title "Anthropic credit exhausted — tonight's window will go unanswered" \
+                    --title "Reply provider credit exhausted — tonight's window will go unanswered" \
                     --body "$(printf '%s\n' \
-                      "The pre-flight credit check failed ~${lead_min} minutes before the ${BOT_ACTIVE_START}:00 Cairo window opens. The API key cannot spend, so the bot will not reply to tonight's post until the balance is topped up." \
+                      "The pre-flight credit check failed ~${lead_min} minutes before the ${BOT_ACTIVE_START}:00 Cairo window opens. The gating provider key (DeepSeek in deepseek-all mode) cannot spend, so the bot will not reply to tonight's post until the balance is topped up or the key is fixed. The run log names the provider and HTTP status." \
                       "" \
                       "Run: ${GITHUB_SERVER_URL}/${GITHUB_REPOSITORY}/actions/runs/${GITHUB_RUN_ID}" \
                       "" \
