@@ -31843,6 +31843,15 @@
       },
       "publishedId": "18075582599468972",
       "confirmedPublished": true
+    },
+    "comment:18203289715372179": {
+      "creationId": "17893936644614054",
+      "createdAt": "2026-10-17T00:17:03.497Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Good to hear he came through it well and a repair that lasts is the version everyone hopes for.",
+        "reply_to_id": "18203289715372179"
+      }
     }
   },
   "repliedCommentIds": [
@@ -44408,7 +44417,8 @@
     "18132312790776676": 1,
     "18448437427120595": 1,
     "18020631638926520": 1,
-    "18648447289025903": 1
+    "18648447289025903": 1,
+    "18395572252166845": 1
   },
   "gifPostCounts": {
     "18432085978123193": 1,
@@ -44433,6 +44443,6 @@
   },
   "spend": {
     "date": "2026-10-16",
-    "usd": 0.07505809799999998
+    "usd": 0.07708922999999998
   }
 }
