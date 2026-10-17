@@ -31865,7 +31865,9 @@
         "media_type": "TEXT",
         "text": "Someone having a very strange shift apparently.",
         "reply_to_id": "18143996593587858"
-      }
+      },
+      "publishedId": "18419555914158315",
+      "confirmedPublished": true
     }
   },
   "repliedCommentIds": [
