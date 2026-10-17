@@ -31876,6 +31876,15 @@
       },
       "publishedId": "18035061071666483",
       "confirmedPublished": true
+    },
+    "comment:17928728868180340": {
+      "creationId": "17893945233614054",
+      "createdAt": "2026-10-17T01:48:27.433Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "That bulge does look like something gestating but it's the aorta making the sac.",
+        "reply_to_id": "17928728868180340"
+      }
     }
   },
   "repliedCommentIds": [
@@ -44471,6 +44480,6 @@
   },
   "spend": {
     "date": "2026-10-16",
-    "usd": 0.08072443799999997
+    "usd": 0.08139084599999996
   }
 }
