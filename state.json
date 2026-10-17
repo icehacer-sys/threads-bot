@@ -31945,6 +31945,15 @@
       },
       "publishedId": "17874840834636976",
       "confirmedPublished": true
+    },
+    "comment:18032559050894908": {
+      "creationId": "17894073195614054",
+      "createdAt": "2026-10-17T20:43:23.814Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "That would explain the puffing. The fish didn't make it in though. It's a laryngocele.",
+        "reply_to_id": "18032559050894908"
+      }
     }
   },
   "repliedCommentIds": [
@@ -44576,6 +44585,6 @@
   },
   "spend": {
     "date": "2026-10-17",
-    "usd": 0.03357589199999998
+    "usd": 0.034068371999999986
   }
 }
