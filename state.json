@@ -32066,6 +32066,15 @@
       },
       "publishedId": "18414491377080468",
       "confirmedPublished": true
+    },
+    "comment:18384761944230076": {
+      "creationId": "17894107458614054",
+      "createdAt": "2026-10-18T02:43:07.626Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Naming it after the songwriters is the strongest move in this thread. Shame the sac had no stage presence of its own until the blowing started.",
+        "reply_to_id": "18384761944230076"
+      }
     }
   },
   "repliedCommentIds": [
@@ -44562,7 +44571,8 @@
     "18108047633196213",
     "18020823560932000",
     "18153885835546667",
-    "18106525091340338"
+    "18106525091340338",
+    "18096208718126872"
   ],
   "skipStrikes": {
     "17895266316520842": 1,
@@ -44713,6 +44723,6 @@
   },
   "spend": {
     "date": "2026-10-17",
-    "usd": 0.04797280799999998
+    "usd": 0.05005107599999998
   }
 }
