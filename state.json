@@ -32329,6 +32329,15 @@
       },
       "publishedId": "18087766763298279",
       "confirmedPublished": true
+    },
+    "comment:18117023795042965": {
+      "creationId": "17894243856614054",
+      "createdAt": "2026-10-18T21:09:07.614Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Being told that's not how it works while you're the one living it is a lonely place to be. You kept describing it until someone listened.",
+        "reply_to_id": "18117023795042965"
+      }
     }
   },
   "repliedCommentIds": [
@@ -45006,7 +45015,7 @@
   },
   "spend": {
     "date": "2026-10-18",
-    "usd": 0.025843524
+    "usd": 0.027056652
   },
   "lateSweep": {
     "date": "2026-10-18",
