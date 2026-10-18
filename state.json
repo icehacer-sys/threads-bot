@@ -32307,6 +32307,15 @@
       },
       "publishedId": "18102794678327864",
       "confirmedPublished": true
+    },
+    "comment:18148237225493139": {
+      "creationId": "17894242206614054",
+      "createdAt": "2026-10-18T20:53:25.471Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Wrong shape for a lamp but the slow blobs are about right.",
+        "reply_to_id": "18148237225493139"
+      }
     }
   },
   "repliedCommentIds": [
@@ -44982,7 +44991,7 @@
   },
   "spend": {
     "date": "2026-10-18",
-    "usd": 0.024971628
+    "usd": 0.025401876
   },
   "lateSweep": {
     "date": "2026-10-18",
