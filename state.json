@@ -32373,6 +32373,15 @@
       },
       "publishedId": "17871931305642121",
       "confirmedPublished": true
+    },
+    "comment:17905500639668873": {
+      "creationId": "17894249046614054",
+      "createdAt": "2026-10-18T22:11:02.189Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Somebody else already ignored that rule. The batting is usually the least of it.",
+        "reply_to_id": "17905500639668873"
+      }
     }
   },
   "repliedCommentIds": [
@@ -45056,7 +45065,7 @@
   },
   "spend": {
     "date": "2026-10-18",
-    "usd": 0.034613304000000004
+    "usd": 0.03508482
   },
   "lateSweep": {
     "date": "2026-10-18",
