@@ -32351,6 +32351,15 @@
       },
       "publishedId": "17962265714998430",
       "confirmedPublished": true
+    },
+    "comment:18120021721944179": {
+      "creationId": "17894247261614054",
+      "createdAt": "2026-10-18T21:40:12.444Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Two antiplatelets on top of a bleeding ulcer is a lot to sit with. Scary night doesn't really cover it. That liver regrowth after a year is something else.",
+        "reply_to_id": "18120021721944179"
+      }
     }
   },
   "repliedCommentIds": [
@@ -43210,7 +43219,8 @@
     "18144969700592529",
     "18148237225493139",
     "17997493998024299",
-    "18117023795042965"
+    "18117023795042965",
+    "17961875457203236"
   ],
   "answeredPostIds": [
     "18395606890093068"
@@ -43350,11 +43360,11 @@
     "17903856849668624": 55,
     "18425195461157641": 61,
     "18644902039045637": 29,
-    "18131363542692371": 21
+    "18131363542692371": 22
   },
   "daily": {
     "date": "2026-10-18",
-    "count": 22
+    "count": 23
   },
   "pinnedResolved": {
     "DaTTCIwoAw7": "18014812820883466"
@@ -45031,7 +45041,7 @@
   },
   "spend": {
     "date": "2026-10-18",
-    "usd": 0.031627668000000005
+    "usd": 0.032924964
   },
   "lateSweep": {
     "date": "2026-10-18",
