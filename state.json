@@ -32130,6 +32130,15 @@
       },
       "publishedId": "18191210713396320",
       "confirmedPublished": true
+    },
+    "comment:18076196438574530": {
+      "creationId": "17894233557614054",
+      "createdAt": "2026-10-18T19:32:31.280Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "The scarred outlet still needs the plumbing opened up. Prilosec won't talk a stricture into relaxing.",
+        "reply_to_id": "18076196438574530"
+      }
     }
   },
   "repliedCommentIds": [
@@ -42969,7 +42978,8 @@
     "18384761944230076",
     "18146509996602823",
     "18131230912744801",
-    "17942179977367336"
+    "17942179977367336",
+    "18134587426679758"
   ],
   "answeredPostIds": [
     "18395606890093068"
@@ -43109,11 +43119,11 @@
     "17903856849668624": 55,
     "18425195461157641": 61,
     "18644902039045637": 29,
-    "18131363542692371": 2
+    "18131363542692371": 3
   },
   "daily": {
     "date": "2026-10-18",
-    "count": 2
+    "count": 3
   },
   "pinnedResolved": {
     "DaTTCIwoAw7": "18014812820883466"
@@ -44785,7 +44795,7 @@
   },
   "spend": {
     "date": "2026-10-18",
-    "usd": 0.0059852759999999994
+    "usd": 0.0068871
   },
   "lateSweep": {
     "date": "2026-10-18",
