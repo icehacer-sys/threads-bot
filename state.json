@@ -32263,6 +32263,15 @@
       },
       "publishedId": "18111232490185762",
       "confirmedPublished": true
+    },
+    "comment:17911789335514366": {
+      "creationId": "17894239203614054",
+      "createdAt": "2026-10-18T20:21:55.325Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "If the doctor is in they might want to look at that stomach first.",
+        "reply_to_id": "17911789335514366"
+      }
     }
   },
   "repliedCommentIds": [
@@ -44782,7 +44791,8 @@
     "17889909522621607",
     "18111163499224243",
     "18119550049979075",
-    "17950854978056400"
+    "17950854978056400",
+    "17961827526247100"
   ],
   "skipStrikes": {
     "17895266316520842": 1,
@@ -44933,7 +44943,7 @@
   },
   "spend": {
     "date": "2026-10-18",
-    "usd": 0.018561960000000002
+    "usd": 0.021591696
   },
   "lateSweep": {
     "date": "2026-10-18",
