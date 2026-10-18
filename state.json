@@ -32207,6 +32207,15 @@
       },
       "publishedId": "17907159057668025",
       "confirmedPublished": true
+    },
+    "comment:17944170774088194": {
+      "creationId": "17894235576614054",
+      "createdAt": "2026-10-18T19:49:59.128Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Somebody should have warned the containment crew. That glow is barium sitting in a stomach that never empties.",
+        "reply_to_id": "17944170774088194"
+      }
     }
   },
   "repliedCommentIds": [
@@ -44871,7 +44880,7 @@
   },
   "spend": {
     "date": "2026-10-18",
-    "usd": 0.013402872
+    "usd": 0.013879284
   },
   "lateSweep": {
     "date": "2026-10-18",
