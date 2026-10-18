@@ -32077,6 +32077,15 @@
       },
       "publishedId": "18161398816500643",
       "confirmedPublished": true
+    },
+    "comment:18146509996602823": {
+      "creationId": "17894113971614054",
+      "createdAt": "2026-10-18T03:43:33.472Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "This one only opened when someone blew hard. No basilisk in there.",
+        "reply_to_id": "18146509996602823"
+      }
     }
   },
   "repliedCommentIds": [
@@ -44726,6 +44735,6 @@
   },
   "spend": {
     "date": "2026-10-17",
-    "usd": 0.05005107599999998
+    "usd": 0.050507591999999976
   }
 }
