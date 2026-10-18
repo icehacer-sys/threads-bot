@@ -32340,6 +32340,15 @@
       },
       "publishedId": "17931763926164116",
       "confirmedPublished": true
+    },
+    "comment:17961875457203236": {
+      "creationId": "17894247252614054",
+      "createdAt": "2026-10-18T21:39:53.251Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "The drain comparison is fair. Scarring at the pylorus narrowed the exit so nothing drained out.",
+        "reply_to_id": "17961875457203236"
+      }
     }
   },
   "repliedCommentIds": [
@@ -44868,7 +44877,8 @@
     "18119550049979075",
     "17950854978056400",
     "17961827526247100",
-    "18108598103254288"
+    "18108598103254288",
+    "18112501232131467"
   ],
   "skipStrikes": {
     "17895266316520842": 1,
@@ -45019,7 +45029,7 @@
   },
   "spend": {
     "date": "2026-10-18",
-    "usd": 0.027923220000000002
+    "usd": 0.031627668000000005
   },
   "lateSweep": {
     "date": "2026-10-18",
