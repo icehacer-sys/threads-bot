@@ -32097,6 +32097,15 @@
       },
       "publishedId": "18143750947515939",
       "confirmedPublished": true
+    },
+    "comment:18131230912744801": {
+      "creationId": "17894233389614054",
+      "createdAt": "2026-10-18T19:31:35.209Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Giving up is allowed. The stomach stretched out with barium and never emptied.",
+        "reply_to_id": "18131230912744801"
+      }
     }
   },
   "repliedCommentIds": [
@@ -44749,7 +44758,7 @@
   },
   "spend": {
     "date": "2026-10-18",
-    "usd": 0.003967536
+    "usd": 0.00457914
   },
   "lateSweep": {
     "date": "2026-10-18",
