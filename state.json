@@ -32296,6 +32296,15 @@
       },
       "publishedId": "18113103710464787",
       "confirmedPublished": true
+    },
+    "comment:18144969700592529": {
+      "creationId": "17894241384614054",
+      "createdAt": "2026-10-18T20:37:59.198Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Not the lungs this time. All of that is in the abdomen: a stomach full of barium that couldn't empty past a narrowed outlet.",
+        "reply_to_id": "18144969700592529"
+      }
     }
   },
   "repliedCommentIds": [
@@ -44970,7 +44979,7 @@
   },
   "spend": {
     "date": "2026-10-18",
-    "usd": 0.023408892
+    "usd": 0.024971628
   },
   "lateSweep": {
     "date": "2026-10-18",
