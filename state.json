@@ -32055,6 +32055,15 @@
       },
       "publishedId": "17871752394642614",
       "confirmedPublished": true
+    },
+    "comment:18090746735492184": {
+      "creationId": "17894089908614054",
+      "createdAt": "2026-10-18T00:03:28.555Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "It rolls off the tongue a lot better than it sat in the neck.",
+        "reply_to_id": "18090746735492184"
+      }
     }
   },
   "repliedCommentIds": [
@@ -44700,6 +44709,6 @@
   },
   "spend": {
     "date": "2026-10-17",
-    "usd": 0.045509759999999976
+    "usd": 0.04666391999999998
   }
 }
