@@ -32163,6 +32163,15 @@
       },
       "publishedId": "17911328589510657",
       "confirmedPublished": true
+    },
+    "comment:17951855895297455": {
+      "creationId": "17894233629614054",
+      "createdAt": "2026-10-18T19:33:41.801Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Prolapse is not the answer here. The outlet is closed off by scar tissue from an old pyloric ulcer so the stomach just kept stretching.",
+        "reply_to_id": "17951855895297455"
+      }
     }
   },
   "repliedCommentIds": [
@@ -43005,7 +43014,8 @@
     "17942179977367336",
     "18134587426679758",
     "18076196438574530",
-    "18115484033027910"
+    "18115484033027910",
+    "18178682698451941"
   ],
   "answeredPostIds": [
     "18395606890093068"
@@ -43145,11 +43155,11 @@
     "17903856849668624": 55,
     "18425195461157641": 61,
     "18644902039045637": 29,
-    "18131363542692371": 5
+    "18131363542692371": 6
   },
   "daily": {
     "date": "2026-10-18",
-    "count": 5
+    "count": 6
   },
   "pinnedResolved": {
     "DaTTCIwoAw7": "18014812820883466"
@@ -44822,7 +44832,7 @@
   },
   "spend": {
     "date": "2026-10-18",
-    "usd": 0.010579596
+    "usd": 0.012031835999999999
   },
   "lateSweep": {
     "date": "2026-10-18",
