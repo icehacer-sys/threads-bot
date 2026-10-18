@@ -32240,6 +32240,15 @@
       },
       "publishedId": "18102754682042430",
       "confirmedPublished": true
+    },
+    "comment:18143625385597307": {
+      "creationId": "17894235618614054",
+      "createdAt": "2026-10-18T19:50:53.680Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "The exit was narrowed by an old pyloric ulcer so nothing could get through. Barium went in and stayed put.",
+        "reply_to_id": "18143625385597307"
+      }
     }
   },
   "repliedCommentIds": [
@@ -43089,7 +43098,8 @@
     "18408866641095229",
     "18115967384099421",
     "17944170774088194",
-    "17962694973232860"
+    "17962694973232860",
+    "18500371996099837"
   ],
   "answeredPostIds": [
     "18395606890093068"
@@ -43229,11 +43239,11 @@
     "17903856849668624": 55,
     "18425195461157641": 61,
     "18644902039045637": 29,
-    "18131363542692371": 12
+    "18131363542692371": 13
   },
   "daily": {
     "date": "2026-10-18",
-    "count": 12
+    "count": 13
   },
   "pinnedResolved": {
     "DaTTCIwoAw7": "18014812820883466"
@@ -44906,7 +44916,7 @@
   },
   "spend": {
     "date": "2026-10-18",
-    "usd": 0.015301824
+    "usd": 0.0168219
   },
   "lateSweep": {
     "date": "2026-10-18",
