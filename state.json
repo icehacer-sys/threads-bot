@@ -432,7 +432,16 @@
     "18098202524410077": "Herniated neck",
     "18102418658562290": "Hematoma? Or that equivalent with spinal fluid? \nThird possibility:  tumor of the spinal disc.",
     "18107240066217321": "Hole in his windpipe. Yikes\n(Traceoesophageal fistula?)",
-    "18088742057310717": "Esophagus cancer"
+    "18088742057310717": "Esophagus cancer",
+    "18131230912744801": "I give up😊",
+    "17942179977367336": "Hmm slow emptying stomach? Or stomach moved from their normal position.",
+    "18134587426679758": "Fireball..?",
+    "18076196438574530": "I don't know the dx, but the rx is Prilosec.",
+    "18119550049979075": "Gastroperesis?  Stomach not emptying",
+    "18115484033027910": "Are we not supposed to keep pet jellyfish internally?",
+    "18178682698451941": "This is what happens to flame eaters if they’re not careful",
+    "17951855895297455": "The stomach has prolapsed and the bottom part cannot drain into the next part of the alimentary canal.",
+    "18429075145144670": "Ooooooh! I know this one. He decided to build a ship in the bottle in his stomach and the anchor dropped through into his abdominal cavity."
   },
   "imageHeldComments": {},
   "ownerReviews": {
@@ -44740,7 +44749,7 @@
   },
   "spend": {
     "date": "2026-10-18",
-    "usd": 0
+    "usd": 0.003967536
   },
   "lateSweep": {
     "date": "2026-10-18",
