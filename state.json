@@ -32362,6 +32362,15 @@
       },
       "publishedId": "17931669243419742",
       "confirmedPublished": true
+    },
+    "comment:17926809213428002": {
+      "creationId": "17894248278614054",
+      "createdAt": "2026-10-18T21:55:38.459Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Right that it wasn't moving on. Why is the part that matters here: an old ulcer scar closed the pylorus.",
+        "reply_to_id": "17926809213428002"
+      }
     }
   },
   "repliedCommentIds": [
@@ -45044,7 +45053,7 @@
   },
   "spend": {
     "date": "2026-10-18",
-    "usd": 0.032924964
+    "usd": 0.034613304000000004
   },
   "lateSweep": {
     "date": "2026-10-18",
