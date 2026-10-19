@@ -32646,6 +32646,15 @@
       },
       "publishedId": "18099817511425729",
       "confirmedPublished": true
+    },
+    "comment:17953269420316204": {
+      "creationId": "17894409039614054",
+      "createdAt": "2026-10-19T20:37:56.726Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Bone cancer is right in the sense of cancer in the bone. The white-out vertebra is extra bone packed in where normal trabecular bone should be showing through.",
+        "reply_to_id": "17953269420316204"
+      }
     }
   },
   "repliedCommentIds": [
@@ -45366,7 +45375,7 @@
   },
   "spend": {
     "date": "2026-10-19",
-    "usd": 0.024356064
+    "usd": 0.026391960000000003
   },
   "lateSweep": {
     "date": "2026-10-19",
