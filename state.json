@@ -32406,6 +32406,15 @@
       },
       "publishedId": "17882859483690601",
       "confirmedPublished": true
+    },
+    "comment:18106497545255634": {
+      "creationId": "17894264349614054",
+      "createdAt": "2026-10-19T00:46:12.371Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "The outlet was the problem yes. Old ulcer scarring closed the pylorus. The film doesn't tell us how many meals were in there.",
+        "reply_to_id": "18106497545255634"
+      }
     }
   },
   "repliedCommentIds": [
@@ -45095,7 +45104,7 @@
   },
   "spend": {
     "date": "2026-10-18",
-    "usd": 0.040656083999999995
+    "usd": 0.04288688399999999
   },
   "lateSweep": {
     "date": "2026-10-18",
