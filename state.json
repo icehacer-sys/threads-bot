@@ -32472,6 +32472,15 @@
       },
       "publishedId": "18131820991683617",
       "confirmedPublished": true
+    },
+    "comment:18192210385397273": {
+      "creationId": "17894293176614054",
+      "createdAt": "2026-10-19T05:16:22.099Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Moving on before it stings you.",
+        "reply_to_id": "18192210385397273"
+      }
     }
   },
   "repliedCommentIds": [
@@ -45169,7 +45178,7 @@
   },
   "spend": {
     "date": "2026-10-18",
-    "usd": 0.05062312799999999
+    "usd": 0.05184350999999999
   },
   "lateSweep": {
     "date": "2026-10-18",
