@@ -32756,6 +32756,15 @@
       },
       "publishedId": "18077510240447259",
       "confirmedPublished": true
+    },
+    "comment:18101615612172454": {
+      "creationId": "17894424378614054",
+      "createdAt": "2026-10-19T23:34:59.358Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Mystery was more fun than the answer turned out to be.",
+        "reply_to_id": "18101615612172454"
+      }
     }
   },
   "repliedCommentIds": [
@@ -45488,7 +45497,7 @@
   },
   "spend": {
     "date": "2026-10-19",
-    "usd": 0.038150856000000004
+    "usd": 0.038891196
   },
   "lateSweep": {
     "date": "2026-10-19",
