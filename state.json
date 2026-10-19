@@ -32742,7 +32742,9 @@
         "media_type": "TEXT",
         "text": "That's the one",
         "reply_to_id": "18117716699050490"
-      }
+      },
+      "publishedId": "18178226818447627",
+      "confirmedPublished": true
     }
   },
   "repliedCommentIds": [
