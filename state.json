@@ -32679,6 +32679,15 @@
       },
       "publishedId": "18132059614877349",
       "confirmedPublished": true
+    },
+    "comment:18600222787067408": {
+      "creationId": "17894411268614054",
+      "createdAt": "2026-10-19T21:09:14.248Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "The loud music theory is the best one so far. The pellets would have had to go in suspiciously evenly though.",
+        "reply_to_id": "18600222787067408"
+      }
     }
   },
   "repliedCommentIds": [
@@ -45402,7 +45411,7 @@
   },
   "spend": {
     "date": "2026-10-19",
-    "usd": 0.029462916000000002
+    "usd": 0.029955396000000002
   },
   "lateSweep": {
     "date": "2026-10-19",
