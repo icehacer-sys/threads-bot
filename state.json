@@ -32428,6 +32428,15 @@
       },
       "publishedId": "18111774788520406",
       "confirmedPublished": true
+    },
+    "comment:18017225699747031": {
+      "creationId": "17894271162614054",
+      "createdAt": "2026-10-19T01:47:13.395Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Yesterday's dinner is what was stuck in there. The reason it stayed is scarring at the pylorus closing the exit.",
+        "reply_to_id": "18017225699747031"
+      }
     }
   },
   "repliedCommentIds": [
@@ -44968,7 +44977,8 @@
     "18112501232131467",
     "17963534310233616",
     "18032016203906274",
-    "17985732122891799"
+    "17985732122891799",
+    "18567260563077002"
   ],
   "skipStrikes": {
     "17895266316520842": 1,
@@ -45119,7 +45129,7 @@
   },
   "spend": {
     "date": "2026-10-18",
-    "usd": 0.04404992399999999
+    "usd": 0.04544185199999999
   },
   "lateSweep": {
     "date": "2026-10-18",
