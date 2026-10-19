@@ -32701,6 +32701,15 @@
       },
       "publishedId": "18112444025170796",
       "confirmedPublished": true
+    },
+    "comment:18017344190745025": {
+      "creationId": "17894412816614054",
+      "createdAt": "2026-10-19T21:24:54.809Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "It really is showing off in there. That sparkle is extra bone laid down by prostate metastases.",
+        "reply_to_id": "18017344190745025"
+      }
     }
   },
   "repliedCommentIds": [
@@ -45426,7 +45435,7 @@
   },
   "spend": {
     "date": "2026-10-19",
-    "usd": 0.030746436000000002
+    "usd": 0.031191084
   },
   "lateSweep": {
     "date": "2026-10-19",
