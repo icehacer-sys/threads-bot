@@ -32612,6 +32612,15 @@
       },
       "publishedId": "18097224563428818",
       "confirmedPublished": true
+    },
+    "comment:18173517256397384": {
+      "creationId": "17894405526614054",
+      "createdAt": "2026-10-19T20:06:17.334Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Teeth would at least rattle on the way down. Reinstall spine feels like a job for someone with better tools than this film.",
+        "reply_to_id": "18173517256397384"
+      }
     }
   },
   "repliedCommentIds": [
@@ -43494,7 +43503,8 @@
     "17910842433475998",
     "18129793648698914",
     "18139813612722648",
-    "18122391664935120"
+    "18122391664935120",
+    "18631434889026427"
   ],
   "answeredPostIds": [
     "18395606890093068"
@@ -43635,11 +43645,11 @@
     "18425195461157641": 61,
     "18644902039045637": 29,
     "18131363542692371": 34,
-    "17907301383665788": 10
+    "17907301383665788": 11
   },
   "daily": {
     "date": "2026-10-19",
-    "count": 10
+    "count": 11
   },
   "pinnedResolved": {
     "DaTTCIwoAw7": "18014812820883466"
@@ -45326,7 +45336,7 @@
   },
   "spend": {
     "date": "2026-10-19",
-    "usd": 0.019127027999999997
+    "usd": 0.019978956
   },
   "lateSweep": {
     "date": "2026-10-19",
