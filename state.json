@@ -32450,6 +32450,15 @@
       },
       "publishedId": "18450948856123677",
       "confirmedPublished": true
+    },
+    "comment:17954774328267894": {
+      "creationId": "17894279109614054",
+      "createdAt": "2026-10-19T03:18:09.571Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "It is a sack of guts. Just a very full one.",
+        "reply_to_id": "17954774328267894"
+      }
     }
   },
   "repliedCommentIds": [
@@ -45144,7 +45153,7 @@
   },
   "spend": {
     "date": "2026-10-18",
-    "usd": 0.04650475199999999
+    "usd": 0.04760125199999999
   },
   "lateSweep": {
     "date": "2026-10-18",
