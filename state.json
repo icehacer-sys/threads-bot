@@ -32634,6 +32634,15 @@
       },
       "publishedId": "18501834190106508",
       "confirmedPublished": true
+    },
+    "comment:17927857908424371": {
+      "creationId": "17894407152614054",
+      "createdAt": "2026-10-19T20:22:03.586Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "It doesn't. A vertebra packed solid with new bone and spots across the pelvis.",
+        "reply_to_id": "17927857908424371"
+      }
     }
   },
   "repliedCommentIds": [
@@ -45351,7 +45360,7 @@
   },
   "spend": {
     "date": "2026-10-19",
-    "usd": 0.020634095999999998
+    "usd": 0.021335867999999997
   },
   "lateSweep": {
     "date": "2026-10-19",
