@@ -32439,6 +32439,15 @@
       },
       "publishedId": "18155397991472929",
       "confirmedPublished": true
+    },
+    "comment:18141283744627086": {
+      "creationId": "17894273598614054",
+      "createdAt": "2026-10-19T02:17:37.724Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Comfortable is generous. It hasn't moved in hours.",
+        "reply_to_id": "18141283744627086"
+      }
     }
   },
   "repliedCommentIds": [
@@ -45132,7 +45141,7 @@
   },
   "spend": {
     "date": "2026-10-18",
-    "usd": 0.04544185199999999
+    "usd": 0.04650475199999999
   },
   "lateSweep": {
     "date": "2026-10-18",
