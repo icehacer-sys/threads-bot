@@ -32395,6 +32395,15 @@
       },
       "publishedId": "18217605571359289",
       "confirmedPublished": true
+    },
+    "comment:18111996404522468": {
+      "creationId": "17894261928614054",
+      "createdAt": "2026-10-19T00:15:38.350Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "It's a lot less creepy once you're thinking about the person attached to it. The picture is just barium stuck where it shouldn't be.",
+        "reply_to_id": "18111996404522468"
+      }
     }
   },
   "repliedCommentIds": [
@@ -45083,7 +45092,7 @@
   },
   "spend": {
     "date": "2026-10-18",
-    "usd": 0.040206264
+    "usd": 0.040656083999999995
   },
   "lateSweep": {
     "date": "2026-10-18",
