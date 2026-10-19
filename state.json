@@ -32490,6 +32490,15 @@
       },
       "publishedId": "18076368311455233",
       "confirmedPublished": true
+    },
+    "comment:17954752413270522": {
+      "creationId": "17894402448614054",
+      "createdAt": "2026-10-19T19:31:32.619Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Yes. Metastases in the spine and pelvis that form dense new bone. Prostate cancer is the classic cause.",
+        "reply_to_id": "17954752413270522"
+      }
     }
   },
   "repliedCommentIds": [
@@ -45188,7 +45197,7 @@
   },
   "spend": {
     "date": "2026-10-19",
-    "usd": 0.0032540519999999995
+    "usd": 0.0038278559999999993
   },
   "lateSweep": {
     "date": "2026-10-19",
