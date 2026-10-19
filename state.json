@@ -32417,6 +32417,15 @@
       },
       "publishedId": "18090301541263839",
       "confirmedPublished": true
+    },
+    "comment:18135563377642716": {
+      "creationId": "17894268042614054",
+      "createdAt": "2026-10-19T01:16:46.844Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Morning. Gastric outlet obstruction is the answer. On the plan though: the usual route is fluids and electrolytes fixed first with nasogastric suction then a truncal vagotomy with gastrojejunostomy.",
+        "reply_to_id": "18135563377642716"
+      }
     }
   },
   "repliedCommentIds": [
@@ -45107,7 +45116,7 @@
   },
   "spend": {
     "date": "2026-10-18",
-    "usd": 0.04288688399999999
+    "usd": 0.04404992399999999
   },
   "lateSweep": {
     "date": "2026-10-18",
