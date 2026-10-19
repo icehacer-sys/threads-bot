@@ -32657,6 +32657,15 @@
       },
       "publishedId": "18131859715750452",
       "confirmedPublished": true
+    },
+    "comment:17892700488616928": {
+      "creationId": "17894409057614054",
+      "createdAt": "2026-10-19T20:38:20.324Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "A germ with that many spikes would spread faster than this did. Those patches are extra bone though so no little monsters in there.",
+        "reply_to_id": "17892700488616928"
+      }
     }
   },
   "repliedCommentIds": [
@@ -43543,7 +43552,8 @@
     "18631434889026427",
     "18173517256397384",
     "18032885321851688",
-    "17927857908424371"
+    "17927857908424371",
+    "17953269420316204"
   ],
   "answeredPostIds": [
     "18395606890093068"
@@ -43684,11 +43694,11 @@
     "18425195461157641": 61,
     "18644902039045637": 29,
     "18131363542692371": 34,
-    "17907301383665788": 14
+    "17907301383665788": 15
   },
   "daily": {
     "date": "2026-10-19",
-    "count": 14
+    "count": 15
   },
   "pinnedResolved": {
     "DaTTCIwoAw7": "18014812820883466"
@@ -45377,7 +45387,7 @@
   },
   "spend": {
     "date": "2026-10-19",
-    "usd": 0.026391960000000003
+    "usd": 0.028733076000000003
   },
   "lateSweep": {
     "date": "2026-10-19",
