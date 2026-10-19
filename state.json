@@ -32578,6 +32578,15 @@
       },
       "publishedId": "17956326630332730",
       "confirmedPublished": true
+    },
+    "comment:18139813612722648": {
+      "creationId": "17894404302614054",
+      "createdAt": "2026-10-19T19:49:54.299Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "The height differences are real but you can't call compression from one film. What stands out is the whole vertebra filled in solid with dense new bone. In the pelvis those scattered bright patches are the same process laying down extra bone.",
+        "reply_to_id": "18139813612722648"
+      }
     }
   },
   "repliedCommentIds": [
@@ -45288,7 +45297,7 @@
   },
   "spend": {
     "date": "2026-10-19",
-    "usd": 0.013396367999999997
+    "usd": 0.014817539999999997
   },
   "lateSweep": {
     "date": "2026-10-19",
