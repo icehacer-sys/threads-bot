@@ -32567,6 +32567,15 @@
       },
       "publishedId": "17972839278139308",
       "confirmedPublished": true
+    },
+    "comment:18129793648698914": {
+      "creationId": "17894402685614054",
+      "createdAt": "2026-10-19T19:34:19.416Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Prostate metastases is the answer. The dense patches are what points there. One film can't tell you the exact subtype though.",
+        "reply_to_id": "18129793648698914"
+      }
     }
   },
   "repliedCommentIds": [
@@ -43445,7 +43454,8 @@
     "18033818132887791",
     "17938393446123986",
     "17886518334623079",
-    "18097573679646727"
+    "18097573679646727",
+    "17910842433475998"
   ],
   "answeredPostIds": [
     "18395606890093068"
@@ -43586,11 +43596,11 @@
     "18425195461157641": 61,
     "18644902039045637": 29,
     "18131363542692371": 34,
-    "17907301383665788": 6
+    "17907301383665788": 7
   },
   "daily": {
     "date": "2026-10-19",
-    "count": 6
+    "count": 7
   },
   "pinnedResolved": {
     "DaTTCIwoAw7": "18014812820883466"
@@ -45275,7 +45285,7 @@
   },
   "spend": {
     "date": "2026-10-19",
-    "usd": 0.011612447999999997
+    "usd": 0.013396367999999997
   },
   "lateSweep": {
     "date": "2026-10-19",
