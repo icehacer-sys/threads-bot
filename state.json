@@ -32523,6 +32523,15 @@
       },
       "publishedId": "17947767987071943",
       "confirmedPublished": true
+    },
+    "comment:17938393446123986": {
+      "creationId": "17894402487614054",
+      "createdAt": "2026-10-19T19:32:41.893Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Not buckshot. They look like pellets but they are patches of dense new bone. They spread through the pelvis while some vertebrae take up the same change and others do not yet.",
+        "reply_to_id": "17938393446123986"
+      }
     }
   },
   "repliedCommentIds": [
@@ -43397,7 +43406,8 @@
     "18118371809318496",
     "18192210385397273",
     "17954752413270522",
-    "18125503993911465"
+    "18125503993911465",
+    "18033818132887791"
   ],
   "answeredPostIds": [
     "18395606890093068"
@@ -43538,11 +43548,11 @@
     "18425195461157641": 61,
     "18644902039045637": 29,
     "18131363542692371": 34,
-    "17907301383665788": 2
+    "17907301383665788": 3
   },
   "daily": {
     "date": "2026-10-19",
-    "count": 2
+    "count": 3
   },
   "pinnedResolved": {
     "DaTTCIwoAw7": "18014812820883466"
@@ -45224,7 +45234,7 @@
   },
   "spend": {
     "date": "2026-10-19",
-    "usd": 0.0055504679999999985
+    "usd": 0.006977303999999998
   },
   "lateSweep": {
     "date": "2026-10-19",
