@@ -32668,6 +32668,15 @@
       },
       "publishedId": "18113057084177440",
       "confirmedPublished": true
+    },
+    "comment:18141807730717931": {
+      "creationId": "17894409906614054",
+      "createdAt": "2026-10-19T20:53:48.479Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "I'm sorry. Your dad is the person I'd want to think about when I look at a film like this.",
+        "reply_to_id": "18141807730717931"
+      }
     }
   },
   "repliedCommentIds": [
@@ -45390,7 +45399,7 @@
   },
   "spend": {
     "date": "2026-10-19",
-    "usd": 0.028733076000000003
+    "usd": 0.029462916000000002
   },
   "lateSweep": {
     "date": "2026-10-19",
