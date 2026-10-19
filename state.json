@@ -32745,6 +32745,15 @@
       },
       "publishedId": "18178226818447627",
       "confirmedPublished": true
+    },
+    "comment:17951203107343326": {
+      "creationId": "17894418555614054",
+      "createdAt": "2026-10-19T22:34:05.072Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "It does. That ache was real. The films just weren't blaming the mattress anymore.",
+        "reply_to_id": "17951203107343326"
+      }
     }
   },
   "repliedCommentIds": [
@@ -45476,7 +45485,7 @@
   },
   "spend": {
     "date": "2026-10-19",
-    "usd": 0.037679508
+    "usd": 0.038150856000000004
   },
   "lateSweep": {
     "date": "2026-10-19",
