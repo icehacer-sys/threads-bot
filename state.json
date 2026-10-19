@@ -32590,6 +32590,15 @@
       },
       "publishedId": "18117697262047025",
       "confirmedPublished": true
+    },
+    "comment:18122391664935120": {
+      "creationId": "17894405487614054",
+      "createdAt": "2026-10-19T20:05:32.857Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Leopard print would be a much better story. Those spots are dense new bone from prostate metastases.",
+        "reply_to_id": "18122391664935120"
+      }
     }
   },
   "repliedCommentIds": [
@@ -45303,7 +45312,7 @@
   },
   "spend": {
     "date": "2026-10-19",
-    "usd": 0.016882523999999996
+    "usd": 0.017251571999999996
   },
   "lateSweep": {
     "date": "2026-10-19",
