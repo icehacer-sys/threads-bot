@@ -32907,6 +32907,15 @@
       },
       "publishedId": "18033030113889635",
       "confirmedPublished": true
+    },
+    "comment:18092439362203186": {
+      "creationId": "17894559663614054",
+      "createdAt": "2026-10-20T19:34:25.889Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "A tumour can be the lead point that drags the bowel along. The label is intussusception with that mass at the head of it.",
+        "reply_to_id": "18092439362203186"
+      }
     }
   },
   "repliedCommentIds": [
@@ -43815,7 +43824,8 @@
     "18070784528787018",
     "18101046485169070",
     "17907128394664159",
-    "18101776133644816"
+    "18101776133644816",
+    "18113472128588576"
   ],
   "answeredPostIds": [
     "18395606890093068"
@@ -43957,11 +43967,11 @@
     "18644902039045637": 29,
     "18131363542692371": 34,
     "17907301383665788": 29,
-    "18392433658207307": 7
+    "18392433658207307": 8
   },
   "daily": {
     "date": "2026-10-20",
-    "count": 7
+    "count": 8
   },
   "pinnedResolved": {
     "DaTTCIwoAw7": "18014812820883466"
@@ -45658,7 +45668,7 @@
   },
   "spend": {
     "date": "2026-10-20",
-    "usd": 0.015424128
+    "usd": 0.016884972
   },
   "lateSweep": {
     "date": "2026-10-20",
