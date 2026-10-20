@@ -33006,6 +33006,15 @@
       },
       "publishedId": "18104431412360080",
       "confirmedPublished": true
+    },
+    "comment:18153386956547554": {
+      "creationId": "17894569404614054",
+      "createdAt": "2026-10-20T21:09:02.958Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Anytime.",
+        "reply_to_id": "18153386956547554"
+      }
     }
   },
   "repliedCommentIds": [
@@ -45770,7 +45779,7 @@
   },
   "spend": {
     "date": "2026-10-20",
-    "usd": 0.02789192399999999
+    "usd": 0.02854333199999999
   },
   "lateSweep": {
     "date": "2026-10-20",
