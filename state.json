@@ -589,7 +589,7 @@
     "18635047570039257": "{\"postId\":\"18079498634383460\",\"reason\":\"Incoherent opening and unsupported medical speculation; intent unclear. Requires owner review to distinguish between translation error, joke, or genuine question before a safe reply can be drafted.\",\"commentText\":\"Rapent republicanism. The brain starts to dry up and atrophy\",\"username\":\"agent_onlyf\",\"queuedAt\":\"2026-10-15T04:40:35.980Z\",\"resolvedAt\":\"2026-10-17T19:00:34.348Z\",\"resolution\":\"auto-expired: queued more than 48h ago\",\"expired\":true}",
     "18097843973643149": "{\"postId\":\"18079498634383460\",\"reason\":\"Missing fact: case does not state whether patient had pain or was pain-free. Cannot infer symptom severity from headache mention alone. Hold for owner review if additional clinical detail is available.\",\"commentText\":\"Patient didn’t have any pain?\",\"username\":\"lisabarton3518\",\"queuedAt\":\"2026-10-15T05:11:54.248Z\",\"resolvedAt\":\"2026-10-17T19:00:34.348Z\",\"resolution\":\"auto-expired: queued more than 48h ago\",\"expired\":true}",
     "18079097516391488": "{\"postId\":\"18079498634383460\",\"reason\":\"Off-topic question requesting personal medical information not provided in case facts and unrelated to pneumocephalus diagnosis. Requires owner review or clarification of intent.\",\"commentText\":\"When was the first day of their last period?\",\"username\":\"ronkie_82\",\"queuedAt\":\"2026-10-15T05:42:05.475Z\",\"resolvedAt\":\"2026-10-17T19:00:34.348Z\",\"resolution\":\"auto-expired: queued more than 48h ago\",\"expired\":true}",
-    "17950854978056400": "{\"postId\":\"18131363542692371\",\"reason\":\"owner review: unsupported patient history, confirmation, specifics (none) or dismissal of an accepted differential | guard:forced-skip\",\"commentText\":\"Food baby.\",\"username\":\"eddie_van_pelt\",\"queuedAt\":\"2026-10-18T20:06:32.469Z\"}",
+    "17950854978056400": "{\"postId\":\"18131363542692371\",\"reason\":\"owner review: unsupported patient history, confirmation, specifics (none) or dismissal of an accepted differential | guard:forced-skip\",\"commentText\":\"Food baby.\",\"username\":\"eddie_van_pelt\",\"queuedAt\":\"2026-10-18T20:06:32.469Z\",\"resolvedAt\":\"2026-10-20T20:07:38.862Z\",\"resolution\":\"auto-expired: queued more than 48h ago\",\"expired\":true}",
     "17918619177462136": "{\"postId\":\"17907301383665788\",\"reason\":\"owner review: unsupported patient history, confirmation, specifics (day) or dismissal of an accepted differential | guard:forced-skip\",\"commentText\":\"A friend of mine has the exact same complaint with the dx of SCPC status post prostatectomy two months ago with no KNOWN mets.  He's on androgen suppression only.  I worry he already has mets.\",\"username\":\"annethorpe76\",\"queuedAt\":\"2026-10-19T19:50:18.642Z\"}",
     "17880268104553294": "{\"postId\":\"17907301383665788\",\"reason\":\"owner review: unsupported patient history, confirmation, specifics (year) or dismissal of an accepted differential | guard:forced-skip\",\"commentText\":\"So sad 🥺\",\"username\":\"prioress_vespers\",\"queuedAt\":\"2026-10-19T20:22:30.032Z\"}"
   },
@@ -32973,6 +32973,15 @@
       },
       "publishedId": "18109414946190847",
       "confirmedPublished": true
+    },
+    "comment:18224322358340236": {
+      "creationId": "17894563092614054",
+      "createdAt": "2026-10-20T20:07:45.400Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Give it credit for finding such a roomy spot. That shed skin look is contrast outlining bowel slid into itself: intussusception.",
+        "reply_to_id": "18224322358340236"
+      }
     }
   },
   "repliedCommentIds": [
@@ -45734,7 +45743,7 @@
   },
   "spend": {
     "date": "2026-10-20",
-    "usd": 0.025043663999999993
+    "usd": 0.025502111999999993
   },
   "lateSweep": {
     "date": "2026-10-20",
