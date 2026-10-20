@@ -32984,6 +32984,15 @@
       },
       "publishedId": "17906564058569408",
       "confirmedPublished": true
+    },
+    "comment:18118798409516192": {
+      "creationId": "17894563107614054",
+      "createdAt": "2026-10-20T20:08:03.796Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "A tummy ache that comes and goes is a very ordinary thing to have. It does not usually hide a spiral like that one.",
+        "reply_to_id": "18118798409516192"
+      }
     }
   },
   "repliedCommentIds": [
@@ -43899,7 +43908,8 @@
     "18081226490378496",
     "17950462563315970",
     "18100512149639994",
-    "18107893115264321"
+    "18107893115264321",
+    "18224322358340236"
   ],
   "answeredPostIds": [
     "18395606890093068"
@@ -44041,11 +44051,11 @@
     "18644902039045637": 29,
     "18131363542692371": 34,
     "17907301383665788": 29,
-    "18392433658207307": 14
+    "18392433658207307": 15
   },
   "daily": {
     "date": "2026-10-20",
-    "count": 14
+    "count": 15
   },
   "pinnedResolved": {
     "DaTTCIwoAw7": "18014812820883466"
@@ -45745,7 +45755,7 @@
   },
   "spend": {
     "date": "2026-10-20",
-    "usd": 0.025502111999999993
+    "usd": 0.026573339999999994
   },
   "lateSweep": {
     "date": "2026-10-20",
