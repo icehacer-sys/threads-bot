@@ -33017,6 +33017,15 @@
       },
       "publishedId": "17887618737624316",
       "confirmedPublished": true
+    },
+    "comment:17976761154141076": {
+      "creationId": "17894575605614054",
+      "createdAt": "2026-10-20T22:39:58.366Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Smoking out the back end is a new one. The lungs would like a word about the credit.",
+        "reply_to_id": "17976761154141076"
+      }
     }
   },
   "repliedCommentIds": [
@@ -45783,7 +45792,7 @@
   },
   "spend": {
     "date": "2026-10-20",
-    "usd": 0.03021140399999999
+    "usd": 0.03105640799999999
   },
   "lateSweep": {
     "date": "2026-10-20",
