@@ -32789,6 +32789,15 @@
       },
       "publishedId": "18130784759489985",
       "confirmedPublished": true
+    },
+    "comment:17941262022384427": {
+      "creationId": "17894453769614054",
+      "createdAt": "2026-10-20T04:49:20.698Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "That's the read. PSA and a bone scan are the usual next moves once films look like this.",
+        "reply_to_id": "17941262022384427"
+      }
     }
   },
   "repliedCommentIds": [
@@ -45526,7 +45535,7 @@
   },
   "spend": {
     "date": "2026-10-19",
-    "usd": 0.040885224000000005
+    "usd": 0.04134924
   },
   "lateSweep": {
     "date": "2026-10-19",
