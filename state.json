@@ -32800,6 +32800,15 @@
       },
       "publishedId": "18142304515720263",
       "confirmedPublished": true
+    },
+    "comment:17920527294241259": {
+      "creationId": "17894464185614054",
+      "createdAt": "2026-10-20T06:19:53.792Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "That's the answer. You've laid the workup out the way I'd say it too. ✅",
+        "reply_to_id": "17920527294241259"
+      }
     }
   },
   "repliedCommentIds": [
@@ -45538,7 +45547,7 @@
   },
   "spend": {
     "date": "2026-10-19",
-    "usd": 0.04134924
+    "usd": 0.041820156000000004
   },
   "lateSweep": {
     "date": "2026-10-19",
