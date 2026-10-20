@@ -32929,6 +32929,15 @@
       },
       "publishedId": "18142374631618096",
       "confirmedPublished": true
+    },
+    "comment:18081226490378496": {
+      "creationId": "17894561730614054",
+      "createdAt": "2026-10-20T19:50:31.937Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Yep that white is all contrast filling the colon. The pinched spiral is the bowel folded into itself and that's your answer: intussusception. Vomiting and bloating aren't in the case details so I can't say either way.",
+        "reply_to_id": "18081226490378496"
+      }
     }
   },
   "repliedCommentIds": [
@@ -43839,7 +43848,8 @@
     "17907128394664159",
     "18101776133644816",
     "18113472128588576",
-    "18092439362203186"
+    "18092439362203186",
+    "18426872425156017"
   ],
   "answeredPostIds": [
     "18395606890093068"
@@ -43981,11 +43991,11 @@
     "18644902039045637": 29,
     "18131363542692371": 34,
     "17907301383665788": 29,
-    "18392433658207307": 9
+    "18392433658207307": 10
   },
   "daily": {
     "date": "2026-10-20",
-    "count": 9
+    "count": 10
   },
   "pinnedResolved": {
     "DaTTCIwoAw7": "18014812820883466"
@@ -45659,7 +45669,8 @@
     "17928728868180340": 1,
     "18091568192192827": 1,
     "18192210385397273": 1,
-    "18122391664935120": 1
+    "18122391664935120": 1,
+    "18107893115264321": 1
   },
   "gifPostCounts": {
     "18432085978123193": 1,
@@ -45684,7 +45695,7 @@
   },
   "spend": {
     "date": "2026-10-20",
-    "usd": 0.01937508
+    "usd": 0.022036607999999996
   },
   "lateSweep": {
     "date": "2026-10-20",
