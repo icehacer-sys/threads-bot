@@ -32918,6 +32918,15 @@
       },
       "publishedId": "18359775085219695",
       "confirmedPublished": true
+    },
+    "comment:18426872425156017": {
+      "creationId": "17894561718614054",
+      "createdAt": "2026-10-20T19:50:01.544Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Intussusception it is. On a contrast study like this one it shows up as that coiled spring rather than a target.",
+        "reply_to_id": "18426872425156017"
+      }
     }
   },
   "repliedCommentIds": [
@@ -45673,7 +45682,7 @@
   },
   "spend": {
     "date": "2026-10-20",
-    "usd": 0.018954564
+    "usd": 0.01937508
   },
   "lateSweep": {
     "date": "2026-10-20",
