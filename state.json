@@ -32819,6 +32819,15 @@
       },
       "publishedId": "18230222233323202",
       "confirmedPublished": true
+    },
+    "comment:18099322907400729": {
+      "creationId": "17894559465614054",
+      "createdAt": "2026-10-20T19:31:18.971Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "A drink won't shift this one. That spiral is bowel folded into itself and it is not a blockage you can flush out.",
+        "reply_to_id": "18099322907400729"
+      }
     }
   },
   "repliedCommentIds": [
@@ -45405,7 +45414,8 @@
     "17894181066436778",
     "17992631439104607",
     "18074466176733834",
-    "18105221003197712"
+    "18105221003197712",
+    "18108441083236467"
   ],
   "skipStrikes": {
     "17895266316520842": 1,
@@ -45558,7 +45568,7 @@
   },
   "spend": {
     "date": "2026-10-20",
-    "usd": 0.0036816600000000002
+    "usd": 0.005112288
   },
   "lateSweep": {
     "date": "2026-10-20",
