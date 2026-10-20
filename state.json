@@ -32962,6 +32962,15 @@
       },
       "publishedId": "18110003177194651",
       "confirmedPublished": true
+    },
+    "comment:18107893115264321": {
+      "creationId": "17894561904614054",
+      "createdAt": "2026-10-20T19:52:22.275Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Same. Someone had to figure out what that spiral meant before anyone could name it.",
+        "reply_to_id": "18107893115264321"
+      }
     }
   },
   "repliedCommentIds": [
@@ -45722,7 +45731,7 @@
   },
   "spend": {
     "date": "2026-10-20",
-    "usd": 0.024600083999999994
+    "usd": 0.025043663999999993
   },
   "lateSweep": {
     "date": "2026-10-20",
