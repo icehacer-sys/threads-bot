@@ -32852,6 +32852,15 @@
       },
       "publishedId": "17892249468653969",
       "confirmedPublished": true
+    },
+    "comment:18070784528787018": {
+      "creationId": "17894559537614054",
+      "createdAt": "2026-10-20T19:32:42.452Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "That's the contrast filling the bowel. The answer is intussusception: the bowel telescoped into itself with that coiled spring look.",
+        "reply_to_id": "18070784528787018"
+      }
     }
   },
   "repliedCommentIds": [
@@ -43755,7 +43764,8 @@
     "17941262022384427",
     "17920527294241259",
     "18099322907400729",
-    "17866111758692748"
+    "17866111758692748",
+    "18118782448994133"
   ],
   "answeredPostIds": [
     "18395606890093068"
@@ -43897,11 +43907,11 @@
     "18644902039045637": 29,
     "18131363542692371": 34,
     "17907301383665788": 29,
-    "18392433658207307": 2
+    "18392433658207307": 3
   },
   "daily": {
     "date": "2026-10-20",
-    "count": 2
+    "count": 3
   },
   "pinnedResolved": {
     "DaTTCIwoAw7": "18014812820883466"
@@ -45597,7 +45607,7 @@
   },
   "spend": {
     "date": "2026-10-20",
-    "usd": 0.010943796
+    "usd": 0.01184742
   },
   "lateSweep": {
     "date": "2026-10-20",
