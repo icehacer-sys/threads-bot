@@ -32940,6 +32940,15 @@
       },
       "publishedId": "18112079515892415",
       "confirmedPublished": true
+    },
+    "comment:17950462563315970": {
+      "creationId": "17894561820614054",
+      "createdAt": "2026-10-20T19:50:51.797Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "That's the answer. The coiled spring sitting up by the hepatic flexure is exactly what this case describes and a mass as the lead point fits the weight loss.",
+        "reply_to_id": "17950462563315970"
+      }
     }
   },
   "repliedCommentIds": [
@@ -43851,7 +43860,8 @@
     "18101776133644816",
     "18113472128588576",
     "18092439362203186",
-    "18426872425156017"
+    "18426872425156017",
+    "18081226490378496"
   ],
   "answeredPostIds": [
     "18395606890093068"
@@ -43993,11 +44003,11 @@
     "18644902039045637": 29,
     "18131363542692371": 34,
     "17907301383665788": 29,
-    "18392433658207307": 10
+    "18392433658207307": 11
   },
   "daily": {
     "date": "2026-10-20",
-    "count": 10
+    "count": 11
   },
   "pinnedResolved": {
     "DaTTCIwoAw7": "18014812820883466"
@@ -45697,7 +45707,7 @@
   },
   "spend": {
     "date": "2026-10-20",
-    "usd": 0.022036607999999996
+    "usd": 0.022612187999999995
   },
   "lateSweep": {
     "date": "2026-10-20",
