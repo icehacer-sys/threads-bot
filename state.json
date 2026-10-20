@@ -32767,6 +32767,15 @@
       },
       "publishedId": "18135953047680863",
       "confirmedPublished": true
+    },
+    "comment:17905581039598291": {
+      "creationId": "17894430267614054",
+      "createdAt": "2026-10-20T00:35:39.630Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Cancer in the pelvis is part of it. Prostate metastases are the usual source of patches like those.",
+        "reply_to_id": "17905581039598291"
+      }
     }
   },
   "repliedCommentIds": [
@@ -45500,7 +45509,7 @@
   },
   "spend": {
     "date": "2026-10-19",
-    "usd": 0.038891196
+    "usd": 0.039536472
   },
   "lateSweep": {
     "date": "2026-10-19",
