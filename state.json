@@ -32951,6 +32951,15 @@
       },
       "publishedId": "17912622561544795",
       "confirmedPublished": true
+    },
+    "comment:18100512149639994": {
+      "creationId": "17894561841614054",
+      "createdAt": "2026-10-20T19:51:18.202Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "That ring is the spot. One length of bowel slid into the next and the contrast is outlining the folded sleeve. The swirl is where the two layers meet.",
+        "reply_to_id": "18100512149639994"
+      }
     }
   },
   "repliedCommentIds": [
@@ -43863,7 +43872,8 @@
     "18113472128588576",
     "18092439362203186",
     "18426872425156017",
-    "18081226490378496"
+    "18081226490378496",
+    "17950462563315970"
   ],
   "answeredPostIds": [
     "18395606890093068"
@@ -44005,11 +44015,11 @@
     "18644902039045637": 29,
     "18131363542692371": 34,
     "17907301383665788": 29,
-    "18392433658207307": 11
+    "18392433658207307": 12
   },
   "daily": {
     "date": "2026-10-20",
-    "count": 11
+    "count": 12
   },
   "pinnedResolved": {
     "DaTTCIwoAw7": "18014812820883466"
@@ -45709,10 +45719,13 @@
   },
   "spend": {
     "date": "2026-10-20",
-    "usd": 0.022612187999999995
+    "usd": 0.024600083999999994
   },
   "lateSweep": {
     "date": "2026-10-20",
     "replies": 0
+  },
+  "clinicianNods": {
+    "18392433658207307": "17950462563315970"
   }
 }
