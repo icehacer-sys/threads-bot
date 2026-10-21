@@ -33253,6 +33253,15 @@
       },
       "publishedId": "17898942912396724",
       "confirmedPublished": true
+    },
+    "comment:18123694054927861": {
+      "creationId": "17894709303614054",
+      "createdAt": "2026-10-21T21:50:45.684Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "This much chalk would be a wild diet. It's a carcinoma narrowing the left colon and it's the contrast that fills the gap.",
+        "reply_to_id": "18123694054927861"
+      }
     }
   },
   "repliedCommentIds": [
@@ -46047,7 +46056,7 @@
   },
   "spend": {
     "date": "2026-10-21",
-    "usd": 0.014357681999999998
+    "usd": 0.014822862
   },
   "lateSweep": {
     "date": "2026-10-21",
