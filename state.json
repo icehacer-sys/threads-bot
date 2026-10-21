@@ -33061,6 +33061,15 @@
       },
       "publishedId": "17922266013445415",
       "confirmedPublished": true
+    },
+    "comment:18103875068373706": {
+      "creationId": "17894599290614054",
+      "createdAt": "2026-10-21T03:54:15.439Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Same here. It looks like a Slinky that made a bad decision.",
+        "reply_to_id": "18103875068373706"
+      }
     }
   },
   "repliedCommentIds": [
@@ -45834,7 +45843,7 @@
   },
   "spend": {
     "date": "2026-10-20",
-    "usd": 0.03780383999999999
+    "usd": 0.03855638399999999
   },
   "lateSweep": {
     "date": "2026-10-20",
