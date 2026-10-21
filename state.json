@@ -33083,6 +33083,15 @@
       },
       "publishedId": "18127961620855979",
       "confirmedPublished": true
+    },
+    "comment:17957275638255081": {
+      "creationId": "17894611080614054",
+      "createdAt": "2026-10-21T05:25:09.812Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Everything pulled inward instead of out. Neat trick for a bowel.",
+        "reply_to_id": "17957275638255081"
+      }
     }
   },
   "repliedCommentIds": [
@@ -45858,7 +45867,7 @@
   },
   "spend": {
     "date": "2026-10-20",
-    "usd": 0.03945328799999999
+    "usd": 0.04059775199999999
   },
   "lateSweep": {
     "date": "2026-10-20",
