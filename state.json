@@ -595,7 +595,7 @@
     "18079097516391488": "{\"postId\":\"18079498634383460\",\"reason\":\"Off-topic question requesting personal medical information not provided in case facts and unrelated to pneumocephalus diagnosis. Requires owner review or clarification of intent.\",\"commentText\":\"When was the first day of their last period?\",\"username\":\"ronkie_82\",\"queuedAt\":\"2026-10-15T05:42:05.475Z\",\"resolvedAt\":\"2026-10-17T19:00:34.348Z\",\"resolution\":\"auto-expired: queued more than 48h ago\",\"expired\":true}",
     "17950854978056400": "{\"postId\":\"18131363542692371\",\"reason\":\"owner review: unsupported patient history, confirmation, specifics (none) or dismissal of an accepted differential | guard:forced-skip\",\"commentText\":\"Food baby.\",\"username\":\"eddie_van_pelt\",\"queuedAt\":\"2026-10-18T20:06:32.469Z\",\"resolvedAt\":\"2026-10-20T20:07:38.862Z\",\"resolution\":\"auto-expired: queued more than 48h ago\",\"expired\":true}",
     "17918619177462136": "{\"postId\":\"17907301383665788\",\"reason\":\"owner review: unsupported patient history, confirmation, specifics (day) or dismissal of an accepted differential | guard:forced-skip\",\"commentText\":\"A friend of mine has the exact same complaint with the dx of SCPC status post prostatectomy two months ago with no KNOWN mets.  He's on androgen suppression only.  I worry he already has mets.\",\"username\":\"annethorpe76\",\"queuedAt\":\"2026-10-19T19:50:18.642Z\",\"resolvedAt\":\"2026-10-21T20:02:10.343Z\",\"resolution\":\"auto-expired: queued more than 48h ago\",\"expired\":true}",
-    "17880268104553294": "{\"postId\":\"17907301383665788\",\"reason\":\"owner review: unsupported patient history, confirmation, specifics (year) or dismissal of an accepted differential | guard:forced-skip\",\"commentText\":\"So sad 🥺\",\"username\":\"prioress_vespers\",\"queuedAt\":\"2026-10-19T20:22:30.032Z\"}",
+    "17880268104553294": "{\"postId\":\"17907301383665788\",\"reason\":\"owner review: unsupported patient history, confirmation, specifics (year) or dismissal of an accepted differential | guard:forced-skip\",\"commentText\":\"So sad 🥺\",\"username\":\"prioress_vespers\",\"queuedAt\":\"2026-10-19T20:22:30.032Z\",\"resolvedAt\":\"2026-10-21T20:32:56.751Z\",\"resolution\":\"auto-expired: queued more than 48h ago\",\"expired\":true}",
     "18097523384673462": "{\"postId\":\"18131755174775163\",\"reason\":\"owner review: unsupported patient history, confirmation, specifics (decade) or dismissal of an accepted differential | guard:forced-skip\",\"commentText\":\"All the Bubble Yum he swallowed in the 80’s.\",\"username\":\"kirkdiedrich\",\"queuedAt\":\"2026-10-21T19:47:05.792Z\"}"
   },
   "concernAcknowledgments": {
@@ -33187,6 +33187,15 @@
       },
       "publishedId": "18083863220708970",
       "confirmedPublished": true
+    },
+    "comment:18337594759278206": {
+      "creationId": "17894703789614054",
+      "createdAt": "2026-10-21T20:33:05.548Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Those links are doing a very convincing impression of a string of sausages. Wrong pipe though.",
+        "reply_to_id": "18337594759278206"
+      }
     }
   },
   "repliedCommentIds": [
@@ -45974,7 +45983,7 @@
   },
   "spend": {
     "date": "2026-10-21",
-    "usd": 0.008928827999999998
+    "usd": 0.009597767999999998
   },
   "lateSweep": {
     "date": "2026-10-21",
