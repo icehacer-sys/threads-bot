@@ -33039,6 +33039,15 @@
       },
       "publishedId": "18635626141045650",
       "confirmedPublished": true
+    },
+    "comment:17980165191125011": {
+      "creationId": "17894583876614054",
+      "createdAt": "2026-10-21T00:41:38.210Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "That's the spot. Your circle lands right on the coiled spring where the bowel folds into itself.",
+        "reply_to_id": "17980165191125011"
+      }
     }
   },
   "repliedCommentIds": [
@@ -45808,7 +45817,7 @@
   },
   "spend": {
     "date": "2026-10-20",
-    "usd": 0.03382061999999999
+    "usd": 0.03531752399999999
   },
   "lateSweep": {
     "date": "2026-10-20",
