@@ -33231,6 +33231,15 @@
       },
       "publishedId": "17898897936399304",
       "confirmedPublished": true
+    },
+    "comment:18114103445127855": {
+      "creationId": "17894708247614054",
+      "createdAt": "2026-10-21T21:35:01.602Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Not gastritis. The problem sits in the colon where the narrowing looks like an eaten apple core.",
+        "reply_to_id": "18114103445127855"
+      }
     }
   },
   "repliedCommentIds": [
@@ -46023,7 +46032,7 @@
   },
   "spend": {
     "date": "2026-10-21",
-    "usd": 0.012376115999999998
+    "usd": 0.013675241999999999
   },
   "lateSweep": {
     "date": "2026-10-21",
