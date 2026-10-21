@@ -33142,6 +33142,15 @@
       },
       "publishedId": "18152168005543636",
       "confirmedPublished": true
+    },
+    "comment:18131614324765956": {
+      "creationId": "17894699784614054",
+      "createdAt": "2026-10-21T19:31:18.024Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "You've got the sign and the answer. The stricture here is a short ragged segment with overhanging shoulders which is the classic tumour shape. Inflammatory narrowing tends to run longer and smoother so it stays on the list as a lookalike rather than a rival.",
+        "reply_to_id": "18131614324765956"
+      }
     }
   },
   "repliedCommentIds": [
@@ -44071,7 +44080,8 @@
     "17957275638255081",
     "17920078113245448",
     "18128698508480165",
-    "18118916222000593"
+    "18118916222000593",
+    "17943814113090660"
   ],
   "answeredPostIds": [
     "18395606890093068"
@@ -44214,11 +44224,11 @@
     "18131363542692371": 34,
     "17907301383665788": 29,
     "18392433658207307": 26,
-    "18131755174775163": 2
+    "18131755174775163": 3
   },
   "daily": {
     "date": "2026-10-21",
-    "count": 2
+    "count": 3
   },
   "pinnedResolved": {
     "DaTTCIwoAw7": "18014812820883466"
@@ -45922,7 +45932,7 @@
   },
   "spend": {
     "date": "2026-10-21",
-    "usd": 0.0043254719999999995
+    "usd": 0.005294927999999999
   },
   "lateSweep": {
     "date": "2026-10-21",
