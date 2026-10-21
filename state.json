@@ -33264,6 +33264,15 @@
       },
       "publishedId": "17988141491880008",
       "confirmedPublished": true
+    },
+    "comment:18153288709555744": {
+      "creationId": "17894711394614054",
+      "createdAt": "2026-10-21T22:21:11.862Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Probably not. Change in bowel habit is the polite way of saying it.",
+        "reply_to_id": "18153288709555744"
+      }
     }
   },
   "repliedCommentIds": [
@@ -46059,7 +46068,7 @@
   },
   "spend": {
     "date": "2026-10-21",
-    "usd": 0.014822862
+    "usd": 0.015325242
   },
   "lateSweep": {
     "date": "2026-10-21",
