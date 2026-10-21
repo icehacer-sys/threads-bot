@@ -33109,6 +33109,15 @@
       },
       "publishedId": "18119740175072497",
       "confirmedPublished": true
+    },
+    "comment:18128698508480165": {
+      "creationId": "17894699739614054",
+      "createdAt": "2026-10-21T19:30:28.061Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "That's the one. The ragged narrowing with overhanging shoulders is the apple core.",
+        "reply_to_id": "18128698508480165"
+      }
     }
   },
   "repliedCommentIds": [
@@ -45886,7 +45895,7 @@
   },
   "spend": {
     "date": "2026-10-21",
-    "usd": 0.001960956
+    "usd": 0.0025290599999999996
   },
   "lateSweep": {
     "date": "2026-10-21",
