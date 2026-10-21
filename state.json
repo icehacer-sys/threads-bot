@@ -33176,6 +33176,15 @@
       },
       "publishedId": "18011197592995994",
       "confirmedPublished": true
+    },
+    "comment:18098700917560341": {
+      "creationId": "17894702547614054",
+      "createdAt": "2026-10-21T20:17:38.727Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "The overhanging shoulders are the bit that gives it away and you called it exactly. That shape with a short ragged segment is the teaching label here.",
+        "reply_to_id": "18098700917560341"
+      }
     }
   },
   "repliedCommentIds": [
@@ -45962,7 +45971,7 @@
   },
   "spend": {
     "date": "2026-10-21",
-    "usd": 0.008442515999999999
+    "usd": 0.008928827999999998
   },
   "lateSweep": {
     "date": "2026-10-21",
