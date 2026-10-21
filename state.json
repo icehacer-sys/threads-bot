@@ -33275,6 +33275,15 @@
       },
       "publishedId": "18065862380786992",
       "confirmedPublished": true
+    },
+    "comment:18076194728725840": {
+      "creationId": "17894717370614054",
+      "createdAt": "2026-10-21T23:25:50.678Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "You got there on the first line. The narrowing sits in that colon with the shoulders overhanging it.",
+        "reply_to_id": "18076194728725840"
+      }
     }
   },
   "repliedCommentIds": [
@@ -46071,7 +46080,7 @@
   },
   "spend": {
     "date": "2026-10-21",
-    "usd": 0.015325242
+    "usd": 0.016346334
   },
   "lateSweep": {
     "date": "2026-10-21",
