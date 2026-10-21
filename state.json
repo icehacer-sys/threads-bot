@@ -33050,6 +33050,15 @@
       },
       "publishedId": "18097254239662628",
       "confirmedPublished": true
+    },
+    "comment:18130641523829117": {
+      "creationId": "17894593761614054",
+      "createdAt": "2026-10-21T02:53:34.859Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Poop-o-cele is going straight into the textbooks. This one's actually bowel folded into itself rather than anything hernia shaped.",
+        "reply_to_id": "18130641523829117"
+      }
     }
   },
   "repliedCommentIds": [
@@ -45821,7 +45830,7 @@
   },
   "spend": {
     "date": "2026-10-20",
-    "usd": 0.03582443999999999
+    "usd": 0.03662251199999999
   },
   "lateSweep": {
     "date": "2026-10-20",
