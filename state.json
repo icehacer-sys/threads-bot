@@ -33072,6 +33072,15 @@
       },
       "publishedId": "18022553114874148",
       "confirmedPublished": true
+    },
+    "comment:18097007984395256": {
+      "creationId": "17894607717614054",
+      "createdAt": "2026-10-21T04:54:45.475Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "A prank snake would explain the coil. The bowel did the folding itself though.",
+        "reply_to_id": "18097007984395256"
+      }
     }
   },
   "repliedCommentIds": [
@@ -45846,7 +45855,7 @@
   },
   "spend": {
     "date": "2026-10-20",
-    "usd": 0.03855638399999999
+    "usd": 0.03945328799999999
   },
   "lateSweep": {
     "date": "2026-10-20",
