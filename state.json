@@ -33198,6 +33198,15 @@
       },
       "publishedId": "17909669277563626",
       "confirmedPublished": true
+    },
+    "comment:18217101391359712": {
+      "creationId": "17894705439614054",
+      "createdAt": "2026-10-21T21:03:42.564Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "No snake inside this one. Not intussusception either.",
+        "reply_to_id": "18217101391359712"
+      }
     }
   },
   "repliedCommentIds": [
@@ -45986,7 +45995,7 @@
   },
   "spend": {
     "date": "2026-10-21",
-    "usd": 0.009597767999999998
+    "usd": 0.010511927999999999
   },
   "lateSweep": {
     "date": "2026-10-21",
