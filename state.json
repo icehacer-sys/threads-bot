@@ -33094,6 +33094,15 @@
       },
       "publishedId": "17934498192145389",
       "confirmedPublished": true
+    },
+    "comment:17920078113245448": {
+      "creationId": "17894613240614054",
+      "createdAt": "2026-10-21T05:55:31.335Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Halftime is just the coils taking a breather. No marching band though.",
+        "reply_to_id": "17920078113245448"
+      }
     }
   },
   "repliedCommentIds": [
@@ -45870,7 +45879,7 @@
   },
   "spend": {
     "date": "2026-10-20",
-    "usd": 0.04059775199999999
+    "usd": 0.04135445999999999
   },
   "lateSweep": {
     "date": "2026-10-20",
