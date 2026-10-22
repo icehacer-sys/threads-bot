@@ -33547,6 +33547,15 @@
       },
       "publishedId": "18114623675122032",
       "confirmedPublished": true
+    },
+    "comment:18103612292268246": {
+      "creationId": "17894838315614054",
+      "createdAt": "2026-10-22T20:39:10.898Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Not an aneurysm. Nothing ruptures and no wall is being patched. The muscle itself is stunned so the apex balloons and the base squeezes tight.",
+        "reply_to_id": "18103612292268246"
+      }
     }
   },
   "repliedCommentIds": [
@@ -46374,7 +46383,7 @@
   },
   "spend": {
     "date": "2026-10-22",
-    "usd": 0.022052819999999994
+    "usd": 0.023396639999999993
   },
   "lateSweep": {
     "date": "2026-10-22",
