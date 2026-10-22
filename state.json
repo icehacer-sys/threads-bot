@@ -33636,6 +33636,15 @@
       },
       "publishedId": "18134914177663115",
       "confirmedPublished": true
+    },
+    "comment:17923350324224277": {
+      "creationId": "17894845473614054",
+      "createdAt": "2026-10-22T22:08:23.161Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Balloon angioplasty would have been a great wrong answer though. Uneducated guesses are half the fun of these.",
+        "reply_to_id": "17923350324224277"
+      }
     }
   },
   "repliedCommentIds": [
@@ -44609,7 +44618,8 @@
     "18042645665834475",
     "18140149885526912",
     "18158154721558066",
-    "18342482227256748"
+    "18342482227256748",
+    "18104800727530333"
   ],
   "answeredPostIds": [
     "18395606890093068"
@@ -44753,11 +44763,11 @@
     "17907301383665788": 29,
     "18392433658207307": 26,
     "18131755174775163": 21,
-    "18096011516656084": 25
+    "18096011516656084": 26
   },
   "daily": {
     "date": "2026-10-22",
-    "count": 25
+    "count": 26
   },
   "pinnedResolved": {
     "DaTTCIwoAw7": "18014812820883466"
@@ -46473,7 +46483,7 @@
   },
   "spend": {
     "date": "2026-10-22",
-    "usd": 0.032114255999999994
+    "usd": 0.032905595999999995
   },
   "lateSweep": {
     "date": "2026-10-22",
