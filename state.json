@@ -33448,6 +33448,15 @@
       },
       "publishedId": "18168051520419762",
       "confirmedPublished": true
+    },
+    "comment:18123084247942484": {
+      "creationId": "17894834937614054",
+      "createdAt": "2026-10-22T19:50:04.384Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "A water balloon through the mouth would be a new one. The song reference is closer than the balloon though.",
+        "reply_to_id": "18123084247942484"
+      }
     }
   },
   "repliedCommentIds": [
@@ -46264,7 +46273,7 @@
   },
   "spend": {
     "date": "2026-10-22",
-    "usd": 0.011407211999999998
+    "usd": 0.011855423999999998
   },
   "lateSweep": {
     "date": "2026-10-22",
