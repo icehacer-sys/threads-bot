@@ -33481,6 +33481,15 @@
       },
       "publishedId": "18079442315402723",
       "confirmedPublished": true
+    },
+    "comment:18114847982336234": {
+      "creationId": "17894834991614054",
+      "createdAt": "2026-10-22T19:51:14.606Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Big stress is the usual trigger. Bereavement or a fright can set off the surge of stress hormones that stuns the muscle into that shape. The coronary arteries can still look normal.",
+        "reply_to_id": "18114847982336234"
+      }
     }
   },
   "repliedCommentIds": [
@@ -44440,7 +44449,8 @@
     "18117726053001043",
     "17911268400306362",
     "18123084247942484",
-    "18142672066720207"
+    "18142672066720207",
+    "18119552227955486"
   ],
   "answeredPostIds": [
     "18395606890093068"
@@ -44584,11 +44594,11 @@
     "17907301383665788": 29,
     "18392433658207307": 26,
     "18131755174775163": 21,
-    "18096011516656084": 11
+    "18096011516656084": 12
   },
   "daily": {
     "date": "2026-10-22",
-    "count": 11
+    "count": 12
   },
   "pinnedResolved": {
     "DaTTCIwoAw7": "18014812820883466"
@@ -46299,7 +46309,7 @@
   },
   "spend": {
     "date": "2026-10-22",
-    "usd": 0.013605779999999998
+    "usd": 0.015134519999999997
   },
   "lateSweep": {
     "date": "2026-10-22",
