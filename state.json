@@ -33592,6 +33592,15 @@
       },
       "publishedId": "18132396901813965",
       "confirmedPublished": true
+    },
+    "comment:18140149885526912": {
+      "creationId": "17894844429614054",
+      "createdAt": "2026-10-22T21:51:34.672Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Hernia and free air both miss it. This is takotsubo.",
+        "reply_to_id": "18140149885526912"
+      }
     }
   },
   "repliedCommentIds": [
@@ -46425,7 +46434,7 @@
   },
   "spend": {
     "date": "2026-10-22",
-    "usd": 0.028129535999999993
+    "usd": 0.029352323999999992
   },
   "lateSweep": {
     "date": "2026-10-22",
