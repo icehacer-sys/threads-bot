@@ -33492,6 +33492,15 @@
       },
       "publishedId": "18031071527686066",
       "confirmedPublished": true
+    },
+    "comment:17918340387461681": {
+      "creationId": "17894836182614054",
+      "createdAt": "2026-10-22T20:06:44.204Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "You get a sore neck and one very smug cardiologist. Worth it.",
+        "reply_to_id": "17918340387461681"
+      }
     }
   },
   "repliedCommentIds": [
@@ -46312,7 +46321,7 @@
   },
   "spend": {
     "date": "2026-10-22",
-    "usd": 0.015134519999999997
+    "usd": 0.016165943999999998
   },
   "lateSweep": {
     "date": "2026-10-22",
