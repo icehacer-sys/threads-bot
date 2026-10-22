@@ -33349,6 +33349,15 @@
       },
       "publishedId": "18150732325548522",
       "confirmedPublished": true
+    },
+    "comment:17991724679859026": {
+      "creationId": "17894833167614054",
+      "createdAt": "2026-10-22T19:31:17.704Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "That's the one. Ballooned apex and a tight base is the classic shape.",
+        "reply_to_id": "17991724679859026"
+      }
     }
   },
   "repliedCommentIds": [
@@ -46152,7 +46161,7 @@
   },
   "spend": {
     "date": "2026-10-22",
-    "usd": 0.0030996839999999997
+    "usd": 0.0036596879999999995
   },
   "lateSweep": {
     "date": "2026-10-22",
