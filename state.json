@@ -33603,6 +33603,15 @@
       },
       "publishedId": "18110132138617327",
       "confirmedPublished": true
+    },
+    "comment:18158154721558066": {
+      "creationId": "17894845443614054",
+      "createdAt": "2026-10-22T22:07:14.788Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "That round shadow did the inflating from the inside. Wrong direction entirely.",
+        "reply_to_id": "18158154721558066"
+      }
     }
   },
   "repliedCommentIds": [
@@ -46438,7 +46447,7 @@
   },
   "spend": {
     "date": "2026-10-22",
-    "usd": 0.030172259999999992
+    "usd": 0.030532211999999993
   },
   "lateSweep": {
     "date": "2026-10-22",
