@@ -33536,6 +33536,15 @@
       },
       "publishedId": "18638561284011982",
       "confirmedPublished": true
+    },
+    "comment:18053481398805088": {
+      "creationId": "17894837481614054",
+      "createdAt": "2026-10-22T20:23:35.949Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "That's the whole picture in one go. The octopus trap name comes from that exact systolic shape. One honest limit though: this film alone cannot show whether the coronary arteries were clear.",
+        "reply_to_id": "18053481398805088"
+      }
     }
   },
   "repliedCommentIds": [
@@ -44500,7 +44509,8 @@
     "18114847982336234",
     "17918340387461681",
     "18344389012282730",
-    "18124368596298579"
+    "18124368596298579",
+    "18114535793120042"
   ],
   "answeredPostIds": [
     "18395606890093068"
@@ -44644,11 +44654,11 @@
     "17907301383665788": 29,
     "18392433658207307": 26,
     "18131755174775163": 21,
-    "18096011516656084": 16
+    "18096011516656084": 17
   },
   "daily": {
     "date": "2026-10-22",
-    "count": 16
+    "count": 17
   },
   "pinnedResolved": {
     "DaTTCIwoAw7": "18014812820883466"
@@ -46361,7 +46371,7 @@
   },
   "spend": {
     "date": "2026-10-22",
-    "usd": 0.021523271999999993
+    "usd": 0.022052819999999994
   },
   "lateSweep": {
     "date": "2026-10-22",
