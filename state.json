@@ -33525,6 +33525,15 @@
       },
       "publishedId": "18124258859511798",
       "confirmedPublished": true
+    },
+    "comment:18114535793120042": {
+      "creationId": "17894837466614054",
+      "createdAt": "2026-10-22T20:23:13.346Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Stressed out is the right idea. It's takotsubo and the apex is the part that swells while the rest holds on.",
+        "reply_to_id": "18114535793120042"
+      }
     }
   },
   "repliedCommentIds": [
@@ -46193,7 +46202,9 @@
     "18024342992920118",
     "18132961738777408",
     "18028523741859134",
-    "17997218100031140"
+    "17997218100031140",
+    "17910661236487646",
+    "17964701136229127"
   ],
   "skipStrikes": {
     "17895266316520842": 1,
@@ -46348,7 +46359,7 @@
   },
   "spend": {
     "date": "2026-10-22",
-    "usd": 0.018429659999999997
+    "usd": 0.021523271999999993
   },
   "lateSweep": {
     "date": "2026-10-22",
