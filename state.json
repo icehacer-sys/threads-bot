@@ -33658,6 +33658,15 @@
       },
       "publishedId": "18193074013397667",
       "confirmedPublished": true
+    },
+    "comment:17954900811039544": {
+      "creationId": "17894846085614054",
+      "createdAt": "2026-10-22T22:24:14.066Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "I'm sorry about your partner. That is one of the heaviest things a heart can be asked to carry. Grief really can be a strong enough stressor to stun the muscle and that may explain some of it.",
+        "reply_to_id": "17954900811039544"
+      }
     }
   },
   "repliedCommentIds": [
@@ -44633,7 +44642,8 @@
     "18158154721558066",
     "18342482227256748",
     "18104800727530333",
-    "17923350324224277"
+    "17923350324224277",
+    "18126493667486426"
   ],
   "answeredPostIds": [
     "18395606890093068"
@@ -44777,11 +44787,11 @@
     "17907301383665788": 29,
     "18392433658207307": 26,
     "18131755174775163": 21,
-    "18096011516656084": 27
+    "18096011516656084": 28
   },
   "daily": {
     "date": "2026-10-22",
-    "count": 27
+    "count": 28
   },
   "pinnedResolved": {
     "DaTTCIwoAw7": "18014812820883466"
@@ -46497,7 +46507,7 @@
   },
   "spend": {
     "date": "2026-10-22",
-    "usd": 0.033596171999999994
+    "usd": 0.034652843999999995
   },
   "lateSweep": {
     "date": "2026-10-22",
