@@ -33633,7 +33633,9 @@
         "media_type": "TEXT",
         "text": "Keep the cat out of this one at least.",
         "reply_to_id": "18104800727530333"
-      }
+      },
+      "publishedId": "18134914177663115",
+      "confirmedPublished": true
     }
   },
   "repliedCommentIds": [
