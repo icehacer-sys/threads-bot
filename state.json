@@ -33680,6 +33680,15 @@
       },
       "publishedId": "18349396786283802",
       "confirmedPublished": true
+    },
+    "comment:18110687726235069": {
+      "creationId": "17894847960614054",
+      "createdAt": "2026-10-22T22:55:11.593Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Humour is welcome here from anyone. Half the fun is people seeing a flask where a heart should be. Glad you're enjoying them.",
+        "reply_to_id": "18110687726235069"
+      }
     }
   },
   "repliedCommentIds": [
@@ -46523,7 +46532,7 @@
   },
   "spend": {
     "date": "2026-10-22",
-    "usd": 0.036715481999999994
+    "usd": 0.03753592199999999
   },
   "lateSweep": {
     "date": "2026-10-22",
