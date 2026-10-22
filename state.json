@@ -33330,6 +33330,15 @@
       },
       "publishedId": "18040541741845235",
       "confirmedPublished": true
+    },
+    "comment:18129051562835635": {
+      "creationId": "17894749146614054",
+      "createdAt": "2026-10-22T05:26:31.044Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "A mouth is a decent read. It's chewing the lumen shut rather than eating anything.",
+        "reply_to_id": "18129051562835635"
+      }
     }
   },
   "repliedCommentIds": [
@@ -46131,7 +46140,7 @@
   },
   "spend": {
     "date": "2026-10-21",
-    "usd": 0.019118754
+    "usd": 0.019827594
   },
   "lateSweep": {
     "date": "2026-10-21",
