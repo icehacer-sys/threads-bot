@@ -33297,6 +33297,15 @@
       },
       "publishedId": "18356218492218526",
       "confirmedPublished": true
+    },
+    "comment:18129633052872545": {
+      "creationId": "17894721948614054",
+      "createdAt": "2026-10-22T00:26:42.313Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Flushing it is the easy part. The blockage is a carcinoma narrowing the colon.",
+        "reply_to_id": "18129633052872545"
+      }
     }
   },
   "repliedCommentIds": [
@@ -46095,7 +46104,7 @@
   },
   "spend": {
     "date": "2026-10-21",
-    "usd": 0.016978242
+    "usd": 0.017452122
   },
   "lateSweep": {
     "date": "2026-10-21",
