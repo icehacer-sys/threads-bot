@@ -33647,6 +33647,15 @@
       },
       "publishedId": "17872549551649272",
       "confirmedPublished": true
+    },
+    "comment:18126493667486426": {
+      "creationId": "17894846079614054",
+      "createdAt": "2026-10-22T22:23:52.813Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "This one did all the blowing up without a single breath going in.",
+        "reply_to_id": "18126493667486426"
+      }
     }
   },
   "repliedCommentIds": [
@@ -46486,7 +46495,7 @@
   },
   "spend": {
     "date": "2026-10-22",
-    "usd": 0.032905595999999995
+    "usd": 0.033596171999999994
   },
   "lateSweep": {
     "date": "2026-10-22",
