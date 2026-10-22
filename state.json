@@ -33319,6 +33319,15 @@
       },
       "publishedId": "17913897924501269",
       "confirmedPublished": true
+    },
+    "comment:18147163201605651": {
+      "creationId": "17894730060614054",
+      "createdAt": "2026-10-22T01:57:40.103Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Barium filling the colon and the apple core name are both right. So annular carcinoma is the answer you were already circling.",
+        "reply_to_id": "18147163201605651"
+      }
     }
   },
   "repliedCommentIds": [
@@ -46119,7 +46128,7 @@
   },
   "spend": {
     "date": "2026-10-21",
-    "usd": 0.018286722000000002
+    "usd": 0.019118754
   },
   "lateSweep": {
     "date": "2026-10-21",
