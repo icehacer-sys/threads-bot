@@ -33581,6 +33581,15 @@
       },
       "publishedId": "18222312259353705",
       "confirmedPublished": true
+    },
+    "comment:18042645665834475": {
+      "creationId": "17894842632614054",
+      "createdAt": "2026-10-22T21:25:41.576Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "A partly full one would slosh around all the way down. That round shadow swelled up from the heart itself though.",
+        "reply_to_id": "18042645665834475"
+      }
     }
   },
   "repliedCommentIds": [
@@ -46413,7 +46422,7 @@
   },
   "spend": {
     "date": "2026-10-22",
-    "usd": 0.027489959999999994
+    "usd": 0.028129535999999993
   },
   "lateSweep": {
     "date": "2026-10-22",
