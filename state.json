@@ -33702,6 +33702,15 @@
       },
       "publishedId": "17934472764142392",
       "confirmedPublished": true
+    },
+    "comment:18097276727537361": {
+      "creationId": "17894853813614054",
+      "createdAt": "2026-10-23T00:11:26.310Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Someone skipped the bin and went the scenic route. Nothing went down the hatch this time though.",
+        "reply_to_id": "18097276727537361"
+      }
     }
   },
   "repliedCommentIds": [
@@ -46548,7 +46557,7 @@
   },
   "spend": {
     "date": "2026-10-22",
-    "usd": 0.03976298999999999
+    "usd": 0.04041533399999999
   },
   "lateSweep": {
     "date": "2026-10-22",
