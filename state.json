@@ -33768,6 +33768,15 @@
       },
       "publishedId": "18124091083936450",
       "confirmedPublished": true
+    },
+    "comment:18191053543404328": {
+      "creationId": "17894870856614054",
+      "createdAt": "2026-10-23T03:21:59.738Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Nine balloons in and the vacuum cleaner wins. The good news is this one was already inside the chest before anyone got to blowing it up.",
+        "reply_to_id": "18191053543404328"
+      }
     }
   },
   "repliedCommentIds": [
@@ -46620,7 +46629,7 @@
   },
   "spend": {
     "date": "2026-10-22",
-    "usd": 0.04556817
+    "usd": 0.046253513999999996
   },
   "lateSweep": {
     "date": "2026-10-22",
