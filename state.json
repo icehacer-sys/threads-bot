@@ -33862,6 +33862,15 @@
       },
       "publishedId": "18107318123299248",
       "confirmedPublished": true
+    },
+    "comment:18153511630532768": {
+      "creationId": "17894978634614054",
+      "createdAt": "2026-10-23T19:32:53.619Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "You read the technique right. Contrast fills the whole colon here and that smooth narrow outline is the loss of haustra that gives ulcerative colitis its lead pipe look.",
+        "reply_to_id": "18153511630532768"
+      }
     }
   },
   "repliedCommentIds": [
@@ -44855,7 +44864,8 @@
     "18095132021176946",
     "18135339373756718",
     "17913196740509253",
-    "18132696103744920"
+    "18132696103744920",
+    "18118201100280624"
   ],
   "answeredPostIds": [
     "18395606890093068"
@@ -45000,11 +45010,11 @@
     "18392433658207307": 26,
     "18131755174775163": 21,
     "18096011516656084": 40,
-    "18030752579899369": 5
+    "18030752579899369": 6
   },
   "daily": {
     "date": "2026-10-23",
-    "count": 5
+    "count": 6
   },
   "pinnedResolved": {
     "DaTTCIwoAw7": "18014812820883466"
@@ -46724,7 +46734,7 @@
   },
   "spend": {
     "date": "2026-10-23",
-    "usd": 0.009705756
+    "usd": 0.011043228
   },
   "lateSweep": {
     "date": "2026-10-23",
