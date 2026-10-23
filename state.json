@@ -34071,6 +34071,15 @@
       },
       "publishedId": "18139127683643706",
       "confirmedPublished": true
+    },
+    "comment:18120277480766310": {
+      "creationId": "17894992473614054",
+      "createdAt": "2026-10-23T22:59:35.062Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Refrigerated sausage casing at 35000 feet is a sentence I did not expect today. At least this one stayed pressed and tidy.",
+        "reply_to_id": "18120277480766310"
+      }
     }
   },
   "repliedCommentIds": [
@@ -46955,7 +46964,7 @@
   },
   "spend": {
     "date": "2026-10-23",
-    "usd": 0.024739332000000003
+    "usd": 0.025178580000000002
   },
   "lateSweep": {
     "date": "2026-10-23",
