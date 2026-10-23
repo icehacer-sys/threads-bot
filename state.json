@@ -33796,6 +33796,15 @@
       },
       "publishedId": "17951102094056694",
       "confirmedPublished": true
+    },
+    "comment:18222823132338882": {
+      "creationId": "17894978502614054",
+      "createdAt": "2026-10-23T19:30:41.615Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "That would explain the whole winding shape. No scales on this one though.",
+        "reply_to_id": "18222823132338882"
+      }
     }
   },
   "repliedCommentIds": [
@@ -46650,7 +46659,7 @@
   },
   "spend": {
     "date": "2026-10-23",
-    "usd": 0.002733576
+    "usd": 0.00333138
   },
   "lateSweep": {
     "date": "2026-10-23",
