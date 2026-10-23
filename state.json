@@ -33936,7 +33936,9 @@
         "media_type": "TEXT",
         "text": "A whole colon with nowhere left to fold. It's a striking one.",
         "reply_to_id": "18145410916608782"
-      }
+      },
+      "publishedId": "18017925812956861",
+      "confirmedPublished": true
     }
   },
   "repliedCommentIds": [
