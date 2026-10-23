@@ -33961,6 +33961,15 @@
       },
       "publishedId": "18036470864908384",
       "confirmedPublished": true
+    },
+    "comment:17925938799200868": {
+      "creationId": "17894983143614054",
+      "createdAt": "2026-10-23T20:24:39.962Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "That's the answer. The whole colon showing up as one smooth tube with no folds left is the part most people miss.",
+        "reply_to_id": "17925938799200868"
+      }
     }
   },
   "repliedCommentIds": [
@@ -46835,7 +46844,7 @@
   },
   "spend": {
     "date": "2026-10-23",
-    "usd": 0.01755744
+    "usd": 0.018512736000000002
   },
   "lateSweep": {
     "date": "2026-10-23",
