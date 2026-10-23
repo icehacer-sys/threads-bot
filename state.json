@@ -33735,6 +33735,15 @@
       },
       "publishedId": "17988921246063888",
       "confirmedPublished": true
+    },
+    "comment:17898938727398339": {
+      "creationId": "17894862183614054",
+      "createdAt": "2026-10-23T01:42:48.989Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Turns out the gum wasn't the problem. Nobody swallowed anything for this one.",
+        "reply_to_id": "17898938727398339"
+      }
     }
   },
   "repliedCommentIds": [
@@ -46584,7 +46593,7 @@
   },
   "spend": {
     "date": "2026-10-22",
-    "usd": 0.04211390999999999
+    "usd": 0.04277765399999999
   },
   "lateSweep": {
     "date": "2026-10-22",
