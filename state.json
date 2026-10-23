@@ -33994,6 +33994,15 @@
       },
       "publishedId": "18170647897465139",
       "confirmedPublished": true
+    },
+    "comment:18469278175140540": {
+      "creationId": "17894984454614054",
+      "createdAt": "2026-10-23T20:40:51.240Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Molasses is a bold call. Nothing blocked here though. The colon is just narrow and smooth all the way round.",
+        "reply_to_id": "18469278175140540"
+      }
     }
   },
   "repliedCommentIds": [
@@ -46871,7 +46880,7 @@
   },
   "spend": {
     "date": "2026-10-23",
-    "usd": 0.020294700000000002
+    "usd": 0.021219264
   },
   "lateSweep": {
     "date": "2026-10-23",
