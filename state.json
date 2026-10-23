@@ -33939,6 +33939,15 @@
       },
       "publishedId": "18017925812956861",
       "confirmedPublished": true
+    },
+    "comment:18059325218803086": {
+      "creationId": "17894980542614054",
+      "createdAt": "2026-10-23T19:53:39.131Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "You spotted the smooth part on your own. The missing folds are what make it worth knowing.",
+        "reply_to_id": "18059325218803086"
+      }
     }
   },
   "repliedCommentIds": [
@@ -46809,7 +46818,7 @@
   },
   "spend": {
     "date": "2026-10-23",
-    "usd": 0.014873148
+    "usd": 0.015566087999999999
   },
   "lateSweep": {
     "date": "2026-10-23",
