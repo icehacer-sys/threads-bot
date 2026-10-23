@@ -34104,6 +34104,15 @@
       },
       "publishedId": "18091923965212598",
       "confirmedPublished": true
+    },
+    "comment:18098449871649743": {
+      "creationId": "17894994192614054",
+      "createdAt": "2026-10-23T23:30:46.902Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Not cancer. This is ulcerative colitis.",
+        "reply_to_id": "18098449871649743"
+      }
     }
   },
   "repliedCommentIds": [
@@ -46992,7 +47001,7 @@
   },
   "spend": {
     "date": "2026-10-23",
-    "usd": 0.027124008
+    "usd": 0.028600590000000002
   },
   "lateSweep": {
     "date": "2026-10-23",
