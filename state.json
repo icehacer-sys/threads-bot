@@ -34027,6 +34027,15 @@
       },
       "publishedId": "18077658374447939",
       "confirmedPublished": true
+    },
+    "comment:18119716927989594": {
+      "creationId": "17894990232614054",
+      "createdAt": "2026-10-23T22:12:54.772Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Whole and unchewed. That's why there's no scales anywhere on the outline.",
+        "reply_to_id": "18119716927989594"
+      }
     }
   },
   "repliedCommentIds": [
@@ -46907,7 +46916,7 @@
   },
   "spend": {
     "date": "2026-10-23",
-    "usd": 0.022297824
+    "usd": 0.022770804000000002
   },
   "lateSweep": {
     "date": "2026-10-23",
