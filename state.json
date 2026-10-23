@@ -33746,6 +33746,15 @@
       },
       "publishedId": "17987052882084751",
       "confirmedPublished": true
+    },
+    "comment:18078603647555178": {
+      "creationId": "17894865072614054",
+      "createdAt": "2026-10-23T02:13:21.305Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Stunned is closer than dying. It's takotsubo and the tip actually balloons out wide rather than shrinking.",
+        "reply_to_id": "18078603647555178"
+      }
     }
   },
   "repliedCommentIds": [
@@ -46596,7 +46605,7 @@
   },
   "spend": {
     "date": "2026-10-22",
-    "usd": 0.04277765399999999
+    "usd": 0.044893157999999996
   },
   "lateSweep": {
     "date": "2026-10-22",
