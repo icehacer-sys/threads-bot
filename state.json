@@ -33710,7 +33710,9 @@
         "media_type": "TEXT",
         "text": "Someone skipped the bin and went the scenic route. Nothing went down the hatch this time though.",
         "reply_to_id": "18097276727537361"
-      }
+      },
+      "publishedId": "18109653878248270",
+      "confirmedPublished": true
     }
   },
   "repliedCommentIds": [
