@@ -33713,6 +33713,15 @@
       },
       "publishedId": "18109653878248270",
       "confirmedPublished": true
+    },
+    "comment:18124755352846402": {
+      "creationId": "17894856693614054",
+      "createdAt": "2026-10-23T00:41:58.624Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Now I want one and the truck never comes down my street. The eyes are the giveaway on this one though.",
+        "reply_to_id": "18124755352846402"
+      }
     }
   },
   "repliedCommentIds": [
@@ -46560,7 +46569,7 @@
   },
   "spend": {
     "date": "2026-10-22",
-    "usd": 0.04041533399999999
+    "usd": 0.04109347799999999
   },
   "lateSweep": {
     "date": "2026-10-22",
