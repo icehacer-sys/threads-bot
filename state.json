@@ -33983,6 +33983,15 @@
       },
       "publishedId": "18118730624582937",
       "confirmedPublished": true
+    },
+    "comment:17953136265272166": {
+      "creationId": "17894983164614054",
+      "createdAt": "2026-10-23T20:25:19.695Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "The smoothness was the real clue all along. It just looks like a tidy colon until you know what the folds should be doing.",
+        "reply_to_id": "17953136265272166"
+      }
     }
   },
   "repliedCommentIds": [
@@ -44987,7 +44996,8 @@
     "18145410916608782",
     "18059325218803086",
     "18118301225001185",
-    "17925938799200868"
+    "17925938799200868",
+    "18340776037258749"
   ],
   "answeredPostIds": [
     "18395606890093068"
@@ -45132,11 +45142,11 @@
     "18392433658207307": 26,
     "18131755174775163": 21,
     "18096011516656084": 40,
-    "18030752579899369": 16
+    "18030752579899369": 17
   },
   "daily": {
     "date": "2026-10-23",
-    "count": 16
+    "count": 17
   },
   "pinnedResolved": {
     "DaTTCIwoAw7": "18014812820883466"
@@ -46858,7 +46868,7 @@
   },
   "spend": {
     "date": "2026-10-23",
-    "usd": 0.019595460000000002
+    "usd": 0.020294700000000002
   },
   "lateSweep": {
     "date": "2026-10-23",
