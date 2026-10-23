@@ -33732,7 +33732,9 @@
         "media_type": "TEXT",
         "text": "Yep that's it",
         "reply_to_id": "18121064660516850"
-      }
+      },
+      "publishedId": "17988921246063888",
+      "confirmedPublished": true
     }
   },
   "repliedCommentIds": [
