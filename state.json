@@ -34049,6 +34049,15 @@
       },
       "publishedId": "17917205049596150",
       "confirmedPublished": true
+    },
+    "comment:18451880065130361": {
+      "creationId": "17894990772614054",
+      "createdAt": "2026-10-23T22:28:39.822Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "That's just the contrast doing the glowing. The colon's own taste in snacks stays a mystery.",
+        "reply_to_id": "18451880065130361"
+      }
     }
   },
   "repliedCommentIds": [
@@ -46931,7 +46940,7 @@
   },
   "spend": {
     "date": "2026-10-23",
-    "usd": 0.023310084000000002
+    "usd": 0.023740032
   },
   "lateSweep": {
     "date": "2026-10-23",
