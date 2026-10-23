@@ -34112,7 +34112,9 @@
         "media_type": "TEXT",
         "text": "Not cancer. This is ulcerative colitis.",
         "reply_to_id": "18098449871649743"
-      }
+      },
+      "publishedId": "18116906687010511",
+      "confirmedPublished": true
     }
   },
   "repliedCommentIds": [
