@@ -34016,6 +34016,15 @@
       },
       "publishedId": "18116218106038063",
       "confirmedPublished": true
+    },
+    "comment:17962383287999713": {
+      "creationId": "17894985060614054",
+      "createdAt": "2026-10-23T20:56:43.477Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Loss of haustra is the whole story here. That smooth tube is why it gets called lead pipe.",
+        "reply_to_id": "17962383287999713"
+      }
     }
   },
   "repliedCommentIds": [
@@ -46895,7 +46904,7 @@
   },
   "spend": {
     "date": "2026-10-23",
-    "usd": 0.021717744
+    "usd": 0.022297824
   },
   "lateSweep": {
     "date": "2026-10-23",
