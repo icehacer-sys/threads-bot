@@ -33950,6 +33950,15 @@
       },
       "publishedId": "18131916973701204",
       "confirmedPublished": true
+    },
+    "comment:18118301225001185": {
+      "creationId": "17894982012614054",
+      "createdAt": "2026-10-23T20:09:05.334Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "The worm drank the tequila and upgraded. Somebody has to explain the salt and lime.",
+        "reply_to_id": "18118301225001185"
+      }
     }
   },
   "repliedCommentIds": [
@@ -46822,7 +46831,7 @@
   },
   "spend": {
     "date": "2026-10-23",
-    "usd": 0.015566087999999999
+    "usd": 0.016445616
   },
   "lateSweep": {
     "date": "2026-10-23",
