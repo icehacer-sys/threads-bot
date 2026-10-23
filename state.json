@@ -34060,6 +34060,15 @@
       },
       "publishedId": "18080191421393307",
       "confirmedPublished": true
+    },
+    "comment:18126102661683539": {
+      "creationId": "17894991456614054",
+      "createdAt": "2026-10-23T22:44:09.118Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "The ghost part is a stretch. The rest is just contrast filling the colon. Your pun work scored higher than the read 🤣",
+        "reply_to_id": "18126102661683539"
+      }
     }
   },
   "repliedCommentIds": [
@@ -46943,7 +46952,7 @@
   },
   "spend": {
     "date": "2026-10-23",
-    "usd": 0.023740032
+    "usd": 0.024739332000000003
   },
   "lateSweep": {
     "date": "2026-10-23",
