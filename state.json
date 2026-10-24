@@ -34159,6 +34159,15 @@
       },
       "publishedId": "17908216854578563",
       "confirmedPublished": true
+    },
+    "comment:18210343195365656": {
+      "creationId": "17895007689614054",
+      "createdAt": "2026-10-24T01:54:26.215Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "It does loop like a snake taking a nap. That tube is the colon though and it lost its folds.",
+        "reply_to_id": "18210343195365656"
+      }
     }
   },
   "repliedCommentIds": [
@@ -47053,7 +47062,7 @@
   },
   "spend": {
     "date": "2026-10-23",
-    "usd": 0.032452182
+    "usd": 0.033113658000000004
   },
   "lateSweep": {
     "date": "2026-10-23",
