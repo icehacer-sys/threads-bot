@@ -34181,6 +34181,15 @@
       },
       "publishedId": "18102409961053567",
       "confirmedPublished": true
+    },
+    "comment:18013267451761188": {
+      "creationId": "17895013233614054",
+      "createdAt": "2026-10-24T02:25:16.517Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Smooth on a film is one thing but feeling it is another. Sorry yours keep you reminded.",
+        "reply_to_id": "18013267451761188"
+      }
     }
   },
   "repliedCommentIds": [
@@ -47078,7 +47087,7 @@
   },
   "spend": {
     "date": "2026-10-23",
-    "usd": 0.034799034000000006
+    "usd": 0.03586973400000001
   },
   "lateSweep": {
     "date": "2026-10-23",
