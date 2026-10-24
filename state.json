@@ -34225,6 +34225,15 @@
       },
       "publishedId": "18118632067967150",
       "confirmedPublished": true
+    },
+    "comment:18112365470161492": {
+      "creationId": "17895042519614054",
+      "createdAt": "2026-10-24T06:55:02.499Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Chronic scarring does that. It shortens the colon and pulls it into a narrow tube.",
+        "reply_to_id": "18112365470161492"
+      }
     }
   },
   "repliedCommentIds": [
@@ -47127,7 +47136,7 @@
   },
   "spend": {
     "date": "2026-10-23",
-    "usd": 0.038944254000000005
+    "usd": 0.04070482200000001
   },
   "lateSweep": {
     "date": "2026-10-23",
