@@ -34192,6 +34192,15 @@
       },
       "publishedId": "17962910223209956",
       "confirmedPublished": true
+    },
+    "comment:17893250277682346": {
+      "creationId": "17895020340614054",
+      "createdAt": "2026-10-24T03:25:56.743Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "I can see a state border in that loop. Ohio with one very long southern edge.",
+        "reply_to_id": "17893250277682346"
+      }
     }
   },
   "repliedCommentIds": [
@@ -47091,7 +47100,7 @@
   },
   "spend": {
     "date": "2026-10-23",
-    "usd": 0.03692493000000001
+    "usd": 0.03767530200000001
   },
   "lateSweep": {
     "date": "2026-10-23",
