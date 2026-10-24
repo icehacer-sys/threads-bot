@@ -34137,6 +34137,15 @@
       },
       "publishedId": "18374613907244747",
       "confirmedPublished": true
+    },
+    "comment:18142075579613391": {
+      "creationId": "17894996340614054",
+      "createdAt": "2026-10-24T00:01:46.322Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Packed to the brim and still not happy about it.",
+        "reply_to_id": "18142075579613391"
+      }
     }
   },
   "repliedCommentIds": [
@@ -47028,7 +47037,7 @@
   },
   "spend": {
     "date": "2026-10-23",
-    "usd": 0.030071670000000005
+    "usd": 0.030680046000000006
   },
   "lateSweep": {
     "date": "2026-10-23",
