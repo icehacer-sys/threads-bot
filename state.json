@@ -34246,6 +34246,15 @@
       },
       "publishedId": "18117904379071436",
       "confirmedPublished": true
+    },
+    "comment:17914227558288222": {
+      "creationId": "17895522165614054",
+      "createdAt": "2026-10-26T19:31:26.688Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Yes. The bladder wall is the classic eggshell outline and the calcification can track up the ureters too. That bilateral look is what points to schistosomiasis.",
+        "reply_to_id": "17914227558288222"
+      }
     }
   },
   "repliedCommentIds": [
@@ -47149,7 +47158,7 @@
   },
   "spend": {
     "date": "2026-10-26",
-    "usd": 0.00435318
+    "usd": 0.005804376
   },
   "lateSweep": {
     "date": "2026-10-26",
