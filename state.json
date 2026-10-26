@@ -34279,6 +34279,15 @@
       },
       "publishedId": "18011006625003191",
       "confirmedPublished": true
+    },
+    "comment:17906154723351177": {
+      "creationId": "17895522213614054",
+      "createdAt": "2026-10-26T19:32:22.738Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "It really does look like a hatch to somewhere. That circle is the calcium rim around the bladder though. Bilharzia.",
+        "reply_to_id": "17906154723351177"
+      }
     }
   },
   "repliedCommentIds": [
@@ -45309,7 +45318,8 @@
     "18117429332052584",
     "18112365470161492",
     "17914227558288222",
-    "18201607522375917"
+    "18201607522375917",
+    "17998054146018536"
   ],
   "answeredPostIds": [
     "18395606890093068"
@@ -45455,11 +45465,11 @@
     "18131755174775163": 21,
     "18096011516656084": 40,
     "18030752579899369": 40,
-    "18095590730446526": 2
+    "18095590730446526": 3
   },
   "daily": {
     "date": "2026-10-26",
-    "count": 2
+    "count": 3
   },
   "pinnedResolved": {
     "DaTTCIwoAw7": "18014812820883466"
@@ -47187,7 +47197,7 @@
   },
   "spend": {
     "date": "2026-10-26",
-    "usd": 0.00837528
+    "usd": 0.008826624
   },
   "lateSweep": {
     "date": "2026-10-26",
