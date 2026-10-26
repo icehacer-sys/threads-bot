@@ -9,3 +9,6 @@ _*
 
 # state.json is intentionally TRACKED: the GitHub Actions runner commits it back
 # each run so the bot remembers which comments it already answered. Do not ignore it.
+
+# Reveal poll hint the worker writes for its own sleep (src/reveal-poll.ts). Never commit.
+.reveal-poll-at

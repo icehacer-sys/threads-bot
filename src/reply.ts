@@ -281,7 +281,7 @@ export function isNonEnglishScript(text: string | undefined): boolean {
 
 export function isImageConcern(text: string): boolean { return imageConcernKind(text) !== undefined; }
 /** DeepSeek's pre-reveal hold is final for this poll: no repair call, straight to the reveal hold. */
-function isDeepSeekRevealHold(d: Decision): boolean {
+export function isDeepSeekRevealHold(d: Decision): boolean {
   return d.decision === 'skip' && d.reason.startsWith('spoiler guard: DeepSeek pre-reveal reply held');
 }
 export function isPreRevealHold(d: Decision, answerPublic: boolean): boolean {

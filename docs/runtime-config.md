@@ -40,6 +40,7 @@ minCommentLength: num("BOT_MIN_COMMENT_LEN", 3),
 educationalReplies: (process.env.BOT_EDUCATIONAL ?? "on").toLowerCase() !== "off",
 answerEnabled: (process.env.BOT_ANSWER ?? "on").toLowerCase() !== "off",
 answerDelayHours: num("BOT_ANSWER_DELAY_HOURS", 1),
+revealDelayMin: num("BOT_REVEAL_DELAY_MIN", 20),
 answerUseSpoiler: (process.env.BOT_ANSWER_SPOILER ?? "off").toLowerCase() === "on",
 visionEnabled: (process.env.BOT_VISION ?? "on").toLowerCase() !== "off",
 activeTz: process.env.BOT_ACTIVE_TZ ?? "",
@@ -78,6 +79,7 @@ BOT_WINDOW_HOURS: "16" # scan only the day's fresh post: 16h excludes the prior 
 BOT_VISION: "on"
 BOT_ANSWER: "on"
 BOT_ANSWER_DELAY_HOURS: "1"
+BOT_REVEAL_DELAY_MIN: "20" # the publisher's answer delay (xray-cases BOT_ANSWER_DELAY_MIN): one poll lands just after it. "0" = off
 BOT_ANSWER_SPOILER: "on"
 BOT_ACTIVE_TZ: "Africa/Cairo"
 BOT_ACTIVE_WINDOWS: ${{ github.event.inputs.window || '22-10' }}

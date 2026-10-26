@@ -167,6 +167,10 @@ export const config = {
   // spoiler-blurred, once a post is answerDelayHours old. You pin it manually.
   answerEnabled: (process.env.BOT_ANSWER ?? "on").toLowerCase() !== "off",
   answerDelayHours: num("BOT_ANSWER_DELAY_HOURS", 1),
+  // Minutes after the case post that the xray-cases publisher posts the answer (its BOT_ANSWER_DELAY_MIN).
+  // The worker schedules one poll just after it so held comments are answered within about a minute
+  // (src/reveal-poll.ts). 0 turns the reveal poll off.
+  revealDelayMin: num("BOT_REVEAL_DELAY_MIN", 20),
 
   // Blur the answer breakdown as a spoiler. Off (default) = post the answer in full, visible.
   answerUseSpoiler: (process.env.BOT_ANSWER_SPOILER ?? "off").toLowerCase() === "on",
