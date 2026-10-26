@@ -34422,6 +34422,15 @@
       },
       "publishedId": "18428277136147720",
       "confirmedPublished": true
+    },
+    "comment:18198132304386734": {
+      "creationId": "17895524847614054",
+      "createdAt": "2026-10-26T20:06:27.724Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "A jellectomy does sound like the kindest option. The real blood came from eggs lodged in the bladder wall.",
+        "reply_to_id": "18198132304386734"
+      }
     }
   },
   "repliedCommentIds": [
@@ -45465,7 +45474,8 @@
     "18134080331496100",
     "17912818665473363",
     "18470690272139854",
-    "18099271352413263"
+    "18099271352413263",
+    "18133564846815427"
   ],
   "answeredPostIds": [
     "18395606890093068"
@@ -45611,11 +45621,11 @@
     "18131755174775163": 21,
     "18096011516656084": 40,
     "18030752579899369": 40,
-    "18095590730446526": 15
+    "18095590730446526": 16
   },
   "daily": {
     "date": "2026-10-26",
-    "count": 15
+    "count": 16
   },
   "pinnedResolved": {
     "DaTTCIwoAw7": "18014812820883466"
@@ -47344,7 +47354,7 @@
   },
   "spend": {
     "date": "2026-10-26",
-    "usd": 0.020173404
+    "usd": 0.02165598
   },
   "lateSweep": {
     "date": "2026-10-26",
