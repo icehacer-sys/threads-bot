@@ -31,6 +31,7 @@ import { addresseeVerdict, taggedOthers, type AddresseeContext } from "./peer-co
 import { acknowledgmentKind, holdForImageReview, imageConcernKind, isRetiredMedicalBoundary } from "./concerns";
 import { getProduct } from "./products";
 import { resolveXrayAnswer } from "./xray";
+import { revealPollAt, writeRevealPoll } from "./reveal-poll";
 import {
   getMyUsername,
   getRecentPosts,
@@ -577,6 +578,8 @@ async function runLiveOrDry(mode: Mode, target: string | null, observation: Cove
     } catch { /* Observation never selects behavior. */ }
   };
   const posting = mode === "live";
+  // A poll that ends early or fails leaves no reveal time behind (src/reveal-poll.ts).
+  if (posting) writeRevealPoll([]);
   if (posting && !config.confirmLive) {
     console.error("\nLIVE mode refused: set BOT_CONFIRM_LIVE=yes in .env to allow posting.\n");
     process.exitCode = 1;
@@ -658,6 +661,7 @@ async function runLiveOrDry(mode: Mode, target: string | null, observation: Cove
   let processed = 0; // comments we got a final decision for (a live model verdict, not a fetch skip)
   let errorSkips = 0; // of those, how many were API-error skips — used for the outage dead-man's-switch
   const skipCounts: Record<string, number> = {};
+  const revealDue: number[] = []; // epoch seconds a pre-reveal case post's answer is due
   // In live mode markReplied() updates remainingToday(); in dry mode state is not
   // touched, so track the intended count against the cap directly.
   const budgetLeft = () => (posting ? state.remainingToday() : config.dailyCap - replied);
@@ -894,6 +898,10 @@ async function runLiveOrDry(mode: Mode, target: string | null, observation: Cove
     const isPersonalPost = postImages.length === 0 && !resolved.answer;
     if (isPersonalPost) console.log("  (no X-ray and no answer -> treating this as a PERSONAL post: no guessing, no promo)");
     const knownAnswer = resolved.answer;
+    if (posting && !sweep && !answerPublic && !isPersonalPost && !!knownAnswer && post.timestamp && !pinnedIds.has(post.id) && !revisitIds.has(post.id)) {
+      const at = revealPollAt(post.timestamp, Date.now(), config.revealDelayMin);
+      if (at !== null) revealDue.push(at);
+    }
     const revealFacts = answerPublic ? resolved.facts : undefined;
 
     // Reply to follow-ups people leave under one of OUR replies. A follow-up is eligible
@@ -1330,6 +1338,11 @@ async function runLiveOrDry(mode: Mode, target: string | null, observation: Cove
       }
     }
     console.log("");
+  }
+
+  if (posting && revealDue.length) {
+    writeRevealPoll(revealDue);
+    console.log(`Answer not public yet: next poll at ${new Date(Math.min(...revealDue) * 1000).toISOString()}.`);
   }
 
   // One completed sweep per cap-day. Idempotency per comment comes from the replied log and receipts, so

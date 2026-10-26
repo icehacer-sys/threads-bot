@@ -64,12 +64,16 @@ git() {
   esac
 }
 npm() {
-  local count
+  local count now
   event npm "$*"
   case "$*" in
     'run live')
       read -r count < polls; count=$((count+1)); printf '%s\n' "$count" > polls
       printf '{"generation":%s,"pending":{"creationId":"saved-container"}}\n' "$count" > state.json
+      # The bot leaves the answer's due time until the reveal, then clears it (src/reveal-poll.ts).
+      read -r now < clock
+      if [ -n "$REVEAL_AT" ]; then if [ "$now" -lt "$REVEAL_AT" ]; then printf '%s\n' "$REVEAL_AT" > .reveal-poll-at; else : > .reveal-poll-at; fi; fi
+      if [ -n "$REVEAL_HINT" ]; then printf '%s\n' "$REVEAL_HINT" > .reveal-poll-at; fi
       printf '1\n' > dirty; advance "$LIVE_SECONDS"; return "$LIVE_RC" ;;
     'run preflight') advance "$PREFLIGHT_SECONDS"; return 0 ;;
     'run dry'|'run fb:dry') return 0 ;;
@@ -98,7 +102,7 @@ function fixture(overrides = {}) {
     BOT_FACEBOOK_REPLY: 'off', BOT_ACTIVE_START: '22', MAXSECS: '100',
     PREFLIGHT_LEAD: '300', FATAL_COOLDOWN: '1800', CAIRO_HOUR: '14', CAIRO_MINUTE: '0',
     LIVE_SECONDS: '0', LIVE_RC: '0', SYNC_SECONDS: '0', CALC_SECONDS: '0',
-    PREFLIGHT_SECONDS: '0', OVERSLEEP_SECONDS: '0', FAIL_PUSH_FROM: '0', ...overrides,
+    PREFLIGHT_SECONDS: '0', OVERSLEEP_SECONDS: '0', FAIL_PUSH_FROM: '0', REVEAL_AT: '', REVEAL_HINT: '', ...overrides,
   };
   try {
     const result = spawnSync('/bin/bash', ['--noprofile', '--norc', '-e', '-o', 'pipefail'], {
@@ -173,6 +177,19 @@ assert.equal(sweepOff.events.filter(e => e.kind === 'npm' && e.args === 'run pre
 const lateAfternoon = fixture({ MAXSECS: '100', CAIRO_HOUR: '14', BOT_LATE_SWEEP: 'on', LATE_SWEEP_LEAD: '1800' });
 normal(lateAfternoon, 1, [100]);
 console.log('PASS late sweep cadence: a 21:30 poll before the unchanged 21:55 preflight; off keeps the old cadence');
+
+// Reveal poll (2026-10-26): the answer is due 21 min after a 22:00 post. The 15 min cadence would reach it at
+// 22:30. One shortened nap lands the poll at 22:21, then the cadence is unchanged.
+const revealNight = fixture({ MAXSECS: '2700', CAIRO_HOUR: '22', REVEAL_AT: '1260' });
+normal(revealNight, 4, [900, 360, 900, 540]);
+assert.deepEqual(revealNight.polls.map(p => p.time), [0, 900, 1260, 2160], 'a poll lands on the reveal');
+for (const hint of ['0', 'soon', '']) {
+  normal(fixture({ MAXSECS: '2700', CAIRO_HOUR: '23', REVEAL_HINT: hint }), 3, [900, 900, 900]);
+}
+const revealPreflight = fixture({ MAXSECS: '400', CAIRO_HOUR: '21', CAIRO_MINUTE: '50', PREFLIGHT_SECONDS: '150', REVEAL_HINT: '60' });
+normal(revealPreflight, 1, [300]);
+assert.equal(revealPreflight.events.filter(e => e.kind === 'npm' && e.args === 'run preflight').length, 1, 'the credit check nap is never moved');
+console.log('PASS reveal poll lands one poll on the answer; past, invalid or empty hints and the preflight nap are unchanged');
 
 const failedFinalSync = fixture({ FAIL_PUSH_FROM: '3' });
 assert.equal(failedFinalSync.status, 1);

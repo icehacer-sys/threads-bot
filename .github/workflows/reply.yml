@@ -63,6 +63,7 @@ jobs:
       BOT_VISION: "on"
       BOT_ANSWER: "on"
       BOT_ANSWER_DELAY_HOURS: "1"
+      BOT_REVEAL_DELAY_MIN: "20" # the publisher's answer delay (xray-cases BOT_ANSWER_DELAY_MIN): one poll lands just after it. "0" = off
       BOT_ANSWER_SPOILER: "on"
       BOT_ACTIVE_TZ: "Africa/Cairo"
       # 10 PM until 10 AM Cairo (one overnight window). Changed from 23-11 (owner, 2026-07-07) to
@@ -298,6 +299,19 @@ jobs:
               if [ "$sweep_nap_due" = "0" ] && [ "$nap" -gt 0 ] && [ "$nap" -le 3600 ]; then preflight_due=1; fi
               if [ "$nap" -gt 3600 ]; then nap=3600; fi
               if [ "$nap" -lt 60 ]; then nap=60; fi
+            fi
+            # Reveal poll (owner 2026-10-26): while tonight's answer is not public yet, the poll leaves the
+            # time it is due in .reveal-poll-at (src/reveal-poll.ts). Land the next poll on it so held
+            # comments are answered about a minute after the reveal instead of up to 15 min later. A
+            # missing, empty or past time keeps the normal nap, and the pre-open credit check nap is never moved.
+            if [ "$preflight_due" = "0" ] && [ -f .reveal-poll-at ]; then
+              reveal_at=""
+              read -r reveal_at < .reveal-poll-at || true
+              reveal_now=$(date +%s)
+              if [[ "$reveal_at" =~ ^[0-9]+$ ]] && [ "$reveal_at" -gt "$reveal_now" ] && [ $(( reveal_at - reveal_now )) -lt "$nap" ]; then
+                nap=$(( reveal_at - reveal_now ))
+                echo "answer reveal due: next poll in ${nap}s"
+              fi
             fi
             # Cadence calculation also takes time. Never let a nap carry this worker
             # past its budget, or run a preflight early because its nap was shortened.
