@@ -34566,6 +34566,15 @@
       },
       "publishedId": "18119113252964672",
       "confirmedPublished": true
+    },
+    "comment:18035136131854855": {
+      "creationId": "17895534408614054",
+      "createdAt": "2026-10-26T21:47:59.444Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Eggshell fits. It's schistosomiasis and those eggs are what calcified in the wall.",
+        "reply_to_id": "18035136131854855"
+      }
     }
   },
   "repliedCommentIds": [
@@ -47505,7 +47514,7 @@
   },
   "spend": {
     "date": "2026-10-26",
-    "usd": 0.036498576000000005
+    "usd": 0.036986292000000004
   },
   "lateSweep": {
     "date": "2026-10-26",
