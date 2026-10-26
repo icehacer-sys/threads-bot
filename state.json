@@ -34345,6 +34345,15 @@
       },
       "publishedId": "18097668464407538",
       "confirmedPublished": true
+    },
+    "comment:17964239001209770": {
+      "creationId": "17895523350614054",
+      "createdAt": "2026-10-26T19:49:23.249Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Wish it were that harmless. That ring is calcium in the bladder wall.",
+        "reply_to_id": "17964239001209770"
+      }
     }
   },
   "repliedCommentIds": [
@@ -47261,7 +47270,7 @@
   },
   "spend": {
     "date": "2026-10-26",
-    "usd": 0.014794428000000002
+    "usd": 0.015643656000000002
   },
   "lateSweep": {
     "date": "2026-10-26",
