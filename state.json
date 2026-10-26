@@ -34533,6 +34533,15 @@
       },
       "publishedId": "18114735923611912",
       "confirmedPublished": true
+    },
+    "comment:18107929252953849": {
+      "creationId": "17895530385614054",
+      "createdAt": "2026-10-26T21:01:51.539Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "The eggs did the hard part. They left that shell sitting there for anyone to find.",
+        "reply_to_id": "18107929252953849"
+      }
     }
   },
   "repliedCommentIds": [
@@ -47469,7 +47478,7 @@
   },
   "spend": {
     "date": "2026-10-26",
-    "usd": 0.03406468800000001
+    "usd": 0.03518828400000001
   },
   "lateSweep": {
     "date": "2026-10-26",
