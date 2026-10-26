@@ -34588,6 +34588,15 @@
       },
       "publishedId": "18134081452705685",
       "confirmedPublished": true
+    },
+    "comment:18132933730836045": {
+      "creationId": "17895538677614054",
+      "createdAt": "2026-10-26T22:48:55.463Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "The X-ray was almost the polite part of it.",
+        "reply_to_id": "18132933730836045"
+      }
     }
   },
   "repliedCommentIds": [
@@ -47529,7 +47538,7 @@
   },
   "spend": {
     "date": "2026-10-26",
-    "usd": 0.037793700000000006
+    "usd": 0.03841304400000001
   },
   "lateSweep": {
     "date": "2026-10-26",
