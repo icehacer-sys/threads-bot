@@ -34478,6 +34478,15 @@
       },
       "publishedId": "18131906071840782",
       "confirmedPublished": true
+    },
+    "comment:18034862471854924": {
+      "creationId": "17895528951614054",
+      "createdAt": "2026-10-26T20:44:58.828Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Glass would at least be an easy story. That outline is the bladder wall ringed in calcium.",
+        "reply_to_id": "18034862471854924"
+      }
     }
   },
   "repliedCommentIds": [
@@ -47409,7 +47418,7 @@
   },
   "spend": {
     "date": "2026-10-26",
-    "usd": 0.028583004
+    "usd": 0.02903382
   },
   "lateSweep": {
     "date": "2026-10-26",
