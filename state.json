@@ -34544,6 +34544,15 @@
       },
       "publishedId": "18159118717547602",
       "confirmedPublished": true
+    },
+    "comment:18026626889876703": {
+      "creationId": "17895531879614054",
+      "createdAt": "2026-10-26T21:17:16.514Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Cats have strong opinions about their seasoning. They also have the option to walk away. A person with this one does not. 🤣",
+        "reply_to_id": "18026626889876703"
+      }
     }
   },
   "repliedCommentIds": [
@@ -47481,7 +47490,7 @@
   },
   "spend": {
     "date": "2026-10-26",
-    "usd": 0.03518828400000001
+    "usd": 0.03570556800000001
   },
   "lateSweep": {
     "date": "2026-10-26",
