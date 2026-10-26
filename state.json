@@ -34511,6 +34511,15 @@
       },
       "publishedId": "18113935586175724",
       "confirmedPublished": true
+    },
+    "comment:17934030189413374": {
+      "creationId": "17895529008614054",
+      "createdAt": "2026-10-26T20:46:07.390Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Not in the sense of losing it. The eggs lodged in the bladder wall get calcified where they sit. The calcium goes to them instead of staying in the bone.",
+        "reply_to_id": "17934030189413374"
+      }
     }
   },
   "repliedCommentIds": [
@@ -45562,7 +45571,8 @@
     "17998049130047362",
     "18079881239415487",
     "18034862471854924",
-    "18074157935743356"
+    "18074157935743356",
+    "18129546394884260"
   ],
   "answeredPostIds": [
     "18395606890093068"
@@ -45708,11 +45718,11 @@
     "18131755174775163": 21,
     "18096011516656084": 40,
     "18030752579899369": 40,
-    "18095590730446526": 23
+    "18095590730446526": 24
   },
   "daily": {
     "date": "2026-10-26",
-    "count": 23
+    "count": 24
   },
   "pinnedResolved": {
     "DaTTCIwoAw7": "18014812820883466"
@@ -47444,7 +47454,7 @@
   },
   "spend": {
     "date": "2026-10-26",
-    "usd": 0.03069906
+    "usd": 0.032735292000000006
   },
   "lateSweep": {
     "date": "2026-10-26",
