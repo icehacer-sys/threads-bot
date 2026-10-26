@@ -34541,7 +34541,9 @@
         "media_type": "TEXT",
         "text": "The eggs did the hard part. They left that shell sitting there for anyone to find.",
         "reply_to_id": "18107929252953849"
-      }
+      },
+      "publishedId": "18159118717547602",
+      "confirmedPublished": true
     }
   },
   "repliedCommentIds": [
