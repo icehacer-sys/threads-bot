@@ -34378,6 +34378,15 @@
       },
       "publishedId": "17864789103692816",
       "confirmedPublished": true
+    },
+    "comment:17912818665473363": {
+      "creationId": "17895524745614054",
+      "createdAt": "2026-10-26T20:05:20.467Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "The saucer parked itself in the bladder and left a glowing landing ring. Aliens really do pick the worst venues.",
+        "reply_to_id": "17912818665473363"
+      }
     }
   },
   "repliedCommentIds": [
@@ -47297,7 +47306,7 @@
   },
   "spend": {
     "date": "2026-10-26",
-    "usd": 0.017113728
+    "usd": 0.017944392
   },
   "lateSweep": {
     "date": "2026-10-26",
