@@ -34455,6 +34455,15 @@
       },
       "publishedId": "18003419819809859",
       "confirmedPublished": true
+    },
+    "comment:17998049130047362": {
+      "creationId": "17895527706614054",
+      "createdAt": "2026-10-26T20:29:01.726Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "The knights had one job and that was to keep the plaque empty. Your dad dropping that word over dinner is a whole other level of table talk.",
+        "reply_to_id": "17998049130047362"
+      }
     }
   },
   "repliedCommentIds": [
@@ -47382,7 +47391,7 @@
   },
   "spend": {
     "date": "2026-10-26",
-    "usd": 0.024615444
+    "usd": 0.025140792
   },
   "lateSweep": {
     "date": "2026-10-26",
