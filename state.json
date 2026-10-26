@@ -34433,6 +34433,15 @@
       },
       "publishedId": "17892368832684850",
       "confirmedPublished": true
+    },
+    "comment:17954583486297068": {
+      "creationId": "17895525654614054",
+      "createdAt": "2026-10-26T20:13:21.514Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Sadly it's been in the journals for a while. Schistosoma haematobium got there first.",
+        "reply_to_id": "17954583486297068"
+      }
     }
   },
   "repliedCommentIds": [
@@ -47196,7 +47205,8 @@
     "17920542039242483",
     "18120006863058089",
     "18074302010746039",
-    "17994581297846450"
+    "17994581297846450",
+    "18013323035978345"
   ],
   "skipStrikes": {
     "17895266316520842": 1,
@@ -47357,7 +47367,7 @@
   },
   "spend": {
     "date": "2026-10-26",
-    "usd": 0.02165598
+    "usd": 0.023912904
   },
   "lateSweep": {
     "date": "2026-10-26",
