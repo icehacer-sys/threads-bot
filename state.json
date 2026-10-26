@@ -34555,6 +34555,15 @@
       },
       "publishedId": "18119708626963217",
       "confirmedPublished": true
+    },
+    "comment:17947640409393819": {
+      "creationId": "17895533436614054",
+      "createdAt": "2026-10-26T21:32:39.311Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "A whole unit locked down over worms is a lot of drama for something that small. Glad it stayed on the other unit.",
+        "reply_to_id": "17947640409393819"
+      }
     }
   },
   "repliedCommentIds": [
@@ -47493,7 +47502,7 @@
   },
   "spend": {
     "date": "2026-10-26",
-    "usd": 0.03570556800000001
+    "usd": 0.036498576000000005
   },
   "lateSweep": {
     "date": "2026-10-26",
