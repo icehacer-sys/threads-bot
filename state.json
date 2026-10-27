@@ -34971,6 +34971,15 @@
       },
       "publishedId": "18653389468054949",
       "confirmedPublished": true
+    },
+    "comment:17906631339578109": {
+      "creationId": "17895700929614054",
+      "createdAt": "2026-10-27T20:48:15.578Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Give it a bulbous forehead and a narrow chin and it basically is one.",
+        "reply_to_id": "17906631339578109"
+      }
     }
   },
   "repliedCommentIds": [
@@ -47957,7 +47966,7 @@
   },
   "spend": {
     "date": "2026-10-27",
-    "usd": 0.03359580000000001
+    "usd": 0.03395965200000001
   },
   "lateSweep": {
     "date": "2026-10-27",
