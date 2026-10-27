@@ -35015,6 +35015,15 @@
       },
       "publishedId": "18109741034214232",
       "confirmedPublished": true
+    },
+    "comment:18109185272257871": {
+      "creationId": "17895713259614054",
+      "createdAt": "2026-10-27T23:05:39.662Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "It really is a wild picture. Wishing you and your son well.",
+        "reply_to_id": "18109185272257871"
+      }
     }
   },
   "repliedCommentIds": [
@@ -48007,7 +48016,7 @@
   },
   "spend": {
     "date": "2026-10-27",
-    "usd": 0.042094872
+    "usd": 0.042545556
   },
   "lateSweep": {
     "date": "2026-10-27",
