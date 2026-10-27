@@ -34687,6 +34687,15 @@
       },
       "publishedId": "18034385642673140",
       "confirmedPublished": true
+    },
+    "comment:18417109147087028": {
+      "creationId": "17895586854614054",
+      "createdAt": "2026-10-27T06:15:26.619Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "It does have that plated look. The outline is calcium that formed in the bladder wall where the eggs lodged.",
+        "reply_to_id": "18417109147087028"
+      }
     }
   },
   "repliedCommentIds": [
@@ -47637,7 +47646,7 @@
   },
   "spend": {
     "date": "2026-10-26",
-    "usd": 0.044006088000000006
+    "usd": 0.045122784000000006
   },
   "lateSweep": {
     "date": "2026-10-26",
