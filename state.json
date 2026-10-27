@@ -35004,6 +35004,15 @@
       },
       "publishedId": "17952245127321890",
       "confirmedPublished": true
+    },
+    "comment:18207969700375411": {
+      "creationId": "17895710025614054",
+      "createdAt": "2026-10-27T22:35:14.924Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Disease it is. The snake is just the carotid doing its theatrical entrance into the skull.",
+        "reply_to_id": "18207969700375411"
+      }
     }
   },
   "repliedCommentIds": [
@@ -47995,7 +48004,7 @@
   },
   "spend": {
     "date": "2026-10-27",
-    "usd": 0.041603988
+    "usd": 0.042094872
   },
   "lateSweep": {
     "date": "2026-10-27",
