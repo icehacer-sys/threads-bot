@@ -34599,6 +34599,15 @@
       },
       "publishedId": "18073395302775685",
       "confirmedPublished": true
+    },
+    "comment:17955130605294190": {
+      "creationId": "17895546447614054",
+      "createdAt": "2026-10-27T00:04:30.668Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "That's the one. The eggs lodge in the wall and calcify until the bladder looks shelled.",
+        "reply_to_id": "17955130605294190"
+      }
     }
   },
   "repliedCommentIds": [
@@ -47541,7 +47550,7 @@
   },
   "spend": {
     "date": "2026-10-26",
-    "usd": 0.03841304400000001
+    "usd": 0.03906838800000001
   },
   "lateSweep": {
     "date": "2026-10-26",
