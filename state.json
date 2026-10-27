@@ -34927,6 +34927,15 @@
       },
       "publishedId": "18469755307136255",
       "confirmedPublished": true
+    },
+    "comment:17995756860020405": {
+      "creationId": "17895696987614054",
+      "createdAt": "2026-10-27T20:16:37.722Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "It really is. Hard to believe that pretty pattern is the body scrambling to keep the brain fed.",
+        "reply_to_id": "17995756860020405"
+      }
     }
   },
   "repliedCommentIds": [
@@ -47905,7 +47914,7 @@
   },
   "spend": {
     "date": "2026-10-27",
-    "usd": 0.027488688
+    "usd": 0.027853572
   },
   "lateSweep": {
     "date": "2026-10-27",
