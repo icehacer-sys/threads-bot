@@ -34795,6 +34795,15 @@
       },
       "publishedId": "17970145068163805",
       "confirmedPublished": true
+    },
+    "comment:18129066631880191": {
+      "creationId": "17895692493614054",
+      "createdAt": "2026-10-27T19:27:35.306Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Worms is a fair description of that squiggle. It's moyamoya though and those are the patient's own collaterals filling in.",
+        "reply_to_id": "18129066631880191"
+      }
     }
   },
   "repliedCommentIds": [
@@ -45871,7 +45880,8 @@
     "18005504957793096",
     "18124713431513747",
     "18168823606498454",
-    "18154412308589740"
+    "18154412308589740",
+    "18417478627080242"
   ],
   "answeredPostIds": [
     "18395606890093068"
@@ -46018,11 +46028,11 @@
     "18096011516656084": 40,
     "18030752579899369": 40,
     "18095590730446526": 41,
-    "18097822445115488": 7
+    "18097822445115488": 8
   },
   "daily": {
     "date": "2026-10-27",
-    "count": 7
+    "count": 8
   },
   "pinnedResolved": {
     "DaTTCIwoAw7": "18014812820883466"
@@ -47756,7 +47766,7 @@
   },
   "spend": {
     "date": "2026-10-27",
-    "usd": 0.013559208
+    "usd": 0.014018688
   },
   "lateSweep": {
     "date": "2026-10-27",
