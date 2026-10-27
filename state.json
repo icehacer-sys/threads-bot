@@ -34880,7 +34880,9 @@
         "media_type": "TEXT",
         "text": "That one got out without a scan. This patient's worm is at least on the record.",
         "reply_to_id": "17959830345013961"
-      }
+      },
+      "publishedId": "18079366940396036",
+      "confirmedPublished": true
     }
   },
   "repliedCommentIds": [
