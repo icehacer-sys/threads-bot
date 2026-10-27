@@ -34676,6 +34676,15 @@
       },
       "publishedId": "18357875170173476",
       "confirmedPublished": true
+    },
+    "comment:18094180046666360": {
+      "creationId": "17895581211614054",
+      "createdAt": "2026-10-27T05:14:56.352Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Both reactions are fair. The stones part is at least the tidy bit.",
+        "reply_to_id": "18094180046666360"
+      }
     }
   },
   "repliedCommentIds": [
@@ -47625,7 +47634,7 @@
   },
   "spend": {
     "date": "2026-10-26",
-    "usd": 0.04339707600000001
+    "usd": 0.044006088000000006
   },
   "lateSweep": {
     "date": "2026-10-26",
