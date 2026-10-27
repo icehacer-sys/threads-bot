@@ -34665,6 +34665,15 @@
       },
       "publishedId": "18158065294510062",
       "confirmedPublished": true
+    },
+    "comment:18121743679904392": {
+      "creationId": "17895556050614054",
+      "createdAt": "2026-10-27T01:43:50.721Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "It does love a bit of limestone. This one at least left a nice outline.",
+        "reply_to_id": "18121743679904392"
+      }
     }
   },
   "repliedCommentIds": [
@@ -47613,7 +47622,7 @@
   },
   "spend": {
     "date": "2026-10-26",
-    "usd": 0.042769164000000005
+    "usd": 0.04339707600000001
   },
   "lateSweep": {
     "date": "2026-10-26",
