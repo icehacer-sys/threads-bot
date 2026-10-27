@@ -34632,6 +34632,15 @@
       },
       "publishedId": "17967066806984622",
       "confirmedPublished": true
+    },
+    "comment:17983694271094775": {
+      "creationId": "17895549423614054",
+      "createdAt": "2026-10-27T00:35:27.652Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "It does. Hard to unsee once you spot the outline.",
+        "reply_to_id": "17983694271094775"
+      }
     }
   },
   "repliedCommentIds": [
@@ -47577,7 +47586,7 @@
   },
   "spend": {
     "date": "2026-10-26",
-    "usd": 0.040356444000000005
+    "usd": 0.04116038400000001
   },
   "lateSweep": {
     "date": "2026-10-26",
