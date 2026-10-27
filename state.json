@@ -34905,6 +34905,15 @@
       },
       "publishedId": "17941871082376415",
       "confirmedPublished": true
+    },
+    "comment:17904428193671419": {
+      "creationId": "17895694368614054",
+      "createdAt": "2026-10-27T19:45:43.632Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "TIAs and strokes sit on the same road with different exits. Getting her there that fast made a real difference to her speech coming back the same day.",
+        "reply_to_id": "17904428193671419"
+      }
     }
   },
   "repliedCommentIds": [
@@ -45991,7 +46000,8 @@
     "18109791539189263",
     "17963025794997427",
     "17959830345013961",
-    "17923921752222559"
+    "17923921752222559",
+    "18189279523365117"
   ],
   "answeredPostIds": [
     "18395606890093068"
@@ -46138,11 +46148,11 @@
     "18096011516656084": 40,
     "18030752579899369": 40,
     "18095590730446526": 41,
-    "18097822445115488": 17
+    "18097822445115488": 18
   },
   "daily": {
     "date": "2026-10-27",
-    "count": 17
+    "count": 18
   },
   "pinnedResolved": {
     "DaTTCIwoAw7": "18014812820883466"
@@ -47878,7 +47888,7 @@
   },
   "spend": {
     "date": "2026-10-27",
-    "usd": 0.023139468
+    "usd": 0.023963376
   },
   "lateSweep": {
     "date": "2026-10-27",
