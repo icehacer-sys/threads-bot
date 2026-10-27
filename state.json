@@ -34654,6 +34654,15 @@
       },
       "publishedId": "18137348878655648",
       "confirmedPublished": true
+    },
+    "comment:18058684847571632": {
+      "creationId": "17895551904614054",
+      "createdAt": "2026-10-27T01:06:09.082Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "The bill for this one comes with an itemised shell.",
+        "reply_to_id": "18058684847571632"
+      }
     }
   },
   "repliedCommentIds": [
@@ -47601,7 +47610,7 @@
   },
   "spend": {
     "date": "2026-10-26",
-    "usd": 0.04199312400000001
+    "usd": 0.042769164000000005
   },
   "lateSweep": {
     "date": "2026-10-26",
