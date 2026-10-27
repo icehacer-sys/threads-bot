@@ -34949,6 +34949,15 @@
       },
       "publishedId": "18026891669922358",
       "confirmedPublished": true
+    },
+    "comment:17953084125337539": {
+      "creationId": "17895699375614054",
+      "createdAt": "2026-10-27T20:32:32.371Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "A very well-behaved boa. It stayed coiled in the skull and never left the boat.",
+        "reply_to_id": "17953084125337539"
+      }
     }
   },
   "repliedCommentIds": [
@@ -47932,7 +47941,7 @@
   },
   "spend": {
     "date": "2026-10-27",
-    "usd": 0.031991928
+    "usd": 0.03235128
   },
   "lateSweep": {
     "date": "2026-10-27",
