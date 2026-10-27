@@ -34828,6 +34828,15 @@
       },
       "publishedId": "18387504946235038",
       "confirmedPublished": true
+    },
+    "comment:18178456444443114": {
+      "creationId": "17895692631614054",
+      "createdAt": "2026-10-27T19:28:39.895Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Not an AVM. The narrowing sits at the ends of the carotids and the puff of smoke is the body growing its own bypass.",
+        "reply_to_id": "18178456444443114"
+      }
     }
   },
   "repliedCommentIds": [
@@ -45907,7 +45916,8 @@
     "18154412308589740",
     "18417478627080242",
     "18129066631880191",
-    "18132760336782192"
+    "18132760336782192",
+    "17914138104518813"
   ],
   "answeredPostIds": [
     "18395606890093068"
@@ -46054,11 +46064,11 @@
     "18096011516656084": 40,
     "18030752579899369": 40,
     "18095590730446526": 41,
-    "18097822445115488": 10
+    "18097822445115488": 11
   },
   "daily": {
     "date": "2026-10-27",
-    "count": 10
+    "count": 11
   },
   "pinnedResolved": {
     "DaTTCIwoAw7": "18014812820883466"
@@ -47792,7 +47802,7 @@
   },
   "spend": {
     "date": "2026-10-27",
-    "usd": 0.016466196000000002
+    "usd": 0.017357292000000003
   },
   "lateSweep": {
     "date": "2026-10-27",
