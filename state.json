@@ -34817,6 +34817,15 @@
       },
       "publishedId": "17904208641671619",
       "confirmedPublished": true
+    },
+    "comment:17914138104518813": {
+      "creationId": "17895692541614054",
+      "createdAt": "2026-10-27T19:28:20.532Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "A delta on the map is about right. Those side channels only open up because the main river keeps narrowing.",
+        "reply_to_id": "17914138104518813"
+      }
     }
   },
   "repliedCommentIds": [
@@ -45895,7 +45904,8 @@
     "18168823606498454",
     "18154412308589740",
     "18417478627080242",
-    "18129066631880191"
+    "18129066631880191",
+    "18132760336782192"
   ],
   "answeredPostIds": [
     "18395606890093068"
@@ -46042,11 +46052,11 @@
     "18096011516656084": 40,
     "18030752579899369": 40,
     "18095590730446526": 41,
-    "18097822445115488": 9
+    "18097822445115488": 10
   },
   "daily": {
     "date": "2026-10-27",
-    "count": 9
+    "count": 10
   },
   "pinnedResolved": {
     "DaTTCIwoAw7": "18014812820883466"
@@ -47780,7 +47790,7 @@
   },
   "spend": {
     "date": "2026-10-27",
-    "usd": 0.015989016
+    "usd": 0.016466196000000002
   },
   "lateSweep": {
     "date": "2026-10-27",
