@@ -34762,6 +34762,15 @@
       },
       "publishedId": "17927294118429390",
       "confirmedPublished": true
+    },
+    "comment:18168823606498454": {
+      "creationId": "17895692376614054",
+      "createdAt": "2026-10-27T19:26:32.839Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Wondering about that is fair. Getting the head looked at is often the hardest step to win. A scan like this only happens once somebody gets past that gate.",
+        "reply_to_id": "18168823606498454"
+      }
     }
   },
   "repliedCommentIds": [
@@ -45835,7 +45844,8 @@
     "18115747763147817",
     "18351118561271902",
     "17909486061585687",
-    "18005504957793096"
+    "18005504957793096",
+    "18124713431513747"
   ],
   "answeredPostIds": [
     "18395606890093068"
@@ -45982,11 +45992,11 @@
     "18096011516656084": 40,
     "18030752579899369": 40,
     "18095590730446526": 41,
-    "18097822445115488": 4
+    "18097822445115488": 5
   },
   "daily": {
     "date": "2026-10-27",
-    "count": 4
+    "count": 5
   },
   "pinnedResolved": {
     "DaTTCIwoAw7": "18014812820883466"
@@ -47720,7 +47730,7 @@
   },
   "spend": {
     "date": "2026-10-27",
-    "usd": 0.009967728
+    "usd": 0.01044984
   },
   "lateSweep": {
     "date": "2026-10-27",
