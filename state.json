@@ -34806,6 +34806,15 @@
       },
       "publishedId": "18059130836797514",
       "confirmedPublished": true
+    },
+    "comment:18132760336782192": {
+      "creationId": "17895692529614054",
+      "createdAt": "2026-10-27T19:28:03.716Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Adjacent is a decent word for it. The answer is moyamoya and those temporary arm symptoms are the TIAs it causes.",
+        "reply_to_id": "18132760336782192"
+      }
     }
   },
   "repliedCommentIds": [
@@ -45883,7 +45892,8 @@
     "18124713431513747",
     "18168823606498454",
     "18154412308589740",
-    "18417478627080242"
+    "18417478627080242",
+    "18129066631880191"
   ],
   "answeredPostIds": [
     "18395606890093068"
@@ -46030,11 +46040,11 @@
     "18096011516656084": 40,
     "18030752579899369": 40,
     "18095590730446526": 41,
-    "18097822445115488": 8
+    "18097822445115488": 9
   },
   "daily": {
     "date": "2026-10-27",
-    "count": 8
+    "count": 9
   },
   "pinnedResolved": {
     "DaTTCIwoAw7": "18014812820883466"
@@ -47768,7 +47778,7 @@
   },
   "spend": {
     "date": "2026-10-27",
-    "usd": 0.014018688
+    "usd": 0.015989016
   },
   "lateSweep": {
     "date": "2026-10-27",
