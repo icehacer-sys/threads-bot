@@ -34850,6 +34850,15 @@
       },
       "publishedId": "18154863373492864",
       "confirmedPublished": true
+    },
+    "comment:18109791539189263": {
+      "creationId": "17895694206614054",
+      "createdAt": "2026-10-27T19:44:17.540Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "That is one very serpentine carotid. It took the long way up and cut through everything.",
+        "reply_to_id": "18109791539189263"
+      }
     }
   },
   "repliedCommentIds": [
@@ -47817,7 +47826,7 @@
   },
   "spend": {
     "date": "2026-10-27",
-    "usd": 0.018682872000000003
+    "usd": 0.019139220000000002
   },
   "lateSweep": {
     "date": "2026-10-27",
