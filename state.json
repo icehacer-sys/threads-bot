@@ -35242,6 +35242,15 @@
       },
       "publishedId": "17881923015627329",
       "confirmedPublished": true
+    },
+    "comment:18353523955222466": {
+      "creationId": "17895863988614054",
+      "createdAt": "2026-10-28T20:12:31.873Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Watching for that first vomit and having nothing to stop it is a heavy thing to carry. Survival without treatment really is grim. Easier said than done for a lot of people but yes.",
+        "reply_to_id": "18353523955222466"
+      }
     }
   },
   "repliedCommentIds": [
@@ -46358,7 +46367,8 @@
     "18102678797641703",
     "17990211915119046",
     "18400445044203725",
-    "18110901221614972"
+    "18110901221614972",
+    "18099990896367543"
   ],
   "answeredPostIds": [
     "18395606890093068"
@@ -46506,11 +46516,11 @@
     "18030752579899369": 40,
     "18095590730446526": 41,
     "18097822445115488": 36,
-    "17988834048118608": 11
+    "17988834048118608": 12
   },
   "daily": {
     "date": "2026-10-28",
-    "count": 11
+    "count": 12
   },
   "pinnedResolved": {
     "DaTTCIwoAw7": "18014812820883466"
@@ -48260,7 +48270,7 @@
   },
   "spend": {
     "date": "2026-10-28",
-    "usd": 0.016536132000000002
+    "usd": 0.017119512000000003
   },
   "lateSweep": {
     "date": "2026-10-28",
