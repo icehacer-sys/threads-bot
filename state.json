@@ -35026,6 +35026,15 @@
       },
       "publishedId": "17899667058396808",
       "confirmedPublished": true
+    },
+    "comment:18400544023205418": {
+      "creationId": "17895719832614054",
+      "createdAt": "2026-10-28T00:28:49.681Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Neither one. It's moyamoya disease.",
+        "reply_to_id": "18400544023205418"
+      }
     }
   },
   "repliedCommentIds": [
@@ -48020,7 +48029,7 @@
   },
   "spend": {
     "date": "2026-10-27",
-    "usd": 0.043711488
+    "usd": 0.044597592
   },
   "lateSweep": {
     "date": "2026-10-27",
