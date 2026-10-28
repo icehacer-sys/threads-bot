@@ -35209,6 +35209,15 @@
       },
       "publishedId": "18110406269619317",
       "confirmedPublished": true
+    },
+    "comment:18400445044203725": {
+      "creationId": "17895862794614054",
+      "createdAt": "2026-10-28T19:56:13.768Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "The liver is usually where the pressure starts. Cirrhosis is the most common cause of the portal hypertension behind those veins.",
+        "reply_to_id": "18400445044203725"
+      }
     }
   },
   "repliedCommentIds": [
@@ -48198,7 +48207,8 @@
     "17953084125337539": 1,
     "17872636098643681": 1,
     "17906631339578109": 1,
-    "18075964262735425": 1
+    "18075964262735425": 1,
+    "18110901221614972": 1
   },
   "gifPostCounts": {
     "18432085978123193": 1,
@@ -48223,7 +48233,7 @@
   },
   "spend": {
     "date": "2026-10-28",
-    "usd": 0.011160348
+    "usd": 0.012869376
   },
   "lateSweep": {
     "date": "2026-10-28",
