@@ -35275,6 +35275,15 @@
       },
       "publishedId": "18164448961501451",
       "confirmedPublished": true
+    },
+    "comment:18431853631145723": {
+      "creationId": "17895870729614054",
+      "createdAt": "2026-10-28T21:14:36.084Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "You got the whole chain. One correction though. The tiredness in cirrhosis has several drivers and bleeding is only one of them. Liver failure and poor nutrition cause it too. Your treatment list matches the standard approach.",
+        "reply_to_id": "18431853631145723"
+      }
     }
   },
   "repliedCommentIds": [
@@ -48300,7 +48309,7 @@
   },
   "spend": {
     "date": "2026-10-28",
-    "usd": 0.023272812
+    "usd": 0.024302412
   },
   "lateSweep": {
     "date": "2026-10-28",
