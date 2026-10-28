@@ -35231,6 +35231,15 @@
       },
       "publishedId": "18104670575027085",
       "confirmedPublished": true
+    },
+    "comment:18099990896367543": {
+      "creationId": "17895863967614054",
+      "createdAt": "2026-10-28T20:12:12.956Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Neither of those is the answer here. The wavy worm-like shapes along the lower gullet are swollen veins not tumour or Barrett's change.",
+        "reply_to_id": "18099990896367543"
+      }
     }
   },
   "repliedCommentIds": [
@@ -46346,7 +46355,8 @@
     "17898175350412798",
     "18102678797641703",
     "17990211915119046",
-    "18400445044203725"
+    "18400445044203725",
+    "18110901221614972"
   ],
   "answeredPostIds": [
     "18395606890093068"
@@ -46494,11 +46504,11 @@
     "18030752579899369": 40,
     "18095590730446526": 41,
     "18097822445115488": 36,
-    "17988834048118608": 10
+    "17988834048118608": 11
   },
   "daily": {
     "date": "2026-10-28",
-    "count": 10
+    "count": 11
   },
   "pinnedResolved": {
     "DaTTCIwoAw7": "18014812820883466"
@@ -48248,7 +48258,7 @@
   },
   "spend": {
     "date": "2026-10-28",
-    "usd": 0.015089388
+    "usd": 0.016536132000000002
   },
   "lateSweep": {
     "date": "2026-10-28",
