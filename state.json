@@ -35048,6 +35048,15 @@
       },
       "publishedId": "17913812445503251",
       "confirmedPublished": true
+    },
+    "comment:18353795944270832": {
+      "creationId": "17895723240614054",
+      "createdAt": "2026-10-28T00:59:34.568Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "That's the mechanism exactly. Moyamoya is the name for it.",
+        "reply_to_id": "18353795944270832"
+      }
     }
   },
   "repliedCommentIds": [
@@ -48044,7 +48053,7 @@
   },
   "spend": {
     "date": "2026-10-27",
-    "usd": 0.045247235999999996
+    "usd": 0.04588518
   },
   "lateSweep": {
     "date": "2026-10-27",
