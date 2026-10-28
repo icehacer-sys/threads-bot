@@ -35286,6 +35286,15 @@
       },
       "publishedId": "18073522541492871",
       "confirmedPublished": true
+    },
+    "comment:18130477816758773": {
+      "creationId": "17895872334614054",
+      "createdAt": "2026-10-28T21:30:12.111Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Not a collapse. The gullet is actually wide open here.",
+        "reply_to_id": "18130477816758773"
+      }
     }
   },
   "repliedCommentIds": [
@@ -48313,7 +48322,7 @@
   },
   "spend": {
     "date": "2026-10-28",
-    "usd": 0.024732228
+    "usd": 0.02622018
   },
   "lateSweep": {
     "date": "2026-10-28",
