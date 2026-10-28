@@ -35176,6 +35176,15 @@
       },
       "publishedId": "18177988774452703",
       "confirmedPublished": true
+    },
+    "comment:17898175350412798": {
+      "creationId": "17895861696614054",
+      "createdAt": "2026-10-28T19:40:05.228Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Fifty-four is far too young and hearing it secondhand at 14 has its own weight. Variceal bleeding can indeed be sudden and severe like that.",
+        "reply_to_id": "17898175350412798"
+      }
     }
   },
   "repliedCommentIds": [
@@ -48187,7 +48196,7 @@
   },
   "spend": {
     "date": "2026-10-28",
-    "usd": 0.00888504
+    "usd": 0.009614880000000001
   },
   "lateSweep": {
     "date": "2026-10-28",
