@@ -35081,6 +35081,15 @@
       },
       "publishedId": "18119399128958787",
       "confirmedPublished": true
+    },
+    "comment:18075964262735425": {
+      "creationId": "17895740793614054",
+      "createdAt": "2026-10-28T03:31:03.509Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "That's a clean read and you've got the anatomy the right way round. The narrowed carotid sits on one side with the smoke filling in behind it.",
+        "reply_to_id": "18075964262735425"
+      }
     }
   },
   "repliedCommentIds": [
@@ -48082,7 +48091,7 @@
   },
   "spend": {
     "date": "2026-10-27",
-    "usd": 0.049256207999999996
+    "usd": 0.05007835199999999
   },
   "lateSweep": {
     "date": "2026-10-27",
