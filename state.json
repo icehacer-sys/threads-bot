@@ -46358,8 +46358,8 @@
     "18097822445115488": 36
   },
   "daily": {
-    "date": "2026-10-27",
-    "count": 36
+    "date": "2026-10-28",
+    "count": 0
   },
   "pinnedResolved": {
     "DaTTCIwoAw7": "18014812820883466"
@@ -48090,7 +48090,7 @@
     "17865730374636613": 1
   },
   "gifDaily": {
-    "date": "2026-10-27",
+    "date": "2026-10-28",
     "count": 0
   },
   "recentGifIds": [
@@ -48101,15 +48101,15 @@
   ],
   "promoPostCounts": {},
   "promoDaily": {
-    "date": "2026-10-27",
+    "date": "2026-10-28",
     "count": 0
   },
   "spend": {
-    "date": "2026-10-27",
-    "usd": 0.052232747999999996
+    "date": "2026-10-28",
+    "usd": 0
   },
   "lateSweep": {
-    "date": "2026-10-27",
+    "date": "2026-10-28",
     "replies": 0
   },
   "clinicianNods": {
