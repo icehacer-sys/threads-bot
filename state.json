@@ -35308,6 +35308,15 @@
       },
       "publishedId": "17953762752313439",
       "confirmedPublished": true
+    },
+    "comment:18018026525747769": {
+      "creationId": "17895873798614054",
+      "createdAt": "2026-10-28T21:46:02.570Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Mine has its own storage corridor apparently. That one just winds the whole way down.",
+        "reply_to_id": "18018026525747769"
+      }
     }
   },
   "repliedCommentIds": [
@@ -48337,7 +48346,7 @@
   },
   "spend": {
     "date": "2026-10-28",
-    "usd": 0.027847883999999996
+    "usd": 0.028675019999999996
   },
   "lateSweep": {
     "date": "2026-10-28",
