@@ -35143,6 +35143,15 @@
       },
       "publishedId": "18452365666122169",
       "confirmedPublished": true
+    },
+    "comment:18104712548022389": {
+      "creationId": "17895860403614054",
+      "createdAt": "2026-10-28T19:23:50.535Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Oesophageal varices. Those wavy worm-like shapes are swollen veins in the lower gullet. The tiredness and the growing belly fit the same liver pressure story.",
+        "reply_to_id": "18104712548022389"
+      }
     }
   },
   "repliedCommentIds": [
@@ -46250,7 +46259,8 @@
     "18075964262735425",
     "18063222464631900",
     "18014464202765454",
-    "18018574754957910"
+    "18018574754957910",
+    "18012680708995531"
   ],
   "answeredPostIds": [
     "18395606890093068"
@@ -46398,11 +46408,11 @@
     "18030752579899369": 40,
     "18095590730446526": 41,
     "18097822445115488": 36,
-    "17988834048118608": 2
+    "17988834048118608": 3
   },
   "daily": {
     "date": "2026-10-28",
-    "count": 2
+    "count": 3
   },
   "pinnedResolved": {
     "DaTTCIwoAw7": "18014812820883466"
@@ -48149,7 +48159,7 @@
   },
   "spend": {
     "date": "2026-10-28",
-    "usd": 0.004665276
+    "usd": 0.005868948
   },
   "lateSweep": {
     "date": "2026-10-28",
