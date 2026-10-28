@@ -35220,6 +35220,15 @@
       },
       "publishedId": "18349353901250732",
       "confirmedPublished": true
+    },
+    "comment:18110901221614972": {
+      "creationId": "17895863946614054",
+      "createdAt": "2026-10-28T20:11:46.868Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "And the lightning is all up in the gullet.",
+        "reply_to_id": "18110901221614972"
+      }
     }
   },
   "repliedCommentIds": [
@@ -48237,7 +48246,7 @@
   },
   "spend": {
     "date": "2026-10-28",
-    "usd": 0.014737872
+    "usd": 0.015089388
   },
   "lateSweep": {
     "date": "2026-10-28",
