@@ -35343,6 +35343,15 @@
       },
       "publishedId": "18042138926638383",
       "confirmedPublished": true
+    },
+    "comment:17914619736501293": {
+      "creationId": "17895884541614054",
+      "createdAt": "2026-10-28T23:32:35.023Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Watching the numbers climb is the part that keeps people from sitting down on a night shift. Front-loading before the DTs get going is a whole different job to chasing them after.",
+        "reply_to_id": "17914619736501293"
+      }
     }
   },
   "repliedCommentIds": [
@@ -46468,7 +46477,8 @@
     "18130477816758773",
     "18106747853222038",
     "18018026525747769",
-    "18094543325180859"
+    "18094543325180859",
+    "17974208979173268"
   ],
   "answeredPostIds": [
     "18395606890093068"
@@ -46616,11 +46626,11 @@
     "18030752579899369": 40,
     "18095590730446526": 41,
     "18097822445115488": 36,
-    "17988834048118608": 20
+    "17988834048118608": 21
   },
   "daily": {
     "date": "2026-10-28",
-    "count": 20
+    "count": 21
   },
   "pinnedResolved": {
     "DaTTCIwoAw7": "18014812820883466"
@@ -48375,7 +48385,7 @@
   },
   "spend": {
     "date": "2026-10-28",
-    "usd": 0.031028747999999995
+    "usd": 0.031880255999999996
   },
   "lateSweep": {
     "date": "2026-10-28",
