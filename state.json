@@ -35253,6 +35253,15 @@
       },
       "publishedId": "17963280741226736",
       "confirmedPublished": true
+    },
+    "comment:17991517326025943": {
+      "creationId": "17895865767614054",
+      "createdAt": "2026-10-28T20:28:12.638Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "The tube had a reputation all its own. A patient tugging at that balloon is the part that stayed with people who worked those wards. Not sorry you left those days behind.",
+        "reply_to_id": "17991517326025943"
+      }
     }
   },
   "repliedCommentIds": [
@@ -48275,7 +48284,7 @@
   },
   "spend": {
     "date": "2026-10-28",
-    "usd": 0.02004168
+    "usd": 0.02061876
   },
   "lateSweep": {
     "date": "2026-10-28",
