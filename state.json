@@ -35092,6 +35092,15 @@
       },
       "publishedId": "18032490302913978",
       "confirmedPublished": true
+    },
+    "comment:18063222464631900": {
+      "creationId": "17895744660614054",
+      "createdAt": "2026-10-28T04:01:29.982Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Not an aneurysm. This one is moyamoya and the hazy patch is a spread of tiny collaterals rather than one blown-out vessel.",
+        "reply_to_id": "18063222464631900"
+      }
     }
   },
   "repliedCommentIds": [
@@ -48094,7 +48103,7 @@
   },
   "spend": {
     "date": "2026-10-27",
-    "usd": 0.051171683999999995
+    "usd": 0.052232747999999996
   },
   "lateSweep": {
     "date": "2026-10-27",
