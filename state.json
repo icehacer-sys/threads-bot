@@ -35297,6 +35297,15 @@
       },
       "publishedId": "18097730843390949",
       "confirmedPublished": true
+    },
+    "comment:18106747853222038": {
+      "creationId": "17895872355614054",
+      "createdAt": "2026-10-28T21:30:38.176Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Scarring in the liver is the usual culprit and cirrhosis is the most common cause. That scarring raises the pressure in the portal vein which then pushes blood back into the oesophageal veins.",
+        "reply_to_id": "18106747853222038"
+      }
     }
   },
   "repliedCommentIds": [
@@ -46418,7 +46427,8 @@
     "18353523955222466",
     "17991517326025943",
     "18119593684953346",
-    "18431853631145723"
+    "18431853631145723",
+    "18130477816758773"
   ],
   "answeredPostIds": [
     "18395606890093068"
@@ -46566,11 +46576,11 @@
     "18030752579899369": 40,
     "18095590730446526": 41,
     "18097822445115488": 36,
-    "17988834048118608": 16
+    "17988834048118608": 17
   },
   "daily": {
     "date": "2026-10-28",
-    "count": 16
+    "count": 17
   },
   "pinnedResolved": {
     "DaTTCIwoAw7": "18014812820883466"
@@ -48324,7 +48334,7 @@
   },
   "spend": {
     "date": "2026-10-28",
-    "usd": 0.02622018
+    "usd": 0.027847883999999996
   },
   "lateSweep": {
     "date": "2026-10-28",
