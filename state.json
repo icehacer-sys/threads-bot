@@ -35513,6 +35513,15 @@
       },
       "publishedId": "18451838233192786",
       "confirmedPublished": true
+    },
+    "comment:17977859975934937": {
+      "creationId": "17896041402614054",
+      "createdAt": "2026-10-29T19:43:24.185Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "It usually just sits there and behaves. Treatment only comes up if something like an obstruction or a stone shows up.",
+        "reply_to_id": "17977859975934937"
+      }
     }
   },
   "repliedCommentIds": [
@@ -46653,7 +46662,8 @@
     "18238934518321631",
     "18179364421453160",
     "18348283177283383",
-    "17953150245314458"
+    "17953150245314458",
+    "18101871689538951"
   ],
   "answeredPostIds": [
     "18395606890093068"
@@ -46802,11 +46812,11 @@
     "18095590730446526": 41,
     "18097822445115488": 36,
     "17988834048118608": 28,
-    "18102425699386750": 7
+    "18102425699386750": 8
   },
   "daily": {
     "date": "2026-10-29",
-    "count": 7
+    "count": 8
   },
   "pinnedResolved": {
     "DaTTCIwoAw7": "18014812820883466"
@@ -48563,7 +48573,7 @@
   },
   "spend": {
     "date": "2026-10-29",
-    "usd": 0.009017664
+    "usd": 0.010055784
   },
   "lateSweep": {
     "date": "2026-10-29",
