@@ -35689,6 +35689,15 @@
       },
       "publishedId": "17895349044468515",
       "confirmedPublished": true
+    },
+    "comment:17966799570199188": {
+      "creationId": "17896048089614054",
+      "createdAt": "2026-10-29T21:06:29.983Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Haven't heard that one in a while. No pointer needed here though. The join at the bottom is doing all the pointing.",
+        "reply_to_id": "17966799570199188"
+      }
     }
   },
   "repliedCommentIds": [
@@ -48758,7 +48767,7 @@
   },
   "spend": {
     "date": "2026-10-29",
-    "usd": 0.025147680000000002
+    "usd": 0.025686828000000002
   },
   "lateSweep": {
     "date": "2026-10-29",
