@@ -35502,6 +35502,15 @@
       },
       "publishedId": "18117363398015232",
       "confirmedPublished": true
+    },
+    "comment:18101871689538951": {
+      "creationId": "17896041357614054",
+      "createdAt": "2026-10-29T19:43:07.881Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Two is the usual count. These two just got stuck together at the bottom before they could settle into their own spots.",
+        "reply_to_id": "18101871689538951"
+      }
     }
   },
   "repliedCommentIds": [
@@ -48552,7 +48561,7 @@
   },
   "spend": {
     "date": "2026-10-29",
-    "usd": 0.008191272
+    "usd": 0.009017664
   },
   "lateSweep": {
     "date": "2026-10-29",
