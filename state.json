@@ -35612,6 +35612,15 @@
       },
       "publishedId": "17921328708530687",
       "confirmedPublished": true
+    },
+    "comment:18121458526963623": {
+      "creationId": "17896043142614054",
+      "createdAt": "2026-10-29T20:01:08.274Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "One film can only tell you so much and this one nicely fills in both sides. The calyces look like the usual contrast study appearance.",
+        "reply_to_id": "18121458526963623"
+      }
     }
   },
   "repliedCommentIds": [
@@ -46761,7 +46770,8 @@
     "17881809654543803",
     "17944856913092437",
     "18014539367763616",
-    "18499449820099502"
+    "18499449820099502",
+    "18343720642272264"
   ],
   "answeredPostIds": [
     "18395606890093068"
@@ -46910,11 +46920,11 @@
     "18095590730446526": 41,
     "18097822445115488": 36,
     "17988834048118608": 28,
-    "18102425699386750": 16
+    "18102425699386750": 17
   },
   "daily": {
     "date": "2026-10-29",
-    "count": 16
+    "count": 17
   },
   "pinnedResolved": {
     "DaTTCIwoAw7": "18014812820883466"
@@ -48672,7 +48682,7 @@
   },
   "spend": {
     "date": "2026-10-29",
-    "usd": 0.015854568
+    "usd": 0.017095824
   },
   "lateSweep": {
     "date": "2026-10-29",
