@@ -35354,6 +35354,15 @@
       },
       "publishedId": "18200217508386175",
       "confirmedPublished": true
+    },
+    "comment:18566534629079184": {
+      "creationId": "17895887097614054",
+      "createdAt": "2026-10-29T00:02:59.433Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "All good. Keep them coming anyway 🤣",
+        "reply_to_id": "18566534629079184"
+      }
     }
   },
   "repliedCommentIds": [
@@ -48388,7 +48397,7 @@
   },
   "spend": {
     "date": "2026-10-28",
-    "usd": 0.031880255999999996
+    "usd": 0.03302965199999999
   },
   "lateSweep": {
     "date": "2026-10-28",
