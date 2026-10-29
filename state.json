@@ -35656,6 +35656,15 @@
       },
       "publishedId": "18359265517169872",
       "confirmedPublished": true
+    },
+    "comment:18006959411795455": {
+      "creationId": "17896046121614054",
+      "createdAt": "2026-10-29T20:35:25.171Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Conjoined at the bottom is a fair way to put it. Horseshoe kidney is the name.",
+        "reply_to_id": "18006959411795455"
+      }
     }
   },
   "repliedCommentIds": [
@@ -48722,7 +48731,7 @@
   },
   "spend": {
     "date": "2026-10-29",
-    "usd": 0.022143936000000003
+    "usd": 0.022768812000000003
   },
   "lateSweep": {
     "date": "2026-10-29",
