@@ -35667,6 +35667,15 @@
       },
       "publishedId": "18476280007119993",
       "confirmedPublished": true
+    },
+    "comment:18114307981875301": {
+      "creationId": "17896046199614054",
+      "createdAt": "2026-10-29T20:35:43.725Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Elmo Syndrome would at least get a nicer name than what's on the film. Both kidneys joined at the bottom is the real story here.",
+        "reply_to_id": "18114307981875301"
+      }
     }
   },
   "repliedCommentIds": [
@@ -46821,7 +46830,8 @@
     "18121458526963623",
     "18139052590644518",
     "17873589819640510",
-    "18497039296105081"
+    "18497039296105081",
+    "18006959411795455"
   ],
   "answeredPostIds": [
     "18395606890093068"
@@ -46970,11 +46980,11 @@
     "18095590730446526": 41,
     "18097822445115488": 36,
     "17988834048118608": 28,
-    "18102425699386750": 21
+    "18102425699386750": 22
   },
   "daily": {
     "date": "2026-10-29",
-    "count": 21
+    "count": 22
   },
   "pinnedResolved": {
     "DaTTCIwoAw7": "18014812820883466"
@@ -48733,7 +48743,7 @@
   },
   "spend": {
     "date": "2026-10-29",
-    "usd": 0.022768812000000003
+    "usd": 0.02421888
   },
   "lateSweep": {
     "date": "2026-10-29",
