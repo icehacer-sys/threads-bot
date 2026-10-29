@@ -35722,6 +35722,15 @@
       },
       "publishedId": "18136114136500794",
       "confirmedPublished": true
+    },
+    "comment:17960373996232071": {
+      "creationId": "17896058682614054",
+      "createdAt": "2026-10-29T23:38:12.732Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Sesame Street does anatomy. The U is earned here.",
+        "reply_to_id": "17960373996232071"
+      }
     }
   },
   "repliedCommentIds": [
@@ -48795,7 +48804,7 @@
   },
   "spend": {
     "date": "2026-10-29",
-    "usd": 0.027784284000000003
+    "usd": 0.028227900000000004
   },
   "lateSweep": {
     "date": "2026-10-29",
