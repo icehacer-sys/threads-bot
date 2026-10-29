@@ -35398,6 +35398,15 @@
       },
       "publishedId": "18038466770851527",
       "confirmedPublished": true
+    },
+    "comment:18094432709690629": {
+      "creationId": "17895906915614054",
+      "createdAt": "2026-10-29T03:05:08.250Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "It is. That chain of swellings is a lot to take in.",
+        "reply_to_id": "18094432709690629"
+      }
     }
   },
   "repliedCommentIds": [
@@ -48436,7 +48445,7 @@
   },
   "spend": {
     "date": "2026-10-28",
-    "usd": 0.035349372
+    "usd": 0.036470268
   },
   "lateSweep": {
     "date": "2026-10-28",
