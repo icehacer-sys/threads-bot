@@ -35678,6 +35678,15 @@
       },
       "publishedId": "18073543556785087",
       "confirmedPublished": true
+    },
+    "comment:18129064915781510": {
+      "creationId": "17896047315614054",
+      "createdAt": "2026-10-29T20:51:08.055Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Stones are one of the things that can come with this. No stones show on this film though.",
+        "reply_to_id": "18129064915781510"
+      }
     }
   },
   "repliedCommentIds": [
@@ -48746,7 +48755,7 @@
   },
   "spend": {
     "date": "2026-10-29",
-    "usd": 0.02421888
+    "usd": 0.025147680000000002
   },
   "lateSweep": {
     "date": "2026-10-29",
