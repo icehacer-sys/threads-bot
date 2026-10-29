@@ -35387,6 +35387,15 @@
       },
       "publishedId": "18644866012053260",
       "confirmedPublished": true
+    },
+    "comment:18112450880228923": {
+      "creationId": "17895903231614054",
+      "createdAt": "2026-10-29T02:34:38.280Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Ghost snake is a good name for it. Those bulges are swollen veins rather than a bite though",
+        "reply_to_id": "18112450880228923"
+      }
     }
   },
   "repliedCommentIds": [
@@ -48424,7 +48433,7 @@
   },
   "spend": {
     "date": "2026-10-28",
-    "usd": 0.034450367999999995
+    "usd": 0.035349372
   },
   "lateSweep": {
     "date": "2026-10-28",
