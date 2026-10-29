@@ -35535,6 +35535,15 @@
       },
       "publishedId": "17947172775358504",
       "confirmedPublished": true
+    },
+    "comment:18124294426933447": {
+      "creationId": "17896041489614054",
+      "createdAt": "2026-10-29T19:44:09.583Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "The fused part sits low and can press on nearby structures which gives that dull ache. The case also raises the odds of obstruction or stones and those hurt too. Not every case is painful though.",
+        "reply_to_id": "18124294426933447"
+      }
     }
   },
   "repliedCommentIds": [
@@ -46677,7 +46686,8 @@
     "18348283177283383",
     "17953150245314458",
     "18101871689538951",
-    "17977859975934937"
+    "17977859975934937",
+    "18125768419808123"
   ],
   "answeredPostIds": [
     "18395606890093068"
@@ -46826,11 +46836,11 @@
     "18095590730446526": 41,
     "18097822445115488": 36,
     "17988834048118608": 28,
-    "18102425699386750": 9
+    "18102425699386750": 10
   },
   "daily": {
     "date": "2026-10-29",
-    "count": 9
+    "count": 10
   },
   "pinnedResolved": {
     "DaTTCIwoAw7": "18014812820883466"
@@ -48588,7 +48598,7 @@
   },
   "spend": {
     "date": "2026-10-29",
-    "usd": 0.011525124
+    "usd": 0.012868499999999998
   },
   "lateSweep": {
     "date": "2026-10-29",
