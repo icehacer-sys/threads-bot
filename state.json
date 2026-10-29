@@ -35491,6 +35491,15 @@
       },
       "publishedId": "17938572288126812",
       "confirmedPublished": true
+    },
+    "comment:17953150245314458": {
+      "creationId": "17896039683614054",
+      "createdAt": "2026-10-29T19:27:41.660Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "The joined lower poles are the horseshoe part and that's what the case shows. Whether there's extra fluid in the collecting system isn't something the published answer settles.",
+        "reply_to_id": "17953150245314458"
+      }
     }
   },
   "repliedCommentIds": [
@@ -46629,7 +46638,8 @@
     "17942418417367993",
     "17905465149606195",
     "18238934518321631",
-    "18179364421453160"
+    "18179364421453160",
+    "18348283177283383"
   ],
   "answeredPostIds": [
     "18395606890093068"
@@ -46778,11 +46788,11 @@
     "18095590730446526": 41,
     "18097822445115488": 36,
     "17988834048118608": 28,
-    "18102425699386750": 5
+    "18102425699386750": 6
   },
   "daily": {
     "date": "2026-10-29",
-    "count": 5
+    "count": 6
   },
   "pinnedResolved": {
     "DaTTCIwoAw7": "18014812820883466"
@@ -48538,7 +48548,7 @@
   },
   "spend": {
     "date": "2026-10-29",
-    "usd": 0.006787104
+    "usd": 0.0072615480000000005
   },
   "lateSweep": {
     "date": "2026-10-29",
