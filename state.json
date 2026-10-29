@@ -35365,6 +35365,15 @@
       },
       "publishedId": "18202828918375882",
       "confirmedPublished": true
+    },
+    "comment:18012987668987087": {
+      "creationId": "17895889686614054",
+      "createdAt": "2026-10-29T00:33:28.797Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Anytime. The wavy shapes on the film are the part worth remembering.",
+        "reply_to_id": "18012987668987087"
+      }
     }
   },
   "repliedCommentIds": [
@@ -48400,7 +48409,7 @@
   },
   "spend": {
     "date": "2026-10-28",
-    "usd": 0.03302965199999999
+    "usd": 0.03374405999999999
   },
   "lateSweep": {
     "date": "2026-10-28",
