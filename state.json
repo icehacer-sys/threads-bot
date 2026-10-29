@@ -35623,6 +35623,15 @@
       },
       "publishedId": "18133169593788093",
       "confirmedPublished": true
+    },
+    "comment:18139052590644518": {
+      "creationId": "17896043151614054",
+      "createdAt": "2026-10-29T20:01:30.089Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Sometimes it can. The isthmus sits low near the spine and the case also raises the odds of obstruction or stones and those can ache in the back. Plenty of people with one have no pain at all though.",
+        "reply_to_id": "18139052590644518"
+      }
     }
   },
   "repliedCommentIds": [
@@ -46773,7 +46782,8 @@
     "17944856913092437",
     "18014539367763616",
     "18499449820099502",
-    "18343720642272264"
+    "18343720642272264",
+    "18121458526963623"
   ],
   "answeredPostIds": [
     "18395606890093068"
@@ -46922,11 +46932,11 @@
     "18095590730446526": 41,
     "18097822445115488": 36,
     "17988834048118608": 28,
-    "18102425699386750": 17
+    "18102425699386750": 18
   },
   "daily": {
     "date": "2026-10-29",
-    "count": 17
+    "count": 18
   },
   "pinnedResolved": {
     "DaTTCIwoAw7": "18014812820883466"
@@ -48684,7 +48694,7 @@
   },
   "spend": {
     "date": "2026-10-29",
-    "usd": 0.017095824
+    "usd": 0.019170648000000002
   },
   "lateSweep": {
     "date": "2026-10-29",
