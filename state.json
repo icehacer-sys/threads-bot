@@ -35711,6 +35711,15 @@
       },
       "publishedId": "18080981933532110",
       "confirmedPublished": true
+    },
+    "comment:17999940551993398": {
+      "creationId": "17896052715614054",
+      "createdAt": "2026-10-29T22:22:35.307Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Two kidneys with one shared brow across the spine. Somebody get it a comb.",
+        "reply_to_id": "17999940551993398"
+      }
     }
   },
   "repliedCommentIds": [
@@ -48783,7 +48792,7 @@
   },
   "spend": {
     "date": "2026-10-29",
-    "usd": 0.027046512
+    "usd": 0.027784284000000003
   },
   "lateSweep": {
     "date": "2026-10-29",
