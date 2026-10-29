@@ -35744,6 +35744,15 @@
       },
       "publishedId": "18098162780442285",
       "confirmedPublished": true
+    },
+    "comment:18133729072704647": {
+      "creationId": "17896059741614054",
+      "createdAt": "2026-10-29T23:53:56.936Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "They've been fused since before they were born. I'd be grumpy too.",
+        "reply_to_id": "18133729072704647"
+      }
     }
   },
   "repliedCommentIds": [
@@ -48819,7 +48828,7 @@
   },
   "spend": {
     "date": "2026-10-29",
-    "usd": 0.029492388000000005
+    "usd": 0.030635616000000004
   },
   "lateSweep": {
     "date": "2026-10-29",
