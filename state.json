@@ -35733,6 +35733,15 @@
       },
       "publishedId": "18200237407384260",
       "confirmedPublished": true
+    },
+    "comment:18118192709002171": {
+      "creationId": "17896058715614054",
+      "createdAt": "2026-10-29T23:38:32.830Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Nothing blocking there. The answer is a horseshoe kidney and the two lower poles are joined across the spine.",
+        "reply_to_id": "18118192709002171"
+      }
     }
   },
   "repliedCommentIds": [
@@ -46893,7 +46902,8 @@
     "18129064915781510",
     "17966799570199188",
     "18135561439680921",
-    "17999940551993398"
+    "17999940551993398",
+    "17960373996232071"
   ],
   "answeredPostIds": [
     "18395606890093068"
@@ -47042,11 +47052,11 @@
     "18095590730446526": 41,
     "18097822445115488": 36,
     "17988834048118608": 28,
-    "18102425699386750": 27
+    "18102425699386750": 28
   },
   "daily": {
     "date": "2026-10-29",
-    "count": 27
+    "count": 28
   },
   "pinnedResolved": {
     "DaTTCIwoAw7": "18014812820883466"
@@ -48806,7 +48816,7 @@
   },
   "spend": {
     "date": "2026-10-29",
-    "usd": 0.028227900000000004
+    "usd": 0.029492388000000005
   },
   "lateSweep": {
     "date": "2026-10-29",
