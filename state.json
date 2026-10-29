@@ -35557,6 +35557,15 @@
       },
       "publishedId": "18151859155516327",
       "confirmedPublished": true
+    },
+    "comment:17881809654543803": {
+      "creationId": "17896043022614054",
+      "createdAt": "2026-10-29T19:59:45.914Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Those toe pads are doing a lot of work here. I'll take it over the real name.",
+        "reply_to_id": "17881809654543803"
+      }
     }
   },
   "repliedCommentIds": [
@@ -48613,7 +48622,7 @@
   },
   "spend": {
     "date": "2026-10-29",
-    "usd": 0.013471139999999998
+    "usd": 0.014046515999999998
   },
   "lateSweep": {
     "date": "2026-10-29",
