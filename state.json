@@ -35425,6 +35425,15 @@
       },
       "publishedId": "18081845033427837",
       "confirmedPublished": true
+    },
+    "comment:18099655388649698": {
+      "creationId": "17896039341614054",
+      "createdAt": "2026-10-29T19:25:55.631Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "That's it. Both lower poles joining across the spine is the giveaway.",
+        "reply_to_id": "18099655388649698"
+      }
     }
   },
   "repliedCommentIds": [
@@ -48465,7 +48474,7 @@
   },
   "spend": {
     "date": "2026-10-29",
-    "usd": 0.0023406
+    "usd": 0.002894904
   },
   "lateSweep": {
     "date": "2026-10-29",
