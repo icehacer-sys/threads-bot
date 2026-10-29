@@ -35634,6 +35634,15 @@
       },
       "publishedId": "17886312855689537",
       "confirmedPublished": true
+    },
+    "comment:17873589819640510": {
+      "creationId": "17896044645614054",
+      "createdAt": "2026-10-29T20:19:48.280Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Neither one. The bladder fills in fine and both kidneys are joined at their lower poles in a horseshoe.",
+        "reply_to_id": "17873589819640510"
+      }
     }
   },
   "repliedCommentIds": [
@@ -48698,7 +48707,7 @@
   },
   "spend": {
     "date": "2026-10-29",
-    "usd": 0.02038944
+    "usd": 0.021661188
   },
   "lateSweep": {
     "date": "2026-10-29",
