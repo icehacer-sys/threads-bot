@@ -36019,6 +36019,15 @@
       },
       "publishedId": "18105307562542397",
       "confirmedPublished": true
+    },
+    "comment:17881872324543167": {
+      "creationId": "17896197006614054",
+      "createdAt": "2026-10-30T22:28:25.718Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "A snowman where a heart should be does have that effect.",
+        "reply_to_id": "17881872324543167"
+      }
     }
   },
   "repliedCommentIds": [
@@ -49125,7 +49134,7 @@
   },
   "spend": {
     "date": "2026-10-30",
-    "usd": 0.026630507999999997
+    "usd": 0.027054791999999998
   },
   "lateSweep": {
     "date": "2026-10-30",
