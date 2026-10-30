@@ -35819,6 +35819,15 @@
       },
       "publishedId": "18093973886275797",
       "confirmedPublished": true
+    },
+    "comment:18127846096866209": {
+      "creationId": "17896185921614054",
+      "createdAt": "2026-10-30T20:21:31.629Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Big heart and a busy chest for a kid who just wanted to play.",
+        "reply_to_id": "18127846096866209"
+      }
     }
   },
   "repliedCommentIds": [
@@ -48901,7 +48910,7 @@
   },
   "spend": {
     "date": "2026-10-30",
-    "usd": 0.0043998119999999995
+    "usd": 0.005009016
   },
   "lateSweep": {
     "date": "2026-10-30",
