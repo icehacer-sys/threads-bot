@@ -653,7 +653,8 @@
     "18028523741859134": "{\"postId\":\"18096011516656084\",\"reason\":\"Specific question about atrial visibility and anatomy on the image. Any answer would name structures and edge toward the withheld diagnosis, so hold for owner review rather than risk hinting.\",\"commentText\":\"What happened to the bilateral atria?\",\"username\":\"dark.11angel730\",\"queuedAt\":\"2026-10-22T19:16:02.738Z\",\"resolvedAt\":\"2026-10-24T19:30:11.760Z\",\"resolution\":\"auto-expired: queued more than 48h ago\",\"expired\":true}",
     "17975894106139140": "{\"postId\":\"18096011516656084\",\"reason\":\"Asks to identify a thin linear structure in the upper film. The supplied facts describe only the ventricular shape and takotsubo background, no tubing device or its placement, so naming it would invent a fact. Hold for owner review and a supported answer.\",\"commentText\":\"What looks like a string in the upper part?\",\"username\":\"talks_too_much_in_class\",\"queuedAt\":\"2026-10-22T21:10:29.550Z\",\"resolvedAt\":\"2026-10-24T21:15:33.644Z\",\"resolution\":\"auto-expired: queued more than 48h ago\",\"expired\":true}",
     "17967843756196356": "{\"postId\":\"18095590730446526\",\"reason\":\"owner review: unsupported patient history, confirmation, specifics (year) or dismissal of an accepted differential | guard:forced-skip\",\"commentText\":\"It’s only two tablespoons in 32 ounces of water. It’s a good cleanser.\",\"username\":\"excbabe\",\"queuedAt\":\"2026-10-26T20:29:46.337Z\",\"resolvedAt\":\"2026-10-28T20:44:06.348Z\",\"resolution\":\"auto-expired: queued more than 48h ago\",\"expired\":true}",
-    "18094543325180859": "{\"postId\":\"17988834048118608\",\"reason\":\"owner review: personal medical concern\",\"commentText\":\"Wut\\nBut wait! \\nThis is me lately. Do I dare look to see what medical mystery might be my future?\",\"username\":\"kimbrailee\",\"queuedAt\":\"2026-10-28T23:01:41.015Z\"}"
+    "18094543325180859": "{\"postId\":\"17988834048118608\",\"reason\":\"owner review: personal medical concern\",\"commentText\":\"Wut\\nBut wait! \\nThis is me lately. Do I dare look to see what medical mystery might be my future?\",\"username\":\"kimbrailee\",\"queuedAt\":\"2026-10-28T23:01:41.015Z\"}",
+    "18133112371745524": "{\"postId\":\"17994226110051436\",\"reason\":\"owner review: unsupported patient history, confirmation, specifics (none) or dismissal of an accepted differential | guard:forced-skip\",\"commentText\":\"I just read what the xray shows and I'm wondering if this is something that suddenly happens or gradual over time?\",\"username\":\"julierk_\",\"queuedAt\":\"2026-10-30T20:39:53.409Z\"}"
   },
   "concernAcknowledgments": {
     "[\"18121475662898455\",\"berit069\",\"image\"]": "18142096432588199",
@@ -47106,7 +47107,8 @@
     "18223076329355876",
     "18027284261939440",
     "17949696117068281",
-    "17915322342492925"
+    "17915322342492925",
+    "18046488293831231"
   ],
   "answeredPostIds": [
     "18395606890093068"
@@ -47256,11 +47258,11 @@
     "18097822445115488": 36,
     "17988834048118608": 28,
     "18102425699386750": 35,
-    "17994226110051436": 9
+    "17994226110051436": 10
   },
   "daily": {
     "date": "2026-10-30",
-    "count": 9
+    "count": 10
   },
   "pinnedResolved": {
     "DaTTCIwoAw7": "18014812820883466"
@@ -48853,7 +48855,8 @@
     "18100307957419391",
     "18137949115633840",
     "18637614745039039",
-    "18098556569455121"
+    "18098556569455121",
+    "18133112371745524"
   ],
   "skipStrikes": {
     "17895266316520842": 1,
@@ -49022,7 +49025,7 @@
   },
   "spend": {
     "date": "2026-10-30",
-    "usd": 0.013925399999999998
+    "usd": 0.015862992
   },
   "lateSweep": {
     "date": "2026-10-30",
