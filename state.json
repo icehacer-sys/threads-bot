@@ -35996,6 +35996,15 @@
       },
       "publishedId": "18645140683008668",
       "confirmedPublished": true
+    },
+    "comment:18032326718862569": {
+      "creationId": "17896195962614054",
+      "createdAt": "2026-10-30T22:12:32.693Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Plain version: the lung veins got hooked up to the wrong plumbing. Instead of going to the left side of the heart they loop up and over to the right side.",
+        "reply_to_id": "18032326718862569"
+      }
     }
   },
   "repliedCommentIds": [
@@ -49099,7 +49108,7 @@
   },
   "spend": {
     "date": "2026-10-30",
-    "usd": 0.021886356
+    "usd": 0.023704068
   },
   "lateSweep": {
     "date": "2026-10-30",
