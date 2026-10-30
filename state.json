@@ -35852,6 +35852,15 @@
       },
       "publishedId": "18117336569113430",
       "confirmedPublished": true
+    },
+    "comment:18169165486434378": {
+      "creationId": "17896186050614054",
+      "createdAt": "2026-10-30T20:22:26.032Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "It looks that way and part of it is the heart. The upper half of that shadow is dilated veins stacked above it to make the snowman shape.",
+        "reply_to_id": "18169165486434378"
+      }
     }
   },
   "repliedCommentIds": [
@@ -47022,7 +47031,8 @@
     "18102905345387131",
     "17953220439315419",
     "18127846096866209",
-    "18635611162061471"
+    "18635611162061471",
+    "18111748610214949"
   ],
   "answeredPostIds": [
     "18395606890093068"
@@ -47172,11 +47182,11 @@
     "18097822445115488": 36,
     "17988834048118608": 28,
     "18102425699386750": 35,
-    "17994226110051436": 2
+    "17994226110051436": 3
   },
   "daily": {
     "date": "2026-10-30",
-    "count": 2
+    "count": 3
   },
   "pinnedResolved": {
     "DaTTCIwoAw7": "18014812820883466"
@@ -48937,7 +48947,7 @@
   },
   "spend": {
     "date": "2026-10-30",
-    "usd": 0.005930904
+    "usd": 0.007297344
   },
   "lateSweep": {
     "date": "2026-10-30",
