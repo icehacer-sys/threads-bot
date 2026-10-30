@@ -35766,6 +35766,15 @@
       },
       "publishedId": "18078602114759498",
       "confirmedPublished": true
+    },
+    "comment:17915826213495028": {
+      "creationId": "17896061271614054",
+      "createdAt": "2026-10-30T00:09:36.035Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Then you're set for the next one. Enjoy the quiz.",
+        "reply_to_id": "17915826213495028"
+      }
     }
   },
   "repliedCommentIds": [
@@ -48843,7 +48852,7 @@
   },
   "spend": {
     "date": "2026-10-29",
-    "usd": 0.031404456000000004
+    "usd": 0.032132496
   },
   "lateSweep": {
     "date": "2026-10-29",
