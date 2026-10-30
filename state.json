@@ -35799,6 +35799,15 @@
       },
       "publishedId": "18046380938828467",
       "confirmedPublished": true
+    },
+    "comment:17953220439315419": {
+      "creationId": "17896074090614054",
+      "createdAt": "2026-10-30T02:36:10.401Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "That's it. The film does show off the anatomy nicely.",
+        "reply_to_id": "17953220439315419"
+      }
     }
   },
   "repliedCommentIds": [
@@ -48880,7 +48889,7 @@
   },
   "spend": {
     "date": "2026-10-29",
-    "usd": 0.034432584
+    "usd": 0.035112660000000004
   },
   "lateSweep": {
     "date": "2026-10-29",
