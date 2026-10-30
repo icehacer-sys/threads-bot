@@ -35930,6 +35930,15 @@
       },
       "publishedId": "18492062746128600",
       "confirmedPublished": true
+    },
+    "comment:18446658727192023": {
+      "creationId": "17896189023614054",
+      "createdAt": "2026-10-30T20:55:10.415Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Yes. The dilated vertical vein and innominate vein are what build the head of that snowman.",
+        "reply_to_id": "18446658727192023"
+      }
     }
   },
   "repliedCommentIds": [
@@ -49000,7 +49009,8 @@
     "18075964262735425": 1,
     "18110901221614972": 1,
     "17999940551993398": 1,
-    "18421381867153829": 1
+    "18421381867153829": 1,
+    "18062140625567539": 1
   },
   "gifPostCounts": {
     "18432085978123193": 1,
@@ -49025,7 +49035,7 @@
   },
   "spend": {
     "date": "2026-10-30",
-    "usd": 0.015862992
+    "usd": 0.017664083999999997
   },
   "lateSweep": {
     "date": "2026-10-30",
