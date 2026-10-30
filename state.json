@@ -35915,7 +35915,9 @@
         "media_type": "TEXT",
         "text": "Your bestie called it. Snowman sign and all.",
         "reply_to_id": "17915322342492925"
-      }
+      },
+      "publishedId": "17912608986549325",
+      "confirmedPublished": true
     }
   },
   "repliedCommentIds": [
