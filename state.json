@@ -35952,6 +35952,15 @@
       },
       "publishedId": "18081090281456394",
       "confirmedPublished": true
+    },
+    "comment:17963522193248158": {
+      "creationId": "17896190949614054",
+      "createdAt": "2026-10-30T21:10:45.300Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "The shape and the flooded lungs do pull you away from a mass up top. Whether animals ever get this is beyond what I can say from one film",
+        "reply_to_id": "17963522193248158"
+      }
     }
   },
   "repliedCommentIds": [
@@ -47131,7 +47140,8 @@
     "17949696117068281",
     "17915322342492925",
     "18046488293831231",
-    "18446658727192023"
+    "18446658727192023",
+    "18062140625567539"
   ],
   "answeredPostIds": [
     "18395606890093068"
@@ -47281,11 +47291,11 @@
     "18097822445115488": 36,
     "17988834048118608": 28,
     "18102425699386750": 35,
-    "17994226110051436": 11
+    "17994226110051436": 12
   },
   "daily": {
     "date": "2026-10-30",
-    "count": 11
+    "count": 12
   },
   "pinnedResolved": {
     "DaTTCIwoAw7": "18014812820883466"
@@ -49049,7 +49059,7 @@
   },
   "spend": {
     "date": "2026-10-30",
-    "usd": 0.018101663999999996
+    "usd": 0.018609143999999998
   },
   "lateSweep": {
     "date": "2026-10-30",
