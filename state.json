@@ -35941,6 +35941,15 @@
       },
       "publishedId": "18647376730051408",
       "confirmedPublished": true
+    },
+    "comment:18062140625567539": {
+      "creationId": "17896190940614054",
+      "createdAt": "2026-10-30T21:10:30.185Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Frosty yes. Infarct no. This one was a snowman of big veins.",
+        "reply_to_id": "18062140625567539"
+      }
     }
   },
   "repliedCommentIds": [
@@ -49038,7 +49047,7 @@
   },
   "spend": {
     "date": "2026-10-30",
-    "usd": 0.017664083999999997
+    "usd": 0.018101663999999996
   },
   "lateSweep": {
     "date": "2026-10-30",
