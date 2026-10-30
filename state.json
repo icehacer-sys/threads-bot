@@ -35918,6 +35918,15 @@
       },
       "publishedId": "17912608986549325",
       "confirmedPublished": true
+    },
+    "comment:18046488293831231": {
+      "creationId": "17896186932614054",
+      "createdAt": "2026-10-30T20:39:33.342Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "The snowman only shows up when the veins get big enough to draw it.",
+        "reply_to_id": "18046488293831231"
+      }
     }
   },
   "repliedCommentIds": [
@@ -49011,7 +49020,7 @@
   },
   "spend": {
     "date": "2026-10-30",
-    "usd": 0.013509419999999998
+    "usd": 0.013925399999999998
   },
   "lateSweep": {
     "date": "2026-10-30",
