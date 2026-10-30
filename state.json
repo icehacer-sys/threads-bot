@@ -35841,6 +35841,15 @@
       },
       "publishedId": "18141843400626339",
       "confirmedPublished": true
+    },
+    "comment:18111748610214949": {
+      "creationId": "17896186023614054",
+      "createdAt": "2026-10-30T20:22:03.637Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "It's more exhausting than painful really. All that extra blood flow and the tiredness on exertion.",
+        "reply_to_id": "18111748610214949"
+      }
     }
   },
   "repliedCommentIds": [
@@ -47010,7 +47019,8 @@
     "18421381867153829",
     "18102905345387131",
     "17953220439315419",
-    "18127846096866209"
+    "18127846096866209",
+    "18635611162061471"
   ],
   "answeredPostIds": [
     "18395606890093068"
@@ -47160,11 +47170,11 @@
     "18097822445115488": 36,
     "17988834048118608": 28,
     "18102425699386750": 35,
-    "17994226110051436": 1
+    "17994226110051436": 2
   },
   "daily": {
     "date": "2026-10-30",
-    "count": 1
+    "count": 2
   },
   "pinnedResolved": {
     "DaTTCIwoAw7": "18014812820883466"
@@ -48925,7 +48935,7 @@
   },
   "spend": {
     "date": "2026-10-30",
-    "usd": 0.00546066
+    "usd": 0.005930904
   },
   "lateSweep": {
     "date": "2026-10-30",
