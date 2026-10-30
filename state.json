@@ -35985,6 +35985,15 @@
       },
       "publishedId": "17915306967555177",
       "confirmedPublished": true
+    },
+    "comment:17973861645157450": {
+      "creationId": "17896194612614054",
+      "createdAt": "2026-10-30T21:57:03.523Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Any time. The snowman earns his keep.",
+        "reply_to_id": "17973861645157450"
+      }
     }
   },
   "repliedCommentIds": [
@@ -49087,7 +49096,7 @@
   },
   "spend": {
     "date": "2026-10-30",
-    "usd": 0.021241548
+    "usd": 0.021886356
   },
   "lateSweep": {
     "date": "2026-10-30",
