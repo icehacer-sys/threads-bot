@@ -35896,6 +35896,15 @@
       },
       "publishedId": "18338416282272333",
       "confirmedPublished": true
+    },
+    "comment:17949696117068281": {
+      "creationId": "17896186149614054",
+      "createdAt": "2026-10-30T20:23:53.279Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "The Grinch comparison is a decent read of that wide upper shadow. A pericardial effusion would sit lower and hug the heart rather than build that snowman shape up top. The bunny's hiding spot is still up for debate.",
+        "reply_to_id": "17949696117068281"
+      }
     }
   },
   "repliedCommentIds": [
@@ -47070,7 +47079,8 @@
     "18111748610214949",
     "18169165486434378",
     "18002635712814167",
-    "18223076329355876"
+    "18223076329355876",
+    "18027284261939440"
   ],
   "answeredPostIds": [
     "18395606890093068"
@@ -47220,11 +47230,11 @@
     "18097822445115488": 36,
     "17988834048118608": 28,
     "18102425699386750": 35,
-    "17994226110051436": 6
+    "17994226110051436": 7
   },
   "daily": {
     "date": "2026-10-30",
-    "count": 6
+    "count": 7
   },
   "pinnedResolved": {
     "DaTTCIwoAw7": "18014812820883466"
@@ -48986,7 +48996,7 @@
   },
   "spend": {
     "date": "2026-10-30",
-    "usd": 0.011012052
+    "usd": 0.013056707999999998
   },
   "lateSweep": {
     "date": "2026-10-30",
