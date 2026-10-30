@@ -35777,6 +35777,15 @@
       },
       "publishedId": "17946240885359146",
       "confirmedPublished": true
+    },
+    "comment:18421381867153829": {
+      "creationId": "17896068462614054",
+      "createdAt": "2026-10-30T01:35:25.109Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "The U counts as private study. No diploma needed for this one.",
+        "reply_to_id": "18421381867153829"
+      }
     }
   },
   "repliedCommentIds": [
@@ -48856,7 +48865,7 @@
   },
   "spend": {
     "date": "2026-10-29",
-    "usd": 0.033312024
+    "usd": 0.033688344
   },
   "lateSweep": {
     "date": "2026-10-29",
