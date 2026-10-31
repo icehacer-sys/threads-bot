@@ -36341,6 +36341,15 @@
       },
       "publishedId": "18166914868503800",
       "confirmedPublished": true
+    },
+    "comment:18213146830365233": {
+      "creationId": "17896371021614054",
+      "createdAt": "2026-10-31T21:15:49.474Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Boba brain at least comes with pearls. Those dents came from pressure not tapioca though. The patient was a child.",
+        "reply_to_id": "18213146830365233"
+      }
     }
   },
   "repliedCommentIds": [
@@ -47554,7 +47563,8 @@
     "18133888778492383",
     "18413256667091191",
     "17930276358423281",
-    "18146597104604672"
+    "18146597104604672",
+    "17878949226633384"
   ],
   "answeredPostIds": [
     "18395606890093068"
@@ -47705,11 +47715,11 @@
     "17988834048118608": 28,
     "18102425699386750": 35,
     "17994226110051436": 28,
-    "17988459480076587": 17
+    "17988459480076587": 18
   },
   "daily": {
     "date": "2026-10-31",
-    "count": 17
+    "count": 18
   },
   "pinnedResolved": {
     "DaTTCIwoAw7": "18014812820883466"
@@ -49485,7 +49495,7 @@
   },
   "spend": {
     "date": "2026-10-31",
-    "usd": 0.029165712000000003
+    "usd": 0.031093548000000002
   },
   "lateSweep": {
     "date": "2026-10-31",
