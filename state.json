@@ -36120,6 +36120,15 @@
       },
       "publishedId": "18355923256219469",
       "confirmedPublished": true
+    },
+    "comment:17897785422416567": {
+      "creationId": "17896251174614054",
+      "createdAt": "2026-10-31T06:40:04.809Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Not worms. The lung veins loop up over the heart instead of into the left atrium and the widened shadow is those veins.",
+        "reply_to_id": "17897785422416567"
+      }
     }
   },
   "repliedCommentIds": [
@@ -49237,7 +49246,7 @@
   },
   "spend": {
     "date": "2026-10-30",
-    "usd": 0.039643716
+    "usd": 0.040920444
   },
   "lateSweep": {
     "date": "2026-10-30",
