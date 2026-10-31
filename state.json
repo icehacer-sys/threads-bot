@@ -36363,6 +36363,15 @@
       },
       "publishedId": "18115492076174431",
       "confirmedPublished": true
+    },
+    "comment:17887673154689128": {
+      "creationId": "17896371042614054",
+      "createdAt": "2026-10-31T21:16:31.908Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "The pox marks are actually dents pressed in from the brain side. Craniosynostosis left the skull no room to grow.",
+        "reply_to_id": "17887673154689128"
+      }
     }
   },
   "repliedCommentIds": [
@@ -47578,7 +47587,8 @@
     "17930276358423281",
     "18146597104604672",
     "17878949226633384",
-    "18213146830365233"
+    "18213146830365233",
+    "18125184043940126"
   ],
   "answeredPostIds": [
     "18395606890093068"
@@ -47729,11 +47739,11 @@
     "17988834048118608": 28,
     "18102425699386750": 35,
     "17994226110051436": 28,
-    "17988459480076587": 19
+    "17988459480076587": 20
   },
   "daily": {
     "date": "2026-10-31",
-    "count": 19
+    "count": 20
   },
   "pinnedResolved": {
     "DaTTCIwoAw7": "18014812820883466"
@@ -49510,7 +49520,7 @@
   },
   "spend": {
     "date": "2026-10-31",
-    "usd": 0.032879484
+    "usd": 0.03355356
   },
   "lateSweep": {
     "date": "2026-10-31",
