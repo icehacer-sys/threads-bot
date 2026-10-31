@@ -36108,6 +36108,15 @@
       },
       "publishedId": "18349698373250389",
       "confirmedPublished": true
+    },
+    "comment:18348828883271882": {
+      "creationId": "17896245423614054",
+      "createdAt": "2026-10-31T05:39:20.057Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Neither one. The answer is supracardiac TAPVR.",
+        "reply_to_id": "18348828883271882"
+      }
     }
   },
   "repliedCommentIds": [
@@ -49223,7 +49232,7 @@
   },
   "spend": {
     "date": "2026-10-30",
-    "usd": 0.037085952
+    "usd": 0.03863724
   },
   "lateSweep": {
     "date": "2026-10-30",
