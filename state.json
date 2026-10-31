@@ -36451,6 +36451,15 @@
       },
       "publishedId": "18099272435416190",
       "confirmedPublished": true
+    },
+    "comment:18134019727682031": {
+      "creationId": "17896383558614054",
+      "createdAt": "2026-10-31T22:58:06.360Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Some habits don't retire with the license. The teeth are usually the most honest part of a film like this.",
+        "reply_to_id": "18134019727682031"
+      }
     }
   },
   "repliedCommentIds": [
@@ -49611,7 +49620,7 @@
   },
   "spend": {
     "date": "2026-10-31",
-    "usd": 0.04694535600000001
+    "usd": 0.04819645200000001
   },
   "lateSweep": {
     "date": "2026-10-31",
