@@ -36052,6 +36052,15 @@
       },
       "publishedId": "18002567066814378",
       "confirmedPublished": true
+    },
+    "comment:17926760955206048": {
+      "creationId": "17896208538614054",
+      "createdAt": "2026-10-31T00:38:41.617Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "The snowman read is the answer here. The two alternatives you listed both sit up top too.",
+        "reply_to_id": "17926760955206048"
+      }
     }
   },
   "repliedCommentIds": [
@@ -49161,7 +49170,7 @@
   },
   "spend": {
     "date": "2026-10-30",
-    "usd": 0.029187216
+    "usd": 0.030316884
   },
   "lateSweep": {
     "date": "2026-10-30",
