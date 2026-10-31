@@ -36462,6 +36462,15 @@
       },
       "publishedId": "18024241829723064",
       "confirmedPublished": true
+    },
+    "comment:18024204617938911": {
+      "creationId": "17896384698614054",
+      "createdAt": "2026-10-31T23:13:38.565Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "That's it. Craniosynostosis with raised pressure denting the inner skull from the brain side.",
+        "reply_to_id": "18024204617938911"
+      }
     }
   },
   "repliedCommentIds": [
@@ -49598,7 +49607,8 @@
     "17999940551993398": 1,
     "18421381867153829": 1,
     "18062140625567539": 1,
-    "17878949226633384": 1
+    "17878949226633384": 1,
+    "18449341855132767": 1
   },
   "gifPostCounts": {
     "18432085978123193": 1,
@@ -49623,7 +49633,7 @@
   },
   "spend": {
     "date": "2026-10-31",
-    "usd": 0.04819645200000001
+    "usd": 0.05075870400000001
   },
   "lateSweep": {
     "date": "2026-10-31",
