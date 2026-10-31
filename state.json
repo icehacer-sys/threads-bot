@@ -36484,6 +36484,15 @@
       },
       "publishedId": "18503609704097932",
       "confirmedPublished": true
+    },
+    "comment:18116063603114436": {
+      "creationId": "17896389540614054",
+      "createdAt": "2026-10-31T23:59:30.099Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Reading it doesn't make the film any less wild.",
+        "reply_to_id": "18116063603114436"
+      }
     }
   },
   "repliedCommentIds": [
@@ -49648,7 +49657,7 @@
   },
   "spend": {
     "date": "2026-10-31",
-    "usd": 0.05121225600000001
+    "usd": 0.052029696000000014
   },
   "lateSweep": {
     "date": "2026-10-31",
