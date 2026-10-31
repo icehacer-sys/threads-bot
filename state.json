@@ -36418,6 +36418,15 @@
       },
       "publishedId": "17890106634479642",
       "confirmedPublished": true
+    },
+    "comment:17918798730466481": {
+      "creationId": "17896379844614054",
+      "createdAt": "2026-10-31T22:26:54.125Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Terrible news for anyone whose thoughts are already loud.",
+        "reply_to_id": "17918798730466481"
+      }
     }
   },
   "repliedCommentIds": [
@@ -49575,7 +49584,7 @@
   },
   "spend": {
     "date": "2026-10-31",
-    "usd": 0.043520232000000006
+    "usd": 0.044521896000000005
   },
   "lateSweep": {
     "date": "2026-10-31",
