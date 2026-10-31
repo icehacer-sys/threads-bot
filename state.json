@@ -36297,6 +36297,15 @@
       },
       "publishedId": "18116539979122952",
       "confirmedPublished": true
+    },
+    "comment:18413256667091191": {
+      "creationId": "17896369197614054",
+      "createdAt": "2026-10-31T20:58:51.644Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "In this case the point is that a growing brain needs a skull that can expand with it. What happens after that is beyond what one film shows.",
+        "reply_to_id": "18413256667091191"
+      }
     }
   },
   "repliedCommentIds": [
@@ -47506,7 +47515,8 @@
     "17949741423344961",
     "18136985872749900",
     "18142071169628190",
-    "18149692510561579"
+    "18149692510561579",
+    "18133888778492383"
   ],
   "answeredPostIds": [
     "18395606890093068"
@@ -47657,11 +47667,11 @@
     "17988834048118608": 28,
     "18102425699386750": 35,
     "17994226110051436": 28,
-    "17988459480076587": 13
+    "17988459480076587": 14
   },
   "daily": {
     "date": "2026-10-31",
-    "count": 13
+    "count": 14
   },
   "pinnedResolved": {
     "DaTTCIwoAw7": "18014812820883466"
@@ -49435,7 +49445,7 @@
   },
   "spend": {
     "date": "2026-10-31",
-    "usd": 0.021394140000000002
+    "usd": 0.022714224
   },
   "lateSweep": {
     "date": "2026-10-31",
