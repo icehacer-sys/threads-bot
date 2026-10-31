@@ -36473,6 +36473,15 @@
       },
       "publishedId": "17982348762133751",
       "confirmedPublished": true
+    },
+    "comment:18449341855132767": {
+      "creationId": "17896386057614054",
+      "createdAt": "2026-10-31T23:29:01.495Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "That's the closest lookalike in the ocean. The real thing was craniosynostosis and a brain pressing dents from inside.",
+        "reply_to_id": "18449341855132767"
+      }
     }
   },
   "repliedCommentIds": [
@@ -49636,7 +49645,7 @@
   },
   "spend": {
     "date": "2026-10-31",
-    "usd": 0.05075870400000001
+    "usd": 0.05121225600000001
   },
   "lateSweep": {
     "date": "2026-10-31",
