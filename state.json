@@ -36429,6 +36429,15 @@
       },
       "publishedId": "17899437825405088",
       "confirmedPublished": true
+    },
+    "comment:17892521157685500": {
+      "creationId": "17896381497614054",
+      "createdAt": "2026-10-31T22:42:25.454Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "You're reading the jaw well. Those teeth at different stages do point to a child and a single film can't pin a number on it. I can't speak to the extra bicuspid from what's written up here though.",
+        "reply_to_id": "17892521157685500"
+      }
     }
   },
   "repliedCommentIds": [
@@ -49587,7 +49596,7 @@
   },
   "spend": {
     "date": "2026-10-31",
-    "usd": 0.044521896000000005
+    "usd": 0.04649990400000001
   },
   "lateSweep": {
     "date": "2026-10-31",
