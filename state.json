@@ -36253,6 +36253,15 @@
       },
       "publishedId": "18070471358785636",
       "confirmedPublished": true
+    },
+    "comment:18136985872749900": {
+      "creationId": "17896366239614054",
+      "createdAt": "2026-10-31T20:42:18.160Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Mixed dentition with adult molars still under the milk ones puts a child in roughly that range. The exact age isn't given though.",
+        "reply_to_id": "18136985872749900"
+      }
     }
   },
   "repliedCommentIds": [
@@ -47458,7 +47467,8 @@
     "18095364761649818",
     "18105725330022349",
     "18106388003637850",
-    "17886299166511881"
+    "17886299166511881",
+    "17949741423344961"
   ],
   "answeredPostIds": [
     "18395606890093068"
@@ -47609,11 +47619,11 @@
     "17988834048118608": 28,
     "18102425699386750": 35,
     "17994226110051436": 28,
-    "17988459480076587": 9
+    "17988459480076587": 10
   },
   "daily": {
     "date": "2026-10-31",
-    "count": 9
+    "count": 10
   },
   "pinnedResolved": {
     "DaTTCIwoAw7": "18014812820883466"
@@ -49385,7 +49395,7 @@
   },
   "spend": {
     "date": "2026-10-31",
-    "usd": 0.016509048000000002
+    "usd": 0.018290808000000002
   },
   "lateSweep": {
     "date": "2026-10-31",
