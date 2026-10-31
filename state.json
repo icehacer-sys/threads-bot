@@ -668,7 +668,8 @@
     "18133112371745524": "{\"postId\":\"17994226110051436\",\"reason\":\"owner review: unsupported patient history, confirmation, specifics (none) or dismissal of an accepted differential | guard:forced-skip\",\"commentText\":\"I just read what the xray shows and I'm wondering if this is something that suddenly happens or gradual over time?\",\"username\":\"julierk_\",\"queuedAt\":\"2026-10-30T20:39:53.409Z\"}",
     "17992676103063024": "{\"postId\":\"17994226110051436\",\"reason\":\"owner review: unsupported patient history, confirmation, specifics (none) or dismissal of an accepted differential | guard:forced-skip\",\"commentText\":\"So, what is the cause doc?\\nAnd how can the patient be cured?\",\"username\":\"meili.sha19\",\"queuedAt\":\"2026-10-30T22:12:53.087Z\"}",
     "17978948328015935": "{\"postId\":\"17994226110051436\",\"reason\":\"Commenter asks about the age range of supracardiac TAPVR including whether it occurs in adults. The supplied facts only say obstructed forms are a neonatal emergency and that survival depends on an atrial septal defect. Nothing recorded addresses presentation in adults or the age of this patient, so a reply would require inventing clinical facts. Holds for owner review.\",\"commentText\":\"Notice you mentioned neonatal, is this found in babies or children?  Is it found in adults?\",\"username\":\"d_shedler\",\"queuedAt\":\"2026-10-31T02:40:13.866Z\"}",
-    "17993746904851506": "{\"postId\":\"17994226110051436\",\"reason\":\"owner review: unsupported patient history, confirmation, specifics (none) or dismissal of an accepted differential | guard:forced-skip\",\"commentText\":\"How did this person live this long to play athletics or walk? Isn’t this somewhat fatal if not corrected?\",\"username\":\"jrcauldwell\",\"queuedAt\":\"2026-10-31T05:39:37.423Z\"}"
+    "17993746904851506": "{\"postId\":\"17994226110051436\",\"reason\":\"owner review: unsupported patient history, confirmation, specifics (none) or dismissal of an accepted differential | guard:forced-skip\",\"commentText\":\"How did this person live this long to play athletics or walk? Isn’t this somewhat fatal if not corrected?\",\"username\":\"jrcauldwell\",\"queuedAt\":\"2026-10-31T05:39:37.423Z\"}",
+    "17953228632342491": "{\"postId\":\"17988459480076587\",\"reason\":\"Comment asserts the image is AI rather than a real film. Image provenance/authenticity claims require owner review and no automatic reply.\",\"commentText\":\"Diagnosis: AI\",\"username\":\"carolinemholm\",\"queuedAt\":\"2026-10-31T20:23:41.560Z\"}"
   },
   "concernAcknowledgments": {
     "[\"18121475662898455\",\"berit069\",\"image\"]": "18142096432588199",
@@ -36153,6 +36154,15 @@
       },
       "publishedId": "18135126568782031",
       "confirmedPublished": true
+    },
+    "comment:18119557850048026": {
+      "creationId": "17896362882614054",
+      "createdAt": "2026-10-31T20:23:52.261Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Less bubble wrap and more a skull with no give. If only popping it helped.",
+        "reply_to_id": "18119557850048026"
+      }
     }
   },
   "repliedCommentIds": [
@@ -47349,7 +47359,8 @@
     "18107394230206277",
     "18015360662760312",
     "18348828883271882",
-    "17897785422416567"
+    "17897785422416567",
+    "17891385768653690"
   ],
   "answeredPostIds": [
     "18395606890093068"
@@ -47499,11 +47510,12 @@
     "18097822445115488": 36,
     "17988834048118608": 28,
     "18102425699386750": 35,
-    "17994226110051436": 28
+    "17994226110051436": 28,
+    "17988459480076587": 1
   },
   "daily": {
     "date": "2026-10-31",
-    "count": 0
+    "count": 1
   },
   "pinnedResolved": {
     "DaTTCIwoAw7": "18014812820883466"
@@ -49101,7 +49113,9 @@
     "18211794097366203",
     "17992676103063024",
     "17978948328015935",
-    "17993746904851506"
+    "17993746904851506",
+    "17953228632342491",
+    "18122095414822250"
   ],
   "skipStrikes": {
     "17895266316520842": 1,
@@ -49271,7 +49285,7 @@
   },
   "spend": {
     "date": "2026-10-31",
-    "usd": 0.005439792000000001
+    "usd": 0.007062204000000001
   },
   "lateSweep": {
     "date": "2026-10-31",
