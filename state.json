@@ -36074,6 +36074,15 @@
       },
       "publishedId": "18431062627150476",
       "confirmedPublished": true
+    },
+    "comment:18023906570947113": {
+      "creationId": "17896212651614054",
+      "createdAt": "2026-10-31T01:09:28.160Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "The veins that should carry oxygenated blood back to the left atrium end up draining into a vertical vein that climbs to the innominate vein and the superior vena cava instead. So all the blood lands on the right side.",
+        "reply_to_id": "18023906570947113"
+      }
     }
   },
   "repliedCommentIds": [
@@ -49185,7 +49194,7 @@
   },
   "spend": {
     "date": "2026-10-30",
-    "usd": 0.031221323999999998
+    "usd": 0.032720783999999996
   },
   "lateSweep": {
     "date": "2026-10-30",
