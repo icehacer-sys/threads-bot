@@ -656,7 +656,8 @@
     "18094543325180859": "{\"postId\":\"17988834048118608\",\"reason\":\"owner review: personal medical concern\",\"commentText\":\"Wut\\nBut wait! \\nThis is me lately. Do I dare look to see what medical mystery might be my future?\",\"username\":\"kimbrailee\",\"queuedAt\":\"2026-10-28T23:01:41.015Z\",\"resolvedAt\":\"2026-10-30T23:14:15.759Z\",\"resolution\":\"auto-expired: queued more than 48h ago\",\"expired\":true}",
     "18133112371745524": "{\"postId\":\"17994226110051436\",\"reason\":\"owner review: unsupported patient history, confirmation, specifics (none) or dismissal of an accepted differential | guard:forced-skip\",\"commentText\":\"I just read what the xray shows and I'm wondering if this is something that suddenly happens or gradual over time?\",\"username\":\"julierk_\",\"queuedAt\":\"2026-10-30T20:39:53.409Z\"}",
     "17992676103063024": "{\"postId\":\"17994226110051436\",\"reason\":\"owner review: unsupported patient history, confirmation, specifics (none) or dismissal of an accepted differential | guard:forced-skip\",\"commentText\":\"So, what is the cause doc?\\nAnd how can the patient be cured?\",\"username\":\"meili.sha19\",\"queuedAt\":\"2026-10-30T22:12:53.087Z\"}",
-    "17978948328015935": "{\"postId\":\"17994226110051436\",\"reason\":\"Commenter asks about the age range of supracardiac TAPVR including whether it occurs in adults. The supplied facts only say obstructed forms are a neonatal emergency and that survival depends on an atrial septal defect. Nothing recorded addresses presentation in adults or the age of this patient, so a reply would require inventing clinical facts. Holds for owner review.\",\"commentText\":\"Notice you mentioned neonatal, is this found in babies or children?  Is it found in adults?\",\"username\":\"d_shedler\",\"queuedAt\":\"2026-10-31T02:40:13.866Z\"}"
+    "17978948328015935": "{\"postId\":\"17994226110051436\",\"reason\":\"Commenter asks about the age range of supracardiac TAPVR including whether it occurs in adults. The supplied facts only say obstructed forms are a neonatal emergency and that survival depends on an atrial septal defect. Nothing recorded addresses presentation in adults or the age of this patient, so a reply would require inventing clinical facts. Holds for owner review.\",\"commentText\":\"Notice you mentioned neonatal, is this found in babies or children?  Is it found in adults?\",\"username\":\"d_shedler\",\"queuedAt\":\"2026-10-31T02:40:13.866Z\"}",
+    "17993746904851506": "{\"postId\":\"17994226110051436\",\"reason\":\"owner review: unsupported patient history, confirmation, specifics (none) or dismissal of an accepted differential | guard:forced-skip\",\"commentText\":\"How did this person live this long to play athletics or walk? Isn’t this somewhat fatal if not corrected?\",\"username\":\"jrcauldwell\",\"queuedAt\":\"2026-10-31T05:39:37.423Z\"}"
   },
   "concernAcknowledgments": {
     "[\"18121475662898455\",\"berit069\",\"image\"]": "18142096432588199",
@@ -47313,7 +47314,8 @@
     "17971638803962600",
     "18023906570947113",
     "18107394230206277",
-    "18015360662760312"
+    "18015360662760312",
+    "18348828883271882"
   ],
   "answeredPostIds": [
     "18395606890093068"
@@ -47463,11 +47465,11 @@
     "18097822445115488": 36,
     "17988834048118608": 28,
     "18102425699386750": 35,
-    "17994226110051436": 26
+    "17994226110051436": 27
   },
   "daily": {
     "date": "2026-10-30",
-    "count": 26
+    "count": 27
   },
   "pinnedResolved": {
     "DaTTCIwoAw7": "18014812820883466"
@@ -49064,7 +49066,8 @@
     "18133112371745524",
     "18211794097366203",
     "17992676103063024",
-    "17978948328015935"
+    "17978948328015935",
+    "17993746904851506"
   ],
   "skipStrikes": {
     "17895266316520842": 1,
@@ -49234,7 +49237,7 @@
   },
   "spend": {
     "date": "2026-10-30",
-    "usd": 0.03863724
+    "usd": 0.039643716
   },
   "lateSweep": {
     "date": "2026-10-30",
