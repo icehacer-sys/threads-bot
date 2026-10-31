@@ -36198,6 +36198,15 @@
       },
       "publishedId": "18644897518018587",
       "confirmedPublished": true
+    },
+    "comment:18095364761649818": {
+      "creationId": "17896363311614054",
+      "createdAt": "2026-10-31T20:25:26.545Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Hexington Disease would explain the outfit choices at least. The migraine part I get though. Waking up with a headache every night is a different kind of scary.",
+        "reply_to_id": "18095364761649818"
+      }
     }
   },
   "repliedCommentIds": [
@@ -47398,7 +47407,8 @@
     "17891385768653690",
     "18119557850048026",
     "17970156936205607",
-    "17875328994650081"
+    "17875328994650081",
+    "18225246898339346"
   ],
   "answeredPostIds": [
     "18395606890093068"
@@ -47549,11 +47559,11 @@
     "17988834048118608": 28,
     "18102425699386750": 35,
     "17994226110051436": 28,
-    "17988459480076587": 4
+    "17988459480076587": 5
   },
   "daily": {
     "date": "2026-10-31",
-    "count": 4
+    "count": 5
   },
   "pinnedResolved": {
     "DaTTCIwoAw7": "18014812820883466"
@@ -49325,7 +49335,7 @@
   },
   "spend": {
     "date": "2026-10-31",
-    "usd": 0.012517260000000002
+    "usd": 0.013042704000000002
   },
   "lateSweep": {
     "date": "2026-10-31",
