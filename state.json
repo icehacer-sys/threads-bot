@@ -36330,6 +36330,15 @@
       },
       "publishedId": "17938145451400973",
       "confirmedPublished": true
+    },
+    "comment:17878949226633384": {
+      "creationId": "17896371006614054",
+      "createdAt": "2026-10-31T21:15:24.351Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "The bubbles are the giveaway in the name and the film. Those dents get pressed in from inside when the skull fuses too early.",
+        "reply_to_id": "17878949226633384"
+      }
     }
   },
   "repliedCommentIds": [
@@ -49474,7 +49483,7 @@
   },
   "spend": {
     "date": "2026-10-31",
-    "usd": 0.027990060000000004
+    "usd": 0.029165712000000003
   },
   "lateSweep": {
     "date": "2026-10-31",
