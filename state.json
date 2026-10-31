@@ -36142,6 +36142,15 @@
       },
       "publishedId": "18114990941331576",
       "confirmedPublished": true
+    },
+    "comment:17891385768653690": {
+      "creationId": "17896362621614054",
+      "createdAt": "2026-10-31T20:23:30.448Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Resistance was futile for that skull. It was craniosynostosis though.",
+        "reply_to_id": "17891385768653690"
+      }
     }
   },
   "repliedCommentIds": [
@@ -49260,7 +49269,7 @@
   },
   "spend": {
     "date": "2026-10-31",
-    "usd": 0.004829388
+    "usd": 0.005439792000000001
   },
   "lateSweep": {
     "date": "2026-10-31",
