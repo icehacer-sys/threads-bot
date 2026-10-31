@@ -36396,6 +36396,15 @@
       },
       "publishedId": "18081903038744187",
       "confirmedPublished": true
+    },
+    "comment:17981629287124052": {
+      "creationId": "17896376493614054",
+      "createdAt": "2026-10-31T21:55:59.991Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "The age isn't given here. The mixed teeth suggest a child but that's as far as I'll go. The cause isn't recorded for this patient either.",
+        "reply_to_id": "17981629287124052"
+      }
     }
   },
   "repliedCommentIds": [
@@ -49550,7 +49559,7 @@
   },
   "spend": {
     "date": "2026-10-31",
-    "usd": 0.039540816
+    "usd": 0.04171272
   },
   "lateSweep": {
     "date": "2026-10-31",
