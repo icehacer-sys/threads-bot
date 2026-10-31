@@ -36385,6 +36385,15 @@
       },
       "publishedId": "17887859121652790",
       "confirmedPublished": true
+    },
+    "comment:18080977895396949": {
+      "creationId": "17896374249614054",
+      "createdAt": "2026-10-31T21:32:19.406Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Bubble head is back and undefeated as a nickname. This skull earned it from the inside out though. Craniosynostosis squeezed the brain against a lid that closed too soon.",
+        "reply_to_id": "18080977895396949"
+      }
     }
   },
   "repliedCommentIds": [
@@ -49536,7 +49545,7 @@
   },
   "spend": {
     "date": "2026-10-31",
-    "usd": 0.03503184
+    "usd": 0.03669618
   },
   "lateSweep": {
     "date": "2026-10-31",
