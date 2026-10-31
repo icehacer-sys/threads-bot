@@ -36165,6 +36165,15 @@
       },
       "publishedId": "18107755484262343",
       "confirmedPublished": true
+    },
+    "comment:17970156936205607": {
+      "creationId": "17896362984614054",
+      "createdAt": "2026-10-31T20:24:09.624Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Those overlapping circles really do look like it. Here the pattern is pressure pressing the brain folds into the inner skull because craniosynostosis left it no room to grow.",
+        "reply_to_id": "17970156936205607"
+      }
     }
   },
   "repliedCommentIds": [
@@ -47362,7 +47371,8 @@
     "18015360662760312",
     "18348828883271882",
     "17897785422416567",
-    "17891385768653690"
+    "17891385768653690",
+    "18119557850048026"
   ],
   "answeredPostIds": [
     "18395606890093068"
@@ -47513,11 +47523,11 @@
     "17988834048118608": 28,
     "18102425699386750": 35,
     "17994226110051436": 28,
-    "17988459480076587": 1
+    "17988459480076587": 2
   },
   "daily": {
     "date": "2026-10-31",
-    "count": 1
+    "count": 2
   },
   "pinnedResolved": {
     "DaTTCIwoAw7": "18014812820883466"
@@ -49287,7 +49297,7 @@
   },
   "spend": {
     "date": "2026-10-31",
-    "usd": 0.007062204000000001
+    "usd": 0.007515348000000001
   },
   "lateSweep": {
     "date": "2026-10-31",
