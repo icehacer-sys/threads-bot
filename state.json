@@ -36495,6 +36495,15 @@
       },
       "publishedId": "18085482764336860",
       "confirmedPublished": true
+    },
+    "comment:17959674129018136": {
+      "creationId": "17896390509614054",
+      "createdAt": "2026-11-01T00:14:55.735Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "A skull with no room to grow is a rough thing to picture.",
+        "reply_to_id": "17959674129018136"
+      }
     }
   },
   "repliedCommentIds": [
@@ -49660,7 +49669,7 @@
   },
   "spend": {
     "date": "2026-10-31",
-    "usd": 0.052029696000000014
+    "usd": 0.053056128000000015
   },
   "lateSweep": {
     "date": "2026-10-31",
