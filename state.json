@@ -36506,6 +36506,15 @@
       },
       "publishedId": "18128164768942930",
       "confirmedPublished": true
+    },
+    "comment:18378714997213573": {
+      "creationId": "17896393833614054",
+      "createdAt": "2026-11-01T00:45:19.433Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "That's the one. Fused sutures turned that skull into a tight lid.",
+        "reply_to_id": "18378714997213573"
+      }
     }
   },
   "repliedCommentIds": [
@@ -49672,7 +49681,7 @@
   },
   "spend": {
     "date": "2026-10-31",
-    "usd": 0.053056128000000015
+    "usd": 0.053684172000000016
   },
   "lateSweep": {
     "date": "2026-10-31",
