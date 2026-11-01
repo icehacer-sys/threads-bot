@@ -36572,6 +36572,15 @@
       },
       "publishedId": "17988935150881412",
       "confirmedPublished": true
+    },
+    "comment:18195364072404380": {
+      "creationId": "17896422048614054",
+      "createdAt": "2026-11-01T04:12:04.371Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "That's a lot to have gone through so early. Glad he got seen as a baby.",
+        "reply_to_id": "18195364072404380"
+      }
     }
   },
   "repliedCommentIds": [
@@ -49746,7 +49755,7 @@
   },
   "spend": {
     "date": "2026-10-31",
-    "usd": 0.06193905600000001
+    "usd": 0.06257400000000002
   },
   "lateSweep": {
     "date": "2026-10-31",
