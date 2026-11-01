@@ -36609,6 +36609,15 @@
       },
       "publishedId": "17935467360147053",
       "confirmedPublished": true
+    },
+    "comment:18413636251091543": {
+      "creationId": "17896537242614054",
+      "createdAt": "2026-11-01T20:23:26.483Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "It really does look like a cauliflower floret in there. The lumpy shape is a kidney that calcified into a putty kidney from end-stage TB.",
+        "reply_to_id": "18413636251091543"
+      }
     }
   },
   "repliedCommentIds": [
@@ -49787,7 +49796,7 @@
   },
   "spend": {
     "date": "2026-11-01",
-    "usd": 0.0018933239999999998
+    "usd": 0.0025175279999999998
   },
   "lateSweep": {
     "date": "2026-11-01",
