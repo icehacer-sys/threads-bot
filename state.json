@@ -36517,6 +36517,15 @@
       },
       "publishedId": "17964829305246277",
       "confirmedPublished": true
+    },
+    "comment:18136363525583138": {
+      "creationId": "17896396128614054",
+      "createdAt": "2026-11-01T01:15:51.423Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Hard to stop looking at it. Those dents were the skull giving in.",
+        "reply_to_id": "18136363525583138"
+      }
     }
   },
   "repliedCommentIds": [
@@ -49512,7 +49521,8 @@
     "17944794279092651",
     "18450715270124729",
     "17898879345609167",
-    "17910629598591873"
+    "17910629598591873",
+    "18115897505591993"
   ],
   "skipStrikes": {
     "17895266316520842": 1,
@@ -49684,7 +49694,7 @@
   },
   "spend": {
     "date": "2026-10-31",
-    "usd": 0.053684172000000016
+    "usd": 0.05550434400000001
   },
   "lateSweep": {
     "date": "2026-10-31",
