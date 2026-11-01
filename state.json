@@ -36796,6 +36796,15 @@
       },
       "publishedId": "18140060326635091",
       "confirmedPublished": true
+    },
+    "comment:18640352002011791": {
+      "creationId": "17896559673614054",
+      "createdAt": "2026-11-01T23:15:22.169Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Cheapest route indeed. A kidney that quiet does its damage before anyone notices.",
+        "reply_to_id": "18640352002011791"
+      }
     }
   },
   "repliedCommentIds": [
@@ -49825,7 +49834,8 @@
     "17912932182491574",
     "18125574347480878",
     "18096826712149707",
-    "18100832465387457"
+    "18100832465387457",
+    "17967383808206699"
   ],
   "skipStrikes": {
     "17895266316520842": 1,
@@ -49997,7 +50007,7 @@
   },
   "spend": {
     "date": "2026-11-01",
-    "usd": 0.025003199999999993
+    "usd": 0.02664683999999999
   },
   "lateSweep": {
     "date": "2026-11-01",
