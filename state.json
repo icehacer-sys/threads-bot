@@ -36583,6 +36583,15 @@
       },
       "publishedId": "18143820643622328",
       "confirmedPublished": true
+    },
+    "comment:18638255614033806": {
+      "creationId": "17896438137614054",
+      "createdAt": "2026-11-01T06:13:13.844Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "They're concave on the inside. The brain folds press into the inner table so the dents face inward. That means you wouldn't feel them on the outside of the head.",
+        "reply_to_id": "18638255614033806"
+      }
     }
   },
   "repliedCommentIds": [
@@ -49759,7 +49768,7 @@
   },
   "spend": {
     "date": "2026-10-31",
-    "usd": 0.06336234000000002
+    "usd": 0.06458634
   },
   "lateSweep": {
     "date": "2026-10-31",
