@@ -36561,6 +36561,15 @@
       },
       "publishedId": "18127710454667358",
       "confirmedPublished": true
+    },
+    "comment:18116106431030787": {
+      "creationId": "17896417773614054",
+      "createdAt": "2026-11-01T03:41:31.049Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Yes that's close to what the surgery does. Reopening and reshaping the fused skull gives the brain room again. The goal is pressure relief rather than height though.",
+        "reply_to_id": "18116106431030787"
+      }
     }
   },
   "repliedCommentIds": [
@@ -49734,7 +49743,7 @@
   },
   "spend": {
     "date": "2026-10-31",
-    "usd": 0.06055783200000002
+    "usd": 0.06193905600000001
   },
   "lateSweep": {
     "date": "2026-10-31",
