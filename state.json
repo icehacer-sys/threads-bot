@@ -36550,6 +36550,15 @@
       },
       "publishedId": "17909586807586245",
       "confirmedPublished": true
+    },
+    "comment:18155623504524716": {
+      "creationId": "17896403598614054",
+      "createdAt": "2026-11-01T02:17:08.453Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Thick skull from the outside would be a much easier case. These dents came from the brain side though.",
+        "reply_to_id": "18155623504524716"
+      }
     }
   },
   "repliedCommentIds": [
@@ -49721,7 +49730,7 @@
   },
   "spend": {
     "date": "2026-10-31",
-    "usd": 0.05871262800000002
+    "usd": 0.05950396800000002
   },
   "lateSweep": {
     "date": "2026-10-31",
