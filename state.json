@@ -36539,6 +36539,15 @@
       },
       "publishedId": "17930602176179961",
       "confirmedPublished": true
+    },
+    "comment:18155880376497183": {
+      "creationId": "17896399062614054",
+      "createdAt": "2026-11-01T01:46:42.487Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Hair left in during a film can leave its own marks but these dents are scalloped impressions in the inner table from the brain pressing outward. The skull fused too early and could not expand with the growing brain.",
+        "reply_to_id": "18155880376497183"
+      }
     }
   },
   "repliedCommentIds": [
@@ -47770,7 +47779,8 @@
     "18116063603114436",
     "17959674129018136",
     "18378714997213573",
-    "18136363525583138"
+    "18136363525583138",
+    "18099145586109223"
   ],
   "answeredPostIds": [
     "18395606890093068"
@@ -47921,11 +47931,11 @@
     "17988834048118608": 28,
     "18102425699386750": 35,
     "17994226110051436": 28,
-    "17988459480076587": 35
+    "17988459480076587": 36
   },
   "daily": {
     "date": "2026-10-31",
-    "count": 35
+    "count": 36
   },
   "pinnedResolved": {
     "DaTTCIwoAw7": "18014812820883466"
@@ -49708,7 +49718,7 @@
   },
   "spend": {
     "date": "2026-10-31",
-    "usd": 0.05637938400000001
+    "usd": 0.05871262800000002
   },
   "lateSweep": {
     "date": "2026-10-31",
