@@ -36785,6 +36785,15 @@
       },
       "publishedId": "18117542969009869",
       "confirmedPublished": true
+    },
+    "comment:18175696015771279": {
+      "creationId": "17896552221614054",
+      "createdAt": "2026-11-01T21:59:38.394Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Not on this side. A putty kidney is already destroyed and nonfunctioning so it stays that way. Treatment clears the infection and protects the other kidney.",
+        "reply_to_id": "18175696015771279"
+      }
     }
   },
   "repliedCommentIds": [
@@ -49985,7 +49994,7 @@
   },
   "spend": {
     "date": "2026-11-01",
-    "usd": 0.023837375999999993
+    "usd": 0.025003199999999993
   },
   "lateSweep": {
     "date": "2026-11-01",
