@@ -36528,6 +36528,15 @@
       },
       "publishedId": "18125917451297711",
       "confirmedPublished": true
+    },
+    "comment:18099145586109223": {
+      "creationId": "17896399023614054",
+      "createdAt": "2026-11-01T01:46:17.937Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "The ridges are on the outside of those two. These dents got pressed from the inside 🤣",
+        "reply_to_id": "18099145586109223"
+      }
     }
   },
   "repliedCommentIds": [
@@ -49697,7 +49706,7 @@
   },
   "spend": {
     "date": "2026-10-31",
-    "usd": 0.05550434400000001
+    "usd": 0.05637938400000001
   },
   "lateSweep": {
     "date": "2026-10-31",
