@@ -36719,6 +36719,15 @@
       },
       "publishedId": "18113870771229243",
       "confirmedPublished": true
+    },
+    "comment:18413008204088572": {
+      "creationId": "17896546875614054",
+      "createdAt": "2026-11-01T21:12:08.999Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Never thought I'd type the words cauliflower kidney but here we are.",
+        "reply_to_id": "18413008204088572"
+      }
     }
   },
   "repliedCommentIds": [
@@ -49912,7 +49921,7 @@
   },
   "spend": {
     "date": "2026-11-01",
-    "usd": 0.014243892
+    "usd": 0.015233483999999999
   },
   "lateSweep": {
     "date": "2026-11-01",
