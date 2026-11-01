@@ -36708,6 +36708,15 @@
       },
       "publishedId": "17994523701019753",
       "confirmedPublished": true
+    },
+    "comment:18357336994168731": {
+      "creationId": "17896541838614054",
+      "createdAt": "2026-11-01T20:56:45.006Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Sorry you have had your own run of it. The strange part here is that a kidney like this tends to go quiet rather than hurt.",
+        "reply_to_id": "18357336994168731"
+      }
     }
   },
   "repliedCommentIds": [
@@ -47954,7 +47963,8 @@
     "17927523273440278",
     "18348391198252279",
     "17969455788197765",
-    "17954824935315006"
+    "17954824935315006",
+    "18110404232262834"
   ],
   "answeredPostIds": [
     "18395606890093068"
@@ -48106,11 +48116,11 @@
     "18102425699386750": 35,
     "17994226110051436": 28,
     "17988459480076587": 42,
-    "18097077188147046": 8
+    "18097077188147046": 9
   },
   "daily": {
     "date": "2026-11-01",
-    "count": 8
+    "count": 9
   },
   "pinnedResolved": {
     "DaTTCIwoAw7": "18014812820883466"
@@ -49899,7 +49909,7 @@
   },
   "spend": {
     "date": "2026-11-01",
-    "usd": 0.013590551999999999
+    "usd": 0.014243892
   },
   "lateSweep": {
     "date": "2026-11-01",
