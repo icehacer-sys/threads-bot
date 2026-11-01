@@ -36628,7 +36628,9 @@
         "media_type": "TEXT",
         "text": "That's the one",
         "reply_to_id": "18216359047317805"
-      }
+      },
+      "publishedId": "17997433434046942",
+      "confirmedPublished": true
     }
   },
   "repliedCommentIds": [
