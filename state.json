@@ -36594,6 +36594,15 @@
       },
       "publishedId": "18132709379489507",
       "confirmedPublished": true
+    },
+    "comment:18131382833309009": {
+      "creationId": "17896438158614054",
+      "createdAt": "2026-11-01T06:13:35.858Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Pepper pot skull is small punched-out holes from the inside of the marrow. These are big scooped dents with ridges between them so the answer here was craniosynostosis.",
+        "reply_to_id": "18131382833309009"
+      }
     }
   },
   "repliedCommentIds": [
@@ -47830,7 +47839,8 @@
     "18155880376497183",
     "18155623504524716",
     "18116106431030787",
-    "18195364072404380"
+    "18195364072404380",
+    "18638255614033806"
   ],
   "answeredPostIds": [
     "18395606890093068"
@@ -47981,11 +47991,11 @@
     "17988834048118608": 28,
     "18102425699386750": 35,
     "17994226110051436": 28,
-    "17988459480076587": 40
+    "17988459480076587": 41
   },
   "daily": {
     "date": "2026-10-31",
-    "count": 40
+    "count": 41
   },
   "pinnedResolved": {
     "DaTTCIwoAw7": "18014812820883466"
@@ -49770,7 +49780,7 @@
   },
   "spend": {
     "date": "2026-10-31",
-    "usd": 0.06458634
+    "usd": 0.06622185600000001
   },
   "lateSweep": {
     "date": "2026-10-31",
