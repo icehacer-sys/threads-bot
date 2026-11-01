@@ -36642,6 +36642,15 @@
       },
       "publishedId": "18150471307487149",
       "confirmedPublished": true
+    },
+    "comment:18019119743745764": {
+      "creationId": "17896540302614054",
+      "createdAt": "2026-11-01T20:39:39.146Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Yep. Whole kidney turned to chalk and kept its shape. Half the thread landed on kidney before I said anything.",
+        "reply_to_id": "18019119743745764"
+      }
     }
   },
   "repliedCommentIds": [
@@ -49825,7 +49834,7 @@
   },
   "spend": {
     "date": "2026-11-01",
-    "usd": 0.005660843999999999
+    "usd": 0.006956015999999999
   },
   "lateSweep": {
     "date": "2026-11-01",
