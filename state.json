@@ -37188,6 +37188,15 @@
       },
       "publishedId": "18168078490481880",
       "confirmedPublished": true
+    },
+    "comment:18168614395487802": {
+      "creationId": "17896691352614054",
+      "createdAt": "2026-11-02T23:48:46.778Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Gland is the popular answer tonight. This was a carotid body tumour though and that thing sits right where the carotid splits.",
+        "reply_to_id": "18168614395487802"
+      }
     }
   },
   "repliedCommentIds": [
@@ -50444,7 +50453,7 @@
   },
   "spend": {
     "date": "2026-11-02",
-    "usd": 0.045116214
+    "usd": 0.046998318000000004
   },
   "lateSweep": {
     "date": "2026-11-02",
