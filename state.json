@@ -37144,6 +37144,15 @@
       },
       "publishedId": "18101824373642532",
       "confirmedPublished": true
+    },
+    "comment:18099234224638775": {
+      "creationId": "17896686612614054",
+      "createdAt": "2026-11-02T22:21:56.131Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "The neck clearly ignored that advice and knitted itself something anyway.",
+        "reply_to_id": "18099234224638775"
+      }
     }
   },
   "repliedCommentIds": [
@@ -50393,7 +50402,7 @@
   },
   "spend": {
     "date": "2026-11-02",
-    "usd": 0.037724484
+    "usd": 0.038070336
   },
   "lateSweep": {
     "date": "2026-11-02",
