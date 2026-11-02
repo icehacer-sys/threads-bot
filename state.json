@@ -36840,6 +36840,15 @@
       },
       "publishedId": "18172526971465496",
       "confirmedPublished": true
+    },
+    "comment:18136424725663508": {
+      "creationId": "17896603107614054",
+      "createdAt": "2026-11-02T07:45:07.659Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "That is a lot to carry. Seeing a film like this again has to bring him straight back.",
+        "reply_to_id": "18136424725663508"
+      }
     }
   },
   "repliedCommentIds": [
@@ -49876,7 +49885,8 @@
     "18100832465387457",
     "17967383808206699",
     "17910492018577064",
-    "17942376561393737"
+    "17942376561393737",
+    "18076946495465489"
   ],
   "skipStrikes": {
     "17895266316520842": 1,
@@ -50048,7 +50058,7 @@
   },
   "spend": {
     "date": "2026-11-01",
-    "usd": 0.030618131999999992
+    "usd": 0.032478839999999995
   },
   "lateSweep": {
     "date": "2026-11-01",
