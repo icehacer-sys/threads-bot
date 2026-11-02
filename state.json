@@ -37122,6 +37122,15 @@
       },
       "publishedId": "17931195234421934",
       "confirmedPublished": true
+    },
+    "comment:18133198522747584": {
+      "creationId": "17896685286614054",
+      "createdAt": "2026-11-02T21:50:47.784Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "This one was vascular in a very literal way. Two arteries bent around it to make room.",
+        "reply_to_id": "18133198522747584"
+      }
     }
   },
   "repliedCommentIds": [
@@ -50367,7 +50376,7 @@
   },
   "spend": {
     "date": "2026-11-02",
-    "usd": 0.034159776
+    "usd": 0.034915716
   },
   "lateSweep": {
     "date": "2026-11-02",
