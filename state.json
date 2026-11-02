@@ -37034,6 +37034,15 @@
       },
       "publishedId": "18284033959290813",
       "confirmedPublished": true
+    },
+    "comment:17942515848376474": {
+      "creationId": "17896680366614054",
+      "createdAt": "2026-11-02T21:02:21.869Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Whatever moved in there picked the busiest corner of the neck. Turns out it was a carotid body tumour doing the building.",
+        "reply_to_id": "17942515848376474"
+      }
     }
   },
   "repliedCommentIds": [
@@ -48309,7 +48318,8 @@
     "18093289775691865",
     "17959459110081702",
     "17955828300268460",
-    "18138912994634559"
+    "18138912994634559",
+    "18025414502712766"
   ],
   "answeredPostIds": [
     "18395606890093068"
@@ -48462,11 +48472,11 @@
     "17994226110051436": 28,
     "17988459480076587": 42,
     "18097077188147046": 22,
-    "18424033363084458": 15
+    "18424033363084458": 16
   },
   "daily": {
     "date": "2026-11-02",
-    "count": 15
+    "count": 16
   },
   "pinnedResolved": {
     "DaTTCIwoAw7": "18014812820883466"
@@ -50267,7 +50277,7 @@
   },
   "spend": {
     "date": "2026-11-02",
-    "usd": 0.02503422
+    "usd": 0.025880484
   },
   "lateSweep": {
     "date": "2026-11-02",
