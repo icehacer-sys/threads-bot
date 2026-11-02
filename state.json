@@ -37001,6 +37001,15 @@
       },
       "publishedId": "18644454526013924",
       "confirmedPublished": true
+    },
+    "comment:17955828300268460": {
+      "creationId": "17896679217614054",
+      "createdAt": "2026-11-02T20:46:09.664Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Tumour is the right idea. It sits at the carotid fork where the two arteries splay apart into the lyre sign.",
+        "reply_to_id": "17955828300268460"
+      }
     }
   },
   "repliedCommentIds": [
@@ -48273,7 +48282,8 @@
     "17978748524932727",
     "17986589883092910",
     "18597251941070421",
-    "18093289775691865"
+    "18093289775691865",
+    "17959459110081702"
   ],
   "answeredPostIds": [
     "18395606890093068"
@@ -48426,11 +48436,11 @@
     "17994226110051436": 28,
     "17988459480076587": 42,
     "18097077188147046": 22,
-    "18424033363084458": 12
+    "18424033363084458": 13
   },
   "daily": {
     "date": "2026-11-02",
-    "count": 12
+    "count": 13
   },
   "pinnedResolved": {
     "DaTTCIwoAw7": "18014812820883466"
@@ -50230,7 +50240,7 @@
   },
   "spend": {
     "date": "2026-11-02",
-    "usd": 0.021612852000000002
+    "usd": 0.022678044
   },
   "lateSweep": {
     "date": "2026-11-02",
