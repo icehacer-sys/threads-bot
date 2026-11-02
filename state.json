@@ -36965,7 +36965,9 @@
         "media_type": "TEXT",
         "text": "That's the one",
         "reply_to_id": "17986589883092910"
-      }
+      },
+      "publishedId": "18450647035120556",
+      "confirmedPublished": true
     }
   },
   "repliedCommentIds": [
