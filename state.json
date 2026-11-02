@@ -37166,6 +37166,15 @@
       },
       "publishedId": "17903948811606948",
       "confirmedPublished": true
+    },
+    "comment:18113792759231401": {
+      "creationId": "17896688964614054",
+      "createdAt": "2026-11-02T23:17:52.320Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "The DNA test came back inconclusive. The tumour half is right though. Carotid body tumour.",
+        "reply_to_id": "18113792759231401"
+      }
     }
   },
   "repliedCommentIds": [
@@ -50419,7 +50428,7 @@
   },
   "spend": {
     "date": "2026-11-02",
-    "usd": 0.042339396
+    "usd": 0.043592484
   },
   "lateSweep": {
     "date": "2026-11-02",
