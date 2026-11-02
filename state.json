@@ -680,7 +680,7 @@
     "17992676103063024": "{\"postId\":\"17994226110051436\",\"reason\":\"owner review: unsupported patient history, confirmation, specifics (none) or dismissal of an accepted differential | guard:forced-skip\",\"commentText\":\"So, what is the cause doc?\\nAnd how can the patient be cured?\",\"username\":\"meili.sha19\",\"queuedAt\":\"2026-10-30T22:12:53.087Z\",\"resolvedAt\":\"2026-11-01T22:14:51.979Z\",\"resolution\":\"auto-expired: queued more than 48h ago\",\"expired\":true}",
     "17978948328015935": "{\"postId\":\"17994226110051436\",\"reason\":\"Commenter asks about the age range of supracardiac TAPVR including whether it occurs in adults. The supplied facts only say obstructed forms are a neonatal emergency and that survival depends on an atrial septal defect. Nothing recorded addresses presentation in adults or the age of this patient, so a reply would require inventing clinical facts. Holds for owner review.\",\"commentText\":\"Notice you mentioned neonatal, is this found in babies or children?  Is it found in adults?\",\"username\":\"d_shedler\",\"queuedAt\":\"2026-10-31T02:40:13.866Z\",\"resolvedAt\":\"2026-11-02T02:43:23.386Z\",\"resolution\":\"auto-expired: queued more than 48h ago\",\"expired\":true}",
     "17993746904851506": "{\"postId\":\"17994226110051436\",\"reason\":\"owner review: unsupported patient history, confirmation, specifics (none) or dismissal of an accepted differential | guard:forced-skip\",\"commentText\":\"How did this person live this long to play athletics or walk? Isn’t this somewhat fatal if not corrected?\",\"username\":\"jrcauldwell\",\"queuedAt\":\"2026-10-31T05:39:37.423Z\",\"resolvedAt\":\"2026-11-02T05:44:27.455Z\",\"resolution\":\"auto-expired: queued more than 48h ago\",\"expired\":true}",
-    "17953228632342491": "{\"postId\":\"17988459480076587\",\"reason\":\"Comment asserts the image is AI rather than a real film. Image provenance/authenticity claims require owner review and no automatic reply.\",\"commentText\":\"Diagnosis: AI\",\"username\":\"carolinemholm\",\"queuedAt\":\"2026-10-31T20:23:41.560Z\"}"
+    "17953228632342491": "{\"postId\":\"17988459480076587\",\"reason\":\"Comment asserts the image is AI rather than a real film. Image provenance/authenticity claims require owner review and no automatic reply.\",\"commentText\":\"Diagnosis: AI\",\"username\":\"carolinemholm\",\"queuedAt\":\"2026-10-31T20:23:41.560Z\",\"resolvedAt\":\"2026-11-02T20:25:46.418Z\",\"resolution\":\"auto-expired: queued more than 48h ago\",\"expired\":true}"
   },
   "concernAcknowledgments": {
     "[\"18121475662898455\",\"berit069\",\"image\"]": "18142096432588199",
@@ -36858,6 +36858,15 @@
       },
       "publishedId": "18114273674122902",
       "confirmedPublished": true
+    },
+    "comment:18136928743581417": {
+      "creationId": "17896678089614054",
+      "createdAt": "2026-11-02T20:25:56.718Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Carotid body tumour. The two carotid arteries get pushed apart around it into a lyre shape.",
+        "reply_to_id": "18136928743581417"
+      }
     }
   },
   "repliedCommentIds": [
@@ -50068,7 +50077,7 @@
   },
   "spend": {
     "date": "2026-11-02",
-    "usd": 0.0030801839999999997
+    "usd": 0.0040272
   },
   "lateSweep": {
     "date": "2026-11-02",
