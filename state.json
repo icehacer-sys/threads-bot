@@ -37111,6 +37111,15 @@
       },
       "publishedId": "18111797354082031",
       "confirmedPublished": true
+    },
+    "comment:18129753674489685": {
+      "creationId": "17896683066614054",
+      "createdAt": "2026-11-02T21:35:15.124Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "That one costs nothing to fix and this neck kept its secret for a year.",
+        "reply_to_id": "18129753674489685"
+      }
     }
   },
   "repliedCommentIds": [
@@ -50355,7 +50364,7 @@
   },
   "spend": {
     "date": "2026-11-02",
-    "usd": 0.033703428
+    "usd": 0.034159776
   },
   "lateSweep": {
     "date": "2026-11-02",
