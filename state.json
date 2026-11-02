@@ -36818,6 +36818,15 @@
       },
       "publishedId": "17964509967236217",
       "confirmedPublished": true
+    },
+    "comment:17903840472373717": {
+      "creationId": "17896587198614054",
+      "createdAt": "2026-11-02T04:14:05.826Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Cauliflower Kidney sounds like a band that only plays in basements. I'd buy the tape.",
+        "reply_to_id": "17903840472373717"
+      }
     }
   },
   "repliedCommentIds": [
@@ -50022,7 +50031,7 @@
   },
   "spend": {
     "date": "2026-11-01",
-    "usd": 0.027241583999999992
+    "usd": 0.027971723999999993
   },
   "lateSweep": {
     "date": "2026-11-01",
