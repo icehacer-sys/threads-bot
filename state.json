@@ -37155,6 +37155,15 @@
       },
       "publishedId": "18120903974066128",
       "confirmedPublished": true
+    },
+    "comment:18145409563674531": {
+      "creationId": "17896688535614054",
+      "createdAt": "2026-11-02T23:07:57.023Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Carotid body tumour is the answer. The two carotids get splayed apart around it and that's the lyre sign. Not every one of them secretes anything though.",
+        "reply_to_id": "18145409563674531"
+      }
     }
   },
   "repliedCommentIds": [
@@ -50407,7 +50416,7 @@
   },
   "spend": {
     "date": "2026-11-02",
-    "usd": 0.041323824
+    "usd": 0.042339396
   },
   "lateSweep": {
     "date": "2026-11-02",
