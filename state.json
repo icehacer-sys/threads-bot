@@ -36935,6 +36935,15 @@
       },
       "publishedId": "18109935434264551",
       "confirmedPublished": true
+    },
+    "comment:18098577956663236": {
+      "creationId": "17896678419614054",
+      "createdAt": "2026-11-02T20:28:45.448Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "It does have the one eye thing down. Someone should tell the neck it's not allowed to grow jewellery.",
+        "reply_to_id": "18098577956663236"
+      }
     }
   },
   "repliedCommentIds": [
@@ -48201,7 +48210,8 @@
     "17963756397212868",
     "17886022812626325",
     "18093523358678568",
-    "18570864898077398"
+    "18570864898077398",
+    "18450997024130585"
   ],
   "answeredPostIds": [
     "18395606890093068"
@@ -48354,11 +48364,11 @@
     "17994226110051436": 28,
     "17988459480076587": 42,
     "18097077188147046": 22,
-    "18424033363084458": 6
+    "18424033363084458": 7
   },
   "daily": {
     "date": "2026-11-02",
-    "count": 6
+    "count": 7
   },
   "pinnedResolved": {
     "DaTTCIwoAw7": "18014812820883466"
@@ -50156,7 +50166,7 @@
   },
   "spend": {
     "date": "2026-11-02",
-    "usd": 0.014275596
+    "usd": 0.01479714
   },
   "lateSweep": {
     "date": "2026-11-02",
