@@ -37221,6 +37221,15 @@
       },
       "publishedId": "18140183107624796",
       "confirmedPublished": true
+    },
+    "comment:17896730079427710": {
+      "creationId": "17896697685614054",
+      "createdAt": "2026-11-03T01:05:27.466Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "I don't know why she swallowed the fly. I'd stop before she gets to the horse.",
+        "reply_to_id": "17896730079427710"
+      }
     }
   },
   "repliedCommentIds": [
@@ -50481,7 +50490,7 @@
   },
   "spend": {
     "date": "2026-11-02",
-    "usd": 0.049844694
+    "usd": 0.05053017
   },
   "lateSweep": {
     "date": "2026-11-02",
