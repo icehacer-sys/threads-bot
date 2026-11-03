@@ -37534,6 +37534,15 @@
       },
       "publishedId": "18024375641937298",
       "confirmedPublished": true
+    },
+    "comment:18131471314865958": {
+      "creationId": "17896821393614054",
+      "createdAt": "2026-11-03T21:13:33.516Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "House would still order one more scan. Not lupus this time though.",
+        "reply_to_id": "18131471314865958"
+      }
     }
   },
   "repliedCommentIds": [
@@ -50830,7 +50839,7 @@
   },
   "spend": {
     "date": "2026-11-03",
-    "usd": 0.03493863600000001
+    "usd": 0.03582303600000001
   },
   "lateSweep": {
     "date": "2026-11-03",
