@@ -37232,6 +37232,15 @@
       },
       "publishedId": "18078850637725651",
       "confirmedPublished": true
+    },
+    "comment:17962850241231846": {
+      "creationId": "17896703769614054",
+      "createdAt": "2026-11-03T02:06:33.079Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "A whole year to chew on it and it still never went down. Wrong turn somewhere in the throat though.",
+        "reply_to_id": "17962850241231846"
+      }
     }
   },
   "repliedCommentIds": [
@@ -50318,7 +50327,8 @@
     "18237172024319859",
     "17952668922334074",
     "18117084275330983",
-    "18635332516025685"
+    "18635332516025685",
+    "17887340874503006"
   ],
   "skipStrikes": {
     "17895266316520842": 1,
@@ -50493,7 +50503,7 @@
   },
   "spend": {
     "date": "2026-11-02",
-    "usd": 0.05053017
+    "usd": 0.05272263
   },
   "lateSweep": {
     "date": "2026-11-02",
