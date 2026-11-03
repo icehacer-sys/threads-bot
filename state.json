@@ -37776,6 +37776,15 @@
       },
       "publishedId": "18646928887010624",
       "confirmedPublished": true
+    },
+    "comment:18106075475575312": {
+      "creationId": "17896829145614054",
+      "createdAt": "2026-11-03T23:14:05.136Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Most diverticula stay small and quiet. This one had a one-way valve letting gas in and not back out so it kept growing. Fecalith is a great word though.",
+        "reply_to_id": "18106075475575312"
+      }
     }
   },
   "repliedCommentIds": [
@@ -51101,7 +51110,7 @@
   },
   "spend": {
     "date": "2026-11-03",
-    "usd": 0.05744028
+    "usd": 0.059122536
   },
   "lateSweep": {
     "date": "2026-11-03",
