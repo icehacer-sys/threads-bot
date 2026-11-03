@@ -37754,6 +37754,15 @@
       },
       "publishedId": "18117991076008858",
       "confirmedPublished": true
+    },
+    "comment:17955053496273095": {
+      "creationId": "17896828107614054",
+      "createdAt": "2026-11-03T22:58:17.405Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Mercy mercy mercy indeed. Round enough to be cannonballed straight out of there.",
+        "reply_to_id": "17955053496273095"
+      }
     }
   },
   "repliedCommentIds": [
@@ -51077,7 +51086,7 @@
   },
   "spend": {
     "date": "2026-11-03",
-    "usd": 0.055648308
+    "usd": 0.056278752
   },
   "lateSweep": {
     "date": "2026-11-03",
