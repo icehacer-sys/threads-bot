@@ -37259,6 +37259,15 @@
       },
       "publishedId": "18153636901596455",
       "confirmedPublished": true
+    },
+    "comment:18120993010988804": {
+      "creationId": "17896817253614054",
+      "createdAt": "2026-11-03T20:24:56.042Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "It is a balloon but not a cyst.",
+        "reply_to_id": "18120993010988804"
+      }
     }
   },
   "repliedCommentIds": [
@@ -50523,7 +50532,7 @@
   },
   "spend": {
     "date": "2026-11-03",
-    "usd": 0.007819992
+    "usd": 0.009721068
   },
   "lateSweep": {
     "date": "2026-11-03",
