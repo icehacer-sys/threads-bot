@@ -37435,6 +37435,15 @@
       },
       "publishedId": "18156198607523161",
       "confirmedPublished": true
+    },
+    "comment:17920532625463328": {
+      "creationId": "17896819905614054",
+      "createdAt": "2026-11-03T20:52:18.253Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Liquid changes the picture completely. Going straight back to them after a resection is a stubborn kind of loyalty.",
+        "reply_to_id": "17920532625463328"
+      }
     }
   },
   "repliedCommentIds": [
@@ -48745,7 +48754,8 @@
     "18014361554986434",
     "18139404037631233",
     "18115723199604549",
-    "18637108933004247"
+    "18637108933004247",
+    "18647342623036306"
   ],
   "answeredPostIds": [
     "18395606890093068"
@@ -48899,11 +48909,11 @@
     "17988459480076587": 42,
     "18097077188147046": 22,
     "18424033363084458": 35,
-    "18121296121961786": 15
+    "18121296121961786": 16
   },
   "daily": {
     "date": "2026-11-03",
-    "count": 15
+    "count": 16
   },
   "pinnedResolved": {
     "DaTTCIwoAw7": "18014812820883466"
@@ -50721,7 +50731,7 @@
   },
   "spend": {
     "date": "2026-11-03",
-    "usd": 0.028822128
+    "usd": 0.029274708
   },
   "lateSweep": {
     "date": "2026-11-03",
