@@ -37270,6 +37270,15 @@
       },
       "publishedId": "18125495008810201",
       "confirmedPublished": true
+    },
+    "comment:17982399948133320": {
+      "creationId": "17896817349614054",
+      "createdAt": "2026-11-03T20:25:55.210Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "An ostrich would at least have feathers. That round thing is a giant sigmoid diverticulum full of trapped gas.",
+        "reply_to_id": "17982399948133320"
+      }
     }
   },
   "repliedCommentIds": [
@@ -48565,7 +48574,8 @@
     "18118109311821171",
     "18129472732916828",
     "17896730079427710",
-    "17962850241231846"
+    "17962850241231846",
+    "18120993010988804"
   ],
   "answeredPostIds": [
     "18395606890093068"
@@ -48718,11 +48728,12 @@
     "17994226110051436": 28,
     "17988459480076587": 42,
     "18097077188147046": 22,
-    "18424033363084458": 35
+    "18424033363084458": 35,
+    "18121296121961786": 1
   },
   "daily": {
     "date": "2026-11-03",
-    "count": 0
+    "count": 1
   },
   "pinnedResolved": {
     "DaTTCIwoAw7": "18014812820883466"
@@ -50534,7 +50545,7 @@
   },
   "spend": {
     "date": "2026-11-03",
-    "usd": 0.009721068
+    "usd": 0.010188144
   },
   "lateSweep": {
     "date": "2026-11-03",
