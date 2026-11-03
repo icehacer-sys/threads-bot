@@ -37210,6 +37210,15 @@
       },
       "publishedId": "17941332699382459",
       "confirmedPublished": true
+    },
+    "comment:18129472732916828": {
+      "creationId": "17896692267614054",
+      "createdAt": "2026-11-03T00:04:36.572Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "A yelp is fair. The neck was keeping something far stranger than a hairball in there. It is the best part of these cases when the picture explains itself.",
+        "reply_to_id": "18129472732916828"
+      }
     }
   },
   "repliedCommentIds": [
@@ -50469,7 +50478,7 @@
   },
   "spend": {
     "date": "2026-11-02",
-    "usd": 0.049035954
+    "usd": 0.049844694
   },
   "lateSweep": {
     "date": "2026-11-02",
