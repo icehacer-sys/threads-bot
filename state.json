@@ -37589,6 +37589,15 @@
       },
       "publishedId": "18135086602722930",
       "confirmedPublished": true
+    },
+    "comment:17870575842661551": {
+      "creationId": "17896821603614054",
+      "createdAt": "2026-11-03T21:17:28.069Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Eight bottles sounds like experience talking. A thin wall under that much pressure earns the antibiotics.",
+        "reply_to_id": "17870575842661551"
+      }
     }
   },
   "repliedCommentIds": [
@@ -48913,7 +48922,8 @@
     "18131471314865958",
     "17928102126425348",
     "18136845784736573",
-    "18452227735124343"
+    "18452227735124343",
+    "17924706216221988"
   ],
   "answeredPostIds": [
     "18395606890093068"
@@ -49067,11 +49077,11 @@
     "17988459480076587": 42,
     "18097077188147046": 22,
     "18424033363084458": 35,
-    "18121296121961786": 29
+    "18121296121961786": 30
   },
   "daily": {
     "date": "2026-11-03",
-    "count": 29
+    "count": 30
   },
   "pinnedResolved": {
     "DaTTCIwoAw7": "18014812820883466"
@@ -50893,7 +50903,7 @@
   },
   "spend": {
     "date": "2026-11-03",
-    "usd": 0.04182949200000001
+    "usd": 0.04258933200000001
   },
   "lateSweep": {
     "date": "2026-11-03",
