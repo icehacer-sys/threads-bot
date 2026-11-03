@@ -37721,6 +37721,15 @@
       },
       "publishedId": "17992494738026611",
       "confirmedPublished": true
+    },
+    "comment:18132951299504689": {
+      "creationId": "17896825395614054",
+      "createdAt": "2026-11-03T22:11:56.762Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "The eye roll says you have heard that one before. Turns out the cure was a scan.",
+        "reply_to_id": "18132951299504689"
+      }
     }
   },
   "repliedCommentIds": [
@@ -51040,7 +51049,7 @@
   },
   "spend": {
     "date": "2026-11-03",
-    "usd": 0.053368524
+    "usd": 0.053992968
   },
   "lateSweep": {
     "date": "2026-11-03",
