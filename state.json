@@ -37512,6 +37512,15 @@
       },
       "publishedId": "17994943823852117",
       "confirmedPublished": true
+    },
+    "comment:17887457040504169": {
+      "creationId": "17896820223614054",
+      "createdAt": "2026-11-03T20:57:24.073Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Not stool. It's gas. A giant sigmoid diverticulum: a huge smooth round balloon off the colon with a thin wall and a one-way valve that fills but won't empty.",
+        "reply_to_id": "17887457040504169"
+      }
     }
   },
   "repliedCommentIds": [
@@ -48829,7 +48838,8 @@
     "18133657867839076",
     "18155481145532957",
     "17959875198016976",
-    "18391539565229659"
+    "18391539565229659",
+    "17989212017882719"
   ],
   "answeredPostIds": [
     "18395606890093068"
@@ -48983,11 +48993,11 @@
     "17988459480076587": 42,
     "18097077188147046": 22,
     "18424033363084458": 35,
-    "18121296121961786": 22
+    "18121296121961786": 23
   },
   "daily": {
     "date": "2026-11-03",
-    "count": 22
+    "count": 23
   },
   "pinnedResolved": {
     "DaTTCIwoAw7": "18014812820883466"
@@ -50805,7 +50815,7 @@
   },
   "spend": {
     "date": "2026-11-03",
-    "usd": 0.032117292000000006
+    "usd": 0.033826044000000006
   },
   "lateSweep": {
     "date": "2026-11-03",
