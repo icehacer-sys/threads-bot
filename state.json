@@ -37677,6 +37677,15 @@
       },
       "publishedId": "17933591367164164",
       "confirmedPublished": true
+    },
+    "comment:18123959246514900": {
+      "creationId": "17896823973614054",
+      "createdAt": "2026-11-03T21:55:37.405Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Half the thread said balloon too. This one was made on site though.",
+        "reply_to_id": "18123959246514900"
+      }
     }
   },
   "repliedCommentIds": [
@@ -50992,7 +51001,7 @@
   },
   "spend": {
     "date": "2026-11-03",
-    "usd": 0.050668488000000005
+    "usd": 0.051342864
   },
   "lateSweep": {
     "date": "2026-11-03",
