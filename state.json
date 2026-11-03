@@ -37586,7 +37586,9 @@
         "media_type": "TEXT",
         "text": "Sarcasm landed fine. Gas was the honest half of that joke.",
         "reply_to_id": "17924706216221988"
-      }
+      },
+      "publishedId": "18135086602722930",
+      "confirmedPublished": true
     }
   },
   "repliedCommentIds": [
