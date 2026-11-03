@@ -37267,7 +37267,9 @@
         "media_type": "TEXT",
         "text": "It is a balloon but not a cyst.",
         "reply_to_id": "18120993010988804"
-      }
+      },
+      "publishedId": "18125495008810201",
+      "confirmedPublished": true
     }
   },
   "repliedCommentIds": [
