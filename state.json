@@ -37611,6 +37611,15 @@
       },
       "publishedId": "18648060859041976",
       "confirmedPublished": true
+    },
+    "comment:18134670139827021": {
+      "creationId": "17896821828614054",
+      "createdAt": "2026-11-03T21:20:43.580Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Her belly already tried the balloon diet. That round pouch of gas was there through years of it.",
+        "reply_to_id": "18134670139827021"
+      }
     }
   },
   "repliedCommentIds": [
@@ -50918,7 +50927,7 @@
   },
   "spend": {
     "date": "2026-11-03",
-    "usd": 0.04333357200000001
+    "usd": 0.04437363600000001
   },
   "lateSweep": {
     "date": "2026-11-03",
