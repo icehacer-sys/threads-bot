@@ -37809,6 +37809,15 @@
       },
       "publishedId": "18347318293249125",
       "confirmedPublished": true
+    },
+    "comment:18211346368316867": {
+      "creationId": "17896834491614054",
+      "createdAt": "2026-11-04T00:30:42.383Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "That one had a crowd. This one only had gas for company. 🤣",
+        "reply_to_id": "18211346368316867"
+      }
     }
   },
   "repliedCommentIds": [
@@ -51139,7 +51148,7 @@
   },
   "spend": {
     "date": "2026-11-03",
-    "usd": 0.06276409200000001
+    "usd": 0.063572232
   },
   "lateSweep": {
     "date": "2026-11-03",
