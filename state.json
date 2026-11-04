@@ -38012,6 +38012,15 @@
       },
       "publishedId": "18457413286124099",
       "confirmedPublished": true
+    },
+    "comment:18647679607003556": {
+      "creationId": "17896950219614054",
+      "createdAt": "2026-11-04T20:43:05.853Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "The air got in through the nose and then just kept the space. Thorough little squatter.",
+        "reply_to_id": "18647679607003556"
+      }
     }
   },
   "repliedCommentIds": [
@@ -51364,7 +51373,7 @@
   },
   "spend": {
     "date": "2026-11-04",
-    "usd": 0.009697992
+    "usd": 0.011025960000000001
   },
   "lateSweep": {
     "date": "2026-11-04",
