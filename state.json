@@ -38089,6 +38089,15 @@
       },
       "publishedId": "18140405785623075",
       "confirmedPublished": true
+    },
+    "comment:18108471380526511": {
+      "creationId": "17896951131614054",
+      "createdAt": "2026-11-04T21:00:35.973Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "The jaw is the standout here. It juts past the upper teeth because the lower jaw itself keeps growing. The back of the skull does thicken in acromegaly but the occipital area is not the usual talking point.",
+        "reply_to_id": "18108471380526511"
+      }
     }
   },
   "repliedCommentIds": [
@@ -49458,7 +49467,8 @@
     "18115142039141733",
     "18099747854441345",
     "18098551559445642",
-    "18110991800235132"
+    "18110991800235132",
+    "17890659474479386"
   ],
   "answeredPostIds": [
     "18395606890093068"
@@ -49613,11 +49623,11 @@
     "18097077188147046": 22,
     "18424033363084458": 35,
     "18121296121961786": 60,
-    "18130883288308729": 14
+    "18130883288308729": 15
   },
   "daily": {
     "date": "2026-11-04",
-    "count": 14
+    "count": 15
   },
   "pinnedResolved": {
     "DaTTCIwoAw7": "18014812820883466"
@@ -51447,7 +51457,7 @@
   },
   "spend": {
     "date": "2026-11-04",
-    "usd": 0.015688146
+    "usd": 0.01762731
   },
   "lateSweep": {
     "date": "2026-11-04",
