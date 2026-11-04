@@ -37875,6 +37875,15 @@
       },
       "publishedId": "18099652757544949",
       "confirmedPublished": true
+    },
+    "comment:18052295021813320": {
+      "creationId": "17896862076614054",
+      "createdAt": "2026-11-04T06:24:22.950Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Arr. Though this one held gas instead of rum.",
+        "reply_to_id": "18052295021813320"
+      }
     }
   },
   "repliedCommentIds": [
@@ -51212,7 +51221,7 @@
   },
   "spend": {
     "date": "2026-11-03",
-    "usd": 0.06955089600000001
+    "usd": 0.07016454000000001
   },
   "lateSweep": {
     "date": "2026-11-03",
