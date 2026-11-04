@@ -37842,6 +37842,15 @@
       },
       "publishedId": "17915230353480404",
       "confirmedPublished": true
+    },
+    "comment:18142029835623526": {
+      "creationId": "17896847157614054",
+      "createdAt": "2026-11-04T03:21:51.692Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "It looks it. Years of that coming and going before anyone got a picture of it.",
+        "reply_to_id": "18142029835623526"
+      }
     }
   },
   "repliedCommentIds": [
@@ -51176,7 +51185,7 @@
   },
   "spend": {
     "date": "2026-11-03",
-    "usd": 0.06621910800000001
+    "usd": 0.06684025200000002
   },
   "lateSweep": {
     "date": "2026-11-03",
