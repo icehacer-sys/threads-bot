@@ -38133,6 +38133,15 @@
       },
       "publishedId": "17925107910458848",
       "confirmedPublished": true
+    },
+    "comment:18121114369962889": {
+      "creationId": "17896953735614054",
+      "createdAt": "2026-11-04T21:32:17.904Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Those front pockets really are just air and they can get big in acromegaly. The skull itself is the opposite of hollow though.",
+        "reply_to_id": "18121114369962889"
+      }
     }
   },
   "repliedCommentIds": [
@@ -49506,7 +49515,8 @@
     "17890659474479386",
     "18108471380526511",
     "18113308457178793",
-    "17971332077961573"
+    "17971332077961573",
+    "18129058246815659"
   ],
   "answeredPostIds": [
     "18395606890093068"
@@ -49661,11 +49671,11 @@
     "18097077188147046": 22,
     "18424033363084458": 35,
     "18121296121961786": 60,
-    "18130883288308729": 18
+    "18130883288308729": 19
   },
   "daily": {
     "date": "2026-11-04",
-    "count": 18
+    "count": 19
   },
   "pinnedResolved": {
     "DaTTCIwoAw7": "18014812820883466"
@@ -51496,7 +51506,7 @@
   },
   "spend": {
     "date": "2026-11-04",
-    "usd": 0.021217241999999997
+    "usd": 0.022199105999999996
   },
   "lateSweep": {
     "date": "2026-11-04",
