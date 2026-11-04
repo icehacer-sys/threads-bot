@@ -38188,6 +38188,15 @@
       },
       "publishedId": "18110613485208743",
       "confirmedPublished": true
+    },
+    "comment:18019523729956206": {
+      "creationId": "17896955979614054",
+      "createdAt": "2026-11-04T22:19:14.471Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "The face is square enough to live under the sea. The forehead is where the real estate is though.",
+        "reply_to_id": "18019523729956206"
+      }
     }
   },
   "repliedCommentIds": [
@@ -51557,7 +51566,7 @@
   },
   "spend": {
     "date": "2026-11-04",
-    "usd": 0.024626117999999995
+    "usd": 0.025233461999999995
   },
   "lateSweep": {
     "date": "2026-11-04",
