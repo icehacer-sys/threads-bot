@@ -38122,6 +38122,15 @@
       },
       "publishedId": "18230808391332632",
       "confirmedPublished": true
+    },
+    "comment:18129058246815659": {
+      "creationId": "17896953714614054",
+      "createdAt": "2026-11-04T21:31:56.084Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "It does look like a socket for one. All air in there and no eye to go with it.",
+        "reply_to_id": "18129058246815659"
+      }
     }
   },
   "repliedCommentIds": [
@@ -51485,7 +51494,7 @@
   },
   "spend": {
     "date": "2026-11-04",
-    "usd": 0.02036811
+    "usd": 0.021217241999999997
   },
   "lateSweep": {
     "date": "2026-11-04",
