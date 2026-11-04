@@ -38144,6 +38144,15 @@
       },
       "publishedId": "18066796649772763",
       "confirmedPublished": true
+    },
+    "comment:17914934166499361": {
+      "creationId": "17896954296614054",
+      "createdAt": "2026-11-04T21:47:46.425Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "You read the whole film in one line. The underbite is the real headline though. That lower jaw kept growing after the upper one stopped.",
+        "reply_to_id": "17914934166499361"
+      }
     }
   },
   "repliedCommentIds": [
@@ -51509,7 +51518,7 @@
   },
   "spend": {
     "date": "2026-11-04",
-    "usd": 0.022199105999999996
+    "usd": 0.022708553999999995
   },
   "lateSweep": {
     "date": "2026-11-04",
