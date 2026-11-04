@@ -37853,6 +37853,15 @@
       },
       "publishedId": "18004140863809033",
       "confirmedPublished": true
+    },
+    "comment:18352763944267809": {
+      "creationId": "17896850787614054",
+      "createdAt": "2026-11-04T04:22:51.239Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Not constipation and not a perforation either. That hollow sphere was a giant sigmoid diverticulum pumping itself up through a one-way valve.",
+        "reply_to_id": "18352763944267809"
+      }
     }
   },
   "repliedCommentIds": [
@@ -51188,7 +51197,7 @@
   },
   "spend": {
     "date": "2026-11-03",
-    "usd": 0.06684025200000002
+    "usd": 0.06887442000000002
   },
   "lateSweep": {
     "date": "2026-11-03",
