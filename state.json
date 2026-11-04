@@ -37864,6 +37864,15 @@
       },
       "publishedId": "18110479279914961",
       "confirmedPublished": true
+    },
+    "comment:17958627549272272": {
+      "creationId": "17896856661614054",
+      "createdAt": "2026-11-04T05:23:33.536Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Worst part is it had nowhere to go. That gas was stuck behind a one-way valve.",
+        "reply_to_id": "17958627549272272"
+      }
     }
   },
   "repliedCommentIds": [
@@ -51200,7 +51209,7 @@
   },
   "spend": {
     "date": "2026-11-03",
-    "usd": 0.06887442000000002
+    "usd": 0.06955089600000001
   },
   "lateSweep": {
     "date": "2026-11-03",
