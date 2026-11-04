@@ -37820,6 +37820,15 @@
       },
       "publishedId": "18097259204668560",
       "confirmedPublished": true
+    },
+    "comment:17941646019390069": {
+      "creationId": "17896834506614054",
+      "createdAt": "2026-11-04T00:30:57.881Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "The colon got one valve backwards and it spent years blowing itself up. Design department owes us a recall.",
+        "reply_to_id": "17941646019390069"
+      }
     }
   },
   "repliedCommentIds": [
@@ -49165,7 +49174,8 @@
     "18138276250647075",
     "18106075475575312",
     "17952522525341270",
-    "17964944514208239"
+    "17964944514208239",
+    "18211346368316867"
   ],
   "answeredPostIds": [
     "18395606890093068"
@@ -49319,11 +49329,11 @@
     "17988459480076587": 42,
     "18097077188147046": 22,
     "18424033363084458": 35,
-    "18121296121961786": 50
+    "18121296121961786": 51
   },
   "daily": {
     "date": "2026-11-03",
-    "count": 50
+    "count": 51
   },
   "pinnedResolved": {
     "DaTTCIwoAw7": "18014812820883466"
@@ -51150,7 +51160,7 @@
   },
   "spend": {
     "date": "2026-11-03",
-    "usd": 0.063572232
+    "usd": 0.06429114000000001
   },
   "lateSweep": {
     "date": "2026-11-03",
