@@ -37968,6 +37968,15 @@
       },
       "publishedId": "18110904416220971",
       "confirmedPublished": true
+    },
+    "comment:18252546634310361": {
+      "creationId": "17896949316614054",
+      "createdAt": "2026-11-04T20:26:35.468Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Those holes at the front are air all right. Huge frontal sinuses sitting over a jaw that juts past the upper teeth point to acromegaly.",
+        "reply_to_id": "18252546634310361"
+      }
     }
   },
   "repliedCommentIds": [
@@ -49326,7 +49335,8 @@
     "18189751486413693",
     "18004098408010284",
     "17886866127511759",
-    "18118896983066426"
+    "18118896983066426",
+    "18344362951259959"
   ],
   "answeredPostIds": [
     "18395606890093068"
@@ -49481,11 +49491,11 @@
     "18097077188147046": 22,
     "18424033363084458": 35,
     "18121296121961786": 60,
-    "18130883288308729": 3
+    "18130883288308729": 4
   },
   "daily": {
     "date": "2026-11-04",
-    "count": 3
+    "count": 4
   },
   "pinnedResolved": {
     "DaTTCIwoAw7": "18014812820883466"
@@ -51314,7 +51324,7 @@
   },
   "spend": {
     "date": "2026-11-04",
-    "usd": 0.005144892
+    "usd": 0.006577764
   },
   "lateSweep": {
     "date": "2026-11-04",
