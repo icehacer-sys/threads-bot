@@ -37908,6 +37908,15 @@
       },
       "publishedId": "17884450653629420",
       "confirmedPublished": true
+    },
+    "comment:18189751486413693": {
+      "creationId": "17896868910614054",
+      "createdAt": "2026-11-04T07:56:00.963Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Setting light to it is the part you don't forget. That flame had to be something to watch as a kid.",
+        "reply_to_id": "18189751486413693"
+      }
     }
   },
   "repliedCommentIds": [
@@ -51072,7 +51081,8 @@
     "18129628438868734",
     "17952734484053530",
     "18098826461385672",
-    "18109849043246827"
+    "18109849043246827",
+    "18120206761992588"
   ],
   "skipStrikes": {
     "17895266316520842": 1,
@@ -51248,7 +51258,7 @@
   },
   "spend": {
     "date": "2026-11-03",
-    "usd": 0.07157402400000001
+    "usd": 0.07485582000000002
   },
   "lateSweep": {
     "date": "2026-11-03",
