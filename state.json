@@ -37924,6 +37924,15 @@
       },
       "publishedId": "18134533006752022",
       "confirmedPublished": true
+    },
+    "comment:18004098408010284": {
+      "creationId": "17896949265614054",
+      "createdAt": "2026-11-04T20:25:09.925Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "That's the one. Thunder Thumbs is a great nickname for it.",
+        "reply_to_id": "18004098408010284"
+      }
     }
   },
   "repliedCommentIds": [
@@ -51266,7 +51275,7 @@
   },
   "spend": {
     "date": "2026-11-04",
-    "usd": 0.0027587759999999997
+    "usd": 0.00341028
   },
   "lateSweep": {
     "date": "2026-11-04",
