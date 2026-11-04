@@ -38078,6 +38078,15 @@
       },
       "publishedId": "17927698446425908",
       "confirmedPublished": true
+    },
+    "comment:17890659474479386": {
+      "creationId": "17896951116614054",
+      "createdAt": "2026-11-04T21:00:08.552Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "That's air in the frontal sinuses not fluid. The tumour in acromegaly sits in the pituitary at the skull base so it usually isn't visible on a plain X-ray.",
+        "reply_to_id": "17890659474479386"
+      }
     }
   },
   "repliedCommentIds": [
@@ -51436,7 +51445,7 @@
   },
   "spend": {
     "date": "2026-11-04",
-    "usd": 0.014334066000000001
+    "usd": 0.015688146
   },
   "lateSweep": {
     "date": "2026-11-04",
