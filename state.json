@@ -37990,6 +37990,15 @@
       },
       "publishedId": "18028745288870807",
       "confirmedPublished": true
+    },
+    "comment:18442921456182907": {
+      "creationId": "17896949439614054",
+      "createdAt": "2026-11-04T20:27:15.623Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Close in spirit. A pituitary adenoma pumping out growth hormone makes the tissue and bone grow rather than swell.",
+        "reply_to_id": "18442921456182907"
+      }
     }
   },
   "repliedCommentIds": [
@@ -49350,7 +49359,8 @@
     "17886866127511759",
     "18118896983066426",
     "18344362951259959",
-    "18252546634310361"
+    "18252546634310361",
+    "18120810559962077"
   ],
   "answeredPostIds": [
     "18395606890093068"
@@ -49505,11 +49515,11 @@
     "18097077188147046": 22,
     "18424033363084458": 35,
     "18121296121961786": 60,
-    "18130883288308729": 5
+    "18130883288308729": 6
   },
   "daily": {
     "date": "2026-11-04",
-    "count": 5
+    "count": 6
   },
   "pinnedResolved": {
     "DaTTCIwoAw7": "18014812820883466"
@@ -51338,7 +51348,7 @@
   },
   "spend": {
     "date": "2026-11-04",
-    "usd": 0.007013676
+    "usd": 0.007936836000000001
   },
   "lateSweep": {
     "date": "2026-11-04",
