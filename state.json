@@ -38177,6 +38177,15 @@
       },
       "publishedId": "17943830193101553",
       "confirmedPublished": true
+    },
+    "comment:18116758046614712": {
+      "creationId": "17896955175614054",
+      "createdAt": "2026-11-04T22:03:46.431Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "It does look like something out of a film when the big hollow spaces fill the frame. Somehow the real thing is stranger than anything a set designer would draw.",
+        "reply_to_id": "18116758046614712"
+      }
     }
   },
   "repliedCommentIds": [
@@ -51545,7 +51554,7 @@
   },
   "spend": {
     "date": "2026-11-04",
-    "usd": 0.023838677999999995
+    "usd": 0.024626117999999995
   },
   "lateSweep": {
     "date": "2026-11-04",
