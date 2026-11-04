@@ -38218,7 +38218,9 @@
         "media_type": "TEXT",
         "text": "That's the one",
         "reply_to_id": "18110296511225496"
-      }
+      },
+      "publishedId": "17963758700998058",
+      "confirmedPublished": true
     }
   },
   "repliedCommentIds": [
