@@ -37831,6 +37831,15 @@
       },
       "publishedId": "18642475381035194",
       "confirmedPublished": true
+    },
+    "comment:17965979994214315": {
+      "creationId": "17896844760614054",
+      "createdAt": "2026-11-04T02:51:27.148Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "The big one had years of practice. That whole round pouch was just gas building up.",
+        "reply_to_id": "17965979994214315"
+      }
     }
   },
   "repliedCommentIds": [
@@ -51164,7 +51173,7 @@
   },
   "spend": {
     "date": "2026-11-03",
-    "usd": 0.06579375600000001
+    "usd": 0.06621910800000001
   },
   "lateSweep": {
     "date": "2026-11-03",
