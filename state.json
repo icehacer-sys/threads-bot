@@ -37897,6 +37897,15 @@
       },
       "publishedId": "18147994342586353",
       "confirmedPublished": true
+    },
+    "comment:18192554167418050": {
+      "creationId": "17896866843614054",
+      "createdAt": "2026-11-04T07:25:18.718Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Didn't think the sheep angle would come up tonight but here we are. That pouch just needed a foot pump.",
+        "reply_to_id": "18192554167418050"
+      }
     }
   },
   "repliedCommentIds": [
@@ -51236,7 +51245,7 @@
   },
   "spend": {
     "date": "2026-11-03",
-    "usd": 0.07077488400000001
+    "usd": 0.07157402400000001
   },
   "lateSweep": {
     "date": "2026-11-03",
