@@ -37886,6 +37886,15 @@
       },
       "publishedId": "17951239413299325",
       "confirmedPublished": true
+    },
+    "comment:18044560661832169": {
+      "creationId": "17896864434614054",
+      "createdAt": "2026-11-04T06:54:53.297Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "That sphere of gas is a lot to take in at first glance.",
+        "reply_to_id": "18044560661832169"
+      }
     }
   },
   "repliedCommentIds": [
@@ -51224,7 +51233,7 @@
   },
   "spend": {
     "date": "2026-11-03",
-    "usd": 0.07016454000000001
+    "usd": 0.07077488400000001
   },
   "lateSweep": {
     "date": "2026-11-03",
