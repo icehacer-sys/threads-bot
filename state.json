@@ -38584,6 +38584,15 @@
       },
       "publishedId": "18433900162145153",
       "confirmedPublished": true
+    },
+    "comment:17925012333221397": {
+      "creationId": "17897098086614054",
+      "createdAt": "2026-11-05T22:35:25.893Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "A face tattoo is a bold choice for a creature that lives in a blood vessel.",
+        "reply_to_id": "17925012333221397"
+      }
     }
   },
   "repliedCommentIds": [
@@ -51997,7 +52006,7 @@
   },
   "spend": {
     "date": "2026-11-05",
-    "usd": 0.035248308
+    "usd": 0.036127212
   },
   "lateSweep": {
     "date": "2026-11-05",
