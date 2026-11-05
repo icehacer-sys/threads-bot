@@ -38352,6 +38352,15 @@
       },
       "publishedId": "17938890135165621",
       "confirmedPublished": true
+    },
+    "comment:17920332495460298": {
+      "creationId": "17897088411614054",
+      "createdAt": "2026-11-05T20:27:08.139Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "It's renal artery fibromuscular dysplasia. The artery goes narrow then bulges along like a string of beads. That narrows the blood supply to a kidney and the pressure climbs.",
+        "reply_to_id": "17920332495460298"
+      }
     }
   },
   "repliedCommentIds": [
@@ -49744,7 +49753,8 @@
     "18120082928072799",
     "18130231129825909",
     "18039001604893474",
-    "17885297868528506"
+    "17885297868528506",
+    "18125335060944984"
   ],
   "answeredPostIds": [
     "18395606890093068"
@@ -49900,11 +49910,11 @@
     "18424033363084458": 35,
     "18121296121961786": 60,
     "18130883288308729": 35,
-    "18642694195042985": 2
+    "18642694195042985": 3
   },
   "daily": {
     "date": "2026-11-05",
-    "count": 2
+    "count": 3
   },
   "pinnedResolved": {
     "DaTTCIwoAw7": "18014812820883466"
@@ -51739,7 +51749,7 @@
   },
   "spend": {
     "date": "2026-11-05",
-    "usd": 0.009821952
+    "usd": 0.011123388
   },
   "lateSweep": {
     "date": "2026-11-05",
