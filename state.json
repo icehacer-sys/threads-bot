@@ -38298,6 +38298,15 @@
       },
       "publishedId": "17924791353222936",
       "confirmedPublished": true
+    },
+    "comment:18130231129825909": {
+      "creationId": "17896980561614054",
+      "createdAt": "2026-11-05T04:08:07.145Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "A pituitary gland going rogue is about as random as it gets. At least this one left a clear signature on the film.",
+        "reply_to_id": "18130231129825909"
+      }
     }
   },
   "repliedCommentIds": [
@@ -49686,7 +49695,8 @@
     "18160879186510468",
     "18099699794445281",
     "17997603585105679",
-    "18123706574286417"
+    "18123706574286417",
+    "18120082928072799"
   ],
   "answeredPostIds": [
     "18395606890093068"
@@ -49841,11 +49851,11 @@
     "18097077188147046": 22,
     "18424033363084458": 35,
     "18121296121961786": 60,
-    "18130883288308729": 33
+    "18130883288308729": 34
   },
   "daily": {
     "date": "2026-11-04",
-    "count": 33
+    "count": 34
   },
   "pinnedResolved": {
     "DaTTCIwoAw7": "18014812820883466"
@@ -51677,7 +51687,7 @@
   },
   "spend": {
     "date": "2026-11-04",
-    "usd": 0.035622773999999996
+    "usd": 0.036397481999999995
   },
   "lateSweep": {
     "date": "2026-11-04",
