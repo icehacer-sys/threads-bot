@@ -38385,6 +38385,15 @@
       },
       "publishedId": "18158513224518888",
       "confirmedPublished": true
+    },
+    "comment:18118088726113048": {
+      "creationId": "17897088477614054",
+      "createdAt": "2026-11-05T20:28:11.420Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "It's in the replies under the post. The answer is renal artery fibromuscular dysplasia and the giveaway is the beaded look of that artery.",
+        "reply_to_id": "18118088726113048"
+      }
     }
   },
   "repliedCommentIds": [
@@ -49780,7 +49789,8 @@
     "17885297868528506",
     "18125335060944984",
     "17920332495460298",
-    "18104071448170001"
+    "18104071448170001",
+    "18186019309423604"
   ],
   "answeredPostIds": [
     "18395606890093068"
@@ -49936,11 +49946,11 @@
     "18424033363084458": 35,
     "18121296121961786": 60,
     "18130883288308729": 35,
-    "18642694195042985": 5
+    "18642694195042985": 6
   },
   "daily": {
     "date": "2026-11-05",
-    "count": 5
+    "count": 6
   },
   "pinnedResolved": {
     "DaTTCIwoAw7": "18014812820883466"
@@ -51775,7 +51785,7 @@
   },
   "spend": {
     "date": "2026-11-05",
-    "usd": 0.012445224000000001
+    "usd": 0.014023512000000002
   },
   "lateSweep": {
     "date": "2026-11-05",
