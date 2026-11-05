@@ -38462,6 +38462,15 @@
       },
       "publishedId": "17984530239120864",
       "confirmedPublished": true
+    },
+    "comment:17968079169213914": {
+      "creationId": "17897090304614054",
+      "createdAt": "2026-11-05T20:45:53.554Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "The post gives headaches and blood pressure that would not come down. That raised pressure is the thing driving the symptoms. Anything beyond those two is not described here.",
+        "reply_to_id": "17968079169213914"
+      }
     }
   },
   "repliedCommentIds": [
@@ -49864,7 +49873,8 @@
     "18074734217771267",
     "18412103350092434",
     "18170125420413967",
-    "18139113742655584"
+    "18139113742655584",
+    "18065920376618650"
   ],
   "answeredPostIds": [
     "18395606890093068"
@@ -50020,11 +50030,11 @@
     "18424033363084458": 35,
     "18121296121961786": 60,
     "18130883288308729": 35,
-    "18642694195042985": 12
+    "18642694195042985": 13
   },
   "daily": {
     "date": "2026-11-05",
-    "count": 12
+    "count": 13
   },
   "pinnedResolved": {
     "DaTTCIwoAw7": "18014812820883466"
@@ -51860,7 +51870,7 @@
   },
   "spend": {
     "date": "2026-11-05",
-    "usd": 0.021825384000000007
+    "usd": 0.022816080000000006
   },
   "lateSweep": {
     "date": "2026-11-05",
