@@ -38506,6 +38506,15 @@
       },
       "publishedId": "17955943407319105",
       "confirmedPublished": true
+    },
+    "comment:18085941326335406": {
+      "creationId": "17897091822614054",
+      "createdAt": "2026-11-05T21:02:24.381Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Not the answer here. This artery pinches and bulges in turn along its length which is fibromuscular dysplasia not a single stenosis.",
+        "reply_to_id": "18085941326335406"
+      }
     }
   },
   "repliedCommentIds": [
@@ -49912,7 +49921,8 @@
     "18065920376618650",
     "17968079169213914",
     "18385321612241516",
-    "17969403375191816"
+    "17969403375191816",
+    "17877387282650798"
   ],
   "answeredPostIds": [
     "18395606890093068"
@@ -50068,11 +50078,11 @@
     "18424033363084458": 35,
     "18121296121961786": 60,
     "18130883288308729": 35,
-    "18642694195042985": 16
+    "18642694195042985": 17
   },
   "daily": {
     "date": "2026-11-05",
-    "count": 16
+    "count": 17
   },
   "pinnedResolved": {
     "DaTTCIwoAw7": "18014812820883466"
@@ -51908,7 +51918,7 @@
   },
   "spend": {
     "date": "2026-11-05",
-    "usd": 0.025594476000000005
+    "usd": 0.026949060000000007
   },
   "lateSweep": {
     "date": "2026-11-05",
