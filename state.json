@@ -38484,6 +38484,15 @@
       },
       "publishedId": "18219597676356576",
       "confirmedPublished": true
+    },
+    "comment:17969403375191816": {
+      "creationId": "17897090517614054",
+      "createdAt": "2026-11-05T20:46:36.041Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "The artery wall grows unevenly in patches so it pinches and bulges in turn. It is not inflammation or cholesterol buildup.",
+        "reply_to_id": "17969403375191816"
+      }
     }
   },
   "repliedCommentIds": [
@@ -49888,7 +49897,8 @@
     "18170125420413967",
     "18139113742655584",
     "18065920376618650",
-    "17968079169213914"
+    "17968079169213914",
+    "18385321612241516"
   ],
   "answeredPostIds": [
     "18395606890093068"
@@ -50044,11 +50054,11 @@
     "18424033363084458": 35,
     "18121296121961786": 60,
     "18130883288308729": 35,
-    "18642694195042985": 14
+    "18642694195042985": 15
   },
   "daily": {
     "date": "2026-11-05",
-    "count": 14
+    "count": 15
   },
   "pinnedResolved": {
     "DaTTCIwoAw7": "18014812820883466"
@@ -51884,7 +51894,7 @@
   },
   "spend": {
     "date": "2026-11-05",
-    "usd": 0.023891172000000006
+    "usd": 0.025122396000000005
   },
   "lateSweep": {
     "date": "2026-11-05",
