@@ -38429,6 +38429,15 @@
       },
       "publishedId": "18099343793394027",
       "confirmedPublished": true
+    },
+    "comment:18170125420413967": {
+      "creationId": "17897090232614054",
+      "createdAt": "2026-11-05T20:44:51.244Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Not only. The same condition can show up in the arteries to the brain too. This film just happens to catch it in the renal artery.",
+        "reply_to_id": "18170125420413967"
+      }
     }
   },
   "repliedCommentIds": [
@@ -51824,7 +51833,7 @@
   },
   "spend": {
     "date": "2026-11-05",
-    "usd": 0.018411384000000003
+    "usd": 0.019581576000000003
   },
   "lateSweep": {
     "date": "2026-11-05",
