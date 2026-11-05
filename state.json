@@ -38265,6 +38265,15 @@
       },
       "publishedId": "18125119741935339",
       "confirmedPublished": true
+    },
+    "comment:17997603585105679": {
+      "creationId": "17896976142614054",
+      "createdAt": "2026-11-05T03:06:59.082Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Neither of those. The answer is acromegaly from too much growth hormone.",
+        "reply_to_id": "17997603585105679"
+      }
     }
   },
   "repliedCommentIds": [
@@ -51642,7 +51651,7 @@
   },
   "spend": {
     "date": "2026-11-04",
-    "usd": 0.032594238
+    "usd": 0.034182222
   },
   "lateSweep": {
     "date": "2026-11-04",
