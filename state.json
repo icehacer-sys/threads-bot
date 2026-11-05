@@ -38319,6 +38319,15 @@
       },
       "publishedId": "18119514857069352",
       "confirmedPublished": true
+    },
+    "comment:18039001604893474": {
+      "creationId": "17897088345614054",
+      "createdAt": "2026-11-05T20:25:56.591Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Groot would probably guess tree branch. Not a bad fit for what the artery looks like.",
+        "reply_to_id": "18039001604893474"
+      }
     }
   },
   "repliedCommentIds": [
@@ -51676,7 +51685,8 @@
     "18169464712474413": 1,
     "18129753674489685": 1,
     "18596704984068207": 1,
-    "18154115695543039": 1
+    "18154115695543039": 1,
+    "18139113742655584": 1
   },
   "gifPostCounts": {
     "18432085978123193": 1,
@@ -51701,7 +51711,7 @@
   },
   "spend": {
     "date": "2026-11-05",
-    "usd": 0.005123004
+    "usd": 0.0064746
   },
   "lateSweep": {
     "date": "2026-11-05",
