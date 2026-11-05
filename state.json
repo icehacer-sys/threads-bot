@@ -38573,6 +38573,15 @@
       },
       "publishedId": "17976102780176091",
       "confirmedPublished": true
+    },
+    "comment:18121408837987023": {
+      "creationId": "17897096805614054",
+      "createdAt": "2026-11-05T22:19:52.224Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "And the worst part is you can't even wear it out of the body.",
+        "reply_to_id": "18121408837987023"
+      }
     }
   },
   "repliedCommentIds": [
@@ -51984,7 +51993,7 @@
   },
   "spend": {
     "date": "2026-11-05",
-    "usd": 0.033070416000000005
+    "usd": 0.0335022
   },
   "lateSweep": {
     "date": "2026-11-05",
