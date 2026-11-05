@@ -38418,6 +38418,15 @@
       },
       "publishedId": "17918904936259826",
       "confirmedPublished": true
+    },
+    "comment:18412103350092434": {
+      "creationId": "17897088699614054",
+      "createdAt": "2026-11-05T20:29:25.563Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Yes those are the kidneys. Each one has an artery running into it and the one on the image left pinches and bulges along its length. That beading is fibromuscular dysplasia.",
+        "reply_to_id": "18412103350092434"
+      }
     }
   },
   "repliedCommentIds": [
@@ -49816,7 +49825,8 @@
     "18104071448170001",
     "18186019309423604",
     "18118088726113048",
-    "18154648105538505"
+    "18154648105538505",
+    "18074734217771267"
   ],
   "answeredPostIds": [
     "18395606890093068"
@@ -49972,11 +49982,11 @@
     "18424033363084458": 35,
     "18121296121961786": 60,
     "18130883288308729": 35,
-    "18642694195042985": 8
+    "18642694195042985": 9
   },
   "daily": {
     "date": "2026-11-05",
-    "count": 8
+    "count": 9
   },
   "pinnedResolved": {
     "DaTTCIwoAw7": "18014812820883466"
@@ -51811,7 +51821,7 @@
   },
   "spend": {
     "date": "2026-11-05",
-    "usd": 0.016542492000000002
+    "usd": 0.018411384000000003
   },
   "lateSweep": {
     "date": "2026-11-05",
