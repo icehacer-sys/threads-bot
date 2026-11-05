@@ -38528,6 +38528,15 @@
       },
       "publishedId": "18074146742492124",
       "confirmedPublished": true
+    },
+    "comment:18115188896169634": {
+      "creationId": "17897093019614054",
+      "createdAt": "2026-11-05T21:18:12.077Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "That's it. Renal artery FMD.",
+        "reply_to_id": "18115188896169634"
+      }
     }
   },
   "repliedCommentIds": [
@@ -51933,7 +51942,7 @@
   },
   "spend": {
     "date": "2026-11-05",
-    "usd": 0.027779460000000006
+    "usd": 0.028218708000000006
   },
   "lateSweep": {
     "date": "2026-11-05",
