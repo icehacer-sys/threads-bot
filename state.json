@@ -38221,6 +38221,15 @@
       },
       "publishedId": "17963758700998058",
       "confirmedPublished": true
+    },
+    "comment:18095429729681711": {
+      "creationId": "17896962720614054",
+      "createdAt": "2026-11-05T00:36:21.364Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "They're the frontal sinuses and they're full of air. In acromegaly they can get bigger than usual.",
+        "reply_to_id": "18095429729681711"
+      }
     }
   },
   "repliedCommentIds": [
@@ -51593,7 +51602,7 @@
   },
   "spend": {
     "date": "2026-11-04",
-    "usd": 0.026912105999999995
+    "usd": 0.027955169999999994
   },
   "lateSweep": {
     "date": "2026-11-04",
