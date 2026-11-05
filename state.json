@@ -38595,6 +38595,15 @@
       },
       "publishedId": "17949937599352571",
       "confirmedPublished": true
+    },
+    "comment:18372789484246473": {
+      "creationId": "17897099181614054",
+      "createdAt": "2026-11-05T22:50:52.554Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "He does stretch out thin in places. That beaded artery had the right silhouette for it.",
+        "reply_to_id": "18372789484246473"
+      }
     }
   },
   "repliedCommentIds": [
@@ -52010,7 +52019,7 @@
   },
   "spend": {
     "date": "2026-11-05",
-    "usd": 0.03726864
+    "usd": 0.03802143
   },
   "lateSweep": {
     "date": "2026-11-05",
