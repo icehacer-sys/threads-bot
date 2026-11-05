@@ -38243,6 +38243,15 @@
       },
       "publishedId": "18100262423435530",
       "confirmedPublished": true
+    },
+    "comment:18160879186510468": {
+      "creationId": "17896969035614054",
+      "createdAt": "2026-11-05T01:35:38.784Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "That's the answer and you read the film the way it wants to be read. The upper and lower teeth failing to meet is the bit most people skip past.",
+        "reply_to_id": "18160879186510468"
+      }
     }
   },
   "repliedCommentIds": [
@@ -51617,7 +51626,7 @@
   },
   "spend": {
     "date": "2026-11-04",
-    "usd": 0.028971701999999995
+    "usd": 0.029953541999999996
   },
   "lateSweep": {
     "date": "2026-11-04",
