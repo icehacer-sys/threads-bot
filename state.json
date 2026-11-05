@@ -38628,6 +38628,15 @@
       },
       "publishedId": "18130065166892809",
       "confirmedPublished": true
+    },
+    "comment:18196934536401060": {
+      "creationId": "17897100081614054",
+      "createdAt": "2026-11-05T23:06:49.972Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Your bestie read it exactly right and circling it makes the beading impossible to miss. Tell them they can keep the medical licence.",
+        "reply_to_id": "18196934536401060"
+      }
     }
   },
   "repliedCommentIds": [
@@ -51868,7 +51877,8 @@
     "18115130516129207",
     "18135350731740272",
     "18123678481923688",
-    "18116705006025230"
+    "18116705006025230",
+    "17929744920431770"
   ],
   "skipStrikes": {
     "17895266316520842": 1,
@@ -52046,7 +52056,7 @@
   },
   "spend": {
     "date": "2026-11-05",
-    "usd": 0.03975861000000001
+    "usd": 0.041905422000000005
   },
   "lateSweep": {
     "date": "2026-11-05",
