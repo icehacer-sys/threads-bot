@@ -38495,6 +38495,15 @@
       },
       "publishedId": "18120078215098998",
       "confirmedPublished": true
+    },
+    "comment:17877387282650798": {
+      "creationId": "17897091807614054",
+      "createdAt": "2026-11-05T21:01:59.547Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Same lizard. This one just found a warmer spot. Evict it before it brings friends.",
+        "reply_to_id": "17877387282650798"
+      }
     }
   },
   "repliedCommentIds": [
@@ -51897,7 +51906,7 @@
   },
   "spend": {
     "date": "2026-11-05",
-    "usd": 0.025122396000000005
+    "usd": 0.025594476000000005
   },
   "lateSweep": {
     "date": "2026-11-05",
