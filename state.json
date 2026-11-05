@@ -38276,6 +38276,15 @@
       },
       "publishedId": "18414633202087860",
       "confirmedPublished": true
+    },
+    "comment:18123706574286417": {
+      "creationId": "17896978452614054",
+      "createdAt": "2026-11-05T03:37:26.685Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "That's the one. Nobody told the growth plates the sequel was cancelled.",
+        "reply_to_id": "18123706574286417"
+      }
     }
   },
   "repliedCommentIds": [
@@ -51654,7 +51663,7 @@
   },
   "spend": {
     "date": "2026-11-04",
-    "usd": 0.034182222
+    "usd": 0.034825866
   },
   "lateSweep": {
     "date": "2026-11-04",
