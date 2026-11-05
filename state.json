@@ -38396,6 +38396,15 @@
       },
       "publishedId": "18247509820313944",
       "confirmedPublished": true
+    },
+    "comment:18154648105538505": {
+      "creationId": "17897088657614054",
+      "createdAt": "2026-11-05T20:28:35.817Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Fibromuscular dysplasia of the renal artery. Look at the artery feeding the kidney on the image left and you'll see it pinch and swell in turn.",
+        "reply_to_id": "18154648105538505"
+      }
     }
   },
   "repliedCommentIds": [
@@ -49792,7 +49801,8 @@
     "18125335060944984",
     "17920332495460298",
     "18104071448170001",
-    "18186019309423604"
+    "18186019309423604",
+    "18118088726113048"
   ],
   "answeredPostIds": [
     "18395606890093068"
@@ -49948,11 +49958,11 @@
     "18424033363084458": 35,
     "18121296121961786": 60,
     "18130883288308729": 35,
-    "18642694195042985": 6
+    "18642694195042985": 7
   },
   "daily": {
     "date": "2026-11-05",
-    "count": 6
+    "count": 7
   },
   "pinnedResolved": {
     "DaTTCIwoAw7": "18014812820883466"
@@ -51787,7 +51797,7 @@
   },
   "spend": {
     "date": "2026-11-05",
-    "usd": 0.014023512000000002
+    "usd": 0.015612000000000003
   },
   "lateSweep": {
     "date": "2026-11-05",
