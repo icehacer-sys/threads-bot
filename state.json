@@ -38539,6 +38539,15 @@
       },
       "publishedId": "18115251674157387",
       "confirmedPublished": true
+    },
+    "comment:18067090382792686": {
+      "creationId": "17897093031614054",
+      "createdAt": "2026-11-05T21:18:30.099Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "A balloon in an artery does sound made up until you see it done. A stent only steps in when the balloon alone is not enough.",
+        "reply_to_id": "18067090382792686"
+      }
     }
   },
   "repliedCommentIds": [
@@ -49948,7 +49957,8 @@
     "17969403375191816",
     "17877387282650798",
     "18085941326335406",
-    "17913036687481579"
+    "17913036687481579",
+    "18115188896169634"
   ],
   "answeredPostIds": [
     "18395606890093068"
@@ -50104,11 +50114,11 @@
     "18424033363084458": 35,
     "18121296121961786": 60,
     "18130883288308729": 35,
-    "18642694195042985": 19
+    "18642694195042985": 20
   },
   "daily": {
     "date": "2026-11-05",
-    "count": 19
+    "count": 20
   },
   "pinnedResolved": {
     "DaTTCIwoAw7": "18014812820883466"
@@ -51944,7 +51954,7 @@
   },
   "spend": {
     "date": "2026-11-05",
-    "usd": 0.028218708000000006
+    "usd": 0.028759656000000005
   },
   "lateSweep": {
     "date": "2026-11-05",
