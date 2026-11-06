@@ -39151,6 +39151,15 @@
       },
       "publishedId": "17968346898211912",
       "confirmedPublished": true
+    },
+    "comment:17916998982497883": {
+      "creationId": "17897252607614054",
+      "createdAt": "2026-11-06T22:37:44.561Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Bones are the sneaky one. You learn the names and then the film adds a shape nobody warned you about.",
+        "reply_to_id": "17916998982497883"
+      }
     }
   },
   "repliedCommentIds": [
@@ -52604,7 +52613,8 @@
     "18154115695543039": 1,
     "18139113742655584": 1,
     "18372789484246473": 1,
-    "18229067815330548": 1
+    "18229067815330548": 1,
+    "18116280959137060": 1
   },
   "gifPostCounts": {
     "18432085978123193": 1,
@@ -52629,7 +52639,7 @@
   },
   "spend": {
     "date": "2026-11-06",
-    "usd": 0.044655528
+    "usd": 0.046415736
   },
   "lateSweep": {
     "date": "2026-11-06",
