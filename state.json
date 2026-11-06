@@ -38716,6 +38716,15 @@
       },
       "publishedId": "18174815002457143",
       "confirmedPublished": true
+    },
+    "comment:17924953491224948": {
+      "creationId": "17897130456614054",
+      "createdAt": "2026-11-06T03:44:59.795Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Guilty. I read a colon and went looking for a word that never showed up.",
+        "reply_to_id": "17924953491224948"
+      }
     }
   },
   "repliedCommentIds": [
@@ -52145,7 +52154,7 @@
   },
   "spend": {
     "date": "2026-11-05",
-    "usd": 0.051746442
+    "usd": 0.052550382
   },
   "lateSweep": {
     "date": "2026-11-05",
