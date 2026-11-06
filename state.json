@@ -39041,6 +39041,15 @@
       },
       "publishedId": "18395768521167774",
       "confirmedPublished": true
+    },
+    "comment:17918843289259762": {
+      "creationId": "17897243331614054",
+      "createdAt": "2026-11-06T21:18:41.395Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Sitting would have been easier to explain. The film is a neurogenic bladder and nothing ever touched that tree.",
+        "reply_to_id": "17918843289259762"
+      }
     }
   },
   "repliedCommentIds": [
@@ -50495,7 +50504,8 @@
     "18134971732741831",
     "18136423234676978",
     "17879656083565783",
-    "18112465631579437"
+    "18112465631579437",
+    "18029539601702809"
   ],
   "answeredPostIds": [
     "18395606890093068"
@@ -50652,11 +50662,11 @@
     "18121296121961786": 60,
     "18130883288308729": 35,
     "18642694195042985": 40,
-    "18016003691970066": 24
+    "18016003691970066": 25
   },
   "daily": {
     "date": "2026-11-06",
-    "count": 24
+    "count": 25
   },
   "pinnedResolved": {
     "DaTTCIwoAw7": "18014812820883466"
@@ -52506,7 +52516,7 @@
   },
   "spend": {
     "date": "2026-11-06",
-    "usd": 0.032782644
+    "usd": 0.03429828
   },
   "lateSweep": {
     "date": "2026-11-06",
