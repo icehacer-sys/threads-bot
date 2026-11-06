@@ -39118,6 +39118,15 @@
       },
       "publishedId": "18133946218771884",
       "confirmedPublished": true
+    },
+    "comment:18114841829077624": {
+      "creationId": "17897251347614054",
+      "createdAt": "2026-11-06T22:06:21.620Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Doing it to someone else is a job. Doing it to yourself several times a day is another level.",
+        "reply_to_id": "18114841829077624"
+      }
     }
   },
   "repliedCommentIds": [
@@ -52593,7 +52602,7 @@
   },
   "spend": {
     "date": "2026-11-06",
-    "usd": 0.041572991999999996
+    "usd": 0.042232104
   },
   "lateSweep": {
     "date": "2026-11-06",
