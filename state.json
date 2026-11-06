@@ -39129,6 +39129,15 @@
       },
       "publishedId": "18013228391991970",
       "confirmedPublished": true
+    },
+    "comment:18122579890914214": {
+      "creationId": "17897251935614054",
+      "createdAt": "2026-11-06T22:21:52.223Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "It does. Muscle names stick better once you have seen the thing they are doing.",
+        "reply_to_id": "18122579890914214"
+      }
     }
   },
   "repliedCommentIds": [
@@ -52605,7 +52614,7 @@
   },
   "spend": {
     "date": "2026-11-06",
-    "usd": 0.042232104
+    "usd": 0.0433464
   },
   "lateSweep": {
     "date": "2026-11-06",
