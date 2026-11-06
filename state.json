@@ -39140,6 +39140,15 @@
       },
       "publishedId": "18122128187321102",
       "confirmedPublished": true
+    },
+    "comment:18203111680380825": {
+      "creationId": "17897251944614054",
+      "createdAt": "2026-11-06T22:22:13.915Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "The Mitrofanoff does get around the daily tube problem nicely. It needs a usable piece of bowel though which is exactly why the appendix question comes up.",
+        "reply_to_id": "18203111680380825"
+      }
     }
   },
   "repliedCommentIds": [
@@ -50603,7 +50612,8 @@
     "17993216712118318",
     "18229067815330548",
     "18116703083111643",
-    "18114841829077624"
+    "18114841829077624",
+    "18122579890914214"
   ],
   "answeredPostIds": [
     "18395606890093068"
@@ -50760,11 +50770,11 @@
     "18121296121961786": 60,
     "18130883288308729": 35,
     "18642694195042985": 40,
-    "18016003691970066": 33
+    "18016003691970066": 34
   },
   "daily": {
     "date": "2026-11-06",
-    "count": 33
+    "count": 34
   },
   "pinnedResolved": {
     "DaTTCIwoAw7": "18014812820883466"
@@ -52616,7 +52626,7 @@
   },
   "spend": {
     "date": "2026-11-06",
-    "usd": 0.0433464
+    "usd": 0.044655528
   },
   "lateSweep": {
     "date": "2026-11-06",
