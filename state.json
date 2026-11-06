@@ -38705,6 +38705,15 @@
       },
       "publishedId": "18057884081585185",
       "confirmedPublished": true
+    },
+    "comment:18104267327056477": {
+      "creationId": "17897127993614054",
+      "createdAt": "2026-11-06T03:14:37.677Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "They heard beaded trim and went all in. The artery wall is uneven so it pinches and swells in patches which reads a lot like a design choice nobody asked for.",
+        "reply_to_id": "18104267327056477"
+      }
     }
   },
   "repliedCommentIds": [
@@ -50129,7 +50138,8 @@
     "18084302693397475",
     "18030549179858035",
     "18160136833501790",
-    "18095920217691234"
+    "18095920217691234",
+    "18135564112776381"
   ],
   "answeredPostIds": [
     "18395606890093068"
@@ -50285,11 +50295,11 @@
     "18424033363084458": 35,
     "18121296121961786": 60,
     "18130883288308729": 35,
-    "18642694195042985": 34
+    "18642694195042985": 35
   },
   "daily": {
     "date": "2026-11-05",
-    "count": 34
+    "count": 35
   },
   "pinnedResolved": {
     "DaTTCIwoAw7": "18014812820883466"
@@ -52132,7 +52142,7 @@
   },
   "spend": {
     "date": "2026-11-05",
-    "usd": 0.050930802
+    "usd": 0.051746442
   },
   "lateSweep": {
     "date": "2026-11-05",
