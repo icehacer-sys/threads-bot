@@ -38887,6 +38887,15 @@
       },
       "publishedId": "18110925689180940",
       "confirmedPublished": true
+    },
+    "comment:18123759061897399": {
+      "creationId": "17897241879614054",
+      "createdAt": "2026-11-06T20:43:34.020Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Twenty twenty was strange enough without the tree growing inside someone.",
+        "reply_to_id": "18123759061897399"
+      }
     }
   },
   "repliedCommentIds": [
@@ -52159,7 +52168,8 @@
     "18489634942111684",
     "17993783403070214",
     "18150729091561798",
-    "18134706013806398"
+    "18134706013806398",
+    "17973083751176902"
   ],
   "skipStrikes": {
     "17895266316520842": 1,
@@ -52337,7 +52347,7 @@
   },
   "spend": {
     "date": "2026-11-06",
-    "usd": 0.017538108
+    "usd": 0.019057044
   },
   "lateSweep": {
     "date": "2026-11-06",
