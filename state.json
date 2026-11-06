@@ -39184,6 +39184,15 @@
       },
       "publishedId": "18358481119174277",
       "confirmedPublished": true
+    },
+    "comment:18118943599797326": {
+      "creationId": "17897253465614054",
+      "createdAt": "2026-11-06T22:53:50.920Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "It really is a Christmas tree bladder. The cone and the little pouches are the bladder wall thickening under pressure.",
+        "reply_to_id": "18118943599797326"
+      }
     }
   },
   "repliedCommentIds": [
@@ -50651,7 +50660,8 @@
     "18122579890914214",
     "18203111680380825",
     "17916998982497883",
-    "18182844394441327"
+    "18182844394441327",
+    "18113511710270428"
   ],
   "answeredPostIds": [
     "18395606890093068"
@@ -50808,11 +50818,11 @@
     "18121296121961786": 60,
     "18130883288308729": 35,
     "18642694195042985": 40,
-    "18016003691970066": 37
+    "18016003691970066": 38
   },
   "daily": {
     "date": "2026-11-06",
-    "count": 37
+    "count": 38
   },
   "pinnedResolved": {
     "DaTTCIwoAw7": "18014812820883466"
@@ -52665,7 +52675,7 @@
   },
   "spend": {
     "date": "2026-11-06",
-    "usd": 0.049759859999999996
+    "usd": 0.050692799999999996
   },
   "lateSweep": {
     "date": "2026-11-06",
