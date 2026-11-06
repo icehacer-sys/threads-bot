@@ -39206,6 +39206,15 @@
       },
       "publishedId": "17927351001205296",
       "confirmedPublished": true
+    },
+    "comment:18004613052042859": {
+      "creationId": "17897255349614054",
+      "createdAt": "2026-11-06T23:39:55.984Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "You basically named it. That's the whole reason it's called a Christmas tree bladder.",
+        "reply_to_id": "18004613052042859"
+      }
     }
   },
   "repliedCommentIds": [
@@ -52691,7 +52700,7 @@
   },
   "spend": {
     "date": "2026-11-06",
-    "usd": 0.05294624399999999
+    "usd": 0.05357638799999999
   },
   "lateSweep": {
     "date": "2026-11-06",
