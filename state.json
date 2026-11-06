@@ -39195,6 +39195,15 @@
       },
       "publishedId": "18138433552731584",
       "confirmedPublished": true
+    },
+    "comment:18078149252758036": {
+      "creationId": "17897254692614054",
+      "createdAt": "2026-11-06T23:24:28.663Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Not calcified this one. It's a neurogenic bladder and the branches are the muscle wall ridged from all that pressure.",
+        "reply_to_id": "18078149252758036"
+      }
     }
   },
   "repliedCommentIds": [
@@ -52678,7 +52687,7 @@
   },
   "spend": {
     "date": "2026-11-06",
-    "usd": 0.050692799999999996
+    "usd": 0.05217663599999999
   },
   "lateSweep": {
     "date": "2026-11-06",
