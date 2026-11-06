@@ -39030,6 +39030,15 @@
       },
       "publishedId": "18342782320273962",
       "confirmedPublished": true
+    },
+    "comment:18029539601702809": {
+      "creationId": "17897243304614054",
+      "createdAt": "2026-11-06T21:18:18.349Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Nothing got left in there. That cone shape is the bladder's own wall thickening and folding because of high pressure.",
+        "reply_to_id": "18029539601702809"
+      }
     }
   },
   "repliedCommentIds": [
@@ -52495,7 +52504,7 @@
   },
   "spend": {
     "date": "2026-11-06",
-    "usd": 0.030738108
+    "usd": 0.032782644
   },
   "lateSweep": {
     "date": "2026-11-06",
