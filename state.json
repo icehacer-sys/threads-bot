@@ -39096,6 +39096,15 @@
       },
       "publishedId": "18118602277803813",
       "confirmedPublished": true
+    },
+    "comment:18229067815330548": {
+      "creationId": "17897250087614054",
+      "createdAt": "2026-11-06T21:50:36.706Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "It does. Every one of those little pouches is the wall pushing back against a closed outlet.",
+        "reply_to_id": "18229067815330548"
+      }
     }
   },
   "repliedCommentIds": [
@@ -52569,7 +52578,7 @@
   },
   "spend": {
     "date": "2026-11-06",
-    "usd": 0.040484495999999995
+    "usd": 0.040961279999999996
   },
   "lateSweep": {
     "date": "2026-11-06",
