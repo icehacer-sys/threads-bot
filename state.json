@@ -38727,6 +38727,15 @@
       },
       "publishedId": "18044005751832612",
       "confirmedPublished": true
+    },
+    "comment:17919027918265885": {
+      "creationId": "17897133921614054",
+      "createdAt": "2026-11-06T04:15:20.759Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "At least your hair tie gets taken out at night. This one is stuck doing the beaded look permanently.",
+        "reply_to_id": "17919027918265885"
+      }
     }
   },
   "repliedCommentIds": [
@@ -52157,7 +52166,7 @@
   },
   "spend": {
     "date": "2026-11-05",
-    "usd": 0.052550382
+    "usd": 0.053218026
   },
   "lateSweep": {
     "date": "2026-11-05",
