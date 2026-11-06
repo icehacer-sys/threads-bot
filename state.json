@@ -38650,6 +38650,15 @@
       },
       "publishedId": "17995407597050879",
       "confirmedPublished": true
+    },
+    "comment:18084302693397475": {
+      "creationId": "17897127924614054",
+      "createdAt": "2026-11-06T03:12:58.422Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Both routes are normal. X-ray is fast and cheap and good with contrast for seeing tubes like blood vessels and bowels.",
+        "reply_to_id": "18084302693397475"
+      }
     }
   },
   "repliedCommentIds": [
@@ -51893,7 +51902,8 @@
     "18135350731740272",
     "18123678481923688",
     "18116705006025230",
-    "17929744920431770"
+    "17929744920431770",
+    "18339471187274081"
   ],
   "skipStrikes": {
     "17895266316520842": 1,
@@ -52071,7 +52081,7 @@
   },
   "spend": {
     "date": "2026-11-05",
-    "usd": 0.04241580600000001
+    "usd": 0.044686002
   },
   "lateSweep": {
     "date": "2026-11-05",
