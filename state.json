@@ -39217,6 +39217,15 @@
       },
       "publishedId": "18120476449991722",
       "confirmedPublished": true
+    },
+    "comment:18121504466054138": {
+      "creationId": "17897259003614054",
+      "createdAt": "2026-11-06T23:55:21.354Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Shelves are full of things people did not plan to display. This one just kept growing until it earned a spot.",
+        "reply_to_id": "18121504466054138"
+      }
     }
   },
   "repliedCommentIds": [
@@ -52703,7 +52712,7 @@
   },
   "spend": {
     "date": "2026-11-06",
-    "usd": 0.05357638799999999
+    "usd": 0.05470001999999999
   },
   "lateSweep": {
     "date": "2026-11-06",
