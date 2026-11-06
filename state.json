@@ -38749,6 +38749,15 @@
       },
       "publishedId": "18101721182561790",
       "confirmedPublished": true
+    },
+    "comment:18083550860365045": {
+      "creationId": "17897137101614054",
+      "createdAt": "2026-11-06T04:46:11.823Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Glad the beaded artery made sense. That film is a lot to take in one go.",
+        "reply_to_id": "18083550860365045"
+      }
     }
   },
   "repliedCommentIds": [
@@ -52181,7 +52190,7 @@
   },
   "spend": {
     "date": "2026-11-05",
-    "usd": 0.05386467
+    "usd": 0.055085166000000005
   },
   "lateSweep": {
     "date": "2026-11-05",
