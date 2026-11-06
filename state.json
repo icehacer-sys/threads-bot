@@ -38975,6 +38975,15 @@
       },
       "publishedId": "18132969037685321",
       "confirmedPublished": true
+    },
+    "comment:18135162853683626": {
+      "creationId": "17897242494614054",
+      "createdAt": "2026-11-06T21:01:30.385Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Try saying that with a mouthful of water. Better than a mouthful of anything else going by this post.",
+        "reply_to_id": "18135162853683626"
+      }
     }
   },
   "repliedCommentIds": [
@@ -50423,7 +50432,8 @@
     "17953487046314522",
     "18119713814098865",
     "17906877123669626",
-    "18081877154391782"
+    "18081877154391782",
+    "17952814182055814"
   ],
   "answeredPostIds": [
     "18395606890093068"
@@ -50580,11 +50590,11 @@
     "18121296121961786": 60,
     "18130883288308729": 35,
     "18642694195042985": 40,
-    "18016003691970066": 18
+    "18016003691970066": 19
   },
   "daily": {
     "date": "2026-11-06",
-    "count": 18
+    "count": 19
   },
   "pinnedResolved": {
     "DaTTCIwoAw7": "18014812820883466"
@@ -52434,7 +52444,7 @@
   },
   "spend": {
     "date": "2026-11-06",
-    "usd": 0.026789628
+    "usd": 0.027276108
   },
   "lateSweep": {
     "date": "2026-11-06",
