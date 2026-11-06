@@ -39063,6 +39063,15 @@
       },
       "publishedId": "18102160202401749",
       "confirmedPublished": true
+    },
+    "comment:18120522400777595": {
+      "creationId": "17897244252614054",
+      "createdAt": "2026-11-06T21:34:32.479Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "You guessed it. The name is real and it is the bladder doing the decorating.",
+        "reply_to_id": "18120522400777595"
+      }
     }
   },
   "repliedCommentIds": [
@@ -52532,7 +52541,7 @@
   },
   "spend": {
     "date": "2026-11-06",
-    "usd": 0.037616628
+    "usd": 0.038182608
   },
   "lateSweep": {
     "date": "2026-11-06",
