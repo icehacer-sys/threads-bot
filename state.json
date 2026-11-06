@@ -39162,6 +39162,15 @@
       },
       "publishedId": "17979117609144244",
       "confirmedPublished": true
+    },
+    "comment:18182844394441327": {
+      "creationId": "17897252622614054",
+      "createdAt": "2026-11-06T22:38:06.104Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Because the bladder itself is not the problem. The nerves that tell it when to squeeze are. Damage to the spinal cord leaves it working without proper instructions.",
+        "reply_to_id": "18182844394441327"
+      }
     }
   },
   "repliedCommentIds": [
@@ -50627,7 +50636,8 @@
     "18116703083111643",
     "18114841829077624",
     "18122579890914214",
-    "18203111680380825"
+    "18203111680380825",
+    "17916998982497883"
   ],
   "answeredPostIds": [
     "18395606890093068"
@@ -50784,11 +50794,11 @@
     "18121296121961786": 60,
     "18130883288308729": 35,
     "18642694195042985": 40,
-    "18016003691970066": 35
+    "18016003691970066": 36
   },
   "daily": {
     "date": "2026-11-06",
-    "count": 35
+    "count": 36
   },
   "pinnedResolved": {
     "DaTTCIwoAw7": "18014812820883466"
@@ -52641,7 +52651,7 @@
   },
   "spend": {
     "date": "2026-11-06",
-    "usd": 0.046415736
+    "usd": 0.048056183999999995
   },
   "lateSweep": {
     "date": "2026-11-06",
