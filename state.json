@@ -38931,6 +38931,15 @@
       },
       "publishedId": "18096468659686894",
       "confirmedPublished": true
+    },
+    "comment:18119713814098865": {
+      "creationId": "17897242449614054",
+      "createdAt": "2026-11-06T21:00:10.022Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Stones are solid lumps. This one is all ridges and little pouches.",
+        "reply_to_id": "18119713814098865"
+      }
     }
   },
   "repliedCommentIds": [
@@ -52387,7 +52396,7 @@
   },
   "spend": {
     "date": "2026-11-06",
-    "usd": 0.022431503999999998
+    "usd": 0.024236663999999998
   },
   "lateSweep": {
     "date": "2026-11-06",
