@@ -38766,6 +38766,15 @@
       },
       "publishedId": "17993453184099609",
       "confirmedPublished": true
+    },
+    "comment:18414726604090746": {
+      "creationId": "17897240757614054",
+      "createdAt": "2026-11-06T20:24:54.325Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "That's the one. Neurogenic bladder and the shape is why it picked up the Christmas tree name.",
+        "reply_to_id": "18414726604090746"
+      }
     }
   },
   "repliedCommentIds": [
@@ -52021,7 +52030,10 @@
     "18116705006025230",
     "17929744920431770",
     "18339471187274081",
-    "17905630494374608"
+    "17905630494374608",
+    "18100449497428428",
+    "18489634942111684",
+    "17993783403070214"
   ],
   "skipStrikes": {
     "17895266316520842": 1,
@@ -52199,7 +52211,7 @@
   },
   "spend": {
     "date": "2026-11-06",
-    "usd": 0.0027254759999999992
+    "usd": 0.006483047999999998
   },
   "lateSweep": {
     "date": "2026-11-06",
