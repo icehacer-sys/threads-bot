@@ -39369,6 +39369,15 @@
       },
       "publishedId": "17988341763086064",
       "confirmedPublished": true
+    },
+    "comment:18096044714164705": {
+      "creationId": "17897377074614054",
+      "createdAt": "2026-11-07T20:42:47.004Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "It is one continuous tube. The breaks are just spots where the barium did not fill. In Crohn disease that narrowing can squeeze the terminal ileum down to a thread.",
+        "reply_to_id": "18096044714164705"
+      }
     }
   },
   "repliedCommentIds": [
@@ -52875,7 +52884,7 @@
   },
   "spend": {
     "date": "2026-11-07",
-    "usd": 0.011660832
+    "usd": 0.012543792
   },
   "lateSweep": {
     "date": "2026-11-07",
