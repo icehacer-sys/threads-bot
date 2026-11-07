@@ -39262,6 +39262,15 @@
       },
       "publishedId": "18129896884930576",
       "confirmedPublished": true
+    },
+    "comment:18133875085784664": {
+      "creationId": "17897297352614054",
+      "createdAt": "2026-11-07T07:45:00.153Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Anticholinergics are still listed as one of the options that can calm the detrusor though how well they work varies. Botulinum toxin does get used where the tablets are not enough.",
+        "reply_to_id": "18133875085784664"
+      }
     }
   },
   "repliedCommentIds": [
@@ -52755,7 +52764,7 @@
   },
   "spend": {
     "date": "2026-11-06",
-    "usd": 0.058937639999999986
+    "usd": 0.06020227199999998
   },
   "lateSweep": {
     "date": "2026-11-06",
