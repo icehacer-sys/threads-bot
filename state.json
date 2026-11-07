@@ -39446,6 +39446,15 @@
       },
       "publishedId": "18044007533843936",
       "confirmedPublished": true
+    },
+    "comment:18355195900268440": {
+      "creationId": "17897377713614054",
+      "createdAt": "2026-11-07T21:00:06.435Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "The colon is the part that shows around the edges. The gaps are just places the barium did not reach.",
+        "reply_to_id": "18355195900268440"
+      }
     }
   },
   "repliedCommentIds": [
@@ -52780,7 +52789,8 @@
     "18343216429277198",
     "17974969014188042",
     "18359004613221562",
-    "18163818769442497"
+    "18163818769442497",
+    "18576663229077467"
   ],
   "skipStrikes": {
     "17895266316520842": 1,
@@ -52960,7 +52970,7 @@
   },
   "spend": {
     "date": "2026-11-07",
-    "usd": 0.018916548000000002
+    "usd": 0.021140196
   },
   "lateSweep": {
     "date": "2026-11-07",
