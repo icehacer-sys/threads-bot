@@ -584,7 +584,8 @@
   "imageHeldComments": {
     "18109819988459950": "18123083599945015",
     "18416186641081633": "18123083599945015",
-    "18100599446646454": "18123083599945015"
+    "18100599446646454": "18123083599945015",
+    "18347978362251655": "18123083599945015"
   },
   "ownerReviews": {
     "17937444630360450": "{\"postId\":\"18103023326210157\",\"reason\":\"owner review: personal medical concern\",\"commentText\":\"Little sister of my friend swalloved a coin of 1 fim. At hospital the family was advised to thoroughly keep an eye on her poops. So, the next day they found two 50 penny coins😀.\",\"username\":\"velitapiof\",\"queuedAt\":\"2026-09-10T20:21:59.741Z\",\"resolvedAt\":\"2026-09-10T20:36:02.929Z\",\"resolution\":\"Owner confirmed this is a completed personal story and deleted the inappropriate boundary reply. No clinical review is needed.\"}",
@@ -39495,6 +39496,15 @@
       },
       "publishedId": "17996442123107216",
       "confirmedPublished": true
+    },
+    "comment:18034080713884294": {
+      "creationId": "17897383593614054",
+      "createdAt": "2026-11-07T22:32:08.357Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Bad enough that the whole stretch lost its width. The pun holds up too.",
+        "reply_to_id": "18034080713884294"
+      }
     }
   },
   "repliedCommentIds": [
@@ -53016,7 +53026,7 @@
   },
   "spend": {
     "date": "2026-11-07",
-    "usd": 0.027965531999999998
+    "usd": 0.02910714
   },
   "lateSweep": {
     "date": "2026-11-07",
