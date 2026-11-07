@@ -39228,6 +39228,15 @@
       },
       "publishedId": "18015798266984839",
       "confirmedPublished": true
+    },
+    "comment:18118876928100663": {
+      "creationId": "17897265792614054",
+      "createdAt": "2026-11-07T01:40:59.931Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "He would have picked somewhere with more room to drill. The shape is close enough that I cannot blame you.",
+        "reply_to_id": "18118876928100663"
+      }
     }
   },
   "repliedCommentIds": [
@@ -52715,7 +52724,7 @@
   },
   "spend": {
     "date": "2026-11-06",
-    "usd": 0.05470001999999999
+    "usd": 0.05532716399999999
   },
   "lateSweep": {
     "date": "2026-11-06",
