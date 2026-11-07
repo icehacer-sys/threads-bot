@@ -39435,6 +39435,15 @@
       },
       "publishedId": "18119956402798909",
       "confirmedPublished": true
+    },
+    "comment:18599754316070710": {
+      "creationId": "17897377134614054",
+      "createdAt": "2026-11-07T20:44:35.689Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Spot on. The colon climbs the right side then crosses near the ribs and drops down the other side. The small bowel has no fixed route so it coils wherever it fits.",
+        "reply_to_id": "18599754316070710"
+      }
     }
   },
   "repliedCommentIds": [
@@ -50924,7 +50933,8 @@
     "18079094723738292",
     "18187311289420691",
     "18241506253316789",
-    "17990976870096418"
+    "17990976870096418",
+    "18132587626773090"
   ],
   "answeredPostIds": [
     "18395606890093068"
@@ -51082,11 +51092,11 @@
     "18130883288308729": 35,
     "18642694195042985": 40,
     "18016003691970066": 46,
-    "18123083599945015": 13
+    "18123083599945015": 14
   },
   "daily": {
     "date": "2026-11-07",
-    "count": 13
+    "count": 14
   },
   "pinnedResolved": {
     "DaTTCIwoAw7": "18014812820883466"
@@ -52947,7 +52957,7 @@
   },
   "spend": {
     "date": "2026-11-07",
-    "usd": 0.017200008000000003
+    "usd": 0.018916548000000002
   },
   "lateSweep": {
     "date": "2026-11-07",
