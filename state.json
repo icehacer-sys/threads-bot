@@ -39402,6 +39402,15 @@
       },
       "publishedId": "18396714043160946",
       "confirmedPublished": true
+    },
+    "comment:18241506253316789": {
+      "creationId": "17897377095614054",
+      "createdAt": "2026-11-07T20:43:44.746Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "The worst lottery there is. Here it was neither of those. The telling bit is that thin stretch of terminal ileum squeezed down to a thread.",
+        "reply_to_id": "18241506253316789"
+      }
     }
   },
   "repliedCommentIds": [
@@ -50888,7 +50897,8 @@
     "18112197629084938",
     "17915921697602577",
     "18096044714164705",
-    "18079094723738292"
+    "18079094723738292",
+    "18187311289420691"
   ],
   "answeredPostIds": [
     "18395606890093068"
@@ -51046,11 +51056,11 @@
     "18130883288308729": 35,
     "18642694195042985": 40,
     "18016003691970066": 46,
-    "18123083599945015": 10
+    "18123083599945015": 11
   },
   "daily": {
     "date": "2026-11-07",
-    "count": 10
+    "count": 11
   },
   "pinnedResolved": {
     "DaTTCIwoAw7": "18014812820883466"
@@ -52911,7 +52921,7 @@
   },
   "spend": {
     "date": "2026-11-07",
-    "usd": 0.014677272
+    "usd": 0.015807528
   },
   "lateSweep": {
     "date": "2026-11-07",
