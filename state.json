@@ -581,7 +581,10 @@
     "18359004613221562": "Matching fissures between the small and large intestines made a shortcut between both?",
     "17907191376354606": "It’s a freshwater siphonophore. Gonna be rough to get them all out. Or get it out. Or all of them out. Or it…."
   },
-  "imageHeldComments": {},
+  "imageHeldComments": {
+    "18109819988459950": "18123083599945015",
+    "18416186641081633": "18123083599945015"
+  },
   "ownerReviews": {
     "17937444630360450": "{\"postId\":\"18103023326210157\",\"reason\":\"owner review: personal medical concern\",\"commentText\":\"Little sister of my friend swalloved a coin of 1 fim. At hospital the family was advised to thoroughly keep an eye on her poops. So, the next day they found two 50 penny coins😀.\",\"username\":\"velitapiof\",\"queuedAt\":\"2026-09-10T20:21:59.741Z\",\"resolvedAt\":\"2026-09-10T20:36:02.929Z\",\"resolution\":\"Owner confirmed this is a completed personal story and deleted the inappropriate boundary reply. No clinical review is needed.\"}",
     "18147946708537215": "{\"postId\":\"18103023326210157\",\"reason\":\"Diagnosis guess before reveal already public. Although the reveal is now public, this is a wrong guess. Skipping to hold the reply for owner review, as the commenter's brevity and certainty ('Button battery.') may indicate they are reading prior comments and making a competing call rather than genuinely uncertain. A correction after the reveal usually affirms correct guesses or gently corrects mistaken ones with supplied facts, but this commenter has not asked a question or engaged substantively enough to warrant an unsolicited correction.\",\"commentText\":\"Child.  Button battery.\",\"username\":\"larrym2025\",\"queuedAt\":\"2026-09-11T01:10:50.470Z\",\"resolvedAt\":\"2026-10-17T19:00:34.348Z\",\"resolution\":\"auto-expired: queued more than 48h ago\",\"expired\":true}",
@@ -53012,7 +53015,7 @@
   },
   "spend": {
     "date": "2026-11-07",
-    "usd": 0.026079203999999998
+    "usd": 0.026986919999999998
   },
   "lateSweep": {
     "date": "2026-11-07",
