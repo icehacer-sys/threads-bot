@@ -39488,7 +39488,9 @@
         "media_type": "TEXT",
         "text": "Half the thread saw a break in the line. It really does read that way at first glance.",
         "reply_to_id": "18113675144633537"
-      }
+      },
+      "publishedId": "17996442123107216",
+      "confirmedPublished": true
     }
   },
   "repliedCommentIds": [
