@@ -39608,6 +39608,15 @@
       },
       "publishedId": "18121560893068909",
       "confirmedPublished": true
+    },
+    "comment:18135685564780753": {
+      "creationId": "17897434086614054",
+      "createdAt": "2026-11-08T07:16:26.709Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "That was about my reaction too.",
+        "reply_to_id": "18135685564780753"
+      }
     }
   },
   "repliedCommentIds": [
@@ -53140,7 +53149,7 @@
   },
   "spend": {
     "date": "2026-11-07",
-    "usd": 0.04564092000000001
+    "usd": 0.04606209600000001
   },
   "lateSweep": {
     "date": "2026-11-07",
