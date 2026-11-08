@@ -39914,6 +39914,15 @@
       },
       "publishedId": "18137851306657650",
       "confirmedPublished": true
+    },
+    "comment:18180029014443439": {
+      "creationId": "17897546856614054",
+      "createdAt": "2026-11-08T22:50:03.748Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Usually that phrase is about a rollercoaster. Here the stomach just never gave at all.",
+        "reply_to_id": "18180029014443439"
+      }
     }
   },
   "repliedCommentIds": [
@@ -53300,7 +53309,8 @@
     "17986545258065533",
     "18173145427463717",
     "18109095761216930",
-    "18440239399180580"
+    "18440239399180580",
+    "18137541868649923"
   ],
   "skipStrikes": {
     "17895266316520842": 1,
@@ -53480,7 +53490,7 @@
   },
   "spend": {
     "date": "2026-11-08",
-    "usd": 0.03651073200000001
+    "usd": 0.03809575200000001
   },
   "lateSweep": {
     "date": "2026-11-08",
