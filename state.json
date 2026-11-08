@@ -591,7 +591,8 @@
     "18135219874706202": "18123083599945015",
     "17928435984466681": "18123083599945015",
     "18427077835156866": "18123083599945015",
-    "18149337628658314": "18123083599945015"
+    "18149337628658314": "18123083599945015",
+    "18117815468036417": "18123083599945015"
   },
   "ownerReviews": {
     "17937444630360450": "{\"postId\":\"18103023326210157\",\"reason\":\"owner review: personal medical concern\",\"commentText\":\"Little sister of my friend swalloved a coin of 1 fim. At hospital the family was advised to thoroughly keep an eye on her poops. So, the next day they found two 50 penny coins😀.\",\"username\":\"velitapiof\",\"queuedAt\":\"2026-09-10T20:21:59.741Z\",\"resolvedAt\":\"2026-09-10T20:36:02.929Z\",\"resolution\":\"Owner confirmed this is a completed personal story and deleted the inappropriate boundary reply. No clinical review is needed.\"}",
@@ -39525,6 +39526,15 @@
       },
       "publishedId": "17900481192394656",
       "confirmedPublished": true
+    },
+    "comment:18343154887278287": {
+      "creationId": "17897400273614054",
+      "createdAt": "2026-11-08T02:01:00.364Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Anatomy on a film does enjoy a rude silhouette. This one is the bowel though.",
+        "reply_to_id": "18343154887278287"
+      }
     }
   },
   "repliedCommentIds": [
@@ -53050,7 +53060,7 @@
   },
   "spend": {
     "date": "2026-11-07",
-    "usd": 0.03601280400000001
+    "usd": 0.03749842800000001
   },
   "lateSweep": {
     "date": "2026-11-07",
