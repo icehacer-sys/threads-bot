@@ -39781,6 +39781,15 @@
       },
       "publishedId": "17907225648354624",
       "confirmedPublished": true
+    },
+    "comment:17965779036212098": {
+      "creationId": "17897538444614054",
+      "createdAt": "2026-11-08T20:57:15.641Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "It looks bleak but it isn't a single verdict. When disease is localised surgery with chemotherapy can be an option. Advanced disease usually gets palliative care.",
+        "reply_to_id": "17965779036212098"
+      }
     }
   },
   "repliedCommentIds": [
@@ -51299,7 +51308,8 @@
     "18121381604067989",
     "18111691495927056",
     "18106024925527442",
-    "18016511102986482"
+    "18016511102986482",
+    "18403345018205235"
   ],
   "answeredPostIds": [
     "18395606890093068"
@@ -51458,11 +51468,11 @@
     "18642694195042985": 40,
     "18016003691970066": 46,
     "18123083599945015": 29,
-    "17952721908056004": 13
+    "17952721908056004": 14
   },
   "daily": {
     "date": "2026-11-08",
-    "count": 13
+    "count": 14
   },
   "pinnedResolved": {
     "DaTTCIwoAw7": "18014812820883466"
@@ -53331,7 +53341,7 @@
   },
   "spend": {
     "date": "2026-11-08",
-    "usd": 0.019653444000000003
+    "usd": 0.021674208000000004
   },
   "lateSweep": {
     "date": "2026-11-08",
