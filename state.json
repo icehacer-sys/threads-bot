@@ -39616,7 +39616,9 @@
         "media_type": "TEXT",
         "text": "That was about my reaction too.",
         "reply_to_id": "18135685564780753"
-      }
+      },
+      "publishedId": "18123043705915634",
+      "confirmedPublished": true
     }
   },
   "repliedCommentIds": [
