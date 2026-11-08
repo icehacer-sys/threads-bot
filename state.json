@@ -39538,6 +39538,15 @@
       },
       "publishedId": "18113931305126092",
       "confirmedPublished": true
+    },
+    "comment:18168362209436053": {
+      "creationId": "17897411046614054",
+      "createdAt": "2026-11-08T03:31:58.804Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "That face is usually hiding a very quiet 'oh'. Seeing your own condition laid out like that must be strange.",
+        "reply_to_id": "18168362209436053"
+      }
     }
   },
   "repliedCommentIds": [
@@ -53064,7 +53073,7 @@
   },
   "spend": {
     "date": "2026-11-07",
-    "usd": 0.03843048000000001
+    "usd": 0.03881925600000001
   },
   "lateSweep": {
     "date": "2026-11-07",
