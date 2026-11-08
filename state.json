@@ -39574,6 +39574,15 @@
       },
       "publishedId": "18105778130008488",
       "confirmedPublished": true
+    },
+    "comment:17989562490116756": {
+      "creationId": "17897416359614054",
+      "createdAt": "2026-11-08T04:33:16.660Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "An 8 and turning down the only relief on offer takes some grit. Refusing meds that make you sick is a sensible call too.",
+        "reply_to_id": "17989562490116756"
+      }
     }
   },
   "repliedCommentIds": [
@@ -51074,7 +51083,8 @@
     "17953488117339813",
     "18343154887278287",
     "18168362209436053",
-    "17917960596271551"
+    "17917960596271551",
+    "18108173408257975"
   ],
   "answeredPostIds": [
     "18395606890093068"
@@ -51232,11 +51242,11 @@
     "18130883288308729": 35,
     "18642694195042985": 40,
     "18016003691970066": 46,
-    "18123083599945015": 24
+    "18123083599945015": 25
   },
   "daily": {
     "date": "2026-11-07",
-    "count": 24
+    "count": 25
   },
   "pinnedResolved": {
     "DaTTCIwoAw7": "18014812820883466"
@@ -53102,7 +53112,7 @@
   },
   "spend": {
     "date": "2026-11-07",
-    "usd": 0.04279921200000001
+    "usd": 0.04363514400000001
   },
   "lateSweep": {
     "date": "2026-11-07",
