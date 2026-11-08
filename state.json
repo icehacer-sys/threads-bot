@@ -39814,6 +39814,15 @@
       },
       "publishedId": "18120210920068491",
       "confirmedPublished": true
+    },
+    "comment:18076805048734080": {
+      "creationId": "17897539692614054",
+      "createdAt": "2026-11-08T21:13:16.527Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "That's it. Diffuse type is the cancer behind the leather bottle look here.",
+        "reply_to_id": "18076805048734080"
+      }
     }
   },
   "repliedCommentIds": [
@@ -53368,7 +53377,7 @@
   },
   "spend": {
     "date": "2026-11-08",
-    "usd": 0.023118684000000004
+    "usd": 0.024109680000000005
   },
   "lateSweep": {
     "date": "2026-11-08",
