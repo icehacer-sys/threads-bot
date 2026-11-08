@@ -39597,6 +39597,15 @@
       },
       "publishedId": "18128155711856302",
       "confirmedPublished": true
+    },
+    "comment:18107939237528770": {
+      "creationId": "17897424777614054",
+      "createdAt": "2026-11-08T05:45:51.059Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Thirty years of learning to sit with pain is a long education nobody asks for. Having family who will say it out loud for you matters a lot.",
+        "reply_to_id": "18107939237528770"
+      }
     }
   },
   "repliedCommentIds": [
@@ -51099,7 +51108,8 @@
     "18168362209436053",
     "17917960596271551",
     "18108173408257975",
-    "17989562490116756"
+    "17989562490116756",
+    "18118745531029348"
   ],
   "answeredPostIds": [
     "18395606890093068"
@@ -51257,11 +51267,11 @@
     "18130883288308729": 35,
     "18642694195042985": 40,
     "18016003691970066": 46,
-    "18123083599945015": 26
+    "18123083599945015": 27
   },
   "daily": {
     "date": "2026-11-07",
-    "count": 26
+    "count": 27
   },
   "pinnedResolved": {
     "DaTTCIwoAw7": "18014812820883466"
@@ -53127,7 +53137,7 @@
   },
   "spend": {
     "date": "2026-11-07",
-    "usd": 0.04477408800000001
+    "usd": 0.04564092000000001
   },
   "lateSweep": {
     "date": "2026-11-07",
