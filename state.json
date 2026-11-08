@@ -39737,6 +39737,15 @@
       },
       "publishedId": "17955269904288224",
       "confirmedPublished": true
+    },
+    "comment:18111691495927056": {
+      "creationId": "17897538384614054",
+      "createdAt": "2026-11-08T20:55:50.228Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Oesophagus sits higher up and stays narrow. This is the stomach itself gone rigid and tube shaped.",
+        "reply_to_id": "18111691495927056"
+      }
     }
   },
   "repliedCommentIds": [
@@ -53284,7 +53293,7 @@
   },
   "spend": {
     "date": "2026-11-08",
-    "usd": 0.014852532
+    "usd": 0.016861956
   },
   "lateSweep": {
     "date": "2026-11-08",
