@@ -39770,6 +39770,15 @@
       },
       "publishedId": "17939916438400059",
       "confirmedPublished": true
+    },
+    "comment:18403345018205235": {
+      "creationId": "17897538432614054",
+      "createdAt": "2026-11-08T20:56:49.767Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "The narrow column above is just how a barium swallow films the gullet on the way down. Yours stopped being normal at the stomach and that is the bit that matters. Cancer is a rough word to land on.",
+        "reply_to_id": "18403345018205235"
+      }
     }
   },
   "repliedCommentIds": [
@@ -51287,7 +51296,8 @@
     "18021028820953278",
     "18121381604067989",
     "18111691495927056",
-    "18106024925527442"
+    "18106024925527442",
+    "18016511102986482"
   ],
   "answeredPostIds": [
     "18395606890093068"
@@ -51446,11 +51456,11 @@
     "18642694195042985": 40,
     "18016003691970066": 46,
     "18123083599945015": 29,
-    "17952721908056004": 12
+    "17952721908056004": 13
   },
   "daily": {
     "date": "2026-11-08",
-    "count": 12
+    "count": 13
   },
   "pinnedResolved": {
     "DaTTCIwoAw7": "18014812820883466"
@@ -53319,7 +53329,7 @@
   },
   "spend": {
     "date": "2026-11-08",
-    "usd": 0.019146396000000003
+    "usd": 0.019653444000000003
   },
   "lateSweep": {
     "date": "2026-11-08",
