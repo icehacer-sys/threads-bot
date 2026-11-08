@@ -39881,6 +39881,15 @@
       },
       "publishedId": "17961566643251609",
       "confirmedPublished": true
+    },
+    "comment:17996513033979039": {
+      "creationId": "17897544726614054",
+      "createdAt": "2026-11-08T22:18:46.254Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "A ribbon that came with no gift attached. Store it with the tinsel until December.",
+        "reply_to_id": "17996513033979039"
+      }
     }
   },
   "repliedCommentIds": [
@@ -53444,7 +53453,7 @@
   },
   "spend": {
     "date": "2026-11-08",
-    "usd": 0.033698460000000006
+    "usd": 0.03415977600000001
   },
   "lateSweep": {
     "date": "2026-11-08",
