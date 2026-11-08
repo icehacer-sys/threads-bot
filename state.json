@@ -590,7 +590,8 @@
     "17878143711637678": "18123083599945015",
     "18135219874706202": "18123083599945015",
     "17928435984466681": "18123083599945015",
-    "18427077835156866": "18123083599945015"
+    "18427077835156866": "18123083599945015",
+    "18149337628658314": "18123083599945015"
   },
   "ownerReviews": {
     "17937444630360450": "{\"postId\":\"18103023326210157\",\"reason\":\"owner review: personal medical concern\",\"commentText\":\"Little sister of my friend swalloved a coin of 1 fim. At hospital the family was advised to thoroughly keep an eye on her poops. So, the next day they found two 50 penny coins😀.\",\"username\":\"velitapiof\",\"queuedAt\":\"2026-09-10T20:21:59.741Z\",\"resolvedAt\":\"2026-09-10T20:36:02.929Z\",\"resolution\":\"Owner confirmed this is a completed personal story and deleted the inappropriate boundary reply. No clinical review is needed.\"}",
@@ -738,7 +739,8 @@
     "18135350731740272": "{\"postId\":\"18642694195042985\",\"reason\":\"owner review: unsupported patient history, confirmation, specifics (year) or dismissal of an accepted differential | guard:forced-skip\",\"commentText\":\"Pt swallowed this dude with pompons. \\n\\nIt looks congenital (?), which means his BP has always been high. 👀\",\"username\":\"elea.nor1962\",\"queuedAt\":\"2026-11-05T21:18:47.891Z\",\"resolvedAt\":\"2026-11-07T21:30:52.695Z\",\"resolution\":\"auto-expired: queued more than 48h ago\",\"expired\":true}",
     "17923738353446049": "{\"postId\":\"18016003691970066\",\"reason\":\"Ambiguous one-line statement with no identifiable connection to the case. Nothing to respond to without inventing a premise or a personal story; holding for owner review.\",\"commentText\":\"Killed by a stalker at 21.\",\"username\":\"jmzloh\",\"queuedAt\":\"2026-11-07T04:44:17.657Z\"}",
     "18343216429277198": "{\"postId\":\"18123083599945015\",\"reason\":\"Commenter questions whether the small and large bowel sit where they should. Anatomy-consistency concern on the image needs owner review before any reply; do not invent an explanation of bowel distribution or projection.\",\"commentText\":\"Is it just me or are the small and large intestines not where they’re supposed to be\",\"username\":\"sheismajexty22\",\"queuedAt\":\"2026-11-07T20:25:03.867Z\"}",
-    "17887173273690884": "{\"postId\":\"18123083599945015\",\"reason\":\"Commenter says structures are in the wrong spots. Possible image/anatomy inconsistency claim needs owner review. Do not invent a projection or layout explanation or agree an error exists without review.\",\"commentText\":\"Places is in wrong spots\",\"username\":\"lairdbearly\",\"queuedAt\":\"2026-11-07T21:15:34.212Z\"}"
+    "17887173273690884": "{\"postId\":\"18123083599945015\",\"reason\":\"Commenter says structures are in the wrong spots. Possible image/anatomy inconsistency claim needs owner review. Do not invent a projection or layout explanation or agree an error exists without review.\",\"commentText\":\"Places is in wrong spots\",\"username\":\"lairdbearly\",\"queuedAt\":\"2026-11-07T21:15:34.212Z\"}",
+    "17914518636557687": "{\"postId\":\"18123083599945015\",\"reason\":\"Owner review hold is active for this image: an unresolved anatomy concern means image-based questions cannot be answered. This asks about a specific region of the film so no supported reply is possible.\",\"commentText\":\"What’s that dark shadow on upper right??\",\"username\":\"bamia_75\",\"queuedAt\":\"2026-11-08T01:30:43.284Z\"}"
   },
   "concernAcknowledgments": {
     "[\"18121475662898455\",\"berit069\",\"image\"]": "18142096432588199",
@@ -52867,7 +52869,8 @@
     "18576663229077467",
     "18155721301540186",
     "17887173273690884",
-    "18033551633882144"
+    "18033551633882144",
+    "17914518636557687"
   ],
   "skipStrikes": {
     "17895266316520842": 1,
@@ -53047,7 +53050,7 @@
   },
   "spend": {
     "date": "2026-11-07",
-    "usd": 0.034637412000000006
+    "usd": 0.03601280400000001
   },
   "lateSweep": {
     "date": "2026-11-07",
