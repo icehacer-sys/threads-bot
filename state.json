@@ -39825,6 +39825,15 @@
       },
       "publishedId": "18121304000085806",
       "confirmedPublished": true
+    },
+    "comment:18030665510878956": {
+      "creationId": "17897539713614054",
+      "createdAt": "2026-11-08T21:13:36.600Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "No worm here. It's linitis plastica and the stomach itself is the problem since the wall goes stiff and can't stretch.",
+        "reply_to_id": "18030665510878956"
+      }
     }
   },
   "repliedCommentIds": [
@@ -51347,7 +51356,8 @@
     "18403345018205235",
     "17965779036212098",
     "17973387585170112",
-    "18651516421017887"
+    "18651516421017887",
+    "18076805048734080"
   ],
   "answeredPostIds": [
     "18395606890093068"
@@ -51506,11 +51516,11 @@
     "18642694195042985": 40,
     "18016003691970066": 46,
     "18123083599945015": 29,
-    "17952721908056004": 17
+    "17952721908056004": 18
   },
   "daily": {
     "date": "2026-11-08",
-    "count": 17
+    "count": 18
   },
   "pinnedResolved": {
     "DaTTCIwoAw7": "18014812820883466"
@@ -53379,7 +53389,7 @@
   },
   "spend": {
     "date": "2026-11-08",
-    "usd": 0.024109680000000005
+    "usd": 0.025431564000000004
   },
   "lateSweep": {
     "date": "2026-11-08",
