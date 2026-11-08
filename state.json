@@ -39925,6 +39925,15 @@
       },
       "publishedId": "18108943868312903",
       "confirmedPublished": true
+    },
+    "comment:18002103618030354": {
+      "creationId": "17897549694614054",
+      "createdAt": "2026-11-08T23:50:54.436Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "The shape does sell it. Nothing was put in there though. The stomach itself turned into the tube.",
+        "reply_to_id": "18002103618030354"
+      }
     }
   },
   "repliedCommentIds": [
@@ -53493,7 +53502,7 @@
   },
   "spend": {
     "date": "2026-11-08",
-    "usd": 0.03809575200000001
+    "usd": 0.03959420400000001
   },
   "lateSweep": {
     "date": "2026-11-08",
