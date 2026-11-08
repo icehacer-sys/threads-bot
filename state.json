@@ -39704,6 +39704,15 @@
       },
       "publishedId": "18109849202193940",
       "confirmedPublished": true
+    },
+    "comment:18150249193566527": {
+      "creationId": "17897536896614054",
+      "createdAt": "2026-11-08T20:39:37.537Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Tampon-itis would at least be easier to spell than the real answer.",
+        "reply_to_id": "18150249193566527"
+      }
     }
   },
   "repliedCommentIds": [
@@ -53247,7 +53256,7 @@
   },
   "spend": {
     "date": "2026-11-08",
-    "usd": 0.011846592
+    "usd": 0.012260772
   },
   "lateSweep": {
     "date": "2026-11-08",
