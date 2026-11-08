@@ -39903,6 +39903,15 @@
       },
       "publishedId": "18023072741728131",
       "confirmedPublished": true
+    },
+    "comment:17990995188095707": {
+      "creationId": "17897545683614054",
+      "createdAt": "2026-11-08T22:34:36.744Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "You are right. This film supports a suspicion and nothing more. Endoscopy with biopsy and CT staging are what make the call and no result from this patient is recorded here.",
+        "reply_to_id": "17990995188095707"
+      }
     }
   },
   "repliedCommentIds": [
@@ -53468,7 +53477,7 @@
   },
   "spend": {
     "date": "2026-11-08",
-    "usd": 0.03554876400000001
+    "usd": 0.03651073200000001
   },
   "lateSweep": {
     "date": "2026-11-08",
