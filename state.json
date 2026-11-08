@@ -39511,6 +39511,15 @@
       },
       "publishedId": "17977949436162992",
       "confirmedPublished": true
+    },
+    "comment:17953488117339813": {
+      "creationId": "17897391438614054",
+      "createdAt": "2026-11-08T00:30:10.381Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Good to hear the hard stretch eased. Getting that control back takes real work on her part.",
+        "reply_to_id": "17953488117339813"
+      }
     }
   },
   "repliedCommentIds": [
@@ -53034,7 +53043,7 @@
   },
   "spend": {
     "date": "2026-11-07",
-    "usd": 0.033015828000000004
+    "usd": 0.03376446
   },
   "lateSweep": {
     "date": "2026-11-07",
