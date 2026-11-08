@@ -39858,6 +39858,15 @@
       },
       "publishedId": "17899956093675143",
       "confirmedPublished": true
+    },
+    "comment:17954316957083169": {
+      "creationId": "17897541522614054",
+      "createdAt": "2026-11-08T21:30:02.595Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "It is a rough one. Months of feeling full and the scan finally shows why.",
+        "reply_to_id": "17954316957083169"
+      }
     }
   },
   "repliedCommentIds": [
@@ -53418,7 +53427,7 @@
   },
   "spend": {
     "date": "2026-11-08",
-    "usd": 0.03056790000000001
+    "usd": 0.03141003600000001
   },
   "lateSweep": {
     "date": "2026-11-08",
