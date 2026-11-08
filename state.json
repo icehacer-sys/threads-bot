@@ -39759,6 +39759,15 @@
       },
       "publishedId": "17900344512397924",
       "confirmedPublished": true
+    },
+    "comment:18016511102986482": {
+      "creationId": "17897538420614054",
+      "createdAt": "2026-11-08T20:56:32.573Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Achalasia is a good shout but the narrowing here sits at the stomach not the valve. The stomach itself is the odd part because the wall is fixed and narrow so it can't hold much.",
+        "reply_to_id": "18016511102986482"
+      }
     }
   },
   "repliedCommentIds": [
@@ -51275,7 +51284,8 @@
     "18150249193566527",
     "18021028820953278",
     "18121381604067989",
-    "18111691495927056"
+    "18111691495927056",
+    "18106024925527442"
   ],
   "answeredPostIds": [
     "18395606890093068"
@@ -51434,11 +51444,11 @@
     "18642694195042985": 40,
     "18016003691970066": 46,
     "18123083599945015": 29,
-    "17952721908056004": 11
+    "17952721908056004": 12
   },
   "daily": {
     "date": "2026-11-08",
-    "count": 11
+    "count": 12
   },
   "pinnedResolved": {
     "DaTTCIwoAw7": "18014812820883466"
@@ -53307,7 +53317,7 @@
   },
   "spend": {
     "date": "2026-11-08",
-    "usd": 0.017728020000000004
+    "usd": 0.019146396000000003
   },
   "lateSweep": {
     "date": "2026-11-08",
