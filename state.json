@@ -39558,7 +39558,9 @@
         "media_type": "TEXT",
         "text": "Someone did look a bit emptied out there. Whatever it was it stayed put.",
         "reply_to_id": "17917960596271551"
-      }
+      },
+      "publishedId": "17910917541667470",
+      "confirmedPublished": true
     }
   },
   "repliedCommentIds": [
