@@ -39627,6 +39627,15 @@
       },
       "publishedId": "18123043705915634",
       "confirmedPublished": true
+    },
+    "comment:18155245816493372": {
+      "creationId": "17897534742614054",
+      "createdAt": "2026-11-08T20:22:15.222Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Not a parasite. This is linitis plastica.",
+        "reply_to_id": "18155245816493372"
+      }
     }
   },
   "repliedCommentIds": [
@@ -53160,7 +53169,7 @@
   },
   "spend": {
     "date": "2026-11-08",
-    "usd": 0.0035309279999999996
+    "usd": 0.004938924
   },
   "lateSweep": {
     "date": "2026-11-08",
