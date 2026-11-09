@@ -39980,6 +39980,15 @@
       },
       "publishedId": "17915214705517665",
       "confirmedPublished": true
+    },
+    "comment:17910944523572189": {
+      "creationId": "17897568363614054",
+      "createdAt": "2026-11-09T04:19:41.838Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "A milkshake might just squeeze past. Anything with a bit of chew is out of the question.",
+        "reply_to_id": "17910944523572189"
+      }
     }
   },
   "repliedCommentIds": [
@@ -53553,7 +53562,7 @@
   },
   "spend": {
     "date": "2026-11-08",
-    "usd": 0.042765036000000006
+    "usd": 0.043429680000000005
   },
   "lateSweep": {
     "date": "2026-11-08",
