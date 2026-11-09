@@ -589,24 +589,7 @@
     "17930003304425538": "This is Picasso 1937. It's about Spanish civil war.",
     "18220497481345822": "Rat-Atouille Esophagus 😬🐀👨‍🍳"
   },
-  "imageHeldComments": {
-    "18109819988459950": "18123083599945015",
-    "18416186641081633": "18123083599945015",
-    "18100599446646454": "18123083599945015",
-    "18347978362251655": "18123083599945015",
-    "17976364335150073": "18123083599945015",
-    "17878143711637678": "18123083599945015",
-    "18135219874706202": "18123083599945015",
-    "17928435984466681": "18123083599945015",
-    "18427077835156866": "18123083599945015",
-    "18149337628658314": "18123083599945015",
-    "18117815468036417": "18123083599945015",
-    "18213280900367128": "18123083599945015",
-    "17924740023220000": "18123083599945015",
-    "17954425026323055": "18123083599945015",
-    "18114355031579920": "18123083599945015",
-    "18026374697947823": "18123083599945015"
-  },
+  "imageHeldComments": {},
   "ownerReviews": {
     "17937444630360450": "{\"postId\":\"18103023326210157\",\"reason\":\"owner review: personal medical concern\",\"commentText\":\"Little sister of my friend swalloved a coin of 1 fim. At hospital the family was advised to thoroughly keep an eye on her poops. So, the next day they found two 50 penny coins😀.\",\"username\":\"velitapiof\",\"queuedAt\":\"2026-09-10T20:21:59.741Z\",\"resolvedAt\":\"2026-09-10T20:36:02.929Z\",\"resolution\":\"Owner confirmed this is a completed personal story and deleted the inappropriate boundary reply. No clinical review is needed.\"}",
     "18147946708537215": "{\"postId\":\"18103023326210157\",\"reason\":\"Diagnosis guess before reveal already public. Although the reveal is now public, this is a wrong guess. Skipping to hold the reply for owner review, as the commenter's brevity and certainty ('Button battery.') may indicate they are reading prior comments and making a competing call rather than genuinely uncertain. A correction after the reveal usually affirms correct guesses or gently corrects mistaken ones with supplied facts, but this commenter has not asked a question or engaged substantively enough to warrant an unsolicited correction.\",\"commentText\":\"Child.  Button battery.\",\"username\":\"larrym2025\",\"queuedAt\":\"2026-09-11T01:10:50.470Z\",\"resolvedAt\":\"2026-10-17T19:00:34.348Z\",\"resolution\":\"auto-expired: queued more than 48h ago\",\"expired\":true}",
@@ -753,7 +736,7 @@
     "18135350731740272": "{\"postId\":\"18642694195042985\",\"reason\":\"owner review: unsupported patient history, confirmation, specifics (year) or dismissal of an accepted differential | guard:forced-skip\",\"commentText\":\"Pt swallowed this dude with pompons. \\n\\nIt looks congenital (?), which means his BP has always been high. 👀\",\"username\":\"elea.nor1962\",\"queuedAt\":\"2026-11-05T21:18:47.891Z\",\"resolvedAt\":\"2026-11-07T21:30:52.695Z\",\"resolution\":\"auto-expired: queued more than 48h ago\",\"expired\":true}",
     "17923738353446049": "{\"postId\":\"18016003691970066\",\"reason\":\"Ambiguous one-line statement with no identifiable connection to the case. Nothing to respond to without inventing a premise or a personal story; holding for owner review.\",\"commentText\":\"Killed by a stalker at 21.\",\"username\":\"jmzloh\",\"queuedAt\":\"2026-11-07T04:44:17.657Z\",\"resolvedAt\":\"2026-11-09T04:50:27.924Z\",\"resolution\":\"auto-expired: queued more than 48h ago\",\"expired\":true}",
     "18343216429277198": "{\"postId\":\"18123083599945015\",\"reason\":\"Commenter questions whether the small and large bowel sit where they should. Anatomy-consistency concern on the image needs owner review before any reply; do not invent an explanation of bowel distribution or projection.\",\"commentText\":\"Is it just me or are the small and large intestines not where they’re supposed to be\",\"username\":\"sheismajexty22\",\"queuedAt\":\"2026-11-07T20:25:03.867Z\",\"resolvedAt\":\"2026-11-09T20:30:12.601Z\",\"resolution\":\"auto-expired: queued more than 48h ago\",\"expired\":true}",
-    "17887173273690884": "{\"postId\":\"18123083599945015\",\"reason\":\"Commenter says structures are in the wrong spots. Possible image/anatomy inconsistency claim needs owner review. Do not invent a projection or layout explanation or agree an error exists without review.\",\"commentText\":\"Places is in wrong spots\",\"username\":\"lairdbearly\",\"queuedAt\":\"2026-11-07T21:15:34.212Z\"}",
+    "17887173273690884": "{\"postId\":\"18123083599945015\",\"reason\":\"Commenter says structures are in the wrong spots. Possible image/anatomy inconsistency claim needs owner review. Do not invent a projection or layout explanation or agree an error exists without review.\",\"commentText\":\"Places is in wrong spots\",\"username\":\"lairdbearly\",\"queuedAt\":\"2026-11-07T21:15:34.212Z\",\"resolvedAt\":\"2026-11-09T21:30:26.913Z\",\"resolution\":\"auto-expired: queued more than 48h ago\",\"expired\":true}",
     "17914518636557687": "{\"postId\":\"18123083599945015\",\"reason\":\"Owner review hold is active for this image: an unresolved anatomy concern means image-based questions cannot be answered. This asks about a specific region of the film so no supported reply is possible.\",\"commentText\":\"What’s that dark shadow on upper right??\",\"username\":\"bamia_75\",\"queuedAt\":\"2026-11-08T01:30:43.284Z\"}",
     "18440239399180580": "{\"postId\":\"17952721908056004\",\"reason\":\"Requires owner review: the commenter offers specific immunotherapy approval claims, biomarker thresholds and a proposed treatment sequence that the supplied case facts do not cover. Drafting an answer would mean inventing indications or efficacy claims beyond the case.\",\"commentText\":\"Australia has ICIs approved for GI/GJ cancers and more broadly across... like, most solid tumours by now? Merck Sharpe & Dohme kept and keep applying for ipilimumab +/- nivolumab approvals quarter on quarter.\\n\\nHas to be next line after chemotherapy or chemoradiation. PD-L1 expression above or at 0%.\\n\\nMore recently, pembrolizumab single agent also going broad-spectrum. Durvalumab in line after that. Do you have any thoughts?\",\"username\":\"gl1tterycake\",\"queuedAt\":\"2026-11-08T21:48:29.744Z\"}"
   },
