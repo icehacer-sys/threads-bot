@@ -39958,6 +39958,15 @@
       },
       "publishedId": "17879099022635980",
       "confirmedPublished": true
+    },
+    "comment:18665410201026688": {
+      "creationId": "17897554830614054",
+      "createdAt": "2026-11-09T01:07:02.923Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Any time. That question was worth asking too.",
+        "reply_to_id": "18665410201026688"
+      }
     }
   },
   "repliedCommentIds": [
@@ -53529,7 +53538,7 @@
   },
   "spend": {
     "date": "2026-11-08",
-    "usd": 0.041243520000000006
+    "usd": 0.042008028
   },
   "lateSweep": {
     "date": "2026-11-08",
