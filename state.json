@@ -39969,6 +39969,15 @@
       },
       "publishedId": "18101189441437523",
       "confirmedPublished": true
+    },
+    "comment:18119158343519219": {
+      "creationId": "17897557335614054",
+      "createdAt": "2026-11-09T01:37:21.220Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "Ask the daft one and the answer usually sticks longer.",
+        "reply_to_id": "18119158343519219"
+      }
     }
   },
   "repliedCommentIds": [
@@ -53541,7 +53550,7 @@
   },
   "spend": {
     "date": "2026-11-08",
-    "usd": 0.042008028
+    "usd": 0.042765036000000006
   },
   "lateSweep": {
     "date": "2026-11-08",
