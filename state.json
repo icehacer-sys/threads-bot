@@ -39991,6 +39991,15 @@
       },
       "publishedId": "18116527007520298",
       "confirmedPublished": true
+    },
+    "comment:17994222219067004": {
+      "creationId": "17897568402614054",
+      "createdAt": "2026-11-09T04:20:02.712Z",
+      "params": {
+        "media_type": "TEXT",
+        "text": "The film shows a stomach that is already fixed and narrow. Most people with linitis plastica are found at an advanced stage and this case has no biopsy or staging result recorded so I cannot stage it from what I have.",
+        "reply_to_id": "17994222219067004"
+      }
     }
   },
   "repliedCommentIds": [
@@ -51528,7 +51537,8 @@
     "18044593193831555",
     "18114892232154179",
     "18665410201026688",
-    "18119158343519219"
+    "18119158343519219",
+    "17910944523572189"
   ],
   "answeredPostIds": [
     "18395606890093068"
@@ -51687,11 +51697,11 @@
     "18642694195042985": 40,
     "18016003691970066": 46,
     "18123083599945015": 29,
-    "17952721908056004": 32
+    "17952721908056004": 33
   },
   "daily": {
     "date": "2026-11-08",
-    "count": 32
+    "count": 33
   },
   "pinnedResolved": {
     "DaTTCIwoAw7": "18014812820883466"
@@ -53564,7 +53574,7 @@
   },
   "spend": {
     "date": "2026-11-08",
-    "usd": 0.043429680000000005
+    "usd": 0.045027024000000006
   },
   "lateSweep": {
     "date": "2026-11-08",
