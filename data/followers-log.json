@@ -555,12 +555,12 @@
     "viewsThatDay": 131150
   },
   {
-    "intervalHours": 27.466076666666666,
+    "intervalHours": 49.13358638888889,
     "attribution": "Account-wide net change, not gross follows or attribution to a single case/reply",
     "date": "2026-11-10",
-    "takenAt": "2026-11-10T01:17:55.519Z",
-    "followersCount": 345407,
-    "netChange": -125,
-    "viewsThatDay": null
+    "takenAt": "2026-11-10T22:57:58.554Z",
+    "followersCount": 345342,
+    "netChange": -190,
+    "viewsThatDay": 3001
   }
 ]
